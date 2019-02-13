@@ -176,6 +176,8 @@ class RoutingPolicy(Entity):
                 self._perform_setattr(RoutingPolicy.RoutePolicies.RoutePolicy, ['route_policy_name', 'rpl_route_policy'], name, value)
 
 
+
+
     class Sets(Entity):
         """
         All configured sets
@@ -442,6 +444,8 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.PrefixSets.PrefixSet, ['set_name', 'rpl_prefix_set'], name, value)
 
 
+
+
         class LargeCommunitySets(Entity):
             """
             Information about Large Community sets
@@ -524,6 +528,8 @@ class RoutingPolicy(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.LargeCommunitySets.LargeCommunitySet, ['set_name', 'large_community_set_as_text'], name, value)
+
+
 
 
         class MacSets(Entity):
@@ -610,6 +616,8 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.MacSets.MacSet, ['set_name', 'mac_set_as_text'], name, value)
 
 
+
+
         class ExtendedCommunityOpaqueSets(Entity):
             """
             Information about Opaque sets
@@ -692,6 +700,8 @@ class RoutingPolicy(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet, ['set_name', 'rpl_extended_community_opaque_set'], name, value)
+
+
 
 
         class OspfAreaSets(Entity):
@@ -793,6 +803,8 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.OspfAreaSets.OspfAreaSet, ['set_name', 'rplospf_area_set'], name, value)
 
 
+
+
         class ExtendedCommunityCostSets(Entity):
             """
             Information about Cost sets
@@ -875,6 +887,8 @@ class RoutingPolicy(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCostSets.ExtendedCommunityCostSet, ['set_name', 'rpl_extended_community_cost_set'], name, value)
+
+
 
 
         class ExtendedCommunitySooSets(Entity):
@@ -961,6 +975,8 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySooSets.ExtendedCommunitySooSet, ['set_name', 'rpl_extended_community_soo_set'], name, value)
 
 
+
+
         class EsiSets(Entity):
             """
             Information about Esi sets
@@ -1043,6 +1059,8 @@ class RoutingPolicy(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.EsiSets.EsiSet, ['set_name', 'esi_set_as_text'], name, value)
+
+
 
 
         class ExtendedCommunitySegNhSets(Entity):
@@ -1129,6 +1147,8 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNhSets.ExtendedCommunitySegNhSet, ['set_name', 'rpl_extended_community_seg_nh_set'], name, value)
 
 
+
+
         class RdSets(Entity):
             """
             Information about RD sets
@@ -1213,6 +1233,8 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.RdSets.RdSet, ['set_name', 'rplrd_set'], name, value)
 
 
+
+
         class PolicyGlobalSetTable(Entity):
             """
             Information about PolicyGlobal sets
@@ -1248,6 +1270,7 @@ class RoutingPolicy(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Sets.PolicyGlobalSetTable, ['policy_global_set'], name, value)
+
 
 
         class ExtendedCommunityBandwidthSets(Entity):
@@ -1334,6 +1357,8 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidthSets.ExtendedCommunityBandwidthSet, ['set_name', 'rpl_extended_community_bandwidth_set'], name, value)
 
 
+
+
         class CommunitySets(Entity):
             """
             Information about Community sets
@@ -1416,6 +1441,8 @@ class RoutingPolicy(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.CommunitySets.CommunitySet, ['set_name', 'rpl_community_set'], name, value)
+
+
 
 
         class AsPathSets(Entity):
@@ -1502,6 +1529,8 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.AsPathSets.AsPathSet, ['set_name', 'rplas_path_set'], name, value)
 
 
+
+
         class TagSets(Entity):
             """
             Information about Tag sets
@@ -1584,6 +1613,8 @@ class RoutingPolicy(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.TagSets.TagSet, ['set_name', 'rpl_tag_set'], name, value)
+
+
 
 
         class EtagSets(Entity):
@@ -1670,6 +1701,8 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.EtagSets.EtagSet, ['set_name', 'etag_set_as_text'], name, value)
 
 
+
+
         class ExtendedCommunityRtSets(Entity):
             """
             Information about RT sets
@@ -1754,6 +1787,9 @@ class RoutingPolicy(Entity):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRtSets.ExtendedCommunityRtSet, ['set_name', 'rpl_extended_community_rt_set'], name, value)
 
 
+
+
+
     class Limits(Entity):
         """
         Limits for Routing Policy
@@ -1805,7 +1841,10 @@ class RoutingPolicy(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingPolicy.Limits, ['maximum_lines_of_policy', 'maximum_number_of_policies'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = RoutingPolicy()
         return self._top_entity
+
+
 

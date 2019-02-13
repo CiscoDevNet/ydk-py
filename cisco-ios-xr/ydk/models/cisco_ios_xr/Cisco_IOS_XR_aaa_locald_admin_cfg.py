@@ -251,6 +251,8 @@ class Aaa(Entity):
                         self._perform_setattr(Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername, ['name'], name, value)
 
 
+
+
             class Secret(Entity):
                 """
                 Specify the secret for the admin user
@@ -313,7 +315,12 @@ class Aaa(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Usernames.Username.Secret, ['type', 'secret5', 'secret8', 'secret9'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Aaa()
         return self._top_entity
+
+
 

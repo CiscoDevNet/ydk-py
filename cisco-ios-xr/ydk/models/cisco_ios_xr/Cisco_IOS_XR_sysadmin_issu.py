@@ -231,15 +231,21 @@ class Issu(Entity):
     	Status of the in\-progress or last completed ISSU operation
     	**type**\:  :py:class:`Status <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Status>`
     
+    	**config**\: False
+    
     .. attribute:: clients
     
     	Features registered for notifications of ISSU phases
     	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Clients>`
     
+    	**config**\: False
+    
     .. attribute:: internals
     
     	Internal infrastructure state
     	**type**\:  :py:class:`Internals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals>`
+    
+    	**config**\: False
     
     
 
@@ -287,12 +293,16 @@ class Issu(Entity):
         	Whether the operation is an activate or deactivate. Both types of operation go through 'prepare' and 'activate' phases.The difference is the end result\: whether the target packages are made to run, or removed from the running software
         	**type**\:  :py:class:`OperationType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Status.OperationType>`
         
+        	**config**\: False
+        
         .. attribute:: id
         
         	ID for the current/latest phase of the operation
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: prepare_id
         
@@ -301,6 +311,8 @@ class Issu(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: activate_id
         
         	ID for the activate or deactivate phase of the operation
@@ -308,45 +320,63 @@ class Issu(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: sysadmin_packages
         
         	Sysadmin packages that are part of the operation
         	**type**\: list of str
+        
+        	**config**\: False
         
         .. attribute:: host_packages
         
         	Host OS packages that are part of the operation
         	**type**\: list of str
         
+        	**config**\: False
+        
         .. attribute:: complete
         
         	Whether or not the operation has completed
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: result
         
         	Whether the operation succeeded or failed, and the error if any. If in progress, this reflects the current state
         	**type**\:  :py:class:`OpResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.OpResult>`
         
+        	**config**\: False
+        
         .. attribute:: recover_result
         
         	If a recovery attempt has been completed, an indication of whether the recovery succeeded or failed, and the error if any
         	**type**\:  :py:class:`OpResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.OpResult>`
+        
+        	**config**\: False
         
         .. attribute:: prepare
         
         	State specific to the prepare phase
         	**type**\:  :py:class:`Prepare <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Status.Prepare>`
         
+        	**config**\: False
+        
         .. attribute:: activate
         
         	State specific to the activate phase
         	**type**\:  :py:class:`Activate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Status.Activate>`
         
+        	**config**\: False
+        
         .. attribute:: error
         
         	Details of the first error that was encountered, if there were any
         	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Status.Error>`
+        
+        	**config**\: False
         
         
 
@@ -440,6 +470,8 @@ class Issu(Entity):
             	Progress of the prepare phase
             	**type**\:  :py:class:`OpStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.OpStage>`
             
+            	**config**\: False
+            
             .. attribute:: start_time
             
             	When this ehase was started
@@ -447,10 +479,14 @@ class Issu(Entity):
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
+            	**config**\: False
+            
             .. attribute:: activity
             
             	A description of the current orchestration activity being executed
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: activity_start_time
             
@@ -458,6 +494,8 @@ class Issu(Entity):
             	**type**\: str
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+            
+            	**config**\: False
             
             
 
@@ -493,6 +531,7 @@ class Issu(Entity):
                 self._perform_setattr(Issu.Status.Prepare, ['stage', 'start_time', 'activity', 'activity_start_time'], name, value)
 
 
+
         class Activate(Entity):
             """
             State specific to the activate phase
@@ -502,6 +541,8 @@ class Issu(Entity):
             	Progress of the activate phase
             	**type**\:  :py:class:`OpStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.OpStage>`
             
+            	**config**\: False
+            
             .. attribute:: start_time
             
             	When this phase was started
@@ -509,20 +550,28 @@ class Issu(Entity):
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
+            	**config**\: False
+            
             .. attribute:: activity
             
             	A description of the current orchestration activity being executed
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: activity_nodes
             
             	Nodes on which the current orchestration activity is being executed
             	**type**\: list of str
             
+            	**config**\: False
+            
             .. attribute:: activity_waiting_for
             
             	A description of what needs to happen before the next orchestration activity can be started
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: activity_start_time
             
@@ -530,6 +579,8 @@ class Issu(Entity):
             	**type**\: str
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+            
+            	**config**\: False
             
             
 
@@ -569,6 +620,7 @@ class Issu(Entity):
                 self._perform_setattr(Issu.Status.Activate, ['stage', 'start_time', 'activity', 'activity_nodes', 'activity_waiting_for', 'activity_start_time'], name, value)
 
 
+
         class Error(Entity):
             """
             Details of the first error that was encountered, if there were any.
@@ -578,20 +630,28 @@ class Issu(Entity):
             	If the operation has completed, an indication of whether the operation succeeded or failed, and the error if any
             	**type**\:  :py:class:`OpResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.OpResult>`
             
+            	**config**\: False
+            
             .. attribute:: stage
             
             	The stage during which the error was encountered
             	**type**\:  :py:class:`OpStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.OpStage>`
+            
+            	**config**\: False
             
             .. attribute:: error_message
             
             	Message describing the error
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: details
             
             	Details specific to the error. Contents are only filled in if it is relevant to the error that occured
             	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Status.Error.Details>`
+            
+            	**config**\: False
             
             
 
@@ -638,15 +698,21 @@ class Issu(Entity):
                 	A list of the nodes affected by or causing the error
                 	**type**\: list of str
                 
+                	**config**\: False
+                
                 .. attribute:: clients
                 
                 	A list of the registered features affected by or causing the error
                 	**type**\: list of str
                 
+                	**config**\: False
+                
                 .. attribute:: packages
                 
                 	A list of the packages affected by or causing the error
                 	**type**\: list of str
+                
+                	**config**\: False
                 
                 .. attribute:: operation_ids
                 
@@ -654,6 +720,8 @@ class Issu(Entity):
                 	**type**\: list of int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -689,6 +757,9 @@ class Issu(Entity):
                     self._perform_setattr(Issu.Status.Error.Details, ['nodes', 'clients', 'packages', 'operation_ids'], name, value)
 
 
+
+
+
     class Clients(Entity):
         """
         Features registered for notifications of ISSU phases
@@ -698,15 +769,21 @@ class Issu(Entity):
         	Type of most recent notification sent to clients
         	**type**\:  :py:class:`IssuNotif <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.IssuNotif>`
         
+        	**config**\: False
+        
         .. attribute:: announcement_status
         
         	Status of most recent notification sent to clients
         	**type**\:  :py:class:`AnnouncementStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Clients.AnnouncementStatus>`
         
+        	**config**\: False
+        
         .. attribute:: client
         
         	
         	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Clients.Client>`
+        
+        	**config**\: False
         
         
 
@@ -806,35 +883,49 @@ class Issu(Entity):
             	Name of the registered feature
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: location  (key)
             
             	Node on which the feature process is running
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: registered_for
             
             	Which notifications the feature is registered to receive
             	**type**\: list of   :py:class:`IssuNotif <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.IssuNotif>`
             
+            	**config**\: False
+            
             .. attribute:: notif
             
             	Type of most recent notification
             	**type**\:  :py:class:`IssuNotif <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.IssuNotif>`
+            
+            	**config**\: False
             
             .. attribute:: response
             
             	Response from this client to most recent notification sent to the client
             	**type**\:  :py:class:`Response <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Clients.Client.Response>`
             
+            	**config**\: False
+            
             .. attribute:: aborted
             
             	Whether the feature has requested that the current operation be aborted
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: abort_reason
             
             	Description of the reason for requesting an abort, if applicable
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -939,6 +1030,8 @@ class Issu(Entity):
 
 
 
+
+
     class Internals(Entity):
         """
         Internal infrastructure state
@@ -948,15 +1041,21 @@ class Issu(Entity):
         	Orchestrator module internal state
         	**type**\:  :py:class:`Orchestrator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Orchestrator>`
         
+        	**config**\: False
+        
         .. attribute:: agents
         
         	Agent module internal state
         	**type**\:  :py:class:`Agents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Agents>`
         
+        	**config**\: False
+        
         .. attribute:: inventory_monitor
         
         	Inventory monitor module internal state
         	**type**\:  :py:class:`InventoryMonitor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.InventoryMonitor>`
+        
+        	**config**\: False
         
         
 
@@ -1235,20 +1334,28 @@ class Issu(Entity):
             	Command issued
             	**type**\:  :py:class:`OpRequestType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.OpRequestType>`
             
+            	**config**\: False
+            
             .. attribute:: operation_type
             
             	Type of operation\: activate or deactivate
             	**type**\:  :py:class:`OpRequestType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.OpRequestType>`
+            
+            	**config**\: False
             
             .. attribute:: current_operation
             
             	Operation being performed
             	**type**\:  :py:class:`OpRequestType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.OpRequestType>`
             
+            	**config**\: False
+            
             .. attribute:: issu_completed
             
             	True if the overall ISSU operation has been completed, false otherwise
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: operation_id
             
@@ -1257,30 +1364,42 @@ class Issu(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: in_progress
             
             	True if an operation is in progress
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: operation_start_details
             
             	
             	**type**\:  :py:class:`OperationStartDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Orchestrator.OperationStartDetails>`
             
+            	**config**\: False
+            
             .. attribute:: internal_prepare
             
             	
             	**type**\:  :py:class:`InternalPrepare <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Orchestrator.InternalPrepare>`
+            
+            	**config**\: False
             
             .. attribute:: internal_activate
             
             	
             	**type**\:  :py:class:`InternalActivate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Orchestrator.InternalActivate>`
             
+            	**config**\: False
+            
             .. attribute:: error
             
             	
             	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Orchestrator.Error>`
+            
+            	**config**\: False
             
             
 
@@ -1345,12 +1464,16 @@ class Issu(Entity):
                 	Packages used to initiate the operation
                 	**type**\: list of str
                 
+                	**config**\: False
+                
                 .. attribute:: input_operation_id
                 
                 	Operation IDs used to initiate operation
                 	**type**\: list of int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1382,6 +1505,7 @@ class Issu(Entity):
                     self._perform_setattr(Issu.Internals.Orchestrator.OperationStartDetails, ['input_package', 'input_operation_id'], name, value)
 
 
+
             class InternalPrepare(Entity):
                 """
                 
@@ -1393,30 +1517,42 @@ class Issu(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: complete
                 
                 	True if prepare phase complete
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: current_stage
                 
                 	Current stage of prepare operation, if a stage is in progress
                 	**type**\:  :py:class:`StageType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.StageType>`
                 
+                	**config**\: False
+                
                 .. attribute:: host_package
                 
                 	Host packages to be used in the ISSU
                 	**type**\: list of str
+                
+                	**config**\: False
                 
                 .. attribute:: calvados_package
                 
                 	Calvados packages to be used in the ISSU
                 	**type**\: list of str
                 
+                	**config**\: False
+                
                 .. attribute:: prepare_stage_history
                 
                 	
                 	**type**\:  :py:class:`PrepareStageHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory>`
+                
+                	**config**\: False
                 
                 
 
@@ -1467,6 +1603,8 @@ class Issu(Entity):
                     	
                     	**type**\: list of  		 :py:class:`HistoricalStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory.HistoricalStage>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1505,25 +1643,35 @@ class Issu(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: external_stage
                         
                         	External stage of operation
                         	**type**\:  :py:class:`OpStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.OpStage>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: internal_stage_details
                         
                         	Details of the internal stage
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: status
                         
                         	Status of the stage
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: error_details
                         
                         	Further error details
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: start_time
                         
@@ -1532,6 +1680,8 @@ class Issu(Entity):
                         
                         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                         
+                        	**config**\: False
+                        
                         .. attribute:: end_time
                         
                         	End time of stage
@@ -1539,10 +1689,14 @@ class Issu(Entity):
                         
                         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                         
+                        	**config**\: False
+                        
                         .. attribute:: complete
                         
                         	Is the stage complete?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -1586,6 +1740,9 @@ class Issu(Entity):
                             self._perform_setattr(Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory.HistoricalStage, ['stage_index', 'external_stage', 'internal_stage_details', 'status', 'error_details', 'start_time', 'end_time', 'complete'], name, value)
 
 
+
+
+
             class InternalActivate(Entity):
                 """
                 
@@ -1597,50 +1754,70 @@ class Issu(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: complete
                 
                 	True if activate phase complete
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: current_stage
                 
                 	Current stage of activate operation, if a stage is in progress
                 	**type**\:  :py:class:`StageType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.StageType>`
                 
+                	**config**\: False
+                
                 .. attribute:: current_phase
                 
                 	Current phase of activate operation, if phase is relevant
                 	**type**\:  :py:class:`PhaseType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.PhaseType>`
+                
+                	**config**\: False
                 
                 .. attribute:: host_prepared
                 
                 	Indicates whether any host packages have been prepared
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: calvados_prepared
                 
                 	Indicates whether any Calvados packages have been prepared
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: host_node
                 
                 	Nodes participating in host ISSU
                 	**type**\: list of str
                 
+                	**config**\: False
+                
                 .. attribute:: calvados_phase_one_node
                 
                 	Nodes participating in phase one of Calvados ISSU
                 	**type**\: list of str
+                
+                	**config**\: False
                 
                 .. attribute:: calvados_phase_two_node
                 
                 	Nodes participating in phase two of Calvados ISSU
                 	**type**\: list of str
                 
+                	**config**\: False
+                
                 .. attribute:: activate_stage_history
                 
                 	
                 	**type**\:  :py:class:`ActivateStageHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory>`
+                
+                	**config**\: False
                 
                 
 
@@ -1699,6 +1876,8 @@ class Issu(Entity):
                     	
                     	**type**\: list of  		 :py:class:`HistoricalStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory.HistoricalStage>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1737,25 +1916,35 @@ class Issu(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: external_stage
                         
                         	External stage of operation
                         	**type**\:  :py:class:`OpStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.OpStage>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: internal_stage_details
                         
                         	Details of the internal stage
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: status
                         
                         	Status of the stage
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: error_details
                         
                         	Further error details
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: start_time
                         
@@ -1764,6 +1953,8 @@ class Issu(Entity):
                         
                         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                         
+                        	**config**\: False
+                        
                         .. attribute:: end_time
                         
                         	End time of stage
@@ -1771,10 +1962,14 @@ class Issu(Entity):
                         
                         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                         
+                        	**config**\: False
+                        
                         .. attribute:: complete
                         
                         	Is the stage complete?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -1818,6 +2013,9 @@ class Issu(Entity):
                             self._perform_setattr(Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory.HistoricalStage, ['stage_index', 'external_stage', 'internal_stage_details', 'status', 'error_details', 'start_time', 'end_time', 'complete'], name, value)
 
 
+
+
+
             class Error(Entity):
                 """
                 
@@ -1827,35 +2025,49 @@ class Issu(Entity):
                 	Overall status of the operation
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: failure_operation
                 
                 	Operation in progress when first error was encountered
                 	**type**\:  :py:class:`OpRequestType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.OpRequestType>`
+                
+                	**config**\: False
                 
                 .. attribute:: failure_external_stage
                 
                 	Stage being undertaken when first failure was encountered
                 	**type**\:  :py:class:`StageType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.StageType>`
                 
+                	**config**\: False
+                
                 .. attribute:: failure_internal_stage_details
                 
                 	Description of the internal state when first error encountered
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: error_details
                 
                 	String describing error encountered
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: failed_node
                 
                 	Nodes on which a failure occurred
                 	**type**\: list of str
                 
+                	**config**\: False
+                
                 .. attribute:: failed_package
                 
                 	Packages which caused a failure
                 	**type**\: list of str
+                
+                	**config**\: False
                 
                 .. attribute:: failed_operation_id
                 
@@ -1864,20 +2076,28 @@ class Issu(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: failed_client
                 
                 	Registered features which caused a failure
                 	**type**\: list of str
+                
+                	**config**\: False
                 
                 .. attribute:: recovery_attempted
                 
                 	True if a recovery has been attempted or is currently in progress
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: recovery_status
                 
                 	Status of the recovery operation
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1927,6 +2147,8 @@ class Issu(Entity):
                     self._perform_setattr(Issu.Internals.Orchestrator.Error, ['operation_status', 'failure_operation', 'failure_external_stage', 'failure_internal_stage_details', 'error_details', 'failed_node', 'failed_package', 'failed_operation_id', 'failed_client', 'recovery_attempted', 'recovery_status'], name, value)
 
 
+
+
         class Agents(Entity):
             """
             Agent module internal state
@@ -1936,15 +2158,21 @@ class Issu(Entity):
             	Data on requests being processed by Agent module
             	**type**\:  :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Agents.Requests>`
             
+            	**config**\: False
+            
             .. attribute:: inventory
             
             	Inventory of agents held by Agent module
             	**type**\:  :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Agents.Inventory>`
             
+            	**config**\: False
+            
             .. attribute:: reload_tracking
             
             	Reload tracking performed by Agent module
             	**type**\:  :py:class:`ReloadTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Agents.ReloadTracking>`
+            
+            	**config**\: False
             
             
 
@@ -1992,6 +2220,8 @@ class Issu(Entity):
                 	
                 	**type**\: list of  		 :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Agents.Requests.Request>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -2030,15 +2260,21 @@ class Issu(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: request_type
                     
                     	Type of request
                     	**type**\:  :py:class:`RequestType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Agents.Requests.Request.RequestType>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: checkpoint
                     
                     	
                     	**type**\:  :py:class:`Checkpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Agents.Requests.Request.Checkpoint>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: requests_sent
                     
@@ -2047,6 +2283,8 @@ class Issu(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: responses_received
                     
                     	Number of responses received from agents
@@ -2054,10 +2292,14 @@ class Issu(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: agents
                     
                     	
                     	**type**\:  :py:class:`Agents_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Agents.Requests.Request.Agents_>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2137,6 +2379,8 @@ class Issu(Entity):
                         	Checkpoint request type
                         	**type**\:  :py:class:`MessageType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Agents.Requests.Request.Checkpoint.MessageType>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: data_length
                         
                         	Length of checkpoint data. 0 for start/end requests
@@ -2144,10 +2388,14 @@ class Issu(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: filename
                         
                         	Filename of associated checkpoint file
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -2207,6 +2455,7 @@ class Issu(Entity):
 
 
 
+
                     class Agents_(Entity):
                         """
                         
@@ -2215,6 +2464,8 @@ class Issu(Entity):
                         
                         	
                         	**type**\: list of  		 :py:class:`Agent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Agents.Requests.Request.Agents_.Agent>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2253,20 +2504,28 @@ class Issu(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: node
                             
                             	Node ID
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: waiting_for_response
                             
                             	Indicates whether this agent has responded
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: response_contents
                             
                             	
                             	**type**\:  :py:class:`ResponseContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Agents.Requests.Request.Agents_.Agent.ResponseContents>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2312,10 +2571,14 @@ class Issu(Entity):
                                 	Enum indicating node status
                                 	**type**\:  :py:class:`AgentStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Agents.Requests.Request.Agents_.Agent.ResponseContents.AgentStatus>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: error_details
                                 
                                 	Further details of error occuring
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2379,6 +2642,11 @@ class Issu(Entity):
 
 
 
+
+
+
+
+
             class Inventory(Entity):
                 """
                 Inventory of agents held by Agent module
@@ -2387,6 +2655,8 @@ class Issu(Entity):
                 
                 	
                 	**type**\: list of  		 :py:class:`Agent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Agents.Inventory.Agent>`
+                
+                	**config**\: False
                 
                 
 
@@ -2426,15 +2696,21 @@ class Issu(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_node
                     
                     	Agent node ID
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: reloaded
                     
                     	True if node has been reloaded. False otherwise
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -2468,6 +2744,8 @@ class Issu(Entity):
                         self._perform_setattr(Issu.Internals.Agents.Inventory.Agent, ['agent_index', 'agent_node', 'reloaded'], name, value)
 
 
+
+
             class ReloadTracking(Entity):
                 """
                 Reload tracking performed by Agent module
@@ -2477,6 +2755,8 @@ class Issu(Entity):
                 	True if reload tracking in progress
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: remaining_nodes_count
                 
                 	Number of nodes which have not yet reloaded
@@ -2484,10 +2764,14 @@ class Issu(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: node
                 
                 	
                 	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.Agents.ReloadTracking.Node>`
+                
+                	**config**\: False
                 
                 
 
@@ -2532,15 +2816,21 @@ class Issu(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: id
                     
                     	Node ID
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: reloaded
                     
                     	True if node has been reloaded. False otherwise
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -2574,6 +2864,9 @@ class Issu(Entity):
                         self._perform_setattr(Issu.Internals.Agents.ReloadTracking.Node, ['node_index', 'id', 'reloaded'], name, value)
 
 
+
+
+
         class InventoryMonitor(Entity):
             """
             Inventory monitor module internal state
@@ -2582,6 +2875,8 @@ class Issu(Entity):
             
             	Inventory of nodes in the system held by ISSU Director
             	**type**\:  :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.InventoryMonitor.Inventory>`
+            
+            	**config**\: False
             
             
 
@@ -2621,6 +2916,8 @@ class Issu(Entity):
                 	The tree of nodes within the Inventory monitor module, keyed by node ID
                 	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu.Issu.Internals.InventoryMonitor.Inventory.Node>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -2657,10 +2954,14 @@ class Issu(Entity):
                     	Node ID
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: ip
                     
                     	Node IP address
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -2691,7 +2992,13 @@ class Issu(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Issu.Internals.InventoryMonitor.Inventory.Node, ['node', 'ip'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Issu()
         return self._top_entity
+
+
 

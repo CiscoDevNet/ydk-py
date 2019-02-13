@@ -440,6 +440,7 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.FlapDamp.BundleMember, ['initial_delay', 'maximum_delay', 'secondary_delay', 'l3_only_mode'], name, value)
 
 
+
         class Extensions(Entity):
             """
             Extensions to the BFD dampening feature
@@ -475,6 +476,8 @@ class Bfd(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.FlapDamp.Extensions, ['down_monitor'], name, value)
+
+
 
 
     class EchoLatency(Entity):
@@ -572,6 +575,8 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.EchoLatency.Detect, ['latency_detect_enabled', 'latency_detect_percentage', 'latency_detect_count'], name, value)
 
 
+
+
     class EchoStartup(Entity):
         """
         BFD echo startup feature class container
@@ -609,6 +614,7 @@ class Bfd(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.EchoStartup, ['validate'], name, value)
+
 
 
     class Interfaces(Entity):
@@ -719,6 +725,8 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Interfaces.Interface, ['interface_name', 'interface_echo_usage', 'ipv6_checksum', 'interface_ipv4_echo_source'], name, value)
 
 
+
+
     class MultiPathIncludes(Entity):
         """
         Multipath Include configuration
@@ -792,6 +800,8 @@ class Bfd(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.MultiPathIncludes.MultiPathInclude, ['location'], name, value)
+
+
 
 
     class Bundle(Entity):
@@ -868,7 +878,11 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Bundle.Coexistence, ['bob_blb'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Bfd()
         return self._top_entity
+
+
 

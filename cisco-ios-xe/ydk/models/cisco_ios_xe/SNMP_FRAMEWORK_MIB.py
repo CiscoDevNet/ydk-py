@@ -77,6 +77,7 @@ class SnmpPrivProtocols(ObjectIdentity):
         super(SnmpPrivProtocols, self).__init__(ns, pref, tag)
 
 
+
 class SnmpAuthProtocols(ObjectIdentity):
     """
     Registration point for standards\-track
@@ -94,6 +95,7 @@ class SnmpAuthProtocols(ObjectIdentity):
         super(SnmpAuthProtocols, self).__init__(ns, pref, tag)
 
 
+
 class SNMPFRAMEWORKMIB(Entity):
     """
     
@@ -102,6 +104,8 @@ class SNMPFRAMEWORKMIB(Entity):
     
     	
     	**type**\:  :py:class:`SnmpEngine <ydk.models.cisco_ios_xe.SNMP_FRAMEWORK_MIB.SNMPFRAMEWORKMIB.SnmpEngine>`
+    
+    	**config**\: False
     
     
 
@@ -143,6 +147,8 @@ class SNMPFRAMEWORKMIB(Entity):
         
         	**length:** 5..32
         
+        	**config**\: False
+        
         .. attribute:: snmpengineboots
         
         	The number of times that the SNMP engine has (re\-)initialized itself since snmpEngineID was last configured
@@ -150,12 +156,16 @@ class SNMPFRAMEWORKMIB(Entity):
         
         	**range:** 1..2147483647
         
+        	**config**\: False
+        
         .. attribute:: snmpenginetime
         
         	The number of seconds since the value of the snmpEngineBoots object last changed. When incrementing this object's value would cause it to exceed its maximum, snmpEngineBoots is incremented as if a re\-initialization had occurred, and this object's value consequently reverts to zero
         	**type**\: int
         
         	**range:** 0..2147483647
+        
+        	**config**\: False
         
         	**units**\: seconds
         
@@ -165,6 +175,8 @@ class SNMPFRAMEWORKMIB(Entity):
         	**type**\: int
         
         	**range:** 484..2147483647
+        
+        	**config**\: False
         
         
 
@@ -199,7 +211,10 @@ class SNMPFRAMEWORKMIB(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SNMPFRAMEWORKMIB.SnmpEngine, [u'snmpengineid', u'snmpengineboots', u'snmpenginetime', u'snmpenginemaxmessagesize'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = SNMPFRAMEWORKMIB()
         return self._top_entity
+
+
 

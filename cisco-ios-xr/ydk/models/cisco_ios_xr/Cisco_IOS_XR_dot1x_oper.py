@@ -30,15 +30,21 @@ class Dot1x(Entity):
     	Dot1x operational data
     	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Statistics>`
     
+    	**config**\: False
+    
     .. attribute:: nodes
     
     	Node\-specific Dot1x operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes>`
     
+    	**config**\: False
+    
     .. attribute:: session
     
     	Dot1x operational data
     	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Session>`
+    
+    	**config**\: False
     
     
 
@@ -86,6 +92,8 @@ class Dot1x(Entity):
         	Interfaces with Dot1x
         	**type**\:  :py:class:`InterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Statistics.InterfaceStatistics>`
         
+        	**config**\: False
+        
         
 
         """
@@ -123,6 +131,8 @@ class Dot1x(Entity):
             
             	Dot1x Data for that Interface
             	**type**\: list of  		 :py:class:`InterfaceStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic>`
+            
+            	**config**\: False
             
             
 
@@ -162,35 +172,49 @@ class Dot1x(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: idb
                 
                 	Dot1x interface database Statistics
                 	**type**\:  :py:class:`Idb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Idb>`
+                
+                	**config**\: False
                 
                 .. attribute:: auth
                 
                 	Dot1x Authenticator Port Statistics
                 	**type**\:  :py:class:`Auth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth>`
                 
+                	**config**\: False
+                
                 .. attribute:: supp
                 
                 	Dot1x Supplicant Port Statistics
                 	**type**\:  :py:class:`Supp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Supp>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_eap
                 
                 	Dot1x Local EAP Port Statistics
                 	**type**\:  :py:class:`LocalEap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.LocalEap>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_name
                 
                 	Interface Display name 
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: pae
                 
                 	PAE type on interface
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -237,7 +261,7 @@ class Dot1x(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic, ['name', 'interface_name', 'pae'], name, value)
+                    self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic, ['name', u'interface_name', u'pae'], name, value)
 
 
                 class Idb(Entity):
@@ -251,6 +275,8 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_total
                     
                     	TxTotal
@@ -258,12 +284,16 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: no_rx_on_intf_down
                     
                     	NoRxOnIntfDown
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -293,7 +323,8 @@ class Dot1x(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Idb, ['rx_total', 'tx_total', 'no_rx_on_intf_down'], name, value)
+                        self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Idb, [u'rx_total', u'tx_total', u'no_rx_on_intf_down'], name, value)
+
 
 
                 class Auth(Entity):
@@ -305,12 +336,16 @@ class Dot1x(Entity):
                     	PortControl
                     	**type**\:  :py:class:`PortControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth.PortControl>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: rx_start
                     
                     	RxStart
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: rx_logoff
                     
@@ -319,12 +354,16 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rx_resp
                     
                     	RxResp
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: rx_resp_id
                     
@@ -333,12 +372,16 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rx_invalid
                     
                     	RxInvalid
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: rx_len_err
                     
@@ -347,12 +390,16 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rx_my_mac_err
                     
                     	RxMyMacErr
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: rx_total
                     
@@ -361,12 +408,16 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_req
                     
                     	TxReq
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_reqid
                     
@@ -375,6 +426,8 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_total
                     
                     	TxTotal
@@ -382,12 +435,16 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: packet_drop_no_config_received
                     
                     	PacketDrop
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -439,7 +496,7 @@ class Dot1x(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth, ['rx_start', 'rx_logoff', 'rx_resp', 'rx_resp_id', 'rx_invalid', 'rx_len_err', 'rx_my_mac_err', 'rx_total', 'tx_req', 'tx_reqid', 'tx_total', 'packet_drop_no_config_received'], name, value)
+                        self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth, [u'rx_start', u'rx_logoff', u'rx_resp', u'rx_resp_id', u'rx_invalid', u'rx_len_err', u'rx_my_mac_err', u'rx_total', u'tx_req', u'tx_reqid', u'tx_total', u'packet_drop_no_config_received'], name, value)
 
 
                     class PortControl(Entity):
@@ -453,12 +510,16 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: enable_fail
                         
                         	EnableFail
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: add_client_succ
                         
@@ -467,12 +528,16 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: add_client_fail
                         
                         	AddClientFail
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: remove_client_succ
                         
@@ -481,12 +546,16 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: remove_client_fail
                         
                         	RemoveClientFail
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -522,7 +591,9 @@ class Dot1x(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth.PortControl, ['enable_succ', 'enable_fail', 'add_client_succ', 'add_client_fail', 'remove_client_succ', 'remove_client_fail'], name, value)
+                            self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Auth.PortControl, [u'enable_succ', u'enable_fail', u'add_client_succ', u'add_client_fail', u'remove_client_succ', u'remove_client_fail'], name, value)
+
+
 
 
                 class Supp(Entity):
@@ -536,12 +607,16 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rx_invalid
                     
                     	RxInvalid
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: rx_len_err
                     
@@ -550,12 +625,16 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rx_my_mac_err
                     
                     	RxMyMacErr
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: rx_total
                     
@@ -564,12 +643,16 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_start
                     
                     	TxStart
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_logoff
                     
@@ -578,6 +661,8 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_resp
                     
                     	TxResp
@@ -585,12 +670,16 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_total
                     
                     	TxTotal
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -632,7 +721,8 @@ class Dot1x(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Supp, ['rx_req', 'rx_invalid', 'rx_len_err', 'rx_my_mac_err', 'rx_total', 'tx_start', 'tx_logoff', 'tx_resp', 'tx_total'], name, value)
+                        self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.Supp, [u'rx_req', u'rx_invalid', u'rx_len_err', u'rx_my_mac_err', u'rx_total', u'tx_start', u'tx_logoff', u'tx_resp', u'tx_total'], name, value)
+
 
 
                 class LocalEap(Entity):
@@ -646,12 +736,16 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: replies
                     
                     	Replies
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: timeout
                     
@@ -660,12 +754,16 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: dropped_no_eap
                     
                     	DroppedNoEAP
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: dropped
                     
@@ -674,6 +772,8 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: success
                     
                     	Success
@@ -681,12 +781,16 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: failed
                     
                     	Failed
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -724,7 +828,11 @@ class Dot1x(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.LocalEap, ['requests', 'replies', 'timeout', 'dropped_no_eap', 'dropped', 'success', 'failed'], name, value)
+                        self._perform_setattr(Dot1x.Statistics.InterfaceStatistics.InterfaceStatistic.LocalEap, [u'requests', u'replies', u'timeout', u'dropped_no_eap', u'dropped', u'success', u'failed'], name, value)
+
+
+
+
 
 
     class Nodes(Entity):
@@ -735,6 +843,8 @@ class Dot1x(Entity):
         
         	Dot1x operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -774,15 +884,21 @@ class Dot1x(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: dot1x_defaults
             
             	Dot1x Default Values
             	**type**\:  :py:class:`Dot1xDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Dot1xDefaults>`
             
+            	**config**\: False
+            
             .. attribute:: statistics
             
             	Dot1x Default Values
             	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Statistics>`
+            
+            	**config**\: False
             
             
 
@@ -829,10 +945,14 @@ class Dot1x(Entity):
                 	Dot1x Authenticator default Timer values
                 	**type**\:  :py:class:`AuthTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Dot1xDefaults.AuthTimers>`
                 
+                	**config**\: False
+                
                 .. attribute:: supp_timers
                 
                 	Dot1x Supllicant default Timer values
                 	**type**\:  :py:class:`SuppTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Dot1xDefaults.SuppTimers>`
+                
+                	**config**\: False
                 
                 .. attribute:: version
                 
@@ -840,6 +960,8 @@ class Dot1x(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -873,7 +995,7 @@ class Dot1x(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Dot1x.Nodes.Node.Dot1xDefaults, ['version'], name, value)
+                    self._perform_setattr(Dot1x.Nodes.Node.Dot1xDefaults, [u'version'], name, value)
 
 
                 class AuthTimers(Entity):
@@ -887,6 +1009,8 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: tx_period
@@ -895,6 +1019,8 @@ class Dot1x(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -905,12 +1031,16 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: supp_timeout
                     
                     	in Seconds, Timeout for supplicant reply, authenticator\-to\-supplicant retransmission time for all EAP messages except for EAP Request ID packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -921,12 +1051,16 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: reauth_period
                     
                     	in Seconds,  after which an automatic reauthentication should be initiated
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -964,7 +1098,8 @@ class Dot1x(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1x.Nodes.Node.Dot1xDefaults.AuthTimers, ['quiet_period', 'tx_period', 'max_reauth_req', 'supp_timeout', 'max_req', 'reauth_period'], name, value)
+                        self._perform_setattr(Dot1x.Nodes.Node.Dot1xDefaults.AuthTimers, [u'quiet_period', u'tx_period', u'max_reauth_req', u'supp_timeout', u'max_req', u'reauth_period'], name, value)
+
 
 
                 class SuppTimers(Entity):
@@ -978,6 +1113,8 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: held_period
@@ -986,6 +1123,8 @@ class Dot1x(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -996,6 +1135,8 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: max_start
@@ -1004,6 +1145,8 @@ class Dot1x(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1035,7 +1178,9 @@ class Dot1x(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1x.Nodes.Node.Dot1xDefaults.SuppTimers, ['auth_period', 'held_period', 'start_period', 'max_start'], name, value)
+                        self._perform_setattr(Dot1x.Nodes.Node.Dot1xDefaults.SuppTimers, [u'auth_period', u'held_period', u'start_period', u'max_start'], name, value)
+
+
 
 
             class Statistics(Entity):
@@ -1047,10 +1192,14 @@ class Dot1x(Entity):
                 	Global statistics
                 	**type**\:  :py:class:`GlStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Statistics.GlStats>`
                 
+                	**config**\: False
+                
                 .. attribute:: if_stats
                 
                 	dot1x interface statistics list
                 	**type**\: list of  		 :py:class:`IfStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Statistics.IfStats>`
+                
+                	**config**\: False
                 
                 
 
@@ -1091,12 +1240,16 @@ class Dot1x(Entity):
                     	PortControl
                     	**type**\:  :py:class:`PortControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Statistics.GlStats.PortControl>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_total
                     
                     	TxTotal
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: rx_total
                     
@@ -1105,6 +1258,8 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rx_no_idb
                     
                     	RxNoIDB
@@ -1112,12 +1267,16 @@ class Dot1x(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: packet_drop_no_config_received
                     
                     	PacketDrop
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1153,7 +1312,7 @@ class Dot1x(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1x.Nodes.Node.Statistics.GlStats, ['tx_total', 'rx_total', 'rx_no_idb', 'packet_drop_no_config_received'], name, value)
+                        self._perform_setattr(Dot1x.Nodes.Node.Statistics.GlStats, [u'tx_total', u'rx_total', u'rx_no_idb', u'packet_drop_no_config_received'], name, value)
 
 
                     class PortControl(Entity):
@@ -1167,12 +1326,16 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: enable_fail
                         
                         	EnableFail
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: disable_succ
                         
@@ -1181,12 +1344,16 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: disable_fail
                         
                         	DisableFail
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: add_client_succ
                         
@@ -1195,12 +1362,16 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: add_client_fail
                         
                         	AddClientFail
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: remove_client_succ
                         
@@ -1209,12 +1380,16 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: remove_client_fail
                         
                         	RemoveClientFail
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1254,7 +1429,9 @@ class Dot1x(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.GlStats.PortControl, ['enable_succ', 'enable_fail', 'disable_succ', 'disable_fail', 'add_client_succ', 'add_client_fail', 'remove_client_succ', 'remove_client_fail'], name, value)
+                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.GlStats.PortControl, [u'enable_succ', u'enable_fail', u'disable_succ', u'disable_fail', u'add_client_succ', u'add_client_fail', u'remove_client_succ', u'remove_client_fail'], name, value)
+
+
 
 
                 class IfStats(Entity):
@@ -1266,30 +1443,42 @@ class Dot1x(Entity):
                     	Dot1x interface database Statistics
                     	**type**\:  :py:class:`Idb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Statistics.IfStats.Idb>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: auth
                     
                     	Dot1x Authenticator Port Statistics
                     	**type**\:  :py:class:`Auth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Statistics.IfStats.Auth>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: supp
                     
                     	Dot1x Supplicant Port Statistics
                     	**type**\:  :py:class:`Supp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Statistics.IfStats.Supp>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_eap
                     
                     	Dot1x Local EAP Port Statistics
                     	**type**\:  :py:class:`LocalEap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Statistics.IfStats.LocalEap>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_name
                     
                     	Interface Display name 
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: pae
                     
                     	PAE type on interface
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1333,7 +1522,7 @@ class Dot1x(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats, ['interface_name', 'pae'], name, value)
+                        self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats, [u'interface_name', u'pae'], name, value)
 
 
                     class Idb(Entity):
@@ -1347,6 +1536,8 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: tx_total
                         
                         	TxTotal
@@ -1354,12 +1545,16 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: no_rx_on_intf_down
                         
                         	NoRxOnIntfDown
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1389,7 +1584,8 @@ class Dot1x(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Idb, ['rx_total', 'tx_total', 'no_rx_on_intf_down'], name, value)
+                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Idb, [u'rx_total', u'tx_total', u'no_rx_on_intf_down'], name, value)
+
 
 
                     class Auth(Entity):
@@ -1401,12 +1597,16 @@ class Dot1x(Entity):
                         	PortControl
                         	**type**\:  :py:class:`PortControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Nodes.Node.Statistics.IfStats.Auth.PortControl>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: rx_start
                         
                         	RxStart
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: rx_logoff
                         
@@ -1415,12 +1615,16 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: rx_resp
                         
                         	RxResp
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: rx_resp_id
                         
@@ -1429,12 +1633,16 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: rx_invalid
                         
                         	RxInvalid
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: rx_len_err
                         
@@ -1443,12 +1651,16 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: rx_my_mac_err
                         
                         	RxMyMacErr
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: rx_total
                         
@@ -1457,12 +1669,16 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: tx_req
                         
                         	TxReq
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: tx_reqid
                         
@@ -1471,6 +1687,8 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: tx_total
                         
                         	TxTotal
@@ -1478,12 +1696,16 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: packet_drop_no_config_received
                         
                         	PacketDrop
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1535,7 +1757,7 @@ class Dot1x(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Auth, ['rx_start', 'rx_logoff', 'rx_resp', 'rx_resp_id', 'rx_invalid', 'rx_len_err', 'rx_my_mac_err', 'rx_total', 'tx_req', 'tx_reqid', 'tx_total', 'packet_drop_no_config_received'], name, value)
+                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Auth, [u'rx_start', u'rx_logoff', u'rx_resp', u'rx_resp_id', u'rx_invalid', u'rx_len_err', u'rx_my_mac_err', u'rx_total', u'tx_req', u'tx_reqid', u'tx_total', u'packet_drop_no_config_received'], name, value)
 
 
                         class PortControl(Entity):
@@ -1549,12 +1771,16 @@ class Dot1x(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: enable_fail
                             
                             	EnableFail
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: add_client_succ
                             
@@ -1563,12 +1789,16 @@ class Dot1x(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: add_client_fail
                             
                             	AddClientFail
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: remove_client_succ
                             
@@ -1577,12 +1807,16 @@ class Dot1x(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: remove_client_fail
                             
                             	RemoveClientFail
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1618,7 +1852,9 @@ class Dot1x(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Auth.PortControl, ['enable_succ', 'enable_fail', 'add_client_succ', 'add_client_fail', 'remove_client_succ', 'remove_client_fail'], name, value)
+                                self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Auth.PortControl, [u'enable_succ', u'enable_fail', u'add_client_succ', u'add_client_fail', u'remove_client_succ', u'remove_client_fail'], name, value)
+
+
 
 
                     class Supp(Entity):
@@ -1632,12 +1868,16 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: rx_invalid
                         
                         	RxInvalid
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: rx_len_err
                         
@@ -1646,12 +1886,16 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: rx_my_mac_err
                         
                         	RxMyMacErr
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: rx_total
                         
@@ -1660,12 +1904,16 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: tx_start
                         
                         	TxStart
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: tx_logoff
                         
@@ -1674,6 +1922,8 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: tx_resp
                         
                         	TxResp
@@ -1681,12 +1931,16 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: tx_total
                         
                         	TxTotal
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1728,7 +1982,8 @@ class Dot1x(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Supp, ['rx_req', 'rx_invalid', 'rx_len_err', 'rx_my_mac_err', 'rx_total', 'tx_start', 'tx_logoff', 'tx_resp', 'tx_total'], name, value)
+                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.Supp, [u'rx_req', u'rx_invalid', u'rx_len_err', u'rx_my_mac_err', u'rx_total', u'tx_start', u'tx_logoff', u'tx_resp', u'tx_total'], name, value)
+
 
 
                     class LocalEap(Entity):
@@ -1742,12 +1997,16 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: replies
                         
                         	Replies
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: timeout
                         
@@ -1756,12 +2015,16 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: dropped_no_eap
                         
                         	DroppedNoEAP
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: dropped
                         
@@ -1770,6 +2033,8 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: success
                         
                         	Success
@@ -1777,12 +2042,16 @@ class Dot1x(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: failed
                         
                         	Failed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1820,7 +2089,12 @@ class Dot1x(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.LocalEap, ['requests', 'replies', 'timeout', 'dropped_no_eap', 'dropped', 'success', 'failed'], name, value)
+                            self._perform_setattr(Dot1x.Nodes.Node.Statistics.IfStats.LocalEap, [u'requests', u'replies', u'timeout', u'dropped_no_eap', u'dropped', u'success', u'failed'], name, value)
+
+
+
+
+
 
 
     class Session(Entity):
@@ -1831,6 +2105,8 @@ class Dot1x(Entity):
         
         	Interfaces with Dot1x
         	**type**\:  :py:class:`InterfaceSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Session.InterfaceSessions>`
+        
+        	**config**\: False
         
         
 
@@ -1870,6 +2146,8 @@ class Dot1x(Entity):
             	Dot1x Data for that Interface
             	**type**\: list of  		 :py:class:`InterfaceSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Session.InterfaceSessions.InterfaceSession>`
             
+            	**config**\: False
+            
             
 
             """
@@ -1908,40 +2186,56 @@ class Dot1x(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: intf_info
                 
                 	Dot1x interface Info
                 	**type**\:  :py:class:`IntfInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo>`
+                
+                	**config**\: False
                 
                 .. attribute:: mka_status_info
                 
                 	MKA session secure status
                 	**type**\:  :py:class:`MkaStatusInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_name
                 
                 	Interface Display name 
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: interface_sname
                 
                 	Interface Display short\_name 
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: if_handle
                 
                 	Interface handle
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: mac
                 
                 	formatted MAC Address
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: ethertype
                 
                 	EAPOL Ethertype
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1986,7 +2280,7 @@ class Dot1x(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession, ['name', 'interface_name', 'interface_sname', 'if_handle', 'mac', 'ethertype'], name, value)
+                    self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession, ['name', u'interface_name', u'interface_sname', u'if_handle', u'mac', u'ethertype'], name, value)
 
 
                 class IntfInfo(Entity):
@@ -1998,30 +2292,42 @@ class Dot1x(Entity):
                     	Dot1x Authenticator info
                     	**type**\:  :py:class:`AuthInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: supp_info
                     
                     	Dot1x Supplicant info
                     	**type**\:  :py:class:`SuppInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: pae
                     
                     	PAE type on interface
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: port_status
                     
                     	Dot1x Port Status
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: dot1x_profile
                     
                     	Dot1x Profile
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: l2_transport
                     
                     	L2 Transport Info
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -2061,7 +2367,7 @@ class Dot1x(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo, ['pae', 'port_status', 'dot1x_profile', 'l2_transport'], name, value)
+                        self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo, [u'pae', u'port_status', u'dot1x_profile', u'l2_transport'], name, value)
 
 
                     class AuthInfo(Entity):
@@ -2073,25 +2379,35 @@ class Dot1x(Entity):
                         	Port Control Feature
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: reauth
                         
                         	Re\-Authentication enabled status
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: config_dependency
                         
                         	Configuration Dependency 
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: eap_profile
                         
                         	EAP profile
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: client
                         
                         	Authenticator client list
                         	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2125,7 +2441,7 @@ class Dot1x(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo, ['port_control', 'reauth', 'config_dependency', 'eap_profile'], name, value)
+                            self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo, [u'port_control', u'reauth', u'config_dependency', u'eap_profile'], name, value)
 
 
                         class Client(Entity):
@@ -2137,35 +2453,49 @@ class Dot1x(Entity):
                             	formatted MAC Address
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: auth_sm_state
                             
                             	Auth SM State
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: auth_bend_sm_state
                             
                             	Auth back end SM State
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: time_to_next_reauth
                             
                             	remaining time for next reauthentication
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: last_auth_time
                             
                             	Last Authenticated Timestamp (formatted)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: last_auth_server
                             
                             	Last Authenticated Server
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: port_control
                             
                             	Auth Client Port Control Status
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -2203,7 +2533,9 @@ class Dot1x(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client, ['mac', 'auth_sm_state', 'auth_bend_sm_state', 'time_to_next_reauth', 'last_auth_time', 'last_auth_server', 'port_control'], name, value)
+                                self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.AuthInfo.Client, [u'mac', u'auth_sm_state', u'auth_bend_sm_state', u'time_to_next_reauth', u'last_auth_time', u'last_auth_server', u'port_control'], name, value)
+
+
 
 
                     class SuppInfo(Entity):
@@ -2215,15 +2547,21 @@ class Dot1x(Entity):
                         	EAP profile
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: config_dependency
                         
                         	Configuration Dependency 
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: client
                         
                         	Supp Client info
                         	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_oper.Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2253,7 +2591,7 @@ class Dot1x(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo, ['eap_profile', 'config_dependency'], name, value)
+                            self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo, [u'eap_profile', u'config_dependency'], name, value)
 
 
                         class Client(Entity):
@@ -2265,25 +2603,35 @@ class Dot1x(Entity):
                             	formatted MAC Address
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: eap_method
                             
                             	EAP Method
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: last_auth_time
                             
                             	Last Authenticated Timestamp (formatted)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: auth_sm_state
                             
                             	supp SM State
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: auth_bend_sm_state
                             
                             	supp back end SM State
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -2317,7 +2665,10 @@ class Dot1x(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client, ['mac', 'eap_method', 'last_auth_time', 'auth_sm_state', 'auth_bend_sm_state'], name, value)
+                                self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.IntfInfo.SuppInfo.Client, [u'mac', u'eap_method', u'last_auth_time', u'auth_sm_state', u'auth_bend_sm_state'], name, value)
+
+
+
 
 
                 class MkaStatusInfo(Entity):
@@ -2329,25 +2680,35 @@ class Dot1x(Entity):
                     	Dot1x Tie breaker role chosen for mka when PAE type is BOTH
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: eap_based_macsec
                     
                     	EAP Mode status for MKA
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: mka_start_time
                     
                     	Time stamp when Dot1x posting a message to  MKA to start session
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: mka_stop_time
                     
                     	Time stamp when Dot1x posting a message to  MKA to stop session
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: mka_response_time
                     
                     	Time Stamp of MKA acknowledgement to Dot1x
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -2381,9 +2742,15 @@ class Dot1x(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo, ['tie_break_role', 'eap_based_macsec', 'mka_start_time', 'mka_stop_time', 'mka_response_time'], name, value)
+                        self._perform_setattr(Dot1x.Session.InterfaceSessions.InterfaceSession.MkaStatusInfo, [u'tie_break_role', u'eap_based_macsec', u'mka_start_time', u'mka_stop_time', u'mka_response_time'], name, value)
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Dot1x()
         return self._top_entity
+
+
 

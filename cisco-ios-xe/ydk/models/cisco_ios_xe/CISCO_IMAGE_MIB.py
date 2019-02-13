@@ -23,6 +23,8 @@ class CISCOIMAGEMIB(Entity):
     	A table provides content information describing the executing IOS image
     	**type**\:  :py:class:`CiscoImageTable <ydk.models.cisco_ios_xe.CISCO_IMAGE_MIB.CISCOIMAGEMIB.CiscoImageTable>`
     
+    	**config**\: False
+    
     
 
     """
@@ -62,6 +64,8 @@ class CISCOIMAGEMIB(Entity):
         	A image characteristic string entry
         	**type**\: list of  		 :py:class:`CiscoImageEntry <ydk.models.cisco_ios_xe.CISCO_IMAGE_MIB.CISCOIMAGEMIB.CiscoImageTable.CiscoImageEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -100,10 +104,14 @@ class CISCOIMAGEMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ciscoimagestring
             
             	The string of this entry
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -134,7 +142,11 @@ class CISCOIMAGEMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIMAGEMIB.CiscoImageTable.CiscoImageEntry, ['ciscoimageindex', 'ciscoimagestring'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOIMAGEMIB()
         return self._top_entity
+
+
 

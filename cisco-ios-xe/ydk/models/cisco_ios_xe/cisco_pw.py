@@ -139,6 +139,7 @@ class PwSignalingProtocolType(Identity):
         super(PwSignalingProtocolType, self).__init__(ns, pref, tag)
 
 
+
 class PwLoadBalanceType(Identity):
     """
     Base type for load\-balancing type
@@ -152,6 +153,7 @@ class PwLoadBalanceType(Identity):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-load-balance-type"):
         super(PwLoadBalanceType, self).__init__(ns, pref, tag)
+
 
 
 class PwEncapsulationType(Identity):
@@ -169,6 +171,7 @@ class PwEncapsulationType(Identity):
         super(PwEncapsulationType, self).__init__(ns, pref, tag)
 
 
+
 class PwVcType(Identity):
     """
     Base identity for VC type in PW
@@ -184,6 +187,7 @@ class PwVcType(Identity):
         super(PwVcType, self).__init__(ns, pref, tag)
 
 
+
 class PwSequencingType(Identity):
     """
     Sequencing options for PW
@@ -197,6 +201,7 @@ class PwSequencingType(Identity):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-sequencing-type"):
         super(PwSequencingType, self).__init__(ns, pref, tag)
+
 
 
 class PseudowireConfig(Entity):
@@ -339,7 +344,8 @@ class PseudowireConfig(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PseudowireConfig.Global, ['pw_grouping', 'pw_oam_refresh_transmit', 'pw_status', 'predictive_redundancy', 'vc_state_notification_enabled', 'vc_state_notification_batch_size', 'vc_state_notification_rate'], name, value)
+            self._perform_setattr(PseudowireConfig.Global, [u'pw_grouping', u'pw_oam_refresh_transmit', u'pw_status', u'predictive_redundancy', u'vc_state_notification_enabled', u'vc_state_notification_batch_size', u'vc_state_notification_rate'], name, value)
+
 
 
     class PwTemplates(Entity):
@@ -538,7 +544,7 @@ class PseudowireConfig(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate, ['name', 'encapsulation', 'control_word', 'signaling_protocol', 'vc_type', 'switching_tlv', 'source_ip', 'tag_rewrite_ingress_vlan', 'mac_withdraw'], name, value)
+                self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate, [u'name', u'encapsulation', u'control_word', u'signaling_protocol', u'vc_type', u'switching_tlv', u'source_ip', u'tag_rewrite_ingress_vlan', u'mac_withdraw'], name, value)
 
 
             class LoadBalance(Entity):
@@ -592,7 +598,7 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance, ['ethernet', 'ip'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance, [u'ethernet', u'ip'], name, value)
 
 
                 class FlowLabel(Entity):
@@ -645,7 +651,7 @@ class PseudowireConfig(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel, ['direction', 'tlv_code_17', 'static'], name, value)
+                        self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel, [u'direction', u'tlv_code_17', u'static'], name, value)
 
                     class Direction(Enum):
                         """
@@ -672,6 +678,8 @@ class PseudowireConfig(Entity):
                         receive = Enum.YLeaf(2, "receive")
 
                         both = Enum.YLeaf(3, "both")
+
+
 
 
 
@@ -739,7 +747,8 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PreferredPath, ['interface', 'address', 'hostname', 'disable_fallback'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PreferredPath, [u'interface', u'address', u'hostname', u'disable_fallback'], name, value)
+
 
 
             class Sequencing(Entity):
@@ -784,7 +793,8 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Sequencing, ['direction', 'resync'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Sequencing, [u'direction', u'resync'], name, value)
+
 
 
             class Vccv(Entity):
@@ -820,7 +830,8 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Vccv, ['control_word'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Vccv, [u'control_word'], name, value)
+
 
 
             class SwitchoverDelay(Entity):
@@ -877,7 +888,8 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay, ['switchover_timer', 'timer', 'never'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay, [u'switchover_timer', u'timer', u'never'], name, value)
+
 
 
             class Status(Entity):
@@ -949,7 +961,8 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Status, ['decoupled', 'disable', 'peer_topo_dual_homed', 'route_watch_disable', 'redundancy_master'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Status, [u'decoupled', u'disable', u'peer_topo_dual_homed', u'route_watch_disable', u'redundancy_master'], name, value)
+
 
 
             class PortProfileSpec(Entity):
@@ -1030,7 +1043,10 @@ class PseudowireConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec, ['description', 'shutdown', 'shut_force', 'mtu', 'max_ports', 'enabled'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec, [u'description', u'shutdown', u'shut_force', u'mtu', u'max_ports', u'enabled'], name, value)
+
+
+
 
 
     class PwStaticOamClasses(Entity):
@@ -1143,11 +1159,15 @@ class PseudowireConfig(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PseudowireConfig.PwStaticOamClasses.PwStaticOamClass, ['name', 'ack', 'keepalive', 'timeout_refresh_send', 'timeout_refresh_ack'], name, value)
+                self._perform_setattr(PseudowireConfig.PwStaticOamClasses.PwStaticOamClass, [u'name', u'ack', u'keepalive', u'timeout_refresh_send', u'timeout_refresh_ack'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = PseudowireConfig()
         return self._top_entity
+
+
 
 class PseudowireState(Entity):
     """
@@ -1159,6 +1179,8 @@ class PseudowireState(Entity):
     
     	Each list element contains the state for a pseudowire instance. The list can be optionally keyed by any combination of vc\-id, peer\-address, etc. Additional filtering of the list by the agent may be performed upon request by the client using subtree filtering as described in RFC 6020 Section 6
     	**type**\: list of  		 :py:class:`Pseudowires <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires>`
+    
+    	**config**\: False
     
     
 
@@ -1209,6 +1231,8 @@ class PseudowireState(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: vc_id  (key)
         
         	Used to distinguish between pseudowires going to the same peer node
@@ -1216,15 +1240,21 @@ class PseudowireState(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: vc_owner_type  (key)
         
         	Indicates the service responsible for establishing this VC
         	**type**\:  :py:class:`VcOwnerType <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires.VcOwnerType>`
         
+        	**config**\: False
+        
         .. attribute:: vc_name  (key)
         
         	The canonical name assigned to the VC. The name may be autogenerated by the device; this Yang model does not currently support direct configuration of this name
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: vc_index  (key)
         
@@ -1233,20 +1263,28 @@ class PseudowireState(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: vc_type
         
         	Indicates the service to be carried over this VC
         	**type**\:  :py:class:`PwVcType <ydk.models.cisco_ios_xe.cisco_pw.PwVcType>`
+        
+        	**config**\: False
         
         .. attribute:: vc_owner_name
         
         	Name of the L2VPN service instance that created the pseudowire VC
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: vc_psn_type
         
         	Indicates the type of packet\-switched network that carries this VC
         	**type**\:  :py:class:`VcPsnType <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires.VcPsnType>`
+        
+        	**config**\: False
         
         .. attribute:: vc_local_group_id
         
@@ -1255,10 +1293,14 @@ class PseudowireState(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: vc_control_word
         
         	Indicates if the control word is sent with each packet by the local node
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: vc_local_if_mtu
         
@@ -1267,6 +1309,8 @@ class PseudowireState(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: vc_remote_group_id
         
         	If not zero, indicates the pseudowire group to which this pseudowire belongs on the peer node
@@ -1274,10 +1318,14 @@ class PseudowireState(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: vc_remote_control_word
         
         	Indicates whether MPLS control words are used by the pseudowire PSN service
         	**type**\:  :py:class:`VcRemoteControlWord <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires.VcRemoteControlWord>`
+        
+        	**config**\: False
         
         .. attribute:: vc_remote_if_mtu
         
@@ -1286,12 +1334,16 @@ class PseudowireState(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: vc_outbound_label
         
         	The VC label used in the outbound direction (i.e. toward the PSN). Example\: for MPLS PSN, it represents the 20 bits of VC tag, for L2TP it represent the 32 bits Session ID. If the label is not yet known (signaling in procesS), the object should return a value of 0xFFFFFFFF
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: vc_inbound_label
         
@@ -1300,25 +1352,35 @@ class PseudowireState(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: vc_oper_status
         
         	Indicates the actual combined operational status of this VC. It is 'up' if both vc\-inbound\-oper\-status and vc\-outbound\-oper\-status are in 'up' state. For all other values, if the VCs in both directions are of the same value it reflects that value, otherwise it is set to the most severe status out of the two statuses. The order of severance from most severe to less severe is\: unknown, notPresent, down, lowerLayerDown, dormant, testing, up. The operator may consult the per direction oper\-status for fault isolation per direction
         	**type**\:  :py:class:`PwOperStateType <ydk.models.cisco_ios_xe.cisco_pw.PwOperStateType>`
+        
+        	**config**\: False
         
         .. attribute:: vc_inbound_oper_status
         
         	Indicates the actual operational status of this VC in the  inbound direction
         	**type**\:  :py:class:`PwOperStateType <ydk.models.cisco_ios_xe.cisco_pw.PwOperStateType>`
         
+        	**config**\: False
+        
         .. attribute:: vc_outbound_oper_status
         
         	Indicates the actual operational status of this VC in the outbound direction
         	**type**\:  :py:class:`PwOperStateType <ydk.models.cisco_ios_xe.cisco_pw.PwOperStateType>`
         
+        	**config**\: False
+        
         .. attribute:: statistics
         
         	A collection of pseudowire\-related statistics objects
         	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires.Statistics>`
+        
+        	**config**\: False
         
         
 
@@ -1385,7 +1447,7 @@ class PseudowireState(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PseudowireState.Pseudowires, ['vc_peer_address', 'vc_id', 'vc_owner_type', 'vc_name', 'vc_index', 'vc_type', 'vc_owner_name', 'vc_psn_type', 'vc_local_group_id', 'vc_control_word', 'vc_local_if_mtu', 'vc_remote_group_id', 'vc_remote_control_word', 'vc_remote_if_mtu', 'vc_outbound_label', 'vc_inbound_label', 'vc_oper_status', 'vc_inbound_oper_status', 'vc_outbound_oper_status'], name, value)
+            self._perform_setattr(PseudowireState.Pseudowires, [u'vc_peer_address', u'vc_id', u'vc_owner_type', u'vc_name', u'vc_index', u'vc_type', u'vc_owner_name', u'vc_psn_type', u'vc_local_group_id', u'vc_control_word', u'vc_local_if_mtu', u'vc_remote_group_id', u'vc_remote_control_word', u'vc_remote_if_mtu', u'vc_outbound_label', u'vc_inbound_label', u'vc_oper_status', u'vc_inbound_oper_status', u'vc_outbound_oper_status'], name, value)
 
         class VcOwnerType(Enum):
             """
@@ -1514,12 +1576,16 @@ class PseudowireState(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: vc_up_time
             
             	Number of consecutive ticks this VC has been 'up' in both directions together
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: discontinuity_time
             
@@ -1530,12 +1596,16 @@ class PseudowireState(Entity):
             
             	**mandatory**\: True
             
+            	**config**\: False
+            
             .. attribute:: in_octets
             
             	The total number of octets received on this pseudowire.  Discontinuities in the value of this counter can occur at re\-initialization of the management system and at other times as indicated by the value of 'discontinuity\-time'
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: in_pkts
             
@@ -1544,12 +1614,16 @@ class PseudowireState(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: in_errors
             
             	The total number of inbound packets that contained errors.  Discontinuities in the value of this counter can occur at re\-initialization of the management system and at other times as indicated by the value of 'discontinuity\-time'
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: out_octets
             
@@ -1558,6 +1632,8 @@ class PseudowireState(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: out_pkts
             
             	The total number of packets sent on this pseudowire.  Discontinuities in the value of this counter can occur at re\-initialization of the management system and at other times as indicated by the value of 'discontinuity\-time'
@@ -1565,12 +1641,16 @@ class PseudowireState(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: out_errors
             
             	The total number of outbound packets that could not be sent on this pseudowire.  Discontinuities in the value of this counter can occur at re\-initialization of the management system and at other times as indicated by the value of 'discontinuity\-time'
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -1612,11 +1692,15 @@ class PseudowireState(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PseudowireState.Pseudowires.Statistics, ['vc_create_time', 'vc_up_time', 'discontinuity_time', 'in_octets', 'in_pkts', 'in_errors', 'out_octets', 'out_pkts', 'out_errors'], name, value)
+                self._perform_setattr(PseudowireState.Pseudowires.Statistics, [u'vc_create_time', u'vc_up_time', u'discontinuity_time', u'in_octets', u'in_pkts', u'in_errors', u'out_octets', u'out_pkts', u'out_errors'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = PseudowireState()
         return self._top_entity
+
+
 
 class PwVcTypeEther(PwVcType):
     """
@@ -1631,6 +1715,7 @@ class PwVcTypeEther(PwVcType):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-vc-type-ether"):
         super(PwVcTypeEther, self).__init__(ns, pref, tag)
+
 
 
 class PwSequencingTransmit(PwSequencingType):
@@ -1648,6 +1733,7 @@ class PwSequencingTransmit(PwSequencingType):
         super(PwSequencingTransmit, self).__init__(ns, pref, tag)
 
 
+
 class PwVcTypeVlanPassthrough(PwVcType):
     """
     Identity for VLAN passthrough VC type (XR)
@@ -1661,6 +1747,7 @@ class PwVcTypeVlanPassthrough(PwVcType):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-vc-type-vlan-passthrough"):
         super(PwVcTypeVlanPassthrough, self).__init__(ns, pref, tag)
+
 
 
 class PwEncapMpls(PwEncapsulationType):
@@ -1678,6 +1765,7 @@ class PwEncapMpls(PwEncapsulationType):
         super(PwEncapMpls, self).__init__(ns, pref, tag)
 
 
+
 class PwLbIpDstIp(PwLoadBalanceType):
     """
     Load\-balancing with IP destination IP field
@@ -1691,6 +1779,7 @@ class PwLbIpDstIp(PwLoadBalanceType):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-ip-dst-ip"):
         super(PwLbIpDstIp, self).__init__(ns, pref, tag)
+
 
 
 class PwSequencingReceive(PwSequencingType):
@@ -1708,6 +1797,7 @@ class PwSequencingReceive(PwSequencingType):
         super(PwSequencingReceive, self).__init__(ns, pref, tag)
 
 
+
 class PwLbEthernetType(PwLoadBalanceType):
     """
     Base type for load\-balancing with ethernet fields
@@ -1721,6 +1811,7 @@ class PwLbEthernetType(PwLoadBalanceType):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-ethernet-type"):
         super(PwLbEthernetType, self).__init__(ns, pref, tag)
+
 
 
 class PwSignalingProtocolLdp(PwSignalingProtocolType):
@@ -1738,6 +1829,7 @@ class PwSignalingProtocolLdp(PwSignalingProtocolType):
         super(PwSignalingProtocolLdp, self).__init__(ns, pref, tag)
 
 
+
 class PwSequencingBoth(PwSequencingType):
     """
     Receive and Transmit sequencing option for PW
@@ -1751,6 +1843,7 @@ class PwSequencingBoth(PwSequencingType):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-sequencing-both"):
         super(PwSequencingBoth, self).__init__(ns, pref, tag)
+
 
 
 class PwVcTypeVlan(PwVcType):
@@ -1768,6 +1861,7 @@ class PwVcTypeVlan(PwVcType):
         super(PwVcTypeVlan, self).__init__(ns, pref, tag)
 
 
+
 class PwLbIpType(PwLoadBalanceType):
     """
     Base type for load\-balancing with IP
@@ -1781,6 +1875,7 @@ class PwLbIpType(PwLoadBalanceType):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-ip-type"):
         super(PwLbIpType, self).__init__(ns, pref, tag)
+
 
 
 class PwSignalingProtocolNone(PwSignalingProtocolType):
@@ -1798,6 +1893,7 @@ class PwSignalingProtocolNone(PwSignalingProtocolType):
         super(PwSignalingProtocolNone, self).__init__(ns, pref, tag)
 
 
+
 class PwSignalingProtocolBgp(PwSignalingProtocolType):
     """
     Use BGP for PW signaling protocol
@@ -1813,6 +1909,7 @@ class PwSignalingProtocolBgp(PwSignalingProtocolType):
         super(PwSignalingProtocolBgp, self).__init__(ns, pref, tag)
 
 
+
 class PwLbIpSrcIp(PwLbIpType):
     """
     Load\-balancing with IP source IP field
@@ -1826,6 +1923,7 @@ class PwLbIpSrcIp(PwLbIpType):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-ip-src-ip"):
         super(PwLbIpSrcIp, self).__init__(ns, pref, tag)
+
 
 
 class PwLbEthSrcDstMac(PwLbEthernetType):
@@ -1844,6 +1942,7 @@ class PwLbEthSrcDstMac(PwLbEthernetType):
         super(PwLbEthSrcDstMac, self).__init__(ns, pref, tag)
 
 
+
 class PwLbEthDstMac(PwLbEthernetType):
     """
     Load\-balancing with ethernet destination MAC field
@@ -1857,6 +1956,7 @@ class PwLbEthDstMac(PwLbEthernetType):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-eth-dst-mac"):
         super(PwLbEthDstMac, self).__init__(ns, pref, tag)
+
 
 
 class PwLbIpSrcDstIp(PwLbIpType):
@@ -1874,6 +1974,7 @@ class PwLbIpSrcDstIp(PwLbIpType):
         super(PwLbIpSrcDstIp, self).__init__(ns, pref, tag)
 
 
+
 class PwLbEthSrcMac(PwLbEthernetType):
     """
     Load\-balancing with ethernet source MAC field
@@ -1887,5 +1988,6 @@ class PwLbEthSrcMac(PwLbEthernetType):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-eth-src-mac"):
         super(PwLbEthSrcMac, self).__init__(ns, pref, tag)
+
 
 

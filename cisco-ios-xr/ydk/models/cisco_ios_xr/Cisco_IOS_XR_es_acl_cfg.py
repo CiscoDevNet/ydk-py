@@ -376,7 +376,7 @@ class EsAcl(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry, ['sequence_number', 'grant', 'vlan1', 'vlan2', 'cos', 'dei', 'inner_vlan1', 'inner_vlan2', 'inner_cos', 'inner_dei', 'remark', 'ether_type_number', 'capture', 'log_option', 'sequence_str'], name, value)
+                        self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry, ['sequence_number', u'grant', u'vlan1', u'vlan2', u'cos', u'dei', u'inner_vlan1', u'inner_vlan2', u'inner_cos', u'inner_dei', u'remark', u'ether_type_number', u'capture', u'log_option', u'sequence_str'], name, value)
 
 
                     class SourceNetwork(Entity):
@@ -423,7 +423,8 @@ class EsAcl(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, ['source_address', 'source_wild_card_bits'], name, value)
+                            self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, [u'source_address', u'source_wild_card_bits'], name, value)
+
 
 
                     class DestinationNetwork(Entity):
@@ -470,9 +471,16 @@ class EsAcl(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, ['destination_address', 'destination_wild_card_bits'], name, value)
+                            self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, [u'destination_address', u'destination_wild_card_bits'], name, value)
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = EsAcl()
         return self._top_entity
+
+
 

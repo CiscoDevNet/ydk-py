@@ -27,35 +27,49 @@ class DOCSCABLEDEVICEMIB(Entity):
     	
     	**type**\:  :py:class:`DocsDevBase <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevBase>`
     
+    	**config**\: False
+    
     .. attribute:: docsdevsoftware
     
     	
     	**type**\:  :py:class:`DocsDevSoftware <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevSoftware>`
+    
+    	**config**\: False
     
     .. attribute:: docsdevserver
     
     	
     	**type**\:  :py:class:`DocsDevServer <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevServer>`
     
+    	**config**\: False
+    
     .. attribute:: docsdevevent
     
     	
     	**type**\:  :py:class:`DocsDevEvent <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevEvent>`
+    
+    	**config**\: False
     
     .. attribute:: docsdevfilter
     
     	
     	**type**\:  :py:class:`DocsDevFilter <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevFilter>`
     
+    	**config**\: False
+    
     .. attribute:: docsdevcpe
     
     	
     	**type**\:  :py:class:`DocsDevCpe <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevCpe>`
     
+    	**config**\: False
+    
     .. attribute:: docsdevnmaccesstable
     
     	This table controls access to SNMP objects by network management stations.  If the table is empty, access to SNMP objects is unrestricted.  The objects in this table MUST NOT persist across reboots.  The objects in this table are only accessible from cable devices that are not capable of operating in SNMP Coexistence mode (RFC 3584) or in SNMPv3 mode (RFC 3410). See the conformance section for details.  Note that some devices are required by other specifications (e.g., the DOCSIS OSSIv1.1 specification) to support the legacy SNMPv1/v2c docsDevNmAccess mode for backward compatibility.  This table is deprecated.  Instead, use the SNMP coexistence MIBs from RFC 3584, the TARGET and NOTIFICATION MIBs from RFC 3413, and the View\-Based Access Control Model (VACM) MIBs for all SNMP protocol versions from RFC 3415
     	**type**\:  :py:class:`DocsDevNmAccessTable <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevNmAccessTable>`
+    
+    	**config**\: False
     
     	**status**\: deprecated
     
@@ -64,20 +78,28 @@ class DOCSCABLEDEVICEMIB(Entity):
     	This table allows control of the reporting of event classes.  For each event priority, a combination of logging and reporting mechanisms may be chosen.  The mapping of event types to priorities is vendor dependent.  Vendors may also choose to allow the user to control that mapping through proprietary means.  Table entries MUST persist across reboots for CMTS devices and MUST NOT persist across reboots for CM devices
     	**type**\:  :py:class:`DocsDevEvControlTable <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevEvControlTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsdeveventtable
     
     	Contains a log of network and device events that may be of interest in fault isolation and troubleshooting. If the local(0) bit is set in docsDevEvReporting, entries in this table MUST persist across reboots
     	**type**\:  :py:class:`DocsDevEventTable <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevEventTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsdevfilterllctable
     
     	A list of filters to apply to (bridged) LLC traffic. The filters in this table are applied to incoming traffic on the appropriate interface(s)  prior to any further processing (e.g., before the packet is handed off for level 3 processing, or for bridging). The specific action taken when no filter is matched is controlled by docsDevFilterLLCUnmatchedAction.  Table entries MUST NOT persist across reboots for any device
     	**type**\:  :py:class:`DocsDevFilterLLCTable <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevFilterLLCTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsdevfilteriptable
     
     	An ordered list of filters or classifiers to apply to IP traffic. Filter application is ordered by the filter index, rather than by a best match algorithm (Note that this implies that the filter table may have gaps in the index values).  Packets that match no filters will have policy 0 in the docsDevFilterPolicyTable applied to them, if it exists.  Otherwise, Packets that match no filters are discarded or forwarded according to the setting of docsDevFilterIpDefault.  Any IP packet can theoretically match multiple rows of this table.  When considering a packet, the table is scanned in row index order (e.g., filter 10 is checked before filter 20).  If the packet matches that filter (which means that it matches ALL criteria for that row), actions appropriate to docsDevFilterIpControl and docsDevFilterPolicyId are taken.  If the packet was discarded processing is complete.  If docsDevFilterIpContinue is set to true, the filter comparison continues with the next row in the table, looking for additional matches.  If the packet matches no filter in the table, the packet is accepted or dropped for further processing according to the setting of docsDevFilterIpDefault. If the packet is accepted, the actions specified by policy group 0 (e.g., the rows in docsDevFilterPolicyTable that have a value of 0 for docsDevFilterPolicyId) are taken, if that policy group exists.  Logically, this table is consulted twice during the processing of any IP packet\: once upon its acceptance from the L2 entity, and once upon its transmission to the L2 entity.  In actuality, for cable modems, IP filtering is generally the only IP processing done for transit traffic.  This means that inbound and outbound filtering can generally be done at the same time with one pass through the filter table.  The objects in this table are only accessible from cable devices that are not operating in DiffServ MIB mode (RFC 3289).  See the conformance section for details.  Note that some devices are required by other specifications (e.g., the DOCSIS OSSIv1.1 specification) to support the legacy SNMPv1/v2c docsDevFilter mode for backward compatibility.  Table entries MUST NOT persist across reboots for any device.  This table is deprecated.  Instead, use the DiffServ MIB from RFC3289
     	**type**\:  :py:class:`DocsDevFilterIpTable <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevFilterIpTable>`
+    
+    	**config**\: False
     
     	**status**\: deprecated
     
@@ -86,12 +108,16 @@ class DOCSCABLEDEVICEMIB(Entity):
     	A Table that maps between a policy group ID and a set of pointers to policies to be applied.  All rows with the same docsDevFilterPolicyId are part of the same group of policy pointers and are applied in the order in this table.  docsDevFilterPolicyTable exists to allow multiple policy actions (referenced by policy pointers) to be applied to any given classified packet. The policy actions are applied in index order. For example\:  Index   ID    Type    Action  1      1      TOS     1  9      5      TOS     1  12     1      IPSEC   3  This says that a packet that matches a filter with policy id 1 first has TOS policy 1 applied (which might set the TOS bits to enable a higher priority) and next has the IPSEC policy 3 applied (which may result in the packets being dumped into a secure VPN to a remote encryptor).  Policy ID 0 is reserved for default actions and is applied only to packets that match no filters in docsDevFilterIpTable.  Table entries MUST NOT persist across reboots for any device.  This table is deprecated.  Instead, use the DiffServ MIB from RFC3289
     	**type**\:  :py:class:`DocsDevFilterPolicyTable <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevFilterPolicyTable>`
     
+    	**config**\: False
+    
     	**status**\: deprecated
     
     .. attribute:: docsdevfiltertostable
     
     	Table used to describe Type of Service (TOS) bits processing.  This table is an adjunct to the docsDevFilterIpTable and the docsDevFilterPolicy table.  Entries in the latter table can point to specific rows in this (and other) tables and cause specific actions to be taken. This table permits the manipulation of the value of the Type of Service bits in the IP header of the matched packet as follows\:  Set the tosBits of the packet to    (tosBits & docsDevFilterTosAndMask) \|    docsDevFilterTosOrMask  This construct allows you to do a clear and set of all the TOS bits in a flexible manner.  Table entries MUST NOT persist across reboots for any device.  This table is deprecated.  Instead, use the DiffServ MIB from RFC3289
     	**type**\:  :py:class:`DocsDevFilterTosTable <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevFilterTosTable>`
+    
+    	**config**\: False
     
     	**status**\: deprecated
     
@@ -100,12 +126,16 @@ class DOCSCABLEDEVICEMIB(Entity):
     	This table lists the IPv4 addresses seen (or permitted) as source addresses in packets originating from the customer interface on this device.  In addition, this table can be provisioned with the specific addresses permitted for the CPEs via the normal row creation mechanisms.  Table entries MUST NOT persist across reboots for any device.  N.B.  Management action can add entries in this table and in docsDevCpeIpTable past the value of docsDevCpeIpMax.  docsDevCpeIpMax ONLY restricts the ability of the CM to add learned addresses automatically.  This table is deprecated and is replaced by docsDevCpeInetTable
     	**type**\:  :py:class:`DocsDevCpeTable <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevCpeTable>`
     
+    	**config**\: False
+    
     	**status**\: deprecated
     
     .. attribute:: docsdevcpeinettable
     
     	This table lists the IP addresses seen (or permitted) as source addresses in packets originating from the customer interface on this device.  In addition, this table can be provisioned with the specific addresses permitted for the CPEs via the normal row creation mechanisms.  N.B.  Management action can add entries in this table and in docsDevCpeIpTable past the value of docsDevCpeIpMax.  docsDevCpeIpMax ONLY restricts the ability of the CM to add learned addresses automatically.  Table entries MUST NOT persist across reboots for any device.  This table exactly mirrors docsDevCpeTable and applies to IPv4 and IPv6 addresses
     	**type**\:  :py:class:`DocsDevCpeInetTable <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevCpeInetTable>`
+    
+    	**config**\: False
     
     
 
@@ -201,30 +231,42 @@ class DOCSCABLEDEVICEMIB(Entity):
         	Defines the current role of this device.  cm(1) is a Cable Modem, cmtsActive(2) is a Cable Modem Termination System that is controlling the system of cable modems, and cmtsBackup(3) is a CMTS that is currently connected but is not controlling the system (not currently used).  In general, if this device is a 'cm', its role will not change during operation or between reboots.  If the device is a 'cmts' it may change between cmtsActive and cmtsBackup and back again during normal operation.  NB\: At this time, the DOCSIS standards do not support the concept of a backup CMTS, but cmtsBackup is included for completeness
         	**type**\:  :py:class:`DocsDevRole <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevBase.DocsDevRole>`
         
+        	**config**\: False
+        
         .. attribute:: docsdevdatetime
         
         	The current date and time, with time zone information (if known).  If the real data and time cannot be determined, this shall represent elapsed time from boot relative to the standard epoch '1970\-1\-1,0\:0\:0.0'.  In other words, if this agent has been up for 3 minutes and not been able to determine what the actual date and time are, this object will return the value '1970\-1\-1,0\:03\:0.0'
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: docsdevresetnow
         
         	Setting this object to true(1) causes the device to reset.  Reading this object always returns false(2)
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: docsdevserialnumber
         
         	The manufacturer's serial number for this device
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: docsdevstpcontrol
         
         	This object controls operation of the spanning tree protocol (as distinguished from transparent bridging).  If set to stEnabled(1), then the spanning tree protocol is enabled, subject to bridging constraints. If noStFilterBpdu(2), then spanning tree is not active, and Bridge PDUs received are discarded.  If noStPassBpdu(3), then spanning tree is not active, and Bridge PDUs are transparently forwarded.  Note that a device need not implement all of these options, but that noStFilterBpdu(2) is required
         	**type**\:  :py:class:`DocsDevSTPControl <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevBase.DocsDevSTPControl>`
         
+        	**config**\: False
+        
         .. attribute:: docsdevigmpmodecontrol
         
         	This object controls the IGMP mode of operation for the CM or CMTS.  In passive mode, the device forwards IGMP between interfaces as based on knowledge of Multicast Session activity on the subscriber side interface and the rules defined in the DOCSIS RFI specification.  In active mode, the device terminates at and initiates IGMP through its interfaces as based on the knowledge of Multicast Session activity on the subscriber side interface
         	**type**\:  :py:class:`DocsDevIgmpModeControl <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevBase.DocsDevIgmpModeControl>`
+        
+        	**config**\: False
         
         .. attribute:: docsdevmaxcpe
         
@@ -232,6 +274,8 @@ class DOCSCABLEDEVICEMIB(Entity):
         	**type**\: int
         
         	**range:** 0..255
+        
+        	**config**\: False
         
         	**units**\: CPEs
         
@@ -390,6 +434,7 @@ class DOCSCABLEDEVICEMIB(Entity):
 
 
 
+
     class DocsDevSoftware(Entity):
         """
         
@@ -401,6 +446,8 @@ class DOCSCABLEDEVICEMIB(Entity):
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: docsdevswfilename
@@ -410,25 +457,35 @@ class DOCSCABLEDEVICEMIB(Entity):
         
         	**length:** 0..64
         
+        	**config**\: False
+        
         .. attribute:: docsdevswadminstatus
         
         	If set to upgradeFromMgt(1), the device will initiate a TFTP or HTTP software image download.  After successfully receiving an image, the device will set its state to ignoreProvisioningUpgrade(3) and reboot. If the download process is interrupted (e.g., by a reset or power failure), the device will load the previous image and, after re\-initialization, continue to attempt loading the image specified in docsDevSwFilename.  If set to allowProvisioningUpgrade(2), the device will use the software version information supplied by the provisioning server when next rebooting (this does not cause a reboot).  When set to ignoreProvisioningUpgrade(3), the device will disregard software image upgrade information from the provisioning server.  Note that reading this object can return upgradeFromMgt(1).  This indicates that a software download is currently in progress, and that the device will reboot after successfully receiving an image
         	**type**\:  :py:class:`DocsDevSwAdminStatus <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevSoftware.DocsDevSwAdminStatus>`
+        
+        	**config**\: False
         
         .. attribute:: docsdevswoperstatus
         
         	InProgress(1) indicates that a TFTP or HTTP download is underway, either as a result of a version mismatch at provisioning or as a result of a upgradeFromMgt request. No other docsDevSw\* objects can be modified in this state.  CompleteFromProvisioning(2) indicates that the last software upgrade was a result of version mismatch at provisioning.  CompleteFromMgt(3) indicates that the last software upgrade was a result of setting docsDevSwAdminStatus to upgradeFromMgt.  Failed(4) indicates that the last attempted download failed, ordinarily due to TFTP or HTTP timeout
         	**type**\:  :py:class:`DocsDevSwOperStatus <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevSoftware.DocsDevSwOperStatus>`
         
+        	**config**\: False
+        
         .. attribute:: docsdevswcurrentvers
         
         	The software version currently operating in this device. This string's syntax is that used by the individual vendor to identify software versions. For a CM, this string will describe the current software load.  For a CMTS, this object SHOULD contain a human\-readable representation either of the vendor specific designation of the software for the chassis, or of the software for the control processor.  If neither of these is applicable, the value MUST be a zero\-length string
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: docsdevswserveraddresstype
         
         	The type of address of the TFTP or HTTP server used for software upgrades.  If docsDevSwServerTransportProtocol is currently set to tftp(1), attempting to set this object to dns(16) MUST result in an error
         	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+        
+        	**config**\: False
         
         .. attribute:: docsdevswserveraddress
         
@@ -437,10 +494,14 @@ class DOCSCABLEDEVICEMIB(Entity):
         
         	**length:** 0..255
         
+        	**config**\: False
+        
         .. attribute:: docsdevswservertransportprotocol
         
         	This object specifies the transport protocol (TFTP or HTTP) to be used for software upgrades.  If the value of this object is tftp(1), then the cable device uses TFTP (RFC1350) read request packets to download the docsDevSwFilename from the docsDevSwServerAddress in octet mode.  If the value of this object is http(2), then the cable device uses HTTP 1.0 (RFC1945) or HTTP 1.1 (RFC2616) GET requests sent to host docsDevSwServerAddress to download the software image from path docsDevSwFilename.  If docsDevSwServerAddressType is currently set to dns(16), attempting to set this object to tftp(1) MUST result in an error
         	**type**\:  :py:class:`DocsDevSwServerTransportProtocol <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevSoftware.DocsDevSwServerTransportProtocol>`
+        
+        	**config**\: False
         
         
 
@@ -635,6 +696,7 @@ class DOCSCABLEDEVICEMIB(Entity):
 
 
 
+
     class DocsDevServer(Entity):
         """
         
@@ -644,12 +706,16 @@ class DOCSCABLEDEVICEMIB(Entity):
         	If operational(1), the device has completed loading and processing of configuration parameters, and the CMTS has completed the Registration exchange.  If disabled(2), then the device was administratively disabled, possibly by being refused network access in the configuration file.  If waitingForDhcpOffer(3), then a Dynamic Host Configuration Protocol (DHCP) Discover has been transmitted, and no offer has yet been received.  If waitingForDhcpResponse(4), then a DHCP Request has been transmitted, and no response has yet been received.  If waitingForTimeServer(5), then a Time Request has been transmitted, and no response has yet been received. If waitingForTftp(6), then a request to the TFTP parameter server has been made, and no response received.  If refusedByCmts(7), then the Registration Request/Response exchange with the CMTS failed.  If forwardingDenied(8), then the registration process was completed, but the network access option in the received configuration file prohibits forwarding.  If other(9), then the registration process reached a point that does not fall into one of the above categories.  If unknown(10), then the device has not yet begun the registration process or is in some other indeterminate state
         	**type**\:  :py:class:`DocsDevServerBootState <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevServer.DocsDevServerBootState>`
         
+        	**config**\: False
+        
         .. attribute:: docsdevserverdhcp
         
         	The IP address of the DHCP server that assigned an IP address to this device. Returns 0.0.0.0 if DHCP is not used for IP address assignment, or if this agent is not assigned an IPv4 address.  This object is deprecated and is replaced by docsDevServerDhcpAddress
         	**type**\: str
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -660,6 +726,8 @@ class DOCSCABLEDEVICEMIB(Entity):
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: docsdevservertftp
@@ -669,6 +737,8 @@ class DOCSCABLEDEVICEMIB(Entity):
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: docsdevserverconfigfile
@@ -676,10 +746,14 @@ class DOCSCABLEDEVICEMIB(Entity):
         	The name of the device configuration file read from the TFTP server.  Returns a zero\-length string if the configuration file name is unknown
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: docsdevserverdhcpaddresstype
         
         	The type of address of docsDevServerDhcpAddress.  If DHCP was not used, this value should return unknown(0)
         	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+        
+        	**config**\: False
         
         .. attribute:: docsdevserverdhcpaddress
         
@@ -688,10 +762,14 @@ class DOCSCABLEDEVICEMIB(Entity):
         
         	**length:** 0..255
         
+        	**config**\: False
+        
         .. attribute:: docsdevservertimeaddresstype
         
         	The type of address of docsDevServerTimeAddress.  If no time server exists, this value should return unknown(0)
         	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+        
+        	**config**\: False
         
         .. attribute:: docsdevservertimeaddress
         
@@ -700,10 +778,14 @@ class DOCSCABLEDEVICEMIB(Entity):
         
         	**length:** 0..255
         
+        	**config**\: False
+        
         .. attribute:: docsdevserverconfigtftpaddresstype
         
         	The type of address of docsDevServerConfigTftpAddress. If no TFTP server exists, this value should return unknown(0)
         	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+        
+        	**config**\: False
         
         .. attribute:: docsdevserverconfigtftpaddress
         
@@ -711,6 +793,8 @@ class DOCSCABLEDEVICEMIB(Entity):
         	**type**\: str
         
         	**length:** 0..255
+        
+        	**config**\: False
         
         
 
@@ -861,6 +945,7 @@ class DOCSCABLEDEVICEMIB(Entity):
 
 
 
+
     class DocsDevEvent(Entity):
         """
         
@@ -870,12 +955,16 @@ class DOCSCABLEDEVICEMIB(Entity):
         	Setting this object to resetLog(1) empties the event log.  All data is deleted.  Setting it to useDefaultReporting(2) returns all event priorities to their factory\-default reporting.  Reading this object always returns useDefaultReporting(2)
         	**type**\:  :py:class:`DocsDevEvControl <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevEvent.DocsDevEvControl>`
         
+        	**config**\: False
+        
         .. attribute:: docsdevevsyslog
         
         	The IP address of the Syslog server. If 0.0.0.0, either syslog transmission is inhibited, or the Syslog server address is not an IPv4 address.  This object is deprecated and is replaced by docsDevEvSyslogAddress
         	**type**\: str
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -884,10 +973,14 @@ class DOCSCABLEDEVICEMIB(Entity):
         	Controls the transmission of traps and syslog messages with respect to the trap pacing threshold.  unconstrained(1) causes traps and syslog messages to be transmitted without regard to the threshold settings.  maintainBelowThreshold(2) causes trap transmission and syslog messages to be suppressed if the number of traps would otherwise exceed the threshold.  stopAtThreshold(3) causes trap transmission to cease at the threshold and not to resume until directed to do so.  inhibited(4) causes all trap transmission and syslog messages to be suppressed.  A single event is always treated as a single event for threshold counting.  That is, an event causing both a trap and a syslog message is still treated as a single event.  Writing to this object resets the thresholding state
         	**type**\:  :py:class:`DocsDevEvThrottleAdminStatus <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevEvent.DocsDevEvThrottleAdminStatus>`
         
+        	**config**\: False
+        
         .. attribute:: docsdevevthrottleinhibited
         
         	If true(1), trap and syslog transmission is currently inhibited due to thresholds and/or the current setting of docsDevEvThrottleAdminStatus.  In addition, this is true(1) when transmission is inhibited because no syslog (docsDevEvSyslog) or trap (docsDevNmAccessEntry) destinations have been set.  This object is deprecated and is replaced by docsDevEvThrottleThresholdExceeded
         	**type**\: bool
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -898,6 +991,8 @@ class DOCSCABLEDEVICEMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: events
         
         .. attribute:: docsdevevthrottleinterval
@@ -907,12 +1002,16 @@ class DOCSCABLEDEVICEMIB(Entity):
         
         	**range:** 1..2147483647
         
+        	**config**\: False
+        
         	**units**\: seconds
         
         .. attribute:: docsdevevsyslogaddresstype
         
         	The type of address of docsDevEvSyslogAddress.  If no syslog server exists, this value should return unknown(0)
         	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+        
+        	**config**\: False
         
         .. attribute:: docsdevevsyslogaddress
         
@@ -921,10 +1020,14 @@ class DOCSCABLEDEVICEMIB(Entity):
         
         	**length:** 0..255
         
+        	**config**\: False
+        
         .. attribute:: docsdevevthrottlethresholdexceeded
         
         	If true(1), trap and syslog transmission is currently inhibited due to exceeding the trap/syslog event threshold in the current interval
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -1050,6 +1153,7 @@ class DOCSCABLEDEVICEMIB(Entity):
 
 
 
+
     class DocsDevFilter(Entity):
         """
         
@@ -1059,10 +1163,14 @@ class DOCSCABLEDEVICEMIB(Entity):
         	LLC (Link Level Control) filters can be defined on an inclusive or exclusive basis\: CMs can be configured to forward only packets matching a set of layer three protocols, or to drop packets matching a set of layer three protocols.  Typical use of these filters is to filter out possibly harmful (given the context of a large metropolitan LAN) protocols.  If set to discard(1), any L2 packet that does not match at least one filter in the docsDevFilterLLCTable will be discarded.  If set to accept(2), any L2 packet that does not match at least one filter in the docsDevFilterLLCTable will be accepted for further processing (e.g., bridging).  In other words, if the packet does not match an entry in the table, it takes this action; if it does match an entry in the table, it takes the opposite of this action
         	**type**\:  :py:class:`DocsDevFilterLLCUnmatchedAction <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevFilter.DocsDevFilterLLCUnmatchedAction>`
         
+        	**config**\: False
+        
         .. attribute:: docsdevfilteripdefault
         
         	The default behavior for (bridged) packets that do not match IP filters (or Internet filters, if implemented) is defined by docsDevFilterIpDefault.  If set to discard(1), all packets not matching an IP filter in docsDevFilterIpTable will be discarded.  If set to accept(2), all packets not matching an IP filter or an Internet filter will be accepted for further processing (e.g., bridging)
         	**type**\:  :py:class:`DocsDevFilterIpDefault <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevFilter.DocsDevFilterIpDefault>`
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -1174,6 +1282,7 @@ class DOCSCABLEDEVICEMIB(Entity):
 
 
 
+
     class DocsDevCpe(Entity):
         """
         
@@ -1183,12 +1292,16 @@ class DOCSCABLEDEVICEMIB(Entity):
         	This object controls the population of docsDevFilterCpeTable. If set to none, the filters must be set manually by a network management action (either configuration or SNMP set). If set to any, the CM wiretaps the packets originating from the ethernet and enrolls up to docsDevCpeIpMax addresses as based on the source IPv4 or v6 addresses of those packets
         	**type**\:  :py:class:`DocsDevCpeEnroll <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevCpe.DocsDevCpeEnroll>`
         
+        	**config**\: False
+        
         .. attribute:: docsdevcpeipmax
         
         	This object controls the maximum number of CPEs allowed to be learned behind this device. If set to zero, any number of CPEs may connect up to the maximum permitted for the device. If set to \-1, no filtering is done on CPE source addresses, and no entries are made in the docsDevFilterCpeTable via learning.  If an attempt is made to set this to a number greater than that permitted for the device, it is set to that maximum
         	**type**\: int
         
         	**range:** \-1..2147483647
+        
+        	**config**\: False
         
         
 
@@ -1253,6 +1366,7 @@ class DOCSCABLEDEVICEMIB(Entity):
 
 
 
+
     class DocsDevNmAccessTable(Entity):
         """
         This table controls access to SNMP objects by network
@@ -1278,6 +1392,8 @@ class DOCSCABLEDEVICEMIB(Entity):
         
         	An entry describing access to SNMP objects by a particular network management station. An entry in this table is not readable unless the management station has read\-write permission (either implicit if the table is empty, or explicit through an entry in this table). Entries are ordered by docsDevNmAccessIndex.  The first matching entry (e.g., matching IP address and community string) is used to derive access
         	**type**\: list of  		 :py:class:`DocsDevNmAccessEntry <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevNmAccessTable.DocsDevNmAccessEntry>`
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -1326,6 +1442,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevnmaccessip
@@ -1334,6 +1452,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -1344,6 +1464,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevnmaccesscommunity
@@ -1351,12 +1473,16 @@ class DOCSCABLEDEVICEMIB(Entity):
             	The community string to be matched for access by this entry.  If set to a zero\-length string, then any community string will match.  When read, this object SHOULD return a zero\-length string
             	**type**\: str
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevnmaccesscontrol
             
             	Specifies the type of access allowed to this NMS. Setting this object to none(1) causes the table entry to be destroyed.  Read(2) allows access by 'get' and 'get\-next' PDUs.  ReadWrite(3) allows access by 'set' as well.  RoWithtraps(4), rwWithTraps(5), and trapsOnly(6) control distribution of Trap PDUs transmitted by this device
             	**type**\:  :py:class:`DocsDevNmAccessControl <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevNmAccessTable.DocsDevNmAccessEntry.DocsDevNmAccessControl>`
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -1367,6 +1493,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**length:** 1..32
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevnmaccessstatus
@@ -1374,12 +1502,16 @@ class DOCSCABLEDEVICEMIB(Entity):
             	Controls and reflects the status of rows in this table. Rows in this table may be created by either the create\-and\-go or create\-and\-wait paradigm.   There is no restriction on changing values in a row of this table while the row is active.  The following objects MUST have valid values before this object can be set to active\: docsDevNmAccessIp, docsDevNmAccessStatus, docsDevNmAccessIpMask, docsDevNmAccessCommunity, docsDevNmAccessControl, and docsDevNmAccessInterfaces
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevnmaccesstrapversion
             
             	Specifies the TRAP version that is sent to this NMS. Setting this object to disableSNMPv2trap (1) causes the trap in SNMPv1 format to be sent to a particular NMS. Setting this object to enableSNMPv2trap (2) causes the trap in SNMPv2 format be sent to a particular NMS
             	**type**\:  :py:class:`DocsDevNmAccessTrapVersion <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevNmAccessTable.DocsDevNmAccessEntry.DocsDevNmAccessTrapVersion>`
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -1495,6 +1627,8 @@ class DOCSCABLEDEVICEMIB(Entity):
 
 
 
+
+
     class DocsDevEvControlTable(Entity):
         """
         This table allows control of the reporting of event
@@ -1511,6 +1645,8 @@ class DOCSCABLEDEVICEMIB(Entity):
         
         	Allows configuration of the reporting mechanisms for a particular event priority
         	**type**\: list of  		 :py:class:`DocsDevEvControlEntry <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevEvControlTable.DocsDevEvControlEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1549,10 +1685,14 @@ class DOCSCABLEDEVICEMIB(Entity):
             	The priority level that is controlled by this entry. These are ordered from most (emergency) to least (debug) critical.  Each event with a CM or CMTS has a particular priority level associated with it (as defined by the vendor).  emergency(1) events indicate vendor\-specific fatal hardware or software errors that prevent normal system operation.  alert(2) events indicate a serious failure that causes the reporting system to reboot but is not caused by hardware or software malfunctioning.  critical(3) events indicate a serious failure that requires attention and prevents the device from transmitting data but that could be recovered without rebooting the system.  error(4) and warning(5) events indicate that a failure occurred that could interrupt the normal data flow but that does not cause the device to re\-register.  notice(6) and information(7) events indicate a milestone or checkpoint in normal operation that could be of particular importance for troubleshooting.  debug(8) events are reserved for vendor\-specific events.  During normal operation, no event more critical than notice(6) should be generated.  Events between warning and emergency should be generated at appropriate levels of problems (e.g., emergency when the box is about to crash)
             	**type**\:  :py:class:`DocsDevEvPriority <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevEvControlTable.DocsDevEvControlEntry.DocsDevEvPriority>`
             
+            	**config**\: False
+            
             .. attribute:: docsdevevreporting
             
             	Defines the action to be taken on occurrence of this event class.  Implementations may not necessarily support all options for all event classes but at minimum must allow traps and syslogging to be disabled.  If the local(0) bit is set, then log to the internal log and update non\-volatile store, for backward compatibility with the original RFC 2669 definition. If the traps(1) bit is set, then generate an SNMP trap; if the syslog(2) bit is set, then send a syslog message (assuming that the syslog address is set).  If the localVolatile(8) bit is set, then log to the internal log without updating non\-volatile store.  If the stdInterface(9) bit is set, then the agent ignores all other bits except the local(0), syslog(2), and localVolatile(8) bits.  Setting the stdInterface(9) bit indicates that RFC3413 and RFC3014 are being used to control event reporting mechanisms
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1679,6 +1819,8 @@ class DOCSCABLEDEVICEMIB(Entity):
 
 
 
+
+
     class DocsDevEventTable(Entity):
         """
         Contains a log of network and device events that may be
@@ -1690,6 +1832,8 @@ class DOCSCABLEDEVICEMIB(Entity):
         
         	Describes a network or device event that may be of interest in fault isolation and troubleshooting. Multiple sequential identical events are represented by incrementing docsDevEvCounts and setting docsDevEvLastTime to the current time rather than creating multiple rows.  Entries are created with the first occurrence of an event.  docsDevEvControl can be used to clear the table.  Individual events cannot be deleted
         	**type**\: list of  		 :py:class:`DocsDevEventEntry <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevEventTable.DocsDevEventEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1738,15 +1882,21 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: docsdevevfirsttime
             
             	The value of docsDevDateTime at the time this entry was created
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: docsdevevlasttime
             
             	When an entry reports only one event, this object will have the same value as the corresponding instance of docsDevEvFirstTime.  When an entry reports multiple events, this object will record the value that docsDevDateTime had when the most recent event for this entry occurred
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: docsdevevcounts
             
@@ -1755,12 +1905,16 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: events
             
             .. attribute:: docsdevevlevel
             
             	The priority level of this event, as defined by the vendor.  These are ordered from most serious (emergency) to least serious (debug).  emergency(1) events indicate vendor\-specific fatal hardware or software errors that prevent normal system operation.  alert(2) events indicate a serious failure that causes the reporting system to reboot but that is not caused by hardware or software malfunctioning.  critical(3) events indicate a serious failure that requires attention and prevents the device from transmitting data but that could be recovered without rebooting the system.  error(4) and warning(5) events indicate that a failure occurred that could interrupt the normal data flow but that does not cause the device to re\-register.  notice(6) and information(7) events indicate a milestone or checkpoint in normal operation that could be of particular importance for troubleshooting.  debug(8) events are reserved for vendor\-specific events.  During normal operation, no event more critical than notice(6) should be generated.  Events between warning and emergency should be generated at appropriate levels of problems (e.g., emergency when the box is about to crash)
             	**type**\:  :py:class:`DocsDevEvLevel <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevEventTable.DocsDevEventEntry.DocsDevEvLevel>`
+            
+            	**config**\: False
             
             .. attribute:: docsdevevid
             
@@ -1769,10 +1923,14 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsdevevtext
             
             	Provides a human\-readable description of the event, including all relevant context (interface numbers, etc.)
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1905,6 +2063,8 @@ class DOCSCABLEDEVICEMIB(Entity):
 
 
 
+
+
     class DocsDevFilterLLCTable(Entity):
         """
         A list of filters to apply to (bridged) LLC
@@ -1920,6 +2080,8 @@ class DOCSCABLEDEVICEMIB(Entity):
         
         	Describes a single filter to apply to (bridged) LLC traffic received on a specified interface. 
         	**type**\: list of  		 :py:class:`DocsDevFilterLLCEntry <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevFilterLLCTable.DocsDevFilterLLCEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1960,10 +2122,14 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: docsdevfilterllcstatus
             
             	Controls and reflects the status of rows in this table. There is no restriction on changing any of the associated columns for this row while this object is set to active.  Specifying only this object (with the appropriate index) on a CM is sufficient to create a filter row that matches all inbound packets on the ethernet interface and results in the packets being discarded.  docsDevFilterLLCIfIndex (at least) must be specified on a CMTS to create a row
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             .. attribute:: docsdevfilterllcifindex
             
@@ -1972,10 +2138,14 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: docsdevfilterllcprotocoltype
             
             	The format of the value in docsDevFilterLLCProtocol\: either a two\-byte Ethernet Ethertype, or a one\-byte 802.2 Service Access Point (SAP) value.  ethertype(1) also applies to Standard Network Access Protocol (SNAP) encapsulated frames
             	**type**\:  :py:class:`DocsDevFilterLLCProtocolType <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevFilterLLCTable.DocsDevFilterLLCEntry.DocsDevFilterLLCProtocolType>`
+            
+            	**config**\: False
             
             .. attribute:: docsdevfilterllcprotocol
             
@@ -1984,12 +2154,16 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: docsdevfilterllcmatches
             
             	Counts the number of times this filter was matched
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: matches
             
@@ -2056,6 +2230,8 @@ class DOCSCABLEDEVICEMIB(Entity):
 
 
 
+
+
     class DocsDevFilterIpTable(Entity):
         """
         An ordered list of filters or classifiers to apply to
@@ -2118,6 +2294,8 @@ class DOCSCABLEDEVICEMIB(Entity):
         	Describes a filter to apply to IP traffic received on a specified interface.  All identity objects in this table (e.g., source and destination address/mask, protocol, source/dest port, TOS/mask, interface and direction) must match their respective fields in the packet for any given filter to match.  To create an entry in this table, docsDevFilterIpIfIndex must be specified
         	**type**\: list of  		 :py:class:`DocsDevFilterIpEntry <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevFilterIpTable.DocsDevFilterIpEntry>`
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         
@@ -2166,6 +2344,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevfilteripstatus
@@ -2173,12 +2353,16 @@ class DOCSCABLEDEVICEMIB(Entity):
             	Controls and reflects the status of rows in this table.  Specifying only this object (with the appropriate index) on a CM is sufficient to create a filter row that matches all inbound packets on the ethernet interface and results in the packets being discarded. docsDevFilterIpIfIndex (at least) must be specified on a CMTS to create a row.  Creation of the rows may be done via either create\-and\-wait or create\-and\-go, but the filter is not applied until this object is set to (or changes to) active. There is no restriction in changing any object in a row while this object is set to active
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevfilteripcontrol
             
             	If set to discard(1), all packets matching this filter will be discarded, and scanning of the remainder of the filter list will be aborted. If set to accept(2), all packets matching this filter will be accepted for further processing (e.g., bridging).  If docsDevFilterIpContinue is set to true, see if there are other matches; otherwise, done.  If set to policy (3), execute the policy entries matched by docsDevFilterIpPolicyId in docsDevFilterPolicyTable.  If docsDevFilterIpContinue is set to true, continue scanning the table for other matches; otherwise, done
             	**type**\:  :py:class:`DocsDevFilterIpControl <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevFilterIpTable.DocsDevFilterIpEntry.DocsDevFilterIpControl>`
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2189,6 +2373,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevfilteripdirection
@@ -2196,12 +2382,16 @@ class DOCSCABLEDEVICEMIB(Entity):
             	Determines whether the filter is applied to inbound(1) traffic, outbound(2) traffic, or traffic in both(3) directions
             	**type**\:  :py:class:`DocsDevFilterIpDirection <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevFilterIpTable.DocsDevFilterIpEntry.DocsDevFilterIpDirection>`
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevfilteripbroadcast
             
             	If set to true(1), the filter only applies to multicast and broadcast traffic. If set to false(2), the filter applies to all traffic
             	**type**\: bool
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2212,6 +2402,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevfilteripsmask
@@ -2220,6 +2412,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2230,6 +2424,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevfilteripdmask
@@ -2238,6 +2434,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2248,6 +2446,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**range:** 0..256
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevfilteripsourceportlow
@@ -2256,6 +2456,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2266,6 +2468,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevfilteripdestportlow
@@ -2274,6 +2478,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2284,6 +2490,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevfilteripmatches
@@ -2292,6 +2500,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: matches
             
@@ -2304,6 +2514,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**length:** 1
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevfilteriptosmask
@@ -2313,12 +2525,16 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**length:** 1
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevfilteripcontinue
             
             	If this value is set to true and docsDevFilterIpControl is anything but discard (1), continue scanning and applying policies.  See Section 3.3.3 for more details
             	**type**\: bool
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2328,6 +2544,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2465,6 +2683,8 @@ class DOCSCABLEDEVICEMIB(Entity):
 
 
 
+
+
     class DocsDevFilterPolicyTable(Entity):
         """
         A Table that maps between a policy group ID and a set
@@ -2503,6 +2723,8 @@ class DOCSCABLEDEVICEMIB(Entity):
         
         	An entry in the docsDevFilterPolicyTable. Entries are created by Network Management. To create an entry, docsDevFilterPolicyId MUST be specified
         	**type**\: list of  		 :py:class:`DocsDevFilterPolicyEntry <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevFilterPolicyTable.DocsDevFilterPolicyEntry>`
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -2546,6 +2768,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevfilterpolicyid
@@ -2555,12 +2779,16 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevfilterpolicystatus
             
             	Object used to create an entry in this table.  There is no restriction in changing any object in a row while this object is set to active. The following object MUST have a valid value before this object can be set to active\:  docsDevFilterPolicyPtr
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2570,6 +2798,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2607,6 +2837,8 @@ class DOCSCABLEDEVICEMIB(Entity):
                 self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevFilterPolicyTable.DocsDevFilterPolicyEntry, [u'docsdevfilterpolicyindex', u'docsdevfilterpolicyid', u'docsdevfilterpolicystatus', u'docsdevfilterpolicyptr'], name, value)
 
 
+
+
     class DocsDevFilterTosTable(Entity):
         """
         Table used to describe Type of Service (TOS) bits
@@ -2637,6 +2869,8 @@ class DOCSCABLEDEVICEMIB(Entity):
         
         	A TOS policy entry
         	**type**\: list of  		 :py:class:`DocsDevFilterTosEntry <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevFilterTosTable.DocsDevFilterTosEntry>`
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -2678,12 +2912,16 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevfiltertosstatus
             
             	The object used to create and delete entries in this table. A row created by specifying just this object results in a row that specifies no change to the TOS bits.  A row may be created using either the create\-and\-go or create\-and\-wait paradigms.  There is no restriction on the ability to change values in this row while the row is active
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2694,6 +2932,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**length:** 1
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevfiltertosormask
@@ -2702,6 +2942,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             	**type**\: str
             
             	**length:** 1
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2739,6 +2981,8 @@ class DOCSCABLEDEVICEMIB(Entity):
                 self._perform_setattr(DOCSCABLEDEVICEMIB.DocsDevFilterTosTable.DocsDevFilterTosEntry, [u'docsdevfiltertosindex', u'docsdevfiltertosstatus', u'docsdevfiltertosandmask', u'docsdevfiltertosormask'], name, value)
 
 
+
+
     class DocsDevCpeTable(Entity):
         """
         This table lists the IPv4 addresses seen (or permitted)
@@ -2762,6 +3006,8 @@ class DOCSCABLEDEVICEMIB(Entity):
         
         	An entry in the docsDevFilterCpeTable.  There is one entry for each IPv4 CPE seen or provisioned.  If docsDevCpeIpMax is set to \-1, this table is ignored; otherwise, upon receipt of an IP packet from the customer interface of the CM, the source IP address is checked against this table.  If the address is in the table, packet processing continues.  If the address is not in the table but docsDevCpeEnroll is set to any and the sum of the table sizes of docsDevCpeTable and docsDevCpeInetTable is less than docsDevCpeIpMax, the address is added to the table, and packet processing continues.  Otherwise, the packet is dropped.  The filtering actions specified by this table occur after any LLC filtering (docsDevFilterLLCTable), but prior to any IP filtering (docsDevFilterIpTable, docsDevNmAccessTable)
         	**type**\: list of  		 :py:class:`DocsDevCpeEntry <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevCpeTable.DocsDevCpeEntry>`
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -2819,6 +3065,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevcpesource
@@ -2826,12 +3074,16 @@ class DOCSCABLEDEVICEMIB(Entity):
             	This object describes how this entry was created.  If the value is manual(2), this row was created by a network management action (either configuration or SNMP set).  If set to learned(3), then it was found via looking at the source IPv4 address of a received packet. The value other(1) is used for any entries that do not meet manual(2) or learned(3) criteria
             	**type**\:  :py:class:`DocsDevCpeSource <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevCpeTable.DocsDevCpeEntry.DocsDevCpeSource>`
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsdevcpestatus
             
             	Standard object to manipulate rows.  To create a row in this table, one only needs to specify this object. Management stations SHOULD use the create\-and\-go mechanism for creating rows in this table
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2900,6 +3152,8 @@ class DOCSCABLEDEVICEMIB(Entity):
 
 
 
+
+
     class DocsDevCpeInetTable(Entity):
         """
         This table lists the IP addresses seen (or permitted) as
@@ -2925,6 +3179,8 @@ class DOCSCABLEDEVICEMIB(Entity):
         
         	An entry in the docsDevFilterCpeInetTable. There is one entry for each IP CPE seen or provisioned. If docsDevCpeIpMax is set to \-1, this table is ignored; otherwise, upon receipt of an IP packet from the customer interface of the CM, the source IP address is checked against this table.  If the address is in the table, packet processing continues.  If the address is not in the table but docsDevCpeEnroll is set to any and the sum of the table sizes for docsDevCpeTable and docsDevCpeInetTable is less than docsDevCpeIpMax, the address is added to the table, and packet processing continues.  Otherwise, the packet is dropped.  The filtering actions specified by this table occur after any LLC filtering (docsDevFilterLLCTable), but prior to any IP filtering (docsDevFilterIpTable, docsDevNmAccessTable).  When an agent (cable modem) restarts, then all dynamically created rows are lost
         	**type**\: list of  		 :py:class:`DocsDevCpeInetEntry <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevCpeInetTable.DocsDevCpeInetEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2981,6 +3237,8 @@ class DOCSCABLEDEVICEMIB(Entity):
             	The type of internet address of docsDevCpeInetAddr
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
+            	**config**\: False
+            
             .. attribute:: docsdevcpeinetaddr  (key)
             
             	The Internet address to which this entry applies.  Implementors need to be aware that if the size of docsDevCpeInetAddr exceeds 114 octets OIDs of instances of columns in this row will have more than 128 sub\-identifiers and cannot be accessed using SNMPv1, SNMPv2c, or SNMPv3.  Only unicast address are allowed for this object
@@ -2988,15 +3246,21 @@ class DOCSCABLEDEVICEMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: docsdevcpeinetsource
             
             	This object describes how this entry was created.  If the value is manual(2), this row was created by a network management action (either configuration or SNMP set).  If set to learned(3), then it was found via looking at the source IP address of a received packet
             	**type**\:  :py:class:`DocsDevCpeInetSource <ydk.models.cisco_ios_xe.DOCS_CABLE_DEVICE_MIB.DOCSCABLEDEVICEMIB.DocsDevCpeInetTable.DocsDevCpeInetEntry.DocsDevCpeInetSource>`
             
+            	**config**\: False
+            
             .. attribute:: docsdevcpeinetrowstatus
             
             	Standard object to manipulate rows.  To create a row in this table, one only needs to specify this object. Management stations SHOULD use the create\-and\-go mechanism for creating rows in this table
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -3058,7 +3322,11 @@ class DOCSCABLEDEVICEMIB(Entity):
                 learned = Enum.YLeaf(3, "learned")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = DOCSCABLEDEVICEMIB()
         return self._top_entity
+
+
 

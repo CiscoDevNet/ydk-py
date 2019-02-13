@@ -31,6 +31,7 @@ class EthIfSpeed(Identity):
         super(EthIfSpeed, self).__init__(ns, pref, tag)
 
 
+
 class EthIfSpeed1gb(EthIfSpeed):
     """
     
@@ -44,6 +45,7 @@ class EthIfSpeed1gb(EthIfSpeed):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-ethernet", pref="cisco-ethernet", tag="cisco-ethernet:eth-if-speed-1gb"):
         super(EthIfSpeed1gb, self).__init__(ns, pref, tag)
+
 
 
 class EthIfSpeed40gb(EthIfSpeed):
@@ -61,6 +63,7 @@ class EthIfSpeed40gb(EthIfSpeed):
         super(EthIfSpeed40gb, self).__init__(ns, pref, tag)
 
 
+
 class EthIfSpeed10mb(EthIfSpeed):
     """
     
@@ -74,6 +77,7 @@ class EthIfSpeed10mb(EthIfSpeed):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-ethernet", pref="cisco-ethernet", tag="cisco-ethernet:eth-if-speed-10mb"):
         super(EthIfSpeed10mb, self).__init__(ns, pref, tag)
+
 
 
 class EthIfSpeed10gb(EthIfSpeed):
@@ -91,6 +95,7 @@ class EthIfSpeed10gb(EthIfSpeed):
         super(EthIfSpeed10gb, self).__init__(ns, pref, tag)
 
 
+
 class EthIfSpeed100gb(EthIfSpeed):
     """
     
@@ -106,6 +111,7 @@ class EthIfSpeed100gb(EthIfSpeed):
         super(EthIfSpeed100gb, self).__init__(ns, pref, tag)
 
 
+
 class EthIfSpeed100mb(EthIfSpeed):
     """
     
@@ -119,5 +125,6 @@ class EthIfSpeed100mb(EthIfSpeed):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-ethernet", pref="cisco-ethernet", tag="cisco-ethernet:eth-if-speed-100mb"):
         super(EthIfSpeed100mb, self).__init__(ns, pref, tag)
+
 
 

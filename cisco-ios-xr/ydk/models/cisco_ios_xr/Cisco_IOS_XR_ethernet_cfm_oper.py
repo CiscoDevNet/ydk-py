@@ -2139,10 +2139,14 @@ class Cfm(Entity):
     	Node table for node\-specific operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes>`
     
+    	**config**\: False
+    
     .. attribute:: global_
     
     	Global operational data
     	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global>`
+    
+    	**config**\: False
     
     
 
@@ -2186,6 +2190,8 @@ class Cfm(Entity):
         	Node\-specific data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node>`
         
+        	**config**\: False
+        
         
 
         """
@@ -2224,25 +2230,35 @@ class Cfm(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: interface_aises
             
             	Interface AIS table
             	**type**\:  :py:class:`InterfaceAises <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises>`
+            
+            	**config**\: False
             
             .. attribute:: interface_statistics
             
             	Interface Statistics table
             	**type**\:  :py:class:`InterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceStatistics>`
             
+            	**config**\: False
+            
             .. attribute:: summary
             
             	Summary
             	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.Summary>`
             
+            	**config**\: False
+            
             .. attribute:: ccm_learning_databases
             
             	CCMLearningDatabase table
             	**type**\:  :py:class:`CcmLearningDatabases <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.CcmLearningDatabases>`
+            
+            	**config**\: False
             
             
 
@@ -2297,6 +2313,8 @@ class Cfm(Entity):
                 	AIS statistics for a particular interface
                 	**type**\: list of  		 :py:class:`InterfaceAis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -2334,15 +2352,21 @@ class Cfm(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: direction  (key)
                     
                     	AIS Direction
                     	**type**\:  :py:class:`CfmAisDir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmAisDir>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: statistics
                     
                     	AIS statistics
                     	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface
                     
@@ -2351,20 +2375,28 @@ class Cfm(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_state
                     
                     	IM Interface state
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: interworking_state
                     
                     	Interface interworking state
                     	**type**\:  :py:class:`CfmBagIwState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIwState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: stp_state
                     
                     	STP state
                     	**type**\:  :py:class:`CfmBagStpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagStpState>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2404,7 +2436,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis, ['interface_name', 'direction', 'interface', 'interface_state', 'interworking_state', 'stp_state'], name, value)
+                        self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis, ['interface_name', 'direction', u'interface', u'interface_state', u'interworking_state', u'stp_state'], name, value)
 
 
                     class Statistics(Entity):
@@ -2416,30 +2448,42 @@ class Cfm(Entity):
                         	Defects detected
                         	**type**\:  :py:class:`Defects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_started
                         
                         	Time elapsed since sending last started
                         	**type**\:  :py:class:`LastStarted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: direction
                         
                         	Direction of AIS packets
                         	**type**\:  :py:class:`CfmBagDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirection>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: lowest_level
                         
                         	Level of the lowest MEP transmitting AIS
                         	**type**\:  :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: transmission_level
                         
                         	Level that AIS packets are transmitted on
                         	**type**\:  :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: transmission_interval
                         
                         	Interval at which AIS packets are transmitted
                         	**type**\:  :py:class:`CfmBagAisInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisInterval>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: sent_packets
                         
@@ -2448,10 +2492,14 @@ class Cfm(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: via_level
                         
                         	Levels of other MEPs receiving AIS
                         	**type**\: list of   :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2495,7 +2543,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics, ['direction', 'lowest_level', 'transmission_level', 'transmission_interval', 'sent_packets', 'via_level'], name, value)
+                            self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics, [u'direction', u'lowest_level', u'transmission_level', u'transmission_interval', u'sent_packets', u'via_level'], name, value)
 
 
                         class Defects(Entity):
@@ -2507,10 +2555,14 @@ class Cfm(Entity):
                             	Defects detected from remote MEPs
                             	**type**\:  :py:class:`RemoteMepsDefects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ais_received
                             
                             	AIS or LCK received
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: peer_meps_that_timed_out
                             
@@ -2519,12 +2571,16 @@ class Cfm(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: missing
                             
                             	Number of missing peer MEPs
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: auto_missing
                             
@@ -2533,6 +2589,8 @@ class Cfm(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: unexpected
                             
                             	Number of unexpected peer MEPs
@@ -2540,15 +2598,21 @@ class Cfm(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: local_port_status
                             
                             	The local port or interface is down
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: peer_port_status
                             
                             	A peer port or interface is down
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -2590,7 +2654,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects, ['ais_received', 'peer_meps_that_timed_out', 'missing', 'auto_missing', 'unexpected', 'local_port_status', 'peer_port_status'], name, value)
+                                self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects, [u'ais_received', u'peer_meps_that_timed_out', u'missing', u'auto_missing', u'unexpected', u'local_port_status', u'peer_port_status'], name, value)
 
 
                             class RemoteMepsDefects(Entity):
@@ -2602,35 +2666,49 @@ class Cfm(Entity):
                                 	Timed out (loss threshold exceeded)
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: invalid_level
                                 
                                 	Invalid level
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: invalid_maid
                                 
                                 	Invalid MAID
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: invalid_ccm_interval
                                 
                                 	Invalid CCM interval
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: received_our_mac
                                 
                                 	Loop detected (our MAC address received)
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: received_our_mep_id
                                 
                                 	Configuration Error (our MEP ID received)
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: received_rdi
                                 
                                 	Remote defection indication received
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2668,7 +2746,9 @@ class Cfm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects, ['loss_threshold_exceeded', 'invalid_level', 'invalid_maid', 'invalid_ccm_interval', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
+                                    self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects, [u'loss_threshold_exceeded', u'invalid_level', u'invalid_maid', u'invalid_ccm_interval', u'received_our_mac', u'received_our_mep_id', u'received_rdi'], name, value)
+
+
 
 
                         class LastStarted(Entity):
@@ -2682,6 +2762,8 @@ class Cfm(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             	**units**\: second
                             
                             .. attribute:: nanoseconds
@@ -2690,6 +2772,8 @@ class Cfm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: nanosecond
                             
@@ -2719,7 +2803,11 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted, ['seconds', 'nanoseconds'], name, value)
+                                self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted, [u'seconds', u'nanoseconds'], name, value)
+
+
+
+
 
 
             class InterfaceStatistics(Entity):
@@ -2730,6 +2818,8 @@ class Cfm(Entity):
                 
                 	Counters for a particular interface
                 	**type**\: list of  		 :py:class:`InterfaceStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic>`
+                
+                	**config**\: False
                 
                 
 
@@ -2768,10 +2858,14 @@ class Cfm(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: statistics
                     
                     	EFP statistics
                     	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_xr
                     
@@ -2779,6 +2873,8 @@ class Cfm(Entity):
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                    
+                    	**config**\: False
                     
                     
 
@@ -2810,7 +2906,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic, ['interface', 'interface_xr'], name, value)
+                        self._perform_setattr(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic, ['interface', u'interface_xr'], name, value)
 
 
                     class Statistics(Entity):
@@ -2824,6 +2920,8 @@ class Cfm(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: dropped_packets
                         
                         	Number of packets dropped at this EFP
@@ -2831,15 +2929,21 @@ class Cfm(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_malformed_opcode
                         
                         	Opcode for last malformed packet
                         	**type**\:  :py:class:`CfmBagOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagOpcode>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_malformed_reason
                         
                         	Reason last malformed packet was malformed
                         	**type**\:  :py:class:`CfmPmPktAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPktAction>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2871,7 +2975,10 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics, ['malformed_packets', 'dropped_packets', 'last_malformed_opcode', 'last_malformed_reason'], name, value)
+                            self._perform_setattr(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics, [u'malformed_packets', u'dropped_packets', u'last_malformed_opcode', u'last_malformed_reason'], name, value)
+
+
+
 
 
             class Summary(Entity):
@@ -2885,12 +2992,16 @@ class Cfm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: services
                 
                 	The number of services in the CFM database
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: ccm_rate
                 
@@ -2899,12 +3010,16 @@ class Cfm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: local_meps
                 
                 	The number of local MEPs in the CFM database
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: operational_local_meps
                 
@@ -2913,12 +3028,16 @@ class Cfm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: down_meps
                 
                 	The number of down\-MEPs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: up_meps
                 
@@ -2927,12 +3046,16 @@ class Cfm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: offloaded
                 
                 	The number of MEPs for which CCM processing has been offloaded
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: offloaded_at3_3ms
                 
@@ -2941,12 +3064,16 @@ class Cfm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: offloaded_at10ms
                 
                 	The number of MEPs offloaded with CCMs at 10ms intervals
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: disabled_misconfigured
                 
@@ -2955,12 +3082,16 @@ class Cfm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: disabled_out_of_resources
                 
                 	The number of local MEPs disabled due to lack of resources
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: disabled_operational_error
                 
@@ -2969,12 +3100,16 @@ class Cfm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: peer_meps
                 
                 	The number of peer MEPs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: operational_peer_meps
                 
@@ -2983,12 +3118,16 @@ class Cfm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: peer_meps_with_defects
                 
                 	The number of peer MEPs with defects
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: peer_meps_without_defects
                 
@@ -2997,12 +3136,16 @@ class Cfm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: peer_meps_timed_out
                 
                 	The number of peer MEPs that have timed out
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: mips
                 
@@ -3011,12 +3154,16 @@ class Cfm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: interfaces
                 
                 	The number of interfaces running CFM
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: bridge_domains_and_xconnects
                 
@@ -3025,12 +3172,16 @@ class Cfm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: traceroute_cache_entries
                 
                 	Number of traceroute cache entries
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: traceroute_cache_replies
                 
@@ -3039,6 +3190,8 @@ class Cfm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ccm_learning_db_entries
                 
                 	Number of entries in the CCM learning database
@@ -3046,10 +3199,14 @@ class Cfm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: issu_role
                 
                 	ISSU Role of CFM\-D, if any
                 	**type**\:  :py:class:`CfmBagIssuRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIssuRole>`
+                
+                	**config**\: False
                 
                 .. attribute:: bnm_enabled_links
                 
@@ -3057,6 +3214,8 @@ class Cfm(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -3135,6 +3294,7 @@ class Cfm(Entity):
                     self._perform_setattr(Cfm.Nodes.Node.Summary, [u'domains', u'services', u'ccm_rate', u'local_meps', u'operational_local_meps', u'down_meps', u'up_meps', u'offloaded', u'offloaded_at3_3ms', u'offloaded_at10ms', u'disabled_misconfigured', u'disabled_out_of_resources', u'disabled_operational_error', u'peer_meps', u'operational_peer_meps', u'peer_meps_with_defects', u'peer_meps_without_defects', u'peer_meps_timed_out', u'mips', u'interfaces', u'bridge_domains_and_xconnects', u'traceroute_cache_entries', u'traceroute_cache_replies', u'ccm_learning_db_entries', u'issu_role', u'bnm_enabled_links'], name, value)
 
 
+
             class CcmLearningDatabases(Entity):
                 """
                 CCMLearningDatabase table
@@ -3143,6 +3303,8 @@ class Cfm(Entity):
                 
                 	CCM Learning Database entry
                 	**type**\: list of  		 :py:class:`CcmLearningDatabase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase>`
+                
+                	**config**\: False
                 
                 
 
@@ -3181,12 +3343,16 @@ class Cfm(Entity):
                     
                     	**length:** 1..79
                     
+                    	**config**\: False
+                    
                     .. attribute:: service  (key)
                     
                     	Service (Maintenance Association)
                     	**type**\: str
                     
                     	**length:** 1..79
+                    
+                    	**config**\: False
                     
                     .. attribute:: mac_address  (key)
                     
@@ -3195,20 +3361,28 @@ class Cfm(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_xr
                     
                     	Maintenance domain name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: level
                     
                     	Maintenance level
                     	**type**\:  :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: service_xr
                     
                     	Maintenance association name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: source_mac_address
                     
@@ -3217,6 +3391,8 @@ class Cfm(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: ingress_interface
                     
                     	The XID of the ingress interface for the CCM
@@ -3224,15 +3400,21 @@ class Cfm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: stale
                     
                     	The XID is stale and may have been reused for a different interface
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: ingress_interface_string
                     
                     	String representation of the Bridge Domain or Cross\-Connect associated with the ingress XID
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -3276,7 +3458,11 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase, ['domain', 'service', 'mac_address', 'domain_xr', 'level', 'service_xr', 'source_mac_address', 'ingress_interface', 'stale', 'ingress_interface_string'], name, value)
+                        self._perform_setattr(Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase, ['domain', 'service', 'mac_address', u'domain_xr', u'level', u'service_xr', u'source_mac_address', u'ingress_interface', u'stale', u'ingress_interface_string'], name, value)
+
+
+
+
 
 
     class Global(Entity):
@@ -3288,35 +3474,49 @@ class Cfm(Entity):
         	Incomplete Traceroute table
         	**type**\:  :py:class:`IncompleteTraceroutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.IncompleteTraceroutes>`
         
+        	**config**\: False
+        
         .. attribute:: maintenance_points
         
         	Maintenance Points table
         	**type**\:  :py:class:`MaintenancePoints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MaintenancePoints>`
+        
+        	**config**\: False
         
         .. attribute:: global_configuration_errors
         
         	Global configuration errors table
         	**type**\:  :py:class:`GlobalConfigurationErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.GlobalConfigurationErrors>`
         
+        	**config**\: False
+        
         .. attribute:: mep_configuration_errors
         
         	MEP configuration errors table
         	**type**\:  :py:class:`MepConfigurationErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors>`
+        
+        	**config**\: False
         
         .. attribute:: traceroute_caches
         
         	Traceroute Cache table
         	**type**\:  :py:class:`TracerouteCaches <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches>`
         
+        	**config**\: False
+        
         .. attribute:: local_meps
         
         	Local MEPs table
         	**type**\:  :py:class:`LocalMeps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps>`
         
+        	**config**\: False
+        
         .. attribute:: peer_me_pv2s
         
         	Peer MEPs table Version 2
         	**type**\:  :py:class:`PeerMePv2s <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s>`
+        
+        	**config**\: False
         
         
 
@@ -3380,6 +3580,8 @@ class Cfm(Entity):
             	Information about a traceroute operation that has not yet timed out
             	**type**\: list of  		 :py:class:`IncompleteTraceroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute>`
             
+            	**config**\: False
+            
             
 
             """
@@ -3419,12 +3621,16 @@ class Cfm(Entity):
                 
                 	**length:** 1..79
                 
+                	**config**\: False
+                
                 .. attribute:: service  (key)
                 
                 	Service (Maintenance Association)
                 	**type**\: str
                 
                 	**length:** 1..79
+                
+                	**config**\: False
                 
                 .. attribute:: mep_id  (key)
                 
@@ -3433,12 +3639,16 @@ class Cfm(Entity):
                 
                 	**range:** 1..8191
                 
+                	**config**\: False
+                
                 .. attribute:: interface  (key)
                 
                 	Interface
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                	**config**\: False
                 
                 .. attribute:: transaction_id  (key)
                 
@@ -3447,10 +3657,14 @@ class Cfm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: traceroute_information
                 
                 	Information about the traceroute operation
                 	**type**\:  :py:class:`TracerouteInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation>`
+                
+                	**config**\: False
                 
                 .. attribute:: time_left
                 
@@ -3458,6 +3672,8 @@ class Cfm(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -3500,7 +3716,7 @@ class Cfm(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute, ['domain', 'service', 'mep_id', 'interface', 'transaction_id', 'time_left'], name, value)
+                    self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute, ['domain', 'service', 'mep_id', 'interface', 'transaction_id', u'time_left'], name, value)
 
 
                 class TracerouteInformation(Entity):
@@ -3512,20 +3728,28 @@ class Cfm(Entity):
                     	Options affecting traceroute behavior
                     	**type**\:  :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain
                     
                     	Maintenance domain name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: service
                     
                     	Service name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: level
                     
                     	Maintenance level
                     	**type**\:  :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: source_mep_id
                     
@@ -3534,12 +3758,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: source_interface
                     
                     	Source interface
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                    
+                    	**config**\: False
                     
                     .. attribute:: source_mac_address
                     
@@ -3548,12 +3776,16 @@ class Cfm(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: target_mac_address
                     
                     	Target MAC address
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    
+                    	**config**\: False
                     
                     .. attribute:: directed_mac_address
                     
@@ -3562,6 +3794,8 @@ class Cfm(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: target_mep_id
                     
                     	Target MEP ID
@@ -3569,12 +3803,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: timestamp
                     
                     	Timestamp of initiation time (seconds)
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -3585,12 +3823,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: transaction_id
                     
                     	Transaction ID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -3642,7 +3884,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation, ['domain', 'service', 'level', 'source_mep_id', 'source_interface', 'source_mac_address', 'target_mac_address', 'directed_mac_address', 'target_mep_id', 'timestamp', 'ttl', 'transaction_id'], name, value)
+                        self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation, [u'domain', u'service', u'level', u'source_mep_id', u'source_interface', u'source_mac_address', u'target_mac_address', u'directed_mac_address', u'target_mep_id', u'timestamp', u'ttl', u'transaction_id'], name, value)
 
 
                     class Options(Entity):
@@ -3654,15 +3896,21 @@ class Cfm(Entity):
                         	Options for a basic IEEE 802.1ag Linktrace
                         	**type**\:  :py:class:`BasicOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: exploratory_options
                         
                         	Options for an Exploratory Linktrace
                         	**type**\:  :py:class:`ExploratoryOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: mode
                         
                         	Mode
                         	**type**\:  :py:class:`CfmPmLtMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLtMode>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3696,7 +3944,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options, ['mode'], name, value)
+                            self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options, [u'mode'], name, value)
 
 
                         class BasicOptions(Entity):
@@ -3708,10 +3956,14 @@ class Cfm(Entity):
                             	Traceroute was initiated automatically
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: fdb_only
                             
                             	Only use the Filtering Database for forwarding lookups
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -3739,7 +3991,8 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions, ['is_auto', 'fdb_only'], name, value)
+                                self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions, [u'is_auto', u'fdb_only'], name, value)
+
 
 
                         class ExploratoryOptions(Entity):
@@ -3751,6 +4004,8 @@ class Cfm(Entity):
                             	Delay model for delay calculations
                             	**type**\:  :py:class:`CfmPmEltDelayModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModel>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: delay_constant_factor
                             
                             	Constant Factor for delay calculations
@@ -3758,10 +4013,14 @@ class Cfm(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: reply_filter
                             
                             	Reply Filtering mode used by responders
                             	**type**\:  :py:class:`CfmPmElmReplyFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElmReplyFilter>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -3791,7 +4050,12 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions, ['delay_model', 'delay_constant_factor', 'reply_filter'], name, value)
+                                self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions, [u'delay_model', u'delay_constant_factor', u'reply_filter'], name, value)
+
+
+
+
+
 
 
         class MaintenancePoints(Entity):
@@ -3802,6 +4066,8 @@ class Cfm(Entity):
             
             	Information about a particular Maintenance Point
             	**type**\: list of  		 :py:class:`MaintenancePoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MaintenancePoints.MaintenancePoint>`
+            
+            	**config**\: False
             
             
 
@@ -3842,12 +4108,16 @@ class Cfm(Entity):
                 
                 	**length:** 1..79
                 
+                	**config**\: False
+                
                 .. attribute:: service  (key)
                 
                 	Service (Maintenance Association)
                 	**type**\: str
                 
                 	**length:** 1..79
+                
+                	**config**\: False
                 
                 .. attribute:: interface  (key)
                 
@@ -3856,15 +4126,21 @@ class Cfm(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: maintenance_point
                 
                 	Maintenance Point
                 	**type**\:  :py:class:`MaintenancePoint_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint_>`
                 
+                	**config**\: False
+                
                 .. attribute:: mep_has_error
                 
                 	MEP error flag
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: mac_address
                 
@@ -3872,6 +4148,8 @@ class Cfm(Entity):
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                	**config**\: False
                 
                 
 
@@ -3922,15 +4200,21 @@ class Cfm(Entity):
                     	Domain name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: level
                     
                     	Domain level
                     	**type**\:  :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: service_name
                     
                     	Service name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface
                     
@@ -3939,10 +4223,14 @@ class Cfm(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: maintenance_point_type
                     
                     	Type of Maintenance Point
                     	**type**\:  :py:class:`CfmMaMpVariety <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmMaMpVariety>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: mep_id
                     
@@ -3950,6 +4238,8 @@ class Cfm(Entity):
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -3988,6 +4278,9 @@ class Cfm(Entity):
                         self._perform_setattr(Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint_, [u'domain_name', u'level', u'service_name', u'interface', u'maintenance_point_type', u'mep_id'], name, value)
 
 
+
+
+
         class GlobalConfigurationErrors(Entity):
             """
             Global configuration errors table
@@ -3996,6 +4289,8 @@ class Cfm(Entity):
             
             	Information about a particular configuration error
             	**type**\: list of  		 :py:class:`GlobalConfigurationError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError>`
+            
+            	**config**\: False
             
             
 
@@ -4036,6 +4331,8 @@ class Cfm(Entity):
                 
                 	**length:** 1..79
                 
+                	**config**\: False
+                
                 .. attribute:: service  (key)
                 
                 	Service (Maintenance Association)
@@ -4043,35 +4340,49 @@ class Cfm(Entity):
                 
                 	**length:** 1..79
                 
+                	**config**\: False
+                
                 .. attribute:: bridge_domain_id
                 
                 	BD/XC ID, or Service name if the Service is 'down\-only'
                 	**type**\:  :py:class:`BridgeDomainId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId>`
+                
+                	**config**\: False
                 
                 .. attribute:: domain_name
                 
                 	Domain name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: level
                 
                 	Level
                 	**type**\:  :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                
+                	**config**\: False
                 
                 .. attribute:: service_name
                 
                 	Service name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: bridge_domain_is_configured
                 
                 	The BD/XC is configured globally
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: l2_fib_download_error
                 
                 	The BD/XC could not be downloaded to L2FIB
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -4114,7 +4425,7 @@ class Cfm(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError, ['domain', 'service', 'domain_name', 'level', 'service_name', 'bridge_domain_is_configured', 'l2_fib_download_error'], name, value)
+                    self._perform_setattr(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError, ['domain', 'service', u'domain_name', u'level', u'service_name', u'bridge_domain_is_configured', u'l2_fib_download_error'], name, value)
 
 
                 class BridgeDomainId(Entity):
@@ -4127,15 +4438,21 @@ class Cfm(Entity):
                     	Bridge domain identifier format
                     	**type**\:  :py:class:`CfmBagBdidFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmt>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: group
                     
                     	Name of the Bridge/XConnect Group
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	Name of the Bridge Domain/XConnect
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: ce_id
                     
@@ -4144,6 +4461,8 @@ class Cfm(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_ce_id
                     
                     	Remote Customer Edge Identifier (CE\-ID)
@@ -4151,12 +4470,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: evi
                     
                     	EVPN ID for VLAN\-aware flexible cross\-connects
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -4195,6 +4518,9 @@ class Cfm(Entity):
                         self._perform_setattr(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId, [u'bridge_domain_id_format', u'group', u'name', u'ce_id', u'remote_ce_id', u'evi'], name, value)
 
 
+
+
+
         class MepConfigurationErrors(Entity):
             """
             MEP configuration errors table
@@ -4203,6 +4529,8 @@ class Cfm(Entity):
             
             	Information about a particular configuration error
             	**type**\: list of  		 :py:class:`MepConfigurationError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError>`
+            
+            	**config**\: False
             
             
 
@@ -4243,12 +4571,16 @@ class Cfm(Entity):
                 
                 	**length:** 1..79
                 
+                	**config**\: False
+                
                 .. attribute:: service  (key)
                 
                 	Service (Maintenance Association)
                 	**type**\: str
                 
                 	**length:** 1..79
+                
+                	**config**\: False
                 
                 .. attribute:: interface  (key)
                 
@@ -4257,160 +4589,224 @@ class Cfm(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: mep
                 
                 	The MEP that has errors
                 	**type**\:  :py:class:`Mep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep>`
+                
+                	**config**\: False
                 
                 .. attribute:: service_bridge_domain
                 
                 	BD/XC ID for the MEP's Service, or Service name if the Service is 'down\-only'
                 	**type**\:  :py:class:`ServiceBridgeDomain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_bridge_domain
                 
                 	ID of the BD/XC that the MEP's EFP is in, if any
                 	**type**\:  :py:class:`InterfaceBridgeDomain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain>`
+                
+                	**config**\: False
                 
                 .. attribute:: satellite_capabilities
                 
                 	Satellite Capabilities
                 	**type**\:  :py:class:`SatelliteCapabilities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities>`
                 
+                	**config**\: False
+                
                 .. attribute:: ccm_interval
                 
                 	Interval between CCMs sent on this MEP
                 	**type**\:  :py:class:`CfmBagCcmInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmInterval>`
+                
+                	**config**\: False
                 
                 .. attribute:: no_domain
                 
                 	The MEP's Domain is not configured
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: no_service
                 
                 	The MEP's Service is not configured
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: bridge_domain_mismatch
                 
                 	The MEP's EFP is not in the Service's Bridge Domain
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: level_conflict
                 
                 	Another MEP facing in the same direction is at the same Maintenance Level
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ccm_interval_not_supported
                 
                 	CCM Interval is less than minimum interval supported by hardware
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: offload_out_of_resources
                 
                 	Offload resource limits have been exceeded
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: offload_multiple_local_mep
                 
                 	Multiple offloaded MEPs on the same interface are not supported
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: offload_no_cross_check
                 
                 	The MEP should be offloaded but crosscheck has not been configured
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: offload_multiple_peer_meps
                 
                 	The MEP should be offloaded but multiple crosscheck MEPs have been configured, and this is not supported
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: offload_mep_direction_not_supported
                 
                 	The MEP direction does not support offload
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ais_configured
                 
                 	AIS is configured on the same interface as the down MEP
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: bundle_level0
                 
                 	The MEP is configured in a domain at level 0, on a bundle interface or sub\-interface.  This is not supported
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: bridge_domain_not_in_bd_infra
                 
                 	A BD/XC specified in the MEG config, but it does not exist globally
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: maid_format_not_supported
                 
                 	The configured MAID format is not supported for hardware offload
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: sman_format_not_supported
                 
                 	The configured SMAN format is not supported for hardware offload
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: mdid_format_not_supported
                 
                 	The configured MDID format is not supported for hardware offload
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: fatal_offload_error
                 
                 	The platform returned a fatal error when passed the offload session
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: satellite_limitation
                 
                 	A satellite limitation is preventing MEP being offloaded to satellite
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: sla_loopback_operations_disabled
                 
                 	In\-progress Ethernet SLA loopback operations are disabled due to satellite having loopback responder\-only capabilities
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: sla_synthetic_loss_operations_disabled
                 
                 	In\-progress Ethernet SLA synthetic loss measurement operations are disabled due to satellite having synthetic loss measurement responder\-only capabilities
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: sla_delay_measurement_operations_disabled
                 
                 	In\-progress Ethernet SLA delay measurement operations are disabled due to satellite having delay measurement responder\-only capabilities
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: no_valid_mac_address
                 
                 	The EFP doesn't have a valid MAC address yet. This will also get set if the MAC address we have is a multicast address
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: no_interface_type
                 
                 	We haven't yet been able to look up the interface type to find whether the interface is a bundle
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: not_in_im
                 
                 	The EFP has been deleted from IM
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: no_mlacp
                 
                 	The EFP is a bundle and the mLACP mode is not yet known
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: satellite_error_string
                 
                 	Error string returned from satellite
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: satellite_id
                 
@@ -4418,6 +4814,8 @@ class Cfm(Entity):
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -4532,15 +4930,21 @@ class Cfm(Entity):
                     	Domain name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: level
                     
                     	Domain level
                     	**type**\:  :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: service_name
                     
                     	Service name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface
                     
@@ -4549,10 +4953,14 @@ class Cfm(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: maintenance_point_type
                     
                     	Type of Maintenance Point
                     	**type**\:  :py:class:`CfmMaMpVariety <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmMaMpVariety>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: mep_id
                     
@@ -4560,6 +4968,8 @@ class Cfm(Entity):
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -4598,6 +5008,7 @@ class Cfm(Entity):
                         self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep, [u'domain_name', u'level', u'service_name', u'interface', u'maintenance_point_type', u'mep_id'], name, value)
 
 
+
                 class ServiceBridgeDomain(Entity):
                     """
                     BD/XC ID for the MEP's Service, or Service name
@@ -4608,15 +5019,21 @@ class Cfm(Entity):
                     	Bridge domain identifier format
                     	**type**\:  :py:class:`CfmBagBdidFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmt>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: group
                     
                     	Name of the Bridge/XConnect Group
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	Name of the Bridge Domain/XConnect
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: ce_id
                     
@@ -4625,6 +5042,8 @@ class Cfm(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_ce_id
                     
                     	Remote Customer Edge Identifier (CE\-ID)
@@ -4632,12 +5051,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: evi
                     
                     	EVPN ID for VLAN\-aware flexible cross\-connects
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -4676,6 +5099,7 @@ class Cfm(Entity):
                         self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain, [u'bridge_domain_id_format', u'group', u'name', u'ce_id', u'remote_ce_id', u'evi'], name, value)
 
 
+
                 class InterfaceBridgeDomain(Entity):
                     """
                     ID of the BD/XC that the MEP's EFP is in, if any
@@ -4685,15 +5109,21 @@ class Cfm(Entity):
                     	Bridge domain identifier format
                     	**type**\:  :py:class:`CfmBagBdidFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagBdidFmt>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: group
                     
                     	Name of the Bridge/XConnect Group
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	Name of the Bridge Domain/XConnect
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: ce_id
                     
@@ -4702,6 +5132,8 @@ class Cfm(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_ce_id
                     
                     	Remote Customer Edge Identifier (CE\-ID)
@@ -4709,12 +5141,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: evi
                     
                     	EVPN ID for VLAN\-aware flexible cross\-connects
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -4753,6 +5189,7 @@ class Cfm(Entity):
                         self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain, [u'bridge_domain_id_format', u'group', u'name', u'ce_id', u'remote_ce_id', u'evi'], name, value)
 
 
+
                 class SatelliteCapabilities(Entity):
                     """
                     Satellite Capabilities
@@ -4762,15 +5199,21 @@ class Cfm(Entity):
                     	Loopback
                     	**type**\:  :py:class:`Loopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: delay_measurement
                     
                     	Delay Measurement
                     	**type**\:  :py:class:`DelayMeasurement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: synthetic_loss_measurement
                     
                     	Synthetic Loss Measurement
                     	**type**\:  :py:class:`SyntheticLossMeasurement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4817,10 +5260,14 @@ class Cfm(Entity):
                         	Responder
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: controller
                         
                         	Controller
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -4851,6 +5298,7 @@ class Cfm(Entity):
                             self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback, [u'responder', u'controller'], name, value)
 
 
+
                     class DelayMeasurement(Entity):
                         """
                         Delay Measurement
@@ -4860,10 +5308,14 @@ class Cfm(Entity):
                         	Responder
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: controller
                         
                         	Controller
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -4894,6 +5346,7 @@ class Cfm(Entity):
                             self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement, [u'responder', u'controller'], name, value)
 
 
+
                     class SyntheticLossMeasurement(Entity):
                         """
                         Synthetic Loss Measurement
@@ -4903,10 +5356,14 @@ class Cfm(Entity):
                         	Responder
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: controller
                         
                         	Controller
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -4937,6 +5394,10 @@ class Cfm(Entity):
                             self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement, [u'responder', u'controller'], name, value)
 
 
+
+
+
+
         class TracerouteCaches(Entity):
             """
             Traceroute Cache table
@@ -4945,6 +5406,8 @@ class Cfm(Entity):
             
             	Information about a particular traceroute operation
             	**type**\: list of  		 :py:class:`TracerouteCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache>`
+            
+            	**config**\: False
             
             
 
@@ -4985,12 +5448,16 @@ class Cfm(Entity):
                 
                 	**length:** 1..79
                 
+                	**config**\: False
+                
                 .. attribute:: service  (key)
                 
                 	Service (Maintenance Association)
                 	**type**\: str
                 
                 	**length:** 1..79
+                
+                	**config**\: False
                 
                 .. attribute:: mep_id  (key)
                 
@@ -4999,12 +5466,16 @@ class Cfm(Entity):
                 
                 	**range:** 1..8191
                 
+                	**config**\: False
+                
                 .. attribute:: interface  (key)
                 
                 	Interface
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                	**config**\: False
                 
                 .. attribute:: transaction_id  (key)
                 
@@ -5013,10 +5484,14 @@ class Cfm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: traceroute_information
                 
                 	Information about the traceroute operation
                 	**type**\:  :py:class:`TracerouteInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation>`
+                
+                	**config**\: False
                 
                 .. attribute:: replies_dropped
                 
@@ -5025,15 +5500,21 @@ class Cfm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: linktrace_reply
                 
                 	Received linktrace replies
                 	**type**\: list of  		 :py:class:`LinktraceReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply>`
                 
+                	**config**\: False
+                
                 .. attribute:: exploratory_linktrace_reply
                 
                 	Received exploratory linktrace replies
                 	**type**\: list of  		 :py:class:`ExploratoryLinktraceReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply>`
+                
+                	**config**\: False
                 
                 
 
@@ -5077,7 +5558,7 @@ class Cfm(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache, ['domain', 'service', 'mep_id', 'interface', 'transaction_id', 'replies_dropped'], name, value)
+                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache, ['domain', 'service', 'mep_id', 'interface', 'transaction_id', u'replies_dropped'], name, value)
 
 
                 class TracerouteInformation(Entity):
@@ -5089,20 +5570,28 @@ class Cfm(Entity):
                     	Options affecting traceroute behavior
                     	**type**\:  :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain
                     
                     	Maintenance domain name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: service
                     
                     	Service name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: level
                     
                     	Maintenance level
                     	**type**\:  :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: source_mep_id
                     
@@ -5111,12 +5600,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: source_interface
                     
                     	Source interface
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                    
+                    	**config**\: False
                     
                     .. attribute:: source_mac_address
                     
@@ -5125,12 +5618,16 @@ class Cfm(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: target_mac_address
                     
                     	Target MAC address
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    
+                    	**config**\: False
                     
                     .. attribute:: directed_mac_address
                     
@@ -5139,6 +5636,8 @@ class Cfm(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: target_mep_id
                     
                     	Target MEP ID
@@ -5146,12 +5645,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: timestamp
                     
                     	Timestamp of initiation time (seconds)
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -5162,12 +5665,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: transaction_id
                     
                     	Transaction ID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -5219,7 +5726,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation, ['domain', 'service', 'level', 'source_mep_id', 'source_interface', 'source_mac_address', 'target_mac_address', 'directed_mac_address', 'target_mep_id', 'timestamp', 'ttl', 'transaction_id'], name, value)
+                        self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation, [u'domain', u'service', u'level', u'source_mep_id', u'source_interface', u'source_mac_address', u'target_mac_address', u'directed_mac_address', u'target_mep_id', u'timestamp', u'ttl', u'transaction_id'], name, value)
 
 
                     class Options(Entity):
@@ -5231,15 +5738,21 @@ class Cfm(Entity):
                         	Options for a basic IEEE 802.1ag Linktrace
                         	**type**\:  :py:class:`BasicOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: exploratory_options
                         
                         	Options for an Exploratory Linktrace
                         	**type**\:  :py:class:`ExploratoryOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: mode
                         
                         	Mode
                         	**type**\:  :py:class:`CfmPmLtMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLtMode>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5273,7 +5786,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options, ['mode'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options, [u'mode'], name, value)
 
 
                         class BasicOptions(Entity):
@@ -5285,10 +5798,14 @@ class Cfm(Entity):
                             	Traceroute was initiated automatically
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: fdb_only
                             
                             	Only use the Filtering Database for forwarding lookups
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -5316,7 +5833,8 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions, ['is_auto', 'fdb_only'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions, [u'is_auto', u'fdb_only'], name, value)
+
 
 
                         class ExploratoryOptions(Entity):
@@ -5328,6 +5846,8 @@ class Cfm(Entity):
                             	Delay model for delay calculations
                             	**type**\:  :py:class:`CfmPmEltDelayModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModel>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: delay_constant_factor
                             
                             	Constant Factor for delay calculations
@@ -5335,10 +5855,14 @@ class Cfm(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: reply_filter
                             
                             	Reply Filtering mode used by responders
                             	**type**\:  :py:class:`CfmPmElmReplyFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElmReplyFilter>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -5368,7 +5892,10 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions, ['delay_model', 'delay_constant_factor', 'reply_filter'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions, [u'delay_model', u'delay_constant_factor', u'reply_filter'], name, value)
+
+
+
 
 
                 class LinktraceReply(Entity):
@@ -5380,30 +5907,42 @@ class Cfm(Entity):
                     	Frame header
                     	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sender_id
                     
                     	Sender ID TLV
                     	**type**\:  :py:class:`SenderId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: egress_id
                     
                     	Egress ID TLV
                     	**type**\:  :py:class:`EgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: reply_ingress
                     
                     	Reply ingress TLV
                     	**type**\:  :py:class:`ReplyIngress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: reply_egress
                     
                     	Reply egress TLV
                     	**type**\:  :py:class:`ReplyEgress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_hop
                     
                     	Last hop ID
                     	**type**\:  :py:class:`LastHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: raw_data
                     
@@ -5412,15 +5951,21 @@ class Cfm(Entity):
                     
                     	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: organization_specific_tlv
                     
                     	Organizational\-specific TLVs
                     	**type**\: list of  		 :py:class:`OrganizationSpecificTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: unknown_tlv
                     
                     	Unknown TLVs
                     	**type**\: list of  		 :py:class:`UnknownTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5473,7 +6018,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply, ['raw_data'], name, value)
+                        self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply, [u'raw_data'], name, value)
 
 
                     class Header(Entity):
@@ -5485,6 +6030,8 @@ class Cfm(Entity):
                         	MD level
                         	**type**\:  :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: version
                         
                         	Version
@@ -5492,20 +6039,28 @@ class Cfm(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: use_fdb_only
                         
                         	Use filtering DB only
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: forwarded
                         
                         	LTR was forwarded
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: terminal_mep
                         
                         	Terminal MEP reached
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: transaction_id
                         
@@ -5514,6 +6069,8 @@ class Cfm(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ttl
                         
                         	TTL
@@ -5521,10 +6078,14 @@ class Cfm(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: relay_action
                         
                         	Relay action
                         	**type**\:  :py:class:`CfmPmRelayAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRelayAction>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5564,7 +6125,8 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header, ['level', 'version', 'use_fdb_only', 'forwarded', 'terminal_mep', 'transaction_id', 'ttl', 'relay_action'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header, [u'level', u'version', u'use_fdb_only', u'forwarded', u'terminal_mep', u'transaction_id', u'ttl', u'relay_action'], name, value)
+
 
 
                     class SenderId(Entity):
@@ -5576,6 +6138,8 @@ class Cfm(Entity):
                         	Chassis ID
                         	**type**\:  :py:class:`ChassisId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: management_address_domain
                         
                         	Management address domain
@@ -5583,12 +6147,16 @@ class Cfm(Entity):
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: management_address
                         
                         	Management address
                         	**type**\: str
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -5620,7 +6188,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId, ['management_address_domain', 'management_address'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId, [u'management_address_domain', u'management_address'], name, value)
 
 
                         class ChassisId(Entity):
@@ -5632,10 +6200,14 @@ class Cfm(Entity):
                             	Chassis ID (Current)
                             	**type**\:  :py:class:`ChassisIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: chassis_id_type
                             
                             	Chassis ID Type
                             	**type**\:  :py:class:`CfmPmChassisIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmt>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: chassis_id_type_value
                             
@@ -5644,12 +6216,16 @@ class Cfm(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: chassis_id
                             
                             	Chassis ID (Deprecated)
                             	**type**\: str
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -5683,7 +6259,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId, ['chassis_id_type', 'chassis_id_type_value', 'chassis_id'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId, [u'chassis_id_type', u'chassis_id_type_value', u'chassis_id'], name, value)
 
 
                             class ChassisIdValue(Entity):
@@ -5695,10 +6271,14 @@ class Cfm(Entity):
                                 	ChassisIDFormat
                                 	**type**\:  :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: chassis_id_string
                                 
                                 	Chassis ID String
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: chassis_id_mac
                                 
@@ -5707,12 +6287,16 @@ class Cfm(Entity):
                                 
                                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: chassis_id_raw
                                 
                                 	Raw Chassis ID
                                 	**type**\: str
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5744,7 +6328,10 @@ class Cfm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue, ['chassis_id_format', 'chassis_id_string', 'chassis_id_mac', 'chassis_id_raw'], name, value)
+                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue, [u'chassis_id_format', u'chassis_id_string', u'chassis_id_mac', u'chassis_id_raw'], name, value)
+
+
+
 
 
                     class EgressId(Entity):
@@ -5756,10 +6343,14 @@ class Cfm(Entity):
                         	Last egress ID
                         	**type**\:  :py:class:`LastEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: next_egress_id
                         
                         	Next egress ID
                         	**type**\:  :py:class:`NextEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5804,12 +6395,16 @@ class Cfm(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_address
                             
                             	MAC address
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            	**config**\: False
                             
                             
 
@@ -5837,7 +6432,8 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId, ['unique_id', 'mac_address'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId, [u'unique_id', u'mac_address'], name, value)
+
 
 
                         class NextEgressId(Entity):
@@ -5851,12 +6447,16 @@ class Cfm(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_address
                             
                             	MAC address
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            	**config**\: False
                             
                             
 
@@ -5884,7 +6484,9 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId, ['unique_id', 'mac_address'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId, [u'unique_id', u'mac_address'], name, value)
+
+
 
 
                     class ReplyIngress(Entity):
@@ -5896,10 +6498,14 @@ class Cfm(Entity):
                         	Port ID
                         	**type**\:  :py:class:`PortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: action
                         
                         	Reply ingress action
                         	**type**\:  :py:class:`CfmPmIngressAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIngressAction>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: mac_address
                         
@@ -5907,6 +6513,8 @@ class Cfm(Entity):
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        	**config**\: False
                         
                         
 
@@ -5938,7 +6546,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress, ['action', 'mac_address'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress, [u'action', u'mac_address'], name, value)
 
 
                         class PortId(Entity):
@@ -5950,10 +6558,14 @@ class Cfm(Entity):
                             	Port ID (Current)
                             	**type**\:  :py:class:`PortIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: port_id_type
                             
                             	Port ID type
                             	**type**\:  :py:class:`CfmPmPortIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmt>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: port_id_type_value
                             
@@ -5962,12 +6574,16 @@ class Cfm(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: port_id
                             
                             	Port ID (Deprecated)
                             	**type**\: str
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -6001,7 +6617,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId, ['port_id_type', 'port_id_type_value', 'port_id'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId, [u'port_id_type', u'port_id_type_value', u'port_id'], name, value)
 
 
                             class PortIdValue(Entity):
@@ -6013,10 +6629,14 @@ class Cfm(Entity):
                                 	PortIDFormat
                                 	**type**\:  :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: port_id_string
                                 
                                 	Port ID String
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: port_id_mac
                                 
@@ -6025,12 +6645,16 @@ class Cfm(Entity):
                                 
                                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: port_id_raw
                                 
                                 	Raw Port ID
                                 	**type**\: str
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6062,7 +6686,10 @@ class Cfm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue, ['port_id_format', 'port_id_string', 'port_id_mac', 'port_id_raw'], name, value)
+                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue, [u'port_id_format', u'port_id_string', u'port_id_mac', u'port_id_raw'], name, value)
+
+
+
 
 
                     class ReplyEgress(Entity):
@@ -6074,10 +6701,14 @@ class Cfm(Entity):
                         	Port ID
                         	**type**\:  :py:class:`PortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: action
                         
                         	Reply egress action
                         	**type**\:  :py:class:`CfmPmEgressAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEgressAction>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: mac_address
                         
@@ -6085,6 +6716,8 @@ class Cfm(Entity):
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        	**config**\: False
                         
                         
 
@@ -6116,7 +6749,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress, ['action', 'mac_address'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress, [u'action', u'mac_address'], name, value)
 
 
                         class PortId(Entity):
@@ -6128,10 +6761,14 @@ class Cfm(Entity):
                             	Port ID (Current)
                             	**type**\:  :py:class:`PortIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: port_id_type
                             
                             	Port ID type
                             	**type**\:  :py:class:`CfmPmPortIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmt>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: port_id_type_value
                             
@@ -6140,12 +6777,16 @@ class Cfm(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: port_id
                             
                             	Port ID (Deprecated)
                             	**type**\: str
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -6179,7 +6820,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId, ['port_id_type', 'port_id_type_value', 'port_id'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId, [u'port_id_type', u'port_id_type_value', u'port_id'], name, value)
 
 
                             class PortIdValue(Entity):
@@ -6191,10 +6832,14 @@ class Cfm(Entity):
                                 	PortIDFormat
                                 	**type**\:  :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: port_id_string
                                 
                                 	Port ID String
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: port_id_mac
                                 
@@ -6203,12 +6848,16 @@ class Cfm(Entity):
                                 
                                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: port_id_raw
                                 
                                 	Raw Port ID
                                 	**type**\: str
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6240,7 +6889,10 @@ class Cfm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue, ['port_id_format', 'port_id_string', 'port_id_mac', 'port_id_raw'], name, value)
+                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue, [u'port_id_format', u'port_id_string', u'port_id_mac', u'port_id_raw'], name, value)
+
+
+
 
 
                     class LastHop(Entity):
@@ -6252,15 +6904,21 @@ class Cfm(Entity):
                         	Egress ID
                         	**type**\:  :py:class:`EgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_hop_format
                         
                         	LastHopFormat
                         	**type**\:  :py:class:`CfmPmLastHopFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLastHopFmt>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: host_name
                         
                         	Hostname
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -6292,7 +6950,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop, ['last_hop_format', 'host_name'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop, [u'last_hop_format', u'host_name'], name, value)
 
 
                         class EgressId(Entity):
@@ -6306,12 +6964,16 @@ class Cfm(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_address
                             
                             	MAC address
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            	**config**\: False
                             
                             
 
@@ -6339,7 +7001,9 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId, ['unique_id', 'mac_address'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId, [u'unique_id', u'mac_address'], name, value)
+
+
 
 
                     class OrganizationSpecificTlv(Entity):
@@ -6353,6 +7017,8 @@ class Cfm(Entity):
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: subtype
                         
                         	Subtype of TLV
@@ -6360,12 +7026,16 @@ class Cfm(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: value
                         
                         	Binary data in TLV
                         	**type**\: str
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -6395,7 +7065,8 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv, ['oui', 'subtype', 'value'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv, [u'oui', u'subtype', u'value'], name, value)
+
 
 
                     class UnknownTlv(Entity):
@@ -6409,12 +7080,16 @@ class Cfm(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: value
                         
                         	Binary data in TLV
                         	**type**\: str
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -6442,7 +7117,9 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv, ['typecode', 'value'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv, [u'typecode', u'value'], name, value)
+
+
 
 
                 class ExploratoryLinktraceReply(Entity):
@@ -6454,25 +7131,35 @@ class Cfm(Entity):
                     	Frame header
                     	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sender_id
                     
                     	Sender ID TLV
                     	**type**\:  :py:class:`SenderId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: reply_ingress
                     
                     	Reply ingress TLV
                     	**type**\:  :py:class:`ReplyIngress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: reply_egress
                     
                     	Reply egress TLV
                     	**type**\:  :py:class:`ReplyEgress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_hop
                     
                     	Last hop ID
                     	**type**\:  :py:class:`LastHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: raw_data
                     
@@ -6481,15 +7168,21 @@ class Cfm(Entity):
                     
                     	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: organization_specific_tlv
                     
                     	Organizational\-specific TLVs
                     	**type**\: list of  		 :py:class:`OrganizationSpecificTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: unknown_tlv
                     
                     	Unknown TLVs
                     	**type**\: list of  		 :py:class:`UnknownTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -6538,7 +7231,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply, ['raw_data'], name, value)
+                        self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply, [u'raw_data'], name, value)
 
 
                     class Header(Entity):
@@ -6550,6 +7243,8 @@ class Cfm(Entity):
                         	MD level
                         	**type**\:  :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: version
                         
                         	Version
@@ -6557,20 +7252,28 @@ class Cfm(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: forwarded
                         
                         	ELR was forwarded
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: terminal_mep
                         
                         	Terminal MEP reached
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: reply_filter_unknown
                         
                         	Reply Filter unrecognized
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: transaction_id
                         
@@ -6579,6 +7282,8 @@ class Cfm(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ttl
                         
                         	TTL
@@ -6586,10 +7291,14 @@ class Cfm(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: relay_action
                         
                         	Relay action
                         	**type**\:  :py:class:`CfmPmElrRelayAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrRelayAction>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: next_hop_timeout
                         
@@ -6598,12 +7307,16 @@ class Cfm(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: second
                         
                         .. attribute:: delay_model
                         
                         	Delay Model
                         	**type**\:  :py:class:`CfmPmEltDelayModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmEltDelayModel>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -6647,7 +7360,8 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header, ['level', 'version', 'forwarded', 'terminal_mep', 'reply_filter_unknown', 'transaction_id', 'ttl', 'relay_action', 'next_hop_timeout', 'delay_model'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header, [u'level', u'version', u'forwarded', u'terminal_mep', u'reply_filter_unknown', u'transaction_id', u'ttl', u'relay_action', u'next_hop_timeout', u'delay_model'], name, value)
+
 
 
                     class SenderId(Entity):
@@ -6659,6 +7373,8 @@ class Cfm(Entity):
                         	Chassis ID
                         	**type**\:  :py:class:`ChassisId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: management_address_domain
                         
                         	Management address domain
@@ -6666,12 +7382,16 @@ class Cfm(Entity):
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: management_address
                         
                         	Management address
                         	**type**\: str
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -6703,7 +7423,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId, ['management_address_domain', 'management_address'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId, [u'management_address_domain', u'management_address'], name, value)
 
 
                         class ChassisId(Entity):
@@ -6715,10 +7435,14 @@ class Cfm(Entity):
                             	Chassis ID (Current)
                             	**type**\:  :py:class:`ChassisIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: chassis_id_type
                             
                             	Chassis ID Type
                             	**type**\:  :py:class:`CfmPmChassisIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmt>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: chassis_id_type_value
                             
@@ -6727,12 +7451,16 @@ class Cfm(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: chassis_id
                             
                             	Chassis ID (Deprecated)
                             	**type**\: str
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -6766,7 +7494,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId, ['chassis_id_type', 'chassis_id_type_value', 'chassis_id'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId, [u'chassis_id_type', u'chassis_id_type_value', u'chassis_id'], name, value)
 
 
                             class ChassisIdValue(Entity):
@@ -6778,10 +7506,14 @@ class Cfm(Entity):
                                 	ChassisIDFormat
                                 	**type**\:  :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: chassis_id_string
                                 
                                 	Chassis ID String
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: chassis_id_mac
                                 
@@ -6790,12 +7522,16 @@ class Cfm(Entity):
                                 
                                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: chassis_id_raw
                                 
                                 	Raw Chassis ID
                                 	**type**\: str
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6827,7 +7563,10 @@ class Cfm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue, ['chassis_id_format', 'chassis_id_string', 'chassis_id_mac', 'chassis_id_raw'], name, value)
+                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue, [u'chassis_id_format', u'chassis_id_string', u'chassis_id_mac', u'chassis_id_raw'], name, value)
+
+
+
 
 
                     class ReplyIngress(Entity):
@@ -6839,20 +7578,28 @@ class Cfm(Entity):
                         	Last egress ID
                         	**type**\:  :py:class:`LastEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: next_egress_id
                         
                         	Next egress ID
                         	**type**\:  :py:class:`NextEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: port_id
                         
                         	Port ID
                         	**type**\:  :py:class:`PortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: action
                         
                         	ELR Reply ingress action
                         	**type**\:  :py:class:`CfmPmElrIngressAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrIngressAction>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: mac_address
                         
@@ -6860,6 +7607,8 @@ class Cfm(Entity):
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        	**config**\: False
                         
                         
 
@@ -6899,7 +7648,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress, ['action', 'mac_address'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress, [u'action', u'mac_address'], name, value)
 
 
                         class LastEgressId(Entity):
@@ -6913,12 +7662,16 @@ class Cfm(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_address
                             
                             	MAC address
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            	**config**\: False
                             
                             
 
@@ -6946,7 +7699,8 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId, ['unique_id', 'mac_address'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId, [u'unique_id', u'mac_address'], name, value)
+
 
 
                         class NextEgressId(Entity):
@@ -6960,12 +7714,16 @@ class Cfm(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_address
                             
                             	MAC address
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            	**config**\: False
                             
                             
 
@@ -6993,7 +7751,8 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId, ['unique_id', 'mac_address'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId, [u'unique_id', u'mac_address'], name, value)
+
 
 
                         class PortId(Entity):
@@ -7005,10 +7764,14 @@ class Cfm(Entity):
                             	Port ID (Current)
                             	**type**\:  :py:class:`PortIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: port_id_type
                             
                             	Port ID type
                             	**type**\:  :py:class:`CfmPmPortIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmt>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: port_id_type_value
                             
@@ -7017,12 +7780,16 @@ class Cfm(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: port_id
                             
                             	Port ID (Deprecated)
                             	**type**\: str
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -7056,7 +7823,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId, ['port_id_type', 'port_id_type_value', 'port_id'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId, [u'port_id_type', u'port_id_type_value', u'port_id'], name, value)
 
 
                             class PortIdValue(Entity):
@@ -7068,10 +7835,14 @@ class Cfm(Entity):
                                 	PortIDFormat
                                 	**type**\:  :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: port_id_string
                                 
                                 	Port ID String
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: port_id_mac
                                 
@@ -7080,12 +7851,16 @@ class Cfm(Entity):
                                 
                                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: port_id_raw
                                 
                                 	Raw Port ID
                                 	**type**\: str
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7117,7 +7892,10 @@ class Cfm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue, ['port_id_format', 'port_id_string', 'port_id_mac', 'port_id_raw'], name, value)
+                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue, [u'port_id_format', u'port_id_string', u'port_id_mac', u'port_id_raw'], name, value)
+
+
+
 
 
                     class ReplyEgress(Entity):
@@ -7129,20 +7907,28 @@ class Cfm(Entity):
                         	Last Egress ID
                         	**type**\:  :py:class:`LastEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: next_egress_id
                         
                         	Next Egress ID
                         	**type**\:  :py:class:`NextEgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: port_id
                         
                         	Port ID
                         	**type**\:  :py:class:`PortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: action
                         
                         	Reply egress action
                         	**type**\:  :py:class:`CfmPmElrEgressAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmElrEgressAction>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: mac_address
                         
@@ -7150,6 +7936,8 @@ class Cfm(Entity):
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        	**config**\: False
                         
                         
 
@@ -7189,7 +7977,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress, ['action', 'mac_address'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress, [u'action', u'mac_address'], name, value)
 
 
                         class LastEgressId(Entity):
@@ -7203,12 +7991,16 @@ class Cfm(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_address
                             
                             	MAC address
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            	**config**\: False
                             
                             
 
@@ -7236,7 +8028,8 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId, ['unique_id', 'mac_address'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId, [u'unique_id', u'mac_address'], name, value)
+
 
 
                         class NextEgressId(Entity):
@@ -7250,12 +8043,16 @@ class Cfm(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_address
                             
                             	MAC address
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            	**config**\: False
                             
                             
 
@@ -7283,7 +8080,8 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId, ['unique_id', 'mac_address'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId, [u'unique_id', u'mac_address'], name, value)
+
 
 
                         class PortId(Entity):
@@ -7295,10 +8093,14 @@ class Cfm(Entity):
                             	Port ID (Current)
                             	**type**\:  :py:class:`PortIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: port_id_type
                             
                             	Port ID type
                             	**type**\:  :py:class:`CfmPmPortIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortIdFmt>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: port_id_type_value
                             
@@ -7307,12 +8109,16 @@ class Cfm(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: port_id
                             
                             	Port ID (Deprecated)
                             	**type**\: str
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -7346,7 +8152,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId, ['port_id_type', 'port_id_type_value', 'port_id'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId, [u'port_id_type', u'port_id_type_value', u'port_id'], name, value)
 
 
                             class PortIdValue(Entity):
@@ -7358,10 +8164,14 @@ class Cfm(Entity):
                                 	PortIDFormat
                                 	**type**\:  :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: port_id_string
                                 
                                 	Port ID String
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: port_id_mac
                                 
@@ -7370,12 +8180,16 @@ class Cfm(Entity):
                                 
                                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: port_id_raw
                                 
                                 	Raw Port ID
                                 	**type**\: str
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7407,7 +8221,10 @@ class Cfm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue, ['port_id_format', 'port_id_string', 'port_id_mac', 'port_id_raw'], name, value)
+                                    self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue, [u'port_id_format', u'port_id_string', u'port_id_mac', u'port_id_raw'], name, value)
+
+
+
 
 
                     class LastHop(Entity):
@@ -7419,15 +8236,21 @@ class Cfm(Entity):
                         	Egress ID
                         	**type**\:  :py:class:`EgressId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_hop_format
                         
                         	LastHopFormat
                         	**type**\:  :py:class:`CfmPmLastHopFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmLastHopFmt>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: host_name
                         
                         	Hostname
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -7459,7 +8282,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop, ['last_hop_format', 'host_name'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop, [u'last_hop_format', u'host_name'], name, value)
 
 
                         class EgressId(Entity):
@@ -7473,12 +8296,16 @@ class Cfm(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_address
                             
                             	MAC address
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            	**config**\: False
                             
                             
 
@@ -7506,7 +8333,9 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId, ['unique_id', 'mac_address'], name, value)
+                                self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId, [u'unique_id', u'mac_address'], name, value)
+
+
 
 
                     class OrganizationSpecificTlv(Entity):
@@ -7520,6 +8349,8 @@ class Cfm(Entity):
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: subtype
                         
                         	Subtype of TLV
@@ -7527,12 +8358,16 @@ class Cfm(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: value
                         
                         	Binary data in TLV
                         	**type**\: str
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -7562,7 +8397,8 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv, ['oui', 'subtype', 'value'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv, [u'oui', u'subtype', u'value'], name, value)
+
 
 
                     class UnknownTlv(Entity):
@@ -7576,12 +8412,16 @@ class Cfm(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: value
                         
                         	Binary data in TLV
                         	**type**\: str
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -7609,7 +8449,11 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv, ['typecode', 'value'], name, value)
+                            self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv, [u'typecode', u'value'], name, value)
+
+
+
+
 
 
         class LocalMeps(Entity):
@@ -7620,6 +8464,8 @@ class Cfm(Entity):
             
             	Information about a particular local MEP
             	**type**\: list of  		 :py:class:`LocalMep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep>`
+            
+            	**config**\: False
             
             
 
@@ -7659,12 +8505,16 @@ class Cfm(Entity):
                 
                 	**length:** 1..79
                 
+                	**config**\: False
+                
                 .. attribute:: service  (key)
                 
                 	Service (Maintenance Association)
                 	**type**\: str
                 
                 	**length:** 1..79
+                
+                	**config**\: False
                 
                 .. attribute:: mep_id  (key)
                 
@@ -7673,6 +8523,8 @@ class Cfm(Entity):
                 
                 	**range:** 1..8191
                 
+                	**config**\: False
+                
                 .. attribute:: interface  (key)
                 
                 	Interface
@@ -7680,35 +8532,49 @@ class Cfm(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: statistics
                 
                 	MEP statistics
                 	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.Statistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: ais_statistics
                 
                 	MEP AIS statistics
                 	**type**\:  :py:class:`AisStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.AisStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: defects
                 
                 	Defects detected from peer MEPs
                 	**type**\:  :py:class:`Defects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.Defects>`
+                
+                	**config**\: False
                 
                 .. attribute:: domain_xr
                 
                 	Maintenance domain name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: service_xr
                 
                 	Service name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: level
                 
                 	Maintenance level
                 	**type**\:  :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                
+                	**config**\: False
                 
                 .. attribute:: mep_id_xr
                 
@@ -7717,6 +8583,8 @@ class Cfm(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: interface_xr
                 
                 	Interface
@@ -7724,25 +8592,35 @@ class Cfm(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: interface_state
                 
                 	IM Interface state
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: interworking_state
                 
                 	Interface interworking state
                 	**type**\:  :py:class:`CfmBagIwState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagIwState>`
                 
+                	**config**\: False
+                
                 .. attribute:: stp_state
                 
                 	STP state
                 	**type**\:  :py:class:`CfmBagStpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagStpState>`
                 
+                	**config**\: False
+                
                 .. attribute:: mep_direction
                 
                 	MEP facing direction
                 	**type**\:  :py:class:`CfmBagDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirection>`
+                
+                	**config**\: False
                 
                 .. attribute:: mac_address
                 
@@ -7751,12 +8629,16 @@ class Cfm(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: peer_meps_detected
                 
                 	Number of peer MEPs detected
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: peer_meps_with_errors_detected
                 
@@ -7765,60 +8647,84 @@ class Cfm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: remote_defect
                 
                 	Remote defect indicated
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: fault_notification_state
                 
                 	Fault Notification Generation state
                 	**type**\:  :py:class:`CfmPmMepFngState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmMepFngState>`
                 
+                	**config**\: False
+                
                 .. attribute:: ccm_generation_enabled
                 
                 	CCM generation enabled
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ccm_interval
                 
                 	The interval between CCMs
                 	**type**\:  :py:class:`CfmBagCcmInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmInterval>`
                 
+                	**config**\: False
+                
                 .. attribute:: ccm_offload
                 
                 	Offload status of CCM processing
                 	**type**\:  :py:class:`CfmBagCcmOffload <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmOffload>`
+                
+                	**config**\: False
                 
                 .. attribute:: highest_defect
                 
                 	Highest\-priority defect present since last FNG reset
                 	**type**\:  :py:class:`CfmPmMepDefect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmMepDefect>`
                 
+                	**config**\: False
+                
                 .. attribute:: rdi_defect
                 
                 	A peer MEP RDI defect has been reported
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: mac_status_defect
                 
                 	A peer MEP port or interface status error has been reported
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: peer_mep_ccm_defect
                 
                 	A peer MEP CCM error has been reported
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: error_ccm_defect
                 
                 	A CCM error has been reported
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: cross_connect_ccm_defect
                 
                 	A cross\-connect CCM error has been reported
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: next_lbm_id
                 
@@ -7827,12 +8733,16 @@ class Cfm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: next_ltm_id
                 
                 	Next Transaction ID to be sent in a Linktrace Message
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: cos
                 
@@ -7841,25 +8751,35 @@ class Cfm(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: efd_triggered
                 
                 	EFD triggered on the interface
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: standby
                 
                 	The local MEP is on an interface in standby mode
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: hairpin
                 
                 	MEP is on a sub\-interface in the same bridge\-domain and on the same trunk interface as another sub\-interface
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: defects_ignored
                 
                 	Defects present but ignored due to 'report defects' configuration
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -7964,7 +8884,7 @@ class Cfm(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global.LocalMeps.LocalMep, ['domain', 'service', 'mep_id', 'interface', 'domain_xr', 'service_xr', 'level', 'mep_id_xr', 'interface_xr', 'interface_state', 'interworking_state', 'stp_state', 'mep_direction', 'mac_address', 'peer_meps_detected', 'peer_meps_with_errors_detected', 'remote_defect', 'fault_notification_state', 'ccm_generation_enabled', 'ccm_interval', 'ccm_offload', 'highest_defect', 'rdi_defect', 'mac_status_defect', 'peer_mep_ccm_defect', 'error_ccm_defect', 'cross_connect_ccm_defect', 'next_lbm_id', 'next_ltm_id', 'cos', 'efd_triggered', 'standby', 'hairpin', 'defects_ignored'], name, value)
+                    self._perform_setattr(Cfm.Global.LocalMeps.LocalMep, ['domain', 'service', 'mep_id', 'interface', u'domain_xr', u'service_xr', u'level', u'mep_id_xr', u'interface_xr', u'interface_state', u'interworking_state', u'stp_state', u'mep_direction', u'mac_address', u'peer_meps_detected', u'peer_meps_with_errors_detected', u'remote_defect', u'fault_notification_state', u'ccm_generation_enabled', u'ccm_interval', u'ccm_offload', u'highest_defect', u'rdi_defect', u'mac_status_defect', u'peer_mep_ccm_defect', u'error_ccm_defect', u'cross_connect_ccm_defect', u'next_lbm_id', u'next_ltm_id', u'cos', u'efd_triggered', u'standby', u'hairpin', u'defects_ignored'], name, value)
 
 
                 class Statistics(Entity):
@@ -7978,12 +8898,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: ccms_received
                     
                     	Number of CCMs received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: ccms_out_of_sequence
                     
@@ -7992,12 +8916,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: ccms_discarded
                     
                     	Number of CCMs discarded because maximum MEPs limit was reached
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: lb_ms_sent
                     
@@ -8006,12 +8934,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: lb_rs_sent
                     
                     	Number of LBRs sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: lb_rs_received
                     
@@ -8020,12 +8952,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: lb_rs_out_of_sequence
                     
                     	Number of LBRs received out\-of\-sequence
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: lb_rs_bad_data
                     
@@ -8034,12 +8970,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: lb_ms_received
                     
                     	Number of LBMs received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: lt_rs_received_unexpected
                     
@@ -8048,12 +8988,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: ai_ss_sent
                     
                     	Number of AIS messages sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: ai_ss_received
                     
@@ -8062,12 +9006,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: lc_ks_received
                     
                     	Number of LCK messages received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: dm_ms_sent
                     
@@ -8076,12 +9024,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: dm_ms_received
                     
                     	Number of DMM messages received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: dm_rs_sent
                     
@@ -8090,12 +9042,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: dm_rs_received
                     
                     	Number of DMR messages received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: sl_ms_sent
                     
@@ -8104,12 +9060,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: sl_ms_received
                     
                     	Number of SLM messages received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: sl_rs_sent
                     
@@ -8118,12 +9078,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: sl_rs_received
                     
                     	Number of SLR messages received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: lm_ms_sent
                     
@@ -8132,12 +9096,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: lm_ms_received
                     
                     	Number of LMM messages received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: lm_rs_sent
                     
@@ -8146,12 +9114,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: lm_rs_received
                     
                     	Number of LMR messages received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: bn_ms_received
                     
@@ -8160,12 +9132,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bn_ms_discarded
                     
                     	Number of BNM messages discarded
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -8245,7 +9221,8 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.Statistics, ['ccms_sent', 'ccms_received', 'ccms_out_of_sequence', 'ccms_discarded', 'lb_ms_sent', 'lb_rs_sent', 'lb_rs_received', 'lb_rs_out_of_sequence', 'lb_rs_bad_data', 'lb_ms_received', 'lt_rs_received_unexpected', 'ai_ss_sent', 'ai_ss_received', 'lc_ks_received', 'dm_ms_sent', 'dm_ms_received', 'dm_rs_sent', 'dm_rs_received', 'sl_ms_sent', 'sl_ms_received', 'sl_rs_sent', 'sl_rs_received', 'lm_ms_sent', 'lm_ms_received', 'lm_rs_sent', 'lm_rs_received', 'bn_ms_received', 'bn_ms_discarded'], name, value)
+                        self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.Statistics, [u'ccms_sent', u'ccms_received', u'ccms_out_of_sequence', u'ccms_discarded', u'lb_ms_sent', u'lb_rs_sent', u'lb_rs_received', u'lb_rs_out_of_sequence', u'lb_rs_bad_data', u'lb_ms_received', u'lt_rs_received_unexpected', u'ai_ss_sent', u'ai_ss_received', u'lc_ks_received', u'dm_ms_sent', u'dm_ms_received', u'dm_rs_sent', u'dm_rs_received', u'sl_ms_sent', u'sl_ms_received', u'sl_rs_sent', u'sl_rs_received', u'lm_ms_sent', u'lm_ms_received', u'lm_rs_sent', u'lm_rs_received', u'bn_ms_received', u'bn_ms_discarded'], name, value)
+
 
 
                 class AisStatistics(Entity):
@@ -8257,35 +9234,49 @@ class Cfm(Entity):
                     	Time elapsed since AIS sending started
                     	**type**\:  :py:class:`SendingStart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: receiving_start
                     
                     	Time elapsed since AIS receiving started
                     	**type**\:  :py:class:`ReceivingStart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: level
                     
                     	AIS transmission level
                     	**type**\:  :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: interval
                     
                     	AIS transmission interval
                     	**type**\:  :py:class:`CfmBagAisInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisInterval>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: sending_ais
                     
                     	Details of how AIS is being transmitted
                     	**type**\:  :py:class:`CfmPmAisTransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAisTransmit>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: receiving_ais
                     
                     	Details of how the signal is being received
                     	**type**\:  :py:class:`CfmPmAisReceive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAisReceive>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_interval
                     
                     	The interval of the last received AIS packet
                     	**type**\:  :py:class:`CfmBagAisInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagAisInterval>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: last_mac_address
                     
@@ -8293,6 +9284,8 @@ class Cfm(Entity):
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    
+                    	**config**\: False
                     
                     
 
@@ -8336,7 +9329,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.AisStatistics, ['level', 'interval', 'sending_ais', 'receiving_ais', 'last_interval', 'last_mac_address'], name, value)
+                        self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.AisStatistics, [u'level', u'interval', u'sending_ais', u'receiving_ais', u'last_interval', u'last_mac_address'], name, value)
 
 
                     class SendingStart(Entity):
@@ -8350,6 +9343,8 @@ class Cfm(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: second
                         
                         .. attribute:: nanoseconds
@@ -8358,6 +9353,8 @@ class Cfm(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: nanosecond
                         
@@ -8387,7 +9384,8 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart, ['seconds', 'nanoseconds'], name, value)
+                            self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart, [u'seconds', u'nanoseconds'], name, value)
+
 
 
                     class ReceivingStart(Entity):
@@ -8401,6 +9399,8 @@ class Cfm(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: second
                         
                         .. attribute:: nanoseconds
@@ -8409,6 +9409,8 @@ class Cfm(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: nanosecond
                         
@@ -8438,7 +9440,9 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart, ['seconds', 'nanoseconds'], name, value)
+                            self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart, [u'seconds', u'nanoseconds'], name, value)
+
+
 
 
                 class Defects(Entity):
@@ -8450,10 +9454,14 @@ class Cfm(Entity):
                     	Defects detected from remote MEPs
                     	**type**\:  :py:class:`RemoteMepsDefects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ais_received
                     
                     	AIS or LCK received
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: peer_meps_that_timed_out
                     
@@ -8462,12 +9470,16 @@ class Cfm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: missing
                     
                     	Number of missing peer MEPs
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: auto_missing
                     
@@ -8476,6 +9488,8 @@ class Cfm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: unexpected
                     
                     	Number of unexpected peer MEPs
@@ -8483,15 +9497,21 @@ class Cfm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_port_status
                     
                     	The local port or interface is down
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_port_status
                     
                     	A peer port or interface is down
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -8533,7 +9553,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.Defects, ['ais_received', 'peer_meps_that_timed_out', 'missing', 'auto_missing', 'unexpected', 'local_port_status', 'peer_port_status'], name, value)
+                        self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.Defects, [u'ais_received', u'peer_meps_that_timed_out', u'missing', u'auto_missing', u'unexpected', u'local_port_status', u'peer_port_status'], name, value)
 
 
                     class RemoteMepsDefects(Entity):
@@ -8545,35 +9565,49 @@ class Cfm(Entity):
                         	Timed out (loss threshold exceeded)
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: invalid_level
                         
                         	Invalid level
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: invalid_maid
                         
                         	Invalid MAID
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: invalid_ccm_interval
                         
                         	Invalid CCM interval
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_our_mac
                         
                         	Loop detected (our MAC address received)
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_our_mep_id
                         
                         	Configuration Error (our MEP ID received)
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_rdi
                         
                         	Remote defection indication received
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -8611,7 +9645,11 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects, ['loss_threshold_exceeded', 'invalid_level', 'invalid_maid', 'invalid_ccm_interval', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
+                            self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects, [u'loss_threshold_exceeded', u'invalid_level', u'invalid_maid', u'invalid_ccm_interval', u'received_our_mac', u'received_our_mep_id', u'received_rdi'], name, value)
+
+
+
+
 
 
         class PeerMePv2s(Entity):
@@ -8622,6 +9660,8 @@ class Cfm(Entity):
             
             	Information about a peer MEP for a particular local MEP
             	**type**\: list of  		 :py:class:`PeerMePv2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2>`
+            
+            	**config**\: False
             
             
 
@@ -8662,12 +9702,16 @@ class Cfm(Entity):
                 
                 	**length:** 1..79
                 
+                	**config**\: False
+                
                 .. attribute:: service  (key)
                 
                 	Service (Maintenance Association)
                 	**type**\: str
                 
                 	**length:** 1..79
+                
+                	**config**\: False
                 
                 .. attribute:: local_mep_id  (key)
                 
@@ -8676,12 +9720,16 @@ class Cfm(Entity):
                 
                 	**range:** 1..8191
                 
+                	**config**\: False
+                
                 .. attribute:: interface  (key)
                 
                 	Interface
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                	**config**\: False
                 
                 .. attribute:: peer_mep_id  (key)
                 
@@ -8690,6 +9738,8 @@ class Cfm(Entity):
                 
                 	**range:** 1..8191
                 
+                	**config**\: False
+                
                 .. attribute:: peer_mac_address  (key)
                 
                 	Peer MAC address
@@ -8697,25 +9747,35 @@ class Cfm(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: peer_mep
                 
                 	Peer MEP
                 	**type**\:  :py:class:`PeerMep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep>`
+                
+                	**config**\: False
                 
                 .. attribute:: domain_xr
                 
                 	Maintenance domain name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: service_xr
                 
                 	Service name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: level
                 
                 	Maintenance level
                 	**type**\:  :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                
+                	**config**\: False
                 
                 .. attribute:: mep_id
                 
@@ -8724,6 +9784,8 @@ class Cfm(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: interface_xr
                 
                 	Interface
@@ -8731,15 +9793,21 @@ class Cfm(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: mep_direction
                 
                 	MEP facing direction
                 	**type**\:  :py:class:`CfmBagDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagDirection>`
                 
+                	**config**\: False
+                
                 .. attribute:: standby
                 
                 	The local MEP is on an interface in standby mode
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -8794,7 +9862,7 @@ class Cfm(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2, ['domain', 'service', 'local_mep_id', 'interface', 'peer_mep_id', 'peer_mac_address', 'domain_xr', 'service_xr', 'level', 'mep_id', 'interface_xr', 'mep_direction', 'standby'], name, value)
+                    self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2, ['domain', 'service', 'local_mep_id', 'interface', 'peer_mep_id', 'peer_mac_address', u'domain_xr', u'service_xr', u'level', u'mep_id', u'interface_xr', u'mep_direction', u'standby'], name, value)
 
 
                 class PeerMep(Entity):
@@ -8806,20 +9874,28 @@ class Cfm(Entity):
                     	Error state
                     	**type**\:  :py:class:`ErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.ErrorState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_up_down_time
                     
                     	Elapsed time since peer MEP became active or timed out
                     	**type**\:  :py:class:`LastUpDownTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastUpDownTime>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: last_ccm_received
                     
                     	Last CCM received from the peer MEP
                     	**type**\:  :py:class:`LastCcmReceived <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: statistics
                     
                     	Peer MEP statistics
                     	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: mep_id
                     
@@ -8828,6 +9904,8 @@ class Cfm(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: mac_address
                     
                     	MAC address
@@ -8835,20 +9913,28 @@ class Cfm(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: cross_check_state
                     
                     	Cross\-check state
                     	**type**\:  :py:class:`CfmPmRmepXcState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepXcState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: peer_mep_state
                     
                     	State of the peer MEP state machine
                     	**type**\:  :py:class:`CfmPmRmepState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmRmepState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ccm_offload
                     
                     	Offload status of received CCM handling
                     	**type**\:  :py:class:`CfmBagCcmOffload <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmOffload>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -8898,7 +9984,7 @@ class Cfm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep, ['mep_id', 'mac_address', 'cross_check_state', 'peer_mep_state', 'ccm_offload'], name, value)
+                        self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep, [u'mep_id', u'mac_address', u'cross_check_state', u'peer_mep_state', u'ccm_offload'], name, value)
 
 
                     class ErrorState(Entity):
@@ -8910,35 +9996,49 @@ class Cfm(Entity):
                         	Timed out (loss threshold exceeded)
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: invalid_level
                         
                         	Invalid level
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: invalid_maid
                         
                         	Invalid MAID
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: invalid_ccm_interval
                         
                         	Invalid CCM interval
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_our_mac
                         
                         	Loop detected (our MAC address received)
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_our_mep_id
                         
                         	Configuration Error (our MEP ID received)
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_rdi
                         
                         	Remote defection indication received
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -8976,7 +10076,8 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.ErrorState, ['loss_threshold_exceeded', 'invalid_level', 'invalid_maid', 'invalid_ccm_interval', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
+                            self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.ErrorState, [u'loss_threshold_exceeded', u'invalid_level', u'invalid_maid', u'invalid_ccm_interval', u'received_our_mac', u'received_our_mep_id', u'received_rdi'], name, value)
+
 
 
                     class LastUpDownTime(Entity):
@@ -8991,6 +10092,8 @@ class Cfm(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: second
                         
                         .. attribute:: nanoseconds
@@ -8999,6 +10102,8 @@ class Cfm(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: nanosecond
                         
@@ -9028,7 +10133,8 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastUpDownTime, ['seconds', 'nanoseconds'], name, value)
+                            self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastUpDownTime, [u'seconds', u'nanoseconds'], name, value)
+
 
 
                     class LastCcmReceived(Entity):
@@ -9040,30 +10146,42 @@ class Cfm(Entity):
                         	Frame header
                         	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: sender_id
                         
                         	Sender ID TLV
                         	**type**\:  :py:class:`SenderId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: mep_name
                         
                         	MEP name
                         	**type**\:  :py:class:`MepName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.MepName>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: port_status
                         
                         	Port status
                         	**type**\:  :py:class:`CfmPmPortStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmPortStatus>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: interface_status
                         
                         	Interface status
                         	**type**\:  :py:class:`CfmPmIntfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIntfStatus>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: additional_interface_status
                         
                         	Additional interface status
                         	**type**\:  :py:class:`CfmPmAddlIntfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmAddlIntfStatus>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: raw_data
                         
@@ -9072,15 +10190,21 @@ class Cfm(Entity):
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: organization_specific_tlv
                         
                         	Organizational\-specific TLVs
                         	**type**\: list of  		 :py:class:`OrganizationSpecificTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: unknown_tlv
                         
                         	Unknown TLVs
                         	**type**\: list of  		 :py:class:`UnknownTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -9127,7 +10251,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived, ['port_status', 'interface_status', 'additional_interface_status', 'raw_data'], name, value)
+                            self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived, [u'port_status', u'interface_status', u'additional_interface_status', u'raw_data'], name, value)
 
 
                         class Header(Entity):
@@ -9139,15 +10263,21 @@ class Cfm(Entity):
                             	MDID
                             	**type**\:  :py:class:`Mdid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: short_ma_name
                             
                             	Short MA Name
                             	**type**\:  :py:class:`ShortMaName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: level
                             
                             	MD level
                             	**type**\:  :py:class:`CfmBagMdLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdLevel>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: version
                             
@@ -9156,15 +10286,21 @@ class Cfm(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: interval
                             
                             	CCM interval
                             	**type**\:  :py:class:`CfmBagCcmInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagCcmInterval>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: rdi
                             
                             	Remote defect indicated
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: sequence_number
                             
@@ -9173,12 +10309,16 @@ class Cfm(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: mep_id
                             
                             	MEP ID
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             .. attribute:: mdid_format
                             
@@ -9187,12 +10327,16 @@ class Cfm(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: short_ma_name_format
                             
                             	Short MA Name format
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -9240,7 +10384,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header, ['level', 'version', 'interval', 'rdi', 'sequence_number', 'mep_id', 'mdid_format', 'short_ma_name_format'], name, value)
+                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header, [u'level', u'version', u'interval', u'rdi', u'sequence_number', u'mep_id', u'mdid_format', u'short_ma_name_format'], name, value)
 
 
                             class Mdid(Entity):
@@ -9252,20 +10396,28 @@ class Cfm(Entity):
                                 	MAC address name
                                 	**type**\:  :py:class:`MacName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: mdid_format_value
                                 
                                 	MDIDFormatValue
                                 	**type**\:  :py:class:`CfmBagMdidFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagMdidFmt>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dns_like_name
                                 
                                 	DNS\-like name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: string_name
                                 
                                 	String name
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mdid_data
                                 
@@ -9273,6 +10425,8 @@ class Cfm(Entity):
                                 	**type**\: str
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9322,12 +10476,16 @@ class Cfm(Entity):
                                     
                                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: integer
                                     
                                     	Integer
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -9358,6 +10516,8 @@ class Cfm(Entity):
                                         self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName, [u'mac_address', u'integer'], name, value)
 
 
+
+
                             class ShortMaName(Entity):
                                 """
                                 Short MA Name
@@ -9367,10 +10527,14 @@ class Cfm(Entity):
                                 	VPN ID name
                                 	**type**\:  :py:class:`VpnIdName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: short_ma_name_format_value
                                 
                                 	ShortMANameFormatValue
                                 	**type**\:  :py:class:`CfmBagSmanFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmBagSmanFmt>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: vlan_id_name
                                 
@@ -9379,10 +10543,14 @@ class Cfm(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: string_name
                                 
                                 	String name
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: integer_name
                                 
@@ -9391,10 +10559,14 @@ class Cfm(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: icc_based
                                 
                                 	ICC\-based format
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: short_ma_name_data
                                 
@@ -9402,6 +10574,8 @@ class Cfm(Entity):
                                 	**type**\: str
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9455,12 +10629,16 @@ class Cfm(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: index
                                     
                                     	VPN index
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -9491,6 +10669,9 @@ class Cfm(Entity):
                                         self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName, [u'oui', u'index'], name, value)
 
 
+
+
+
                         class SenderId(Entity):
                             """
                             Sender ID TLV
@@ -9500,6 +10681,8 @@ class Cfm(Entity):
                             	Chassis ID
                             	**type**\:  :py:class:`ChassisId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: management_address_domain
                             
                             	Management address domain
@@ -9507,12 +10690,16 @@ class Cfm(Entity):
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: management_address
                             
                             	Management address
                             	**type**\: str
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -9544,7 +10731,7 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId, ['management_address_domain', 'management_address'], name, value)
+                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId, [u'management_address_domain', u'management_address'], name, value)
 
 
                             class ChassisId(Entity):
@@ -9556,10 +10743,14 @@ class Cfm(Entity):
                                 	Chassis ID (Current)
                                 	**type**\:  :py:class:`ChassisIdValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: chassis_id_type
                                 
                                 	Chassis ID Type
                                 	**type**\:  :py:class:`CfmPmChassisIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmChassisIdFmt>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: chassis_id_type_value
                                 
@@ -9568,12 +10759,16 @@ class Cfm(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: chassis_id
                                 
                                 	Chassis ID (Deprecated)
                                 	**type**\: str
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9607,7 +10802,7 @@ class Cfm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId, ['chassis_id_type', 'chassis_id_type_value', 'chassis_id'], name, value)
+                                    self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId, [u'chassis_id_type', u'chassis_id_type_value', u'chassis_id'], name, value)
 
 
                                 class ChassisIdValue(Entity):
@@ -9619,10 +10814,14 @@ class Cfm(Entity):
                                     	ChassisIDFormat
                                     	**type**\:  :py:class:`CfmPmIdFmt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.CfmPmIdFmt>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: chassis_id_string
                                     
                                     	Chassis ID String
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: chassis_id_mac
                                     
@@ -9631,12 +10830,16 @@ class Cfm(Entity):
                                     
                                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: chassis_id_raw
                                     
                                     	Raw Chassis ID
                                     	**type**\: str
                                     
                                     	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -9668,7 +10871,10 @@ class Cfm(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue, ['chassis_id_format', 'chassis_id_string', 'chassis_id_mac', 'chassis_id_raw'], name, value)
+                                        self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue, [u'chassis_id_format', u'chassis_id_string', u'chassis_id_mac', u'chassis_id_raw'], name, value)
+
+
+
 
 
                         class MepName(Entity):
@@ -9679,6 +10885,8 @@ class Cfm(Entity):
                             
                             	MEP name
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -9704,7 +10912,8 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.MepName, ['name'], name, value)
+                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.MepName, [u'name'], name, value)
+
 
 
                         class OrganizationSpecificTlv(Entity):
@@ -9718,6 +10927,8 @@ class Cfm(Entity):
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: subtype
                             
                             	Subtype of TLV
@@ -9725,12 +10936,16 @@ class Cfm(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: value
                             
                             	Binary data in TLV
                             	**type**\: str
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -9760,7 +10975,8 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv, ['oui', 'subtype', 'value'], name, value)
+                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv, [u'oui', u'subtype', u'value'], name, value)
+
 
 
                         class UnknownTlv(Entity):
@@ -9774,12 +10990,16 @@ class Cfm(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: value
                             
                             	Binary data in TLV
                             	**type**\: str
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -9807,7 +11027,9 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv, ['typecode', 'value'], name, value)
+                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv, [u'typecode', u'value'], name, value)
+
+
 
 
                     class Statistics(Entity):
@@ -9819,12 +11041,16 @@ class Cfm(Entity):
                         	Elapsed time since last CCM received
                         	**type**\:  :py:class:`LastCcmReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ccms_received
                         
                         	Number of CCMs received
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: ccms_wrong_level
                         
@@ -9833,12 +11059,16 @@ class Cfm(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: ccms_invalid_maid
                         
                         	Number of CCMs received with an invalid MAID
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: ccms_invalid_interval
                         
@@ -9847,12 +11077,16 @@ class Cfm(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: ccms_invalid_source_mac_address
                         
                         	Number of CCMs received with an invalid source MAC address
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: ccms_our_mep_id
                         
@@ -9861,12 +11095,16 @@ class Cfm(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: ccms_rdi
                         
                         	Number of CCMs received with the Remote Defect Indication bit set
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: ccms_out_of_sequence
                         
@@ -9875,12 +11113,16 @@ class Cfm(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_ccm_sequence_number
                         
                         	Sequence number of last CCM received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -9926,7 +11168,7 @@ class Cfm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics, ['ccms_received', 'ccms_wrong_level', 'ccms_invalid_maid', 'ccms_invalid_interval', 'ccms_invalid_source_mac_address', 'ccms_our_mep_id', 'ccms_rdi', 'ccms_out_of_sequence', 'last_ccm_sequence_number'], name, value)
+                            self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics, [u'ccms_received', u'ccms_wrong_level', u'ccms_invalid_maid', u'ccms_invalid_interval', u'ccms_invalid_source_mac_address', u'ccms_our_mep_id', u'ccms_rdi', u'ccms_out_of_sequence', u'last_ccm_sequence_number'], name, value)
 
 
                         class LastCcmReceivedTime(Entity):
@@ -9940,6 +11182,8 @@ class Cfm(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             	**units**\: second
                             
                             .. attribute:: nanoseconds
@@ -9948,6 +11192,8 @@ class Cfm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: nanosecond
                             
@@ -9977,9 +11223,17 @@ class Cfm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime, ['seconds', 'nanoseconds'], name, value)
+                                self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime, [u'seconds', u'nanoseconds'], name, value)
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Cfm()
         return self._top_entity
+
+
 

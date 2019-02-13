@@ -43,6 +43,7 @@ class InterfaceType(Identity):
         super(InterfaceType, self).__init__(ns, pref, tag)
 
 
+
 class Interfaces(Entity):
     """
     Interface configuration parameters.
@@ -284,7 +285,7 @@ class Interfaces(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.Interface.Ipv4, [u'enabled', u'forwarding', u'mtu'], name, value)
+                self._perform_setattr(Interfaces.Interface.Ipv4, ['enabled', 'forwarding', 'mtu'], name, value)
 
 
             class Address(Entity):
@@ -340,7 +341,8 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Ipv4.Address, [u'ip', u'prefix_length', u'netmask'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Ipv4.Address, ['ip', 'prefix_length', 'netmask'], name, value)
+
 
 
             class Neighbor(Entity):
@@ -392,7 +394,9 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Ipv4.Neighbor, [u'ip', u'link_layer_address'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Ipv4.Neighbor, ['ip', 'link_layer_address'], name, value)
+
+
 
 
         class Ipv6(Entity):
@@ -495,7 +499,7 @@ class Interfaces(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.Interface.Ipv6, [u'enabled', u'forwarding', u'mtu', u'dup_addr_detect_transmits'], name, value)
+                self._perform_setattr(Interfaces.Interface.Ipv6, ['enabled', 'forwarding', 'mtu', 'dup_addr_detect_transmits'], name, value)
 
 
             class Address(Entity):
@@ -544,7 +548,8 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Ipv6.Address, [u'ip', u'prefix_length'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Ipv6.Address, ['ip', 'prefix_length'], name, value)
+
 
 
             class Neighbor(Entity):
@@ -596,7 +601,8 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Ipv6.Neighbor, [u'ip', u'link_layer_address'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Ipv6.Neighbor, ['ip', 'link_layer_address'], name, value)
+
 
 
             class Autoconf(Entity):
@@ -670,7 +676,8 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Ipv6.Autoconf, [u'create_global_addresses', u'create_temporary_addresses', u'temporary_valid_lifetime', u'temporary_preferred_lifetime'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Ipv6.Autoconf, ['create_global_addresses', 'create_temporary_addresses', 'temporary_valid_lifetime', 'temporary_preferred_lifetime'], name, value)
+
 
 
             class Ipv6RouterAdvertisements(Entity):
@@ -952,6 +959,10 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements.PrefixList.Prefix, ['prefix_spec', 'no_advertise', 'valid_lifetime', 'on_link_flag', 'preferred_lifetime', 'autonomous_flag'], name, value)
 
 
+
+
+
+
         class DiffservTargetEntry(Entity):
             """
             policy target for inbound or outbound direction
@@ -994,9 +1005,13 @@ class Interfaces(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.Interface.DiffservTargetEntry, ['direction', 'policy_name'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Interfaces()
         return self._top_entity
+
+
 
 class InterfacesState(Entity):
     """
@@ -1006,6 +1021,8 @@ class InterfacesState(Entity):
     
     	The list of interfaces on the device.  System\-controlled interfaces created by the system are always present in this list, whether they are configured or not
     	**type**\: list of  		 :py:class:`Interface <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface>`
+    
+    	**config**\: False
     
     
 
@@ -1047,12 +1064,16 @@ class InterfacesState(Entity):
         	The name of the interface.  A server implementation MAY map this leaf to the ifName MIB object.  Such an implementation needs to use some mechanism to handle the differences in size and characters allowed between this leaf and ifName.  The definition of such a mechanism is outside the scope of this document
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: type
         
         	The type of the interface
         	**type**\:  :py:class:`InterfaceType <ydk.models.ietf.ietf_interfaces.InterfaceType>`
         
         	**mandatory**\: True
+        
+        	**config**\: False
         
         .. attribute:: admin_status
         
@@ -1061,6 +1082,8 @@ class InterfacesState(Entity):
         
         	**mandatory**\: True
         
+        	**config**\: False
+        
         .. attribute:: oper_status
         
         	The current operational state of the interface. This leaf has the same semantics as ifOperStatus
@@ -1068,12 +1091,16 @@ class InterfacesState(Entity):
         
         	**mandatory**\: True
         
+        	**config**\: False
+        
         .. attribute:: last_change
         
         	The time the interface entered its current operational state.  If the current state was entered prior to the last re\-initialization of the local network management subsystem, then this node is not present
         	**type**\: str
         
         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+        
+        	**config**\: False
         
         .. attribute:: if_index
         
@@ -1084,12 +1111,16 @@ class InterfacesState(Entity):
         
         	**mandatory**\: True
         
+        	**config**\: False
+        
         .. attribute:: phys_address
         
         	The interface's address at its protocol sub\-layer.  For example, for an 802.x interface, this object normally contains a Media Access Control (MAC) address.  The interface's media\-specific modules must define the bit and byte ordering and the format of the value of this object.  For interfaces that do not have such an address (e.g., a serial line), this node is not present
         	**type**\: str
         
         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+        
+        	**config**\: False
         
         .. attribute:: higher_layer_if
         
@@ -1098,12 +1129,16 @@ class InterfacesState(Entity):
         
         	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface>`
         
+        	**config**\: False
+        
         .. attribute:: lower_layer_if
         
         	A list of references to interfaces layered underneath this interface
         	**type**\: list of str
         
         	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface>`
+        
+        	**config**\: False
         
         .. attribute:: speed
         
@@ -1112,6 +1147,8 @@ class InterfacesState(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         	**units**\: bits/second
         
         .. attribute:: statistics
@@ -1119,10 +1156,7 @@ class InterfacesState(Entity):
         	A collection of interface\-related statistics objects
         	**type**\:  :py:class:`Statistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Statistics>`
         
-        .. attribute:: routing_instance
-        
-        	The name of the routing instance to which the interface is assigned
-        	**type**\: str
+        	**config**\: False
         
         .. attribute:: ipv4
         
@@ -1131,6 +1165,8 @@ class InterfacesState(Entity):
         
         	**presence node**\: True
         
+        	**config**\: False
+        
         .. attribute:: ipv6
         
         	Parameters for the IPv6 address family
@@ -1138,10 +1174,21 @@ class InterfacesState(Entity):
         
         	**presence node**\: True
         
+        	**config**\: False
+        
+        .. attribute:: routing_instance
+        
+        	The name of the routing instance to which the interface is assigned
+        	**type**\: str
+        
+        	**config**\: False
+        
         .. attribute:: diffserv_target_entry
         
         	policy target for inbound or outbound direction
         	**type**\: list of  		 :py:class:`DiffservTargetEntry <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1200,7 +1247,7 @@ class InterfacesState(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(InterfacesState.Interface, [u'name', u'type', u'admin_status', u'oper_status', u'last_change', u'if_index', u'phys_address', u'higher_layer_if', u'lower_layer_if', u'speed', u'routing_instance'], name, value)
+            self._perform_setattr(InterfacesState.Interface, [u'name', u'type', u'admin_status', u'oper_status', u'last_change', u'if_index', u'phys_address', u'higher_layer_if', u'lower_layer_if', u'speed', 'routing_instance'], name, value)
 
         class AdminStatus(Enum):
             """
@@ -1300,12 +1347,16 @@ class InterfacesState(Entity):
             
             	**mandatory**\: True
             
+            	**config**\: False
+            
             .. attribute:: in_octets
             
             	The total number of octets received on the interface, including framing characters.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: in_unicast_pkts
             
@@ -1314,12 +1365,16 @@ class InterfacesState(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: in_broadcast_pkts
             
             	The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were addressed to a broadcast address at this sub\-layer.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: in_multicast_pkts
             
@@ -1328,12 +1383,16 @@ class InterfacesState(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: in_discards
             
             	The number of inbound packets that were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher\-layer protocol.  One possible reason for discarding such a packet could be to free up buffer space.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: in_errors
             
@@ -1342,12 +1401,16 @@ class InterfacesState(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: in_unknown_protos
             
             	For packet\-oriented interfaces, the number of packets received via the interface that were discarded because of an unknown or unsupported protocol.  For character\-oriented or fixed\-length interfaces that support protocol multiplexing, the number of transmission units received via the interface that were discarded because of an unknown or unsupported protocol. For any interface that does not support protocol multiplexing, this counter is not present.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: out_octets
             
@@ -1356,12 +1419,16 @@ class InterfacesState(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: out_unicast_pkts
             
             	The total number of packets that higher\-level protocols requested be transmitted, and that were not addressed to a multicast or broadcast address at this sub\-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: out_broadcast_pkts
             
@@ -1370,12 +1437,16 @@ class InterfacesState(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: out_multicast_pkts
             
             	The total number of packets that higher\-level protocols requested be transmitted, and that were addressed to a multicast address at this sub\-layer, including those that were discarded or not sent.  For a MAC\-layer protocol, this includes both Group and Functional addresses.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: out_discards
             
@@ -1384,12 +1455,16 @@ class InterfacesState(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: out_errors
             
             	For packet\-oriented interfaces, the number of outbound packets that could not be transmitted because of errors. For character\-oriented or fixed\-length interfaces, the number of outbound transmission units that could not be transmitted because of errors.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: in_pkts
             
@@ -1398,12 +1473,16 @@ class InterfacesState(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: out_pkts
             
             	total packets output
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -1462,6 +1541,7 @@ class InterfacesState(Entity):
                 self._perform_setattr(InterfacesState.Interface.Statistics, [u'discontinuity_time', u'in_octets', u'in_unicast_pkts', u'in_broadcast_pkts', u'in_multicast_pkts', u'in_discards', u'in_errors', u'in_unknown_protos', u'out_octets', u'out_unicast_pkts', u'out_broadcast_pkts', u'out_multicast_pkts', u'out_discards', u'out_errors', 'in_pkts', 'out_pkts'], name, value)
 
 
+
         class Ipv4(Entity):
             """
             Interface\-specific parameters for the IPv4 address family.
@@ -1471,12 +1551,16 @@ class InterfacesState(Entity):
             	Indicates whether IPv4 packet forwarding is enabled or disabled on this interface
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: mtu
             
             	The size, in octets, of the largest IPv4 packet that the interface will send and receive
             	**type**\: int
             
             	**range:** 68..65535
+            
+            	**config**\: False
             
             	**units**\: octets
             
@@ -1485,10 +1569,14 @@ class InterfacesState(Entity):
             	The list of IPv4 addresses on the interface
             	**type**\: list of  		 :py:class:`Address <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv4.Address>`
             
+            	**config**\: False
+            
             .. attribute:: neighbor
             
             	A list of mappings from IPv4 addresses to link\-layer addresses. This list represents the ARP Cache
             	**type**\: list of  		 :py:class:`Neighbor <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv4.Neighbor>`
+            
+            	**config**\: False
             
             
 
@@ -1522,7 +1610,7 @@ class InterfacesState(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(InterfacesState.Interface.Ipv4, [u'forwarding', u'mtu'], name, value)
+                self._perform_setattr(InterfacesState.Interface.Ipv4, ['forwarding', 'mtu'], name, value)
 
 
             class Address(Entity):
@@ -1536,12 +1624,16 @@ class InterfacesState(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: prefix_length
                 
                 	The length of the subnet prefix
                 	**type**\: int
                 
                 	**range:** 0..32
+                
+                	**config**\: False
                 
                 .. attribute:: netmask
                 
@@ -1550,10 +1642,14 @@ class InterfacesState(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
                 
+                	**config**\: False
+                
                 .. attribute:: origin
                 
                 	The origin of this address
                 	**type**\:  :py:class:`IpAddressOrigin <ydk.models.ietf.ietf_ip.IpAddressOrigin>`
+                
+                	**config**\: False
                 
                 
 
@@ -1585,7 +1681,8 @@ class InterfacesState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(InterfacesState.Interface.Ipv4.Address, [u'ip', u'prefix_length', u'netmask', u'origin'], name, value)
+                    self._perform_setattr(InterfacesState.Interface.Ipv4.Address, ['ip', 'prefix_length', 'netmask', 'origin'], name, value)
+
 
 
             class Neighbor(Entity):
@@ -1601,6 +1698,8 @@ class InterfacesState(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: link_layer_address
                 
                 	The link\-layer address of the neighbor node
@@ -1608,10 +1707,14 @@ class InterfacesState(Entity):
                 
                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                 
+                	**config**\: False
+                
                 .. attribute:: origin
                 
                 	The origin of this neighbor entry
                 	**type**\:  :py:class:`NeighborOrigin <ydk.models.ietf.ietf_ip.NeighborOrigin>`
+                
+                	**config**\: False
                 
                 
 
@@ -1641,7 +1744,9 @@ class InterfacesState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(InterfacesState.Interface.Ipv4.Neighbor, [u'ip', u'link_layer_address', u'origin'], name, value)
+                    self._perform_setattr(InterfacesState.Interface.Ipv4.Neighbor, ['ip', 'link_layer_address', 'origin'], name, value)
+
+
 
 
         class Ipv6(Entity):
@@ -1653,6 +1758,8 @@ class InterfacesState(Entity):
             	Indicates whether IPv6 packet forwarding is enabled or disabled on this interface
             	**type**\: bool
             
+            	**config**\: False
+            
             	**default value**\: false
             
             .. attribute:: mtu
@@ -1662,6 +1769,8 @@ class InterfacesState(Entity):
             
             	**range:** 1280..4294967295
             
+            	**config**\: False
+            
             	**units**\: octets
             
             .. attribute:: address
@@ -1669,10 +1778,14 @@ class InterfacesState(Entity):
             	The list of IPv6 addresses on the interface
             	**type**\: list of  		 :py:class:`Address <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv6.Address>`
             
+            	**config**\: False
+            
             .. attribute:: neighbor
             
             	A list of mappings from IPv6 addresses to link\-layer addresses. This list represents the Neighbor Cache
             	**type**\: list of  		 :py:class:`Neighbor <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv6.Neighbor>`
+            
+            	**config**\: False
             
             
 
@@ -1706,7 +1819,7 @@ class InterfacesState(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(InterfacesState.Interface.Ipv6, [u'forwarding', u'mtu'], name, value)
+                self._perform_setattr(InterfacesState.Interface.Ipv6, ['forwarding', 'mtu'], name, value)
 
 
             class Address(Entity):
@@ -1720,6 +1833,8 @@ class InterfacesState(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: prefix_length
                 
                 	The length of the subnet prefix
@@ -1729,15 +1844,21 @@ class InterfacesState(Entity):
                 
                 	**mandatory**\: True
                 
+                	**config**\: False
+                
                 .. attribute:: origin
                 
                 	The origin of this address
                 	**type**\:  :py:class:`IpAddressOrigin <ydk.models.ietf.ietf_ip.IpAddressOrigin>`
                 
+                	**config**\: False
+                
                 .. attribute:: status
                 
                 	The status of an address.  Most of the states correspond to states from the IPv6 Stateless Address Autoconfiguration protocol
                 	**type**\:  :py:class:`Status <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv6.Address.Status>`
+                
+                	**config**\: False
                 
                 
 
@@ -1769,7 +1890,7 @@ class InterfacesState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(InterfacesState.Interface.Ipv6.Address, [u'ip', u'prefix_length', u'origin', u'status'], name, value)
+                    self._perform_setattr(InterfacesState.Interface.Ipv6.Address, ['ip', 'prefix_length', 'origin', 'status'], name, value)
 
                 class Status(Enum):
                     """
@@ -1859,6 +1980,7 @@ class InterfacesState(Entity):
 
 
 
+
             class Neighbor(Entity):
                 """
                 A list of mappings from IPv6 addresses to
@@ -1872,6 +1994,8 @@ class InterfacesState(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: link_layer_address
                 
                 	The link\-layer address of the neighbor node
@@ -1879,20 +2003,28 @@ class InterfacesState(Entity):
                 
                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                 
+                	**config**\: False
+                
                 .. attribute:: origin
                 
                 	The origin of this neighbor entry
                 	**type**\:  :py:class:`NeighborOrigin <ydk.models.ietf.ietf_ip.NeighborOrigin>`
+                
+                	**config**\: False
                 
                 .. attribute:: is_router
                 
                 	Indicates that the neighbor node acts as a router
                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	The Neighbor Unreachability Detection state of this entry
                 	**type**\:  :py:class:`State <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Ipv6.Neighbor.State>`
+                
+                	**config**\: False
                 
                 
 
@@ -1926,7 +2058,7 @@ class InterfacesState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(InterfacesState.Interface.Ipv6.Neighbor, [u'ip', u'link_layer_address', u'origin', u'is_router', u'state'], name, value)
+                    self._perform_setattr(InterfacesState.Interface.Ipv6.Neighbor, ['ip', 'link_layer_address', 'origin', 'is_router', 'state'], name, value)
 
                 class State(Enum):
                     """
@@ -1994,6 +2126,8 @@ class InterfacesState(Entity):
 
 
 
+
+
         class DiffservTargetEntry(Entity):
             """
             policy target for inbound or outbound direction
@@ -2003,15 +2137,21 @@ class InterfacesState(Entity):
             	Direction fo the traffic flow either inbound or outbound
             	**type**\:  :py:class:`Direction <ydk.models.ietf.ietf_diffserv_target.Direction>`
             
+            	**config**\: False
+            
             .. attribute:: policy_name  (key)
             
             	Policy entry name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: diffserv_target_classifier_statistics
             
             	Statistics for each Classifier Entry in a Policy
             	**type**\: list of  		 :py:class:`DiffservTargetClassifierStatistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics>`
+            
+            	**config**\: False
             
             
 
@@ -2053,25 +2193,35 @@ class InterfacesState(Entity):
                 	Classifier Entry Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: parent_path  (key)
                 
                 	Path of the Classifier Entry in a hierarchial policy 
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: classifier_entry_statistics
                 
                 	 This group defines the classifier filter statistics of  each classifier entry         
                 	**type**\:  :py:class:`ClassifierEntryStatistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: meter_statistics
                 
                 	Meter statistics
                 	**type**\: list of  		 :py:class:`MeterStatistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: queuing_statistics
                 
                 	queue related statistics 
                 	**type**\:  :py:class:`QueuingStatistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics>`
+                
+                	**config**\: False
                 
                 
 
@@ -2127,6 +2277,8 @@ class InterfacesState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: classified_bytes
                     
                     	 Number of total bytes which filtered   to the classifier\-entry
@@ -2134,12 +2286,16 @@ class InterfacesState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: classified_rate
                     
                     	 Rate of average data flow through the   classifier\-entry
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: bits-per-second
                     
@@ -2174,6 +2330,7 @@ class InterfacesState(Entity):
                         self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics, ['classified_pkts', 'classified_bytes', 'classified_rate'], name, value)
 
 
+
                 class MeterStatistics(Entity):
                     """
                     Meter statistics
@@ -2185,12 +2342,16 @@ class InterfacesState(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: meter_succeed_pkts
                     
                     	Number of packets which succeed the meter
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: meter_succeed_bytes
                     
@@ -2199,6 +2360,8 @@ class InterfacesState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: meter_failed_pkts
                     
                     	Number of packets which failed the meter
@@ -2206,12 +2369,16 @@ class InterfacesState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: meter_failed_bytes
                     
                     	Bytes of packets which failed the meter
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -2248,6 +2415,7 @@ class InterfacesState(Entity):
                         self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics, ['meter_id', 'meter_succeed_pkts', 'meter_succeed_bytes', 'meter_failed_pkts', 'meter_failed_bytes'], name, value)
 
 
+
                 class QueuingStatistics(Entity):
                     """
                     queue related statistics 
@@ -2259,12 +2427,16 @@ class InterfacesState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_bytes
                     
                     	Number of bytes transmitted from queue 
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: queue_size_pkts
                     
@@ -2273,12 +2445,16 @@ class InterfacesState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: queue_size_bytes
                     
                     	Number of bytes currently buffered 
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: drop_pkts
                     
@@ -2287,6 +2463,8 @@ class InterfacesState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: drop_bytes
                     
                     	Total number of bytes dropped 
@@ -2294,10 +2472,14 @@ class InterfacesState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: wred_stats
                     
                     	Container for WRED statistics
                     	**type**\:  :py:class:`WredStats <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2351,12 +2533,16 @@ class InterfacesState(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: early_drop_bytes
                         
                         	Early drop bytes 
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -2386,7 +2572,14 @@ class InterfacesState(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats, ['early_drop_pkts', 'early_drop_bytes'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = InterfacesState()
         return self._top_entity
+
+
 

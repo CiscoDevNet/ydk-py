@@ -306,6 +306,7 @@ class GroupToRpMappingMode(Identity):
         super(GroupToRpMappingMode, self).__init__(ns, pref, tag)
 
 
+
 class AsmMappingMode(GroupToRpMappingMode):
     """
     The mapping is for Any\-Source Multicast (ASM) with PIM Sparse Mode.
@@ -319,6 +320,7 @@ class AsmMappingMode(GroupToRpMappingMode):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:pim", pref="pim", tag="pim:asm-mapping-mode"):
         super(AsmMappingMode, self).__init__(ns, pref, tag)
+
 
 
 class OtherMappingMode(GroupToRpMappingMode):
@@ -336,6 +338,7 @@ class OtherMappingMode(GroupToRpMappingMode):
         super(OtherMappingMode, self).__init__(ns, pref, tag)
 
 
+
 class SsmMappingMode(GroupToRpMappingMode):
     """
     The mapping is for Source Specific Mode.
@@ -349,6 +352,7 @@ class SsmMappingMode(GroupToRpMappingMode):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:pim", pref="pim", tag="pim:ssm-mapping-mode"):
         super(SsmMappingMode, self).__init__(ns, pref, tag)
+
 
 
 class SmMappingMode(GroupToRpMappingMode):
@@ -366,6 +370,7 @@ class SmMappingMode(GroupToRpMappingMode):
         super(SmMappingMode, self).__init__(ns, pref, tag)
 
 
+
 class PimBidirMappingMode(GroupToRpMappingMode):
     """
     The mapping is for Bidirectional PIM.
@@ -381,6 +386,7 @@ class PimBidirMappingMode(GroupToRpMappingMode):
         super(PimBidirMappingMode, self).__init__(ns, pref, tag)
 
 
+
 class DmMappingMode(GroupToRpMappingMode):
     """
     The mapping is for Dense Mode.
@@ -394,5 +400,6 @@ class DmMappingMode(GroupToRpMappingMode):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:pim", pref="pim", tag="pim:dm-mapping-mode"):
         super(DmMappingMode, self).__init__(ns, pref, tag)
+
 
 

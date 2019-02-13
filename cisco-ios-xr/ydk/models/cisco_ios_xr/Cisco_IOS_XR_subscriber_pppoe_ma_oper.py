@@ -303,10 +303,14 @@ class Pppoe(Entity):
     	PPPoE access interface statistics information
     	**type**\:  :py:class:`AccessInterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.AccessInterfaceStatistics>`
     
+    	**config**\: False
+    
     .. attribute:: nodes
     
     	Per\-node PPPoE operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes>`
+    
+    	**config**\: False
     
     
 
@@ -350,6 +354,8 @@ class Pppoe(Entity):
         	Statistics information for a PPPoE\-enabled access interface
         	**type**\: list of  		 :py:class:`AccessInterfaceStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic>`
         
+        	**config**\: False
+        
         
 
         """
@@ -389,10 +395,14 @@ class Pppoe(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: packet_counts
             
             	Packet Counts
             	**type**\:  :py:class:`PacketCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts>`
+            
+            	**config**\: False
             
             
 
@@ -435,40 +445,56 @@ class Pppoe(Entity):
                 	PADI counts
                 	**type**\:  :py:class:`Padi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi>`
                 
+                	**config**\: False
+                
                 .. attribute:: pado
                 
                 	PADO counts
                 	**type**\:  :py:class:`Pado <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Pado>`
+                
+                	**config**\: False
                 
                 .. attribute:: padr
                 
                 	PADR counts
                 	**type**\:  :py:class:`Padr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padr>`
                 
+                	**config**\: False
+                
                 .. attribute:: pads_success
                 
                 	PADS Success counts
                 	**type**\:  :py:class:`PadsSuccess <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsSuccess>`
+                
+                	**config**\: False
                 
                 .. attribute:: pads_error
                 
                 	PADS Error counts
                 	**type**\:  :py:class:`PadsError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsError>`
                 
+                	**config**\: False
+                
                 .. attribute:: padt
                 
                 	PADT counts
                 	**type**\:  :py:class:`Padt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padt>`
+                
+                	**config**\: False
                 
                 .. attribute:: session_state
                 
                 	Session Stage counts
                 	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.SessionState>`
                 
+                	**config**\: False
+                
                 .. attribute:: other
                 
                 	Other counts
                 	**type**\:  :py:class:`Other <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Other>`
+                
+                	**config**\: False
                 
                 
 
@@ -537,6 +563,8 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: received
                     
                     	Received
@@ -544,12 +572,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: dropped
                     
                     	Dropped
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -579,7 +611,8 @@ class Pppoe(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi, [u'sent', u'received', u'dropped'], name, value)
+                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi, ['sent', 'received', 'dropped'], name, value)
+
 
 
                 class Pado(Entity):
@@ -593,6 +626,8 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: received
                     
                     	Received
@@ -600,12 +635,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: dropped
                     
                     	Dropped
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -635,7 +674,8 @@ class Pppoe(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Pado, [u'sent', u'received', u'dropped'], name, value)
+                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Pado, ['sent', 'received', 'dropped'], name, value)
+
 
 
                 class Padr(Entity):
@@ -649,6 +689,8 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: received
                     
                     	Received
@@ -656,12 +698,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: dropped
                     
                     	Dropped
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -691,7 +737,8 @@ class Pppoe(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padr, [u'sent', u'received', u'dropped'], name, value)
+                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padr, ['sent', 'received', 'dropped'], name, value)
+
 
 
                 class PadsSuccess(Entity):
@@ -705,6 +752,8 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: received
                     
                     	Received
@@ -712,12 +761,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: dropped
                     
                     	Dropped
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -747,7 +800,8 @@ class Pppoe(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsSuccess, [u'sent', u'received', u'dropped'], name, value)
+                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsSuccess, ['sent', 'received', 'dropped'], name, value)
+
 
 
                 class PadsError(Entity):
@@ -761,6 +815,8 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: received
                     
                     	Received
@@ -768,12 +824,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: dropped
                     
                     	Dropped
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -803,7 +863,8 @@ class Pppoe(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsError, [u'sent', u'received', u'dropped'], name, value)
+                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsError, ['sent', 'received', 'dropped'], name, value)
+
 
 
                 class Padt(Entity):
@@ -817,6 +878,8 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: received
                     
                     	Received
@@ -824,12 +887,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: dropped
                     
                     	Dropped
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -859,7 +926,8 @@ class Pppoe(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padt, [u'sent', u'received', u'dropped'], name, value)
+                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padt, ['sent', 'received', 'dropped'], name, value)
+
 
 
                 class SessionState(Entity):
@@ -873,6 +941,8 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: received
                     
                     	Received
@@ -880,12 +950,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: dropped
                     
                     	Dropped
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -915,7 +989,8 @@ class Pppoe(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.SessionState, [u'sent', u'received', u'dropped'], name, value)
+                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.SessionState, ['sent', 'received', 'dropped'], name, value)
+
 
 
                 class Other(Entity):
@@ -929,6 +1004,8 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: received
                     
                     	Received
@@ -936,12 +1013,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: dropped
                     
                     	Dropped
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -971,7 +1052,11 @@ class Pppoe(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Other, [u'sent', u'received', u'dropped'], name, value)
+                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Other, ['sent', 'received', 'dropped'], name, value)
+
+
+
+
 
 
     class Nodes(Entity):
@@ -982,6 +1067,8 @@ class Pppoe(Entity):
         
         	PPPoE operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -1021,40 +1108,56 @@ class Pppoe(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: disconnect_history
             
             	PPPoE disconnect history for a given node
             	**type**\:  :py:class:`DisconnectHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistory>`
+            
+            	**config**\: False
             
             .. attribute:: disconnect_history_unique
             
             	PPPoE unique disconnect history for a given node
             	**type**\:  :py:class:`DisconnectHistoryUnique <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistoryUnique>`
             
+            	**config**\: False
+            
             .. attribute:: statistics
             
             	PPPoE statistics for a given node
             	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.Statistics>`
+            
+            	**config**\: False
             
             .. attribute:: access_interface
             
             	PPPoE access interface information
             	**type**\:  :py:class:`AccessInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.AccessInterface>`
             
+            	**config**\: False
+            
             .. attribute:: interfaces
             
             	Per interface PPPoE operational data
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.Interfaces>`
+            
+            	**config**\: False
             
             .. attribute:: bba_groups
             
             	PPPoE BBA\-Group information
             	**type**\:  :py:class:`BbaGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups>`
             
+            	**config**\: False
+            
             .. attribute:: summary_total
             
             	PPPoE statistics for a given node
             	**type**\:  :py:class:`SummaryTotal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.SummaryTotal>`
+            
+            	**config**\: False
             
             
 
@@ -1123,10 +1226,14 @@ class Pppoe(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: entry
                 
                 	Array of disconnected subscribers
                 	**type**\: list of  		 :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistory.Entry>`
+                
+                	**config**\: False
                 
                 
 
@@ -1154,7 +1261,7 @@ class Pppoe(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory, [u'current_idx'], name, value)
+                    self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory, ['current_idx'], name, value)
 
 
                 class Entry(Entity):
@@ -1166,6 +1273,8 @@ class Pppoe(Entity):
                     	Session IDB
                     	**type**\:  :py:class:`SessionIdb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: timestamp
                     
                     	Time when disconnected
@@ -1173,15 +1282,21 @@ class Pppoe(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: ifname
                     
                     	Interface name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: trigger
                     
                     	Disconnect Trigger
                     	**type**\:  :py:class:`PppoeMaSessionTrig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaSessionTrig>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1215,7 +1330,7 @@ class Pppoe(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry, [u'timestamp', u'ifname', u'trigger'], name, value)
+                        self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry, ['timestamp', 'ifname', 'trigger'], name, value)
 
 
                     class SessionIdb(Entity):
@@ -1227,15 +1342,21 @@ class Pppoe(Entity):
                         	Tags
                         	**type**\:  :py:class:`Tags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: vlan_outer_tag
                         
                         	VLAN Outer Tag
                         	**type**\:  :py:class:`VlanOuterTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanOuterTag>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: vlan_inner_tag
                         
                         	VLAN Inner Tag
                         	**type**\:  :py:class:`VlanInnerTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanInnerTag>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: interface
                         
@@ -1244,12 +1365,16 @@ class Pppoe(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: access_interface
                         
                         	Access Interface
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        	**config**\: False
                         
                         .. attribute:: session_id
                         
@@ -1258,12 +1383,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: sub_label
                         
                         	Sub Label
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: peer_mac_address
                         
@@ -1272,10 +1401,14 @@ class Pppoe(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
+                        	**config**\: False
+                        
                         .. attribute:: state
                         
                         	State
                         	**type**\:  :py:class:`PppoeMaSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaSessionState>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: cdm_object_handle
                         
@@ -1284,12 +1417,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: chkpt_id
                         
                         	Chkpt ID
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: punted_count
                         
@@ -1298,12 +1435,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: port_limit
                         
                         	Port Limit
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_counted
                         
@@ -1312,12 +1453,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_vlan_outer_tag
                         
                         	Is VLAN Outer Tag
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_vlan_inner_tag
                         
@@ -1326,12 +1471,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_cleanup_pending
                         
                         	Is Cleanup Pending
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_disconnect_done_pending
                         
@@ -1340,12 +1489,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_delete_done_pending
                         
                         	Is Delete Done Pending
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_intf_create_callback_pending
                         
@@ -1354,12 +1507,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_publish_encaps_attr_pending
                         
                         	Is Publish Encaps Attr pending
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_publish_encaps_attr_cb_pending
                         
@@ -1368,12 +1525,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_intf_delete_callback_pending
                         
                         	Is Interface Delete Callback pending
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_intf_delete_pending
                         
@@ -1382,12 +1543,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_im_owned_resource
                         
                         	Is IM Owned Resource
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_im_final_received
                         
@@ -1396,12 +1561,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_im_owned_resource_missing
                         
                         	Is IM Owned Resource missing
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_aaa_start_request_callback_pending
                         
@@ -1410,12 +1579,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_aaa_owned_resource
                         
                         	Is AAA Owned Resource
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_aaa_disconnect_requested
                         
@@ -1424,12 +1597,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_aaa_disconnect_received
                         
                         	Is AAA Disconnect Received
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_sub_db_activate_callback_pending
                         
@@ -1438,12 +1615,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_pads_sent
                         
                         	Is PADS Sent
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_padt_received
                         
@@ -1452,12 +1633,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_in_flight
                         
                         	Is Session In Flight
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_radius_override
                         
@@ -1466,12 +1651,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: expected_notifications
                         
                         	Expected Notifications
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_notifications
                         
@@ -1480,10 +1669,14 @@ class Pppoe(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: srg_state
                         
                         	SRG state
                         	**type**\:  :py:class:`PppoeMaSessionIdbSrgState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaSessionIdbSrgState>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_srg_data_received
                         
@@ -1492,12 +1685,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_iedge_data_received
                         
                         	Is IEDGE Data Received
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         
 
@@ -1609,7 +1806,7 @@ class Pppoe(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb, [u'interface', u'access_interface', u'session_id', u'sub_label', u'peer_mac_address', u'state', u'cdm_object_handle', u'chkpt_id', u'punted_count', u'port_limit', u'is_counted', u'is_vlan_outer_tag', u'is_vlan_inner_tag', u'is_cleanup_pending', u'is_disconnect_done_pending', u'is_delete_done_pending', u'is_intf_create_callback_pending', u'is_publish_encaps_attr_pending', u'is_publish_encaps_attr_cb_pending', u'is_intf_delete_callback_pending', u'is_intf_delete_pending', u'is_im_owned_resource', u'is_im_final_received', u'is_im_owned_resource_missing', u'is_aaa_start_request_callback_pending', u'is_aaa_owned_resource', u'is_aaa_disconnect_requested', u'is_aaa_disconnect_received', u'is_sub_db_activate_callback_pending', u'is_pads_sent', u'is_padt_received', u'is_in_flight', u'is_radius_override', u'expected_notifications', u'received_notifications', u'srg_state', u'is_srg_data_received', u'is_iedge_data_received'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb, ['interface', 'access_interface', 'session_id', 'sub_label', 'peer_mac_address', 'state', 'cdm_object_handle', 'chkpt_id', 'punted_count', 'port_limit', 'is_counted', 'is_vlan_outer_tag', 'is_vlan_inner_tag', 'is_cleanup_pending', 'is_disconnect_done_pending', 'is_delete_done_pending', 'is_intf_create_callback_pending', 'is_publish_encaps_attr_pending', 'is_publish_encaps_attr_cb_pending', 'is_intf_delete_callback_pending', 'is_intf_delete_pending', 'is_im_owned_resource', 'is_im_final_received', 'is_im_owned_resource_missing', 'is_aaa_start_request_callback_pending', 'is_aaa_owned_resource', 'is_aaa_disconnect_requested', 'is_aaa_disconnect_received', 'is_sub_db_activate_callback_pending', 'is_pads_sent', 'is_padt_received', 'is_in_flight', 'is_radius_override', 'expected_notifications', 'received_notifications', 'srg_state', 'is_srg_data_received', 'is_iedge_data_received'], name, value)
 
 
                         class Tags(Entity):
@@ -1621,12 +1818,16 @@ class Pppoe(Entity):
                             	Access Loop Encapsulation
                             	**type**\:  :py:class:`AccessLoopEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags.AccessLoopEncapsulation>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_service_name
                             
                             	Is Service Name
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_max_payload
                             
@@ -1635,12 +1836,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_host_uniq
                             
                             	Is Host Uniq
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_relay_session_id
                             
@@ -1649,12 +1854,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_vendor_specific
                             
                             	Is Vendor Specific
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_iwf
                             
@@ -1663,12 +1872,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_remote_id
                             
                             	Is Remote ID
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_circuit_id
                             
@@ -1677,6 +1890,8 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_dsl_tag
                             
                             	Is DSL Tag
@@ -1684,10 +1899,14 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: service_name
                             
                             	Service Name
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: max_payload
                             
@@ -1696,12 +1915,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: host_uniq
                             
                             	Host Uniq
                             	**type**\: str
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: relay_session_id
                             
@@ -1710,15 +1933,21 @@ class Pppoe(Entity):
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: remote_id
                             
                             	Remote ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: circuit_id
                             
                             	Circuit ID
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_dsl_actual_up
                             
@@ -1727,12 +1956,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_dsl_actual_down
                             
                             	Is DSL Actual Down
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_dsl_min_up
                             
@@ -1741,12 +1974,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_dsl_min_down
                             
                             	Is DSL Min Down
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_dsl_attain_up
                             
@@ -1755,12 +1992,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_dsl_attain_down
                             
                             	Is DSL Attain Down
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_dsl_max_up
                             
@@ -1769,12 +2010,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_dsl_max_down
                             
                             	Is DSL Max Down
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_dsl_min_up_low
                             
@@ -1783,12 +2028,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_dsl_min_down_low
                             
                             	Is DSL Min Down Low
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_dsl_max_delay_up
                             
@@ -1797,12 +2046,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_dsl_actual_delay_up
                             
                             	Is DSL Actual Delay Up
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_dsl_max_delay_down
                             
@@ -1811,12 +2064,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_dsl_actual_delay_down
                             
                             	Is DSL Actual Delay Down
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_access_loop_encapsulation
                             
@@ -1825,12 +2082,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: dsl_actual_up
                             
                             	DSL Actual Up
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: dsl_actual_down
                             
@@ -1839,12 +2100,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dsl_min_up
                             
                             	DSL Min Up
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: dsl_min_down
                             
@@ -1853,12 +2118,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dsl_attain_up
                             
                             	DSL Attain Up
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: dsl_attain_down
                             
@@ -1867,12 +2136,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dsl_max_up
                             
                             	DSL Max Up
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: dsl_max_down
                             
@@ -1881,12 +2154,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dsl_min_up_low
                             
                             	DSL Min Up Low
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: dsl_min_down_low
                             
@@ -1895,12 +2172,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dsl_max_delay_up
                             
                             	DSL Max Delay Up
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: dsl_actual_delay_up
                             
@@ -1909,6 +2190,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dsl_max_delay_down
                             
                             	DSL Max Delay Down
@@ -1916,12 +2199,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dsl_actual_delay_down
                             
                             	DSL Actual Delay Down
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2037,7 +2324,7 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags, [u'is_service_name', u'is_max_payload', u'is_host_uniq', u'is_relay_session_id', u'is_vendor_specific', u'is_iwf', u'is_remote_id', u'is_circuit_id', u'is_dsl_tag', u'service_name', u'max_payload', u'host_uniq', u'relay_session_id', u'remote_id', u'circuit_id', u'is_dsl_actual_up', u'is_dsl_actual_down', u'is_dsl_min_up', u'is_dsl_min_down', u'is_dsl_attain_up', u'is_dsl_attain_down', u'is_dsl_max_up', u'is_dsl_max_down', u'is_dsl_min_up_low', u'is_dsl_min_down_low', u'is_dsl_max_delay_up', u'is_dsl_actual_delay_up', u'is_dsl_max_delay_down', u'is_dsl_actual_delay_down', u'is_access_loop_encapsulation', u'dsl_actual_up', u'dsl_actual_down', u'dsl_min_up', u'dsl_min_down', u'dsl_attain_up', u'dsl_attain_down', u'dsl_max_up', u'dsl_max_down', u'dsl_min_up_low', u'dsl_min_down_low', u'dsl_max_delay_up', u'dsl_actual_delay_up', u'dsl_max_delay_down', u'dsl_actual_delay_down'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags, ['is_service_name', 'is_max_payload', 'is_host_uniq', 'is_relay_session_id', 'is_vendor_specific', 'is_iwf', 'is_remote_id', 'is_circuit_id', 'is_dsl_tag', 'service_name', 'max_payload', 'host_uniq', 'relay_session_id', 'remote_id', 'circuit_id', 'is_dsl_actual_up', 'is_dsl_actual_down', 'is_dsl_min_up', 'is_dsl_min_down', 'is_dsl_attain_up', 'is_dsl_attain_down', 'is_dsl_max_up', 'is_dsl_max_down', 'is_dsl_min_up_low', 'is_dsl_min_down_low', 'is_dsl_max_delay_up', 'is_dsl_actual_delay_up', 'is_dsl_max_delay_down', 'is_dsl_actual_delay_down', 'is_access_loop_encapsulation', 'dsl_actual_up', 'dsl_actual_down', 'dsl_min_up', 'dsl_min_down', 'dsl_attain_up', 'dsl_attain_down', 'dsl_max_up', 'dsl_max_down', 'dsl_min_up_low', 'dsl_min_down_low', 'dsl_max_delay_up', 'dsl_actual_delay_up', 'dsl_max_delay_down', 'dsl_actual_delay_down'], name, value)
 
 
                             class AccessLoopEncapsulation(Entity):
@@ -2051,6 +2338,8 @@ class Pppoe(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: encaps1
                                 
                                 	Encaps 1
@@ -2058,12 +2347,16 @@ class Pppoe(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: encaps2
                                 
                                 	Encaps 2
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2093,7 +2386,9 @@ class Pppoe(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags.AccessLoopEncapsulation, [u'data_link', u'encaps1', u'encaps2'], name, value)
+                                    self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags.AccessLoopEncapsulation, ['data_link', 'encaps1', 'encaps2'], name, value)
+
+
 
 
                         class VlanOuterTag(Entity):
@@ -2107,12 +2402,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: user_priority
                             
                             	User Priority
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: cfi
                             
@@ -2121,12 +2420,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: vlan_id
                             
                             	VLAN ID
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -2158,7 +2461,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanOuterTag, [u'ether_type', u'user_priority', u'cfi', u'vlan_id'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanOuterTag, ['ether_type', 'user_priority', 'cfi', 'vlan_id'], name, value)
+
 
 
                         class VlanInnerTag(Entity):
@@ -2172,12 +2476,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: user_priority
                             
                             	User Priority
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: cfi
                             
@@ -2186,12 +2494,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: vlan_id
                             
                             	VLAN ID
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -2223,7 +2535,11 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanInnerTag, [u'ether_type', u'user_priority', u'cfi', u'vlan_id'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanInnerTag, ['ether_type', 'user_priority', 'cfi', 'vlan_id'], name, value)
+
+
+
+
 
 
             class DisconnectHistoryUnique(Entity):
@@ -2238,10 +2554,14 @@ class Pppoe(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: entry
                 
                 	Array of disconnected subscribers
                 	**type**\: list of  		 :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry>`
+                
+                	**config**\: False
                 
                 
 
@@ -2269,7 +2589,7 @@ class Pppoe(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique, [u'disconnect_count'], name, value)
+                    self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique, ['disconnect_count'], name, value)
 
 
                 class Entry(Entity):
@@ -2281,6 +2601,8 @@ class Pppoe(Entity):
                     	Session IDB
                     	**type**\:  :py:class:`SessionIdb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: timestamp
                     
                     	Time when disconnected
@@ -2288,15 +2610,21 @@ class Pppoe(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: ifname
                     
                     	Interface name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: trigger
                     
                     	Disconnect Trigger
                     	**type**\:  :py:class:`PppoeMaSessionTrig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaSessionTrig>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2330,7 +2658,7 @@ class Pppoe(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry, [u'timestamp', u'ifname', u'trigger'], name, value)
+                        self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry, ['timestamp', 'ifname', 'trigger'], name, value)
 
 
                     class SessionIdb(Entity):
@@ -2342,15 +2670,21 @@ class Pppoe(Entity):
                         	Tags
                         	**type**\:  :py:class:`Tags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: vlan_outer_tag
                         
                         	VLAN Outer Tag
                         	**type**\:  :py:class:`VlanOuterTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanOuterTag>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: vlan_inner_tag
                         
                         	VLAN Inner Tag
                         	**type**\:  :py:class:`VlanInnerTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanInnerTag>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: interface
                         
@@ -2359,12 +2693,16 @@ class Pppoe(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: access_interface
                         
                         	Access Interface
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        	**config**\: False
                         
                         .. attribute:: session_id
                         
@@ -2373,12 +2711,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: sub_label
                         
                         	Sub Label
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: peer_mac_address
                         
@@ -2387,10 +2729,14 @@ class Pppoe(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
+                        	**config**\: False
+                        
                         .. attribute:: state
                         
                         	State
                         	**type**\:  :py:class:`PppoeMaSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaSessionState>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: cdm_object_handle
                         
@@ -2399,12 +2745,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: chkpt_id
                         
                         	Chkpt ID
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: punted_count
                         
@@ -2413,12 +2763,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: port_limit
                         
                         	Port Limit
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_counted
                         
@@ -2427,12 +2781,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_vlan_outer_tag
                         
                         	Is VLAN Outer Tag
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_vlan_inner_tag
                         
@@ -2441,12 +2799,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_cleanup_pending
                         
                         	Is Cleanup Pending
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_disconnect_done_pending
                         
@@ -2455,12 +2817,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_delete_done_pending
                         
                         	Is Delete Done Pending
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_intf_create_callback_pending
                         
@@ -2469,12 +2835,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_publish_encaps_attr_pending
                         
                         	Is Publish Encaps Attr pending
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_publish_encaps_attr_cb_pending
                         
@@ -2483,12 +2853,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_intf_delete_callback_pending
                         
                         	Is Interface Delete Callback pending
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_intf_delete_pending
                         
@@ -2497,12 +2871,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_im_owned_resource
                         
                         	Is IM Owned Resource
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_im_final_received
                         
@@ -2511,12 +2889,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_im_owned_resource_missing
                         
                         	Is IM Owned Resource missing
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_aaa_start_request_callback_pending
                         
@@ -2525,12 +2907,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_aaa_owned_resource
                         
                         	Is AAA Owned Resource
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_aaa_disconnect_requested
                         
@@ -2539,12 +2925,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_aaa_disconnect_received
                         
                         	Is AAA Disconnect Received
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_sub_db_activate_callback_pending
                         
@@ -2553,12 +2943,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_pads_sent
                         
                         	Is PADS Sent
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_padt_received
                         
@@ -2567,12 +2961,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_in_flight
                         
                         	Is Session In Flight
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_radius_override
                         
@@ -2581,12 +2979,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: expected_notifications
                         
                         	Expected Notifications
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_notifications
                         
@@ -2595,10 +2997,14 @@ class Pppoe(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: srg_state
                         
                         	SRG state
                         	**type**\:  :py:class:`PppoeMaSessionIdbSrgState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaSessionIdbSrgState>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_srg_data_received
                         
@@ -2607,12 +3013,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_iedge_data_received
                         
                         	Is IEDGE Data Received
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         
 
@@ -2724,7 +3134,7 @@ class Pppoe(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb, [u'interface', u'access_interface', u'session_id', u'sub_label', u'peer_mac_address', u'state', u'cdm_object_handle', u'chkpt_id', u'punted_count', u'port_limit', u'is_counted', u'is_vlan_outer_tag', u'is_vlan_inner_tag', u'is_cleanup_pending', u'is_disconnect_done_pending', u'is_delete_done_pending', u'is_intf_create_callback_pending', u'is_publish_encaps_attr_pending', u'is_publish_encaps_attr_cb_pending', u'is_intf_delete_callback_pending', u'is_intf_delete_pending', u'is_im_owned_resource', u'is_im_final_received', u'is_im_owned_resource_missing', u'is_aaa_start_request_callback_pending', u'is_aaa_owned_resource', u'is_aaa_disconnect_requested', u'is_aaa_disconnect_received', u'is_sub_db_activate_callback_pending', u'is_pads_sent', u'is_padt_received', u'is_in_flight', u'is_radius_override', u'expected_notifications', u'received_notifications', u'srg_state', u'is_srg_data_received', u'is_iedge_data_received'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb, ['interface', 'access_interface', 'session_id', 'sub_label', 'peer_mac_address', 'state', 'cdm_object_handle', 'chkpt_id', 'punted_count', 'port_limit', 'is_counted', 'is_vlan_outer_tag', 'is_vlan_inner_tag', 'is_cleanup_pending', 'is_disconnect_done_pending', 'is_delete_done_pending', 'is_intf_create_callback_pending', 'is_publish_encaps_attr_pending', 'is_publish_encaps_attr_cb_pending', 'is_intf_delete_callback_pending', 'is_intf_delete_pending', 'is_im_owned_resource', 'is_im_final_received', 'is_im_owned_resource_missing', 'is_aaa_start_request_callback_pending', 'is_aaa_owned_resource', 'is_aaa_disconnect_requested', 'is_aaa_disconnect_received', 'is_sub_db_activate_callback_pending', 'is_pads_sent', 'is_padt_received', 'is_in_flight', 'is_radius_override', 'expected_notifications', 'received_notifications', 'srg_state', 'is_srg_data_received', 'is_iedge_data_received'], name, value)
 
 
                         class Tags(Entity):
@@ -2736,12 +3146,16 @@ class Pppoe(Entity):
                             	Access Loop Encapsulation
                             	**type**\:  :py:class:`AccessLoopEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags.AccessLoopEncapsulation>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_service_name
                             
                             	Is Service Name
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_max_payload
                             
@@ -2750,12 +3164,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_host_uniq
                             
                             	Is Host Uniq
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_relay_session_id
                             
@@ -2764,12 +3182,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_vendor_specific
                             
                             	Is Vendor Specific
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_iwf
                             
@@ -2778,12 +3200,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_remote_id
                             
                             	Is Remote ID
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_circuit_id
                             
@@ -2792,6 +3218,8 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_dsl_tag
                             
                             	Is DSL Tag
@@ -2799,10 +3227,14 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: service_name
                             
                             	Service Name
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: max_payload
                             
@@ -2811,12 +3243,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: host_uniq
                             
                             	Host Uniq
                             	**type**\: str
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: relay_session_id
                             
@@ -2825,15 +3261,21 @@ class Pppoe(Entity):
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: remote_id
                             
                             	Remote ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: circuit_id
                             
                             	Circuit ID
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_dsl_actual_up
                             
@@ -2842,12 +3284,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_dsl_actual_down
                             
                             	Is DSL Actual Down
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_dsl_min_up
                             
@@ -2856,12 +3302,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_dsl_min_down
                             
                             	Is DSL Min Down
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_dsl_attain_up
                             
@@ -2870,12 +3320,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_dsl_attain_down
                             
                             	Is DSL Attain Down
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_dsl_max_up
                             
@@ -2884,12 +3338,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_dsl_max_down
                             
                             	Is DSL Max Down
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_dsl_min_up_low
                             
@@ -2898,12 +3356,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_dsl_min_down_low
                             
                             	Is DSL Min Down Low
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_dsl_max_delay_up
                             
@@ -2912,12 +3374,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_dsl_actual_delay_up
                             
                             	Is DSL Actual Delay Up
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_dsl_max_delay_down
                             
@@ -2926,12 +3392,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_dsl_actual_delay_down
                             
                             	Is DSL Actual Delay Down
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_access_loop_encapsulation
                             
@@ -2940,12 +3410,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: dsl_actual_up
                             
                             	DSL Actual Up
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: dsl_actual_down
                             
@@ -2954,12 +3428,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dsl_min_up
                             
                             	DSL Min Up
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: dsl_min_down
                             
@@ -2968,12 +3446,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dsl_attain_up
                             
                             	DSL Attain Up
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: dsl_attain_down
                             
@@ -2982,12 +3464,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dsl_max_up
                             
                             	DSL Max Up
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: dsl_max_down
                             
@@ -2996,12 +3482,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dsl_min_up_low
                             
                             	DSL Min Up Low
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: dsl_min_down_low
                             
@@ -3010,12 +3500,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dsl_max_delay_up
                             
                             	DSL Max Delay Up
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: dsl_actual_delay_up
                             
@@ -3024,6 +3518,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dsl_max_delay_down
                             
                             	DSL Max Delay Down
@@ -3031,12 +3527,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dsl_actual_delay_down
                             
                             	DSL Actual Delay Down
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3152,7 +3652,7 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags, [u'is_service_name', u'is_max_payload', u'is_host_uniq', u'is_relay_session_id', u'is_vendor_specific', u'is_iwf', u'is_remote_id', u'is_circuit_id', u'is_dsl_tag', u'service_name', u'max_payload', u'host_uniq', u'relay_session_id', u'remote_id', u'circuit_id', u'is_dsl_actual_up', u'is_dsl_actual_down', u'is_dsl_min_up', u'is_dsl_min_down', u'is_dsl_attain_up', u'is_dsl_attain_down', u'is_dsl_max_up', u'is_dsl_max_down', u'is_dsl_min_up_low', u'is_dsl_min_down_low', u'is_dsl_max_delay_up', u'is_dsl_actual_delay_up', u'is_dsl_max_delay_down', u'is_dsl_actual_delay_down', u'is_access_loop_encapsulation', u'dsl_actual_up', u'dsl_actual_down', u'dsl_min_up', u'dsl_min_down', u'dsl_attain_up', u'dsl_attain_down', u'dsl_max_up', u'dsl_max_down', u'dsl_min_up_low', u'dsl_min_down_low', u'dsl_max_delay_up', u'dsl_actual_delay_up', u'dsl_max_delay_down', u'dsl_actual_delay_down'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags, ['is_service_name', 'is_max_payload', 'is_host_uniq', 'is_relay_session_id', 'is_vendor_specific', 'is_iwf', 'is_remote_id', 'is_circuit_id', 'is_dsl_tag', 'service_name', 'max_payload', 'host_uniq', 'relay_session_id', 'remote_id', 'circuit_id', 'is_dsl_actual_up', 'is_dsl_actual_down', 'is_dsl_min_up', 'is_dsl_min_down', 'is_dsl_attain_up', 'is_dsl_attain_down', 'is_dsl_max_up', 'is_dsl_max_down', 'is_dsl_min_up_low', 'is_dsl_min_down_low', 'is_dsl_max_delay_up', 'is_dsl_actual_delay_up', 'is_dsl_max_delay_down', 'is_dsl_actual_delay_down', 'is_access_loop_encapsulation', 'dsl_actual_up', 'dsl_actual_down', 'dsl_min_up', 'dsl_min_down', 'dsl_attain_up', 'dsl_attain_down', 'dsl_max_up', 'dsl_max_down', 'dsl_min_up_low', 'dsl_min_down_low', 'dsl_max_delay_up', 'dsl_actual_delay_up', 'dsl_max_delay_down', 'dsl_actual_delay_down'], name, value)
 
 
                             class AccessLoopEncapsulation(Entity):
@@ -3166,6 +3666,8 @@ class Pppoe(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: encaps1
                                 
                                 	Encaps 1
@@ -3173,12 +3675,16 @@ class Pppoe(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: encaps2
                                 
                                 	Encaps 2
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3208,7 +3714,9 @@ class Pppoe(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags.AccessLoopEncapsulation, [u'data_link', u'encaps1', u'encaps2'], name, value)
+                                    self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags.AccessLoopEncapsulation, ['data_link', 'encaps1', 'encaps2'], name, value)
+
+
 
 
                         class VlanOuterTag(Entity):
@@ -3222,12 +3730,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: user_priority
                             
                             	User Priority
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: cfi
                             
@@ -3236,12 +3748,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: vlan_id
                             
                             	VLAN ID
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -3273,7 +3789,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanOuterTag, [u'ether_type', u'user_priority', u'cfi', u'vlan_id'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanOuterTag, ['ether_type', 'user_priority', 'cfi', 'vlan_id'], name, value)
+
 
 
                         class VlanInnerTag(Entity):
@@ -3287,12 +3804,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: user_priority
                             
                             	User Priority
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: cfi
                             
@@ -3301,12 +3822,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: vlan_id
                             
                             	VLAN ID
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -3338,7 +3863,11 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanInnerTag, [u'ether_type', u'user_priority', u'cfi', u'vlan_id'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanInnerTag, ['ether_type', 'user_priority', 'cfi', 'vlan_id'], name, value)
+
+
+
+
 
 
             class Statistics(Entity):
@@ -3350,10 +3879,14 @@ class Pppoe(Entity):
                 	Packet Counts
                 	**type**\:  :py:class:`PacketCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.Statistics.PacketCounts>`
                 
+                	**config**\: False
+                
                 .. attribute:: packet_error_counts
                 
                 	Packet Error Counts
                 	**type**\:  :py:class:`PacketErrorCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.Statistics.PacketErrorCounts>`
+                
+                	**config**\: False
                 
                 
 
@@ -3396,40 +3929,56 @@ class Pppoe(Entity):
                     	PADI counts
                     	**type**\:  :py:class:`Padi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.Statistics.PacketCounts.Padi>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: pado
                     
                     	PADO counts
                     	**type**\:  :py:class:`Pado <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.Statistics.PacketCounts.Pado>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: padr
                     
                     	PADR counts
                     	**type**\:  :py:class:`Padr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.Statistics.PacketCounts.Padr>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: pads_success
                     
                     	PADS Success counts
                     	**type**\:  :py:class:`PadsSuccess <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.Statistics.PacketCounts.PadsSuccess>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: pads_error
                     
                     	PADS Error counts
                     	**type**\:  :py:class:`PadsError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.Statistics.PacketCounts.PadsError>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: padt
                     
                     	PADT counts
                     	**type**\:  :py:class:`Padt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.Statistics.PacketCounts.Padt>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: session_state
                     
                     	Session Stage counts
                     	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.Statistics.PacketCounts.SessionState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: other
                     
                     	Other counts
                     	**type**\:  :py:class:`Other <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.Statistics.PacketCounts.Other>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3498,6 +4047,8 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received
                         
                         	Received
@@ -3505,12 +4056,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: dropped
                         
                         	Dropped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3540,7 +4095,8 @@ class Pppoe(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Padi, [u'sent', u'received', u'dropped'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Padi, ['sent', 'received', 'dropped'], name, value)
+
 
 
                     class Pado(Entity):
@@ -3554,6 +4110,8 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received
                         
                         	Received
@@ -3561,12 +4119,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: dropped
                         
                         	Dropped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3596,7 +4158,8 @@ class Pppoe(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Pado, [u'sent', u'received', u'dropped'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Pado, ['sent', 'received', 'dropped'], name, value)
+
 
 
                     class Padr(Entity):
@@ -3610,6 +4173,8 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received
                         
                         	Received
@@ -3617,12 +4182,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: dropped
                         
                         	Dropped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3652,7 +4221,8 @@ class Pppoe(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Padr, [u'sent', u'received', u'dropped'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Padr, ['sent', 'received', 'dropped'], name, value)
+
 
 
                     class PadsSuccess(Entity):
@@ -3666,6 +4236,8 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received
                         
                         	Received
@@ -3673,12 +4245,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: dropped
                         
                         	Dropped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3708,7 +4284,8 @@ class Pppoe(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.PadsSuccess, [u'sent', u'received', u'dropped'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.PadsSuccess, ['sent', 'received', 'dropped'], name, value)
+
 
 
                     class PadsError(Entity):
@@ -3722,6 +4299,8 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received
                         
                         	Received
@@ -3729,12 +4308,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: dropped
                         
                         	Dropped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3764,7 +4347,8 @@ class Pppoe(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.PadsError, [u'sent', u'received', u'dropped'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.PadsError, ['sent', 'received', 'dropped'], name, value)
+
 
 
                     class Padt(Entity):
@@ -3778,6 +4362,8 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received
                         
                         	Received
@@ -3785,12 +4371,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: dropped
                         
                         	Dropped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3820,7 +4410,8 @@ class Pppoe(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Padt, [u'sent', u'received', u'dropped'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Padt, ['sent', 'received', 'dropped'], name, value)
+
 
 
                     class SessionState(Entity):
@@ -3834,6 +4425,8 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received
                         
                         	Received
@@ -3841,12 +4434,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: dropped
                         
                         	Dropped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3876,7 +4473,8 @@ class Pppoe(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.SessionState, [u'sent', u'received', u'dropped'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.SessionState, ['sent', 'received', 'dropped'], name, value)
+
 
 
                     class Other(Entity):
@@ -3890,6 +4488,8 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received
                         
                         	Received
@@ -3897,12 +4497,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: dropped
                         
                         	Dropped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3932,7 +4536,9 @@ class Pppoe(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Other, [u'sent', u'received', u'dropped'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Other, ['sent', 'received', 'dropped'], name, value)
+
+
 
 
                 class PacketErrorCounts(Entity):
@@ -3946,12 +4552,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: no_packet_payload
                     
                     	No packet payload
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: no_packet_mac_address
                     
@@ -3960,12 +4570,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: invalid_version_type_value
                     
                     	Invalid version\-type value
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: bad_packet_length
                     
@@ -3974,12 +4588,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: unknown_interface
                     
                     	Unknown interface
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: pado_received
                     
@@ -3988,12 +4606,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: pads_received
                     
                     	PADS received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: unknown_packet_type_received
                     
@@ -4002,12 +4624,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: unexpected_session_id_in_packet
                     
                     	Unexpected Session\-ID in packet
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: no_service_name_tag
                     
@@ -4016,12 +4642,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: padt_for_unknown_session
                     
                     	PADT for unknown session
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: padt_with_wrong_peer_mac
                     
@@ -4030,12 +4660,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: padt_with_wrong_vlan_tags
                     
                     	PADT with wrong VLAN tags
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: zero_length_host_uniq
                     
@@ -4044,12 +4678,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: padt_before_pads_sent
                     
                     	PADT before PADS sent
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: session_stage_packet_for_unknown_session
                     
@@ -4058,12 +4696,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_stage_packet_with_wrong_mac
                     
                     	Session\-stage packet with wrong mac
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: session_stage_packet_with_wrong_vlan_tags
                     
@@ -4072,12 +4714,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_stage_packet_with_no_error
                     
                     	Session\-stage packet with no error
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tag_too_short
                     
@@ -4086,12 +4732,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: bad_tag_length_field
                     
                     	Bad tag\-length field
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: multiple_service_name_tags
                     
@@ -4100,12 +4750,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: multiple_max_payload_tags
                     
                     	Multiple Max\-Payload tags
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: invalid_max_payload_tag
                     
@@ -4114,12 +4768,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: multiple_vendor_specific_tags
                     
                     	Multiple Vendor\-specific tags
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: unexpected_ac_name_tag
                     
@@ -4128,12 +4786,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: unexpected_error_tags
                     
                     	Unexpected error tags
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: unknown_tag_received
                     
@@ -4142,12 +4804,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: no_iana_code_invendor_tag
                     
                     	No IANA code in vendor tag
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: invalid_iana_code_invendor_tag
                     
@@ -4156,12 +4822,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: vendor_tag_too_short
                     
                     	Vendor tag too short
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: bad_vendor_tag_length_field
                     
@@ -4170,12 +4840,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: multiple_host_uniq_tags
                     
                     	Multiple Host\-Uniq tags
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: multiple_relay_session_id_tags
                     
@@ -4184,12 +4858,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: multiple_circuit_id_tags
                     
                     	Multiple Circuit\-ID tags
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: multiple_remote_id_tags
                     
@@ -4198,12 +4876,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: invalid_dsl_tag
                     
                     	Invalid DSL tag
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: multiple_of_the_same_dsl_tag
                     
@@ -4212,12 +4894,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: invalid_iwf_tag
                     
                     	Invalid IWF tag
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: multiple_iwf_tags
                     
@@ -4226,12 +4912,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: unknownvendor_tag
                     
                     	Unknown vendor\-tag
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: no_space_left_in_packet
                     
@@ -4240,12 +4930,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: duplicate_host_uniq_tag_received
                     
                     	Duplicate Host\-Uniq tag received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: duplicate_relay_session_id_tag_received
                     
@@ -4254,12 +4948,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: packet_too_long
                     
                     	Packet too long
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: invalid_ale_tag
                     
@@ -4268,12 +4966,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: multiple_ale_tags
                     
                     	Multiple ALE tags
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: invalid_service_name
                     
@@ -4282,12 +4984,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: invalid_peer_mac
                     
                     	Invalid Peer MAC
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: invalid_vlan_tags
                     
@@ -4296,12 +5002,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: packet_on_srg_slave
                     
                     	Packet Received on SRG Slave
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -4429,7 +5139,9 @@ class Pppoe(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketErrorCounts, [u'no_interface_handle', u'no_packet_payload', u'no_packet_mac_address', u'invalid_version_type_value', u'bad_packet_length', u'unknown_interface', u'pado_received', u'pads_received', u'unknown_packet_type_received', u'unexpected_session_id_in_packet', u'no_service_name_tag', u'padt_for_unknown_session', u'padt_with_wrong_peer_mac', u'padt_with_wrong_vlan_tags', u'zero_length_host_uniq', u'padt_before_pads_sent', u'session_stage_packet_for_unknown_session', u'session_stage_packet_with_wrong_mac', u'session_stage_packet_with_wrong_vlan_tags', u'session_stage_packet_with_no_error', u'tag_too_short', u'bad_tag_length_field', u'multiple_service_name_tags', u'multiple_max_payload_tags', u'invalid_max_payload_tag', u'multiple_vendor_specific_tags', u'unexpected_ac_name_tag', u'unexpected_error_tags', u'unknown_tag_received', u'no_iana_code_invendor_tag', u'invalid_iana_code_invendor_tag', u'vendor_tag_too_short', u'bad_vendor_tag_length_field', u'multiple_host_uniq_tags', u'multiple_relay_session_id_tags', u'multiple_circuit_id_tags', u'multiple_remote_id_tags', u'invalid_dsl_tag', u'multiple_of_the_same_dsl_tag', u'invalid_iwf_tag', u'multiple_iwf_tags', u'unknownvendor_tag', u'no_space_left_in_packet', u'duplicate_host_uniq_tag_received', u'duplicate_relay_session_id_tag_received', u'packet_too_long', u'invalid_ale_tag', u'multiple_ale_tags', u'invalid_service_name', u'invalid_peer_mac', u'invalid_vlan_tags', u'packet_on_srg_slave'], name, value)
+                        self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketErrorCounts, ['no_interface_handle', 'no_packet_payload', 'no_packet_mac_address', 'invalid_version_type_value', 'bad_packet_length', 'unknown_interface', 'pado_received', 'pads_received', 'unknown_packet_type_received', 'unexpected_session_id_in_packet', 'no_service_name_tag', 'padt_for_unknown_session', 'padt_with_wrong_peer_mac', 'padt_with_wrong_vlan_tags', 'zero_length_host_uniq', 'padt_before_pads_sent', 'session_stage_packet_for_unknown_session', 'session_stage_packet_with_wrong_mac', 'session_stage_packet_with_wrong_vlan_tags', 'session_stage_packet_with_no_error', 'tag_too_short', 'bad_tag_length_field', 'multiple_service_name_tags', 'multiple_max_payload_tags', 'invalid_max_payload_tag', 'multiple_vendor_specific_tags', 'unexpected_ac_name_tag', 'unexpected_error_tags', 'unknown_tag_received', 'no_iana_code_invendor_tag', 'invalid_iana_code_invendor_tag', 'vendor_tag_too_short', 'bad_vendor_tag_length_field', 'multiple_host_uniq_tags', 'multiple_relay_session_id_tags', 'multiple_circuit_id_tags', 'multiple_remote_id_tags', 'invalid_dsl_tag', 'multiple_of_the_same_dsl_tag', 'invalid_iwf_tag', 'multiple_iwf_tags', 'unknownvendor_tag', 'no_space_left_in_packet', 'duplicate_host_uniq_tag_received', 'duplicate_relay_session_id_tag_received', 'packet_too_long', 'invalid_ale_tag', 'multiple_ale_tags', 'invalid_service_name', 'invalid_peer_mac', 'invalid_vlan_tags', 'packet_on_srg_slave'], name, value)
+
+
 
 
             class AccessInterface(Entity):
@@ -4440,6 +5152,8 @@ class Pppoe(Entity):
                 
                 	PPPoE access interface summary information
                 	**type**\:  :py:class:`Summaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.AccessInterface.Summaries>`
+                
+                	**config**\: False
                 
                 
 
@@ -4477,6 +5191,8 @@ class Pppoe(Entity):
                     
                     	Summary information for a PPPoE\-enabled access interface
                     	**type**\: list of  		 :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.AccessInterface.Summaries.Summary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4516,12 +5232,16 @@ class Pppoe(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: interface_name_xr
                         
                         	Interface
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        	**config**\: False
                         
                         .. attribute:: interface_state
                         
@@ -4530,6 +5250,8 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: mac_address
                         
                         	Mac Address
@@ -4537,10 +5259,14 @@ class Pppoe(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
+                        	**config**\: False
+                        
                         .. attribute:: bba_group_name
                         
                         	BBA Group
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_ready
                         
@@ -4549,6 +5275,8 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: sessions
                         
                         	Session Count
@@ -4556,12 +5284,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: incomplete_sessions
                         
                         	Incomplete Session Count
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4601,7 +5333,10 @@ class Pppoe(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.AccessInterface.Summaries.Summary, ['interface_name', u'interface_name_xr', u'interface_state', u'mac_address', u'bba_group_name', u'is_ready', u'sessions', u'incomplete_sessions'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.AccessInterface.Summaries.Summary, ['interface_name', 'interface_name_xr', 'interface_state', 'mac_address', 'bba_group_name', 'is_ready', 'sessions', 'incomplete_sessions'], name, value)
+
+
+
 
 
             class Interfaces(Entity):
@@ -4612,6 +5347,8 @@ class Pppoe(Entity):
                 
                 	Data for a PPPoE interface
                 	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.Interfaces.Interface>`
+                
+                	**config**\: False
                 
                 
 
@@ -4650,10 +5387,14 @@ class Pppoe(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: tags
                     
                     	Tags
                     	**type**\:  :py:class:`Tags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.Interfaces.Interface.Tags>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_name_xr
                     
@@ -4662,6 +5403,8 @@ class Pppoe(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: access_interface_name
                     
                     	Access Interface
@@ -4669,10 +5412,14 @@ class Pppoe(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: bba_group_name
                     
                     	BBA Group
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: session_id
                     
@@ -4681,12 +5428,16 @@ class Pppoe(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_mac_address
                     
                     	Local Mac\-Address
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    
+                    	**config**\: False
                     
                     .. attribute:: peer_mac_address
                     
@@ -4695,12 +5446,16 @@ class Pppoe(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_complete
                     
                     	Is Complete
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: vlan_outer_id
                     
@@ -4709,6 +5464,8 @@ class Pppoe(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: vlan_inner_id
                     
                     	VLAN Inner ID
@@ -4716,10 +5473,14 @@ class Pppoe(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: srg_state
                     
                     	SRG state
                     	**type**\:  :py:class:`PppoeMaSessionIdbSrgState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaSessionIdbSrgState>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4769,7 +5530,7 @@ class Pppoe(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.Nodes.Node.Interfaces.Interface, ['interface_name', u'interface_name_xr', u'access_interface_name', u'bba_group_name', u'session_id', u'local_mac_address', u'peer_mac_address', u'is_complete', u'vlan_outer_id', u'vlan_inner_id', u'srg_state'], name, value)
+                        self._perform_setattr(Pppoe.Nodes.Node.Interfaces.Interface, ['interface_name', 'interface_name_xr', 'access_interface_name', 'bba_group_name', 'session_id', 'local_mac_address', 'peer_mac_address', 'is_complete', 'vlan_outer_id', 'vlan_inner_id', 'srg_state'], name, value)
 
 
                     class Tags(Entity):
@@ -4781,10 +5542,14 @@ class Pppoe(Entity):
                         	Access Loop Encapsulation
                         	**type**\:  :py:class:`AccessLoopEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: service_name
                         
                         	Service Name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: max_payload
                         
@@ -4793,12 +5558,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: host_uniq
                         
                         	Host Uniq
                         	**type**\: str
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: relay_session_id
                         
@@ -4807,15 +5576,21 @@ class Pppoe(Entity):
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_id
                         
                         	Remote ID
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: circuit_id
                         
                         	Circuit ID
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_iwf
                         
@@ -4824,12 +5599,16 @@ class Pppoe(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: dsl_actual_up
                         
                         	DSL Actual Up
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: dsl_actual_down
                         
@@ -4838,12 +5617,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: dsl_min_up
                         
                         	DSL Min Up
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: dsl_min_down
                         
@@ -4852,12 +5635,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: dsl_attain_up
                         
                         	DSL Attain Up
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: dsl_attain_down
                         
@@ -4866,12 +5653,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: dsl_max_up
                         
                         	DSL Max Up
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: dsl_max_down
                         
@@ -4880,12 +5671,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: dsl_min_up_low
                         
                         	DSL Min Up Low
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: dsl_min_down_low
                         
@@ -4894,12 +5689,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: dsl_max_delay_up
                         
                         	DSL Max Delay Up
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: dsl_actual_delay_up
                         
@@ -4908,6 +5707,8 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: dsl_max_delay_down
                         
                         	DSL Max Delay Down
@@ -4915,12 +5716,16 @@ class Pppoe(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: dsl_actual_delay_down
                         
                         	DSL Actual Delay Down
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4990,7 +5795,7 @@ class Pppoe(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.Interfaces.Interface.Tags, [u'service_name', u'max_payload', u'host_uniq', u'relay_session_id', u'remote_id', u'circuit_id', u'is_iwf', u'dsl_actual_up', u'dsl_actual_down', u'dsl_min_up', u'dsl_min_down', u'dsl_attain_up', u'dsl_attain_down', u'dsl_max_up', u'dsl_max_down', u'dsl_min_up_low', u'dsl_min_down_low', u'dsl_max_delay_up', u'dsl_actual_delay_up', u'dsl_max_delay_down', u'dsl_actual_delay_down'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.Interfaces.Interface.Tags, ['service_name', 'max_payload', 'host_uniq', 'relay_session_id', 'remote_id', 'circuit_id', 'is_iwf', 'dsl_actual_up', 'dsl_actual_down', 'dsl_min_up', 'dsl_min_down', 'dsl_attain_up', 'dsl_attain_down', 'dsl_max_up', 'dsl_max_down', 'dsl_min_up_low', 'dsl_min_down_low', 'dsl_max_delay_up', 'dsl_actual_delay_up', 'dsl_max_delay_down', 'dsl_actual_delay_down'], name, value)
 
 
                         class AccessLoopEncapsulation(Entity):
@@ -5004,6 +5809,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: encaps1
                             
                             	Encaps 1
@@ -5011,12 +5818,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: encaps2
                             
                             	Encaps 2
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -5046,7 +5857,11 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation, [u'data_link', u'encaps1', u'encaps2'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation, ['data_link', 'encaps1', 'encaps2'], name, value)
+
+
+
+
 
 
             class BbaGroups(Entity):
@@ -5057,6 +5872,8 @@ class Pppoe(Entity):
                 
                 	PPPoE BBA\-Group information
                 	**type**\: list of  		 :py:class:`BbaGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup>`
+                
+                	**config**\: False
                 
                 
 
@@ -5095,25 +5912,35 @@ class Pppoe(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: limit_config
                     
                     	BBA\-Group limit configuration information
                     	**type**\:  :py:class:`LimitConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: limits
                     
                     	PPPoE session limit information
                     	**type**\:  :py:class:`Limits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: throttles
                     
                     	PPPoE throttle information
                     	**type**\:  :py:class:`Throttles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: throttle_config
                     
                     	BBA\-Group throttle configuration information
                     	**type**\:  :py:class:`ThrottleConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5167,60 +5994,84 @@ class Pppoe(Entity):
                         	Card
                         	**type**\:  :py:class:`Card <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: access_intf
                         
                         	Access Interface
                         	**type**\:  :py:class:`AccessIntf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.AccessIntf>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: mac
                         
                         	MAC
                         	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Mac>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: mac_iwf
                         
                         	MAC IWF
                         	**type**\:  :py:class:`MacIwf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwf>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: mac_access_interface
                         
                         	MAC Access Interface
                         	**type**\:  :py:class:`MacAccessInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacAccessInterface>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: mac_iwf_access_interface
                         
                         	MAC IWF Access Interface
                         	**type**\:  :py:class:`MacIwfAccessInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwfAccessInterface>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: circuit_id
                         
                         	Circuit ID
                         	**type**\:  :py:class:`CircuitId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_id
                         
                         	Remote ID
                         	**type**\:  :py:class:`RemoteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.RemoteId>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: circuit_id_and_remote_id
                         
                         	Circuit ID and Remote ID
                         	**type**\:  :py:class:`CircuitIdAndRemoteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitIdAndRemoteId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: outer_vlan_id
                         
                         	Outer VLAN ID
                         	**type**\:  :py:class:`OuterVlanId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.OuterVlanId>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: inner_vlan_id
                         
                         	Inner VLAN ID
                         	**type**\:  :py:class:`InnerVlanId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.InnerVlanId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: vlan_id
                         
                         	VLAN ID
                         	**type**\:  :py:class:`VlanId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.VlanId>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5305,6 +6156,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: threshold
                             
                             	Threshold
@@ -5312,12 +6165,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: radius_override_enabled
                             
                             	Radius override is enabled
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             
 
@@ -5347,7 +6204,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+
 
 
                         class AccessIntf(Entity):
@@ -5361,6 +6219,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: threshold
                             
                             	Threshold
@@ -5368,12 +6228,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: radius_override_enabled
                             
                             	Radius override is enabled
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             
 
@@ -5403,7 +6267,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.AccessIntf, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.AccessIntf, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+
 
 
                         class Mac(Entity):
@@ -5417,6 +6282,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: threshold
                             
                             	Threshold
@@ -5424,12 +6291,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: radius_override_enabled
                             
                             	Radius override is enabled
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             
 
@@ -5459,7 +6330,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Mac, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Mac, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+
 
 
                         class MacIwf(Entity):
@@ -5473,6 +6345,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: threshold
                             
                             	Threshold
@@ -5480,12 +6354,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: radius_override_enabled
                             
                             	Radius override is enabled
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             
 
@@ -5515,7 +6393,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwf, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwf, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+
 
 
                         class MacAccessInterface(Entity):
@@ -5529,6 +6408,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: threshold
                             
                             	Threshold
@@ -5536,12 +6417,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: radius_override_enabled
                             
                             	Radius override is enabled
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             
 
@@ -5571,7 +6456,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacAccessInterface, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacAccessInterface, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+
 
 
                         class MacIwfAccessInterface(Entity):
@@ -5585,6 +6471,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: threshold
                             
                             	Threshold
@@ -5592,12 +6480,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: radius_override_enabled
                             
                             	Radius override is enabled
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             
 
@@ -5627,7 +6519,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwfAccessInterface, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwfAccessInterface, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+
 
 
                         class CircuitId(Entity):
@@ -5641,6 +6534,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: threshold
                             
                             	Threshold
@@ -5648,12 +6543,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: radius_override_enabled
                             
                             	Radius override is enabled
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             
 
@@ -5683,7 +6582,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitId, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitId, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+
 
 
                         class RemoteId(Entity):
@@ -5697,6 +6597,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: threshold
                             
                             	Threshold
@@ -5704,12 +6606,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: radius_override_enabled
                             
                             	Radius override is enabled
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             
 
@@ -5739,7 +6645,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.RemoteId, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.RemoteId, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+
 
 
                         class CircuitIdAndRemoteId(Entity):
@@ -5753,6 +6660,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: threshold
                             
                             	Threshold
@@ -5760,12 +6669,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: radius_override_enabled
                             
                             	Radius override is enabled
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             
 
@@ -5795,7 +6708,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitIdAndRemoteId, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitIdAndRemoteId, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+
 
 
                         class OuterVlanId(Entity):
@@ -5809,6 +6723,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: threshold
                             
                             	Threshold
@@ -5816,12 +6732,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: radius_override_enabled
                             
                             	Radius override is enabled
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             
 
@@ -5851,7 +6771,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.OuterVlanId, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.OuterVlanId, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+
 
 
                         class InnerVlanId(Entity):
@@ -5865,6 +6786,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: threshold
                             
                             	Threshold
@@ -5872,12 +6795,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: radius_override_enabled
                             
                             	Radius override is enabled
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             
 
@@ -5907,7 +6834,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.InnerVlanId, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.InnerVlanId, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+
 
 
                         class VlanId(Entity):
@@ -5921,6 +6849,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: threshold
                             
                             	Threshold
@@ -5928,12 +6858,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: radius_override_enabled
                             
                             	Radius override is enabled
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             
 
@@ -5963,7 +6897,9 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.VlanId, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.VlanId, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+
+
 
 
                     class Limits(Entity):
@@ -5974,6 +6910,8 @@ class Pppoe(Entity):
                         
                         	PPPoE session limit state
                         	**type**\: list of  		 :py:class:`Limit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits.Limit>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -6012,6 +6950,8 @@ class Pppoe(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_address
                             
                             	MAC address
@@ -6019,10 +6959,14 @@ class Pppoe(Entity):
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
+                            	**config**\: False
+                            
                             .. attribute:: iwf
                             
                             	IWF flag
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: circuit_id
                             
@@ -6031,12 +6975,16 @@ class Pppoe(Entity):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: remote_id
                             
                             	Remote ID
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            	**config**\: False
                             
                             .. attribute:: outer_vlan_id
                             
@@ -6045,6 +6993,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4095
                             
+                            	**config**\: False
+                            
                             .. attribute:: inner_vlan_id
                             
                             	Inner VLAN ID
@@ -6052,10 +7002,14 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4095
                             
+                            	**config**\: False
+                            
                             .. attribute:: state
                             
                             	State
                             	**type**\:  :py:class:`PppoeMaLimitState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaLimitState>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: session_count
                             
@@ -6064,6 +7018,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: radius_override_set
                             
                             	Overridden limit has been set
@@ -6071,12 +7027,16 @@ class Pppoe(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: override_limit
                             
                             	Overridden limit if set
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -6122,7 +7082,9 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits.Limit, ['interface_name', 'mac_address', 'iwf', 'circuit_id', 'remote_id', 'outer_vlan_id', 'inner_vlan_id', u'state', u'session_count', u'radius_override_set', u'override_limit'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits.Limit, ['interface_name', 'mac_address', 'iwf', 'circuit_id', 'remote_id', 'outer_vlan_id', 'inner_vlan_id', 'state', 'session_count', 'radius_override_set', 'override_limit'], name, value)
+
+
 
 
                     class Throttles(Entity):
@@ -6133,6 +7095,8 @@ class Pppoe(Entity):
                         
                         	PPPoE session throttle state
                         	**type**\: list of  		 :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles.Throttle>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -6171,6 +7135,8 @@ class Pppoe(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_address
                             
                             	MAC address
@@ -6178,10 +7144,14 @@ class Pppoe(Entity):
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
+                            	**config**\: False
+                            
                             .. attribute:: iwf
                             
                             	IWF flag
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: circuit_id
                             
@@ -6190,12 +7160,16 @@ class Pppoe(Entity):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: remote_id
                             
                             	Remote ID
                             	**type**\: str
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            	**config**\: False
                             
                             .. attribute:: outer_vlan_id
                             
@@ -6204,6 +7178,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4095
                             
+                            	**config**\: False
+                            
                             .. attribute:: inner_vlan_id
                             
                             	Inner VLAN ID
@@ -6211,10 +7187,14 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4095
                             
+                            	**config**\: False
+                            
                             .. attribute:: state
                             
                             	State
                             	**type**\:  :py:class:`PppoeMaThrottleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaThrottleState>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: time_left
                             
@@ -6222,6 +7202,8 @@ class Pppoe(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: second
                             
@@ -6232,6 +7214,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             	**units**\: second
                             
                             .. attribute:: padi_count
@@ -6241,12 +7225,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: padr_count
                             
                             	PADR Count
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -6294,7 +7282,9 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles.Throttle, ['interface_name', 'mac_address', 'iwf', 'circuit_id', 'remote_id', 'outer_vlan_id', 'inner_vlan_id', u'state', u'time_left', u'since_reset', u'padi_count', u'padr_count'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles.Throttle, ['interface_name', 'mac_address', 'iwf', 'circuit_id', 'remote_id', 'outer_vlan_id', 'inner_vlan_id', 'state', 'time_left', 'since_reset', 'padi_count', 'padr_count'], name, value)
+
+
 
 
                     class ThrottleConfig(Entity):
@@ -6306,45 +7296,63 @@ class Pppoe(Entity):
                         	MAC
                         	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: mac_access_interface
                         
                         	MAC Access Interface
                         	**type**\:  :py:class:`MacAccessInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacAccessInterface>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: mac_iwf_access_interface
                         
                         	MAC IWF Access Interface
                         	**type**\:  :py:class:`MacIwfAccessInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacIwfAccessInterface>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: circuit_id
                         
                         	Circuit ID
                         	**type**\:  :py:class:`CircuitId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitId>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: remote_id
                         
                         	Remote ID
                         	**type**\:  :py:class:`RemoteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.RemoteId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: circuit_id_and_remote_id
                         
                         	Circuit ID and Remote ID
                         	**type**\:  :py:class:`CircuitIdAndRemoteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitIdAndRemoteId>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: outer_vlan_id
                         
                         	Outer VLAN ID
                         	**type**\:  :py:class:`OuterVlanId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.OuterVlanId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: inner_vlan_id
                         
                         	Inner VLAN ID
                         	**type**\:  :py:class:`InnerVlanId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.InnerVlanId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: vlan_id
                         
                         	VLAN ID
                         	**type**\:  :py:class:`VlanId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.VlanId>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -6417,6 +7425,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: request_period
                             
                             	Request Period
@@ -6424,12 +7434,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: blocking_period
                             
                             	Blocking Period
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -6459,7 +7473,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac, [u'limit', u'request_period', u'blocking_period'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac, ['limit', 'request_period', 'blocking_period'], name, value)
+
 
 
                         class MacAccessInterface(Entity):
@@ -6473,6 +7488,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: request_period
                             
                             	Request Period
@@ -6480,12 +7497,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: blocking_period
                             
                             	Blocking Period
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -6515,7 +7536,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacAccessInterface, [u'limit', u'request_period', u'blocking_period'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacAccessInterface, ['limit', 'request_period', 'blocking_period'], name, value)
+
 
 
                         class MacIwfAccessInterface(Entity):
@@ -6529,6 +7551,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: request_period
                             
                             	Request Period
@@ -6536,12 +7560,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: blocking_period
                             
                             	Blocking Period
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -6571,7 +7599,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacIwfAccessInterface, [u'limit', u'request_period', u'blocking_period'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacIwfAccessInterface, ['limit', 'request_period', 'blocking_period'], name, value)
+
 
 
                         class CircuitId(Entity):
@@ -6585,6 +7614,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: request_period
                             
                             	Request Period
@@ -6592,12 +7623,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: blocking_period
                             
                             	Blocking Period
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -6627,7 +7662,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitId, [u'limit', u'request_period', u'blocking_period'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitId, ['limit', 'request_period', 'blocking_period'], name, value)
+
 
 
                         class RemoteId(Entity):
@@ -6641,6 +7677,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: request_period
                             
                             	Request Period
@@ -6648,12 +7686,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: blocking_period
                             
                             	Blocking Period
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -6683,7 +7725,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.RemoteId, [u'limit', u'request_period', u'blocking_period'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.RemoteId, ['limit', 'request_period', 'blocking_period'], name, value)
+
 
 
                         class CircuitIdAndRemoteId(Entity):
@@ -6697,6 +7740,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: request_period
                             
                             	Request Period
@@ -6704,12 +7749,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: blocking_period
                             
                             	Blocking Period
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -6739,7 +7788,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitIdAndRemoteId, [u'limit', u'request_period', u'blocking_period'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitIdAndRemoteId, ['limit', 'request_period', 'blocking_period'], name, value)
+
 
 
                         class OuterVlanId(Entity):
@@ -6753,6 +7803,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: request_period
                             
                             	Request Period
@@ -6760,12 +7812,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: blocking_period
                             
                             	Blocking Period
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -6795,7 +7851,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.OuterVlanId, [u'limit', u'request_period', u'blocking_period'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.OuterVlanId, ['limit', 'request_period', 'blocking_period'], name, value)
+
 
 
                         class InnerVlanId(Entity):
@@ -6809,6 +7866,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: request_period
                             
                             	Request Period
@@ -6816,12 +7875,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: blocking_period
                             
                             	Blocking Period
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -6851,7 +7914,8 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.InnerVlanId, [u'limit', u'request_period', u'blocking_period'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.InnerVlanId, ['limit', 'request_period', 'blocking_period'], name, value)
+
 
 
                         class VlanId(Entity):
@@ -6865,6 +7929,8 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: request_period
                             
                             	Request Period
@@ -6872,12 +7938,16 @@ class Pppoe(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: blocking_period
                             
                             	Blocking Period
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -6907,7 +7977,11 @@ class Pppoe(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.VlanId, [u'limit', u'request_period', u'blocking_period'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.VlanId, ['limit', 'request_period', 'blocking_period'], name, value)
+
+
+
+
 
 
             class SummaryTotal(Entity):
@@ -6921,12 +7995,16 @@ class Pppoe(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: not_ready_access_interfaces
                 
                 	Not Ready Access Interface Count
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: complete_sessions
                 
@@ -6935,12 +8013,16 @@ class Pppoe(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: incomplete_sessions
                 
                 	Incomplete Session Count
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: flow_control_limit
                 
@@ -6949,12 +8031,16 @@ class Pppoe(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: flow_control_in_flight_sessions
                 
                 	Flow Control In\-Flight Count
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: flow_control_dropped_sessions
                 
@@ -6963,12 +8049,16 @@ class Pppoe(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: flow_control_disconnected_sessions
                 
                 	Flow Control Disconnected Count
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: flow_control_successful_sessions
                 
@@ -6977,12 +8067,16 @@ class Pppoe(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: pppoema_subscriber_infra_flow_control
                 
                 	PPPoEMASubscriberInfraFlowControl
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -7026,9 +8120,14 @@ class Pppoe(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pppoe.Nodes.Node.SummaryTotal, [u'ready_access_interfaces', u'not_ready_access_interfaces', u'complete_sessions', u'incomplete_sessions', u'flow_control_limit', u'flow_control_in_flight_sessions', u'flow_control_dropped_sessions', u'flow_control_disconnected_sessions', u'flow_control_successful_sessions', u'pppoema_subscriber_infra_flow_control'], name, value)
+                    self._perform_setattr(Pppoe.Nodes.Node.SummaryTotal, ['ready_access_interfaces', 'not_ready_access_interfaces', 'complete_sessions', 'incomplete_sessions', 'flow_control_limit', 'flow_control_in_flight_sessions', 'flow_control_dropped_sessions', 'flow_control_disconnected_sessions', 'flow_control_successful_sessions', 'pppoema_subscriber_infra_flow_control'], name, value)
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Pppoe()
         return self._top_entity
+
+
 

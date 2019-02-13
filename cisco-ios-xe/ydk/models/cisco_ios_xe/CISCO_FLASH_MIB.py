@@ -66,50 +66,70 @@ class CISCOFLASHMIB(Entity):
     	
     	**type**\:  :py:class:`CiscoFlashDevice <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashDevice>`
     
+    	**config**\: False
+    
     .. attribute:: ciscoflashcfg
     
     	
     	**type**\:  :py:class:`CiscoFlashCfg <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashCfg>`
+    
+    	**config**\: False
     
     .. attribute:: ciscoflashdevicetable
     
     	Table of Flash device properties for each initialized Flash device. Each Flash device installed in a system is detected, sized, and initialized when the system image boots up. For removable Flash devices, the device properties will be dynamically deleted and recreated as the device is removed and inserted. Note that in this case, the newly inserted device may not be the same as the earlier removed one. The ciscoFlashDeviceInitTime object is available for a management station to determine the time at which a device was initialized, and thereby detect the change of a removable device. A removable device that has not been installed will also have an entry in this table. This is to let a management station know about a removable device that has been removed. Since a removed device obviously cannot be sized and initialized, the table entry for such a device will have ciscoFlashDeviceSize equal to zero, and the following objects will have an indeterminate value\:         ciscoFlashDeviceMinPartitionSize,         ciscoFlashDeviceMaxPartitions,         ciscoFlashDevicePartitions, and         ciscoFlashDeviceChipCount. ciscoFlashDeviceRemovable will be true to indicate it is removable
     	**type**\:  :py:class:`CiscoFlashDeviceTable <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashDeviceTable>`
     
+    	**config**\: False
+    
     .. attribute:: ciscoflashchiptable
     
     	Table of Flash device chip properties for each initialized Flash device. This table is meant primarily for aiding error diagnosis
     	**type**\:  :py:class:`CiscoFlashChipTable <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashChipTable>`
+    
+    	**config**\: False
     
     .. attribute:: ciscoflashpartitiontable
     
     	Table of flash device partition properties for each initialized flash partition. Whenever there is no explicit partitioning done, a single partition spanning the entire device will be assumed to exist. There will therefore always be atleast one partition on a device
     	**type**\:  :py:class:`CiscoFlashPartitionTable <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashPartitionTable>`
     
+    	**config**\: False
+    
     .. attribute:: ciscoflashfiletable
     
     	Table of information for files in a Flash partition
     	**type**\:  :py:class:`CiscoFlashFileTable <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashFileTable>`
+    
+    	**config**\: False
     
     .. attribute:: ciscoflashfilebytypetable
     
     	Table of information for files on the manageable flash devices sorted by File Types
     	**type**\:  :py:class:`CiscoFlashFileByTypeTable <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashFileByTypeTable>`
     
+    	**config**\: False
+    
     .. attribute:: ciscoflashcopytable
     
     	A table of Flash copy operation entries. Each entry represents a Flash copy operation (to or from Flash) that has been initiated
     	**type**\:  :py:class:`CiscoFlashCopyTable <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashCopyTable>`
+    
+    	**config**\: False
     
     .. attribute:: ciscoflashpartitioningtable
     
     	A table of Flash partitioning operation entries. Each entry represents a Flash partitioning operation that has been initiated
     	**type**\:  :py:class:`CiscoFlashPartitioningTable <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashPartitioningTable>`
     
+    	**config**\: False
+    
     .. attribute:: ciscoflashmiscoptable
     
     	A table of misc Flash operation entries. Each entry represents a Flash operation that has been initiated
     	**type**\:  :py:class:`CiscoFlashMiscOpTable <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashMiscOpTable>`
+    
+    	**config**\: False
     
     
 
@@ -187,6 +207,8 @@ class CISCOFLASHMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         
 
         """
@@ -215,6 +237,7 @@ class CISCOFLASHMIB(Entity):
             self._perform_setattr(CISCOFLASHMIB.CiscoFlashDevice, ['ciscoflashdevicessupported'], name, value)
 
 
+
     class CiscoFlashCfg(Entity):
         """
         
@@ -224,15 +247,21 @@ class CISCOFLASHMIB(Entity):
         	Specifies whether or not a notification should be generated on the insertion of a Flash device.  If the value of this object is 'true' then the ciscoFlashDeviceInsertedNotif notification will be generated.  If the value of this object is 'false' then the ciscoFlashDeviceInsertedNotif notification will not be generated.  It is the responsibility of the management entity to ensure that the SNMP administrative model is configured in such a way as to allow the notification to be delivered
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: ciscoflashcfgdevremnotifenable
         
         	Specifies whether or not a notification should be generated on the removal of a Flash device.  If the value of this object is 'true' then the ciscoFlashDeviceRemovedNotif notification will be generated.  If the value of this object is 'false' then the ciscoFlashDeviceRemovedNotif notification will not be generated.  It is the responsibility of the management entity to ensure that the SNMP administrative model is configured in such a way as to allow the notification to be delivered
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: ciscoflashpartitionlowspacenotifenable
         
         	This object specifies whether or not a notification should be generated when the free space falls below the threshold value on a flash partition and on recovery from low space.  If the value of this object is 'true' then ciscoFlashPartitionLowSpaceNotif and ciscoFlashPartitionLowSpaceRecoveryNotif notifications will be generated.  If the value of this object is 'false' then the ciscoFlashPartitionLowSpaceNotif  and ciscoFlashPartitionLowSpaceRecoveryNotif notifications will not be generated.  It is the responsibility of the management entity to ensure that the SNMP administrative model is configured in such a way as to allow the notifications to be delivered
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -264,6 +293,7 @@ class CISCOFLASHMIB(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOFLASHMIB.CiscoFlashCfg, ['ciscoflashcfgdevinsnotifenable', 'ciscoflashcfgdevremnotifenable', 'ciscoflashpartitionlowspacenotifenable'], name, value)
+
 
 
     class CiscoFlashDeviceTable(Entity):
@@ -300,6 +330,8 @@ class CISCOFLASHMIB(Entity):
         
         	An entry in the table of flash device properties for each initialized flash device. Each entry can be randomly accessed by using ciscoFlashDeviceIndex as an index into the table. Note that removable devices will have an entry in the table even when they have been removed. However, a non\-removable device that has not been installed will not have an entry in the table
         	**type**\: list of  		 :py:class:`CiscoFlashDeviceEntry <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashDeviceTable.CiscoFlashDeviceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -346,12 +378,16 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashdevicesize
             
             	Total size of the Flash device. For a removable device, the size will be zero if the device has been removed.  If the total size of the flash device is greater than the maximum value reportable by this object then this object should report its maximum value(4,294,967,295) and ciscoFlashDeviceSizeExtended must be used to report the flash device's size
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -362,6 +398,8 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             .. attribute:: ciscoflashdevicemaxpartitions
@@ -371,12 +409,16 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashdevicepartitions
             
             	Flash device partitions actually present. Number of partitions cannot exceed the minimum of ciscoFlashDeviceMaxPartitions and (ciscoFlashDeviceSize / ciscoFlashDeviceMinPartitionSize). Will be equal to at least 1, the case where the partition spans the entire device (actually no partitioning). A partition will contain one or more minimum partition units (where a minimum partition unit is defined by ciscoFlashDeviceMinPartitionSize)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashdevicechipcount
             
@@ -385,12 +427,16 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 0..64
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashdevicename
             
             	Flash device name. This name is used to refer to the device within the system. Flash operations get directed to a device based on this name. The system has a concept of a default device. This would be the primary or most used device in case of multiple devices. The system directs an operation to the default device whenever a device name is not specified. The device name is therefore mandatory except when the operation is being done on the default device, or, the system supports only a single Flash device. The device name will always be available for a removable device, even when the device has been removed
             	**type**\: str
             
             	**length:** 0..16
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -401,12 +447,16 @@ class CISCOFLASHMIB(Entity):
             
             	**length:** 0..64
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashdevicecontroller
             
             	Flash device controller. The h/w card that actually controls Flash read/write/erase. Relevant for the AGS+ systems where Flash may be controlled by the MC+, STR or the ENVM cards, cards that may not actually contain the Flash chips. For systems that have removable PCMCIA flash cards that are controlled by a PCMCIA controller chip, this object may contain a description of that controller chip. Where irrelevant (Flash is a direct memory mapped device accessed directly by the main processor), this object will have an empty (NULL) string
             	**type**\: str
             
             	**length:** 0..64
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashdevicecard
             
@@ -415,12 +465,16 @@ class CISCOFLASHMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ciscoflashdeviceprogrammingjumper
             
             	This object gives the state of a jumper (if present and can be determined) that controls the programming voltage called Vpp to the Flash device. Vpp is required for programming (erasing and writing) Flash. For certain older technology chips it is also required for identifying the chips (which in turn is required to identify which programming algorithms to use; different chips require different algorithms and commands). The purpose of the jumper, on systems where it is available, is to write protect a Flash device. On most of the newer remote access routers, this jumper is unavailable since users are not expected to visit remote sites just to install and remove the jumpers when upgrading software in the Flash device. The unknown(3) value will be returned for such systems and can be interpreted to mean that a programming jumper is not present or not required on those systems. On systems where the programming jumper state can be read back via a hardware register, the installed(1) or notInstalled(2) value will be returned. This object is expected to be used in conjunction with the ciscoFlashPartitionStatus object whenever that object has the readOnly(1) value. In such a case, this object will indicate whether the programming jumper is a possible reason for the readOnly state
             	**type**\:  :py:class:`CiscoFlashDeviceProgrammingJumper <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashDeviceTable.CiscoFlashDeviceEntry.CiscoFlashDeviceProgrammingJumper>`
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashdeviceinittime
             
@@ -429,10 +483,14 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashdeviceremovable
             
             	Whether Flash device is removable. Generally, only PCMCIA Flash cards will be treated as removable. Socketed Flash chips and Flash SIMM modules will not be treated as removable. Simply put, only those Flash devices that can be inserted or removed without opening the hardware casing will be considered removable. Further, removable Flash devices are expected to have the necessary hardware support \-   1. on\-line removal and insertion   2. interrupt generation on removal or insertion
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashphyentindex
             
@@ -441,6 +499,8 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashdevicenameextended
             
             	Extended Flash device name whose size can be upto 255 characters. This name is used to refer to the device within the system. Flash operations get directed to a device based on this name. The system has a concept of a default device. This would be the primary or most used device in case of multiple devices. The system directs an operation to the default device whenever a device name is not specified. The device name is therefore mandatory except when the operation is being done on the default device, or, the system supports only a single Flash device. The device name will always be available for a removable device, even when the device has been removed
@@ -448,12 +508,16 @@ class CISCOFLASHMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashdevicesizeextended
             
             	Total size of the Flash device. For a removable device, the size will be zero if the device has been removed.  This object is a 64\-bit version of ciscoFlashDeviceSize
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -463,6 +527,8 @@ class CISCOFLASHMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -589,6 +655,8 @@ class CISCOFLASHMIB(Entity):
 
 
 
+
+
     class CiscoFlashChipTable(Entity):
         """
         Table of Flash device chip properties for each
@@ -600,6 +668,8 @@ class CISCOFLASHMIB(Entity):
         
         	An entry in the table of chip info for each flash device initialized in the system. An entry is indexed by two objects \- the device index and the chip index within that device
         	**type**\: list of  		 :py:class:`CiscoFlashChipEntry <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashChipTable.CiscoFlashChipEntry>`
+        
+        	**config**\: False
         
         
 
@@ -645,12 +715,16 @@ class CISCOFLASHMIB(Entity):
             
             	**refers to**\:  :py:class:`ciscoflashdeviceindex <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashDeviceTable.CiscoFlashDeviceEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashchipindex  (key)
             
             	Chip sequence number within selected flash device. Used to index within chip info table. Value starts from 1 and should not be greater than ciscoFlashDeviceChipCount for that device. When retrieving chip information for chips within a partition, the sequence number should lie between ciscoFlashPartitionStartChip & ciscoFlashPartitionEndChip (both inclusive)
             	**type**\: int
             
             	**range:** 1..64
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashchipcode
             
@@ -659,12 +733,16 @@ class CISCOFLASHMIB(Entity):
             
             	**length:** 0..5
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashchipdescr
             
             	Flash chip name corresponding to the chip code. The name will contain the manufacturer and the chip type. It will be of the form \:   Intel 27F008SA. In the case where a chip code is unknown, this object will be an empty (NULL) string. In the case where the chip code is known but the chip is not supported by the system, this object will be an empty (NULL) string. A management station is therefore expected to use the chip code and the chip description in conjunction to provide additional information whenever the ciscoFlashPartitionStatus object has the readOnly(1) value
             	**type**\: str
             
             	**length:** 0..32
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashchipwriteretries
             
@@ -673,12 +751,16 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashchiperaseretries
             
             	This object will provide a cumulative count (since last system boot up or initialization) of the number of erase retries that were done in the chip. Typically, a maximum of 2000 retries are done in a single erase zone (which may be a full chip or a portion, depending on the chip technology) before flagging an erase error. A management station is expected to get this object for each chip in a partition after an erase failure in that partition. To keep a track of retries for a given erase operation, the management station would have to retrieve the values for the concerned chips before and after any erase operation. Note that erase may be done through an independent command, or through a copy\-to\-flash command
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashchipmaxwriteretries
             
@@ -687,12 +769,16 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashchipmaxeraseretries
             
             	The maximum number of erase retries done within an erase sector before declaring an erase failure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -736,6 +822,8 @@ class CISCOFLASHMIB(Entity):
                 self._perform_setattr(CISCOFLASHMIB.CiscoFlashChipTable.CiscoFlashChipEntry, ['ciscoflashdeviceindex', 'ciscoflashchipindex', 'ciscoflashchipcode', 'ciscoflashchipdescr', 'ciscoflashchipwriteretries', 'ciscoflashchiperaseretries', 'ciscoflashchipmaxwriteretries', 'ciscoflashchipmaxeraseretries'], name, value)
 
 
+
+
     class CiscoFlashPartitionTable(Entity):
         """
         Table of flash device partition properties for each
@@ -748,6 +836,8 @@ class CISCOFLASHMIB(Entity):
         
         	An entry in the table of flash partition properties for each initialized flash partition. Each entry will be indexed by a device number and a partition number within the device
         	**type**\: list of  		 :py:class:`CiscoFlashPartitionEntry <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashPartitionTable.CiscoFlashPartitionEntry>`
+        
+        	**config**\: False
         
         
 
@@ -792,12 +882,16 @@ class CISCOFLASHMIB(Entity):
             
             	**refers to**\:  :py:class:`ciscoflashdeviceindex <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashDeviceTable.CiscoFlashDeviceEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashpartitionindex  (key)
             
             	Flash partition sequence number used to index within table of initialized flash partitions
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashpartitionstartchip
             
@@ -806,6 +900,8 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 1..64
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashpartitionendchip
             
             	Chip sequence number of last chip in partition. Used as an index into the chip table
@@ -813,12 +909,16 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 1..64
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashpartitionsize
             
             	Flash partition size. It should be an integral multiple of ciscoFlashDeviceMinPartitionSize. If there is a single partition, this size will be equal to ciscoFlashDeviceSize.  If the size of the flash partition is greater than the maximum value reportable by this object then this object should report its maximum value(4,294,967,295) and ciscoFlashPartitionSizeExtended must be used to report the flash partition's size
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -829,6 +929,8 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             .. attribute:: ciscoflashpartitionfilecount
@@ -838,20 +940,28 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashpartitionchecksumalgorithm
             
             	Checksum algorithm identifier for checksum method used by the file system. Normally, this would be fixed for a particular file system. When a file system writes a file to Flash, it checksums the data written. The checksum then serves as a way to validate the data read back whenever the file is opened for reading. Since there is no way, when using TFTP, to guarantee that a network download has been error free (since UDP checksums may not have been enabled), this object together with the ciscoFlashFileChecksum object provides a method for any management station to regenerate the checksum of the original file on the server and compare checksums to ensure that the file download to Flash was error free. simpleChecksum represents a simple 1s complement addition of short word values. Other algorithm values will be added as necessary
             	**type**\:  :py:class:`CiscoFlashPartitionChecksumAlgorithm <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashPartitionTable.CiscoFlashPartitionEntry.CiscoFlashPartitionChecksumAlgorithm>`
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashpartitionstatus
             
             	Flash partition status can be \:  \* readOnly if device is not programmable either because chips could not be recognized or an erroneous mismatch of chips was detected. Chip recognition may fail either because the chips are not supported by the system, or because the Vpp voltage required to identify chips has been disabled via the programming jumper. The ciscoFlashDeviceProgrammingJumper, ciscoFlashChipCode, and ciscoFlashChipDescr objects can be examined to get more details on the cause of this status \* runFromFlash (RFF) if current image is running from this partition. The ciscoFlashPartitionUpgradeMethod object will then indicate whether the Flash Load Helper can be used to write a file to this partition or not.  \* readWrite if partition is programmable
             	**type**\:  :py:class:`CiscoFlashPartitionStatus <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashPartitionTable.CiscoFlashPartitionEntry.CiscoFlashPartitionStatus>`
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashpartitionupgrademethod
             
             	Flash partition upgrade method, ie., method by which new files can be downloaded into the partition. FLH stands for Flash Load Helper, a feature provided on run\-from\-Flash systems for upgrading Flash. This feature uses the bootstrap code in ROMs to help in automatic download. This object should be retrieved if the partition status is runFromFlash(2). If the partition status is readOnly(1), the upgrade method would depend on the reason for the readOnly status. For eg., it may simply be a matter of installing the programming jumper, or it may require execution of a later version of software that supports the Flash chips.  unknown      \-  the current system image does not know                 how Flash can be programmed. A possible                 method would be to reload the ROM image                 and perform the upgrade manually. rxbootFLH    \-  the Flash Load Helper is available to                 download files to Flash. A copy\-to\-flash                 command can be used and this system image                 will automatically reload the Rxboot image                 in ROM and direct it to carry out the                 download request. direct       \-  will be done directly by this image
             	**type**\:  :py:class:`CiscoFlashPartitionUpgradeMethod <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashPartitionTable.CiscoFlashPartitionEntry.CiscoFlashPartitionUpgradeMethod>`
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashpartitionname
             
@@ -860,10 +970,14 @@ class CISCOFLASHMIB(Entity):
             
             	**length:** 0..16
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashpartitionneederasure
             
             	This object indicates whether a partition requires erasure before any write operations can be done in it. A management station should therefore retrieve this object prior to attempting any write operation. A partition requires erasure after it becomes full free space left is less than or equal to the (filesystem file header size). A partition also requires erasure if the system does not find the existence of any file system when it boots up. The partition may be erased explicitly through the erase(5) command, or by using the copyToFlashWithErase(1) command. If a copyToFlashWithoutErase(2) command is issued when this object has the TRUE value, the command will fail
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashpartitionfilenamelength
             
@@ -872,12 +986,16 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 1..256
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashpartitionsizeextended
             
             	Flash partition size. It should be an integral multiple of ciscoFlashDeviceMinPartitionSize. If there is a single partition, this size will be equal to ciscoFlashDeviceSize.  This object is a 64\-bit version of ciscoFlashPartitionSize
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -888,6 +1006,8 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             .. attribute:: ciscoflashpartitionlowspacenotifthreshold
@@ -896,6 +1016,8 @@ class CISCOFLASHMIB(Entity):
             	**type**\: int
             
             	**range:** 0..100
+            
+            	**config**\: False
             
             
 
@@ -1128,6 +1250,8 @@ class CISCOFLASHMIB(Entity):
 
 
 
+
+
     class CiscoFlashFileTable(Entity):
         """
         Table of information for files in a Flash partition.
@@ -1136,6 +1260,8 @@ class CISCOFLASHMIB(Entity):
         
         	An entry in the table of Flash file properties for each initialized Flash partition. Each entry represents a file and gives details about the file. An entry is indexed using the device number, partition number within the device, and file number within the partition
         	**type**\: list of  		 :py:class:`CiscoFlashFileEntry <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashFileTable.CiscoFlashFileEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1182,6 +1308,8 @@ class CISCOFLASHMIB(Entity):
             
             	**refers to**\:  :py:class:`ciscoflashdeviceindex <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashDeviceTable.CiscoFlashDeviceEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashpartitionindex  (key)
             
             	
@@ -1191,12 +1319,16 @@ class CISCOFLASHMIB(Entity):
             
             	**refers to**\:  :py:class:`ciscoflashpartitionindex <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashPartitionTable.CiscoFlashPartitionEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashfileindex  (key)
             
             	Flash file sequence number used to index within a Flash partition directory table
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashfilesize
             
@@ -1205,6 +1337,8 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             .. attribute:: ciscoflashfilechecksum
@@ -1212,10 +1346,14 @@ class CISCOFLASHMIB(Entity):
             	File checksum stored in the file header. This checksum is computed and stored when the file is written into Flash. It serves to validate the data written into Flash. Whereas the system will generate and store the checksum internally in hexadecimal form, this object will provide the checksum in a string form. The checksum will be available for all valid and invalid\-checksum files
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashfilestatus
             
             	Status of a file. A file could be explicitly deleted if the file system supports such a user command facility. Alternately, an existing good file would be automatically deleted if another good file with the same name were copied in. Note that deleted files continue to occupy prime Flash real estate.  A file is marked as having an invalid checksum if any checksum mismatch was detected while writing or reading the file. Incomplete files (files truncated either because of lack of free space, or a network download failure) are also written with a bad checksum and marked as invalid
             	**type**\:  :py:class:`CiscoFlashFileStatus <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashFileTable.CiscoFlashFileEntry.CiscoFlashFileStatus>`
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashfilename
             
@@ -1224,15 +1362,21 @@ class CISCOFLASHMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashfiletype
             
             	Type of the file
             	**type**\:  :py:class:`FlashFileType <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.FlashFileType>`
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashfiledate
             
             	The time at which this file was created
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1323,6 +1467,8 @@ class CISCOFLASHMIB(Entity):
 
 
 
+
+
     class CiscoFlashFileByTypeTable(Entity):
         """
         Table of information for files on the manageable
@@ -1332,6 +1478,8 @@ class CISCOFLASHMIB(Entity):
         
         	An entry in the table of Flash file properties for each initialized Flash partition. Each entry represents a file sorted by file type.  This table contains exactly the same set of rows as are contained in the ciscoFlashFileTable but in a different order, i.e., ordered by  the type of file, given by  ciscoFlashFileType; the device number, given by ciscoFlashDeviceIndex; the partition number within the device, given by ciscoFlashPartitionIndex; the file number within the partition, given by ciscoFlashFileIndex
         	**type**\: list of  		 :py:class:`CiscoFlashFileByTypeEntry <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashFileByTypeTable.CiscoFlashFileByTypeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1382,6 +1530,8 @@ class CISCOFLASHMIB(Entity):
             	
             	**type**\:  :py:class:`FlashFileType <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.FlashFileType>`
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashdeviceindex  (key)
             
             	
@@ -1390,6 +1540,8 @@ class CISCOFLASHMIB(Entity):
             	**range:** 1..4294967295
             
             	**refers to**\:  :py:class:`ciscoflashdeviceindex <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashDeviceTable.CiscoFlashDeviceEntry>`
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashpartitionindex  (key)
             
@@ -1400,6 +1552,8 @@ class CISCOFLASHMIB(Entity):
             
             	**refers to**\:  :py:class:`ciscoflashpartitionindex <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashPartitionTable.CiscoFlashPartitionEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashfileindex  (key)
             
             	
@@ -1409,12 +1563,16 @@ class CISCOFLASHMIB(Entity):
             
             	**refers to**\:  :py:class:`ciscoflashfileindex <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashFileTable.CiscoFlashFileEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashfilebytypesize
             
             	This object represents exactly the same info as ciscoFlashFileSize object in ciscoFlashFileTable
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -1423,10 +1581,14 @@ class CISCOFLASHMIB(Entity):
             	This object represents exactly the same info as ciscoFlashFileChecksum object in ciscoFlashFileTable
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashfilebytypestatus
             
             	This object represents exactly the same info as ciscoFlashFileStatus object in ciscoFlashFileTable
             	**type**\:  :py:class:`CiscoFlashFileByTypeStatus <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashFileByTypeTable.CiscoFlashFileByTypeEntry.CiscoFlashFileByTypeStatus>`
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashfilebytypename
             
@@ -1435,10 +1597,14 @@ class CISCOFLASHMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashfilebytypedate
             
             	This object represents exactly the same info as ciscoFlashFileDate object in ciscoFlashFileTable
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1509,6 +1675,8 @@ class CISCOFLASHMIB(Entity):
 
 
 
+
+
     class CiscoFlashCopyTable(Entity):
         """
         A table of Flash copy operation entries. Each
@@ -1519,6 +1687,8 @@ class CISCOFLASHMIB(Entity):
         
         	A Flash copy operation entry. Each entry consists of a command, a source, and optional parameters such as protocol to be used, a destination, a server address, etc.  A management station wishing to create an entry should first generate a pseudo\-random serial number to be used as the index to this sparse table.  The station should then create the associated instance of the row status object. It must also, either in the same or in successive PDUs, create the associated instance of the command and parameter objects. It should also modify the default values for any of the parameter objects if the defaults are not appropriate.  Once the appropriate instances of all the command objects have been created, either by an explicit SNMP set request or by default, the row status should be set to active to initiate the operation. Note that this entire procedure may be initiated via a single set request which specifies a row status  of createAndGo as well as specifies valid values for the non\-defaulted parameter objects.  Once an operation has been activated, it cannot be stopped.  Once the operation completes, the management station should retrieve the value of the status object (and time if desired), and delete the entry.  In order to prevent old entries from clogging the table, entries will be aged out, but an entry will never be deleted within 5 minutes of completing
         	**type**\: list of  		 :py:class:`CiscoFlashCopyEntry <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashCopyTable.CiscoFlashCopyEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1589,15 +1759,21 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashcopycommand
             
             	The copy command to be executed. Mandatory. Note that it is possible for a system to support multiple file systems (different file systems on different Flash devices, or different file systems on different partitions within a device). Each such file system may support only a subset of these commands. If a command is unsupported, the invalidOperation(3) error will be reported in the operation status.  Command                 Remarks copyToFlashWithErase    Copy a file to flash; erase                         flash before copy.                         Use the TFTP or rcp protocol. copyToFlashWithoutErase Copy a file to flash; do not                         erase.                         Note that this command will fail                         if the PartitionNeedErasure                         object specifies that the                         partition being copied to needs                         erasure.                         Use the TFTP or rcp protocol. copyFromFlash           Copy a file from flash using                         the TFTP, rcp or lex protocol.                         Note that the lex protocol                         can only be used to copy to a                         lex device. copyFromFlhLog          Copy contents of FLH log to                         server using TFTP protocol.   Command table           Parameters copyToFlashWithErase    CopyProtocol                         CopyServerAddress                         CopySourceName                         CopyDestinationName (opt)                         CopyRemoteUserName (opt)                         CopyNotifyOnCompletion (opt) copyToFlashWithoutErase CopyProtocol                         CopyServerAddress                         CopySourceName                         CopyDestinationName (opt)                         CopyRemoteUserName (opt)                         CopyNotifyOnCompletion (opt) copyFromFlash           CopyProtocol                         CopyServerAddress                         CopySourceName                         CopyDestinationName (opt)                         CopyRemoteUserName (opt)                         CopyNotifyOnCompletion (opt) copyFromFlhLog          CopyProtocol                         CopyServerAddress                         CopyDestinationName                         CopyNotifyOnCompletion (opt)
             	**type**\:  :py:class:`CiscoFlashCopyCommand <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashCopyTable.CiscoFlashCopyEntry.CiscoFlashCopyCommand>`
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashcopyprotocol
             
             	The protocol to be used for any copy. Optional. Will default to tftp if not specified.  Since feature support depends on a software release, version number within the release, platform, and maybe the image type (subset type), a management station would be expected to somehow determine the protocol support for a command
             	**type**\:  :py:class:`CiscoFlashCopyProtocol <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashCopyTable.CiscoFlashCopyEntry.CiscoFlashCopyProtocol>`
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashcopyserveraddress
             
@@ -1605,6 +1781,8 @@ class CISCOFLASHMIB(Entity):
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -1615,12 +1793,16 @@ class CISCOFLASHMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashcopydestinationname
             
             	Destination file name.  For a copy to Flash\: File name must be of the form         {device>\:][<partition>\:]<file> where <device> is a value obtained from FlashDeviceName,       <partition> is obtained from FlashPartitionName   and <file> is any character string that does not have embedded colon characters. A management station could derive its own partition name as per the description for the ciscoFlashPartitionName object. If <device> is not specified, the default Flash device will be assumed. If <partition> is not specified, the default partition will be assumed. If a device is not partitioned into 2 or more partitions, this value may be left out. If <file> is not specified, it will default to <file> specified in ciscoFlashCopySourceName.  For a copy from Flash via tftp or rcp, the file name will be as per the file naming conventions and destination sub\-directory on the server. If not specified, <file> from the source file name will be used. For a copy from Flash via lex, this string will consist of numeric characters specifying the interface on the lex box that will receive the source flash image
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashcopyremoteusername
             
@@ -1629,15 +1811,21 @@ class CISCOFLASHMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashcopystatus
             
             	The status of the specified copy operation.  copyOperationPending \:         operation request is received and         pending for validation and process  copyInProgress \:         specified operation is active  copyOperationSuccess \:         specified operation is supported and         completed successfully  copyInvalidOperation \:         command invalid or command\-protocol\-device         combination unsupported  copyInvalidProtocol \:         invalid protocol specified  copyInvalidSourceName \:         invalid source file name specified         For the  copy from flash to lex operation, this         error code will be returned when the source file         is not a valid lex image.  copyInvalidDestName \:         invalid target name (file or partition or         device name) specified         For the  copy from flash to lex operation, this         error code will be returned when no lex devices         are connected to the router or when an invalid         lex interface number has been specified in         the destination string.  copyInvalidServerAddress \:         invalid server address specified  copyDeviceBusy \:         specified device is in use and locked by         another process  copyDeviceOpenError \:         invalid device name  copyDeviceError \:         device read, write or erase error  copyDeviceNotProgrammable \:         device is read\-only but a write or erase         operation was specified  copyDeviceFull \:         device is filled to capacity  copyFileOpenError \:         invalid file name; file not found in partition  copyFileTransferError \:         file transfer was unsuccessfull; network failure  copyFileChecksumError \:         file checksum in Flash failed  copyNoMemory \:         system running low on memory  copyUnknownFailure \:         failure unknown  copyProhibited\:       stop user from overwriting current boot image file
             	**type**\:  :py:class:`CiscoFlashCopyStatus <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashCopyTable.CiscoFlashCopyEntry.CiscoFlashCopyStatus>`
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashcopynotifyoncompletion
             
             	Specifies whether or not a notification should be generated on the completion of the copy operation. If specified, ciscoFlashCopyCompletionTrap will be generated. It is the responsibility of the management entity to ensure that the SNMP administrative model is configured in such a way as to allow the notification to be delivered
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashcopytime
             
@@ -1646,20 +1834,28 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashcopyentrystatus
             
             	The status of this table entry
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashcopyverify
             
             	Specifies whether the file that is copied need to be verified for integrity / authenticity, after copy succeeds. If it is set to true, and if the file that is copied doesn't have integrity /authenticity attachement, or the integrity / authenticity check fails, then the command will be aborted, and the file that is copied will be deleted from the destination file system
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashcopyserveraddrtype
             
             	This object indicates the transport type of the address contained in ciscoFlashCopyServerAddrRev1. Optional. Will default to '1' (IPv4 address type)
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashcopyserveraddrrev1
             
@@ -1668,12 +1864,16 @@ class CISCOFLASHMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashcopyremotepassword
             
             	Password used by ftp, sftp or scp for copying a file to/from an ftp/sftp/scp server. This object must be created when the ciscoFlashCopyProtocol is ftp, sftp or scp. Reading it returns a zero\-length string for security reasons
             	**type**\: str
             
             	**length:** 1..40
+            
+            	**config**\: False
             
             
 
@@ -2092,6 +2292,8 @@ class CISCOFLASHMIB(Entity):
 
 
 
+
+
     class CiscoFlashPartitioningTable(Entity):
         """
         A table of Flash partitioning operation entries. Each
@@ -2102,6 +2304,8 @@ class CISCOFLASHMIB(Entity):
         
         	A Flash partitioning operation entry. Each entry consists of the command, the target device, the partition count, and optionally the partition sizes.  A management station wishing to create an entry should first generate a pseudo\-random serial number to be used as the index to this sparse table.  The station should then create the associated instance of the row status object. It must also, either in the same or in successive PDUs, create the associated instance of the command and parameter objects. It should also modify the default values for any of the parameter objects if the defaults are not appropriate.  Once the appropriate instances of all the command objects have been created, either by an explicit SNMP set request or by default, the row status should be set to active to initiate the operation. Note that this entire procedure may be initiated via a single set request which specifies a row status of createAndGo as well as specifies valid values for the non\-defaulted parameter objects.  Once an operation has been activated, it cannot be stopped.  Once the operation completes, the management station should retrieve the value of the status object (and time if desired), and delete the entry.  In order to prevent old entries from clogging the table, entries will be aged out, but an entry will never be deleted within 5 minutes of completing
         	**type**\: list of  		 :py:class:`CiscoFlashPartitioningEntry <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashPartitioningTable.CiscoFlashPartitioningEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2171,10 +2375,14 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashpartitioningcommand
             
             	The partitioning command to be executed. Mandatory. If the command is unsupported, the partitioningInvalidOperation error will be reported in the operation status.  Command                 Remarks partition               Partition a Flash device.                         All the prerequisites for                         partitioning must be met for                         this command to succeed.  Command table           Parameters 1) partition            PartitioningDestinationName                         PartitioningPartitionCount                         PartitioningPartitionSizes (opt)                         PartitioningNotifyOnCompletion (opt)
             	**type**\:  :py:class:`CiscoFlashPartitioningCommand <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashPartitioningTable.CiscoFlashPartitioningEntry.CiscoFlashPartitioningCommand>`
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashpartitioningdestinationname
             
@@ -2183,6 +2391,8 @@ class CISCOFLASHMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashpartitioningpartitioncount
             
             	This object is used to specify the number of partitions to be created. Its value cannot exceed the value of ciscoFlashDeviceMaxPartitions.  To undo partitioning (revert to a single partition), this object must have the value 1
@@ -2190,20 +2400,28 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashpartitioningpartitionsizes
             
             	This object is used to explicitly specify the size of each partition to be created. The size of each partition will be in units of ciscoFlashDeviceMinPartitionSize. The value of this object will be in the form\:         <part1>\:<part2>...\:<partn>  If partition sizes are not specified, the system will calculate default sizes based on the partition count, the minimum partition size, and the device size. Partition size need not be specified when undoing partitioning (partition count is 1). If partition sizes are specified, the number of sizes specified must exactly match the partition count. If not, the partitioning command will be rejected with the invalidPartitionSizes error 
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashpartitioningstatus
             
             	The status of the specified partitioning operation. partitioningInProgress \:         specified operation is active  partitioningOperationSuccess \:         specified operation is supported and completed         successfully  partitioningInvalidOperation \:         command invalid or command\-protocol\-device         combination unsupported  partitioningInvalidDestName \:         invalid target name (file or partition or         device name) specified  partitioningInvalidPartitionCount \:         invalid partition count specified for the         partitioning command  partitioningInvalidPartitionSizes \:         invalid partition size, or invalid count of         partition sizes  partitioningDeviceBusy \:         specified device is in use and locked by         another process  partitioningDeviceOpenError \:         invalid device name  partitioningDeviceError \:         device read, write or erase error  partitioningNoMemory \:         system running low on memory  partitioningUnknownFailure \:         failure unknown
             	**type**\:  :py:class:`CiscoFlashPartitioningStatus <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashPartitioningTable.CiscoFlashPartitioningEntry.CiscoFlashPartitioningStatus>`
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashpartitioningnotifyoncompletion
             
             	Specifies whether or not a notification should be generated on the completion of the partitioning operation. If specified, ciscoFlashPartitioningCompletionTrap will be generated. It is the responsibility of the management entity to ensure that the SNMP administrative model is configured in such a way as to allow the notification to be delivered
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashpartitioningtime
             
@@ -2212,10 +2430,14 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashpartitioningentrystatus
             
             	The status of this table entry
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -2409,6 +2631,8 @@ class CISCOFLASHMIB(Entity):
 
 
 
+
+
     class CiscoFlashMiscOpTable(Entity):
         """
         A table of misc Flash operation entries. Each
@@ -2419,6 +2643,8 @@ class CISCOFLASHMIB(Entity):
         
         	A Flash operation entry. Each entry consists of a command, a target, and any optional parameters.  A management station wishing to create an entry should first generate a pseudo\-random serial number to be used as the index to this sparse table.  The station should then create the associated instance of the row status object. It must also, either in the same or in successive PDUs, create the associated instance of the command and parameter objects. It should also modify the default values for any of the parameter objects if the defaults are not appropriate.  Once the appropriate instances of all the command objects have been created, either by an explicit SNMP set request or by default, the row status should be set to active to initiate the operation. Note that this entire procedure may be initiated via a single set request which specifies a row status of createAndGo as well as specifies valid values for the non\-defaulted parameter objects.  Once an operation has been activated, it cannot be stopped.  Once the operation completes, the management station should retrieve the value of the status object (and time if desired), and delete the entry.  In order to prevent old entries from clogging the table, entries will be aged out, but an entry will never be deleted within 5 minutes of completing
         	**type**\: list of  		 :py:class:`CiscoFlashMiscOpEntry <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashMiscOpTable.CiscoFlashMiscOpEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2487,10 +2713,14 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashmiscopcommand
             
             	The command to be executed. Mandatory. Note that it is possible for a system to support multiple file systems (different file systems on different Flash devices, or different file systems on different partitions within a device). Each such file system may support only a subset of these commands. If a command is unsupported, the miscOpInvalidOperation(3) error will be reported in the operation status.  Command         Remarks erase           Erase flash. verify          Verify flash file checksum. delete          Delete a file. undelete        Revive a deleted file .                 Note that there are limits on                 the number of times a file can                 be deleted and undeleted. When                 this limit is exceeded, the                 system will return the appropriate                 error. squeeze         Recover space occupied by                 deleted files. This command                 preserves the good files, erases                 out the file system, then restores                 the preserved good files. format          Format a flash device.  Command table   Parameters erase           MiscOpDestinationName                 MiscOpNotifyOnCompletion (opt) verify          MiscOpDestinationName                 MiscOpNotifyOnCompletion (opt) delete          MiscOpDestinationName                 MiscOpNotifyOnCompletion (opt) undelete        MiscOpDestinationName                 MiscOpNotifyOnCompletion (opt) squeeze         MiscOpDestinationName                 MiscOpNotifyOnCompletion (opt) format          MiscOpDestinationName                 MiscOpNotifyOnCompletion (opt)
             	**type**\:  :py:class:`CiscoFlashMiscOpCommand <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashMiscOpTable.CiscoFlashMiscOpEntry.CiscoFlashMiscOpCommand>`
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashmiscopdestinationname
             
@@ -2499,15 +2729,21 @@ class CISCOFLASHMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashmiscopstatus
             
             	The status of the specified operation. miscOpInProgress \:         specified operation is active  miscOpOperationSuccess \:         specified operation is supported and completed         successfully  miscOpInvalidOperation \:         command invalid or command\-protocol\-device         combination unsupported  miscOpInvalidDestName \:         invalid target name (file or partition or         device name) specified  miscOpDeviceBusy \:         specified device is in use and locked by another         process  miscOpDeviceOpenError \:         invalid device name  miscOpDeviceError \:         device read, write or erase error  miscOpDeviceNotProgrammable \:         device is read\-only but a write or erase         operation was specified  miscOpFileOpenError \:         invalid file name; file not found in partition  miscOpFileDeleteFailure \:         file could not be deleted; delete count exceeded  miscOpFileUndeleteFailure \:         file could not be undeleted; undelete count         exceeded  miscOpFileChecksumError \:         file has a bad checksum  miscOpNoMemory \:         system running low on memory  miscOpUnknownFailure \:         failure unknown  miscOpSqueezeFailure \:         the squeeze operation failed  miscOpNoSuchFile \:         a valid but nonexistent file name was specified  miscOpFormatFailure \:         the format operation failed
             	**type**\:  :py:class:`CiscoFlashMiscOpStatus <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CISCOFLASHMIB.CiscoFlashMiscOpTable.CiscoFlashMiscOpEntry.CiscoFlashMiscOpStatus>`
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashmiscopnotifyoncompletion
             
             	Specifies whether or not a notification should be generated on the completion of an operation. If specified, ciscoFlashMiscOpCompletionTrap will be generated. It is the responsibility of the management entity to ensure that the SNMP administrative model is configured in such a way as to allow the notification to be delivered
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: ciscoflashmiscoptime
             
@@ -2516,10 +2752,14 @@ class CISCOFLASHMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ciscoflashmiscopentrystatus
             
             	The status of this table entry
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -2824,7 +3064,11 @@ class CISCOFLASHMIB(Entity):
                 miscOpFormatFailure = Enum.YLeaf(20, "miscOpFormatFailure")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOFLASHMIB()
         return self._top_entity
+
+
 

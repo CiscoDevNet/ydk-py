@@ -30,10 +30,14 @@ class Grpc(Entity):
     	Grpc Statistics
     	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_oper.Grpc.Statistics>`
     
+    	**config**\: False
+    
     .. attribute:: status
     
     	Grpc Status
     	**type**\:  :py:class:`Status <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_oper.Grpc.Status>`
+    
+    	**config**\: False
     
     
 
@@ -79,12 +83,16 @@ class Grpc(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: ct_show_cmd_txt_res_sent
         
         	CounterShowCmdTxtResSent
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: ct_get_config_req_recv
         
@@ -93,12 +101,16 @@ class Grpc(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: ct_get_config_res_sent
         
         	CounterGetConfigResSent
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: ct_cli_config_req_recv
         
@@ -107,12 +119,16 @@ class Grpc(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: ct_cli_config_res_sent
         
         	CounterCliConfigResSent
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: ct_merge_config_req_recv
         
@@ -121,12 +137,16 @@ class Grpc(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: ct_merge_config_res_sent
         
         	CounterMergeConfigRes
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: ct_commit_replace_req_recv
         
@@ -135,12 +155,16 @@ class Grpc(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: ct_commit_replace_res_sent
         
         	CounterCommitReplaceRes
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: ct_delete_config_req_recv
         
@@ -149,12 +173,16 @@ class Grpc(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: ct_delete_config_res_sent
         
         	CounterDeleteConfigRes
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: ct_replace_config_req_recv
         
@@ -163,12 +191,16 @@ class Grpc(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: ct_replace_config_res_sent
         
         	CounterReplaceConfigSent
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: ct_get_oper_req_recv
         
@@ -177,12 +209,16 @@ class Grpc(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: ct_get_oper_res_sent
         
         	CounterGetOperResSent
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: ct_get_current_session
         
@@ -191,12 +227,16 @@ class Grpc(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ct_commit_config_req_recv
         
         	CounterForHowManyCommitConfigRequests
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: ct_commit_config_res_sent
         
@@ -205,6 +245,8 @@ class Grpc(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: ct_action_json_req_recv
         
         	CounterForHowManyActionJsonRequests
@@ -212,12 +254,16 @@ class Grpc(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: ct_action_json_res_sent
         
         	CounterForHowManyActionJsonResponses
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         
 
@@ -284,7 +330,8 @@ class Grpc(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Grpc.Statistics, ['ct_show_cmd_txt_req_recv', 'ct_show_cmd_txt_res_sent', 'ct_get_config_req_recv', 'ct_get_config_res_sent', 'ct_cli_config_req_recv', 'ct_cli_config_res_sent', 'ct_merge_config_req_recv', 'ct_merge_config_res_sent', 'ct_commit_replace_req_recv', 'ct_commit_replace_res_sent', 'ct_delete_config_req_recv', 'ct_delete_config_res_sent', 'ct_replace_config_req_recv', 'ct_replace_config_res_sent', 'ct_get_oper_req_recv', 'ct_get_oper_res_sent', 'ct_get_current_session', 'ct_commit_config_req_recv', 'ct_commit_config_res_sent', 'ct_action_json_req_recv', 'ct_action_json_res_sent'], name, value)
+            self._perform_setattr(Grpc.Statistics, [u'ct_show_cmd_txt_req_recv', u'ct_show_cmd_txt_res_sent', u'ct_get_config_req_recv', u'ct_get_config_res_sent', u'ct_cli_config_req_recv', u'ct_cli_config_res_sent', u'ct_merge_config_req_recv', u'ct_merge_config_res_sent', u'ct_commit_replace_req_recv', u'ct_commit_replace_res_sent', u'ct_delete_config_req_recv', u'ct_delete_config_res_sent', u'ct_replace_config_req_recv', u'ct_replace_config_res_sent', u'ct_get_oper_req_recv', u'ct_get_oper_res_sent', u'ct_get_current_session', u'ct_commit_config_req_recv', u'ct_commit_config_res_sent', u'ct_action_json_req_recv', u'ct_action_json_res_sent'], name, value)
+
 
 
     class Status(Entity):
@@ -296,20 +343,28 @@ class Grpc(Entity):
         	GRPCTransport
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: address_family
         
         	AddressFamily
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: tls
         
         	GRPCTLS
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: trustpoint
         
         	GRPCTrustpoint
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: listening_port
         
@@ -318,10 +373,14 @@ class Grpc(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         .. attribute:: vrf_socket_ns_path
         
         	VrfSocketNamespacePath
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: max_req_per_user
         
@@ -330,12 +389,16 @@ class Grpc(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: max_req_total
         
         	MaxReqTotal
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: max_streams
         
@@ -344,12 +407,16 @@ class Grpc(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: max_streams_per_user
         
         	Maximum number of streaming gRPCs per user
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -394,9 +461,12 @@ class Grpc(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Grpc.Status, ['transport', 'address_family', 'tls', 'trustpoint', 'listening_port', 'vrf_socket_ns_path', 'max_req_per_user', 'max_req_total', 'max_streams', 'max_streams_per_user'], name, value)
+            self._perform_setattr(Grpc.Status, [u'transport', u'address_family', u'tls', u'trustpoint', u'listening_port', u'vrf_socket_ns_path', u'max_req_per_user', u'max_req_total', u'max_streams', u'max_streams_per_user'], name, value)
+
 
     def clone_ptr(self):
         self._top_entity = Grpc()
         return self._top_entity
+
+
 

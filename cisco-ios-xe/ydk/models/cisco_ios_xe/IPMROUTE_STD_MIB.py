@@ -24,30 +24,42 @@ class IPMROUTESTDMIB(Entity):
     	
     	**type**\:  :py:class:`IpMRoute <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRoute>`
     
+    	**config**\: False
+    
     .. attribute:: ipmroutetable
     
     	The (conceptual) table containing multicast routing information for IP datagrams sent by particular sources to the IP multicast groups known to this router
     	**type**\:  :py:class:`IpMRouteTable <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteTable>`
+    
+    	**config**\: False
     
     .. attribute:: ipmroutenexthoptable
     
     	The (conceptual) table containing information on the next\- hops on outgoing interfaces for routing IP multicast datagrams.  Each entry is one of a list of next\-hops on outgoing interfaces for particular sources sending to a particular multicast group address
     	**type**\:  :py:class:`IpMRouteNextHopTable <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteNextHopTable>`
     
+    	**config**\: False
+    
     .. attribute:: ipmrouteinterfacetable
     
     	The (conceptual) table containing multicast routing information specific to interfaces
     	**type**\:  :py:class:`IpMRouteInterfaceTable <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteInterfaceTable>`
+    
+    	**config**\: False
     
     .. attribute:: ipmrouteboundarytable
     
     	The (conceptual) table listing the router's scoped multicast address boundaries
     	**type**\:  :py:class:`IpMRouteBoundaryTable <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteBoundaryTable>`
     
+    	**config**\: False
+    
     .. attribute:: ipmroutescopenametable
     
     	The (conceptual) table listing the multicast scope names
     	**type**\:  :py:class:`IpMRouteScopeNameTable <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteScopeNameTable>`
+    
+    	**config**\: False
     
     
 
@@ -107,12 +119,16 @@ class IPMROUTESTDMIB(Entity):
         	The enabled status of IP Multicast routing on this router
         	**type**\:  :py:class:`IpMRouteEnable <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRoute.IpMRouteEnable>`
         
+        	**config**\: False
+        
         .. attribute:: ipmrouteentrycount
         
         	The number of rows in the ipMRouteTable.  This can be used to monitor the multicast routing table size
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -161,6 +177,7 @@ class IPMROUTESTDMIB(Entity):
 
 
 
+
     class IpMRouteTable(Entity):
         """
         The (conceptual) table containing multicast routing
@@ -171,6 +188,8 @@ class IPMROUTESTDMIB(Entity):
         
         	An entry (conceptual row) containing the multicast routing information for IP datagrams from a particular source and addressed to a particular IP multicast group address. Discontinuities in counters in this entry can be detected by observing the value of ipMRouteUpTime
         	**type**\: list of  		 :py:class:`IpMRouteEntry <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteTable.IpMRouteEntry>`
+        
+        	**config**\: False
         
         
 
@@ -214,12 +233,16 @@ class IPMROUTESTDMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ipmroutesource  (key)
             
             	The network address which when combined with the corresponding value of ipMRouteSourceMask identifies the sources for which this entry contains multicast routing information
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: ipmroutesourcemask  (key)
             
@@ -228,12 +251,16 @@ class IPMROUTESTDMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ipmrouteupstreamneighbor
             
             	The address of the upstream neighbor (e.g., RPF neighbor) from which IP datagrams from these sources to this multicast address are received, or 0.0.0.0 if the upstream neighbor is unknown (e.g., in CBT)
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: ipmrouteinifindex
             
@@ -242,12 +269,16 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ipmrouteuptime
             
             	The time since the multicast routing information represented by this entry was learned by the router
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipmrouteexpirytime
             
@@ -256,12 +287,16 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipmroutepkts
             
             	The number of packets which this router has received from these sources and addressed to this multicast group address
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipmroutedifferentinifpackets
             
@@ -270,6 +305,8 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipmrouteoctets
             
             	The number of octets contained in IP datagrams which were received from these sources and addressed to this multicast group address, and which were forwarded by this router
@@ -277,15 +314,21 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipmrouteprotocol
             
             	The multicast routing protocol via which this multicast forwarding entry was learned
             	**type**\:  :py:class:`IANAipMRouteProtocol <ydk.models.cisco_ios_xe.IANA_RTPROTO_MIB.IANAipMRouteProtocol>`
             
+            	**config**\: False
+            
             .. attribute:: ipmroutertproto
             
             	The routing mechanism via which the route used to find the upstream or parent interface for this multicast forwarding entry was learned.  Inclusion of values for routing protocols is not intended to imply that those protocols need be supported
             	**type**\:  :py:class:`IANAipRouteProtocol <ydk.models.cisco_ios_xe.IANA_RTPROTO_MIB.IANAipRouteProtocol>`
+            
+            	**config**\: False
             
             .. attribute:: ipmroutertaddress
             
@@ -294,6 +337,8 @@ class IPMROUTESTDMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ipmroutertmask
             
             	The mask associated with the route used to find the upstream or parent interface for this multicast forwarding entry
@@ -301,10 +346,14 @@ class IPMROUTESTDMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ipmrouterttype
             
             	The reason the given route was placed in the (logical) multicast Routing Information Base (RIB).  A value of unicast means that the route would normally be placed only in the unicast RIB, but was placed in the multicast RIB (instead or in addition) due to local configuration, such as when running PIM over RIP.  A value of multicast means that      the route was explicitly added to the multicast RIB by the routing protocol, such as DVMRP or Multiprotocol BGP
             	**type**\:  :py:class:`IpMRouteRtType <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteTable.IpMRouteEntry.IpMRouteRtType>`
+            
+            	**config**\: False
             
             .. attribute:: ipmroutehcoctets
             
@@ -313,40 +362,56 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: ciscoipmroutepruneflag
             
             	Boolean, indicates whether this route is pruned. A pruned route is one that has an empty outgoing interface list or all interfaces are in Pruned state. A multicast packet that matches a pruned route doesn't get forwarded
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: ciscoipmroutesparseflag
             
             	Boolean, indicating PIM multicast routing protocol sparse\-mode (versus dense\-mode).  In sparse\-mode, packets are forwarded only out interfaces that have been joined. In dense\-mode, they are forwarded out all interfaces that have not been pruned
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: ciscoipmrouteconnectedflag
             
             	Boolean, indicating whether there is a directly connected member for a group attached to the router
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: ciscoipmroutelocalflag
             
             	Boolean, indicating whether local system is a member of a group on any interface
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: ciscoipmrouteregisterflag
             
             	Boolean, indicates whether to send registers for the entry. A first hop router directly connected to a multicast source host, as well as a border router on the boundary of two domains running different multicast routing protocols, encapsulates packets to be sent on the shared tree. This is done until the RP sends Joins back to this router
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: ciscoipmrouterpflag
             
             	Boolean, indicating whether there is a Prune state for this source along the shared tree
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: ciscoipmroutesptflag
             
             	Boolean, indicating whether data is being received on the SPT tree, ie the Shortest Path Tree
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: ciscoipmroutebps
             
@@ -354,6 +419,8 @@ class IPMROUTESTDMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -364,6 +431,8 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ciscoipmroutemetricpreference
@@ -373,12 +442,16 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ciscoipmrouteinlimit
             
             	Incoming interface's limit for rate limiting data traffic, in Kbps. Replaced by ciscoIpMRouteInLimit2
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**units**\: Kbits/second
             
@@ -391,12 +464,16 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ciscoipmrouteinlimit2
             
             	Incoming interface's limit for rate limiting data traffic, in Kbps
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Kbits/second
             
@@ -405,15 +482,21 @@ class IPMROUTESTDMIB(Entity):
             	Boolean, indicates whether this route is created due to SPT threshold
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: ciscoipmroutemsdpflag
             
             	Boolean, indicates whether this route is learned via MSDP
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: ciscoipmrouteproxyjoinflag
             
             	Boolean, indicates whether to send join for this entry
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: ciscoipmroutepkts
             
@@ -422,12 +505,16 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: ciscoipmroutedifferentinifpkts
             
             	The number of packets which this router has received from these sources and addressed to this multicast group address, which were not received from the interface indicated by ipMRouteInIfIndex. This object is a 64\-bit version of ipMRouteDifferentInIfPackets
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ciscoipmrouteoctets
             
@@ -436,6 +523,8 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: ciscoipmroutebps2
             
             	Bits per second forwarded by this router. This is the sum of all forwarded bits during a 1 second interval. At the end of each second the field is cleared
@@ -443,12 +532,16 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: ciscoipmroutemetric2
             
             	Metric \- The best metric heard from Assert messages
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -581,6 +674,8 @@ class IPMROUTESTDMIB(Entity):
 
 
 
+
+
     class IpMRouteNextHopTable(Entity):
         """
         The (conceptual) table containing information on the next\-
@@ -593,6 +688,8 @@ class IPMROUTESTDMIB(Entity):
         
         	An entry (conceptual row) in the list of next\-hops on outgoing interfaces to which IP multicast datagrams from particular sources to a IP multicast group address are routed.  Discontinuities in counters in this entry can be detected by observing the value of ipMRouteUpTime
         	**type**\: list of  		 :py:class:`IpMRouteNextHopEntry <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteNextHopTable.IpMRouteNextHopEntry>`
+        
+        	**config**\: False
         
         
 
@@ -636,12 +733,16 @@ class IPMROUTESTDMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ipmroutenexthopsource  (key)
             
             	The network address which when combined with the corresponding value of ipMRouteNextHopSourceMask identifies the sources for which this entry specifies a next\-hop on an outgoing interface
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: ipmroutenexthopsourcemask  (key)
             
@@ -650,12 +751,16 @@ class IPMROUTESTDMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ipmroutenexthopifindex  (key)
             
             	The ifIndex value of the interface for the outgoing interface for this next\-hop
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             .. attribute:: ipmroutenexthopaddress  (key)
             
@@ -664,10 +769,14 @@ class IPMROUTESTDMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ipmroutenexthopstate
             
             	An indication of whether the outgoing interface and next\- hop represented by this entry is currently being used to forward IP datagrams.  The value 'forwarding' indicates it is currently being used; the value 'pruned' indicates it is not
             	**type**\:  :py:class:`IpMRouteNextHopState <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteNextHopTable.IpMRouteNextHopEntry.IpMRouteNextHopState>`
+            
+            	**config**\: False
             
             .. attribute:: ipmroutenexthopuptime
             
@@ -676,12 +785,16 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipmroutenexthopexpirytime
             
             	The minimum amount of time remaining before this entry will be aged out.  If ipMRouteNextHopState is pruned(1), the remaining time until the prune expires and the state reverts to forwarding(2).  Otherwise, the remaining time until this entry is removed from the table.  The time remaining may be copied from ipMRouteExpiryTime if the protocol in use for this entry does not specify next\-hop timers.  The value 0      indicates that the entry is not subject to aging
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipmroutenexthopclosestmemberhops
             
@@ -690,10 +803,14 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ipmroutenexthopprotocol
             
             	The routing mechanism via which this next\-hop was learned
             	**type**\:  :py:class:`IANAipMRouteProtocol <ydk.models.cisco_ios_xe.IANA_RTPROTO_MIB.IANAipMRouteProtocol>`
+            
+            	**config**\: False
             
             .. attribute:: ipmroutenexthoppkts
             
@@ -702,12 +819,16 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ciscoipmroutenexthopoutlimit
             
             	An outgoing interface's limit for rate limiting data traffic, in Kbps
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Kbits/second
             
@@ -716,12 +837,16 @@ class IPMROUTESTDMIB(Entity):
             	The data link mac address header for a multicast datagram. Used by IP multicast fastswitching
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: ciscoipmroutenexthoppkts
             
             	The number of packets which have been forwarded using this route. This object is a 64\-bit version of ipMRouteNextHopPkts
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -802,6 +927,8 @@ class IPMROUTESTDMIB(Entity):
 
 
 
+
+
     class IpMRouteInterfaceTable(Entity):
         """
         The (conceptual) table containing multicast routing
@@ -811,6 +938,8 @@ class IPMROUTESTDMIB(Entity):
         
         	An entry (conceptual row) containing the multicast routing information for a particular interface
         	**type**\: list of  		 :py:class:`IpMRouteInterfaceEntry <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteInterfaceTable.IpMRouteInterfaceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -851,6 +980,8 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ipmrouteinterfacettl
             
             	The datagram TTL threshold for the interface. Any IP multicast datagrams with a TTL less than this threshold will not be forwarded out the interface. The default value of 0 means all multicast packets are forwarded out the interface
@@ -858,10 +989,14 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ipmrouteinterfaceprotocol
             
             	The routing protocol running on this interface
             	**type**\:  :py:class:`IANAipMRouteProtocol <ydk.models.cisco_ios_xe.IANA_RTPROTO_MIB.IANAipMRouteProtocol>`
+            
+            	**config**\: False
             
             .. attribute:: ipmrouteinterfaceratelimit
             
@@ -870,12 +1005,16 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ipmrouteinterfaceinmcastoctets
             
             	The number of octets of multicast packets that have arrived on the interface, including framing characters.  This object is similar to ifInOctets in the Interfaces MIB, except that only multicast packets are counted
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipmrouteinterfaceoutmcastoctets
             
@@ -884,12 +1023,16 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipmrouteinterfacehcinmcastoctets
             
             	The number of octets of multicast packets that have arrived on the interface, including framing characters.  This object is a 64\-bit version of ipMRouteInterfaceInMcastOctets.  It is similar to ifHCInOctets in the Interfaces MIB, except that only multicast packets are counted
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipmrouteinterfacehcoutmcastoctets
             
@@ -898,12 +1041,16 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: ciscoipmrouteifinmcastoctets
             
             	The number of octets of multicast packets that have arrived on the interface. This object is a 64\-bit version of ipMRouteInterfaceInMcastOctets
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ciscoipmrouteifoutmcastoctets
             
@@ -912,12 +1059,16 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: ciscoipmrouteifinmcastpkts
             
             	The number of multicast packets that have arrived on the interface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ciscoipmrouteifhcinmcastpkts
             
@@ -926,6 +1077,8 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: ciscoipmrouteifoutmcastpkts
             
             	The number of multicast packets that have been sent on the interface
@@ -933,12 +1086,16 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ciscoipmrouteifhcoutmcastpkts
             
             	The number of multicast packets that have been sent on the interface. This object is a 64\-bit version of ciscoIpMRouteIfOutMcastPkts
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -994,6 +1151,8 @@ class IPMROUTESTDMIB(Entity):
                 self._perform_setattr(IPMROUTESTDMIB.IpMRouteInterfaceTable.IpMRouteInterfaceEntry, [u'ipmrouteinterfaceifindex', u'ipmrouteinterfacettl', u'ipmrouteinterfaceprotocol', u'ipmrouteinterfaceratelimit', u'ipmrouteinterfaceinmcastoctets', u'ipmrouteinterfaceoutmcastoctets', u'ipmrouteinterfacehcinmcastoctets', u'ipmrouteinterfacehcoutmcastoctets', 'ciscoipmrouteifinmcastoctets', 'ciscoipmrouteifoutmcastoctets', 'ciscoipmrouteifinmcastpkts', 'ciscoipmrouteifhcinmcastpkts', 'ciscoipmrouteifoutmcastpkts', 'ciscoipmrouteifhcoutmcastpkts'], name, value)
 
 
+
+
     class IpMRouteBoundaryTable(Entity):
         """
         The (conceptual) table listing the router's scoped
@@ -1003,6 +1162,8 @@ class IPMROUTESTDMIB(Entity):
         
         	An entry (conceptual row) in the ipMRouteBoundaryTable representing a scoped boundary
         	**type**\: list of  		 :py:class:`IpMRouteBoundaryEntry <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteBoundaryTable.IpMRouteBoundaryEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1043,12 +1204,16 @@ class IPMROUTESTDMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ipmrouteboundaryaddress  (key)
             
             	The group address which when combined with the corresponding value of ipMRouteBoundaryAddressMask identifies the group range for which the scoped boundary exists.  Scoped addresses must come from the range 239.x.x.x as specified in RFC 2365
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: ipmrouteboundaryaddressmask  (key)
             
@@ -1057,10 +1222,14 @@ class IPMROUTESTDMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ipmrouteboundarystatus
             
             	The status of this row, by which new entries may be created, or old entries deleted from this table
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1096,6 +1265,8 @@ class IPMROUTESTDMIB(Entity):
                 self._perform_setattr(IPMROUTESTDMIB.IpMRouteBoundaryTable.IpMRouteBoundaryEntry, [u'ipmrouteboundaryifindex', u'ipmrouteboundaryaddress', u'ipmrouteboundaryaddressmask', u'ipmrouteboundarystatus'], name, value)
 
 
+
+
     class IpMRouteScopeNameTable(Entity):
         """
         The (conceptual) table listing the multicast scope names.
@@ -1104,6 +1275,8 @@ class IPMROUTESTDMIB(Entity):
         
         	An entry (conceptual row) in the ipMRouteScopeNameTable representing a multicast scope name
         	**type**\: list of  		 :py:class:`IpMRouteScopeNameEntry <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteScopeNameTable.IpMRouteScopeNameEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1144,6 +1317,8 @@ class IPMROUTESTDMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ipmroutescopenameaddressmask  (key)
             
             	The group address mask which when combined with the corresponding value of ipMRouteScopeNameAddress identifies the group range associated with the multicast scope
@@ -1151,25 +1326,35 @@ class IPMROUTESTDMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ipmroutescopenamelanguage  (key)
             
             	The RFC 1766\-style language tag associated with the scope name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: ipmroutescopenamestring
             
             	The textual name associated with the multicast scope.  The value of this object should be suitable for displaying to end\-users, such as when allocating a multicast address in this scope.  When no name is specified, the default value of this object should be the string 239.x.x.x/y with x and y replaced appropriately to describe the address and mask length associated with the scope
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: ipmroutescopenamedefault
             
             	If true, indicates a preference that the name in the following language should be used by applications if no name is available in a desired language
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: ipmroutescopenamestatus
             
             	The status of this row, by which new entries may be created, or old entries deleted from this table
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1208,7 +1393,11 @@ class IPMROUTESTDMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(IPMROUTESTDMIB.IpMRouteScopeNameTable.IpMRouteScopeNameEntry, [u'ipmroutescopenameaddress', u'ipmroutescopenameaddressmask', u'ipmroutescopenamelanguage', u'ipmroutescopenamestring', u'ipmroutescopenamedefault', u'ipmroutescopenamestatus'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = IPMROUTESTDMIB()
         return self._top_entity
+
+
 

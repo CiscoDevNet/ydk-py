@@ -162,100 +162,140 @@ class CISCOCEFMIB(Entity):
     	
     	**type**\:  :py:class:`CefFIB <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefFIB>`
     
+    	**config**\: False
+    
     .. attribute:: cefcc
     
     	
     	**type**\:  :py:class:`CefCC <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefCC>`
+    
+    	**config**\: False
     
     .. attribute:: cefnotifcntl
     
     	
     	**type**\:  :py:class:`CefNotifCntl <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefNotifCntl>`
     
+    	**config**\: False
+    
     .. attribute:: ceffibsummarytable
     
     	This table contains the summary information for the cefPrefixTable
     	**type**\:  :py:class:`CefFIBSummaryTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefFIBSummaryTable>`
+    
+    	**config**\: False
     
     .. attribute:: cefprefixtable
     
     	A list of CEF forwarding prefixes
     	**type**\:  :py:class:`CefPrefixTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPrefixTable>`
     
+    	**config**\: False
+    
     .. attribute:: ceflmprefixtable
     
     	A table of Longest Match Prefix Query requests.  Generator application should utilize the cefLMPrefixSpinLock to try to avoid collisions. See DESCRIPTION clause of cefLMPrefixSpinLock
     	**type**\:  :py:class:`CefLMPrefixTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefLMPrefixTable>`
+    
+    	**config**\: False
     
     .. attribute:: cefpathtable
     
     	CEF prefix path is a valid route to reach to a  destination IP prefix. Multiple paths may exist  out of a router to the same destination prefix.  This table specify lists of CEF paths
     	**type**\:  :py:class:`CefPathTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPathTable>`
     
+    	**config**\: False
+    
     .. attribute:: cefadjsummarytable
     
     	This table contains the summary information for the cefAdjTable
     	**type**\:  :py:class:`CefAdjSummaryTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefAdjSummaryTable>`
+    
+    	**config**\: False
     
     .. attribute:: cefadjtable
     
     	A list of CEF adjacencies
     	**type**\:  :py:class:`CefAdjTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefAdjTable>`
     
+    	**config**\: False
+    
     .. attribute:: ceffeselectiontable
     
     	A list of forwarding element selection entries
     	**type**\:  :py:class:`CefFESelectionTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefFESelectionTable>`
+    
+    	**config**\: False
     
     .. attribute:: cefcfgtable
     
     	This table contains global config parameter  of CEF on the Managed device
     	**type**\:  :py:class:`CefCfgTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefCfgTable>`
     
+    	**config**\: False
+    
     .. attribute:: cefresourcetable
     
     	This table contains global resource  information of CEF on the Managed device
     	**type**\:  :py:class:`CefResourceTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefResourceTable>`
+    
+    	**config**\: False
     
     .. attribute:: cefinttable
     
     	This Table contains interface specific information of CEF on the Managed device
     	**type**\:  :py:class:`CefIntTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefIntTable>`
     
+    	**config**\: False
+    
     .. attribute:: cefpeertable
     
     	Entity acting as RP (Routing Processor) keeps the CEF states for the line card entities and communicates with the line card entities using XDR. This Table contains the CEF information  related to peer entities on the managed device
     	**type**\:  :py:class:`CefPeerTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPeerTable>`
+    
+    	**config**\: False
     
     .. attribute:: cefpeerfibtable
     
     	Entity acting as RP (Routing Processor) keep the CEF FIB states for the line card entities and communicate with the line card entities using XDR. This Table contains the CEF FIB State  related to peer entities on the managed device
     	**type**\:  :py:class:`CefPeerFIBTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPeerFIBTable>`
     
+    	**config**\: False
+    
     .. attribute:: cefccglobaltable
     
     	This table contains CEF consistency checker (CC) global parameters for the managed device
     	**type**\:  :py:class:`CefCCGlobalTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefCCGlobalTable>`
+    
+    	**config**\: False
     
     .. attribute:: cefcctypetable
     
     	This table contains CEF consistency checker types specific parameters on the managed device.  All detected inconsistency are signaled to the Management Station via cefInconsistencyDetection notification
     	**type**\:  :py:class:`CefCCTypeTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefCCTypeTable>`
     
+    	**config**\: False
+    
     .. attribute:: cefinconsistencyrecordtable
     
     	This table contains CEF inconsistency records
     	**type**\:  :py:class:`CefInconsistencyRecordTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefInconsistencyRecordTable>`
+    
+    	**config**\: False
     
     .. attribute:: cefstatsprefixlentable
     
     	This table specifies the CEF stats based on the Prefix Length
     	**type**\:  :py:class:`CefStatsPrefixLenTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefStatsPrefixLenTable>`
     
+    	**config**\: False
+    
     .. attribute:: cefswitchingstatstable
     
     	This table specifies the CEF switch stats
     	**type**\:  :py:class:`CefSwitchingStatsTable <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefSwitchingStatsTable>`
+    
+    	**config**\: False
     
     
 
@@ -373,6 +413,8 @@ class CISCOCEFMIB(Entity):
         
         	**range:** 0..2147483647
         
+        	**config**\: False
+        
         
 
         """
@@ -401,6 +443,7 @@ class CISCOCEFMIB(Entity):
             self._perform_setattr(CISCOCEFMIB.CefFIB, ['ceflmprefixspinlock'], name, value)
 
 
+
     class CefCC(Entity):
         """
         
@@ -412,15 +455,21 @@ class CISCOCEFMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: cefinconsistencyreset
         
         	Setting the value of this object to ccActionStart(1) will reset all the active consistency checkers.  The Management station should poll the  cefInconsistencyResetStatus object to get the  state of inconsistency reset operation.  This operation once started, cannot be aborted. Hence, the value of this object cannot be set to ccActionAbort(2).  The value of this object can't be set to ccActionStart(1),  if the value of object cefInconsistencyResetStatus is ccStatusRunning(2)
         	**type**\:  :py:class:`CefCCAction <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefCCAction>`
         
+        	**config**\: False
+        
         .. attribute:: cefinconsistencyresetstatus
         
         	Indicates the status of the consistency reset request
         	**type**\:  :py:class:`CefCCStatus <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefCCStatus>`
+        
+        	**config**\: False
         
         
 
@@ -454,6 +503,7 @@ class CISCOCEFMIB(Entity):
             self._perform_setattr(CISCOCEFMIB.CefCC, ['entlastinconsistencydetecttime', 'cefinconsistencyreset', 'cefinconsistencyresetstatus'], name, value)
 
 
+
     class CefNotifCntl(Entity):
         """
         
@@ -463,15 +513,21 @@ class CISCOCEFMIB(Entity):
         	Indicates whether or not a notification should be generated on the detection of CEF resource Failure
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: cefpeerstatechangenotifenable
         
         	Indicates whether or not a notification should be generated on the detection of CEF peer state change
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: cefpeerfibstatechangenotifenable
         
         	Indicates whether or not a notification should be generated on the detection of CEF FIB peer state change
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: cefnotifthrottlinginterval
         
@@ -480,12 +536,16 @@ class CISCOCEFMIB(Entity):
         
         	**range:** 0..3600
         
+        	**config**\: False
+        
         	**units**\: seconds
         
         .. attribute:: cefinconsistencynotifenable
         
         	Indicates whether cefInconsistencyDetection notification should be generated for this managed device
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -523,6 +583,7 @@ class CISCOCEFMIB(Entity):
             self._perform_setattr(CISCOCEFMIB.CefNotifCntl, ['cefresourcefailurenotifenable', 'cefpeerstatechangenotifenable', 'cefpeerfibstatechangenotifenable', 'cefnotifthrottlinginterval', 'cefinconsistencynotifenable'], name, value)
 
 
+
     class CefFIBSummaryTable(Entity):
         """
         This table contains the summary information
@@ -532,6 +593,8 @@ class CISCOCEFMIB(Entity):
         
         	If CEF is enabled on the Managed device, each entry contains the FIB summary related attributes for the managed entity.  A row may exist for each IP version type (v4 and v6) depending upon the IP version supported on the device.  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
         	**type**\: list of  		 :py:class:`CefFIBSummaryEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefFIBSummaryTable.CefFIBSummaryEntry>`
+        
+        	**config**\: False
         
         
 
@@ -584,10 +647,14 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ceffibipversion  (key)
             
             	The version of IP forwarding
             	**type**\:  :py:class:`CefIpVersion <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefIpVersion>`
+            
+            	**config**\: False
             
             .. attribute:: ceffibsummaryfwdprefixes
             
@@ -595,6 +662,8 @@ class CISCOCEFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -628,6 +697,8 @@ class CISCOCEFMIB(Entity):
                 self._perform_setattr(CISCOCEFMIB.CefFIBSummaryTable.CefFIBSummaryEntry, ['entphysicalindex', 'ceffibipversion', 'ceffibsummaryfwdprefixes'], name, value)
 
 
+
+
     class CefPrefixTable(Entity):
         """
         A list of CEF forwarding prefixes.
@@ -636,6 +707,8 @@ class CISCOCEFMIB(Entity):
         
         	If CEF is enabled on the Managed device, each entry contains the forwarding  prefix attributes.   CEF prefix based non\-recursive stats are maintained in internal and external buckets (depending upon the  value of cefIntNonrecursiveAccouting object in the  CefIntEntry).  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
         	**type**\: list of  		 :py:class:`CefPrefixEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPrefixTable.CefPrefixEntry>`
+        
+        	**config**\: False
         
         
 
@@ -689,10 +762,14 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefprefixtype  (key)
             
             	The Network Prefix Type. This object specifies the address type used for cefPrefixAddr.  Prefix entries are only valid for the address type of ipv4(1) and ipv6(2)
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cefprefixaddr  (key)
             
@@ -701,6 +778,8 @@ class CISCOCEFMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cefprefixlen  (key)
             
             	Length in bits of the FIB Address prefix
@@ -708,10 +787,14 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..2040
             
+            	**config**\: False
+            
             .. attribute:: cefprefixforwardinginfo
             
             	This object indicates the associated forwarding element selection entries in cefFESelectionTable. The value of this object is index value (cefFESelectionName) of cefFESelectionTable
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: cefprefixpkts
             
@@ -719,6 +802,8 @@ class CISCOCEFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -729,6 +814,8 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: cefprefixbytes
@@ -737,6 +824,8 @@ class CISCOCEFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -747,6 +836,8 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             .. attribute:: cefprefixinternalnrpkts
@@ -755,6 +846,8 @@ class CISCOCEFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -765,6 +858,8 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: cefprefixinternalnrbytes
@@ -773,6 +868,8 @@ class CISCOCEFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -783,6 +880,8 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             .. attribute:: cefprefixexternalnrpkts
@@ -791,6 +890,8 @@ class CISCOCEFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -801,6 +902,8 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: cefprefixexternalnrbytes
@@ -810,6 +913,8 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             .. attribute:: cefprefixexternalnrhcbytes
@@ -818,6 +923,8 @@ class CISCOCEFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -881,6 +988,8 @@ class CISCOCEFMIB(Entity):
                 self._perform_setattr(CISCOCEFMIB.CefPrefixTable.CefPrefixEntry, ['entphysicalindex', 'cefprefixtype', 'cefprefixaddr', 'cefprefixlen', 'cefprefixforwardinginfo', 'cefprefixpkts', 'cefprefixhcpkts', 'cefprefixbytes', 'cefprefixhcbytes', 'cefprefixinternalnrpkts', 'cefprefixinternalnrhcpkts', 'cefprefixinternalnrbytes', 'cefprefixinternalnrhcbytes', 'cefprefixexternalnrpkts', 'cefprefixexternalnrhcpkts', 'cefprefixexternalnrbytes', 'cefprefixexternalnrhcbytes'], name, value)
 
 
+
+
     class CefLMPrefixTable(Entity):
         """
         A table of Longest Match Prefix Query requests.
@@ -893,6 +1002,8 @@ class CISCOCEFMIB(Entity):
         
         	If CEF is enabled on the managed device, then each entry represents a longest Match Prefix request.  A management station wishing to get the longest Match prefix for a given destination address should create the associate instance of the row status. The row status should be set to active(1) to initiate the request. Note that  this entire procedure may be initiated via a  single set request which specifies a row status  of createAndGo(4).  Once the request completes, the management station  should retrieve the values of the objects of  interest, and should then delete the entry.  In order  to prevent old entries from clogging the table,  entries will be aged out, but an entry will never be  deleted within 5 minutes of completion. Entries are lost after an agent restart.  I.e. to find out the longest prefix match for  destination address of A.B.C.D on entity whose entityPhysicalIndex is 1, the Management station will create an entry in cefLMPrefixTable with cefLMPrefixRowStatus.1(entPhysicalIndex).1(ipv4).A.B.C.D set to createAndGo(4). Management Station may query the value of objects cefLMPrefix and cefLMPrefixLen to find out the corresponding prefix entry from the cefPrefixTable once the value of cefLMPrefixState is set to matchFound(2).  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
         	**type**\: list of  		 :py:class:`CefLMPrefixEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefLMPrefixTable.CefLMPrefixEntry>`
+        
+        	**config**\: False
         
         
 
@@ -968,10 +1079,14 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ceflmprefixdestaddrtype  (key)
             
             	The Destination Address Type. This object specifies the address type used for cefLMPrefixDestAddr.  Longest Match Prefix entries are only valid  for the address type of ipv4(1) and ipv6(2)
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: ceflmprefixdestaddr  (key)
             
@@ -980,10 +1095,14 @@ class CISCOCEFMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ceflmprefixstate
             
             	Indicates the state of this prefix search request
             	**type**\:  :py:class:`CefPrefixSearchState <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefPrefixSearchState>`
+            
+            	**config**\: False
             
             .. attribute:: ceflmprefixaddr
             
@@ -992,6 +1111,8 @@ class CISCOCEFMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ceflmprefixlen
             
             	The Network Prefix Length. Index to the cefPrefixTable
@@ -999,10 +1120,14 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..2040
             
+            	**config**\: False
+            
             .. attribute:: ceflmprefixrowstatus
             
             	The status of this table entry.  Once the entry  status is set to active(1), the associated entry  cannot be modified until the request completes (cefLMPrefixState transitions to matchFound(2)  or noMatchFound(3)).  Once the longest match request has been created (i.e. the cefLMPrefixRowStatus has been made active), the entry cannot be modified \- the only operation possible after this is to delete the row
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1044,6 +1169,8 @@ class CISCOCEFMIB(Entity):
                 self._perform_setattr(CISCOCEFMIB.CefLMPrefixTable.CefLMPrefixEntry, ['entphysicalindex', 'ceflmprefixdestaddrtype', 'ceflmprefixdestaddr', 'ceflmprefixstate', 'ceflmprefixaddr', 'ceflmprefixlen', 'ceflmprefixrowstatus'], name, value)
 
 
+
+
     class CefPathTable(Entity):
         """
         CEF prefix path is a valid route to reach to a 
@@ -1055,6 +1182,8 @@ class CISCOCEFMIB(Entity):
         
         	If CEF is enabled on the Managed device, each entry contain a CEF prefix path.  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
         	**type**\: list of  		 :py:class:`CefPathEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPathTable.CefPathEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1102,10 +1231,14 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefprefixtype  (key)
             
             	
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cefprefixaddr  (key)
             
@@ -1116,6 +1249,8 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`cefprefixaddr <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPrefixTable.CefPrefixEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefprefixlen  (key)
             
             	
@@ -1125,6 +1260,8 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`cefprefixlen <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPrefixTable.CefPrefixEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefpathid  (key)
             
             	The locally arbitrary, but unique identifier associated with this prefix path entry
@@ -1132,10 +1269,14 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cefpathtype
             
             	Type for this CEF Path
             	**type**\:  :py:class:`CefPathType <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefPathType>`
+            
+            	**config**\: False
             
             .. attribute:: cefpathinterface
             
@@ -1144,6 +1285,8 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cefpathnexthopaddr
             
             	Next hop address associated with this CEF path.  The value of this object is only relevant for attached next hop and recursive next hop   path types (when the object cefPathType is set to attachedNexthop(4) or recursiveNexthop(5)). and will be set to zero for other path types.  The type of this address is determined by the value of the cefPrefixType object
@@ -1151,12 +1294,16 @@ class CISCOCEFMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cefpathrecursevrfname
             
             	The recursive vrf name associated with this path.  The value of this object is only relevant for recursive next hop path types (when the  object cefPathType is set to recursiveNexthop(5)), and '0x00' will be returned for other path types
             	**type**\: str
             
             	**length:** 0..31
+            
+            	**config**\: False
             
             
 
@@ -1202,6 +1349,8 @@ class CISCOCEFMIB(Entity):
                 self._perform_setattr(CISCOCEFMIB.CefPathTable.CefPathEntry, ['entphysicalindex', 'cefprefixtype', 'cefprefixaddr', 'cefprefixlen', 'cefpathid', 'cefpathtype', 'cefpathinterface', 'cefpathnexthopaddr', 'cefpathrecursevrfname'], name, value)
 
 
+
+
     class CefAdjSummaryTable(Entity):
         """
         This table contains the summary information
@@ -1211,6 +1360,8 @@ class CISCOCEFMIB(Entity):
         
         	If CEF is enabled on the Managed device, each entry contains the CEF Adjacency   summary related attributes for the Managed entity. A row exists for each adjacency link type.  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
         	**type**\: list of  		 :py:class:`CefAdjSummaryEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefAdjSummaryTable.CefAdjSummaryEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1261,10 +1412,14 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefadjsummarylinktype  (key)
             
             	The link type of the adjacency
             	**type**\:  :py:class:`CefAdjLinkType <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefAdjLinkType>`
+            
+            	**config**\: False
             
             .. attribute:: cefadjsummarycomplete
             
@@ -1273,12 +1428,16 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cefadjsummaryincomplete
             
             	The total number of incomplete adjacencies.  The total number of adjacencies which cannot be  used to switch traffic in their current state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cefadjsummaryfixup
             
@@ -1287,12 +1446,16 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cefadjsummaryredirect
             
             	The total number of adjacencies for which  ip redirect (or icmp redirection) is enabled. The value of this object is only relevant for ipv4 and ipv6 link type (when the index object  cefAdjSummaryLinkType value is ipv4(1) or ipv6(2)) and will be set to zero for other link types
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1332,6 +1495,8 @@ class CISCOCEFMIB(Entity):
                 self._perform_setattr(CISCOCEFMIB.CefAdjSummaryTable.CefAdjSummaryEntry, ['entphysicalindex', 'cefadjsummarylinktype', 'cefadjsummarycomplete', 'cefadjsummaryincomplete', 'cefadjsummaryfixup', 'cefadjsummaryredirect'], name, value)
 
 
+
+
     class CefAdjTable(Entity):
         """
         A list of CEF adjacencies.
@@ -1340,6 +1505,8 @@ class CISCOCEFMIB(Entity):
         
         	If CEF is enabled on the Managed device, each entry contains the adjacency  attributes. Adjacency entries may exist for all the interfaces on which packets can be switched out of the device. The interface is instantiated by ifIndex.   Therefore, the interface index must have been assigned, according to the applicable procedures, before it can be meaningfully used. Generally, this means that the interface must exist.  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
         	**type**\: list of  		 :py:class:`CefAdjEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefAdjTable.CefAdjEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1395,6 +1562,8 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ifindex  (key)
             
             	
@@ -1404,10 +1573,14 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefadjnexthopaddrtype  (key)
             
             	Address type for the cefAdjNextHopAddr. This object specifies the address type used for cefAdjNextHopAddr.   Adjacency entries are only valid for the  address type of ipv4(1) and ipv6(2)
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cefadjnexthopaddr  (key)
             
@@ -1416,6 +1589,8 @@ class CISCOCEFMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cefadjconnid  (key)
             
             	In cases where cefLinkType, interface and the next hop address are not able to uniquely define an adjacency entry (e.g. ATM and Frame Relay Bundles), this object is a unique identifier to differentiate between these adjacency entries.   In all the other cases the value of this  index object will be 0
@@ -1423,25 +1598,35 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cefadjsummarylinktype  (key)
             
             	
             	**type**\:  :py:class:`CefAdjLinkType <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefAdjLinkType>`
+            
+            	**config**\: False
             
             .. attribute:: cefadjsource
             
             	If the adjacency is created because some neighbour discovery mechanism has discovered a neighbour and all the information required to build a frame header to encapsulate traffic to the neighbour is available then the source of adjacency is set to the mechanism by which the adjacency is learned
             	**type**\:  :py:class:`CefAdjacencySource <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefAdjacencySource>`
             
+            	**config**\: False
+            
             .. attribute:: cefadjencap
             
             	The layer 2 encapsulation string to be used for sending the packet out using this adjacency
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: cefadjfixup
             
             	For the cases, where the encapsulation string is decided at packet switch time, the adjacency  encapsulation string specified by object cefAdjEncap  require a fixup. I.e. for the adjacencies out of IP  Tunnels, the string prepended is an IP header which has  fields which can only be setup at packet switch time.  The value of this object represent the kind of fixup applied to the packet.  If the encapsulation string doesn't require any fixup, then the value of this object will be of zero length
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: cefadjmtu
             
@@ -1450,6 +1635,8 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             .. attribute:: cefadjforwardinginfo
@@ -1457,12 +1644,16 @@ class CISCOCEFMIB(Entity):
             	This object selects a forwarding info entry  defined in the cefFESelectionTable. The  selected target is defined by an entry in the cefFESelectionTable whose index value (cefFESelectionName)  is equal to this object.  The value of this object will be of zero length if this adjacency entry is the last forwarding  element in the forwarding path
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: cefadjpkts
             
             	Number of pkts transmitted using this adjacency
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -1473,6 +1664,8 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: cefadjbytes
@@ -1482,6 +1675,8 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             .. attribute:: cefadjhcbytes
@@ -1490,6 +1685,8 @@ class CISCOCEFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -1549,6 +1746,8 @@ class CISCOCEFMIB(Entity):
                 self._perform_setattr(CISCOCEFMIB.CefAdjTable.CefAdjEntry, ['entphysicalindex', 'ifindex', 'cefadjnexthopaddrtype', 'cefadjnexthopaddr', 'cefadjconnid', 'cefadjsummarylinktype', 'cefadjsource', 'cefadjencap', 'cefadjfixup', 'cefadjmtu', 'cefadjforwardinginfo', 'cefadjpkts', 'cefadjhcpkts', 'cefadjbytes', 'cefadjhcbytes'], name, value)
 
 
+
+
     class CefFESelectionTable(Entity):
         """
         A list of forwarding element selection entries.
@@ -1557,6 +1756,8 @@ class CISCOCEFMIB(Entity):
         
         	If CEF is enabled on the Managed device, each entry contain a CEF forwarding element selection list.  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
         	**type**\: list of  		 :py:class:`CefFESelectionEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefFESelectionTable.CefFESelectionEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1605,12 +1806,16 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ceffeselectionname  (key)
             
             	The locally arbitrary, but unique identifier used to select a set of forwarding element lists
             	**type**\: str
             
             	**length:** 1..32
+            
+            	**config**\: False
             
             .. attribute:: ceffeselectionid  (key)
             
@@ -1619,10 +1824,14 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ceffeselectionspecial
             
             	Special processing for a destination is indicated through the use of special  forwarding element.   If the forwarding element list contains the  special forwarding element, then this object  represents the type of special forwarding element
             	**type**\:  :py:class:`CefForwardingElementSpecialType <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefForwardingElementSpecialType>`
+            
+            	**config**\: False
             
             .. attribute:: ceffeselectionlabels
             
@@ -1631,10 +1840,14 @@ class CISCOCEFMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ceffeselectionadjlinktype
             
             	This object represent the link type for the adjacency associated with this forwarding  Element List.  The value of this object will be irrelevant and will be set to unknown(5) if the forwarding element list  doesn't contain an adjacency forwarding element
             	**type**\:  :py:class:`CefAdjLinkType <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefAdjLinkType>`
+            
+            	**config**\: False
             
             .. attribute:: ceffeselectionadjinterface
             
@@ -1643,10 +1856,14 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ceffeselectionadjnexthopaddrtype
             
             	This object represent the next hop address type for the adjacency associated with this forwarding  Element List.  The value of this object will be irrelevant and will be set to unknown(0) if the forwarding element list  doesn't contain an adjacency forwarding element
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: ceffeselectionadjnexthopaddr
             
@@ -1655,12 +1872,16 @@ class CISCOCEFMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ceffeselectionadjconnid
             
             	This object represent the connection id for the adjacency associated with this forwarding  Element List.  The value of this object will be irrelevant and will be set to zero if the forwarding element list doesn't  contain an adjacency forwarding element.   In cases where cefFESelectionAdjLinkType, interface  and the next hop address are not able to uniquely  define an adjacency entry (e.g. ATM and Frame Relay Bundles), this object is a unique identifier to differentiate between these adjacency entries
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ceffeselectionvrfname
             
@@ -1669,12 +1890,16 @@ class CISCOCEFMIB(Entity):
             
             	**length:** 0..31
             
+            	**config**\: False
+            
             .. attribute:: ceffeselectionweight
             
             	This object represent the weighting for  load balancing between multiple Forwarding Element Lists. The value of this object will be zero if load balancing is associated with this selection entry
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1726,6 +1951,8 @@ class CISCOCEFMIB(Entity):
                 self._perform_setattr(CISCOCEFMIB.CefFESelectionTable.CefFESelectionEntry, ['entphysicalindex', 'ceffeselectionname', 'ceffeselectionid', 'ceffeselectionspecial', 'ceffeselectionlabels', 'ceffeselectionadjlinktype', 'ceffeselectionadjinterface', 'ceffeselectionadjnexthopaddrtype', 'ceffeselectionadjnexthopaddr', 'ceffeselectionadjconnid', 'ceffeselectionvrfname', 'ceffeselectionweight'], name, value)
 
 
+
+
     class CefCfgTable(Entity):
         """
         This table contains global config parameter 
@@ -1735,6 +1962,8 @@ class CISCOCEFMIB(Entity):
         
         	If the Managed device supports CEF,  each entry contains the CEF config  parameter for the managed entity. A row may exist for each IP version type (v4 and v6) depending upon the IP version supported on the device.  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
         	**type**\: list of  		 :py:class:`CefCfgEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefCfgTable.CefCfgEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1786,40 +2015,56 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ceffibipversion  (key)
             
             	
             	**type**\:  :py:class:`CefIpVersion <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefIpVersion>`
+            
+            	**config**\: False
             
             .. attribute:: cefcfgadminstate
             
             	The desired state of CEF
             	**type**\:  :py:class:`CefAdminStatus <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefAdminStatus>`
             
+            	**config**\: False
+            
             .. attribute:: cefcfgoperstate
             
             	The current operational state of CEF.  If the cefCfgAdminState is disabled(2), then cefOperState will eventually go to the down(2) state unless some error has occurred.   If cefCfgAdminState is changed to enabled(1) then  cefCfgOperState should change to up(1) only if the  CEF entity is ready to forward the packets using  Cisco Express Forwarding (CEF) else it should remain  in the down(2) state. The up(1) state for this object  indicates that CEF entity is forwarding the packet using Cisco Express Forwarding
             	**type**\:  :py:class:`CefOperStatus <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefOperStatus>`
+            
+            	**config**\: False
             
             .. attribute:: cefcfgdistributionadminstate
             
             	The desired state of CEF distribution
             	**type**\:  :py:class:`CefAdminStatus <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefAdminStatus>`
             
+            	**config**\: False
+            
             .. attribute:: cefcfgdistributionoperstate
             
             	The current operational state of CEF distribution.  If the cefCfgDistributionAdminState is disabled(2), then cefDistributionOperState will eventually go to the down(2) state unless some error has occurred.    If cefCfgDistributionAdminState is changed to enabled(1)  then cefCfgDistributionOperState should change to up(1)  only if the CEF entity is ready to forward the packets  using Distributed Cisco Express Forwarding (dCEF) else  it should remain in the down(2) state. The up(1) state  for this object indicates that CEF entity is forwarding the packet using Distributed Cisco Express Forwarding
             	**type**\:  :py:class:`CefOperStatus <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefOperStatus>`
+            
+            	**config**\: False
             
             .. attribute:: cefcfgaccountingmap
             
             	This object represents a bitmap of network accounting options.  CEF network accounting is disabled by default.  CEF network accounting can be enabled  by selecting one or more of the following CEF accounting option for the value of this object.    nonRecursive(0)\:  enables accounting through                     nonrecursive prefixes.   perPrefix(1)\:     enables the collection of the numbers                     of pkts and bytes express forwarded                    to a destination (prefix)   prefixLength(2)\:  enables accounting through                     prefixlength.           Once the accounting is enabled, the corresponding stats  can be retrieved from the cefPrefixTable and  cefStatsPrefixLenTable.  
             	**type**\:  :py:class:`CefCfgAccountingMap <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefCfgTable.CefCfgEntry.CefCfgAccountingMap>`
             
+            	**config**\: False
+            
             .. attribute:: cefcfgloadsharingalgorithm
             
             	Indicates the CEF Load balancing algorithm.  Setting this object to none(1) will disable the Load sharing for the specified entry.  CEF load balancing can be enabled by setting  this object to one of following Algorithms\:   original(2)  \: This algorithm is based on a                  source and destination hash    tunnel(3)    \: This algorithm is used in                  tunnels environments or in                 environments where there are                 only a few source                      universal(4)  \: This algorithm uses a source and                   destination and ID hash  If the value of this object is set to 'tunnel' or 'universal', then the FIXED ID for these algorithms may be specified by the managed  object cefLoadSharingID. 
             	**type**\:  :py:class:`CefCfgLoadSharingAlgorithm <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefCfgTable.CefCfgEntry.CefCfgLoadSharingAlgorithm>`
+            
+            	**config**\: False
             
             .. attribute:: cefcfgloadsharingid
             
@@ -1828,12 +2073,16 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cefcfgtrafficstatsloadinterval
             
             	The interval time over which the CEF traffic statistics are collected
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1843,6 +2092,8 @@ class CISCOCEFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1951,6 +2202,8 @@ class CISCOCEFMIB(Entity):
 
 
 
+
+
     class CefResourceTable(Entity):
         """
         This table contains global resource 
@@ -1960,6 +2213,8 @@ class CISCOCEFMIB(Entity):
         
         	If the Managed device supports CEF, each entry contains the CEF Resource  parameters for the managed entity.  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
         	**type**\: list of  		 :py:class:`CefResourceEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefResourceTable.CefResourceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2008,6 +2263,8 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefresourcememoryused
             
             	Indicates the number of bytes from the Processor Memory Pool that are currently in use by CEF on the managed entity
@@ -2015,12 +2272,16 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             .. attribute:: cefresourcefailurereason
             
             	The CEF resource failure reason which may lead to CEF being disabled on the managed entity
             	**type**\:  :py:class:`CefFailureReason <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefFailureReason>`
+            
+            	**config**\: False
             
             
 
@@ -2054,6 +2315,8 @@ class CISCOCEFMIB(Entity):
                 self._perform_setattr(CISCOCEFMIB.CefResourceTable.CefResourceEntry, ['entphysicalindex', 'cefresourcememoryused', 'cefresourcefailurereason'], name, value)
 
 
+
+
     class CefIntTable(Entity):
         """
         This Table contains interface specific
@@ -2064,6 +2327,8 @@ class CISCOCEFMIB(Entity):
         
         	If CEF is enabled on the Managed device,  each entry contains the CEF attributes  associated with an interface. The interface is instantiated by ifIndex.   Therefore, the interface index must have been assigned, according to the applicable procedures, before it can be meaningfully used. Generally, this means that the interface must exist.  A row may exist for each IP version type (v4 and v6) depending upon the IP version supported on the device.  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
         	**type**\: list of  		 :py:class:`CefIntEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefIntTable.CefIntEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2121,10 +2386,14 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ceffibipversion  (key)
             
             	
             	**type**\:  :py:class:`CefIpVersion <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefIpVersion>`
+            
+            	**config**\: False
             
             .. attribute:: ifindex  (key)
             
@@ -2135,20 +2404,28 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefintswitchingstate
             
             	The CEF switching State for the interface.  If CEF is enabled but distributed CEF(dCEF) is disabled then CEF is in cefEnabled(1) state.  If distributed CEF is enabled, then CEF is in  distCefEnabled(2) state. The cefDisabled(3) state indicates that CEF is disabled.  The CEF switching state is only applicable to the received packet on the interface
             	**type**\:  :py:class:`CefIntSwitchingState <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefIntTable.CefIntEntry.CefIntSwitchingState>`
+            
+            	**config**\: False
             
             .. attribute:: cefintloadsharing
             
             	The status of load sharing on the interface.  perPacket(1) \: Router to send data packets                over successive equal\-cost paths                without regard to individual hosts                or user sessions.  perDestination(2) \: Router to use multiple, equal\-cost                     paths to achieve load sharing  Load sharing is enabled by default  for an interface when CEF is enabled
             	**type**\:  :py:class:`CefIntLoadSharing <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefIntTable.CefIntEntry.CefIntLoadSharing>`
             
+            	**config**\: False
+            
             .. attribute:: cefintnonrecursiveaccouting
             
             	The CEF accounting mode for the interface. CEF prefix based non\-recursive accounting  on an interface can be configured to store  the stats for non\-recursive prefixes in a internal  or external bucket.  internal(1)  \:  Count input traffic in the nonrecursive                 internal bucket  external(2)  \:  Count input traffic in the nonrecursive                 external bucket  The value of this object will only be effective if  value of the object cefAccountingMap is set to enable nonRecursive(1) accounting
             	**type**\:  :py:class:`CefIntNonrecursiveAccouting <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefIntTable.CefIntEntry.CefIntNonrecursiveAccouting>`
+            
+            	**config**\: False
             
             
 
@@ -2297,6 +2574,8 @@ class CISCOCEFMIB(Entity):
 
 
 
+
+
     class CefPeerTable(Entity):
         """
         Entity acting as RP (Routing Processor) keeps
@@ -2309,6 +2588,8 @@ class CISCOCEFMIB(Entity):
         
         	If CEF is enabled on the Managed device, each entry contains the CEF related attributes  associated with a CEF peer entity.  entPhysicalIndex and entPeerPhysicalIndex are also indexes for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
         	**type**\: list of  		 :py:class:`CefPeerEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPeerTable.CefPeerEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2357,6 +2638,8 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: entpeerphysicalindex  (key)
             
             	The entity index for the CEF peer entity. Only the entities of 'module'  entPhysicalClass are included here
@@ -2364,10 +2647,14 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cefpeeroperstate
             
             	The current CEF operational state of the CEF peer entity.  Cef peer entity oper state will be peerDisabled(1) in  the following condition\:     \: Cef Peer entity encounters fatal error i.e. resource      allocation failure, ipc failure etc     \: When a reload/delete request is received from the Cef       Peer Entity  Once the peer entity is up and no fatal error is encountered, then the value of this object will transits to the peerUp(3)  state.  If the Cef Peer entity is in held stage, then the value of this object will be peerHold(3). Cef peer entity can only transit to peerDisabled(1) state from the peerHold(3) state
             	**type**\:  :py:class:`CefPeerOperState <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPeerTable.CefPeerEntry.CefPeerOperState>`
+            
+            	**config**\: False
             
             .. attribute:: cefpeernumberofresets
             
@@ -2375,6 +2662,8 @@ class CISCOCEFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2455,6 +2744,8 @@ class CISCOCEFMIB(Entity):
 
 
 
+
+
     class CefPeerFIBTable(Entity):
         """
         Entity acting as RP (Routing Processor) keep
@@ -2467,6 +2758,8 @@ class CISCOCEFMIB(Entity):
         
         	If CEF is enabled on the Managed device, each entry contains the CEF FIB State  associated a CEF peer entity.  entPhysicalIndex and entPeerPhysicalIndex are also indexes for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
         	**type**\: list of  		 :py:class:`CefPeerFIBEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPeerFIBTable.CefPeerFIBEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2515,6 +2808,8 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: entpeerphysicalindex  (key)
             
             	
@@ -2524,15 +2819,21 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entpeerphysicalindex <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPeerTable.CefPeerEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ceffibipversion  (key)
             
             	
             	**type**\:  :py:class:`CefIpVersion <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefIpVersion>`
             
+            	**config**\: False
+            
             .. attribute:: cefpeerfiboperstate
             
             	The current CEF FIB Operational State for the  CEF peer entity
             	**type**\:  :py:class:`CefPeerFIBOperState <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefPeerFIBTable.CefPeerFIBEntry.CefPeerFIBOperState>`
+            
+            	**config**\: False
             
             
 
@@ -2599,6 +2900,8 @@ class CISCOCEFMIB(Entity):
 
 
 
+
+
     class CefCCGlobalTable(Entity):
         """
         This table contains CEF consistency checker
@@ -2608,6 +2911,8 @@ class CISCOCEFMIB(Entity):
         
         	If the managed device supports CEF, each entry contains the global consistency  checker parameter for the managed device. A row may exist for each IP version type (v4 and v6) depending upon the IP version supported on the device
         	**type**\: list of  		 :py:class:`CefCCGlobalEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefCCGlobalTable.CefCCGlobalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2650,10 +2955,14 @@ class CISCOCEFMIB(Entity):
             	
             	**type**\:  :py:class:`CefIpVersion <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefIpVersion>`
             
+            	**config**\: False
+            
             .. attribute:: cefccglobalautorepairenabled
             
             	Once an inconsistency has been detected,  CEF has the ability to repair the problem.  This object indicates the status of auto\-repair  function for the consistency checkers
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cefccglobalautorepairdelay
             
@@ -2661,6 +2970,8 @@ class CISCOCEFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -2671,6 +2982,8 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: cefccglobalerrormsgenabled
@@ -2678,15 +2991,21 @@ class CISCOCEFMIB(Entity):
             	Enables the consistency checker to generate  an error message when it detects an inconsistency
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cefccglobalfullscanaction
             
             	Setting the value of this object to ccActionStart(1) will start the full scan consistency checkers.  The Management station should poll the  cefCCGlobalFullScanStatus object to get the  state of full\-scan operation.  Once the full\-scan operation completes (value of cefCCGlobalFullScanStatus object is ccStatusDone(3)),  the Management station should retrieve the values of the related stats object from the cefCCTypeTable.  Setting the value of this object to ccActionAbort(2) will  abort the full\-scan operation.  The value of this object can't be set to ccActionStart(1),  if the value of object cefCCGlobalFullScanStatus is ccStatusRunning(2).  The value of this object will be set to cefActionNone(1) when the full scan consistency checkers have never been activated.  A Management Station cannot set the value of this object to cefActionNone(1)
             	**type**\:  :py:class:`CefCCAction <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefCCAction>`
             
+            	**config**\: False
+            
             .. attribute:: cefccglobalfullscanstatus
             
             	Indicates the status of the full scan consistency checker request
             	**type**\:  :py:class:`CefCCStatus <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefCCStatus>`
+            
+            	**config**\: False
             
             
 
@@ -2728,6 +3047,8 @@ class CISCOCEFMIB(Entity):
                 self._perform_setattr(CISCOCEFMIB.CefCCGlobalTable.CefCCGlobalEntry, ['ceffibipversion', 'cefccglobalautorepairenabled', 'cefccglobalautorepairdelay', 'cefccglobalautorepairholddown', 'cefccglobalerrormsgenabled', 'cefccglobalfullscanaction', 'cefccglobalfullscanstatus'], name, value)
 
 
+
+
     class CefCCTypeTable(Entity):
         """
         This table contains CEF consistency
@@ -2741,6 +3062,8 @@ class CISCOCEFMIB(Entity):
         
         	If the managed device supports CEF, each entry contains the consistency  checker statistics for a consistency  checker type. A row may exist for each IP version type (v4 and v6) depending upon the IP version supported on the device
         	**type**\: list of  		 :py:class:`CefCCTypeEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefCCTypeTable.CefCCTypeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2784,15 +3107,21 @@ class CISCOCEFMIB(Entity):
             	
             	**type**\:  :py:class:`CefIpVersion <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefIpVersion>`
             
+            	**config**\: False
+            
             .. attribute:: cefcctype  (key)
             
             	Type of the consistency checker
             	**type**\:  :py:class:`CefCCType <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefCCType>`
             
+            	**config**\: False
+            
             .. attribute:: cefccenabled
             
             	Enables the passive consistency checker. Passive consistency checkers are disabled by default.  Full\-scan consistency checkers are always enabled. An attempt to set this object to 'false' for an active consistency checker will result in 'wrongValue' error
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cefcccount
             
@@ -2801,12 +3130,16 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cefccperiod
             
             	The period between scans for the consistency checker
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -2817,12 +3150,16 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cefccqueriesignored
             
             	Number of prefix consistency queries for which the consistency checks were not performed by this  consistency checker. This may be because of some internal error or resource failure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cefccquerieschecked
             
@@ -2831,12 +3168,16 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cefccqueriesiterated
             
             	Number of prefix consistency queries iterated back to the master database by this consistency checker
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2882,6 +3223,8 @@ class CISCOCEFMIB(Entity):
                 self._perform_setattr(CISCOCEFMIB.CefCCTypeTable.CefCCTypeEntry, ['ceffibipversion', 'cefcctype', 'cefccenabled', 'cefcccount', 'cefccperiod', 'cefccqueriessent', 'cefccqueriesignored', 'cefccquerieschecked', 'cefccqueriesiterated'], name, value)
 
 
+
+
     class CefInconsistencyRecordTable(Entity):
         """
         This table contains CEF inconsistency
@@ -2891,6 +3234,8 @@ class CISCOCEFMIB(Entity):
         
         	If the managed device supports CEF, each entry contains the inconsistency  record
         	**type**\: list of  		 :py:class:`CefInconsistencyRecordEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefInconsistencyRecordTable.CefInconsistencyRecordEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2930,6 +3275,8 @@ class CISCOCEFMIB(Entity):
             	
             	**type**\:  :py:class:`CefIpVersion <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefIpVersion>`
             
+            	**config**\: False
+            
             .. attribute:: cefinconsistencyrecid  (key)
             
             	The locally arbitrary, but unique identifier associated with this inconsistency record entry
@@ -2937,10 +3284,14 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cefinconsistencyprefixtype
             
             	The network prefix type associated with this inconsistency record
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cefinconsistencyprefixaddr
             
@@ -2949,12 +3300,16 @@ class CISCOCEFMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cefinconsistencyprefixlen
             
             	Length in bits of the inconsistency address prefix
             	**type**\: int
             
             	**range:** 0..2040
+            
+            	**config**\: False
             
             .. attribute:: cefinconsistencyvrfname
             
@@ -2963,10 +3318,14 @@ class CISCOCEFMIB(Entity):
             
             	**length:** 0..31
             
+            	**config**\: False
+            
             .. attribute:: cefinconsistencycctype
             
             	The type of consistency checker who generated this inconsistency record
             	**type**\:  :py:class:`CefCCType <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefCCType>`
+            
+            	**config**\: False
             
             .. attribute:: cefinconsistencyentity
             
@@ -2975,10 +3334,14 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cefinconsistencyreason
             
             	The reason for generating this inconsistency record.   missing(1)\:        the prefix is missing  checksumErr(2)\:    checksum error was found  unknown(3)\:        reason is unknown
             	**type**\:  :py:class:`CefInconsistencyReason <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefInconsistencyRecordTable.CefInconsistencyRecordEntry.CefInconsistencyReason>`
+            
+            	**config**\: False
             
             
 
@@ -3051,6 +3414,8 @@ class CISCOCEFMIB(Entity):
 
 
 
+
+
     class CefStatsPrefixLenTable(Entity):
         """
         This table specifies the CEF stats based
@@ -3060,6 +3425,8 @@ class CISCOCEFMIB(Entity):
         
         	If CEF is enabled on the Managed device and if CEF accounting is set to enable  prefix length based accounting (value of  cefCfgAccountingMap object in the  cefCfgEntry is set to enable 'prefixLength'  accounting), each entry contains the traffic  statistics for a prefix length. A row may exist for each IP version type (v4 and v6) depending upon the IP version supported on the device.  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
         	**type**\: list of  		 :py:class:`CefStatsPrefixLenEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefStatsPrefixLenTable.CefStatsPrefixLenEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3115,10 +3482,14 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ceffibipversion  (key)
             
             	
             	**type**\:  :py:class:`CefIpVersion <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefIpVersion>`
+            
+            	**config**\: False
             
             .. attribute:: cefstatsprefixlen  (key)
             
@@ -3127,12 +3498,16 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..2040
             
+            	**config**\: False
+            
             .. attribute:: cefstatsprefixqueries
             
             	Number of queries received in the FIB database  for the specified IP prefix length
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cefstatsprefixhcqueries
             
@@ -3141,12 +3516,16 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cefstatsprefixinserts
             
             	Number of insert operations performed to the FIB  database for the specified IP prefix length
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cefstatsprefixhcinserts
             
@@ -3155,12 +3534,16 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cefstatsprefixdeletes
             
             	Number of delete operations performed to the FIB  database for the specified IP prefix length
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cefstatsprefixhcdeletes
             
@@ -3169,6 +3552,8 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cefstatsprefixelements
             
             	Total number of elements in the FIB database for the specified IP prefix length
@@ -3176,12 +3561,16 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cefstatsprefixhcelements
             
             	Total number of elements in the FIB database for the specified IP prefix length. This object is a 64\-bit version of  cefStatsPrefixElements
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -3231,6 +3620,8 @@ class CISCOCEFMIB(Entity):
                 self._perform_setattr(CISCOCEFMIB.CefStatsPrefixLenTable.CefStatsPrefixLenEntry, ['entphysicalindex', 'ceffibipversion', 'cefstatsprefixlen', 'cefstatsprefixqueries', 'cefstatsprefixhcqueries', 'cefstatsprefixinserts', 'cefstatsprefixhcinserts', 'cefstatsprefixdeletes', 'cefstatsprefixhcdeletes', 'cefstatsprefixelements', 'cefstatsprefixhcelements'], name, value)
 
 
+
+
     class CefSwitchingStatsTable(Entity):
         """
         This table specifies the CEF switch stats.
@@ -3239,6 +3630,8 @@ class CISCOCEFMIB(Entity):
         
         	If CEF is enabled on the Managed device, each entry specifies the switching stats. A row may exist for each IP version type (v4 and v6) depending upon the IP version supported on the device.  entPhysicalIndex is also an index for this table which represents entities of 'module' entPhysicalClass which are capable of running CEF
         	**type**\: list of  		 :py:class:`CefSwitchingStatsEntry <ydk.models.cisco_ios_xe.CISCO_CEF_MIB.CISCOCEFMIB.CefSwitchingStatsTable.CefSwitchingStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3289,10 +3682,14 @@ class CISCOCEFMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ceffibipversion  (key)
             
             	
             	**type**\:  :py:class:`CefIpVersion <ydk.models.cisco_ios_xe.CISCO_CEF_TC.CefIpVersion>`
+            
+            	**config**\: False
             
             .. attribute:: cefswitchingindex  (key)
             
@@ -3301,6 +3698,8 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cefswitchingpath
             
             	Switch path where the feature was executed. Available switch paths are platform\-dependent. Following are the examples of switching paths\:     RIB \: switching with CEF assistance     Low\-end switching (LES) \: CEF switch path     PAS \: CEF turbo switch path
@@ -3308,12 +3707,16 @@ class CISCOCEFMIB(Entity):
             
             	**length:** 1..32
             
+            	**config**\: False
+            
             .. attribute:: cefswitchingdrop
             
             	Number of packets dropped by CEF
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -3324,6 +3727,8 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: cefswitchingpunt
@@ -3332,6 +3737,8 @@ class CISCOCEFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -3342,6 +3749,8 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: cefswitchingpunt2host
@@ -3351,6 +3760,8 @@ class CISCOCEFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: cefswitchinghcpunt2host
@@ -3359,6 +3770,8 @@ class CISCOCEFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -3407,7 +3820,11 @@ class CISCOCEFMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCEFMIB.CefSwitchingStatsTable.CefSwitchingStatsEntry, ['entphysicalindex', 'ceffibipversion', 'cefswitchingindex', 'cefswitchingpath', 'cefswitchingdrop', 'cefswitchinghcdrop', 'cefswitchingpunt', 'cefswitchinghcpunt', 'cefswitchingpunt2host', 'cefswitchinghcpunt2host'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOCEFMIB()
         return self._top_entity
+
+
 

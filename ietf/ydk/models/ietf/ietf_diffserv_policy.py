@@ -42,6 +42,7 @@ class ActionType(Identity):
         super(ActionType, self).__init__(ns, pref, tag)
 
 
+
 class Policies(Entity):
     """
     list of policy templates
@@ -323,6 +324,7 @@ class Policies(Entity):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DscpCfg, [u'dscp_min', u'dscp_max'], name, value)
 
 
+
                 class SourceIpAddressCfg(Entity):
                     """
                     list of source ip address
@@ -367,6 +369,7 @@ class Policies(Entity):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourceIpAddressCfg, [u'source_ip_addr'], name, value)
 
 
+
                 class DestinationIpAddressCfg(Entity):
                     """
                     list of destination ip address
@@ -409,6 +412,7 @@ class Policies(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationIpAddressCfg, [u'destination_ip_addr'], name, value)
+
 
 
                 class SourcePortCfg(Entity):
@@ -458,6 +462,7 @@ class Policies(Entity):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourcePortCfg, [u'source_port_min', u'source_port_max'], name, value)
 
 
+
                 class DestinationPortCfg(Entity):
                     """
                     list of ranges of destination port
@@ -505,6 +510,7 @@ class Policies(Entity):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationPortCfg, [u'destination_port_min', u'destination_port_max'], name, value)
 
 
+
                 class ProtocolCfg(Entity):
                     """
                     list of ranges of protocol values
@@ -550,6 +556,8 @@ class Policies(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.ProtocolCfg, [u'protocol_min', u'protocol_max'], name, value)
+
+
 
 
             class ClassifierActionEntryCfg(Entity):
@@ -698,6 +706,7 @@ class Policies(Entity):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MarkingCfg, ['dscp'], name, value)
 
 
+
                 class PriorityCfg(Entity):
                     """
                     priority attributes container
@@ -839,6 +848,8 @@ class Policies(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg.RateBurst, ['rate', 'absolute_rate_metric', 'absolute_rate_units', 'rate_percent', 'rate_ratio', 'burst_size', 'burst_interval'], name, value)
+
+
 
 
                 class MeterCfg(Entity):
@@ -1026,6 +1037,7 @@ class Policies(Entity):
                                 self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.Color, [u'classifier_entry_name', u'classifier_entry_descr', u'classifier_entry_filter_operation'], name, value)
 
 
+
                         class SucceedAction(Entity):
                             """
                             confirm action
@@ -1087,6 +1099,7 @@ class Policies(Entity):
                                 self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.SucceedAction, ['meter_action_type', 'next_meter_id', 'dscp', 'drop_action'], name, value)
 
 
+
                         class FailAction(Entity):
                             """
                             exceed action
@@ -1146,6 +1159,9 @@ class Policies(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.FailAction, ['meter_action_type', 'next_meter_id', 'dscp', 'drop_action'], name, value)
+
+
+
 
 
                 class MinRateCfg(Entity):
@@ -1303,6 +1319,8 @@ class Policies(Entity):
                             self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg.BwExcessShareCfg, ['value', 'absolute_rate_metric', 'absolute_rate_units', 'rate_percent', 'rate_ratio'], name, value)
 
 
+
+
                 class MaxRateCfg(Entity):
                     """
                     maximum rate attributes
@@ -1399,6 +1417,7 @@ class Policies(Entity):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MaxRateCfg, ['absolute_rate', 'burst_size', 'burst_interval', 'absolute_rate_metric', 'absolute_rate_units', 'rate_percent', 'rate_ratio'], name, value)
 
 
+
                 class DropCfg(Entity):
                     """
                     Always Drop configuration container
@@ -1433,6 +1452,7 @@ class Policies(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.DropCfg, ['drop_action'], name, value)
+
 
 
                 class TailDropCfg(Entity):
@@ -1575,6 +1595,9 @@ class Policies(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg.QlimitDscpThresh.Threshold, ['threshold_size', 'threshold_interval'], name, value)
+
+
+
 
 
                 class RandomDetectCfg(Entity):
@@ -1730,6 +1753,8 @@ class Policies(Entity):
                                 self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh.Threshold, ['threshold_size', 'threshold_interval'], name, value)
 
 
+
+
                     class RedMaxThresh(Entity):
                         """
                         Maximum threshold
@@ -1817,7 +1842,15 @@ class Policies(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh.Threshold, ['threshold_size', 'threshold_interval'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Policies()
         return self._top_entity
+
+
 

@@ -684,6 +684,8 @@ class Fia(Entity):
     	FIA driver operational data for available nodes
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -721,6 +723,8 @@ class Fia(Entity):
         
         	FIA operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -760,40 +764,56 @@ class Fia(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: rx_link_information
             
             	FIA link rx information
             	**type**\:  :py:class:`RxLinkInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation>`
+            
+            	**config**\: False
             
             .. attribute:: driver_information
             
             	FIA driver information
             	**type**\:  :py:class:`DriverInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation>`
             
+            	**config**\: False
+            
             .. attribute:: clear_statistics
             
             	Clear statistics information
             	**type**\:  :py:class:`ClearStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics>`
+            
+            	**config**\: False
             
             .. attribute:: tx_link_information
             
             	FIA link TX information
             	**type**\:  :py:class:`TxLinkInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation>`
             
+            	**config**\: False
+            
             .. attribute:: diag_shell
             
             	FIA diag shell information
             	**type**\:  :py:class:`DiagShell <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell>`
+            
+            	**config**\: False
             
             .. attribute:: oir_history
             
             	FIA operational data of oir history
             	**type**\:  :py:class:`OirHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory>`
             
+            	**config**\: False
+            
             .. attribute:: asic_statistics
             
             	FIA asic statistics information
             	**type**\:  :py:class:`AsicStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics>`
+            
+            	**config**\: False
             
             
 
@@ -860,6 +880,8 @@ class Fia(Entity):
                 	Option table for link rx information
                 	**type**\:  :py:class:`LinkOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -896,6 +918,8 @@ class Fia(Entity):
                     
                     	Option \: topo , flag , stats
                     	**type**\: list of  		 :py:class:`LinkOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -934,10 +958,14 @@ class Fia(Entity):
                         
                         	**pattern:** (flap)\|(topo)
                         
+                        	**config**\: False
+                        
                         .. attribute:: rx_asic_instances
                         
                         	Instance table for rx information
                         	**type**\:  :py:class:`RxAsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -979,6 +1007,8 @@ class Fia(Entity):
                             	Instance number for rx link information
                             	**type**\: list of  		 :py:class:`RxAsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -1016,10 +1046,14 @@ class Fia(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rx_links
                                 
                                 	Link table class for rx information
                                 	**type**\:  :py:class:`RxLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1061,6 +1095,8 @@ class Fia(Entity):
                                     	Link number for rx link information
                                     	**type**\: list of  		 :py:class:`RxLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink>`
                                     
+                                    	**config**\: False
+                                    
                                     
 
                                     """
@@ -1098,12 +1134,16 @@ class Fia(Entity):
                                         
                                         	**range:** 0..47
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_number
                                         
                                         	End number
                                         	**type**\: int
                                         
                                         	**range:** 0..47
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: status_option
                                         
@@ -1112,10 +1152,14 @@ class Fia(Entity):
                                         
                                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: rx_link
                                         
                                         	Single link information
                                         	**type**\: list of  		 :py:class:`RxLink_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1161,25 +1205,35 @@ class Fia(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: this_link
                                             
                                             	this link
                                             	**type**\:  :py:class:`ThisLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: far_end_link
                                             
                                             	far end link
                                             	**type**\:  :py:class:`FarEndLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: far_end_link_in_hw
                                             
                                             	far end link in hw
                                             	**type**\:  :py:class:`FarEndLinkInHw <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: history
                                             
                                             	history
                                             	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: speed
                                             
@@ -1188,40 +1242,56 @@ class Fia(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: stage
                                             
                                             	Stage
                                             	**type**\:  :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: is_link_valid
                                             
                                             	is link valid
                                             	**type**\: bool
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: is_conf_pending
                                             
                                             	is conf pending
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: admin_state
                                             
                                             	Admin State
                                             	**type**\:  :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: oper_state
                                             
                                             	Oper State
                                             	**type**\:  :py:class:`OperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperState>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: error_state
                                             
                                             	Error State
                                             	**type**\:  :py:class:`LinkErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorState>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: flags
                                             
                                             	flags
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: flap_cnt
                                             
@@ -1230,12 +1300,16 @@ class Fia(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: num_admin_shuts
                                             
                                             	num admin shuts
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: correctable_errors
                                             
@@ -1244,12 +1318,16 @@ class Fia(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: uncorrectable_errors
                                             
                                             	uncorrectable errors
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1315,7 +1393,7 @@ class Fia(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_, ['link', u'speed', u'stage', u'is_link_valid', u'is_conf_pending', u'admin_state', u'oper_state', u'error_state', u'flags', u'flap_cnt', u'num_admin_shuts', u'correctable_errors', u'uncorrectable_errors'], name, value)
+                                                self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_, ['link', 'speed', 'stage', 'is_link_valid', 'is_conf_pending', 'admin_state', 'oper_state', 'error_state', 'flags', 'flap_cnt', 'num_admin_shuts', 'correctable_errors', 'uncorrectable_errors'], name, value)
 
 
                                             class ThisLink(Entity):
@@ -1327,15 +1405,21 @@ class Fia(Entity):
                                                 	asic id
                                                 	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: link_type
                                                 
                                                 	Link Type
                                                 	**type**\:  :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: link_stage
                                                 
                                                 	Link Stage
                                                 	**type**\:  :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: link_num
                                                 
@@ -1344,12 +1428,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: phy_link_num
                                                 
                                                 	phy link num
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -1385,7 +1473,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink, [u'link_type', u'link_stage', u'link_num', u'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
@@ -1397,10 +1485,14 @@ class Fia(Entity):
                                                     	Rack Type
                                                     	**type**\:  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: asic_type
                                                     
                                                     	Asic Type
                                                     	**type**\:  :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: rack_num
                                                     
@@ -1409,6 +1501,8 @@ class Fia(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: slot_num
                                                     
                                                     	slot num
@@ -1416,12 +1510,16 @@ class Fia(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: asic_instance
                                                     
                                                     	asic instance
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -1455,7 +1553,9 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+
+
 
 
                                             class FarEndLink(Entity):
@@ -1467,15 +1567,21 @@ class Fia(Entity):
                                                 	asic id
                                                 	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: link_type
                                                 
                                                 	Link Type
                                                 	**type**\:  :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: link_stage
                                                 
                                                 	Link Stage
                                                 	**type**\:  :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: link_num
                                                 
@@ -1484,12 +1590,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: phy_link_num
                                                 
                                                 	phy link num
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -1525,7 +1635,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink, [u'link_type', u'link_stage', u'link_num', u'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
@@ -1537,10 +1647,14 @@ class Fia(Entity):
                                                     	Rack Type
                                                     	**type**\:  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: asic_type
                                                     
                                                     	Asic Type
                                                     	**type**\:  :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: rack_num
                                                     
@@ -1549,6 +1663,8 @@ class Fia(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: slot_num
                                                     
                                                     	slot num
@@ -1556,12 +1672,16 @@ class Fia(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: asic_instance
                                                     
                                                     	asic instance
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -1595,7 +1715,9 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+
+
 
 
                                             class FarEndLinkInHw(Entity):
@@ -1607,15 +1729,21 @@ class Fia(Entity):
                                                 	asic id
                                                 	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: link_type
                                                 
                                                 	Link Type
                                                 	**type**\:  :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: link_stage
                                                 
                                                 	Link Stage
                                                 	**type**\:  :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: link_num
                                                 
@@ -1624,12 +1752,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: phy_link_num
                                                 
                                                 	phy link num
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -1665,7 +1797,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw, [u'link_type', u'link_stage', u'link_num', u'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
@@ -1677,10 +1809,14 @@ class Fia(Entity):
                                                     	Rack Type
                                                     	**type**\:  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: asic_type
                                                     
                                                     	Asic Type
                                                     	**type**\:  :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: rack_num
                                                     
@@ -1689,6 +1825,8 @@ class Fia(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: slot_num
                                                     
                                                     	slot num
@@ -1696,12 +1834,16 @@ class Fia(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: asic_instance
                                                     
                                                     	asic instance
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -1735,7 +1877,9 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+
+
 
 
                                             class History(Entity):
@@ -1749,6 +1893,8 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..255
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: start_index
                                                 
                                                 	start index
@@ -1756,10 +1902,14 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..255
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: hist
                                                 
                                                 	hist
                                                 	**type**\: list of  		 :py:class:`Hist <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History.Hist>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -1789,7 +1939,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History, [u'histnum', u'start_index'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History, ['histnum', 'start_index'], name, value)
 
 
                                                 class Hist(Entity):
@@ -1801,15 +1951,21 @@ class Fia(Entity):
                                                     	Admin State
                                                     	**type**\:  :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: oper_state
                                                     
                                                     	Oper State
                                                     	**type**\:  :py:class:`OperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperState>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: error_state
                                                     
                                                     	Error State
                                                     	**type**\:  :py:class:`LinkErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorState>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: timestamp
                                                     
@@ -1818,10 +1974,14 @@ class Fia(Entity):
                                                     
                                                     	**range:** 0..18446744073709551615
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: reasons
                                                     
                                                     	reasons
                                                     	**type**\: str
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -1855,7 +2015,17 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History.Hist, [u'admin_state', u'oper_state', u'error_state', u'timestamp', u'reasons'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History.Hist, ['admin_state', 'oper_state', 'error_state', 'timestamp', 'reasons'], name, value)
+
+
+
+
+
+
+
+
+
+
 
 
             class DriverInformation(Entity):
@@ -1869,12 +2039,16 @@ class Fia(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: coeff_major_rev
                 
                 	coeff major rev
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: coeff_minor_rev
                 
@@ -1883,12 +2057,16 @@ class Fia(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: functional_role
                 
                 	functional role
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: issu_role
                 
@@ -1897,10 +2075,14 @@ class Fia(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: node_id
                 
                 	node id
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: rack_type
                 
@@ -1909,6 +2091,8 @@ class Fia(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: rack_num
                 
                 	rack num
@@ -1916,10 +2100,14 @@ class Fia(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: is_driver_ready
                 
                 	is driver ready
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: card_avail_mask
                 
@@ -1928,12 +2116,16 @@ class Fia(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: asic_avail_mask
                 
                 	asic avail mask
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: exp_asic_avail_mask
                 
@@ -1942,12 +2134,16 @@ class Fia(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: ucmc_ratio
                 
                 	ucmc ratio
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: asic_oper_notify_to_fsdb_pending_bmap
                 
@@ -1956,50 +2152,70 @@ class Fia(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: is_full_fgid_download_req
                 
                 	is full fgid download req
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: is_fgid_download_in_progress
                 
                 	is fgid download in progress
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: is_fgid_download_completed
                 
                 	is fgid download completed
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: fsdb_conn_active
                 
                 	fsdb conn active
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: fgid_conn_active
                 
                 	fgid conn active
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: issu_mgr_conn_active
                 
                 	issu mgr conn active
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: fsdb_reg_active
                 
                 	fsdb reg active
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: fgid_reg_active
                 
                 	fgid reg active
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: issu_mgr_reg_active
                 
                 	issu mgr reg active
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: num_pm_conn_reqs
                 
@@ -2008,12 +2224,16 @@ class Fia(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: num_fsdb_conn_reqs
                 
                 	num fsdb conn reqs
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: num_fgid_conn_reqs
                 
@@ -2022,12 +2242,16 @@ class Fia(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: num_fstats_conn_reqs
                 
                 	num fstats conn reqs
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: num_cm_conn_reqs
                 
@@ -2036,12 +2260,16 @@ class Fia(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: num_issu_mgr_conn_reqs
                 
                 	num issu mgr conn reqs
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: num_peer_fia_conn_reqs
                 
@@ -2050,25 +2278,35 @@ class Fia(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: is_gaspp_registered
                 
                 	is gaspp registered
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: is_cih_registered
                 
                 	is cih registered
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: drvr_initial_startup_timestamp
                 
                 	drvr initial startup timestamp
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: drvr_current_startup_timestamp
                 
                 	drvr current startup timestamp
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: num_intf_ports
                 
@@ -2077,12 +2315,16 @@ class Fia(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: uc_weight
                 
                 	uc weight
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: respawn_count
                 
@@ -2091,6 +2333,8 @@ class Fia(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: total_asics
                 
                 	total asics
@@ -2098,20 +2342,28 @@ class Fia(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: issu_ready_ntfy_pending
                 
                 	issu ready ntfy pending
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: issu_abort_sent
                 
                 	issu abort sent
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: issu_abort_rcvd
                 
                 	issu abort rcvd
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: fabric_mode
                 
@@ -2120,10 +2372,14 @@ class Fia(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: fc_mode
                 
                 	FC Mode
                 	**type**\:  :py:class:`FcMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.FcMode>`
+                
+                	**config**\: False
                 
                 .. attribute:: board_rev_id
                 
@@ -2132,10 +2388,14 @@ class Fia(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: all_wb_insync
                 
                 	all wb insync
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: all_wb_insync_since
                 
@@ -2144,10 +2404,14 @@ class Fia(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: all_startup_wb_insync
                 
                 	all startup wb insync
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: plane_a_bitmap
                 
@@ -2156,6 +2420,8 @@ class Fia(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: plane_b_bitmap
                 
                 	planeB bitmap
@@ -2163,15 +2429,21 @@ class Fia(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: device_info
                 
                 	device info
                 	**type**\: list of  		 :py:class:`DeviceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.DeviceInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: card_info
                 
                 	card info
                 	**type**\: list of  		 :py:class:`CardInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -2296,7 +2568,7 @@ class Fia(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Fia.Nodes.Node.DriverInformation, [u'drv_version', u'coeff_major_rev', u'coeff_minor_rev', u'functional_role', u'issu_role', u'node_id', u'rack_type', u'rack_num', u'is_driver_ready', u'card_avail_mask', u'asic_avail_mask', u'exp_asic_avail_mask', u'ucmc_ratio', u'asic_oper_notify_to_fsdb_pending_bmap', u'is_full_fgid_download_req', u'is_fgid_download_in_progress', u'is_fgid_download_completed', u'fsdb_conn_active', u'fgid_conn_active', u'issu_mgr_conn_active', u'fsdb_reg_active', u'fgid_reg_active', u'issu_mgr_reg_active', u'num_pm_conn_reqs', u'num_fsdb_conn_reqs', u'num_fgid_conn_reqs', u'num_fstats_conn_reqs', u'num_cm_conn_reqs', u'num_issu_mgr_conn_reqs', u'num_peer_fia_conn_reqs', u'is_gaspp_registered', u'is_cih_registered', u'drvr_initial_startup_timestamp', u'drvr_current_startup_timestamp', u'num_intf_ports', u'uc_weight', u'respawn_count', u'total_asics', u'issu_ready_ntfy_pending', u'issu_abort_sent', u'issu_abort_rcvd', u'fabric_mode', u'fc_mode', u'board_rev_id', u'all_wb_insync', u'all_wb_insync_since', u'all_startup_wb_insync', u'plane_a_bitmap', u'plane_b_bitmap'], name, value)
+                    self._perform_setattr(Fia.Nodes.Node.DriverInformation, ['drv_version', 'coeff_major_rev', 'coeff_minor_rev', 'functional_role', 'issu_role', 'node_id', 'rack_type', 'rack_num', 'is_driver_ready', 'card_avail_mask', 'asic_avail_mask', 'exp_asic_avail_mask', 'ucmc_ratio', 'asic_oper_notify_to_fsdb_pending_bmap', 'is_full_fgid_download_req', 'is_fgid_download_in_progress', 'is_fgid_download_completed', 'fsdb_conn_active', 'fgid_conn_active', 'issu_mgr_conn_active', 'fsdb_reg_active', 'fgid_reg_active', 'issu_mgr_reg_active', 'num_pm_conn_reqs', 'num_fsdb_conn_reqs', 'num_fgid_conn_reqs', 'num_fstats_conn_reqs', 'num_cm_conn_reqs', 'num_issu_mgr_conn_reqs', 'num_peer_fia_conn_reqs', 'is_gaspp_registered', 'is_cih_registered', 'drvr_initial_startup_timestamp', 'drvr_current_startup_timestamp', 'num_intf_ports', 'uc_weight', 'respawn_count', 'total_asics', 'issu_ready_ntfy_pending', 'issu_abort_sent', 'issu_abort_rcvd', 'fabric_mode', 'fc_mode', 'board_rev_id', 'all_wb_insync', 'all_wb_insync_since', 'all_startup_wb_insync', 'plane_a_bitmap', 'plane_b_bitmap'], name, value)
 
 
                 class DeviceInfo(Entity):
@@ -2308,10 +2580,14 @@ class Fia(Entity):
                     	asic id
                     	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_valid
                     
                     	is valid
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: fapid
                     
@@ -2320,6 +2596,8 @@ class Fia(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: hotplug_event
                     
                     	hotplug event
@@ -2327,30 +2605,42 @@ class Fia(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: slice_state
                     
                     	Slice State
                     	**type**\:  :py:class:`SliceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.SliceState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: admin_state
                     
                     	Admin State
                     	**type**\:  :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: oper_state
                     
                     	Oper State
                     	**type**\:  :py:class:`AsicOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicOperState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: asic_state
                     
                     	Asic State
                     	**type**\:  :py:class:`AsicAccessState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicAccessState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_init_cause
                     
                     	last init cause
                     	**type**\:  :py:class:`AsicInitMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicInitMethod>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_pon_resets
                     
@@ -2359,6 +2649,8 @@ class Fia(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_hard_resets
                     
                     	num hard resets
@@ -2366,35 +2658,49 @@ class Fia(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_switch_state
                     
                     	local switch state
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: startup_wb_mtime_str
                     
                     	startup wb mtime str
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: startup_wb_outof_sync
                     
                     	startup wb outof sync
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: local_wb_sync_end_str
                     
                     	local wb sync end str
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_wb_sync_end_str
                     
                     	remote wb sync end str
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_wb_sync_pending
                     
                     	local wb sync pending
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: sdk_delay_msec
                     
@@ -2402,6 +2708,8 @@ class Fia(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -2463,7 +2771,7 @@ class Fia(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Fia.Nodes.Node.DriverInformation.DeviceInfo, [u'is_valid', u'fapid', u'hotplug_event', u'slice_state', u'admin_state', u'oper_state', u'asic_state', u'last_init_cause', u'num_pon_resets', u'num_hard_resets', u'local_switch_state', u'startup_wb_mtime_str', u'startup_wb_outof_sync', u'local_wb_sync_end_str', u'remote_wb_sync_end_str', u'local_wb_sync_pending', u'sdk_delay_msec'], name, value)
+                        self._perform_setattr(Fia.Nodes.Node.DriverInformation.DeviceInfo, ['is_valid', 'fapid', 'hotplug_event', 'slice_state', 'admin_state', 'oper_state', 'asic_state', 'last_init_cause', 'num_pon_resets', 'num_hard_resets', 'local_switch_state', 'startup_wb_mtime_str', 'startup_wb_outof_sync', 'local_wb_sync_end_str', 'remote_wb_sync_end_str', 'local_wb_sync_pending', 'sdk_delay_msec'], name, value)
 
 
                     class AsicId(Entity):
@@ -2475,10 +2783,14 @@ class Fia(Entity):
                         	Rack Type
                         	**type**\:  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: asic_type
                         
                         	Asic Type
                         	**type**\:  :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: rack_num
                         
@@ -2487,6 +2799,8 @@ class Fia(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: slot_num
                         
                         	slot num
@@ -2494,12 +2808,16 @@ class Fia(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: asic_instance
                         
                         	asic instance
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2533,7 +2851,9 @@ class Fia(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
+                            self._perform_setattr(Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+
+
 
 
                 class CardInfo(Entity):
@@ -2545,6 +2865,8 @@ class Fia(Entity):
                     	oir circular buffer
                     	**type**\:  :py:class:`OirCircularBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: card_type
                     
                     	card type
@@ -2552,10 +2874,14 @@ class Fia(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: card_name
                     
                     	card name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: slot_no
                     
@@ -2564,12 +2890,16 @@ class Fia(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: card_flag
                     
                     	card flag
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: evt_flag
                     
@@ -2578,12 +2908,16 @@ class Fia(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: reg_flag
                     
                     	reg flag
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: instance
                     
@@ -2592,12 +2926,16 @@ class Fia(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: card_state
                     
                     	card state
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: exp_num_asics
                     
@@ -2606,6 +2944,8 @@ class Fia(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: exp_num_asics_per_fsdb
                     
                     	exp num asics per fsdb
@@ -2613,10 +2953,14 @@ class Fia(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_powered
                     
                     	is powered
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: cxp_avail_bitmap
                     
@@ -2625,12 +2969,16 @@ class Fia(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_ilkns_per_asic
                     
                     	num ilkns per asic
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_local_ports_per_ilkn
                     
@@ -2639,12 +2987,16 @@ class Fia(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_cos_per_port
                     
                     	num cos per port
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -2702,7 +3054,7 @@ class Fia(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo, [u'card_type', u'card_name', u'slot_no', u'card_flag', u'evt_flag', u'reg_flag', u'instance', u'card_state', u'exp_num_asics', u'exp_num_asics_per_fsdb', u'is_powered', u'cxp_avail_bitmap', u'num_ilkns_per_asic', u'num_local_ports_per_ilkn', u'num_cos_per_port'], name, value)
+                        self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo, ['card_type', 'card_name', 'slot_no', 'card_flag', 'evt_flag', 'reg_flag', 'instance', 'card_state', 'exp_num_asics', 'exp_num_asics_per_fsdb', 'is_powered', 'cxp_avail_bitmap', 'num_ilkns_per_asic', 'num_local_ports_per_ilkn', 'num_cos_per_port'], name, value)
 
 
                     class OirCircularBuffer(Entity):
@@ -2716,12 +3068,16 @@ class Fia(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: start
                         
                         	start
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: end
                         
@@ -2730,10 +3086,14 @@ class Fia(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: fia_oir_info
                         
                         	fia oir info
                         	**type**\: list of  		 :py:class:`FiaOirInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2765,7 +3125,7 @@ class Fia(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer, [u'count', u'start', u'end'], name, value)
+                            self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer, ['count', 'start', 'end'], name, value)
 
 
                         class FiaOirInfo(Entity):
@@ -2779,12 +3139,16 @@ class Fia(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: card_type
                             
                             	card type
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: reg_flag
                             
@@ -2793,12 +3157,16 @@ class Fia(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: evt_flag
                             
                             	evt flag
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: rack_num
                             
@@ -2807,6 +3175,8 @@ class Fia(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: instance
                             
                             	instance
@@ -2814,12 +3184,16 @@ class Fia(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: cur_card_state
                             
                             	cur card state
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             
 
@@ -2857,7 +3231,11 @@ class Fia(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo, [u'card_flag', u'card_type', u'reg_flag', u'evt_flag', u'rack_num', u'instance', u'cur_card_state'], name, value)
+                                self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo, ['card_flag', 'card_type', 'reg_flag', 'evt_flag', 'rack_num', 'instance', 'cur_card_state'], name, value)
+
+
+
+
 
 
             class ClearStatistics(Entity):
@@ -2868,6 +3246,8 @@ class Fia(Entity):
                 
                 	Instance table for clear statistics information
                 	**type**\:  :py:class:`AsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics.AsicInstances>`
+                
+                	**config**\: False
                 
                 
 
@@ -2907,6 +3287,8 @@ class Fia(Entity):
                     	Asic instance to be cleared
                     	**type**\: list of  		 :py:class:`AsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics.AsicInstances.AsicInstance>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -2944,6 +3326,8 @@ class Fia(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: instance
                         
                         	Clear value
@@ -2952,6 +3336,8 @@ class Fia(Entity):
                         	**range:** 0..4294967295
                         
                         	**mandatory**\: True
+                        
+                        	**config**\: False
                         
                         
 
@@ -2982,6 +3368,9 @@ class Fia(Entity):
                             self._perform_setattr(Fia.Nodes.Node.ClearStatistics.AsicInstances.AsicInstance, ['asic_instance', 'instance'], name, value)
 
 
+
+
+
             class TxLinkInformation(Entity):
                 """
                 FIA link TX information
@@ -2990,6 +3379,8 @@ class Fia(Entity):
                 
                 	Link table for tx information
                 	**type**\:  :py:class:`TxStatusOptionTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable>`
+                
+                	**config**\: False
                 
                 
 
@@ -3028,6 +3419,8 @@ class Fia(Entity):
                     	Option\: data, ctrl, all\- for now none
                     	**type**\:  :py:class:`TxStatusOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -3064,6 +3457,8 @@ class Fia(Entity):
                         
                         	Instance table for tx information
                         	**type**\:  :py:class:`TxAsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3102,6 +3497,8 @@ class Fia(Entity):
                             	Instance number for tx link information
                             	**type**\: list of  		 :py:class:`TxAsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -3139,10 +3536,14 @@ class Fia(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: tx_links
                                 
                                 	Link table for tx information
                                 	**type**\:  :py:class:`TxLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3184,6 +3585,8 @@ class Fia(Entity):
                                     	Link number for tx link information
                                     	**type**\: list of  		 :py:class:`TxLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink>`
                                     
+                                    	**config**\: False
+                                    
                                     
 
                                     """
@@ -3221,6 +3624,8 @@ class Fia(Entity):
                                         
                                         	**range:** 0..47
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_number
                                         
                                         	End number
@@ -3228,10 +3633,14 @@ class Fia(Entity):
                                         
                                         	**range:** 0..47
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tx_link
                                         
                                         	Single link information
                                         	**type**\: list of  		 :py:class:`TxLink_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3275,25 +3684,35 @@ class Fia(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: this_link
                                             
                                             	this link
                                             	**type**\:  :py:class:`ThisLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: far_end_link
                                             
                                             	far end link
                                             	**type**\:  :py:class:`FarEndLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: stats
                                             
                                             	stats
                                             	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: history
                                             
                                             	history
                                             	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: speed
                                             
@@ -3302,6 +3721,8 @@ class Fia(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: stage
                                             
                                             	stage
@@ -3309,20 +3730,28 @@ class Fia(Entity):
                                             
                                             	**range:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: is_link_valid
                                             
                                             	is link valid
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: is_conf_pending
                                             
                                             	is conf pending
                                             	**type**\: bool
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: is_power_enabled
                                             
                                             	is power enabled
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: coeff1
                                             
@@ -3331,6 +3760,8 @@ class Fia(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: coeff2
                                             
                                             	coeff2
@@ -3338,20 +3769,28 @@ class Fia(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: admin_state
                                             
                                             	Admin State
                                             	**type**\:  :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: oper_state
                                             
                                             	Oper State
                                             	**type**\:  :py:class:`OperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperState>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: error_state
                                             
                                             	Error State
                                             	**type**\:  :py:class:`LinkErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorState>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: num_admin_shuts
                                             
@@ -3359,6 +3798,8 @@ class Fia(Entity):
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -3422,7 +3863,7 @@ class Fia(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_, ['link', u'speed', u'stage', u'is_link_valid', u'is_conf_pending', u'is_power_enabled', u'coeff1', u'coeff2', u'admin_state', u'oper_state', u'error_state', u'num_admin_shuts'], name, value)
+                                                self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_, ['link', 'speed', 'stage', 'is_link_valid', 'is_conf_pending', 'is_power_enabled', 'coeff1', 'coeff2', 'admin_state', 'oper_state', 'error_state', 'num_admin_shuts'], name, value)
 
 
                                             class ThisLink(Entity):
@@ -3434,15 +3875,21 @@ class Fia(Entity):
                                                 	asic id
                                                 	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: link_type
                                                 
                                                 	Link Type
                                                 	**type**\:  :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: link_stage
                                                 
                                                 	Link Stage
                                                 	**type**\:  :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: link_num
                                                 
@@ -3451,12 +3898,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: phy_link_num
                                                 
                                                 	phy link num
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -3492,7 +3943,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink, [u'link_type', u'link_stage', u'link_num', u'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
@@ -3504,10 +3955,14 @@ class Fia(Entity):
                                                     	Rack Type
                                                     	**type**\:  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: asic_type
                                                     
                                                     	Asic Type
                                                     	**type**\:  :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: rack_num
                                                     
@@ -3516,6 +3971,8 @@ class Fia(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: slot_num
                                                     
                                                     	slot num
@@ -3523,12 +3980,16 @@ class Fia(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: asic_instance
                                                     
                                                     	asic instance
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -3562,7 +4023,9 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+
+
 
 
                                             class FarEndLink(Entity):
@@ -3574,15 +4037,21 @@ class Fia(Entity):
                                                 	asic id
                                                 	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: link_type
                                                 
                                                 	Link Type
                                                 	**type**\:  :py:class:`Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Link>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: link_stage
                                                 
                                                 	Link Stage
                                                 	**type**\:  :py:class:`LinkStage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStage>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: link_num
                                                 
@@ -3591,12 +4060,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: phy_link_num
                                                 
                                                 	phy link num
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -3632,7 +4105,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink, [u'link_type', u'link_stage', u'link_num', u'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
@@ -3644,10 +4117,14 @@ class Fia(Entity):
                                                     	Rack Type
                                                     	**type**\:  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: asic_type
                                                     
                                                     	Asic Type
                                                     	**type**\:  :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: rack_num
                                                     
@@ -3656,6 +4133,8 @@ class Fia(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: slot_num
                                                     
                                                     	slot num
@@ -3663,12 +4142,16 @@ class Fia(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: asic_instance
                                                     
                                                     	asic instance
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -3702,7 +4185,9 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+
+
 
 
                                             class Stats(Entity):
@@ -3715,6 +4200,8 @@ class Fia(Entity):
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -3740,7 +4227,8 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats, [u'dummy'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats, ['dummy'], name, value)
+
 
 
                                             class History(Entity):
@@ -3754,6 +4242,8 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..255
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: start_index
                                                 
                                                 	start index
@@ -3761,10 +4251,14 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..255
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: hist
                                                 
                                                 	hist
                                                 	**type**\: list of  		 :py:class:`Hist <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History.Hist>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -3794,7 +4288,7 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History, [u'histnum', u'start_index'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History, ['histnum', 'start_index'], name, value)
 
 
                                                 class Hist(Entity):
@@ -3806,15 +4300,21 @@ class Fia(Entity):
                                                     	Admin State
                                                     	**type**\:  :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: oper_state
                                                     
                                                     	Oper State
                                                     	**type**\:  :py:class:`OperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperState>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: error_state
                                                     
                                                     	Error State
                                                     	**type**\:  :py:class:`LinkErrorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorState>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: timestamp
                                                     
@@ -3823,10 +4323,14 @@ class Fia(Entity):
                                                     
                                                     	**range:** 0..18446744073709551615
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: reasons
                                                     
                                                     	reasons
                                                     	**type**\: str
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -3860,7 +4364,17 @@ class Fia(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History.Hist, [u'admin_state', u'oper_state', u'error_state', u'timestamp', u'reasons'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History.Hist, ['admin_state', 'oper_state', 'error_state', 'timestamp', 'reasons'], name, value)
+
+
+
+
+
+
+
+
+
+
 
 
             class DiagShell(Entity):
@@ -3871,6 +4385,8 @@ class Fia(Entity):
                 
                 	Unit table for diag shell
                 	**type**\:  :py:class:`DiagShellUnits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits>`
+                
+                	**config**\: False
                 
                 
 
@@ -3909,6 +4425,8 @@ class Fia(Entity):
                     	Unit number for diag shell statistics
                     	**type**\: list of  		 :py:class:`DiagShellUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -3946,10 +4464,14 @@ class Fia(Entity):
                         
                         	**range:** 0..63
                         
+                        	**config**\: False
+                        
                         .. attribute:: commands
                         
                         	Command table for diag shell
                         	**type**\:  :py:class:`Commands <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3991,6 +4513,8 @@ class Fia(Entity):
                             	Command for diag shell statistics
                             	**type**\: list of  		 :py:class:`Command <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -4026,10 +4550,14 @@ class Fia(Entity):
                                 	Shell command
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: output
                                 
                                 	Added to support datalist
                                 	**type**\: list of  		 :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4071,10 +4599,14 @@ class Fia(Entity):
                                     
                                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: output_xr
                                     
                                     	output xr
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4102,7 +4634,13 @@ class Fia(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output, ['output', u'output_xr'], name, value)
+                                        self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output, ['output', 'output_xr'], name, value)
+
+
+
+
+
+
 
 
             class OirHistory(Entity):
@@ -4113,6 +4651,8 @@ class Fia(Entity):
                 
                 	Flag table for history
                 	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags>`
+                
+                	**config**\: False
                 
                 
 
@@ -4151,6 +4691,8 @@ class Fia(Entity):
                     	Flag value for physical location
                     	**type**\: list of  		 :py:class:`Flag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -4188,10 +4730,14 @@ class Fia(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: slots
                         
                         	Slot table for history
                         	**type**\:  :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -4233,6 +4779,8 @@ class Fia(Entity):
                             	Slot number for getting history
                             	**type**\: list of  		 :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -4270,12 +4818,16 @@ class Fia(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: drv_version
                                 
                                 	drv version
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: coeff_major_rev
                                 
@@ -4284,12 +4836,16 @@ class Fia(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: coeff_minor_rev
                                 
                                 	coeff minor rev
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: functional_role
                                 
@@ -4298,6 +4854,8 @@ class Fia(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: issu_role
                                 
                                 	issu role
@@ -4305,10 +4863,14 @@ class Fia(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: node_id
                                 
                                 	node id
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: rack_type
                                 
@@ -4317,6 +4879,8 @@ class Fia(Entity):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rack_num
                                 
                                 	rack num
@@ -4324,10 +4888,14 @@ class Fia(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: is_driver_ready
                                 
                                 	is driver ready
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: card_avail_mask
                                 
@@ -4336,12 +4904,16 @@ class Fia(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: asic_avail_mask
                                 
                                 	asic avail mask
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: exp_asic_avail_mask
                                 
@@ -4350,12 +4922,16 @@ class Fia(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ucmc_ratio
                                 
                                 	ucmc ratio
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: asic_oper_notify_to_fsdb_pending_bmap
                                 
@@ -4364,50 +4940,70 @@ class Fia(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: is_full_fgid_download_req
                                 
                                 	is full fgid download req
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: is_fgid_download_in_progress
                                 
                                 	is fgid download in progress
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: is_fgid_download_completed
                                 
                                 	is fgid download completed
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: fsdb_conn_active
                                 
                                 	fsdb conn active
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fgid_conn_active
                                 
                                 	fgid conn active
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: issu_mgr_conn_active
                                 
                                 	issu mgr conn active
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fsdb_reg_active
                                 
                                 	fsdb reg active
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: fgid_reg_active
                                 
                                 	fgid reg active
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: issu_mgr_reg_active
                                 
                                 	issu mgr reg active
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: num_pm_conn_reqs
                                 
@@ -4416,12 +5012,16 @@ class Fia(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: num_fsdb_conn_reqs
                                 
                                 	num fsdb conn reqs
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: num_fgid_conn_reqs
                                 
@@ -4430,12 +5030,16 @@ class Fia(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: num_fstats_conn_reqs
                                 
                                 	num fstats conn reqs
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: num_cm_conn_reqs
                                 
@@ -4444,12 +5048,16 @@ class Fia(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: num_issu_mgr_conn_reqs
                                 
                                 	num issu mgr conn reqs
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: num_peer_fia_conn_reqs
                                 
@@ -4458,25 +5066,35 @@ class Fia(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: is_gaspp_registered
                                 
                                 	is gaspp registered
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: is_cih_registered
                                 
                                 	is cih registered
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: drvr_initial_startup_timestamp
                                 
                                 	drvr initial startup timestamp
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: drvr_current_startup_timestamp
                                 
                                 	drvr current startup timestamp
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: num_intf_ports
                                 
@@ -4485,12 +5103,16 @@ class Fia(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: uc_weight
                                 
                                 	uc weight
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: respawn_count
                                 
@@ -4499,6 +5121,8 @@ class Fia(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: total_asics
                                 
                                 	total asics
@@ -4506,20 +5130,28 @@ class Fia(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: issu_ready_ntfy_pending
                                 
                                 	issu ready ntfy pending
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: issu_abort_sent
                                 
                                 	issu abort sent
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: issu_abort_rcvd
                                 
                                 	issu abort rcvd
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: fabric_mode
                                 
@@ -4528,10 +5160,14 @@ class Fia(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fc_mode
                                 
                                 	FC Mode
                                 	**type**\:  :py:class:`FcMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.FcMode>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: board_rev_id
                                 
@@ -4540,10 +5176,14 @@ class Fia(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: all_wb_insync
                                 
                                 	all wb insync
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: all_wb_insync_since
                                 
@@ -4552,10 +5192,14 @@ class Fia(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: all_startup_wb_insync
                                 
                                 	all startup wb insync
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: plane_a_bitmap
                                 
@@ -4564,6 +5208,8 @@ class Fia(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: plane_b_bitmap
                                 
                                 	planeB bitmap
@@ -4571,15 +5217,21 @@ class Fia(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: device_info
                                 
                                 	device info
                                 	**type**\: list of  		 :py:class:`DeviceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: card_info
                                 
                                 	card info
                                 	**type**\: list of  		 :py:class:`CardInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4706,7 +5358,7 @@ class Fia(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot, ['slot', u'drv_version', u'coeff_major_rev', u'coeff_minor_rev', u'functional_role', u'issu_role', u'node_id', u'rack_type', u'rack_num', u'is_driver_ready', u'card_avail_mask', u'asic_avail_mask', u'exp_asic_avail_mask', u'ucmc_ratio', u'asic_oper_notify_to_fsdb_pending_bmap', u'is_full_fgid_download_req', u'is_fgid_download_in_progress', u'is_fgid_download_completed', u'fsdb_conn_active', u'fgid_conn_active', u'issu_mgr_conn_active', u'fsdb_reg_active', u'fgid_reg_active', u'issu_mgr_reg_active', u'num_pm_conn_reqs', u'num_fsdb_conn_reqs', u'num_fgid_conn_reqs', u'num_fstats_conn_reqs', u'num_cm_conn_reqs', u'num_issu_mgr_conn_reqs', u'num_peer_fia_conn_reqs', u'is_gaspp_registered', u'is_cih_registered', u'drvr_initial_startup_timestamp', u'drvr_current_startup_timestamp', u'num_intf_ports', u'uc_weight', u'respawn_count', u'total_asics', u'issu_ready_ntfy_pending', u'issu_abort_sent', u'issu_abort_rcvd', u'fabric_mode', u'fc_mode', u'board_rev_id', u'all_wb_insync', u'all_wb_insync_since', u'all_startup_wb_insync', u'plane_a_bitmap', u'plane_b_bitmap'], name, value)
+                                    self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot, ['slot', 'drv_version', 'coeff_major_rev', 'coeff_minor_rev', 'functional_role', 'issu_role', 'node_id', 'rack_type', 'rack_num', 'is_driver_ready', 'card_avail_mask', 'asic_avail_mask', 'exp_asic_avail_mask', 'ucmc_ratio', 'asic_oper_notify_to_fsdb_pending_bmap', 'is_full_fgid_download_req', 'is_fgid_download_in_progress', 'is_fgid_download_completed', 'fsdb_conn_active', 'fgid_conn_active', 'issu_mgr_conn_active', 'fsdb_reg_active', 'fgid_reg_active', 'issu_mgr_reg_active', 'num_pm_conn_reqs', 'num_fsdb_conn_reqs', 'num_fgid_conn_reqs', 'num_fstats_conn_reqs', 'num_cm_conn_reqs', 'num_issu_mgr_conn_reqs', 'num_peer_fia_conn_reqs', 'is_gaspp_registered', 'is_cih_registered', 'drvr_initial_startup_timestamp', 'drvr_current_startup_timestamp', 'num_intf_ports', 'uc_weight', 'respawn_count', 'total_asics', 'issu_ready_ntfy_pending', 'issu_abort_sent', 'issu_abort_rcvd', 'fabric_mode', 'fc_mode', 'board_rev_id', 'all_wb_insync', 'all_wb_insync_since', 'all_startup_wb_insync', 'plane_a_bitmap', 'plane_b_bitmap'], name, value)
 
 
                                 class DeviceInfo(Entity):
@@ -4718,10 +5370,14 @@ class Fia(Entity):
                                     	asic id
                                     	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: is_valid
                                     
                                     	is valid
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: fapid
                                     
@@ -4730,6 +5386,8 @@ class Fia(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: hotplug_event
                                     
                                     	hotplug event
@@ -4737,30 +5395,42 @@ class Fia(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: slice_state
                                     
                                     	Slice State
                                     	**type**\:  :py:class:`SliceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.SliceState>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: admin_state
                                     
                                     	Admin State
                                     	**type**\:  :py:class:`AdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminState>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: oper_state
                                     
                                     	Oper State
                                     	**type**\:  :py:class:`AsicOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicOperState>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: asic_state
                                     
                                     	Asic State
                                     	**type**\:  :py:class:`AsicAccessState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicAccessState>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_init_cause
                                     
                                     	last init cause
                                     	**type**\:  :py:class:`AsicInitMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicInitMethod>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: num_pon_resets
                                     
@@ -4769,6 +5439,8 @@ class Fia(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: num_hard_resets
                                     
                                     	num hard resets
@@ -4776,35 +5448,49 @@ class Fia(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: local_switch_state
                                     
                                     	local switch state
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: startup_wb_mtime_str
                                     
                                     	startup wb mtime str
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: startup_wb_outof_sync
                                     
                                     	startup wb outof sync
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: local_wb_sync_end_str
                                     
                                     	local wb sync end str
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: remote_wb_sync_end_str
                                     
                                     	remote wb sync end str
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: local_wb_sync_pending
                                     
                                     	local wb sync pending
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sdk_delay_msec
                                     
@@ -4812,6 +5498,8 @@ class Fia(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4873,7 +5561,7 @@ class Fia(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo, [u'is_valid', u'fapid', u'hotplug_event', u'slice_state', u'admin_state', u'oper_state', u'asic_state', u'last_init_cause', u'num_pon_resets', u'num_hard_resets', u'local_switch_state', u'startup_wb_mtime_str', u'startup_wb_outof_sync', u'local_wb_sync_end_str', u'remote_wb_sync_end_str', u'local_wb_sync_pending', u'sdk_delay_msec'], name, value)
+                                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo, ['is_valid', 'fapid', 'hotplug_event', 'slice_state', 'admin_state', 'oper_state', 'asic_state', 'last_init_cause', 'num_pon_resets', 'num_hard_resets', 'local_switch_state', 'startup_wb_mtime_str', 'startup_wb_outof_sync', 'local_wb_sync_end_str', 'remote_wb_sync_end_str', 'local_wb_sync_pending', 'sdk_delay_msec'], name, value)
 
 
                                     class AsicId(Entity):
@@ -4885,10 +5573,14 @@ class Fia(Entity):
                                         	Rack Type
                                         	**type**\:  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Rack>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: asic_type
                                         
                                         	Asic Type
                                         	**type**\:  :py:class:`Asic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Asic>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: rack_num
                                         
@@ -4897,6 +5589,8 @@ class Fia(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: slot_num
                                         
                                         	slot num
@@ -4904,12 +5598,16 @@ class Fia(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: asic_instance
                                         
                                         	asic instance
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4943,7 +5641,9 @@ class Fia(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
+                                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+
+
 
 
                                 class CardInfo(Entity):
@@ -4955,6 +5655,8 @@ class Fia(Entity):
                                     	oir circular buffer
                                     	**type**\:  :py:class:`OirCircularBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: card_type
                                     
                                     	card type
@@ -4962,10 +5664,14 @@ class Fia(Entity):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: card_name
                                     
                                     	card name
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: slot_no
                                     
@@ -4974,12 +5680,16 @@ class Fia(Entity):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: card_flag
                                     
                                     	card flag
                                     	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: evt_flag
                                     
@@ -4988,12 +5698,16 @@ class Fia(Entity):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: reg_flag
                                     
                                     	reg flag
                                     	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: instance
                                     
@@ -5002,12 +5716,16 @@ class Fia(Entity):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: card_state
                                     
                                     	card state
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: exp_num_asics
                                     
@@ -5016,6 +5734,8 @@ class Fia(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: exp_num_asics_per_fsdb
                                     
                                     	exp num asics per fsdb
@@ -5023,10 +5743,14 @@ class Fia(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: is_powered
                                     
                                     	is powered
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: cxp_avail_bitmap
                                     
@@ -5035,12 +5759,16 @@ class Fia(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: num_ilkns_per_asic
                                     
                                     	num ilkns per asic
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: num_local_ports_per_ilkn
                                     
@@ -5049,12 +5777,16 @@ class Fia(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: num_cos_per_port
                                     
                                     	num cos per port
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5112,7 +5844,7 @@ class Fia(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo, [u'card_type', u'card_name', u'slot_no', u'card_flag', u'evt_flag', u'reg_flag', u'instance', u'card_state', u'exp_num_asics', u'exp_num_asics_per_fsdb', u'is_powered', u'cxp_avail_bitmap', u'num_ilkns_per_asic', u'num_local_ports_per_ilkn', u'num_cos_per_port'], name, value)
+                                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo, ['card_type', 'card_name', 'slot_no', 'card_flag', 'evt_flag', 'reg_flag', 'instance', 'card_state', 'exp_num_asics', 'exp_num_asics_per_fsdb', 'is_powered', 'cxp_avail_bitmap', 'num_ilkns_per_asic', 'num_local_ports_per_ilkn', 'num_cos_per_port'], name, value)
 
 
                                     class OirCircularBuffer(Entity):
@@ -5126,12 +5858,16 @@ class Fia(Entity):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: start
                                         
                                         	start
                                         	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: end
                                         
@@ -5140,10 +5876,14 @@ class Fia(Entity):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: fia_oir_info
                                         
                                         	fia oir info
                                         	**type**\: list of  		 :py:class:`FiaOirInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5175,7 +5915,7 @@ class Fia(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer, [u'count', u'start', u'end'], name, value)
+                                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer, ['count', 'start', 'end'], name, value)
 
 
                                         class FiaOirInfo(Entity):
@@ -5189,12 +5929,16 @@ class Fia(Entity):
                                             
                                             	**range:** \-2147483648..2147483647
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: card_type
                                             
                                             	card type
                                             	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: reg_flag
                                             
@@ -5203,12 +5947,16 @@ class Fia(Entity):
                                             
                                             	**range:** \-2147483648..2147483647
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: evt_flag
                                             
                                             	evt flag
                                             	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: rack_num
                                             
@@ -5217,6 +5965,8 @@ class Fia(Entity):
                                             
                                             	**range:** \-2147483648..2147483647
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: instance
                                             
                                             	instance
@@ -5224,12 +5974,16 @@ class Fia(Entity):
                                             
                                             	**range:** \-2147483648..2147483647
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: cur_card_state
                                             
                                             	cur card state
                                             	**type**\: int
                                             
                                             	**range:** \-2147483648..2147483647
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -5267,7 +6021,15 @@ class Fia(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo, [u'card_flag', u'card_type', u'reg_flag', u'evt_flag', u'rack_num', u'instance', u'cur_card_state'], name, value)
+                                                self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo, ['card_flag', 'card_type', 'reg_flag', 'evt_flag', 'rack_num', 'instance', 'cur_card_state'], name, value)
+
+
+
+
+
+
+
+
 
 
             class AsicStatistics(Entity):
@@ -5278,6 +6040,8 @@ class Fia(Entity):
                 
                 	Instance table for statistics
                 	**type**\:  :py:class:`StatisticsAsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances>`
+                
+                	**config**\: False
                 
                 
 
@@ -5316,6 +6080,8 @@ class Fia(Entity):
                     	Asic instance for statistics
                     	**type**\: list of  		 :py:class:`StatisticsAsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -5353,15 +6119,21 @@ class Fia(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: pbc_statistics
                         
                         	Packet Byte Counter for a Asic
                         	**type**\:  :py:class:`PbcStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: fmac_statistics
                         
                         	Statistics of FMAC
                         	**type**\:  :py:class:`FmacStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5407,6 +6179,8 @@ class Fia(Entity):
                             	PBC stats bag
                             	**type**\:  :py:class:`PbcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -5444,10 +6218,14 @@ class Fia(Entity):
                                 	stats info
                                 	**type**\:  :py:class:`StatsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: valid
                                 
                                 	valid
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: rack_no
                                 
@@ -5456,12 +6234,16 @@ class Fia(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: slot_no
                                 
                                 	slot no
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: asic_instance
                                 
@@ -5470,12 +6252,16 @@ class Fia(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: chip_ver
                                 
                                 	chip ver
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5513,7 +6299,7 @@ class Fia(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats, [u'valid', u'rack_no', u'slot_no', u'asic_instance', u'chip_ver'], name, value)
+                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats, ['valid', 'rack_no', 'slot_no', 'asic_instance', 'chip_ver'], name, value)
 
 
                                 class StatsInfo(Entity):
@@ -5527,10 +6313,14 @@ class Fia(Entity):
                                     
                                     	**range:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: block_info
                                     
                                     	block info
                                     	**type**\: list of  		 :py:class:`BlockInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5558,7 +6348,7 @@ class Fia(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo, [u'num_blocks'], name, value)
+                                        self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo, ['num_blocks'], name, value)
 
 
                                     class BlockInfo(Entity):
@@ -5572,6 +6362,8 @@ class Fia(Entity):
                                         
                                         	**length:** 0..10
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: num_fields
                                         
                                         	Num Fields
@@ -5579,10 +6371,14 @@ class Fia(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: field_info
                                         
                                         	field info
                                         	**type**\: list of  		 :py:class:`FieldInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5612,7 +6408,7 @@ class Fia(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo, [u'block_name', u'num_fields'], name, value)
+                                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo, ['block_name', 'num_fields'], name, value)
 
 
                                         class FieldInfo(Entity):
@@ -5626,6 +6422,8 @@ class Fia(Entity):
                                             
                                             	**length:** 0..80
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: field_value
                                             
                                             	Field Value
@@ -5633,10 +6431,14 @@ class Fia(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: is_ovf
                                             
                                             	Is Ovf
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -5666,7 +6468,12 @@ class Fia(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo, [u'field_name', u'field_value', u'is_ovf'], name, value)
+                                                self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo, ['field_name', 'field_value', 'is_ovf'], name, value)
+
+
+
+
+
 
 
                         class FmacStatistics(Entity):
@@ -5677,6 +6484,8 @@ class Fia(Entity):
                             
                             	Link table for statistics
                             	**type**\:  :py:class:`FmacLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -5715,6 +6524,8 @@ class Fia(Entity):
                                 	Link number for statistics
                                 	**type**\: list of  		 :py:class:`FmacLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -5752,10 +6563,14 @@ class Fia(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fmac_asic
                                     
                                     	Single aisc information
                                     	**type**\: list of  		 :py:class:`FmacAsic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5797,20 +6612,28 @@ class Fia(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: aggr_stats
                                         
                                         	aggr stats
                                         	**type**\:  :py:class:`AggrStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: incr_stats
                                         
                                         	incr stats
                                         	**type**\:  :py:class:`IncrStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: valid
                                         
                                         	valid
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: rack_no
                                         
@@ -5819,12 +6642,16 @@ class Fia(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: slot_no
                                         
                                         	slot no
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: asic_instance
                                         
@@ -5833,6 +6660,8 @@ class Fia(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: link_no
                                         
                                         	link no
@@ -5840,10 +6669,14 @@ class Fia(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: link_valid
                                         
                                         	link valid
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5889,7 +6722,7 @@ class Fia(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic, ['asic', u'valid', u'rack_no', u'slot_no', u'asic_instance', u'link_no', u'link_valid'], name, value)
+                                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic, ['asic', 'valid', 'rack_no', 'slot_no', 'asic_instance', 'link_no', 'link_valid'], name, value)
 
 
                                         class AggrStats(Entity):
@@ -5901,15 +6734,21 @@ class Fia(Entity):
                                             	link error status
                                             	**type**\:  :py:class:`LinkErrorStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: link_counters
                                             
                                             	link counters
                                             	**type**\:  :py:class:`LinkCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ovf_status
                                             
                                             	ovf status
                                             	**type**\:  :py:class:`OvfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -5958,12 +6797,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: link_size_error
                                                 
                                                 	link size error
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: link_mis_align_error
                                                 
@@ -5972,12 +6815,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: link_code_group_error
                                                 
                                                 	link code group error
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: link_no_sig_lock_error
                                                 
@@ -5986,12 +6833,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: link_no_sig_accept_error
                                                 
                                                 	link no sig accept error
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: link_tokens_error
                                                 
@@ -6000,12 +6851,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: error_token_count
                                                 
                                                 	error token count
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -6045,7 +6900,8 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus, [u'link_crc_error', u'link_size_error', u'link_mis_align_error', u'link_code_group_error', u'link_no_sig_lock_error', u'link_no_sig_accept_error', u'link_tokens_error', u'error_token_count'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus, ['link_crc_error', 'link_size_error', 'link_mis_align_error', 'link_code_group_error', 'link_no_sig_lock_error', 'link_no_sig_accept_error', 'link_tokens_error', 'error_token_count'], name, value)
+
 
 
                                             class LinkCounters(Entity):
@@ -6059,12 +6915,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: tx_data_cell_counter
                                                 
                                                 	TX Data cell counter
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: tx_data_byte_counter
                                                 
@@ -6073,12 +6933,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_crc_errors_counter
                                                 
                                                 	RX CRC errors counter
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: rx_lfec_fec_correctable_error
                                                 
@@ -6087,12 +6951,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_8b_10b_disparity_errors
                                                 
                                                 	RX 8b 10b disparity errors
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: rx_control_cells_counter
                                                 
@@ -6101,12 +6969,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_data_cell_counter
                                                 
                                                 	RX Data cell counter
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: rx_data_byte_counter
                                                 
@@ -6115,12 +6987,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_dropped_retransmitted_control
                                                 
                                                 	RX dropped retransmitted control
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: tx_asyn_fifo_rate
                                                 
@@ -6129,12 +7005,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_asyn_fifo_rate
                                                 
                                                 	RX Asyn fifo rate
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: rx_lfec_fec_uncorrectable_errors
                                                 
@@ -6143,12 +7023,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_8b_10b_code_errors
                                                 
                                                 	RX 8b 10b code errors
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -6200,7 +7084,8 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters, [u'tx_control_cells_counter', u'tx_data_cell_counter', u'tx_data_byte_counter', u'rx_crc_errors_counter', u'rx_lfec_fec_correctable_error', u'rx_8b_10b_disparity_errors', u'rx_control_cells_counter', u'rx_data_cell_counter', u'rx_data_byte_counter', u'rx_dropped_retransmitted_control', u'tx_asyn_fifo_rate', u'rx_asyn_fifo_rate', u'rx_lfec_fec_uncorrectable_errors', u'rx_8b_10b_code_errors'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters, ['tx_control_cells_counter', 'tx_data_cell_counter', 'tx_data_byte_counter', 'rx_crc_errors_counter', 'rx_lfec_fec_correctable_error', 'rx_8b_10b_disparity_errors', 'rx_control_cells_counter', 'rx_data_cell_counter', 'rx_data_byte_counter', 'rx_dropped_retransmitted_control', 'tx_asyn_fifo_rate', 'rx_asyn_fifo_rate', 'rx_lfec_fec_uncorrectable_errors', 'rx_8b_10b_code_errors'], name, value)
+
 
 
                                             class OvfStatus(Entity):
@@ -6214,12 +7099,16 @@ class Fia(Entity):
                                                 
                                                 	**length:** 0..6
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: tx_data_cell_counter
                                                 
                                                 	TX Data cell counter
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..6
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: tx_data_byte_counter
                                                 
@@ -6228,12 +7117,16 @@ class Fia(Entity):
                                                 
                                                 	**length:** 0..6
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_crc_errors_counter
                                                 
                                                 	RX CRC errors counter
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..6
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: rx_lfec_fec_correctable_error
                                                 
@@ -6242,12 +7135,16 @@ class Fia(Entity):
                                                 
                                                 	**length:** 0..6
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_8b_10b_disparity_errors
                                                 
                                                 	RX 8b 10b disparity errors
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..6
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: rx_control_cells_counter
                                                 
@@ -6256,12 +7153,16 @@ class Fia(Entity):
                                                 
                                                 	**length:** 0..6
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_data_cell_counter
                                                 
                                                 	RX Data cell counter
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..6
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: rx_data_byte_counter
                                                 
@@ -6270,12 +7171,16 @@ class Fia(Entity):
                                                 
                                                 	**length:** 0..6
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_dropped_retransmitted_control
                                                 
                                                 	RX dropped retransmitted control
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..6
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: tx_asyn_fifo_rate
                                                 
@@ -6284,12 +7189,16 @@ class Fia(Entity):
                                                 
                                                 	**length:** 0..6
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_asyn_fifo_rate
                                                 
                                                 	RX Asyn fifo rate
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..6
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: rx_lfec_fec_uncorrectable_errors
                                                 
@@ -6298,12 +7207,16 @@ class Fia(Entity):
                                                 
                                                 	**length:** 0..6
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_8b_10b_code_errors
                                                 
                                                 	RX 8b 10b code errors
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..6
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -6355,7 +7268,9 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus, [u'tx_control_cells_counter', u'tx_data_cell_counter', u'tx_data_byte_counter', u'rx_crc_errors_counter', u'rx_lfec_fec_correctable_error', u'rx_8b_10b_disparity_errors', u'rx_control_cells_counter', u'rx_data_cell_counter', u'rx_data_byte_counter', u'rx_dropped_retransmitted_control', u'tx_asyn_fifo_rate', u'rx_asyn_fifo_rate', u'rx_lfec_fec_uncorrectable_errors', u'rx_8b_10b_code_errors'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus, ['tx_control_cells_counter', 'tx_data_cell_counter', 'tx_data_byte_counter', 'rx_crc_errors_counter', 'rx_lfec_fec_correctable_error', 'rx_8b_10b_disparity_errors', 'rx_control_cells_counter', 'rx_data_cell_counter', 'rx_data_byte_counter', 'rx_dropped_retransmitted_control', 'tx_asyn_fifo_rate', 'rx_asyn_fifo_rate', 'rx_lfec_fec_uncorrectable_errors', 'rx_8b_10b_code_errors'], name, value)
+
+
 
 
                                         class IncrStats(Entity):
@@ -6367,15 +7282,21 @@ class Fia(Entity):
                                             	link error status
                                             	**type**\:  :py:class:`LinkErrorStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: link_counters
                                             
                                             	link counters
                                             	**type**\:  :py:class:`LinkCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ovf_status
                                             
                                             	ovf status
                                             	**type**\:  :py:class:`OvfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -6424,12 +7345,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: link_size_error
                                                 
                                                 	link size error
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: link_mis_align_error
                                                 
@@ -6438,12 +7363,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: link_code_group_error
                                                 
                                                 	link code group error
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: link_no_sig_lock_error
                                                 
@@ -6452,12 +7381,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: link_no_sig_accept_error
                                                 
                                                 	link no sig accept error
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: link_tokens_error
                                                 
@@ -6466,12 +7399,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: error_token_count
                                                 
                                                 	error token count
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -6511,7 +7448,8 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus, [u'link_crc_error', u'link_size_error', u'link_mis_align_error', u'link_code_group_error', u'link_no_sig_lock_error', u'link_no_sig_accept_error', u'link_tokens_error', u'error_token_count'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus, ['link_crc_error', 'link_size_error', 'link_mis_align_error', 'link_code_group_error', 'link_no_sig_lock_error', 'link_no_sig_accept_error', 'link_tokens_error', 'error_token_count'], name, value)
+
 
 
                                             class LinkCounters(Entity):
@@ -6525,12 +7463,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: tx_data_cell_counter
                                                 
                                                 	TX Data cell counter
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: tx_data_byte_counter
                                                 
@@ -6539,12 +7481,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_crc_errors_counter
                                                 
                                                 	RX CRC errors counter
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: rx_lfec_fec_correctable_error
                                                 
@@ -6553,12 +7499,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_8b_10b_disparity_errors
                                                 
                                                 	RX 8b 10b disparity errors
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: rx_control_cells_counter
                                                 
@@ -6567,12 +7517,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_data_cell_counter
                                                 
                                                 	RX Data cell counter
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: rx_data_byte_counter
                                                 
@@ -6581,12 +7535,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_dropped_retransmitted_control
                                                 
                                                 	RX dropped retransmitted control
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: tx_asyn_fifo_rate
                                                 
@@ -6595,12 +7553,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_asyn_fifo_rate
                                                 
                                                 	RX Asyn fifo rate
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: rx_lfec_fec_uncorrectable_errors
                                                 
@@ -6609,12 +7571,16 @@ class Fia(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_8b_10b_code_errors
                                                 
                                                 	RX 8b 10b code errors
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -6666,7 +7632,8 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters, [u'tx_control_cells_counter', u'tx_data_cell_counter', u'tx_data_byte_counter', u'rx_crc_errors_counter', u'rx_lfec_fec_correctable_error', u'rx_8b_10b_disparity_errors', u'rx_control_cells_counter', u'rx_data_cell_counter', u'rx_data_byte_counter', u'rx_dropped_retransmitted_control', u'tx_asyn_fifo_rate', u'rx_asyn_fifo_rate', u'rx_lfec_fec_uncorrectable_errors', u'rx_8b_10b_code_errors'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters, ['tx_control_cells_counter', 'tx_data_cell_counter', 'tx_data_byte_counter', 'rx_crc_errors_counter', 'rx_lfec_fec_correctable_error', 'rx_8b_10b_disparity_errors', 'rx_control_cells_counter', 'rx_data_cell_counter', 'rx_data_byte_counter', 'rx_dropped_retransmitted_control', 'tx_asyn_fifo_rate', 'rx_asyn_fifo_rate', 'rx_lfec_fec_uncorrectable_errors', 'rx_8b_10b_code_errors'], name, value)
+
 
 
                                             class OvfStatus(Entity):
@@ -6680,12 +7647,16 @@ class Fia(Entity):
                                                 
                                                 	**length:** 0..6
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: tx_data_cell_counter
                                                 
                                                 	TX Data cell counter
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..6
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: tx_data_byte_counter
                                                 
@@ -6694,12 +7665,16 @@ class Fia(Entity):
                                                 
                                                 	**length:** 0..6
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_crc_errors_counter
                                                 
                                                 	RX CRC errors counter
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..6
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: rx_lfec_fec_correctable_error
                                                 
@@ -6708,12 +7683,16 @@ class Fia(Entity):
                                                 
                                                 	**length:** 0..6
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_8b_10b_disparity_errors
                                                 
                                                 	RX 8b 10b disparity errors
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..6
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: rx_control_cells_counter
                                                 
@@ -6722,12 +7701,16 @@ class Fia(Entity):
                                                 
                                                 	**length:** 0..6
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_data_cell_counter
                                                 
                                                 	RX Data cell counter
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..6
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: rx_data_byte_counter
                                                 
@@ -6736,12 +7719,16 @@ class Fia(Entity):
                                                 
                                                 	**length:** 0..6
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_dropped_retransmitted_control
                                                 
                                                 	RX dropped retransmitted control
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..6
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: tx_asyn_fifo_rate
                                                 
@@ -6750,12 +7737,16 @@ class Fia(Entity):
                                                 
                                                 	**length:** 0..6
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_asyn_fifo_rate
                                                 
                                                 	RX Asyn fifo rate
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..6
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: rx_lfec_fec_uncorrectable_errors
                                                 
@@ -6764,12 +7755,16 @@ class Fia(Entity):
                                                 
                                                 	**length:** 0..6
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rx_8b_10b_code_errors
                                                 
                                                 	RX 8b 10b code errors
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..6
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -6821,9 +7816,22 @@ class Fia(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus, [u'tx_control_cells_counter', u'tx_data_cell_counter', u'tx_data_byte_counter', u'rx_crc_errors_counter', u'rx_lfec_fec_correctable_error', u'rx_8b_10b_disparity_errors', u'rx_control_cells_counter', u'rx_data_cell_counter', u'rx_data_byte_counter', u'rx_dropped_retransmitted_control', u'tx_asyn_fifo_rate', u'rx_asyn_fifo_rate', u'rx_lfec_fec_uncorrectable_errors', u'rx_8b_10b_code_errors'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus, ['tx_control_cells_counter', 'tx_data_cell_counter', 'tx_data_byte_counter', 'rx_crc_errors_counter', 'rx_lfec_fec_correctable_error', 'rx_8b_10b_disparity_errors', 'rx_control_cells_counter', 'rx_data_cell_counter', 'rx_data_byte_counter', 'rx_dropped_retransmitted_control', 'tx_asyn_fifo_rate', 'rx_asyn_fifo_rate', 'rx_lfec_fec_uncorrectable_errors', 'rx_8b_10b_code_errors'], name, value)
+
+
+
+
+
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Fia()
         return self._top_entity
+
+
 

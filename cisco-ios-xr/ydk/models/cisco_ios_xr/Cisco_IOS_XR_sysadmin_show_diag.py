@@ -34,35 +34,49 @@ class Diag(Entity):
     	
     	**type**\:  :py:class:`Default <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Default>`
     
+    	**config**\: False
+    
     .. attribute:: fans
     
     	
     	**type**\:  :py:class:`Fans <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Fans>`
+    
+    	**config**\: False
     
     .. attribute:: power_supply
     
     	
     	**type**\:  :py:class:`PowerSupply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.PowerSupply>`
     
+    	**config**\: False
+    
     .. attribute:: chassis
     
     	
     	**type**\:  :py:class:`Chassis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Chassis>`
+    
+    	**config**\: False
     
     .. attribute:: summary
     
     	
     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Summary>`
     
+    	**config**\: False
+    
     .. attribute:: eeprom
     
     	
     	**type**\:  :py:class:`Eeprom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Eeprom>`
     
+    	**config**\: False
+    
     .. attribute:: detail
     
     	
     	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Detail>`
+    
+    	**config**\: False
     
     
 
@@ -126,6 +140,8 @@ class Diag(Entity):
         	
         	**type**\: list of  		 :py:class:`DefaultList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Default.DefaultList>`
         
+        	**config**\: False
+        
         
 
         """
@@ -162,10 +178,14 @@ class Diag(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: default_data
             
             	
             	**type**\:  :py:class:`DefaultData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Default.DefaultList.DefaultData>`
+            
+            	**config**\: False
             
             
 
@@ -208,6 +228,8 @@ class Diag(Entity):
                 	
                 	**type**\: list of str
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -235,6 +257,9 @@ class Diag(Entity):
                     self._perform_setattr(Diag.Default.DefaultList.DefaultData, ['default_out_list'], name, value)
 
 
+
+
+
     class Fans(Entity):
         """
         
@@ -243,6 +268,8 @@ class Diag(Entity):
         
         	
         	**type**\: list of  		 :py:class:`FansList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Fans.FansList>`
+        
+        	**config**\: False
         
         
 
@@ -280,10 +307,14 @@ class Diag(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: default_data
             
             	
             	**type**\:  :py:class:`DefaultData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Fans.FansList.DefaultData>`
+            
+            	**config**\: False
             
             
 
@@ -326,6 +357,8 @@ class Diag(Entity):
                 	
                 	**type**\: list of str
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -353,6 +386,9 @@ class Diag(Entity):
                     self._perform_setattr(Diag.Fans.FansList.DefaultData, ['default_out_list'], name, value)
 
 
+
+
+
     class PowerSupply(Entity):
         """
         
@@ -361,6 +397,8 @@ class Diag(Entity):
         
         	
         	**type**\: list of  		 :py:class:`PwrList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.PowerSupply.PwrList>`
+        
+        	**config**\: False
         
         
 
@@ -398,10 +436,14 @@ class Diag(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: default_data
             
             	
             	**type**\:  :py:class:`DefaultData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.PowerSupply.PwrList.DefaultData>`
+            
+            	**config**\: False
             
             
 
@@ -444,6 +486,8 @@ class Diag(Entity):
                 	
                 	**type**\: list of str
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -471,6 +515,9 @@ class Diag(Entity):
                     self._perform_setattr(Diag.PowerSupply.PwrList.DefaultData, ['default_out_list'], name, value)
 
 
+
+
+
     class Chassis(Entity):
         """
         
@@ -480,10 +527,14 @@ class Diag(Entity):
         	
         	**type**\:  :py:class:`ChassisCnt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Chassis.ChassisCnt>`
         
+        	**config**\: False
+        
         .. attribute:: chassis_eeprom_cnt
         
         	
         	**type**\:  :py:class:`ChassisEepromCnt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Chassis.ChassisEepromCnt>`
+        
+        	**config**\: False
         
         
 
@@ -527,6 +578,8 @@ class Diag(Entity):
             	
             	**type**\: list of  		 :py:class:`ChassisList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Chassis.ChassisCnt.ChassisList>`
             
+            	**config**\: False
+            
             
 
             """
@@ -563,10 +616,14 @@ class Diag(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: default_data
                 
                 	
                 	**type**\:  :py:class:`DefaultData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Chassis.ChassisCnt.ChassisList.DefaultData>`
+                
+                	**config**\: False
                 
                 
 
@@ -609,6 +666,8 @@ class Diag(Entity):
                     	
                     	**type**\: list of str
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -636,6 +695,9 @@ class Diag(Entity):
                         self._perform_setattr(Diag.Chassis.ChassisCnt.ChassisList.DefaultData, ['default_out_list'], name, value)
 
 
+
+
+
         class ChassisEepromCnt(Entity):
             """
             
@@ -644,6 +706,8 @@ class Diag(Entity):
             
             	
             	**type**\: list of  		 :py:class:`ChassisEepromList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Chassis.ChassisEepromCnt.ChassisEepromList>`
+            
+            	**config**\: False
             
             
 
@@ -681,10 +745,14 @@ class Diag(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: eeprom_data
                 
                 	
                 	**type**\:  :py:class:`EepromData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Chassis.ChassisEepromCnt.ChassisEepromList.EepromData>`
+                
+                	**config**\: False
                 
                 
 
@@ -727,6 +795,8 @@ class Diag(Entity):
                     	
                     	**type**\: list of str
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -754,6 +824,10 @@ class Diag(Entity):
                         self._perform_setattr(Diag.Chassis.ChassisEepromCnt.ChassisEepromList.EepromData, ['raw_list'], name, value)
 
 
+
+
+
+
     class Summary(Entity):
         """
         
@@ -762,6 +836,8 @@ class Diag(Entity):
         
         	
         	**type**\: list of  		 :py:class:`SummaryList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Summary.SummaryList>`
+        
+        	**config**\: False
         
         
 
@@ -799,10 +875,14 @@ class Diag(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: summary_data
             
             	
             	**type**\:  :py:class:`SummaryData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Summary.SummaryList.SummaryData>`
+            
+            	**config**\: False
             
             
 
@@ -845,6 +925,8 @@ class Diag(Entity):
                 	
                 	**type**\: list of str
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -872,6 +954,9 @@ class Diag(Entity):
                     self._perform_setattr(Diag.Summary.SummaryList.SummaryData, ['summary_out_list'], name, value)
 
 
+
+
+
     class Eeprom(Entity):
         """
         
@@ -880,6 +965,8 @@ class Diag(Entity):
         
         	
         	**type**\: list of  		 :py:class:`EepromList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Eeprom.EepromList>`
+        
+        	**config**\: False
         
         
 
@@ -917,10 +1004,14 @@ class Diag(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: eeprom_data
             
             	
             	**type**\:  :py:class:`EepromData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Eeprom.EepromList.EepromData>`
+            
+            	**config**\: False
             
             
 
@@ -963,6 +1054,8 @@ class Diag(Entity):
                 	
                 	**type**\: list of str
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -990,6 +1083,9 @@ class Diag(Entity):
                     self._perform_setattr(Diag.Eeprom.EepromList.EepromData, ['raw_list'], name, value)
 
 
+
+
+
     class Detail(Entity):
         """
         
@@ -998,6 +1094,8 @@ class Diag(Entity):
         
         	
         	**type**\: list of  		 :py:class:`DetailList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Detail.DetailList>`
+        
+        	**config**\: False
         
         
 
@@ -1035,10 +1133,14 @@ class Diag(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: detail_data
             
             	
             	**type**\:  :py:class:`DetailData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_diag.Diag.Detail.DetailList.DetailData>`
+            
+            	**config**\: False
             
             
 
@@ -1081,6 +1183,8 @@ class Diag(Entity):
                 	
                 	**type**\: list of str
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1107,7 +1211,12 @@ class Diag(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Diag.Detail.DetailList.DetailData, ['detail_out_list'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Diag()
         return self._top_entity
+
+
 

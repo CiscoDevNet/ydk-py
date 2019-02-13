@@ -364,6 +364,9 @@ class Rsvp(Entity):
                     self._perform_setattr(Rsvp.Neighbors.Neighbor.Authentication, ['life_time', 'enable', 'window_size', 'key_chain'], name, value)
 
 
+
+
+
     class Controllers(Entity):
         """
         Controller table
@@ -543,6 +546,10 @@ class Rsvp(Entity):
                         self._perform_setattr(Rsvp.Controllers.Controller.CntlSignalling.OutOfBand, ['missed_messages', 'refresh_interval'], name, value)
 
 
+
+
+
+
     class GlobalLogging(Entity):
         """
         Global Logging
@@ -585,6 +592,7 @@ class Rsvp(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(Rsvp.GlobalLogging, ['log_nsr_status', 'log_issu_status'], name, value)
+
 
 
     class GlobalBandwidth(Entity):
@@ -730,6 +738,7 @@ class Rsvp(Entity):
                     self._perform_setattr(Rsvp.GlobalBandwidth.DefaultInterfacePercent.Mam, ['max_res_percent', 'bc0_percent', 'bc1_percent'], name, value)
 
 
+
             class Rdm(Entity):
                 """
                 Configure global default RDM I/F percent
@@ -777,6 +786,9 @@ class Rsvp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rsvp.GlobalBandwidth.DefaultInterfacePercent.Rdm, ['bc0_percent', 'bc1_percent'], name, value)
+
+
+
 
 
     class Interfaces(Entity):
@@ -1099,6 +1111,7 @@ class Rsvp(Entity):
                         self._perform_setattr(Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction, ['disable', 'reliable_ack_max_size', 'reliable_ack_hold_time', 'reliable_retransmit_time', 'reliable_s_refresh', 'summary_max_size', 'bundle_message_max_size'], name, value)
 
 
+
                 class IntervalRate(Entity):
                     """
                     Configure number of messages to be sent per
@@ -1153,6 +1166,7 @@ class Rsvp(Entity):
                         self._perform_setattr(Rsvp.Interfaces.Interface.IfSignalling.IntervalRate, ['messages_per_interval', 'interval_size'], name, value)
 
 
+
                 class OutOfBand(Entity):
                     """
                     Configure RSVP out\-of\-band signalling parameters
@@ -1202,6 +1216,8 @@ class Rsvp(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rsvp.Interfaces.Interface.IfSignalling.OutOfBand, ['missed_messages', 'refresh_interval'], name, value)
+
+
 
 
             class Bandwidth(Entity):
@@ -1324,6 +1340,7 @@ class Rsvp(Entity):
                         self._perform_setattr(Rsvp.Interfaces.Interface.Bandwidth.Mam, ['max_resv_bandwidth', 'max_resv_flow', 'bc0_bandwidth', 'bc1_bandwidth', 'bandwidth_mode'], name, value)
 
 
+
                 class Rdm(Entity):
                     """
                     Configure RDM bandwidth parameters
@@ -1410,6 +1427,8 @@ class Rsvp(Entity):
                         self._perform_setattr(Rsvp.Interfaces.Interface.Bandwidth.Rdm, ['max_resv_flow', 'bc0_bandwidth', 'bc1_bandwidth', 'rdm_keyword', 'bc0_keyword', 'bc1_keyword', 'bandwidth_mode'], name, value)
 
 
+
+
             class Authentication(Entity):
                 """
                 Configure RSVP authentication
@@ -1473,6 +1492,9 @@ class Rsvp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rsvp.Interfaces.Interface.Authentication, ['life_time', 'enable', 'window_size', 'key_chain'], name, value)
+
+
+
 
 
     class Signalling(Entity):
@@ -1613,6 +1635,7 @@ class Rsvp(Entity):
                 self._perform_setattr(Rsvp.Signalling.GlobalOutOfBand, ['vrf'], name, value)
 
 
+
         class GracefulRestart(Entity):
             """
             Configure RSVP Graceful\-Restart parameters
@@ -1723,6 +1746,8 @@ class Rsvp(Entity):
                     self._perform_setattr(Rsvp.Signalling.GracefulRestart.LspClassType, ['enable'], name, value)
 
 
+
+
         class PrefixFiltering(Entity):
             """
             Configure prefix filtering parameters
@@ -1809,6 +1834,8 @@ class Rsvp(Entity):
                     self._perform_setattr(Rsvp.Signalling.PrefixFiltering.DefaultDenyAction, ['drop'], name, value)
 
 
+
+
         class Pesr(Entity):
             """
             Sending Path Error with State\-Removal flag
@@ -1846,6 +1873,7 @@ class Rsvp(Entity):
                 self._perform_setattr(Rsvp.Signalling.Pesr, ['disable'], name, value)
 
 
+
         class Checksum(Entity):
             """
             RSVP message checksum computation
@@ -1881,6 +1909,8 @@ class Rsvp(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rsvp.Signalling.Checksum, ['disable'], name, value)
+
+
 
 
     class Authentication(Entity):
@@ -1948,7 +1978,10 @@ class Rsvp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Rsvp.Authentication, ['life_time', 'enable', 'window_size', 'key_chain'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Rsvp()
         return self._top_entity
+
+
 

@@ -29,6 +29,8 @@ class Stat(Entity):
     	Select ship client component
     	**type**\: list of  		 :py:class:`ShipComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ship.Stat.ShipComp>`
     
+    	**config**\: False
+    
     
 
     """
@@ -65,10 +67,14 @@ class Stat(Entity):
         	Name of component
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: process
         
         	
         	**type**\: list of  		 :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ship.Stat.ShipComp.Process>`
+        
+        	**config**\: False
         
         
 
@@ -109,10 +115,14 @@ class Stat(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: client
             
             	
             	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ship.Stat.ShipComp.Process.Client>`
+            
+            	**config**\: False
             
             
 
@@ -152,10 +162,14 @@ class Stat(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: cat
                 
                 	
                 	**type**\: list of  		 :py:class:`Cat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ship.Stat.ShipComp.Process.Client.Cat>`
+                
+                	**config**\: False
                 
                 
 
@@ -195,10 +209,14 @@ class Stat(Entity):
                     	
                     	**type**\:  :py:class:`CatName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ship.Stat.ShipComp.Process.Client.Cat.CatName>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: counter_32b
                     
                     	
                     	**type**\: list of  		 :py:class:`Counter32b <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ship.Stat.ShipComp.Process.Client.Cat.Counter32b>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -381,12 +399,16 @@ class Stat(Entity):
                         	
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter_value
                         
                         	
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: watermark
                         
@@ -395,12 +417,16 @@ class Stat(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: time_stamp
                         
                         	
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: hist_info1
                         
@@ -409,12 +435,16 @@ class Stat(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: hist_info2
                         
                         	
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: hist_info3
                         
@@ -423,12 +453,16 @@ class Stat(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: hist_info4
                         
                         	
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: hist_info5
                         
@@ -437,12 +471,16 @@ class Stat(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: hist_info6
                         
                         	
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: hist_info7
                         
@@ -451,12 +489,16 @@ class Stat(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: hist_info8
                         
                         	
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -506,7 +548,14 @@ class Stat(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Stat.ShipComp.Process.Client.Cat.Counter32b, ['counter_name', 'counter_value', 'watermark', 'time_stamp', 'hist_info1', 'hist_info2', 'hist_info3', 'hist_info4', 'hist_info5', 'hist_info6', 'hist_info7', 'hist_info8'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Stat()
         return self._top_entity
+
+
 

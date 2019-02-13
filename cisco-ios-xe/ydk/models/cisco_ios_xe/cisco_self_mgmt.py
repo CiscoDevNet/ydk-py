@@ -146,6 +146,8 @@ class NetconfYang(Entity):
         	Parser output from configuration  change that is informational only, not an error. This is a read only list containing known informational  messages
         	**type**\: list of  		 :py:class:`ParserMsgIgnore <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.ParserMsgIgnore>`
         
+        	**config**\: False
+        
         .. attribute:: conf_parser_msg_ignore
         
         	Parser output from configuration  change that is informational only, not an error
@@ -155,6 +157,8 @@ class NetconfYang(Entity):
         
         	IOS commands that result in other automatic configurations being applied for which a complete sync is required
         	**type**\: list of  		 :py:class:`FullSyncCli <ydk.models.cisco_ios_xe.cisco_self_mgmt.NetconfYang.CiscoIa.FullSyncCli>`
+        
+        	**config**\: False
         
         .. attribute:: conf_full_sync_cli
         
@@ -167,6 +171,8 @@ class NetconfYang(Entity):
         	**type**\: int
         
         	**range:** \-32768..32767
+        
+        	**config**\: False
         
         .. attribute:: restored
         
@@ -357,6 +363,8 @@ class NetconfYang(Entity):
                     self._perform_setattr(NetconfYang.CiscoIa.SnmpTrapControl.TrapList, ['trap_oid', 'description', 'forward'], name, value)
 
 
+
+
         class PreserveNedPath(Entity):
             """
             Model paths from the NED model to preserve
@@ -401,6 +409,7 @@ class NetconfYang(Entity):
                 self._perform_setattr(NetconfYang.CiscoIa.PreserveNedPath, ['xpath'], name, value)
 
 
+
         class ParserMsgIgnore(Entity):
             """
             Parser output from configuration 
@@ -415,6 +424,8 @@ class NetconfYang(Entity):
             	**type**\: str
             
             	**length:** 1..255
+            
+            	**config**\: False
             
             
 
@@ -442,6 +453,7 @@ class NetconfYang(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NetconfYang.CiscoIa.ParserMsgIgnore, ['message'], name, value)
+
 
 
         class ConfParserMsgIgnore(Entity):
@@ -485,6 +497,7 @@ class NetconfYang(Entity):
                 self._perform_setattr(NetconfYang.CiscoIa.ConfParserMsgIgnore, ['message'], name, value)
 
 
+
         class FullSyncCli(Entity):
             """
             IOS commands that result in other
@@ -497,6 +510,8 @@ class NetconfYang(Entity):
             	**type**\: str
             
             	**length:** 1..255
+            
+            	**config**\: False
             
             
 
@@ -524,6 +539,7 @@ class NetconfYang(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NetconfYang.CiscoIa.FullSyncCli, ['command'], name, value)
+
 
 
         class ConfFullSyncCli(Entity):
@@ -566,6 +582,7 @@ class NetconfYang(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NetconfYang.CiscoIa.ConfFullSyncCli, ['command'], name, value)
+
 
 
         class Logging(Entity):
@@ -652,6 +669,7 @@ class NetconfYang(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NetconfYang.CiscoIa.Logging, ['confd_log_level', 'ciaauthd_log_level', 'nes_log_level', 'onep_log_level', 'odm_log_level', 'sync_log_level'], name, value)
+
 
 
         class Blocking(Entity):
@@ -757,6 +775,7 @@ class NetconfYang(Entity):
                     self._perform_setattr(NetconfYang.CiscoIa.Blocking.NetworkElementCommand, ['command'], name, value)
 
 
+
             class ConfdCfgCommand(Entity):
                 """
                 Command line pattern to omit syncing to Confd CDB
@@ -793,7 +812,12 @@ class NetconfYang(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NetconfYang.CiscoIa.Blocking.ConfdCfgCommand, ['command'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = NetconfYang()
         return self._top_entity
+
+
 

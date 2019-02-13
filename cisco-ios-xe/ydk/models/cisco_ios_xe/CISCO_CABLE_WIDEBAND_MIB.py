@@ -96,45 +96,63 @@ class CISCOCABLEWIDEBANDMIB(Entity):
     	
     	**type**\:  :py:class:`CiscoCableWidebandMIBObjects <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CiscoCableWidebandMIBObjects>`
     
+    	**config**\: False
+    
     .. attribute:: ccwbrfchanneltable
     
     	This table contains attributes of the physical RF channels. MPEG\-TS packets are sent across RF channels within a wideband channel.  These physical RF channels might be present on a different system but the WCMTS entity requires the knowledge of that system for its operation
     	**type**\:  :py:class:`CcwbRFChannelTable <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbRFChannelTable>`
+    
+    	**config**\: False
     
     .. attribute:: ccwbwbtorfmappingtable
     
     	A wideband channel is a logical grouping of one or more physical RF channels over which Wideband MPEG\-TS packets are carried.  This table contains association information of the wideband channels to the RF channels that are available for the WCMTS
     	**type**\:  :py:class:`CcwbWBtoRFMappingTable <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbWBtoRFMappingTable>`
     
+    	**config**\: False
+    
     .. attribute:: ccwbwbtonbmappingtable
     
     	This table contains information of the mapping of the wideband channels to the Narrowband channels that are available on the WCMTS.  The wideband protocol utilizes the existing narrowband downstream channel for carrying the MAC management and signaling messages and the associated narrowband upstream for return data traffic and signaling
     	**type**\:  :py:class:`CcwbWBtoNBMappingTable <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbWBtoNBMappingTable>`
+    
+    	**config**\: False
     
     .. attribute:: ccwbwbbondgrptable
     
     	This table provides information about a Wideband BG interface, whether its configured to carry multicast or non\-multicast traffic. For multicast the BG interface type is Secondary and for non\-multicast its non\-Secondary. Other objects could be added to this later in the future
     	**type**\:  :py:class:`CcwbWBBondGrpTable <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbWBBondGrpTable>`
     
+    	**config**\: False
+    
     .. attribute:: ccwbwbcmstatustable
     
     	This table contains Wideband Cable Modem(WCM) connectivity state. A WCM connectivity state can be associated with multiple Wideband interfaces
     	**type**\:  :py:class:`CcwbWBCmStatusTable <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbWBCmStatusTable>`
+    
+    	**config**\: False
     
     .. attribute:: ccwbwbcmstatusexttable
     
     	An entry in this table exists for each Wideband Cable Modem which links to one or more WB interface
     	**type**\:  :py:class:`CcwbWBCmStatusExtTable <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbWBCmStatusExtTable>`
     
+    	**config**\: False
+    
     .. attribute:: ccwbfibernodedescrtable
     
     	This table contains the description of a Fiber Node on a CMTS. An entry in this table exists for each FiberNode ID
     	**type**\:  :py:class:`CcwbFiberNodeDescrTable <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbFiberNodeDescrTable>`
     
+    	**config**\: False
+    
     .. attribute:: ccwbfibernodetable
     
     	This table provides configuration information of each Fiber node. It will provide topology information of each Fiber node, which includes information such as, Narrowband and Wideband QAMs
     	**type**\:  :py:class:`CcwbFiberNodeTable <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbFiberNodeTable>`
+    
+    	**config**\: False
     
     
 
@@ -208,6 +226,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
         
         	**range:** 0..86400
         
+        	**config**\: False
+        
         	**units**\: seconds
         
         .. attribute:: ccwbsfplinktrapenable
@@ -216,6 +236,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
         	**type**\: int
         
         	**range:** 0..1
+        
+        	**config**\: False
         
         
 
@@ -247,6 +269,7 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             self._perform_setattr(CISCOCABLEWIDEBANDMIB.CiscoCableWidebandMIBObjects, ['ccwbrfchanutilinterval', 'ccwbsfplinktrapenable'], name, value)
 
 
+
     class CcwbRFChannelTable(Entity):
         """
         This table contains attributes of the physical
@@ -261,6 +284,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
         
         	An entry provides a list of attributes for a single downstream RF channel per WCMTS entity.  An entry in this table exists for each configured RF channel on the WCMTS entity that provides the wideband DOCSIS functionality. The index, entPhysicalIndex, used here is the physical index of the wideband controller card. Since RF channels are considered part of the Wideband controller card, hence entPhysicalIndex is used for associating RF channels
         	**type**\: list of  		 :py:class:`CcwbRFChannelEntry <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbRFChannelTable.CcwbRFChannelEntry>`
+        
+        	**config**\: False
         
         
 
@@ -311,6 +336,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ccwbrfchannelnum  (key)
             
             	The WCMTS identification of the RF channel. The range of this object is limited to 0\-18 in the case of annex A/256qam, and 0\-23 for Annex B and C
@@ -318,12 +345,16 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ccwbrfchannelfrequency
             
             	The center of the downstream frequency associated with this RF channel. The final downstream RF frequency may be provided by an edge QAM device or the CMTS itself. See the associated compliance object for a description of valid frequencies that may be written to this object.  If the downstream frequency associated with this RF channel is greater than the maximum value reportable by this object then this object should report its maximum value (1,000,000,000) and ccwbRFChannelFrequencyRev1 must be used to report the downstream frequency.  This object is deprecated and replaced by ccwbRFChannelFrequencyRev1
             	**type**\: int
             
             	**range:** 0..1000000000
+            
+            	**config**\: False
             
             	**units**\: hertz
             
@@ -336,6 +367,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**range:** 0..16000000
             
+            	**config**\: False
+            
             	**units**\: hertz
             
             .. attribute:: ccwbrfchannelmodulation
@@ -343,10 +376,14 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             	The modulation type associated with this downstream RF channel. See the associated conformance object for write conditions an limitations. See the DOCSIS specification for specifics on the modulation profiles implied by qam64 qam256 and qam1024. qam64, qam256 and qam1024 are various modulation schemes often used in digital cable and cable modem applications. The numbers 64/256/1024 in qam represent constellation points, which is the measurement of qam transmission capability, the higher the number, higher the bits that can be transmitted
             	**type**\:  :py:class:`CcwbRFChannelModulation <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbRFChannelTable.CcwbRFChannelEntry.CcwbRFChannelModulation>`
             
+            	**config**\: False
+            
             .. attribute:: ccwbrfchannelannex
             
             	The value of this object indicates the conformance of the implementation to important regional cable standards. annexA \: Annex A from ITU\-J83 is used. annexB \: Annex B from ITU\-J83 is used. annexC \: Annex C from ITU\-J83 is used
             	**type**\:  :py:class:`CcwbRFChannelAnnex <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbRFChannelTable.CcwbRFChannelEntry.CcwbRFChannelAnnex>`
+            
+            	**config**\: False
             
             .. attribute:: ccwbrfchannelmpegpkts
             
@@ -355,6 +392,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: Packets
             
             .. attribute:: ccwbrfchannelstoragetype
@@ -362,10 +401,14 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             	The storage type for this conceptual row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: ccwbrfchannelrowstatus
             
             	Controls and reflects the status of rows in this table. It can be used for creating and deleting entries in this table.  The ccwbRFChannelAnnex and ccwbRFChannelModulation must be valid for a row to be created
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             .. attribute:: ccwbrfchannelutilization
             
@@ -373,6 +416,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             	**type**\: int
             
             	**range:** 0..100
+            
+            	**config**\: False
             
             	**units**\: percent
             
@@ -383,12 +428,16 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**range:** 55000000..1050000000
             
+            	**config**\: False
+            
             	**units**\: hertz
             
             .. attribute:: ccwbrfchanqamipaddresstype
             
             	The type of internet address. This object identifies the internet address type specified by ccwbRFChanQamIPAddress object
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: ccwbrfchanqamipaddress
             
@@ -397,12 +446,16 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ccwbrfchanqammacaddress
             
             	The MAC address of the edge QAM device or next hop router which might be present between the WCMTS and the edge QAM
             	**type**\: str
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+            
+            	**config**\: False
             
             .. attribute:: ccwbrfchanqamudpport
             
@@ -411,12 +464,16 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: ccwbrfchanqamtos
             
             	The value of the TOS field in the IP header for all Ethernet frames destined for the given RF channel
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: ccwbrfchanqamvlanid
             
@@ -425,12 +482,16 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**range:** 0..4095
             
+            	**config**\: False
+            
             .. attribute:: ccwbrfchanqamprioritybits
             
             	The priority bits used when inserting Ethernet 802.1q VLAN tags into the Ethernet frames destined for a given RF channel. Priority Bits (0=Best effort, 1=background, 2=spare, 3=excellent effort, 4=controlled load, 5=video, 6=voice, 7=network control)
             	**type**\: int
             
             	**range:** 0..7
+            
+            	**config**\: False
             
             .. attribute:: ccwbrfchanqamdepiremoteid
             
@@ -439,6 +500,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccwbrfchanqamdepitunnel
             
             	This object specifies the name of the DEPI tunnel which determines the DEPI data session configuration associated with this RF channel
@@ -446,12 +509,16 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ccwbrfchanqamtsid
             
             	This object specifies the MPEG2 transport stream ID which is associated with this RF channel
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             
 
@@ -591,6 +658,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
 
 
 
+
+
     class CcwbWBtoRFMappingTable(Entity):
         """
         A wideband channel is a logical grouping of one or more
@@ -604,6 +673,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
         
         	An entry provides a list of attributes for a single association between a wideband channel and a RF channel.  An entry in this table exists for each association between a wideband channel and RF channel on the WCMTS. It is indexed by the ifIndex of the wideband channel and entPhysicalIndex and ccwbRFChannelNum which represents the RF channel.  This object may be modified or deleted once they are already created
         	**type**\: list of  		 :py:class:`CcwbWBtoRFMappingEntry <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbWBtoRFMappingTable.CcwbWBtoRFMappingEntry>`
+        
+        	**config**\: False
         
         
 
@@ -655,6 +726,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: entphysicalindex  (key)
             
             	
@@ -663,6 +736,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             	**range:** 1..2147483647
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
+            
+            	**config**\: False
             
             .. attribute:: ccwbrfchannelnum  (key)
             
@@ -673,12 +748,16 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**refers to**\:  :py:class:`ccwbrfchannelnum <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbRFChannelTable.CcwbRFChannelEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ccwbwbtorfbandwidth
             
             	The percentage of the RF channel bandwidth allocated for this wideband channel
             	**type**\: int
             
             	**range:** 1..100
+            
+            	**config**\: False
             
             	**units**\: percent
             
@@ -687,10 +766,14 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             	The storage type for this conceptual row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: ccwbwbtorfrowstatus
             
             	Controls and reflects the status of rows in this table. It can be used for creating and deleting entries in this table.  The ccwbWBtoRFBandwidth must be valid for a row to be created. When ccwbWBtoRFRowStatus is 'active', the object ccwbWBtoRFBandwidth can be modified
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -730,6 +813,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
                 self._perform_setattr(CISCOCABLEWIDEBANDMIB.CcwbWBtoRFMappingTable.CcwbWBtoRFMappingEntry, ['ifindex', 'entphysicalindex', 'ccwbrfchannelnum', 'ccwbwbtorfbandwidth', 'ccwbwbtorfstoragetype', 'ccwbwbtorfrowstatus'], name, value)
 
 
+
+
     class CcwbWBtoNBMappingTable(Entity):
         """
         This table contains information of the mapping
@@ -745,6 +830,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
         
         	An entry provides a list of attributes for a association between a wideband channel and a narrowband channel.  An entry in this table exists for each association between a wideband channel and narrowband channel on the WCMTS. The valid ifType for the ifIndex used here is, ciscoDocsCableWBDownstream(224)
         	**type**\: list of  		 :py:class:`CcwbWBtoNBMappingEntry <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbWBtoNBMappingTable.CcwbWBtoNBMappingEntry>`
+        
+        	**config**\: False
         
         
 
@@ -793,6 +880,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ccwbwbtonbifindexfornb  (key)
             
             	The ifIndex of the narrowband cable interface associated with this wideband channel
@@ -800,15 +889,21 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ccwbwbtonbstoragetype
             
             	The storage type for this conceptual row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: ccwbwbtonbrowstatus
             
             	Controls and reflects the status of rows in this table. It can be used for creating and deleting entries in this table. The object ccwbWBtoNBifIndexForNB must be valid in order for row to be created
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -844,6 +939,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
                 self._perform_setattr(CISCOCABLEWIDEBANDMIB.CcwbWBtoNBMappingTable.CcwbWBtoNBMappingEntry, ['ifindex', 'ccwbwbtonbifindexfornb', 'ccwbwbtonbstoragetype', 'ccwbwbtonbrowstatus'], name, value)
 
 
+
+
     class CcwbWBBondGrpTable(Entity):
         """
         This table provides information about a
@@ -858,6 +955,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
         
         	An entry in this table provides information about each Wideband BG interface whose ifType is ciscoDocsCableWBDownstream(224)
         	**type**\: list of  		 :py:class:`CcwbWBBondGrpEntry <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbWBBondGrpTable.CcwbWBBondGrpEntry>`
+        
+        	**config**\: False
         
         
 
@@ -901,10 +1000,14 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ccwbwbbondgrpsecondary
             
             	This object has the value 'true(1)' if the WB interface(BG) is Seconday and the value 'false(2)' for non\-Secondary
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -936,6 +1039,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
                 self._perform_setattr(CISCOCABLEWIDEBANDMIB.CcwbWBBondGrpTable.CcwbWBBondGrpEntry, ['ifindex', 'ccwbwbbondgrpsecondary'], name, value)
 
 
+
+
     class CcwbWBCmStatusTable(Entity):
         """
         This table contains Wideband Cable Modem(WCM) connectivity state.
@@ -946,6 +1051,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
         
         	Status information for a single Wideband Cable Modem. An entry in this table exists for each Wideband Cable Modem that is connected to the WCMTS
         	**type**\: list of  		 :py:class:`CcwbWBCmStatusEntry <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbWBCmStatusTable.CcwbWBCmStatusEntry>`
+        
+        	**config**\: False
         
         
 
@@ -989,10 +1096,14 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**refers to**\:  :py:class:`docsifcmtscmstatusindex <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsCmStatusTable.DocsIfCmtsCmStatusEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ccwbwbcmstatusvalue
             
             	Current WB Cable Modem connectivity state, as specified in the RF Interface Specification. Returned status information is the WCM status as assumed by the WCMTS, and indicates the following events\:  The enumerations are\: offline(1)                \: modem considered offline. others(2)                 \: states is in                             ccwbWBCmStatusValue. initRangingRcvd(3)        \: modem sent initial ranging. initDhcpReqRcvd(4)        \: dhcp request received. onlineNetAccessDisabled(5)\: modem registered, but network                             access for the WCM is disabled. onlineKekAssigned(6)      \: modem registered, BPI enabled                             and KEK assigned. onlineTekAssigned(7)      \: modem registered, BPI enabled                             and TEK assigned. rejectBadMic(8)           \: modem did attempt to register                             but registration was refused                             due to bad mic. rejectBadCos(9)           \: modem did attempt to register                             but registration was refused                             due to bad COS. kekRejected(10)           \: KEK modem key assignment                             rejected. tekRejected(11)           \: TEK modem key assignment                             rejected. online(12)                \: modem registered, enabled for                             data. initTftpPacketRcvd(13)    \: tftp packet received and option                             file transfer started. initTodRquestRcvd(14)     \: Time of the Day (TOD) request                             received. reset(15)                 \: modem is resetting. rangingInProgress(16)     \: initial ranging is in progress. dhcpGotIpAddr(17)         \: modem has got an IP address rejStaleConfig(18)        \: modem did attempt to register                             but registration was refused                             due to stale Config. rejIpSpoof(19)            \: modem did attempt to register                             but registration was refused                             due to IP Spoof. rejClassFail(20)          \: modem did attempt to register                             but registration was refused                             due to Class failure. rejRegNack(21)            \: modem did attempt to register                             but no acknowledgement was                             received. bpiKekExpired(22)         \: KEK modem key assignment                             expired. bpiTekExpired(23)         \: TEK modem key assignment                             expired. shutdown(24)              \: modem is in shutdown state. channelChgInitRangingRcvd(25)  \: modem sent initial ranging                                   during channel change. channelChgRangingInProgress(26) \: initial ranging is in                                   progress during channel                                   change. wbOnline(27)               \: Wideband modem is online. wbOnlinePrivacy(28)        \: Wideband modem is online Privacy                              enabled. wbOnlineKekAssigned(29)    \: Wideband modem is online                              and KEK assigned. wbOnlineTekAssigned(30)    \: Wideband modem is online                              and TEK assigned. wbOnlineNetAccessDis(31)   \: Wideband modem registered but                              Network access disabled. wbKekReject(32)            \: KEK wideband modem key assignment                              rejected. wbTekReject(33)            \: TEK wideband modem key assignment                              rejected. wbNetAccessDisReject(34)   \: wideband modem rejected \-                              Net access disabled. wbPrivacyEnabReject(35)    \: wideband modem rejected                              Privacy enabled. wbKekExpire(36)            \: KEK Wideband modem key assignment                              expired. wbTekExpire(37)            \: TEK wideband modem key assignment                              rejected. wbNetAccessDisExpire(38)   \: wideband modem expire \- Network                              access disabled. wbPrivacyEnabExpire(39)    \: wideband modem expire \- Privacy                              enabled.   This ccwbWBCmStatusValue could return initRangingRcvd(3) or rangingInProgress(16) when the ccwbWBCmStatusValue is ranging(2).  This ccwbWBCmStatusValue will return others(2) when the ccwbWBCmStatusValue states is either rangingAborted(3), rangingComplete(4), and ipComplete(5).  This ccwbWBCmStatusValue could return wbonline(27), or onlineNetAccessDisabled(5) for WCM with BPI disabled, or onlineNetAccessDisabled(5) or onlineTekAssigned(7) for WCM with BPI enabled, when the ccwbWBCmStatusValue is registrationComplete(6).  This ccwbWBCmStatusValue could return either rejectBadMic(8), rejectBadCos(9) rejStaleConfig(19) or rejRegNack(22) when the ccwbWBCmStatusValue is accessDenied(7) for possible reasons of cable modem registration abort.  This ccwbWBCmStatusValue could return either onlineKekAssigned(6), kekRejected(10), tekRejected(11), or online(12) for the WCM with BPI enabled when the ccwbWBCmStatusValue is registeredBPIInitializing(9).  The state rejectBadCos(9) is not applicable for DOCSIS1.1 modems. The WCMTS only needs to report states it is able to detect
             	**type**\:  :py:class:`CcwbWBCmStatusValue <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbWBCmStatusTable.CcwbWBCmStatusEntry.CcwbWBCmStatusValue>`
+            
+            	**config**\: False
             
             
 
@@ -1393,6 +1504,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
 
 
 
+
+
     class CcwbWBCmStatusExtTable(Entity):
         """
         An entry in this table exists for each Wideband
@@ -1402,6 +1515,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
         
         	This entry exists for each Wideband Cable Modem(WCM) which links to one or more WB interface
         	**type**\: list of  		 :py:class:`CcwbWBCmStatusExtEntry <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbWBCmStatusExtTable.CcwbWBCmStatusExtEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1444,6 +1559,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**refers to**\:  :py:class:`docsifcmtscmstatusindex <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsCmStatusTable.DocsIfCmtsCmStatusEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ccwbwbcmstatusextindex  (key)
             
             	The value of this object uniquely identifies an association between a WCM and a BG
@@ -1451,12 +1568,16 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ccwbwbcmwbifindex
             
             	ifIndex of the wideband channel associated with the WCM
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             
 
@@ -1490,6 +1611,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
                 self._perform_setattr(CISCOCABLEWIDEBANDMIB.CcwbWBCmStatusExtTable.CcwbWBCmStatusExtEntry, ['docsifcmtscmstatusindex', 'ccwbwbcmstatusextindex', 'ccwbwbcmwbifindex'], name, value)
 
 
+
+
     class CcwbFiberNodeDescrTable(Entity):
         """
         This table contains the description of a Fiber Node
@@ -1500,6 +1623,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
         
         	This entry provides the description of each fiber node on the CMTS and it is part of the Fiber node configuration
         	**type**\: list of  		 :py:class:`CcwbFiberNodeDescrEntry <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbFiberNodeDescrTable.CcwbFiberNodeDescrEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1542,6 +1667,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**refers to**\:  :py:class:`ccwbfibernodeid <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbFiberNodeTable.CcwbFiberNodeEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ccwbfibernodedescription
             
             	This object contains the user configured description string of the fiber node
@@ -1549,15 +1676,21 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**length:** 0..80
             
+            	**config**\: False
+            
             .. attribute:: ccwbfibernodedescrstoragetype
             
             	The storage type for this conceptual row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: ccwbfibernodedescrrowstatus
             
             	Controls and reflects the status of rows in this table. It can be used for creating and deleting entries in this table. ccwbFiberNodeDescription must not be null in order for row to be created
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1593,6 +1726,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
                 self._perform_setattr(CISCOCABLEWIDEBANDMIB.CcwbFiberNodeDescrTable.CcwbFiberNodeDescrEntry, ['ccwbfibernodeid', 'ccwbfibernodedescription', 'ccwbfibernodedescrstoragetype', 'ccwbfibernodedescrrowstatus'], name, value)
 
 
+
+
     class CcwbFiberNodeTable(Entity):
         """
         This table provides configuration information of each Fiber node.
@@ -1603,6 +1738,8 @@ class CISCOCABLEWIDEBANDMIB(Entity):
         
         	An entry in this table exists for each FiberNode ID that is in use. It uses two indices, i.e. ccwbFiberNodeID which is the Fiber node ID, and ccwbFiberNodeGlobRFID, which is the combined bit mask of Narrowband RF channels and Wideband rf\-ports(rf\-channels)
         	**type**\: list of  		 :py:class:`CcwbFiberNodeEntry <ydk.models.cisco_ios_xe.CISCO_CABLE_WIDEBAND_MIB.CISCOCABLEWIDEBANDMIB.CcwbFiberNodeTable.CcwbFiberNodeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1646,12 +1783,16 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**range:** 1..1000
             
+            	**config**\: False
+            
             .. attribute:: ccwbfibernodeglobrfid  (key)
             
             	This is the RF ID of both Narrowband and Wideband QAMs(rf\-channels) combined
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ccwbfibernodenbifindx
             
@@ -1660,12 +1801,16 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ccwbfibernodewbcontlrphyindx
             
             	This object represents the entity physical index of Wideband controller card. This card contains the RF port which is part of the ccwbFiberNodeGlobRFID bit mask. A value of zero means the index is invalid. ccwbFiberNodeWBRFPort and ccwbFiberNodeWBContlrPhyIndx are mutually inclusive
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: ccwbfibernodewbrfport
             
@@ -1674,15 +1819,21 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             
             	**range:** 0..1024
             
+            	**config**\: False
+            
             .. attribute:: ccwbfibernodestoragetype
             
             	The storage type for this conceptual row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: ccwbfibernoderowstatus
             
             	Controls and reflects the status of rows in this table. It can be used for creating and deleting entries in this table
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1723,7 +1874,11 @@ class CISCOCABLEWIDEBANDMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCABLEWIDEBANDMIB.CcwbFiberNodeTable.CcwbFiberNodeEntry, ['ccwbfibernodeid', 'ccwbfibernodeglobrfid', 'ccwbfibernodenbifindx', 'ccwbfibernodewbcontlrphyindx', 'ccwbfibernodewbrfport', 'ccwbfibernodestoragetype', 'ccwbfibernoderowstatus'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOCABLEWIDEBANDMIB()
         return self._top_entity
+
+
 

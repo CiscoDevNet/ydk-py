@@ -69,6 +69,7 @@ class HostAfIdBase(Identity):
         super(HostAfIdBase, self).__init__(ns, pref, tag)
 
 
+
 class Ipv4(HostAfIdBase):
     """
     IPv4 family
@@ -84,6 +85,7 @@ class Ipv4(HostAfIdBase):
         super(Ipv4, self).__init__(ns, pref, tag)
 
 
+
 class Ipv6(HostAfIdBase):
     """
     IPv6 family
@@ -97,5 +99,6 @@ class Ipv6(HostAfIdBase):
 
     def __init__(self, ns="http://cisco.com/ns/yang/Cisco-IOS-XR-tty-management-oper", pref="Cisco-IOS-XR-tty-management-oper", tag="Cisco-IOS-XR-tty-management-oper:ipv6"):
         super(Ipv6, self).__init__(ns, pref, tag)
+
 
 

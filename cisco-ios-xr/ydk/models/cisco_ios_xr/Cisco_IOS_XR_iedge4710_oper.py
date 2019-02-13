@@ -898,10 +898,14 @@ class Subscriber(Entity):
     	Subscriber manager operational data
     	**type**\:  :py:class:`Manager <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager>`
     
+    	**config**\: False
+    
     .. attribute:: session
     
     	Subscriber session operational data
     	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session>`
+    
+    	**config**\: False
     
     
 
@@ -945,6 +949,8 @@ class Subscriber(Entity):
         	Subscriber manager list of nodes
         	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes>`
         
+        	**config**\: False
+        
         
 
         """
@@ -982,6 +988,8 @@ class Subscriber(Entity):
             
             	Subscriber manager operational data for a particular node
             	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node>`
+            
+            	**config**\: False
             
             
 
@@ -1022,10 +1030,14 @@ class Subscriber(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: statistics
                 
                 	Subscriber manager statistics
                 	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics>`
+                
+                	**config**\: False
                 
                 
 
@@ -1068,15 +1080,21 @@ class Subscriber(Entity):
                     	AAA statistics
                     	**type**\:  :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: aggregate_summary
                     
                     	Aggregate summary of statistics
                     	**type**\:  :py:class:`AggregateSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: srg
                     
                     	Geo Redundancy statistics
                     	**type**\:  :py:class:`Srg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Srg>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1123,60 +1141,84 @@ class Subscriber(Entity):
                         	Aggregate accounting statistics
                         	**type**\:  :py:class:`AggregateAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: authentication
                         
                         	Authentication statistics
                         	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: aggregate_mobility
                         
                         	Aggregate mobility statistics
                         	**type**\:  :py:class:`AggregateMobility <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateMobility>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: aggregate_authentication
                         
                         	Aggregate authentication statistics
                         	**type**\:  :py:class:`AggregateAuthentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: accounting_stats_all
                         
                         	Display all subscriber management statistics
                         	**type**\:  :py:class:`AccountingStatsAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: change_of_authorization
                         
                         	Change of authorization (COA) statistics
                         	**type**\:  :py:class:`ChangeOfAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: authorization
                         
                         	Authorization statistics
                         	**type**\:  :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: aggregate_authorization
                         
                         	Aggregate authorization statistics
                         	**type**\:  :py:class:`AggregateAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: aggregate_accounting_stats_all
                         
                         	Display all subscriber management total statistics
                         	**type**\:  :py:class:`AggregateAccountingStatsAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: accounting
                         
                         	Accounting statistics
                         	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: mobility
                         
                         	Mobility statistics
                         	**type**\:  :py:class:`Mobility <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Mobility>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: aggregate_change_of_authorization
                         
                         	Aggregate change of authorization (COA) statistics
                         	**type**\:  :py:class:`AggregateChangeOfAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1259,30 +1301,42 @@ class Subscriber(Entity):
                             	Start statistics
                             	**type**\:  :py:class:`Start <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: stop
                             
                             	Stop statistics
                             	**type**\:  :py:class:`Stop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Stop>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: interim
                             
                             	Interim statistics
                             	**type**\:  :py:class:`Interim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Interim>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: pass_through
                             
                             	Pass\-through statistics
                             	**type**\:  :py:class:`PassThrough <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.PassThrough>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: update
                             
                             	Update statistics
                             	**type**\:  :py:class:`Update <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Update>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: interim_inflight
                             
                             	Interim inflight details
                             	**type**\:  :py:class:`InterimInflight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.InterimInflight>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: active_sessions
                             
@@ -1291,12 +1345,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: started_sessions
                             
                             	Started sessions
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: stopped_sessions
                             
@@ -1305,6 +1363,8 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: policy_plane_errored_requests
                             
                             	Policy plane errored requests
@@ -1312,12 +1372,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: policy_plane_unknown_requests
                             
                             	Policy plane unknown requests
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -1389,12 +1453,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: errored_requests
                                 
                                 	Errored requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: aaa_errored_requests
                                 
@@ -1403,12 +1471,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aaa_sent_requests
                                 
                                 	AAA requests sent
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: aaa_succeeded_responses
                                 
@@ -1417,12 +1489,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aaa_failed_responses
                                 
                                 	AAA failed responses
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1461,6 +1537,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
+
                             class Stop(Entity):
                                 """
                                 Stop statistics
@@ -1472,12 +1549,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: errored_requests
                                 
                                 	Errored requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: aaa_errored_requests
                                 
@@ -1486,12 +1567,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aaa_sent_requests
                                 
                                 	AAA requests sent
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: aaa_succeeded_responses
                                 
@@ -1500,12 +1585,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aaa_failed_responses
                                 
                                 	AAA failed responses
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1544,6 +1633,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Stop, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
+
                             class Interim(Entity):
                                 """
                                 Interim statistics
@@ -1555,12 +1645,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: errored_requests
                                 
                                 	Errored requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: aaa_errored_requests
                                 
@@ -1569,12 +1663,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aaa_sent_requests
                                 
                                 	AAA requests sent
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: aaa_succeeded_responses
                                 
@@ -1583,12 +1681,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aaa_failed_responses
                                 
                                 	AAA failed responses
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1627,6 +1729,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Interim, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
+
                             class PassThrough(Entity):
                                 """
                                 Pass\-through statistics
@@ -1638,12 +1741,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: errored_requests
                                 
                                 	Errored requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: aaa_errored_requests
                                 
@@ -1652,12 +1759,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aaa_sent_requests
                                 
                                 	AAA requests sent
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: aaa_succeeded_responses
                                 
@@ -1666,12 +1777,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aaa_failed_responses
                                 
                                 	AAA failed responses
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1710,6 +1825,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.PassThrough, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
+
                             class Update(Entity):
                                 """
                                 Update statistics
@@ -1721,12 +1837,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: errored_requests
                                 
                                 	Errored requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: aaa_errored_requests
                                 
@@ -1735,12 +1855,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aaa_sent_requests
                                 
                                 	AAA requests sent
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: aaa_succeeded_responses
                                 
@@ -1749,12 +1873,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aaa_failed_responses
                                 
                                 	AAA failed responses
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1793,6 +1921,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Update, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
+
                             class InterimInflight(Entity):
                                 """
                                 Interim inflight details
@@ -1804,12 +1933,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: denied_requests
                                 
                                 	Denied requests
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: accepted_requests
                                 
@@ -1818,12 +1951,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: total_quota_of_requests
                                 
                                 	Total quota of requests
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: remaining_quota_of_requests
                                 
@@ -1832,12 +1969,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: low_water_mark_quota_of_requests
                                 
                                 	Low water mark quota of requests
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1876,6 +2017,8 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.InterimInflight, [u'quota_exhausts', u'denied_requests', u'accepted_requests', u'total_quota_of_requests', u'remaining_quota_of_requests', u'low_water_mark_quota_of_requests'], name, value)
 
 
+
+
                         class Authentication(Entity):
                             """
                             Authentication statistics
@@ -1887,12 +2030,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: accepted_requests
                             
                             	Request accepted by Radius server
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: successful_requests
                             
@@ -1901,12 +2048,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: rejected_requests
                             
                             	Requests rejected by radius server
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: unreachable_requests
                             
@@ -1915,12 +2066,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: errored_requests
                             
                             	Unexpected errors
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: incomplete_requests
                             
@@ -1929,12 +2084,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: terminated_requests
                             
                             	Requests terminated by disconnect
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -1977,6 +2136,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
 
 
+
                         class AggregateMobility(Entity):
                             """
                             Aggregate mobility statistics
@@ -1988,12 +2148,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: send_request_failures
                             
                             	Request send failures
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: receive_response_successes
                             
@@ -2002,12 +2166,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: receive_response_failures
                             
                             	Response receive failures
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -2042,6 +2210,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateMobility, [u'send_request_successes', u'send_request_failures', u'receive_response_successes', u'receive_response_failures'], name, value)
 
 
+
                         class AggregateAuthentication(Entity):
                             """
                             Aggregate authentication statistics
@@ -2053,12 +2222,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: accepted_requests
                             
                             	Request accepted by Radius server
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: successful_requests
                             
@@ -2067,12 +2240,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: rejected_requests
                             
                             	Requests rejected by radius server
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: unreachable_requests
                             
@@ -2081,12 +2258,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: errored_requests
                             
                             	Unexpected errors
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: incomplete_requests
                             
@@ -2095,12 +2276,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: terminated_requests
                             
                             	Requests terminated by disconnect
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -2143,6 +2328,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
 
 
+
                         class AccountingStatsAll(Entity):
                             """
                             Display all subscriber management
@@ -2153,25 +2339,35 @@ class Subscriber(Entity):
                             	List of stats for accounting
                             	**type**\:  :py:class:`AccountingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: authentication_statistics
                             
                             	List of stats for authentication
                             	**type**\:  :py:class:`AuthenticationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: authorization_statistics
                             
                             	List of stats for authorization
                             	**type**\:  :py:class:`AuthorizationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_of_authorization_statistics
                             
                             	List of stats for COA
                             	**type**\:  :py:class:`ChangeOfAuthorizationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: mobility_statistics
                             
                             	List of stats for Mobility
                             	**type**\:  :py:class:`MobilityStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2226,30 +2422,42 @@ class Subscriber(Entity):
                                 	Start statistics
                                 	**type**\:  :py:class:`Start <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: stop
                                 
                                 	Stop statistics
                                 	**type**\:  :py:class:`Stop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: interim
                                 
                                 	Interim statistics
                                 	**type**\:  :py:class:`Interim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: pass_through
                                 
                                 	Pass\-through statistics
                                 	**type**\:  :py:class:`PassThrough <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: update
                                 
                                 	Update statistics
                                 	**type**\:  :py:class:`Update <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: interim_inflight
                                 
                                 	Interim inflight details
                                 	**type**\:  :py:class:`InterimInflight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: active_sessions
                                 
@@ -2258,12 +2466,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: started_sessions
                                 
                                 	Started sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: stopped_sessions
                                 
@@ -2272,6 +2484,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: policy_plane_errored_requests
                                 
                                 	Policy plane errored requests
@@ -2279,12 +2493,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: policy_plane_unknown_requests
                                 
                                 	Policy plane unknown requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2356,12 +2574,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: errored_requests
                                     
                                     	Errored requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: aaa_errored_requests
                                     
@@ -2370,12 +2592,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: aaa_sent_requests
                                     
                                     	AAA requests sent
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: aaa_succeeded_responses
                                     
@@ -2384,12 +2610,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: aaa_failed_responses
                                     
                                     	AAA failed responses
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2428,6 +2658,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
+
                                 class Stop(Entity):
                                     """
                                     Stop statistics
@@ -2439,12 +2670,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: errored_requests
                                     
                                     	Errored requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: aaa_errored_requests
                                     
@@ -2453,12 +2688,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: aaa_sent_requests
                                     
                                     	AAA requests sent
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: aaa_succeeded_responses
                                     
@@ -2467,12 +2706,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: aaa_failed_responses
                                     
                                     	AAA failed responses
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2511,6 +2754,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
+
                                 class Interim(Entity):
                                     """
                                     Interim statistics
@@ -2522,12 +2766,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: errored_requests
                                     
                                     	Errored requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: aaa_errored_requests
                                     
@@ -2536,12 +2784,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: aaa_sent_requests
                                     
                                     	AAA requests sent
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: aaa_succeeded_responses
                                     
@@ -2550,12 +2802,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: aaa_failed_responses
                                     
                                     	AAA failed responses
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2594,6 +2850,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
+
                                 class PassThrough(Entity):
                                     """
                                     Pass\-through statistics
@@ -2605,12 +2862,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: errored_requests
                                     
                                     	Errored requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: aaa_errored_requests
                                     
@@ -2619,12 +2880,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: aaa_sent_requests
                                     
                                     	AAA requests sent
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: aaa_succeeded_responses
                                     
@@ -2633,12 +2898,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: aaa_failed_responses
                                     
                                     	AAA failed responses
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2677,6 +2946,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
+
                                 class Update(Entity):
                                     """
                                     Update statistics
@@ -2688,12 +2958,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: errored_requests
                                     
                                     	Errored requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: aaa_errored_requests
                                     
@@ -2702,12 +2976,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: aaa_sent_requests
                                     
                                     	AAA requests sent
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: aaa_succeeded_responses
                                     
@@ -2716,12 +2994,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: aaa_failed_responses
                                     
                                     	AAA failed responses
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2760,6 +3042,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
+
                                 class InterimInflight(Entity):
                                     """
                                     Interim inflight details
@@ -2771,12 +3054,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: denied_requests
                                     
                                     	Denied requests
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: accepted_requests
                                     
@@ -2785,12 +3072,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: total_quota_of_requests
                                     
                                     	Total quota of requests
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: remaining_quota_of_requests
                                     
@@ -2799,12 +3090,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: low_water_mark_quota_of_requests
                                     
                                     	Low water mark quota of requests
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2843,6 +3138,8 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight, [u'quota_exhausts', u'denied_requests', u'accepted_requests', u'total_quota_of_requests', u'remaining_quota_of_requests', u'low_water_mark_quota_of_requests'], name, value)
 
 
+
+
                             class AuthenticationStatistics(Entity):
                                 """
                                 List of stats for authentication
@@ -2854,12 +3151,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: accepted_requests
                                 
                                 	Request accepted by Radius server
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: successful_requests
                                 
@@ -2868,12 +3169,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rejected_requests
                                 
                                 	Requests rejected by radius server
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: unreachable_requests
                                 
@@ -2882,12 +3187,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: errored_requests
                                 
                                 	Unexpected errors
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: incomplete_requests
                                 
@@ -2896,12 +3205,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: terminated_requests
                                 
                                 	Requests terminated by disconnect
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2944,6 +3257,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
 
 
+
                             class AuthorizationStatistics(Entity):
                                 """
                                 List of stats for authorization
@@ -2955,12 +3269,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: accepted_requests
                                 
                                 	Request accepted by Radius server
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: successful_requests
                                 
@@ -2969,12 +3287,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rejected_requests
                                 
                                 	Requests rejected by radius server
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: unreachable_requests
                                 
@@ -2983,12 +3305,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: errored_requests
                                 
                                 	Unexpected errors
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: incomplete_requests
                                 
@@ -2997,12 +3323,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: terminated_requests
                                 
                                 	Requests terminated by disconnect
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3045,6 +3375,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
 
 
+
                             class ChangeOfAuthorizationStatistics(Entity):
                                 """
                                 List of stats for COA
@@ -3054,40 +3385,56 @@ class Subscriber(Entity):
                                 	Account logon request statistics
                                 	**type**\:  :py:class:`AccountLogon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: account_logoff
                                 
                                 	Account logoff request statistics
                                 	**type**\:  :py:class:`AccountLogoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: account_update
                                 
                                 	Account update request statistics
                                 	**type**\:  :py:class:`AccountUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: session_disconnect
                                 
                                 	Session disconnect request statistics
                                 	**type**\:  :py:class:`SessionDisconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: single_service_logon
                                 
                                 	Service logon request statistics
                                 	**type**\:  :py:class:`SingleServiceLogon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: single_service_logoff
                                 
                                 	Single Service logoff request statistics
                                 	**type**\:  :py:class:`SingleServiceLogoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: single_service_modify
                                 
                                 	Single Service Modify request statistics
                                 	**type**\:  :py:class:`SingleServiceModify <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: service_multi
                                 
                                 	MA\-CoA Service request statistics
                                 	**type**\:  :py:class:`ServiceMulti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: unknown_account_cmd_resps
                                 
@@ -3096,12 +3443,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: unknown_service_cmd_resps
                                 
                                 	Responses to unknown service command
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: unknown_cmd_resps
                                 
@@ -3110,12 +3461,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: attr_list_retrieve_failure_resps
                                 
                                 	Responses to attribute list failure errors
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: resp_send_failure
                                 
@@ -3124,12 +3479,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: internal_err_resps
                                 
                                 	Responses to internal error
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: service_profile_push_failure_resps
                                 
@@ -3138,12 +3497,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: no_cmd_resps
                                 
                                 	Responses empty (no command) COA request
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: no_session_found_resps
                                 
@@ -3152,12 +3515,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: no_session_peer_resps
                                 
                                 	Responses to session peer not found error
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3247,6 +3614,8 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: acknowledged_requests
                                     
                                     	Acknowledged requests
@@ -3254,12 +3623,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: non_acknowledged_requests
                                     
                                     	Non acknowledged requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3292,6 +3665,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                                 class AccountLogoff(Entity):
                                     """
                                     Account logoff request statistics
@@ -3303,6 +3677,8 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: acknowledged_requests
                                     
                                     	Acknowledged requests
@@ -3310,12 +3686,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: non_acknowledged_requests
                                     
                                     	Non acknowledged requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3348,6 +3728,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                                 class AccountUpdate(Entity):
                                     """
                                     Account update request statistics
@@ -3359,6 +3740,8 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: acknowledged_requests
                                     
                                     	Acknowledged requests
@@ -3366,12 +3749,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: non_acknowledged_requests
                                     
                                     	Non acknowledged requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3404,6 +3791,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                                 class SessionDisconnect(Entity):
                                     """
                                     Session disconnect request statistics
@@ -3415,6 +3803,8 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: acknowledged_requests
                                     
                                     	Acknowledged requests
@@ -3422,12 +3812,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: non_acknowledged_requests
                                     
                                     	Non acknowledged requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3460,6 +3854,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                                 class SingleServiceLogon(Entity):
                                     """
                                     Service logon request statistics
@@ -3471,6 +3866,8 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: acknowledged_requests
                                     
                                     	Acknowledged requests
@@ -3478,12 +3875,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: non_acknowledged_requests
                                     
                                     	Non acknowledged requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3516,6 +3917,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                                 class SingleServiceLogoff(Entity):
                                     """
                                     Single Service logoff request statistics
@@ -3527,6 +3929,8 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: acknowledged_requests
                                     
                                     	Acknowledged requests
@@ -3534,12 +3938,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: non_acknowledged_requests
                                     
                                     	Non acknowledged requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3572,6 +3980,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                                 class SingleServiceModify(Entity):
                                     """
                                     Single Service Modify request statistics
@@ -3583,6 +3992,8 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: acknowledged_requests
                                     
                                     	Acknowledged requests
@@ -3590,12 +4001,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: non_acknowledged_requests
                                     
                                     	Non acknowledged requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3628,6 +4043,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                                 class ServiceMulti(Entity):
                                     """
                                     MA\-CoA Service request statistics
@@ -3639,6 +4055,8 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: acknowledged_requests
                                     
                                     	Acknowledged requests
@@ -3646,12 +4064,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: non_acknowledged_requests
                                     
                                     	Non acknowledged requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3684,6 +4106,8 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
+
                             class MobilityStatistics(Entity):
                                 """
                                 List of stats for Mobility
@@ -3695,12 +4119,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: send_request_failures
                                 
                                 	Request send failures
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: receive_response_successes
                                 
@@ -3709,12 +4137,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: receive_response_failures
                                 
                                 	Response receive failures
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3749,6 +4181,8 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics, [u'send_request_successes', u'send_request_failures', u'receive_response_successes', u'receive_response_failures'], name, value)
 
 
+
+
                         class ChangeOfAuthorization(Entity):
                             """
                             Change of authorization (COA) statistics
@@ -3758,40 +4192,56 @@ class Subscriber(Entity):
                             	Account logon request statistics
                             	**type**\:  :py:class:`AccountLogon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: account_logoff
                             
                             	Account logoff request statistics
                             	**type**\:  :py:class:`AccountLogoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogoff>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: account_update
                             
                             	Account update request statistics
                             	**type**\:  :py:class:`AccountUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountUpdate>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: session_disconnect
                             
                             	Session disconnect request statistics
                             	**type**\:  :py:class:`SessionDisconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SessionDisconnect>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: single_service_logon
                             
                             	Service logon request statistics
                             	**type**\:  :py:class:`SingleServiceLogon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogon>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: single_service_logoff
                             
                             	Single Service logoff request statistics
                             	**type**\:  :py:class:`SingleServiceLogoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogoff>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: single_service_modify
                             
                             	Single Service Modify request statistics
                             	**type**\:  :py:class:`SingleServiceModify <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceModify>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: service_multi
                             
                             	MA\-CoA Service request statistics
                             	**type**\:  :py:class:`ServiceMulti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.ServiceMulti>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: unknown_account_cmd_resps
                             
@@ -3800,12 +4250,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: unknown_service_cmd_resps
                             
                             	Responses to unknown service command
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: unknown_cmd_resps
                             
@@ -3814,12 +4268,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: attr_list_retrieve_failure_resps
                             
                             	Responses to attribute list failure errors
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: resp_send_failure
                             
@@ -3828,12 +4286,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: internal_err_resps
                             
                             	Responses to internal error
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: service_profile_push_failure_resps
                             
@@ -3842,12 +4304,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: no_cmd_resps
                             
                             	Responses empty (no command) COA request
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: no_session_found_resps
                             
@@ -3856,12 +4322,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: no_session_peer_resps
                             
                             	Responses to session peer not found error
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -3951,6 +4421,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: acknowledged_requests
                                 
                                 	Acknowledged requests
@@ -3958,12 +4430,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: non_acknowledged_requests
                                 
                                 	Non acknowledged requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3996,6 +4472,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                             class AccountLogoff(Entity):
                                 """
                                 Account logoff request statistics
@@ -4007,6 +4484,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: acknowledged_requests
                                 
                                 	Acknowledged requests
@@ -4014,12 +4493,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: non_acknowledged_requests
                                 
                                 	Non acknowledged requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4052,6 +4535,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                             class AccountUpdate(Entity):
                                 """
                                 Account update request statistics
@@ -4063,6 +4547,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: acknowledged_requests
                                 
                                 	Acknowledged requests
@@ -4070,12 +4556,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: non_acknowledged_requests
                                 
                                 	Non acknowledged requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4108,6 +4598,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountUpdate, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                             class SessionDisconnect(Entity):
                                 """
                                 Session disconnect request statistics
@@ -4119,6 +4610,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: acknowledged_requests
                                 
                                 	Acknowledged requests
@@ -4126,12 +4619,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: non_acknowledged_requests
                                 
                                 	Non acknowledged requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4164,6 +4661,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SessionDisconnect, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                             class SingleServiceLogon(Entity):
                                 """
                                 Service logon request statistics
@@ -4175,6 +4673,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: acknowledged_requests
                                 
                                 	Acknowledged requests
@@ -4182,12 +4682,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: non_acknowledged_requests
                                 
                                 	Non acknowledged requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4220,6 +4724,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                             class SingleServiceLogoff(Entity):
                                 """
                                 Single Service logoff request statistics
@@ -4231,6 +4736,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: acknowledged_requests
                                 
                                 	Acknowledged requests
@@ -4238,12 +4745,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: non_acknowledged_requests
                                 
                                 	Non acknowledged requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4276,6 +4787,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                             class SingleServiceModify(Entity):
                                 """
                                 Single Service Modify request statistics
@@ -4287,6 +4799,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: acknowledged_requests
                                 
                                 	Acknowledged requests
@@ -4294,12 +4808,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: non_acknowledged_requests
                                 
                                 	Non acknowledged requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4332,6 +4850,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceModify, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                             class ServiceMulti(Entity):
                                 """
                                 MA\-CoA Service request statistics
@@ -4343,6 +4862,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: acknowledged_requests
                                 
                                 	Acknowledged requests
@@ -4350,12 +4871,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: non_acknowledged_requests
                                 
                                 	Non acknowledged requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4388,6 +4913,8 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.ServiceMulti, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
+
                         class Authorization(Entity):
                             """
                             Authorization statistics
@@ -4399,12 +4926,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: accepted_requests
                             
                             	Request accepted by Radius server
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: successful_requests
                             
@@ -4413,12 +4944,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: rejected_requests
                             
                             	Requests rejected by radius server
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: unreachable_requests
                             
@@ -4427,12 +4962,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: errored_requests
                             
                             	Unexpected errors
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: incomplete_requests
                             
@@ -4441,12 +4980,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: terminated_requests
                             
                             	Requests terminated by disconnect
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4489,6 +5032,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
 
 
+
                         class AggregateAuthorization(Entity):
                             """
                             Aggregate authorization statistics
@@ -4500,12 +5044,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: accepted_requests
                             
                             	Request accepted by Radius server
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: successful_requests
                             
@@ -4514,12 +5062,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: rejected_requests
                             
                             	Requests rejected by radius server
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: unreachable_requests
                             
@@ -4528,12 +5080,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: errored_requests
                             
                             	Unexpected errors
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: incomplete_requests
                             
@@ -4542,12 +5098,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: terminated_requests
                             
                             	Requests terminated by disconnect
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4590,6 +5150,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
 
 
+
                         class AggregateAccountingStatsAll(Entity):
                             """
                             Display all subscriber management total
@@ -4600,25 +5161,35 @@ class Subscriber(Entity):
                             	List of stats for accounting
                             	**type**\:  :py:class:`AccountingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: authentication_statistics
                             
                             	List of stats for authentication
                             	**type**\:  :py:class:`AuthenticationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: authorization_statistics
                             
                             	List of stats for authorization
                             	**type**\:  :py:class:`AuthorizationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_of_authorization_statistics
                             
                             	List of stats for COA
                             	**type**\:  :py:class:`ChangeOfAuthorizationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: mobility_statistics
                             
                             	List of stats for Mobility
                             	**type**\:  :py:class:`MobilityStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -4673,30 +5244,42 @@ class Subscriber(Entity):
                                 	Start statistics
                                 	**type**\:  :py:class:`Start <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: stop
                                 
                                 	Stop statistics
                                 	**type**\:  :py:class:`Stop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: interim
                                 
                                 	Interim statistics
                                 	**type**\:  :py:class:`Interim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: pass_through
                                 
                                 	Pass\-through statistics
                                 	**type**\:  :py:class:`PassThrough <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: update
                                 
                                 	Update statistics
                                 	**type**\:  :py:class:`Update <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: interim_inflight
                                 
                                 	Interim inflight details
                                 	**type**\:  :py:class:`InterimInflight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: active_sessions
                                 
@@ -4705,12 +5288,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: started_sessions
                                 
                                 	Started sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: stopped_sessions
                                 
@@ -4719,6 +5306,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: policy_plane_errored_requests
                                 
                                 	Policy plane errored requests
@@ -4726,12 +5315,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: policy_plane_unknown_requests
                                 
                                 	Policy plane unknown requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4803,12 +5396,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: errored_requests
                                     
                                     	Errored requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: aaa_errored_requests
                                     
@@ -4817,12 +5414,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: aaa_sent_requests
                                     
                                     	AAA requests sent
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: aaa_succeeded_responses
                                     
@@ -4831,12 +5432,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: aaa_failed_responses
                                     
                                     	AAA failed responses
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4875,6 +5480,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
+
                                 class Stop(Entity):
                                     """
                                     Stop statistics
@@ -4886,12 +5492,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: errored_requests
                                     
                                     	Errored requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: aaa_errored_requests
                                     
@@ -4900,12 +5510,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: aaa_sent_requests
                                     
                                     	AAA requests sent
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: aaa_succeeded_responses
                                     
@@ -4914,12 +5528,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: aaa_failed_responses
                                     
                                     	AAA failed responses
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4958,6 +5576,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
+
                                 class Interim(Entity):
                                     """
                                     Interim statistics
@@ -4969,12 +5588,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: errored_requests
                                     
                                     	Errored requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: aaa_errored_requests
                                     
@@ -4983,12 +5606,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: aaa_sent_requests
                                     
                                     	AAA requests sent
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: aaa_succeeded_responses
                                     
@@ -4997,12 +5624,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: aaa_failed_responses
                                     
                                     	AAA failed responses
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5041,6 +5672,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
+
                                 class PassThrough(Entity):
                                     """
                                     Pass\-through statistics
@@ -5052,12 +5684,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: errored_requests
                                     
                                     	Errored requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: aaa_errored_requests
                                     
@@ -5066,12 +5702,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: aaa_sent_requests
                                     
                                     	AAA requests sent
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: aaa_succeeded_responses
                                     
@@ -5080,12 +5720,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: aaa_failed_responses
                                     
                                     	AAA failed responses
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5124,6 +5768,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
+
                                 class Update(Entity):
                                     """
                                     Update statistics
@@ -5135,12 +5780,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: errored_requests
                                     
                                     	Errored requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: aaa_errored_requests
                                     
@@ -5149,12 +5798,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: aaa_sent_requests
                                     
                                     	AAA requests sent
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: aaa_succeeded_responses
                                     
@@ -5163,12 +5816,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: aaa_failed_responses
                                     
                                     	AAA failed responses
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5207,6 +5864,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
+
                                 class InterimInflight(Entity):
                                     """
                                     Interim inflight details
@@ -5218,12 +5876,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: denied_requests
                                     
                                     	Denied requests
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: accepted_requests
                                     
@@ -5232,12 +5894,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: total_quota_of_requests
                                     
                                     	Total quota of requests
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: remaining_quota_of_requests
                                     
@@ -5246,12 +5912,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: low_water_mark_quota_of_requests
                                     
                                     	Low water mark quota of requests
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5290,6 +5960,8 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight, [u'quota_exhausts', u'denied_requests', u'accepted_requests', u'total_quota_of_requests', u'remaining_quota_of_requests', u'low_water_mark_quota_of_requests'], name, value)
 
 
+
+
                             class AuthenticationStatistics(Entity):
                                 """
                                 List of stats for authentication
@@ -5301,12 +5973,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: accepted_requests
                                 
                                 	Request accepted by Radius server
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: successful_requests
                                 
@@ -5315,12 +5991,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rejected_requests
                                 
                                 	Requests rejected by radius server
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: unreachable_requests
                                 
@@ -5329,12 +6009,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: errored_requests
                                 
                                 	Unexpected errors
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: incomplete_requests
                                 
@@ -5343,12 +6027,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: terminated_requests
                                 
                                 	Requests terminated by disconnect
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5391,6 +6079,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
 
 
+
                             class AuthorizationStatistics(Entity):
                                 """
                                 List of stats for authorization
@@ -5402,12 +6091,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: accepted_requests
                                 
                                 	Request accepted by Radius server
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: successful_requests
                                 
@@ -5416,12 +6109,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rejected_requests
                                 
                                 	Requests rejected by radius server
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: unreachable_requests
                                 
@@ -5430,12 +6127,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: errored_requests
                                 
                                 	Unexpected errors
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: incomplete_requests
                                 
@@ -5444,12 +6145,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: terminated_requests
                                 
                                 	Requests terminated by disconnect
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5492,6 +6197,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
 
 
+
                             class ChangeOfAuthorizationStatistics(Entity):
                                 """
                                 List of stats for COA
@@ -5501,40 +6207,56 @@ class Subscriber(Entity):
                                 	Account logon request statistics
                                 	**type**\:  :py:class:`AccountLogon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: account_logoff
                                 
                                 	Account logoff request statistics
                                 	**type**\:  :py:class:`AccountLogoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: account_update
                                 
                                 	Account update request statistics
                                 	**type**\:  :py:class:`AccountUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: session_disconnect
                                 
                                 	Session disconnect request statistics
                                 	**type**\:  :py:class:`SessionDisconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: single_service_logon
                                 
                                 	Service logon request statistics
                                 	**type**\:  :py:class:`SingleServiceLogon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: single_service_logoff
                                 
                                 	Single Service logoff request statistics
                                 	**type**\:  :py:class:`SingleServiceLogoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: single_service_modify
                                 
                                 	Single Service Modify request statistics
                                 	**type**\:  :py:class:`SingleServiceModify <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: service_multi
                                 
                                 	MA\-CoA Service request statistics
                                 	**type**\:  :py:class:`ServiceMulti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: unknown_account_cmd_resps
                                 
@@ -5543,12 +6265,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: unknown_service_cmd_resps
                                 
                                 	Responses to unknown service command
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: unknown_cmd_resps
                                 
@@ -5557,12 +6283,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: attr_list_retrieve_failure_resps
                                 
                                 	Responses to attribute list failure errors
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: resp_send_failure
                                 
@@ -5571,12 +6301,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: internal_err_resps
                                 
                                 	Responses to internal error
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: service_profile_push_failure_resps
                                 
@@ -5585,12 +6319,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: no_cmd_resps
                                 
                                 	Responses empty (no command) COA request
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: no_session_found_resps
                                 
@@ -5599,12 +6337,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: no_session_peer_resps
                                 
                                 	Responses to session peer not found error
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5694,6 +6436,8 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: acknowledged_requests
                                     
                                     	Acknowledged requests
@@ -5701,12 +6445,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: non_acknowledged_requests
                                     
                                     	Non acknowledged requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5739,6 +6487,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                                 class AccountLogoff(Entity):
                                     """
                                     Account logoff request statistics
@@ -5750,6 +6499,8 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: acknowledged_requests
                                     
                                     	Acknowledged requests
@@ -5757,12 +6508,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: non_acknowledged_requests
                                     
                                     	Non acknowledged requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5795,6 +6550,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                                 class AccountUpdate(Entity):
                                     """
                                     Account update request statistics
@@ -5806,6 +6562,8 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: acknowledged_requests
                                     
                                     	Acknowledged requests
@@ -5813,12 +6571,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: non_acknowledged_requests
                                     
                                     	Non acknowledged requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5851,6 +6613,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                                 class SessionDisconnect(Entity):
                                     """
                                     Session disconnect request statistics
@@ -5862,6 +6625,8 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: acknowledged_requests
                                     
                                     	Acknowledged requests
@@ -5869,12 +6634,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: non_acknowledged_requests
                                     
                                     	Non acknowledged requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5907,6 +6676,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                                 class SingleServiceLogon(Entity):
                                     """
                                     Service logon request statistics
@@ -5918,6 +6688,8 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: acknowledged_requests
                                     
                                     	Acknowledged requests
@@ -5925,12 +6697,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: non_acknowledged_requests
                                     
                                     	Non acknowledged requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5963,6 +6739,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                                 class SingleServiceLogoff(Entity):
                                     """
                                     Single Service logoff request statistics
@@ -5974,6 +6751,8 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: acknowledged_requests
                                     
                                     	Acknowledged requests
@@ -5981,12 +6760,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: non_acknowledged_requests
                                     
                                     	Non acknowledged requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6019,6 +6802,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                                 class SingleServiceModify(Entity):
                                     """
                                     Single Service Modify request statistics
@@ -6030,6 +6814,8 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: acknowledged_requests
                                     
                                     	Acknowledged requests
@@ -6037,12 +6823,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: non_acknowledged_requests
                                     
                                     	Non acknowledged requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6075,6 +6865,7 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                                 class ServiceMulti(Entity):
                                     """
                                     MA\-CoA Service request statistics
@@ -6086,6 +6877,8 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: acknowledged_requests
                                     
                                     	Acknowledged requests
@@ -6093,12 +6886,16 @@ class Subscriber(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: non_acknowledged_requests
                                     
                                     	Non acknowledged requests
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6131,6 +6928,8 @@ class Subscriber(Entity):
                                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
+
                             class MobilityStatistics(Entity):
                                 """
                                 List of stats for Mobility
@@ -6142,12 +6941,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: send_request_failures
                                 
                                 	Request send failures
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: receive_response_successes
                                 
@@ -6156,12 +6959,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: receive_response_failures
                                 
                                 	Response receive failures
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6196,6 +7003,8 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics, [u'send_request_successes', u'send_request_failures', u'receive_response_successes', u'receive_response_failures'], name, value)
 
 
+
+
                         class Accounting(Entity):
                             """
                             Accounting statistics
@@ -6205,30 +7014,42 @@ class Subscriber(Entity):
                             	Start statistics
                             	**type**\:  :py:class:`Start <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: stop
                             
                             	Stop statistics
                             	**type**\:  :py:class:`Stop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Stop>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: interim
                             
                             	Interim statistics
                             	**type**\:  :py:class:`Interim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Interim>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: pass_through
                             
                             	Pass\-through statistics
                             	**type**\:  :py:class:`PassThrough <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.PassThrough>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: update
                             
                             	Update statistics
                             	**type**\:  :py:class:`Update <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Update>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: interim_inflight
                             
                             	Interim inflight details
                             	**type**\:  :py:class:`InterimInflight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.InterimInflight>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: active_sessions
                             
@@ -6237,12 +7058,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: started_sessions
                             
                             	Started sessions
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: stopped_sessions
                             
@@ -6251,6 +7076,8 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: policy_plane_errored_requests
                             
                             	Policy plane errored requests
@@ -6258,12 +7085,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: policy_plane_unknown_requests
                             
                             	Policy plane unknown requests
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -6335,12 +7166,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: errored_requests
                                 
                                 	Errored requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: aaa_errored_requests
                                 
@@ -6349,12 +7184,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aaa_sent_requests
                                 
                                 	AAA requests sent
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: aaa_succeeded_responses
                                 
@@ -6363,12 +7202,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aaa_failed_responses
                                 
                                 	AAA failed responses
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6407,6 +7250,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
+
                             class Stop(Entity):
                                 """
                                 Stop statistics
@@ -6418,12 +7262,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: errored_requests
                                 
                                 	Errored requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: aaa_errored_requests
                                 
@@ -6432,12 +7280,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aaa_sent_requests
                                 
                                 	AAA requests sent
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: aaa_succeeded_responses
                                 
@@ -6446,12 +7298,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aaa_failed_responses
                                 
                                 	AAA failed responses
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6490,6 +7346,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Stop, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
+
                             class Interim(Entity):
                                 """
                                 Interim statistics
@@ -6501,12 +7358,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: errored_requests
                                 
                                 	Errored requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: aaa_errored_requests
                                 
@@ -6515,12 +7376,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aaa_sent_requests
                                 
                                 	AAA requests sent
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: aaa_succeeded_responses
                                 
@@ -6529,12 +7394,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aaa_failed_responses
                                 
                                 	AAA failed responses
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6573,6 +7442,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Interim, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
+
                             class PassThrough(Entity):
                                 """
                                 Pass\-through statistics
@@ -6584,12 +7454,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: errored_requests
                                 
                                 	Errored requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: aaa_errored_requests
                                 
@@ -6598,12 +7472,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aaa_sent_requests
                                 
                                 	AAA requests sent
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: aaa_succeeded_responses
                                 
@@ -6612,12 +7490,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aaa_failed_responses
                                 
                                 	AAA failed responses
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6656,6 +7538,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.PassThrough, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
+
                             class Update(Entity):
                                 """
                                 Update statistics
@@ -6667,12 +7550,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: errored_requests
                                 
                                 	Errored requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: aaa_errored_requests
                                 
@@ -6681,12 +7568,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aaa_sent_requests
                                 
                                 	AAA requests sent
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: aaa_succeeded_responses
                                 
@@ -6695,12 +7586,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aaa_failed_responses
                                 
                                 	AAA failed responses
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6739,6 +7634,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Update, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
+
                             class InterimInflight(Entity):
                                 """
                                 Interim inflight details
@@ -6750,12 +7646,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: denied_requests
                                 
                                 	Denied requests
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: accepted_requests
                                 
@@ -6764,12 +7664,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: total_quota_of_requests
                                 
                                 	Total quota of requests
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: remaining_quota_of_requests
                                 
@@ -6778,12 +7682,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: low_water_mark_quota_of_requests
                                 
                                 	Low water mark quota of requests
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6822,6 +7730,8 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.InterimInflight, [u'quota_exhausts', u'denied_requests', u'accepted_requests', u'total_quota_of_requests', u'remaining_quota_of_requests', u'low_water_mark_quota_of_requests'], name, value)
 
 
+
+
                         class Mobility(Entity):
                             """
                             Mobility statistics
@@ -6833,12 +7743,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: send_request_failures
                             
                             	Request send failures
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: receive_response_successes
                             
@@ -6847,12 +7761,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: receive_response_failures
                             
                             	Response receive failures
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -6887,6 +7805,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Mobility, [u'send_request_successes', u'send_request_failures', u'receive_response_successes', u'receive_response_failures'], name, value)
 
 
+
                         class AggregateChangeOfAuthorization(Entity):
                             """
                             Aggregate change of authorization (COA)
@@ -6897,40 +7816,56 @@ class Subscriber(Entity):
                             	Account logon request statistics
                             	**type**\:  :py:class:`AccountLogon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogon>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: account_logoff
                             
                             	Account logoff request statistics
                             	**type**\:  :py:class:`AccountLogoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogoff>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: account_update
                             
                             	Account update request statistics
                             	**type**\:  :py:class:`AccountUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountUpdate>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: session_disconnect
                             
                             	Session disconnect request statistics
                             	**type**\:  :py:class:`SessionDisconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SessionDisconnect>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: single_service_logon
                             
                             	Service logon request statistics
                             	**type**\:  :py:class:`SingleServiceLogon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogon>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: single_service_logoff
                             
                             	Single Service logoff request statistics
                             	**type**\:  :py:class:`SingleServiceLogoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogoff>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: single_service_modify
                             
                             	Single Service Modify request statistics
                             	**type**\:  :py:class:`SingleServiceModify <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceModify>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: service_multi
                             
                             	MA\-CoA Service request statistics
                             	**type**\:  :py:class:`ServiceMulti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.ServiceMulti>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: unknown_account_cmd_resps
                             
@@ -6939,12 +7874,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: unknown_service_cmd_resps
                             
                             	Responses to unknown service command
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: unknown_cmd_resps
                             
@@ -6953,12 +7892,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: attr_list_retrieve_failure_resps
                             
                             	Responses to attribute list failure errors
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: resp_send_failure
                             
@@ -6967,12 +7910,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: internal_err_resps
                             
                             	Responses to internal error
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: service_profile_push_failure_resps
                             
@@ -6981,12 +7928,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: no_cmd_resps
                             
                             	Responses empty (no command) COA request
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: no_session_found_resps
                             
@@ -6995,12 +7946,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: no_session_peer_resps
                             
                             	Responses to session peer not found error
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -7090,6 +8045,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: acknowledged_requests
                                 
                                 	Acknowledged requests
@@ -7097,12 +8054,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: non_acknowledged_requests
                                 
                                 	Non acknowledged requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7135,6 +8096,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                             class AccountLogoff(Entity):
                                 """
                                 Account logoff request statistics
@@ -7146,6 +8108,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: acknowledged_requests
                                 
                                 	Acknowledged requests
@@ -7153,12 +8117,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: non_acknowledged_requests
                                 
                                 	Non acknowledged requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7191,6 +8159,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                             class AccountUpdate(Entity):
                                 """
                                 Account update request statistics
@@ -7202,6 +8171,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: acknowledged_requests
                                 
                                 	Acknowledged requests
@@ -7209,12 +8180,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: non_acknowledged_requests
                                 
                                 	Non acknowledged requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7247,6 +8222,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountUpdate, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                             class SessionDisconnect(Entity):
                                 """
                                 Session disconnect request statistics
@@ -7258,6 +8234,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: acknowledged_requests
                                 
                                 	Acknowledged requests
@@ -7265,12 +8243,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: non_acknowledged_requests
                                 
                                 	Non acknowledged requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7303,6 +8285,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SessionDisconnect, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                             class SingleServiceLogon(Entity):
                                 """
                                 Service logon request statistics
@@ -7314,6 +8297,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: acknowledged_requests
                                 
                                 	Acknowledged requests
@@ -7321,12 +8306,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: non_acknowledged_requests
                                 
                                 	Non acknowledged requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7359,6 +8348,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                             class SingleServiceLogoff(Entity):
                                 """
                                 Single Service logoff request statistics
@@ -7370,6 +8360,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: acknowledged_requests
                                 
                                 	Acknowledged requests
@@ -7377,12 +8369,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: non_acknowledged_requests
                                 
                                 	Non acknowledged requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7415,6 +8411,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                             class SingleServiceModify(Entity):
                                 """
                                 Single Service Modify request statistics
@@ -7426,6 +8423,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: acknowledged_requests
                                 
                                 	Acknowledged requests
@@ -7433,12 +8432,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: non_acknowledged_requests
                                 
                                 	Non acknowledged requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7471,6 +8474,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceModify, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
                             class ServiceMulti(Entity):
                                 """
                                 MA\-CoA Service request statistics
@@ -7482,6 +8486,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: acknowledged_requests
                                 
                                 	Acknowledged requests
@@ -7489,12 +8495,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: non_acknowledged_requests
                                 
                                 	Non acknowledged requests
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7527,6 +8537,9 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.ServiceMulti, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
+
+
+
                     class AggregateSummary(Entity):
                         """
                         Aggregate summary of statistics
@@ -7538,12 +8551,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: no_class_match_in_start_request
                         
                         	No control policy class match during subscriber start
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: nas_port_attribute_format_warnings
                         
@@ -7552,12 +8569,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: nas_port_id_attribute_format_warnings
                         
                         	NAS port ID attribute format warnings
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: destination_station_id_attribute_format_warnings
                         
@@ -7566,12 +8587,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: calling_station_id_attribute_format_warnings
                         
                         	Calling station ID attribute format warnings
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: username_attribute_format_warnings
                         
@@ -7580,12 +8605,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: install_user_profiles
                         
                         	User profiles installed
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: user_profile_install_errors
                         
@@ -7594,12 +8623,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: user_profile_removals
                         
                         	User profile removals
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: user_profile_errors
                         
@@ -7608,12 +8641,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: sess_disc_quota_exhausts
                         
                         	Session Disconnect Quota Exhausts
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: sess_disc_no_quota
                         
@@ -7622,12 +8659,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: sess_disc_quota_avail
                         
                         	Session Disconnect Request Accepted, quota available
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: sess_disc_recon_ip
                         
@@ -7636,12 +8677,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: sess_disc_none_started
                         
                         	Session Disconnect Requests not Dequeued, no quota
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: sess_disc_quota
                         
@@ -7650,6 +8695,8 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: sess_disc_quota_remaining
                         
                         	Session Disconnect Quota Remaining
@@ -7657,12 +8704,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: sess_disc_q_count
                         
                         	Session Disconnect Requests Queued
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -7727,6 +8778,7 @@ class Subscriber(Entity):
                             self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary, [u'no_subscriber_control_policy_on_interface', u'no_class_match_in_start_request', u'nas_port_attribute_format_warnings', u'nas_port_id_attribute_format_warnings', u'destination_station_id_attribute_format_warnings', u'calling_station_id_attribute_format_warnings', u'username_attribute_format_warnings', u'install_user_profiles', u'user_profile_install_errors', u'user_profile_removals', u'user_profile_errors', u'sess_disc_quota_exhausts', u'sess_disc_no_quota', u'sess_disc_quota_avail', u'sess_disc_recon_ip', u'sess_disc_none_started', u'sess_disc_quota', u'sess_disc_quota_remaining', u'sess_disc_q_count'], name, value)
 
 
+
                     class Srg(Entity):
                         """
                         Geo Redundancy statistics
@@ -7738,12 +8790,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: txlist_send_failed
                         
                         	Txlist Send Failed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: txlist_send_failed_notactive
                         
@@ -7752,12 +8808,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: actual_txlist_sent
                         
                         	Txlist Send Success
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: alreadyin_txlist
                         
@@ -7766,12 +8826,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: txlist_encode
                         
                         	Txlist Encode
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: txlist_encode_fail
                         
@@ -7780,12 +8844,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: create_update_encode
                         
                         	Txlist Create Update Encode
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: delete_encode
                         
@@ -7794,12 +8862,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: create_upd_clean_callback
                         
                         	Txlist Create/update clean callback
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: delete_clean_callback
                         
@@ -7808,12 +8880,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: slave_recv_entry
                         
                         	Slave Recieved Sync
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: slave_decode_fail
                         
@@ -7822,12 +8898,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: slave_create_update
                         
                         	Create Update received on slave
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: slave_delete
                         
@@ -7836,12 +8916,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: srg_context_malloc
                         
                         	SRG context allocated
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: srg_context_free
                         
@@ -7850,12 +8934,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: sod_count
                         
                         	Number of SODs Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: eod_count
                         
@@ -7864,12 +8952,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: sod_eod_replay_req_count
                         
                         	Number of Replay Requests Within SOD EOD Window
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: sod_eod_dirty_mark_count
                         
@@ -7878,12 +8970,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: sod_eod_dirty_delete_count
                         
                         	Number of Sessions Invalid Deletes Within SOD EOD Window
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: ack_to_srg
                         
@@ -7892,12 +8988,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: nack_to_srg
                         
                         	Number of NACKs sent to Srg
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: nack_to_srg_fail_cnt
                         
@@ -7906,12 +9006,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: txlist_remove_all
                         
                         	Number of Txlist remove all calls
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: txlist_del_sync
                         
@@ -7920,12 +9024,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: txlist_del_sync_notlinked
                         
                         	Number of Txlist delete for sync which are not linked
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: txlist_del_app
                         
@@ -7934,12 +9042,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: txlist_del_app_notlinked
                         
                         	Number of Txlist delete for App which are not linked
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: txlist_clean_invalid_state
                         
@@ -7948,6 +9060,8 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: txlist_remove_all_internal_error
                         
                         	Number of Internal errors upon Master Txlist remove all call
@@ -7955,10 +9069,14 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_srg_flow_control_enabled
                         
                         	Flag indicating SRG Flow control enabled or not
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: max_inflight_sessoin_count
                         
@@ -7967,12 +9085,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: flow_control_resume_threshold
                         
                         	Threshold Limit to resume the flow control
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: inflight_session_count
                         
@@ -7981,12 +9103,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: inflight_add_count
                         
                         	No.of inflight sessions added
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: inflight_under_run_count
                         
@@ -7995,12 +9121,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: inflight_alloc_fails
                         
                         	Memory Alloc Failures for Inflight Entry
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: inflight_insert_failures
                         
@@ -8009,12 +9139,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: inflight_deletes
                         
                         	Inflight Deletes Count
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: inflight_not_found
                         
@@ -8023,12 +9157,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: inflight_delete_failures
                         
                         	Inflight Entry Delete Failures
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_pause_count
                         
@@ -8037,12 +9175,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_resume_count
                         
                         	Total No.of times Resume is triggered
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_dont_send_to_txlist
                         
@@ -8051,12 +9193,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_srg_not_master
                         
                         	Total No of times SRG Not Master
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_master_eoms_pending
                         
@@ -8065,12 +9211,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_master_eoms_pending_cleared
                         
                         	Total No of times Master EOMS Pending Cleared
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: last_pause_period
                         
@@ -8079,12 +9229,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_pause_time
                         
                         	Total Amount of time paused during all flow control windows
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: last_pause_time
                         
@@ -8093,12 +9247,16 @@ class Subscriber(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_resume_time
                         
                         	Timestamp of recent Resume Event
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -8231,6 +9389,11 @@ class Subscriber(Entity):
                             self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Srg, [u'txlist_send_triggered', u'txlist_send_failed', u'txlist_send_failed_notactive', u'actual_txlist_sent', u'alreadyin_txlist', u'txlist_encode', u'txlist_encode_fail', u'create_update_encode', u'delete_encode', u'create_upd_clean_callback', u'delete_clean_callback', u'slave_recv_entry', u'slave_decode_fail', u'slave_create_update', u'slave_delete', u'srg_context_malloc', u'srg_context_free', u'sod_count', u'eod_count', u'sod_eod_replay_req_count', u'sod_eod_dirty_mark_count', u'sod_eod_dirty_delete_count', u'ack_to_srg', u'nack_to_srg', u'nack_to_srg_fail_cnt', u'txlist_remove_all', u'txlist_del_sync', u'txlist_del_sync_notlinked', u'txlist_del_app', u'txlist_del_app_notlinked', u'txlist_clean_invalid_state', u'txlist_remove_all_internal_error', u'is_srg_flow_control_enabled', u'max_inflight_sessoin_count', u'flow_control_resume_threshold', u'inflight_session_count', u'inflight_add_count', u'inflight_under_run_count', u'inflight_alloc_fails', u'inflight_insert_failures', u'inflight_deletes', u'inflight_not_found', u'inflight_delete_failures', u'total_pause_count', u'total_resume_count', u'total_dont_send_to_txlist', u'total_srg_not_master', u'total_master_eoms_pending', u'total_master_eoms_pending_cleared', u'last_pause_period', u'total_pause_time', u'last_pause_time', u'last_resume_time'], name, value)
 
 
+
+
+
+
+
     class Session(Entity):
         """
         Subscriber session operational data
@@ -8239,6 +9402,8 @@ class Subscriber(Entity):
         
         	List of subscriber session supported nodes
         	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes>`
+        
+        	**config**\: False
         
         
 
@@ -8277,6 +9442,8 @@ class Subscriber(Entity):
             
             	Subscriber session operational data for a particular node
             	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node>`
+            
+            	**config**\: False
             
             
 
@@ -8317,70 +9484,98 @@ class Subscriber(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: author_summaries
                 
                 	Summary information filtered by authorization state
                 	**type**\:  :py:class:`AuthorSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries>`
+                
+                	**config**\: False
                 
                 .. attribute:: summary
                 
                 	Subscriber session summary information
                 	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary>`
                 
+                	**config**\: False
+                
                 .. attribute:: mac_summaries
                 
                 	Summary information filtered by MAC address
                 	**type**\:  :py:class:`MacSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries>`
+                
+                	**config**\: False
                 
                 .. attribute:: interface_summaries
                 
                 	Summary information filtered by interface
                 	**type**\:  :py:class:`InterfaceSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries>`
                 
+                	**config**\: False
+                
                 .. attribute:: authentication_summaries
                 
                 	Summary information filtered by authentication state
                 	**type**\:  :py:class:`AuthenticationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries>`
+                
+                	**config**\: False
                 
                 .. attribute:: state_summaries
                 
                 	Summary information filtered by session state
                 	**type**\:  :py:class:`StateSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4_address_vrf_summaries
                 
                 	Summary information filtered by IPv4 address and VRF
                 	**type**\:  :py:class:`Ipv4AddressVrfSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries>`
+                
+                	**config**\: False
                 
                 .. attribute:: address_family_summaries
                 
                 	Summary information filtered by address family
                 	**type**\:  :py:class:`AddressFamilySummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries>`
                 
+                	**config**\: False
+                
                 .. attribute:: username_summaries
                 
                 	Summary information filtered by username
                 	**type**\:  :py:class:`UsernameSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries>`
+                
+                	**config**\: False
                 
                 .. attribute:: access_interface_summaries
                 
                 	Summary information filtered by access interface
                 	**type**\:  :py:class:`AccessInterfaceSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4_address_summaries
                 
                 	Summary information filtered by subscriber IPv4 address
                 	**type**\:  :py:class:`Ipv4AddressSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries>`
+                
+                	**config**\: False
                 
                 .. attribute:: vrf_summaries
                 
                 	Summary information filtered by VRF
                 	**type**\:  :py:class:`VrfSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries>`
                 
+                	**config**\: False
+                
                 .. attribute:: sessions
                 
                 	IP subscriber sessions
                 	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions>`
+                
+                	**config**\: False
                 
                 
 
@@ -8472,6 +9667,8 @@ class Subscriber(Entity):
                     	authorization summary
                     	**type**\: list of  		 :py:class:`AuthorSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -8507,15 +9704,21 @@ class Subscriber(Entity):
                         	Authorization state
                         	**type**\:  :py:class:`SubscriberAuthorStateFilterFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberAuthorStateFilterFlag>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: state_xr
                         
                         	State summary
                         	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: address_family_xr
                         
                         	Address family summary
                         	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -8561,15 +9764,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -8618,12 +9827,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -8632,12 +9845,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -8646,6 +9863,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -8653,12 +9872,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8699,6 +9922,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -8710,12 +9934,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -8724,12 +9952,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -8738,6 +9970,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -8745,12 +9979,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8791,6 +10029,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -8802,12 +10041,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -8816,12 +10059,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -8830,6 +10077,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -8837,12 +10086,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8883,6 +10136,8 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
+
                         class AddressFamilyXr(Entity):
                             """
                             Address family summary
@@ -8892,15 +10147,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -8949,12 +10210,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -8963,12 +10228,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -8977,12 +10246,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9021,6 +10294,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -9032,12 +10306,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -9046,12 +10324,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -9060,12 +10342,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9104,6 +10390,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -9115,12 +10402,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -9129,12 +10420,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -9143,12 +10438,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9187,6 +10486,10 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
+
+
+
                 class Summary(Entity):
                     """
                     Subscriber session summary information
@@ -9196,10 +10499,14 @@ class Subscriber(Entity):
                     	State summary
                     	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.StateXr>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: address_family_xr
                     
                     	Address family summary
                     	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -9242,15 +10549,21 @@ class Subscriber(Entity):
                         	PPPoE summary
                         	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.StateXr.Pppoe>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_subscriber_dhcp
                         
                         	IP subscriber DHCP summary
                         	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberDhcp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_subscriber_packet
                         
                         	IP subscriber packet summary
                         	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberPacket>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -9299,12 +10612,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: connecting_sessions
                             
                             	Sessions in connecting state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: connected_sessions
                             
@@ -9313,12 +10630,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: activated_sessions
                             
                             	Sessions in activated state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: idle_sessions
                             
@@ -9327,6 +10648,8 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: disconnecting_sessions
                             
                             	Sessions in disconnecting state
@@ -9334,12 +10657,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: end_sessions
                             
                             	Sessions in end state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -9380,6 +10707,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                         class IpSubscriberDhcp(Entity):
                             """
                             IP subscriber DHCP summary
@@ -9391,12 +10719,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: connecting_sessions
                             
                             	Sessions in connecting state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: connected_sessions
                             
@@ -9405,12 +10737,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: activated_sessions
                             
                             	Sessions in activated state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: idle_sessions
                             
@@ -9419,6 +10755,8 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: disconnecting_sessions
                             
                             	Sessions in disconnecting state
@@ -9426,12 +10764,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: end_sessions
                             
                             	Sessions in end state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -9472,6 +10814,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                         class IpSubscriberPacket(Entity):
                             """
                             IP subscriber packet summary
@@ -9483,12 +10826,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: connecting_sessions
                             
                             	Sessions in connecting state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: connected_sessions
                             
@@ -9497,12 +10844,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: activated_sessions
                             
                             	Sessions in activated state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: idle_sessions
                             
@@ -9511,6 +10862,8 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: disconnecting_sessions
                             
                             	Sessions in disconnecting state
@@ -9518,12 +10871,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: end_sessions
                             
                             	Sessions in end state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -9564,6 +10921,8 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
+
                     class AddressFamilyXr(Entity):
                         """
                         Address family summary
@@ -9573,15 +10932,21 @@ class Subscriber(Entity):
                         	PPPoE summary
                         	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.Pppoe>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_subscriber_dhcp
                         
                         	IP subscriber DHCP summary
                         	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberDhcp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_subscriber_packet
                         
                         	IP subscriber packet summary
                         	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberPacket>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -9630,12 +10995,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4_only_sessions
                             
                             	IPv4 only sessions 
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: ipv6_only_sessions
                             
@@ -9644,12 +11013,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dual_part_up_sessions
                             
                             	Dual stack partially up sessions
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: dual_up_sessions
                             
@@ -9658,12 +11031,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: lac_sessions
                             
                             	LAC sessions
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -9702,6 +11079,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                         class IpSubscriberDhcp(Entity):
                             """
                             IP subscriber DHCP summary
@@ -9713,12 +11091,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4_only_sessions
                             
                             	IPv4 only sessions 
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: ipv6_only_sessions
                             
@@ -9727,12 +11109,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dual_part_up_sessions
                             
                             	Dual stack partially up sessions
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: dual_up_sessions
                             
@@ -9741,12 +11127,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: lac_sessions
                             
                             	LAC sessions
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -9785,6 +11175,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                         class IpSubscriberPacket(Entity):
                             """
                             IP subscriber packet summary
@@ -9796,12 +11187,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4_only_sessions
                             
                             	IPv4 only sessions 
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: ipv6_only_sessions
                             
@@ -9810,12 +11205,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dual_part_up_sessions
                             
                             	Dual stack partially up sessions
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: dual_up_sessions
                             
@@ -9824,12 +11223,16 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: lac_sessions
                             
                             	LAC sessions
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -9868,6 +11271,9 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
+
+
                 class MacSummaries(Entity):
                     """
                     Summary information filtered by MAC address
@@ -9876,6 +11282,8 @@ class Subscriber(Entity):
                     
                     	MAC address summary
                     	**type**\: list of  		 :py:class:`MacSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -9914,15 +11322,21 @@ class Subscriber(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
+                        	**config**\: False
+                        
                         .. attribute:: state_xr
                         
                         	State summary
                         	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: address_family_xr
                         
                         	Address family summary
                         	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -9968,15 +11382,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -10025,12 +11445,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -10039,12 +11463,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -10053,6 +11481,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -10060,12 +11490,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10106,6 +11540,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -10117,12 +11552,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -10131,12 +11570,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -10145,6 +11588,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -10152,12 +11597,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10198,6 +11647,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -10209,12 +11659,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -10223,12 +11677,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -10237,6 +11695,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -10244,12 +11704,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10290,6 +11754,8 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
+
                         class AddressFamilyXr(Entity):
                             """
                             Address family summary
@@ -10299,15 +11765,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -10356,12 +11828,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -10370,12 +11846,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -10384,12 +11864,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10428,6 +11912,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -10439,12 +11924,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -10453,12 +11942,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -10467,12 +11960,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10511,6 +12008,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -10522,12 +12020,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -10536,12 +12038,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -10550,12 +12056,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10594,6 +12104,10 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
+
+
+
                 class InterfaceSummaries(Entity):
                     """
                     Summary information filtered by interface
@@ -10602,6 +12116,8 @@ class Subscriber(Entity):
                     
                     	Interface summary
                     	**type**\: list of  		 :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -10640,15 +12156,21 @@ class Subscriber(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: state_xr
                         
                         	State summary
                         	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: address_family_xr
                         
                         	Address family summary
                         	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -10694,15 +12216,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -10751,12 +12279,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -10765,12 +12297,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -10779,6 +12315,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -10786,12 +12324,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10832,6 +12374,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -10843,12 +12386,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -10857,12 +12404,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -10871,6 +12422,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -10878,12 +12431,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10924,6 +12481,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -10935,12 +12493,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -10949,12 +12511,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -10963,6 +12529,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -10970,12 +12538,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -11016,6 +12588,8 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
+
                         class AddressFamilyXr(Entity):
                             """
                             Address family summary
@@ -11025,15 +12599,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -11082,12 +12662,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -11096,12 +12680,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -11110,12 +12698,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -11154,6 +12746,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -11165,12 +12758,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -11179,12 +12776,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -11193,12 +12794,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -11237,6 +12842,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -11248,12 +12854,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -11262,12 +12872,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -11276,12 +12890,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -11320,6 +12938,10 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
+
+
+
                 class AuthenticationSummaries(Entity):
                     """
                     Summary information filtered by
@@ -11329,6 +12951,8 @@ class Subscriber(Entity):
                     
                     	authentication summary
                     	**type**\: list of  		 :py:class:`AuthenticationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -11365,15 +12989,21 @@ class Subscriber(Entity):
                         	Authentication state
                         	**type**\:  :py:class:`SubscriberAuthenStateFilterFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberAuthenStateFilterFlag>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: state_xr
                         
                         	State summary
                         	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: address_family_xr
                         
                         	Address family summary
                         	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -11419,15 +13049,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -11476,12 +13112,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -11490,12 +13130,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -11504,6 +13148,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -11511,12 +13157,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -11557,6 +13207,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -11568,12 +13219,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -11582,12 +13237,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -11596,6 +13255,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -11603,12 +13264,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -11649,6 +13314,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -11660,12 +13326,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -11674,12 +13344,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -11688,6 +13362,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -11695,12 +13371,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -11741,6 +13421,8 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
+
                         class AddressFamilyXr(Entity):
                             """
                             Address family summary
@@ -11750,15 +13432,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -11807,12 +13495,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -11821,12 +13513,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -11835,12 +13531,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -11879,6 +13579,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -11890,12 +13591,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -11904,12 +13609,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -11918,12 +13627,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -11962,6 +13675,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -11973,12 +13687,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -11987,12 +13705,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -12001,12 +13723,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -12045,6 +13771,10 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
+
+
+
                 class StateSummaries(Entity):
                     """
                     Summary information filtered by session state
@@ -12053,6 +13783,8 @@ class Subscriber(Entity):
                     
                     	State summary
                     	**type**\: list of  		 :py:class:`StateSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -12089,15 +13821,21 @@ class Subscriber(Entity):
                         	Subscriber state
                         	**type**\:  :py:class:`SubscriberStateFilterFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberStateFilterFlag>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: state_xr
                         
                         	State summary
                         	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: address_family_xr
                         
                         	Address family summary
                         	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -12143,15 +13881,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -12200,12 +13944,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -12214,12 +13962,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -12228,6 +13980,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -12235,12 +13989,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -12281,6 +14039,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -12292,12 +14051,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -12306,12 +14069,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -12320,6 +14087,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -12327,12 +14096,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -12373,6 +14146,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -12384,12 +14158,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -12398,12 +14176,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -12412,6 +14194,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -12419,12 +14203,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -12465,6 +14253,8 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
+
                         class AddressFamilyXr(Entity):
                             """
                             Address family summary
@@ -12474,15 +14264,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -12531,12 +14327,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -12545,12 +14345,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -12559,12 +14363,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -12603,6 +14411,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -12614,12 +14423,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -12628,12 +14441,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -12642,12 +14459,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -12686,6 +14507,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -12697,12 +14519,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -12711,12 +14537,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -12725,12 +14555,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -12769,6 +14603,10 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
+
+
+
                 class Ipv4AddressVrfSummaries(Entity):
                     """
                     Summary information filtered by IPv4 address
@@ -12778,6 +14616,8 @@ class Subscriber(Entity):
                     
                     	IPv4 address and VRF summary
                     	**type**\: list of  		 :py:class:`Ipv4AddressVrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -12816,6 +14656,8 @@ class Subscriber(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: address
                         
                         	Subscriber IPv4 address
@@ -12823,15 +14665,21 @@ class Subscriber(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: state_xr
                         
                         	State summary
                         	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: address_family_xr
                         
                         	Address family summary
                         	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -12879,15 +14727,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -12936,12 +14790,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -12950,12 +14808,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -12964,6 +14826,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -12971,12 +14835,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13017,6 +14885,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -13028,12 +14897,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -13042,12 +14915,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -13056,6 +14933,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -13063,12 +14942,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13109,6 +14992,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -13120,12 +15004,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -13134,12 +15022,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -13148,6 +15040,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -13155,12 +15049,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13201,6 +15099,8 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
+
                         class AddressFamilyXr(Entity):
                             """
                             Address family summary
@@ -13210,15 +15110,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -13267,12 +15173,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -13281,12 +15191,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -13295,12 +15209,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13339,6 +15257,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -13350,12 +15269,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -13364,12 +15287,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -13378,12 +15305,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13422,6 +15353,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -13433,12 +15365,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -13447,12 +15383,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -13461,12 +15401,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13505,6 +15449,10 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
+
+
+
                 class AddressFamilySummaries(Entity):
                     """
                     Summary information filtered by address
@@ -13514,6 +15462,8 @@ class Subscriber(Entity):
                     
                     	Address family summary
                     	**type**\: list of  		 :py:class:`AddressFamilySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -13550,15 +15500,21 @@ class Subscriber(Entity):
                         	Address family
                         	**type**\:  :py:class:`SubscriberAddressFamilyFilterFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberAddressFamilyFilterFlag>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: state_xr
                         
                         	State summary
                         	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: address_family_xr
                         
                         	Address family summary
                         	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -13604,15 +15560,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -13661,12 +15623,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -13675,12 +15641,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -13689,6 +15659,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -13696,12 +15668,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13742,6 +15718,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -13753,12 +15730,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -13767,12 +15748,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -13781,6 +15766,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -13788,12 +15775,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13834,6 +15825,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -13845,12 +15837,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -13859,12 +15855,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -13873,6 +15873,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -13880,12 +15882,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13926,6 +15932,8 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
+
                         class AddressFamilyXr(Entity):
                             """
                             Address family summary
@@ -13935,15 +15943,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -13992,12 +16006,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -14006,12 +16024,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -14020,12 +16042,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -14064,6 +16090,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -14075,12 +16102,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -14089,12 +16120,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -14103,12 +16138,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -14147,6 +16186,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -14158,12 +16198,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -14172,12 +16216,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -14186,12 +16234,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -14230,6 +16282,10 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
+
+
+
                 class UsernameSummaries(Entity):
                     """
                     Summary information filtered by username
@@ -14238,6 +16294,8 @@ class Subscriber(Entity):
                     
                     	Username summary
                     	**type**\: list of  		 :py:class:`UsernameSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -14276,15 +16334,21 @@ class Subscriber(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: state_xr
                         
                         	State summary
                         	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: address_family_xr
                         
                         	Address family summary
                         	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -14330,15 +16394,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -14387,12 +16457,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -14401,12 +16475,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -14415,6 +16493,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -14422,12 +16502,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -14468,6 +16552,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -14479,12 +16564,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -14493,12 +16582,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -14507,6 +16600,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -14514,12 +16609,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -14560,6 +16659,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -14571,12 +16671,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -14585,12 +16689,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -14599,6 +16707,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -14606,12 +16716,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -14652,6 +16766,8 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
+
                         class AddressFamilyXr(Entity):
                             """
                             Address family summary
@@ -14661,15 +16777,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -14718,12 +16840,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -14732,12 +16858,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -14746,12 +16876,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -14790,6 +16924,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -14801,12 +16936,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -14815,12 +16954,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -14829,12 +16972,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -14873,6 +17020,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -14884,12 +17032,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -14898,12 +17050,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -14912,12 +17068,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -14956,6 +17116,10 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
+
+
+
                 class AccessInterfaceSummaries(Entity):
                     """
                     Summary information filtered by access
@@ -14965,6 +17129,8 @@ class Subscriber(Entity):
                     
                     	Access interface summary
                     	**type**\: list of  		 :py:class:`AccessInterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -15003,15 +17169,21 @@ class Subscriber(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: state_xr
                         
                         	State summary
                         	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: address_family_xr
                         
                         	Address family summary
                         	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -15057,15 +17229,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -15114,12 +17292,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -15128,12 +17310,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -15142,6 +17328,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -15149,12 +17337,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -15195,6 +17387,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -15206,12 +17399,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -15220,12 +17417,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -15234,6 +17435,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -15241,12 +17444,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -15287,6 +17494,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -15298,12 +17506,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -15312,12 +17524,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -15326,6 +17542,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -15333,12 +17551,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -15379,6 +17601,8 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
+
                         class AddressFamilyXr(Entity):
                             """
                             Address family summary
@@ -15388,15 +17612,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -15445,12 +17675,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -15459,12 +17693,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -15473,12 +17711,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -15517,6 +17759,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -15528,12 +17771,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -15542,12 +17789,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -15556,12 +17807,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -15600,6 +17855,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -15611,12 +17867,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -15625,12 +17885,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -15639,12 +17903,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -15683,6 +17951,10 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
+
+
+
                 class Ipv4AddressSummaries(Entity):
                     """
                     Summary information filtered by subscriber
@@ -15692,6 +17964,8 @@ class Subscriber(Entity):
                     
                     	IPv4 address summary
                     	**type**\: list of  		 :py:class:`Ipv4AddressSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -15730,15 +18004,21 @@ class Subscriber(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: state_xr
                         
                         	State summary
                         	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: address_family_xr
                         
                         	Address family summary
                         	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -15784,15 +18064,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -15841,12 +18127,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -15855,12 +18145,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -15869,6 +18163,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -15876,12 +18172,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -15922,6 +18222,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -15933,12 +18234,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -15947,12 +18252,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -15961,6 +18270,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -15968,12 +18279,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -16014,6 +18329,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -16025,12 +18341,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -16039,12 +18359,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -16053,6 +18377,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -16060,12 +18386,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -16106,6 +18436,8 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
+
                         class AddressFamilyXr(Entity):
                             """
                             Address family summary
@@ -16115,15 +18447,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -16172,12 +18510,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -16186,12 +18528,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -16200,12 +18546,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -16244,6 +18594,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -16255,12 +18606,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -16269,12 +18624,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -16283,12 +18642,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -16327,6 +18690,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -16338,12 +18702,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -16352,12 +18720,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -16366,12 +18738,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -16410,6 +18786,10 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
+
+
+
                 class VrfSummaries(Entity):
                     """
                     Summary information filtered by VRF
@@ -16418,6 +18798,8 @@ class Subscriber(Entity):
                     
                     	VRF summary
                     	**type**\: list of  		 :py:class:`VrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -16456,15 +18838,21 @@ class Subscriber(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: state_xr
                         
                         	State summary
                         	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: address_family_xr
                         
                         	Address family summary
                         	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -16510,15 +18898,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -16567,12 +18961,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -16581,12 +18979,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -16595,6 +18997,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -16602,12 +19006,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -16648,6 +19056,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -16659,12 +19068,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -16673,12 +19086,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -16687,6 +19104,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -16694,12 +19113,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -16740,6 +19163,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -16751,12 +19175,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: connecting_sessions
                                 
                                 	Sessions in connecting state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: connected_sessions
                                 
@@ -16765,12 +19193,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: activated_sessions
                                 
                                 	Sessions in activated state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idle_sessions
                                 
@@ -16779,6 +19211,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disconnecting_sessions
                                 
                                 	Sessions in disconnecting state
@@ -16786,12 +19220,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: end_sessions
                                 
                                 	Sessions in end state
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -16832,6 +19270,8 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
 
 
+
+
                         class AddressFamilyXr(Entity):
                             """
                             Address family summary
@@ -16841,15 +19281,21 @@ class Subscriber(Entity):
                             	PPPoE summary
                             	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
                             	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
                             	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -16898,12 +19344,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -16912,12 +19362,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -16926,12 +19380,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -16970,6 +19428,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberDhcp(Entity):
                                 """
                                 IP subscriber DHCP summary
@@ -16981,12 +19440,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -16995,12 +19458,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -17009,12 +19476,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -17053,6 +19524,7 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
                             class IpSubscriberPacket(Entity):
                                 """
                                 IP subscriber packet summary
@@ -17064,12 +19536,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_only_sessions
                                 
                                 	IPv4 only sessions 
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv6_only_sessions
                                 
@@ -17078,12 +19554,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dual_part_up_sessions
                                 
                                 	Dual stack partially up sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dual_up_sessions
                                 
@@ -17092,12 +19572,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lac_sessions
                                 
                                 	LAC sessions
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -17136,6 +19620,10 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
 
 
+
+
+
+
                 class Sessions(Entity):
                     """
                     IP subscriber sessions
@@ -17144,6 +19632,8 @@ class Subscriber(Entity):
                     
                     	Subscriber session information
                     	**type**\: list of  		 :py:class:`Session_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -17182,30 +19672,42 @@ class Subscriber(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
+                        	**config**\: False
+                        
                         .. attribute:: accounting
                         
                         	Accounting information
                         	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: user_profile_attributes
                         
                         	List of user profile attributes collected for subscriber session
                         	**type**\:  :py:class:`UserProfileAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: mobility_attributes
                         
                         	List of mobility attributes collected for subscriber session
                         	**type**\:  :py:class:`MobilityAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: session_type
                         
                         	Subscriber session type
                         	**type**\:  :py:class:`IedgeOperSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeOperSession>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: pppoe_sub_type
                         
                         	PPPoE sub type
                         	**type**\:  :py:class:`IedgePppSub <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgePppSub>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: interface_name
                         
@@ -17214,20 +19716,28 @@ class Subscriber(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrf_name
                         
                         	VRF name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: circuit_id
                         
                         	Circuit ID
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_id
                         
                         	Remote ID
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: lns_address
                         
@@ -17236,6 +19746,8 @@ class Subscriber(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: lac_address
                         
                         	PPPoE LAC address
@@ -17243,15 +19755,21 @@ class Subscriber(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: tunnel_client_authentication_id
                         
                         	PPPoE LAC tunnel client authentication ID
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: tunnel_server_authentication_id
                         
                         	PPPoE LAC tunnel server authentication ID
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: session_ip_address
                         
@@ -17260,20 +19778,28 @@ class Subscriber(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: session_ipv6_address
                         
                         	Session IPv6 address
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: session_ipv6_prefix
                         
                         	Session IPv6 prefix
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: delegated_ipv6_prefix
                         
                         	Session delegated IPv6 prefix
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: ipv6_interface_id
                         
@@ -17282,6 +19808,8 @@ class Subscriber(Entity):
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: mac_address
                         
                         	MAC address
@@ -17289,55 +19817,77 @@ class Subscriber(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
+                        	**config**\: False
+                        
                         .. attribute:: account_session_id
                         
                         	Accounting session ID
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: nas_port
                         
                         	NAS port
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: username
                         
                         	Username
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: clientname
                         
                         	Client Username
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: formattedname
                         
                         	Formatted Username
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_session_authentic
                         
                         	If true, session is authentic
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_session_author
                         
                         	If true, session is authorized
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: session_state
                         
                         	Session state
                         	**type**\:  :py:class:`IedgeOperSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeOperSessionState>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: session_creation_time
                         
                         	Session creation time in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: idle_state_change_time
                         
                         	Time when idle state change occurred in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_session_idle_time
                         
@@ -17345,6 +19895,8 @@ class Subscriber(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -17355,12 +19907,16 @@ class Subscriber(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: pending_callbacks
                         
                         	Active pending callbacks bitmask
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: af_up_status
                         
@@ -17369,20 +19925,28 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: session_ipv4_state
                         
                         	Session IPv4 state
                         	**type**\:  :py:class:`IedgeOperSessionAfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeOperSessionAfState>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: session_ipv6_state
                         
                         	Session IPv6 state
                         	**type**\:  :py:class:`IedgeOperSessionAfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeOperSessionAfState>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: session_change_of_authorization
                         
                         	Subscriber change of authorization information
                         	**type**\: list of  		 :py:class:`SessionChangeOfAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -17498,6 +20062,8 @@ class Subscriber(Entity):
                             	Accounting information
                             	**type**\: list of  		 :py:class:`AccountingSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -17535,6 +20101,8 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: accounting_stop_state
                                 
                                 	Accounting Stop State
@@ -17542,30 +20110,42 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: record_context_name
                                 
                                 	Accounting record context name
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: method_list_name
                                 
                                 	AAA method list name used to perform accounting
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: account_session_id
                                 
                                 	Accounting session ID
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: accounting_start_time
                                 
                                 	Accounting start time in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Feb 15 15\:12\:49 2011
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: is_interim_accounting_enabled
                                 
                                 	True if interim accounting is enabled
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: interim_interval
                                 
@@ -17574,12 +20154,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 	**units**\: minute
                                 
                                 .. attribute:: last_successful_interim_update_time
                                 
                                 	Time of last successful interim update in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30 \:47 2011
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: next_interim_update_attempt_time
                                 
@@ -17588,12 +20172,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 	**units**\: second
                                 
                                 .. attribute:: last_interim_update_attempt_time
                                 
                                 	Time of last interim update attempt in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: sent_interim_updates
                                 
@@ -17602,12 +20190,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: accepted_interim_updates
                                 
                                 	Number of interim updates accepted
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: rejected_interim_updates
                                 
@@ -17616,12 +20208,16 @@ class Subscriber(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sent_interim_update_failures
                                 
                                 	Number of interim update send failures
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -17678,6 +20274,8 @@ class Subscriber(Entity):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession, [u'accounting_state_rc', u'accounting_stop_state', u'record_context_name', u'method_list_name', u'account_session_id', u'accounting_start_time', u'is_interim_accounting_enabled', u'interim_interval', u'last_successful_interim_update_time', u'next_interim_update_attempt_time', u'last_interim_update_attempt_time', u'sent_interim_updates', u'accepted_interim_updates', u'rejected_interim_updates', u'sent_interim_update_failures'], name, value)
 
 
+
+
                         class UserProfileAttributes(Entity):
                             """
                             List of user profile attributes collected for
@@ -17690,15 +20288,21 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4_unnumbered
                             
                             	IPv4 unnumbered
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: authorization_service_type
                             
                             	Authorization service type
                             	**type**\:  :py:class:`AaaAuthService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.AaaAuthService>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: tunnel_client_endpoint
                             
@@ -17707,12 +20311,16 @@ class Subscriber(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: tunnel_server_endpoint
                             
                             	Tunnel server endpoint
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: tunnel_tos_setting
                             
@@ -17721,10 +20329,14 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: tunnel_medium
                             
                             	Tunnel medium
                             	**type**\:  :py:class:`AaaTunnelMedium <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.AaaTunnelMedium>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: tunnel_preference
                             
@@ -17733,15 +20345,21 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: tunnel_client_authentication_id
                             
                             	Tunnel client authentication ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: tunnel_protocol
                             
                             	Tunnel protocol
                             	**type**\:  :py:class:`AaaTunnelProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.AaaTunnelProto>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: actual_data_rate_upstream
                             
@@ -17749,6 +20367,8 @@ class Subscriber(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: Mbit/s
                             
@@ -17759,6 +20379,8 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             	**units**\: Mbit/s
                             
                             .. attribute:: attainable_data_rate_upstream
@@ -17767,6 +20389,8 @@ class Subscriber(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: Mbit/s
                             
@@ -17777,6 +20401,8 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             	**units**\: Mbit/s
                             
                             .. attribute:: pool_address
@@ -17784,10 +20410,14 @@ class Subscriber(Entity):
                             	IP address pool
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: circuit_id
                             
                             	Circuit ID
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: connection_receive_speed
                             
@@ -17796,6 +20426,8 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: connection_transmission_speed
                             
                             	Connection transmission speed
@@ -17803,10 +20435,14 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: destination_station_id
                             
                             	Destination station ID
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: primary_dns_server_address
                             
@@ -17815,6 +20451,8 @@ class Subscriber(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: secondary_dns_server_address
                             
                             	Secondary DNS server address
@@ -17822,20 +20460,28 @@ class Subscriber(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: formatted_calling_station_id
                             
                             	Formatted calling station id
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: interface_name
                             
                             	Interface name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_type
                             
                             	Interface type
                             	**type**\:  :py:class:`AaaInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.AaaInterface>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: interim_accounting_interval
                             
@@ -17844,15 +20490,21 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ingress_access_list
                             
                             	Ingress access list
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: egress_access_list
                             
                             	Egress access list
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: ip_netmask
                             
@@ -17861,10 +20513,14 @@ class Subscriber(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_interworking_functionality
                             
                             	True, if interworking functionality
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: max_interleaving_delay_downstream
                             
@@ -17872,6 +20528,8 @@ class Subscriber(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: Mbit/s
                             
@@ -17882,6 +20540,8 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             	**units**\: Mbit/s
                             
                             .. attribute:: max_data_rate_upstream
@@ -17890,6 +20550,8 @@ class Subscriber(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: Mbit/s
                             
@@ -17900,6 +20562,8 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             	**units**\: Mbit/s
                             
                             .. attribute:: min_data_rate_downstream
@@ -17908,6 +20572,8 @@ class Subscriber(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: Mbit/s
                             
@@ -17918,6 +20584,8 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             	**units**\: Mbit/s
                             
                             .. attribute:: min_data_rate_upstream_low_power
@@ -17926,6 +20594,8 @@ class Subscriber(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: Mbit/s
                             
@@ -17936,12 +20606,16 @@ class Subscriber(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: secondary_net_bios_server_address
                             
                             	Secondary net bios server address
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: parent_interface_name
                             
@@ -17950,15 +20624,21 @@ class Subscriber(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: remote_id
                             
                             	Remote ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: route
                             
                             	Route information for a user session
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: session_timeout
                             
@@ -17966,6 +20646,8 @@ class Subscriber(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: second
                             
@@ -17976,35 +20658,49 @@ class Subscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: accounting_session_id
                             
                             	Accounting session ID
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: upstream_parameterized_qos_policy
                             
                             	Upstream parameterized QoS policy to be applied on the subscriber side
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: downstream_parameterized_qos_policy
                             
                             	Downstream parameterized QoS policy to be applied on the subscriber side
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: upstream_qos_policy
                             
                             	Upstream QoS policy to be applied on the subscriber side
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: downstream_qos_policy
                             
                             	Downstream QoS policy to be applied on the subscriber side
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: session_termination_cause
                             
                             	Session termination cause
                             	**type**\:  :py:class:`AaaTerminateCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.AaaTerminateCause>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -18129,6 +20825,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes, [u'ipv4mtu', u'ipv4_unnumbered', u'authorization_service_type', u'tunnel_client_endpoint', u'tunnel_server_endpoint', u'tunnel_tos_setting', u'tunnel_medium', u'tunnel_preference', u'tunnel_client_authentication_id', u'tunnel_protocol', u'actual_data_rate_upstream', u'actual_data_rate_downstream', u'attainable_data_rate_upstream', u'attainable_data_rate_downstream', u'pool_address', u'circuit_id', u'connection_receive_speed', u'connection_transmission_speed', u'destination_station_id', u'primary_dns_server_address', u'secondary_dns_server_address', u'formatted_calling_station_id', u'interface_name', u'interface_type', u'interim_accounting_interval', u'ingress_access_list', u'egress_access_list', u'ip_netmask', u'is_interworking_functionality', u'max_interleaving_delay_downstream', u'max_interleaving_delay_upstream', u'max_data_rate_upstream', u'max_data_rate_downstream', u'min_data_rate_downstream', u'min_data_rate_downstream_low_power', u'min_data_rate_upstream_low_power', u'primary_net_bios_server_address', u'secondary_net_bios_server_address', u'parent_interface_name', u'remote_id', u'route', u'session_timeout', u'strict_rpf_packets', u'accounting_session_id', u'upstream_parameterized_qos_policy', u'downstream_parameterized_qos_policy', u'upstream_qos_policy', u'downstream_qos_policy', u'session_termination_cause'], name, value)
 
 
+
                         class MobilityAttributes(Entity):
                             """
                             List of mobility attributes collected for
@@ -18139,50 +20836,70 @@ class Subscriber(Entity):
                             	Cisco MPC Protocol
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: mobility_ipv4_address
                             
                             	IPv4 address of Mobility Node
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: mobility_default_ipv4_gateway
                             
                             	Default Gateway IPv4 Address
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: mobility_dns_server
                             
                             	DNS Server Primary
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: mobility_dhcp_server
                             
                             	DHCP Server
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: mobility_ipv4_netmask
                             
                             	IPv4 Netmask
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: domain_name
                             
                             	Domain Name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: uplink_gre_key
                             
                             	Uplink GRE Key
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: downlink_gre_key
                             
                             	Downlink GRE Key
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: lease_time
                             
                             	Duration of lease in seconds
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             	**units**\: second
                             
@@ -18231,6 +20948,7 @@ class Subscriber(Entity):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes, [u'mpc_protocol', u'mobility_ipv4_address', u'mobility_default_ipv4_gateway', u'mobility_dns_server', u'mobility_dhcp_server', u'mobility_ipv4_netmask', u'domain_name', u'uplink_gre_key', u'downlink_gre_key', u'lease_time'], name, value)
 
 
+
                         class SessionChangeOfAuthorization(Entity):
                             """
                             Subscriber change of authorization information
@@ -18240,10 +20958,14 @@ class Subscriber(Entity):
                             	Coa Request Acked
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: request_time
                             
                             	Request time in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: coa_request_attributes
                             
@@ -18252,10 +20974,14 @@ class Subscriber(Entity):
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: reply_time
                             
                             	Reply time in DDD MMM DD HH\:MM\:SS YYYY format eg \: Tue Apr 11 21\:30\:47 2011
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: coa_reply_attributes
                             
@@ -18263,6 +20989,8 @@ class Subscriber(Entity):
                             	**type**\: str
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -18298,9 +21026,17 @@ class Subscriber(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization, [u'request_acked', u'request_time', u'coa_request_attributes', u'reply_time', u'coa_reply_attributes'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Subscriber()
         return self._top_entity
+
+
 
 class IedgeLicenseManager(Entity):
     """
@@ -18310,6 +21046,8 @@ class IedgeLicenseManager(Entity):
     
     	Session License Manager operational data for a location
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeLicenseManager.Nodes>`
+    
+    	**config**\: False
     
     
 
@@ -18350,6 +21088,8 @@ class IedgeLicenseManager(Entity):
         	Location. For example, 0/1/CPU0
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeLicenseManager.Nodes.Node>`
         
+        	**config**\: False
+        
         
 
         """
@@ -18388,10 +21128,14 @@ class IedgeLicenseManager(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: iedge_license_manager_summary
             
             	Display Session License Manager summary data
             	**type**\:  :py:class:`IedgeLicenseManagerSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeLicenseManager.Nodes.Node.IedgeLicenseManagerSummary>`
+            
+            	**config**\: False
             
             
 
@@ -18436,12 +21180,16 @@ class IedgeLicenseManager(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: session_threshold
                 
                 	configured session threshold
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: session_license_count
                 
@@ -18450,12 +21198,16 @@ class IedgeLicenseManager(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: session_count
                 
                 	number of sessions
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -18489,7 +21241,12 @@ class IedgeLicenseManager(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(IedgeLicenseManager.Nodes.Node.IedgeLicenseManagerSummary, [u'session_limit', u'session_threshold', u'session_license_count', u'session_count'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = IedgeLicenseManager()
         return self._top_entity
+
+
 

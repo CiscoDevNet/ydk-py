@@ -1034,35 +1034,49 @@ class CellwanOperData(Entity):
     	Cellwan modem hardware data
     	**type**\: list of  		 :py:class:`CellwanHardware <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CellwanOperData.CellwanHardware>`
     
+    	**config**\: False
+    
     .. attribute:: cellwan_radio
     
     	Cellwan modem radio data
     	**type**\: list of  		 :py:class:`CellwanRadio <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CellwanOperData.CellwanRadio>`
+    
+    	**config**\: False
     
     .. attribute:: cellwan_network
     
     	Cellwan modem network data
     	**type**\: list of  		 :py:class:`CellwanNetwork <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CellwanOperData.CellwanNetwork>`
     
+    	**config**\: False
+    
     .. attribute:: cellwan_connection
     
     	Cellwan modem connection data
     	**type**\: list of  		 :py:class:`CellwanConnection <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CellwanOperData.CellwanConnection>`
+    
+    	**config**\: False
     
     .. attribute:: cellwan_security
     
     	Cellwan modem sim security data
     	**type**\: list of  		 :py:class:`CellwanSecurity <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CellwanOperData.CellwanSecurity>`
     
+    	**config**\: False
+    
     .. attribute:: cellwan_sms
     
     	Cellwan modem sms data
     	**type**\: list of  		 :py:class:`CellwanSms <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CellwanOperData.CellwanSms>`
     
+    	**config**\: False
+    
     .. attribute:: cellwan_gps
     
     	Cellwan modem gps data
     	**type**\: list of  		 :py:class:`CellwanGps <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CellwanOperData.CellwanGps>`
+    
+    	**config**\: False
     
     
 
@@ -1106,55 +1120,77 @@ class CellwanOperData(Entity):
         	Cellular interface
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: cellular_firmware_version
         
         	Cellular Modem firmware version
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: cellular_firmware_build_time
         
         	Cellular Modem firmware build time
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: cellular_hardware_version
         
         	Cellular Modem hardware version
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: cellular_device_model
         
         	Cellular Modem device model type
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: cellular_imsi
         
         	Cellular Modem IMSI
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: cellular_imei
         
         	Cellular Modem IMEI
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: cellular_iccid
         
         	Cellular Modem ICCID
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: cellular_msisdn
         
         	Cellular Modem MSISDN
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: cellular_fsn
         
         	Cellular Modem FSN
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: cellular_modem_status
         
         	Cellular Modem Status
         	**type**\:  :py:class:`ModemStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.ModemStatus>`
+        
+        	**config**\: False
         
         .. attribute:: cellular_modem_temperature
         
@@ -1163,25 +1199,35 @@ class CellwanOperData(Entity):
         
         	**range:** \-32768..32767
         
+        	**config**\: False
+        
         .. attribute:: cellular_pri_skuid
         
         	Cellular Modem PRI sku id
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: cellular_pri_version
         
         	Cellular Modem PRI version
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: cellular_carrier
         
         	Cellular Modem carrier
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: cellular_oem_pri_version
         
         	Cellular Modem OEM PRI version
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -1241,6 +1287,7 @@ class CellwanOperData(Entity):
             self._perform_setattr(CellwanOperData.CellwanHardware, ['cellular_interface', 'cellular_firmware_version', 'cellular_firmware_build_time', 'cellular_hardware_version', 'cellular_device_model', 'cellular_imsi', 'cellular_imei', 'cellular_iccid', 'cellular_msisdn', 'cellular_fsn', 'cellular_modem_status', 'cellular_modem_temperature', 'cellular_pri_skuid', 'cellular_pri_version', 'cellular_carrier', 'cellular_oem_pri_version'], name, value)
 
 
+
     class CellwanRadio(Entity):
         """
         Cellwan modem radio data
@@ -1250,15 +1297,21 @@ class CellwanOperData(Entity):
         	Cellular interface
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: technology
         
         	Cellular modem technology
         	**type**\:  :py:class:`ModemTechnology <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.ModemTechnology>`
         
+        	**config**\: False
+        
         .. attribute:: radio_power_mode
         
         	Cellular modem radio power mode
         	**type**\:  :py:class:`CwRadioPowerStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CwRadioPowerStatus>`
+        
+        	**config**\: False
         
         .. attribute:: radio_rx_channel
         
@@ -1267,12 +1320,16 @@ class CellwanOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: radio_tx_channel
         
         	Cellular radio transmit (Tx) channel number
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: radio_band
         
@@ -1281,10 +1338,14 @@ class CellwanOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: bandwidth
         
         	Cellular radio bandwidth in MHz
         	**type**\:  :py:class:`RadioBandwidth <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.RadioBandwidth>`
+        
+        	**config**\: False
         
         .. attribute:: radio_rssi
         
@@ -1293,12 +1354,16 @@ class CellwanOperData(Entity):
         
         	**range:** \-32768..32767
         
+        	**config**\: False
+        
         .. attribute:: radio_rsrp
         
         	Cellular RSRP \- Reference Signal Received Power in dBm
         	**type**\: int
         
         	**range:** \-32768..32767
+        
+        	**config**\: False
         
         .. attribute:: radio_rsrq
         
@@ -1307,6 +1372,8 @@ class CellwanOperData(Entity):
         
         	**range:** \-128..127
         
+        	**config**\: False
+        
         .. attribute:: radio_snr
         
         	Cellular SNR \- Signal to Noise Ratio in dB
@@ -1314,15 +1381,21 @@ class CellwanOperData(Entity):
         
         	**range:** \-92233720368547758.08..92233720368547758.07
         
+        	**config**\: False
+        
         .. attribute:: radio_rat_preference
         
         	Cellular Radio Access Technology preference
         	**type**\:  :py:class:`RatPreference <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.RatPreference>`
         
+        	**config**\: False
+        
         .. attribute:: radio_rat_selected
         
         	Cellular Radio Access Technology selected
         	**type**\:  :py:class:`RatTechnology <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.RatTechnology>`
+        
+        	**config**\: False
         
         
 
@@ -1376,6 +1449,7 @@ class CellwanOperData(Entity):
             self._perform_setattr(CellwanOperData.CellwanRadio, ['cellular_interface', 'technology', 'radio_power_mode', 'radio_rx_channel', 'radio_tx_channel', 'radio_band', 'bandwidth', 'radio_rssi', 'radio_rsrp', 'radio_rsrq', 'radio_snr', 'radio_rat_preference', 'radio_rat_selected'], name, value)
 
 
+
     class CellwanNetwork(Entity):
         """
         Cellwan modem network data
@@ -1385,6 +1459,8 @@ class CellwanOperData(Entity):
         	Cellular interface
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: cellular_modem_time
         
         	Current Cellular modem time
@@ -1392,15 +1468,21 @@ class CellwanOperData(Entity):
         
         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
+        	**config**\: False
+        
         .. attribute:: radio_access_technology_selected
         
         	Cellular Radio Access Technology selected
         	**type**\:  :py:class:`RatTechnology <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.RatTechnology>`
         
+        	**config**\: False
+        
         .. attribute:: current_service_status
         
         	Cellular network current service status
         	**type**\:  :py:class:`ServiceStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.ServiceStatus>`
+        
+        	**config**\: False
         
         .. attribute:: current_system_identifier
         
@@ -1409,6 +1491,8 @@ class CellwanOperData(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: current_network_identifier
         
         	Cellular modem current network identifier
@@ -1416,25 +1500,35 @@ class CellwanOperData(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: current_service_type
         
         	Cellular network current service type
         	**type**\:  :py:class:`ModemService <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.ModemService>`
+        
+        	**config**\: False
         
         .. attribute:: current_roaming_status
         
         	Cellular network current roaming status
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: network_selection_mode
         
         	Cellular network selection mode
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: network_name
         
         	Cellular current network name
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: mobile_country_code
         
@@ -1443,6 +1537,8 @@ class CellwanOperData(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: mobile_network_code
         
         	Cellular modem mobile network code
@@ -1450,30 +1546,42 @@ class CellwanOperData(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: packet_switch_domain_state
         
         	Cellular packet switched (PS) domain state
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: lte_carrier_aggregation
         
         	Cellular LTE carrier aggregation (CA) state
         	**type**\:  :py:class:`LteCa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.LteCa>`
         
+        	**config**\: False
+        
         .. attribute:: registration_state
         
         	Cellular network registration state
         	**type**\:  :py:class:`RegState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.RegState>`
+        
+        	**config**\: False
         
         .. attribute:: emm_state
         
         	Cellular network EMM registration state
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: emm_substate
         
         	Cellular network EMM sub\-state
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: location_area_code
         
@@ -1482,12 +1590,16 @@ class CellwanOperData(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: tracking_area_code
         
         	Cellular network tracking area code
         	**type**\: int
         
         	**range:** 0..65535
+        
+        	**config**\: False
         
         .. attribute:: cell_id
         
@@ -1496,12 +1608,16 @@ class CellwanOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: negotiated_network_mtu
         
         	Cellular modem negotiated network MTU size
         	**type**\: int
         
         	**range:** 0..65535
+        
+        	**config**\: False
         
         
 
@@ -1571,6 +1687,7 @@ class CellwanOperData(Entity):
             self._perform_setattr(CellwanOperData.CellwanNetwork, ['cellular_interface', 'cellular_modem_time', 'radio_access_technology_selected', 'current_service_status', 'current_system_identifier', 'current_network_identifier', 'current_service_type', 'current_roaming_status', 'network_selection_mode', 'network_name', 'mobile_country_code', 'mobile_network_code', 'packet_switch_domain_state', 'lte_carrier_aggregation', 'registration_state', 'emm_state', 'emm_substate', 'location_area_code', 'tracking_area_code', 'cell_id', 'negotiated_network_mtu'], name, value)
 
 
+
     class CellwanConnection(Entity):
         """
         Cellwan modem connection data
@@ -1580,6 +1697,8 @@ class CellwanOperData(Entity):
         	Cellular interface
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: active_profile
         
         	Cellular modem active profile number
@@ -1587,10 +1706,14 @@ class CellwanOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: cellular_packet_status
         
         	Cellular modem packet session status
         	**type**\:  :py:class:`PacketSessStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.PacketSessStatus>`
+        
+        	**config**\: False
         
         .. attribute:: tx_packets
         
@@ -1599,12 +1722,16 @@ class CellwanOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: rx_packets
         
         	Cellular data packets received
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: tx_bytes
         
@@ -1613,12 +1740,16 @@ class CellwanOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: rx_bytes
         
         	Cellular data bytes received
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: ipv4_addr
         
@@ -1633,6 +1764,8 @@ class CellwanOperData(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: ipv6_addr
         
         	Cellular interface IPv6 Address
@@ -1645,6 +1778,8 @@ class CellwanOperData(Entity):
         		**type**\: str
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+        
+        	**config**\: False
         
         .. attribute:: ipv4_dns_pri
         
@@ -1659,6 +1794,8 @@ class CellwanOperData(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: ipv4_dns_sec
         
         	Cellular interface secondary IPv4 DNS Address
@@ -1671,6 +1808,8 @@ class CellwanOperData(Entity):
         		**type**\: str
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+        
+        	**config**\: False
         
         .. attribute:: ipv6_dns_pri
         
@@ -1685,6 +1824,8 @@ class CellwanOperData(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: ipv6_dns_sec
         
         	Cellular interface secondary IPv6 DNS Address
@@ -1698,10 +1839,14 @@ class CellwanOperData(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: scope
         
         	Cellular interface profile IP address scope
         	**type**\:  :py:class:`ProfileScope <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.ProfileScope>`
+        
+        	**config**\: False
         
         
 
@@ -1757,6 +1902,7 @@ class CellwanOperData(Entity):
             self._perform_setattr(CellwanOperData.CellwanConnection, ['cellular_interface', 'active_profile', 'cellular_packet_status', 'tx_packets', 'rx_packets', 'tx_bytes', 'rx_bytes', 'ipv4_addr', 'ipv6_addr', 'ipv4_dns_pri', 'ipv4_dns_sec', 'ipv6_dns_pri', 'ipv6_dns_sec', 'scope'], name, value)
 
 
+
     class CellwanSecurity(Entity):
         """
         Cellwan modem sim security data
@@ -1766,12 +1912,16 @@ class CellwanOperData(Entity):
         	Cellular interface
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: active_sim
         
         	Cellular modem active SIM slot status
         	**type**\: int
         
         	**range:** \-128..127
+        
+        	**config**\: False
         
         .. attribute:: sim_num_switchover
         
@@ -1780,20 +1930,28 @@ class CellwanOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: chv1_status
         
         	Cellular SIM Card Holder Verification (CHV1) status
         	**type**\:  :py:class:`CellwanChv1SimStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CellwanChv1SimStatus>`
+        
+        	**config**\: False
         
         .. attribute:: sim_status
         
         	Cellular SIM status
         	**type**\:  :py:class:`CellwanSimStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CellwanSimStatus>`
         
+        	**config**\: False
+        
         .. attribute:: sim_oper
         
         	Cellular SIM user operation
         	**type**\:  :py:class:`CellwanSimUserOp <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CellwanSimUserOp>`
+        
+        	**config**\: False
         
         .. attribute:: num_retries
         
@@ -1801,6 +1959,8 @@ class CellwanOperData(Entity):
         	**type**\: int
         
         	**range:** \-128..127
+        
+        	**config**\: False
         
         
 
@@ -1842,6 +2002,7 @@ class CellwanOperData(Entity):
             self._perform_setattr(CellwanOperData.CellwanSecurity, ['cellular_interface', 'active_sim', 'sim_num_switchover', 'chv1_status', 'sim_status', 'sim_oper', 'num_retries'], name, value)
 
 
+
     class CellwanSms(Entity):
         """
         Cellwan modem sms data
@@ -1851,12 +2012,16 @@ class CellwanOperData(Entity):
         	Cellular interface
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: in_sms_count
         
         	Number of incoming SMS stored in Cellular modem
         	**type**\: int
         
         	**range:** 0..65535
+        
+        	**config**\: False
         
         .. attribute:: in_sms_archived
         
@@ -1865,12 +2030,16 @@ class CellwanOperData(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: in_sms_deleted
         
         	Number of incoming SMS deleted in Cellular modem
         	**type**\: int
         
         	**range:** 0..65535
+        
+        	**config**\: False
         
         .. attribute:: in_sms_max
         
@@ -1879,12 +2048,16 @@ class CellwanOperData(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: in_sms_used
         
         	Number of SIM/modem SMS record used
         	**type**\: int
         
         	**range:** 0..65535
+        
+        	**config**\: False
         
         .. attribute:: sms_callback_count
         
@@ -1893,12 +2066,16 @@ class CellwanOperData(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: in_sms_arch_count
         
         	Number of successful archive on in SMS
         	**type**\: int
         
         	**range:** 0..65535
+        
+        	**config**\: False
         
         .. attribute:: in_sms_arch_error_count
         
@@ -1907,12 +2084,16 @@ class CellwanOperData(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: out_sms_count
         
         	Number of outgoing SMS successfully sent
         	**type**\: int
         
         	**range:** 0..65535
+        
+        	**config**\: False
         
         .. attribute:: out_sms_error_count
         
@@ -1921,12 +2102,16 @@ class CellwanOperData(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: out_sms_pending
         
         	Number of outgoing SMS pending
         	**type**\: int
         
         	**range:** 0..65535
+        
+        	**config**\: False
         
         .. attribute:: out_sms_arch_count
         
@@ -1935,12 +2120,16 @@ class CellwanOperData(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: out_sms_arch_error_count
         
         	Number of failed archive on out SMS
         	**type**\: int
         
         	**range:** 0..65535
+        
+        	**config**\: False
         
         
 
@@ -1996,6 +2185,7 @@ class CellwanOperData(Entity):
             self._perform_setattr(CellwanOperData.CellwanSms, ['cellular_interface', 'in_sms_count', 'in_sms_archived', 'in_sms_deleted', 'in_sms_max', 'in_sms_used', 'sms_callback_count', 'in_sms_arch_count', 'in_sms_arch_error_count', 'out_sms_count', 'out_sms_error_count', 'out_sms_pending', 'out_sms_arch_count', 'out_sms_arch_error_count'], name, value)
 
 
+
     class CellwanGps(Entity):
         """
         Cellwan modem gps data
@@ -2005,35 +2195,49 @@ class CellwanOperData(Entity):
         	Cellular interface
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: gps_feature_state
         
         	Cellular modem GPS feature state status
         	**type**\:  :py:class:`CwanGpsFeatureState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CwanGpsFeatureState>`
+        
+        	**config**\: False
         
         .. attribute:: port_selected
         
         	Cellular modem GPS port selection status
         	**type**\:  :py:class:`CwanGpsPortSelected <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CwanGpsPortSelected>`
         
+        	**config**\: False
+        
         .. attribute:: state
         
         	Cellular modem GPS state status
         	**type**\:  :py:class:`CwanGpsState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CwanGpsState>`
+        
+        	**config**\: False
         
         .. attribute:: mode_selected
         
         	Cellular modem GPS mode selection status
         	**type**\:  :py:class:`CwanGpsModeSelected <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CwanGpsModeSelected>`
         
+        	**config**\: False
+        
         .. attribute:: latitude
         
         	Cellular modem GPS latitude details
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: longitude
         
         	Cellular modem GPS longitude details
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: timestamp
         
@@ -2041,6 +2245,8 @@ class CellwanOperData(Entity):
         	**type**\: str
         
         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+        
+        	**config**\: False
         
         
 
@@ -2083,7 +2289,10 @@ class CellwanOperData(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CellwanOperData.CellwanGps, ['cellular_interface', 'gps_feature_state', 'port_selected', 'state', 'mode_selected', 'latitude', 'longitude', 'timestamp'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = CellwanOperData()
         return self._top_entity
+
+
 

@@ -260,6 +260,9 @@ class Rib(Entity):
                         self._perform_setattr(Rib.Af.Ipv4.RedistributionHistory.Keep, ['bcdl'], name, value)
 
 
+
+
+
         class Ipv6(Entity):
             """
             IPv6 configuration
@@ -399,7 +402,13 @@ class Rib(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rib.Af.Ipv6.RedistributionHistory.Keep, ['bcdl'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Rib()
         return self._top_entity
+
+
 

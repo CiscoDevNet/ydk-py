@@ -26,6 +26,8 @@ class CISCOOSPFTRAPMIB(Entity):
     	
     	**type**\:  :py:class:`CospfTrapControl <ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB.CISCOOSPFTRAPMIB.CospfTrapControl>`
     
+    	**config**\: False
+    
     
 
     """
@@ -64,15 +66,21 @@ class CISCOOSPFTRAPMIB(Entity):
         	An octet string serving as a bit  map  for the trap events defined by the OSPF traps in  this MIB. This object is used to enable and   disable  specific OSPF   traps   where  a  1   in  the  corresponding bit  field represents  enabled
         	**type**\:  :py:class:`CospfSetTrap <ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB.CISCOOSPFTRAPMIB.CospfTrapControl.CospfSetTrap>`
         
+        	**config**\: False
+        
         .. attribute:: cospfconfigerrortype
         
         	Potential types of configuration conflicts. Used  by the cospfConfigError and cospfConfigVirtError traps. When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as noError
         	**type**\:  :py:class:`CospfConfigErrorType <ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB.CISCOOSPFTRAPMIB.CospfTrapControl.CospfConfigErrorType>`
         
+        	**config**\: False
+        
         .. attribute:: cospfpackettype
         
         	OSPF packet types. When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as nullPacket
         	**type**\:  :py:class:`CospfPacketType <ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB.CISCOOSPFTRAPMIB.CospfTrapControl.CospfPacketType>`
+        
+        	**config**\: False
         
         .. attribute:: cospfpacketsrc
         
@@ -80,6 +88,8 @@ class CISCOOSPFTRAPMIB(Entity):
         	**type**\: str
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        	**config**\: False
         
         
 
@@ -224,7 +234,10 @@ class CISCOOSPFTRAPMIB(Entity):
             nullPacket = Enum.YLeaf(6, "nullPacket")
 
 
+
     def clone_ptr(self):
         self._top_entity = CISCOOSPFTRAPMIB()
         return self._top_entity
+
+
 

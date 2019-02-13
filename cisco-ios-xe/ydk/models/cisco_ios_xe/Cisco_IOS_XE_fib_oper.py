@@ -155,6 +155,8 @@ class FibOperData(Entity):
     	FIB Network Instances
     	**type**\: list of  		 :py:class:`FibNiEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_fib_oper.FibOperData.FibNiEntry>`
     
+    	**config**\: False
+    
     
 
     """
@@ -191,10 +193,14 @@ class FibOperData(Entity):
         	Instance Name
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: af
         
         	Address Family
         	**type**\:  :py:class:`FibAddressFamily <ydk.models.cisco_ios_xe.Cisco_IOS_XE_fib_oper.FibAddressFamily>`
+        
+        	**config**\: False
         
         .. attribute:: num_pfx
         
@@ -203,12 +209,16 @@ class FibOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: num_pfx_fwd
         
         	Number of forwarding prefixes
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: num_pfx_non_fwd
         
@@ -217,10 +227,14 @@ class FibOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: fib_entries
         
         	List of FIB entries
         	**type**\: list of  		 :py:class:`FibEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_fib_oper.FibOperData.FibNiEntry.FibEntries>`
+        
+        	**config**\: False
         
         
 
@@ -277,15 +291,21 @@ class FibOperData(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
             
+            	**config**\: False
+            
             .. attribute:: instance_name
             
             	Instance Name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: af
             
             	Address Family
             	**type**\:  :py:class:`FibAddressFamily <ydk.models.cisco_ios_xe.Cisco_IOS_XE_fib_oper.FibAddressFamily>`
+            
+            	**config**\: False
             
             .. attribute:: num_paths
             
@@ -294,12 +314,16 @@ class FibOperData(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: packets_forwarded
             
             	Packets forwarded through this entry
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: octets_forwarded
             
@@ -308,10 +332,14 @@ class FibOperData(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: fib_nexthop_entries
             
             	List of FIB next\-hop entries
             	**type**\: list of  		 :py:class:`FibNexthopEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_fib_oper.FibOperData.FibNiEntry.FibEntries.FibNexthopEntries>`
+            
+            	**config**\: False
             
             
 
@@ -369,6 +397,8 @@ class FibOperData(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                 
+                	**config**\: False
+                
                 .. attribute:: index
                 
                 	Unique Next\-hop Path Index
@@ -376,20 +406,28 @@ class FibOperData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: af
                 
                 	Address Family
                 	**type**\:  :py:class:`FibAddressFamily <ydk.models.cisco_ios_xe.Cisco_IOS_XE_fib_oper.FibAddressFamily>`
+                
+                	**config**\: False
                 
                 .. attribute:: ifname
                 
                 	Output Interface Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: path_type
                 
                 	FIB path type
                 	**type**\:  :py:class:`FibPathType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_fib_oper.FibPathType>`
+                
+                	**config**\: False
                 
                 .. attribute:: path_id
                 
@@ -398,6 +436,8 @@ class FibOperData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: weight
                 
                 	Next\-hop weight
@@ -405,15 +445,21 @@ class FibOperData(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: encap
                 
                 	Encap Header Type
                 	**type**\:  :py:class:`EncapsulationHeaderType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_fib_oper.EncapsulationHeaderType>`
                 
+                	**config**\: False
+                
                 .. attribute:: decap
                 
                 	Decap Header Type
                 	**type**\:  :py:class:`EncapsulationHeaderType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_fib_oper.EncapsulationHeaderType>`
+                
+                	**config**\: False
                 
                 .. attribute:: resolved_nh_addr
                 
@@ -427,6 +473,8 @@ class FibOperData(Entity):
                 		**type**\: str
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                
+                	**config**\: False
                 
                 
 
@@ -472,7 +520,12 @@ class FibOperData(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(FibOperData.FibNiEntry.FibEntries.FibNexthopEntries, ['nh_addr', 'index', 'af', 'ifname', 'path_type', 'path_id', 'weight', 'encap', 'decap', 'resolved_nh_addr'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = FibOperData()
         return self._top_entity
+
+
 

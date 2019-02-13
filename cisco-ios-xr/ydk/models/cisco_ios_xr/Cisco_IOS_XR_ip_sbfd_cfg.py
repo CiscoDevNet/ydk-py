@@ -238,6 +238,9 @@ class Sbfd(Entity):
                         self._perform_setattr(Sbfd.RemoteTarget.Ipv4Addresses.Ipv4Address.RemoteDiscriminator, ['remote_discriminator'], name, value)
 
 
+
+
+
         class Ipv6Addresses(Entity):
             """
             ipv6 address as target
@@ -356,6 +359,10 @@ class Sbfd(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Sbfd.RemoteTarget.Ipv6Addresses.Ipv6Address.RemoteDiscriminator, ['remote_discriminator'], name, value)
+
+
+
+
 
 
     class LocalDiscriminator(Entity):
@@ -499,6 +506,8 @@ class Sbfd(Entity):
                     self._perform_setattr(Sbfd.LocalDiscriminator.IntfDiscriminators.IntfDiscriminator, ['interface_name'], name, value)
 
 
+
+
         class DynamicDiscriminators(Entity):
             """
             Configure local discriminator dynamically
@@ -572,6 +581,8 @@ class Sbfd(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Sbfd.LocalDiscriminator.DynamicDiscriminators.DynamicDiscriminator, ['discriminator'], name, value)
+
+
 
 
         class Ipv4Discriminators(Entity):
@@ -656,6 +667,8 @@ class Sbfd(Entity):
                     self._perform_setattr(Sbfd.LocalDiscriminator.Ipv4Discriminators.Ipv4Discriminator, ['address'], name, value)
 
 
+
+
         class Val32Discriminators(Entity):
             """
             Configure local discriminator as an integer
@@ -730,7 +743,12 @@ class Sbfd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Sbfd.LocalDiscriminator.Val32Discriminators.Val32Discriminator, ['discriminator'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Sbfd()
         return self._top_entity
+
+
 

@@ -30,6 +30,8 @@ class Config(Entity):
     	Global operational data
     	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_oper.Config.Global>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class Config(Entity):
         
         	Configuration validation operational data
         	**type**\:  :py:class:`Validation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_oper.Config.Global.Validation>`
+        
+        	**config**\: False
         
         
 
@@ -106,10 +110,14 @@ class Config(Entity):
             	Unsupported config warnings present in running configuration
             	**type**\:  :py:class:`UnsupportedConfigs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_oper.Config.Global.Validation.UnsupportedConfigs>`
             
+            	**config**\: False
+            
             .. attribute:: persistent_failures
             
             	Validation failures present in running configuration
             	**type**\:  :py:class:`PersistentFailures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_oper.Config.Global.Validation.PersistentFailures>`
+            
+            	**config**\: False
             
             
 
@@ -154,6 +162,8 @@ class Config(Entity):
                 	Information about an unsupported warning
                 	**type**\: list of  		 :py:class:`UnsupportedConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_oper.Config.Global.Validation.UnsupportedConfigs.UnsupportedConfig>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -190,15 +200,21 @@ class Config(Entity):
                     	XPath of the unsupported configuration
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: group_name
                     
                     	The configuration group that this item is inherited from, if any
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: failure
                     
                     	Validation failures for this configuration item
                     	**type**\: list of  		 :py:class:`Failure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_oper.Config.Global.Validation.UnsupportedConfigs.UnsupportedConfig.Failure>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -241,15 +257,21 @@ class Config(Entity):
                         	A unique string that identifies the error; equivalent to error\-app\-tag in RFC 6241
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: error_message
                         
                         	The error message; equivalent to error\-message in RFC 6241
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: error_severity
                         
                         	The severity of the error; equivalent to error\-severity in RFC 6241
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -282,6 +304,9 @@ class Config(Entity):
                             self._perform_setattr(Config.Global.Validation.UnsupportedConfigs.UnsupportedConfig.Failure, ['error_app_tag', 'error_message', 'error_severity'], name, value)
 
 
+
+
+
             class PersistentFailures(Entity):
                 """
                 Validation failures present in running
@@ -291,6 +316,8 @@ class Config(Entity):
                 
                 	Information about a validation failure
                 	**type**\: list of  		 :py:class:`PersistentFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_oper.Config.Global.Validation.PersistentFailures.PersistentFailure>`
+                
+                	**config**\: False
                 
                 
 
@@ -328,15 +355,21 @@ class Config(Entity):
                     	XPath of the failed configuration
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: group_name
                     
                     	The configuration group that this item is inherited from, if any
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: failure
                     
                     	Validation failures for this configuration item
                     	**type**\: list of  		 :py:class:`Failure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_oper.Config.Global.Validation.PersistentFailures.PersistentFailure.Failure>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -379,15 +412,21 @@ class Config(Entity):
                         	A unique string that identifies the error; equivalent to error\-app\-tag in RFC 6241
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: error_message
                         
                         	The error message; equivalent to error\-message in RFC 6241
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: error_severity
                         
                         	The severity of the error; equivalent to error\-severity in RFC 6241
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -419,7 +458,14 @@ class Config(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Config.Global.Validation.PersistentFailures.PersistentFailure.Failure, ['error_app_tag', 'error_message', 'error_severity'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Config()
         return self._top_entity
+
+
 

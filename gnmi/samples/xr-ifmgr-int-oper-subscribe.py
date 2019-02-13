@@ -58,7 +58,7 @@ def run_test(device, mode, ca, call_back):
                                       port=device.port,
                                       username=device.username,
                                       password=device.password,
-                                      server_cerificate=ca)
+                                      server_certificate=ca)
     gs = gNMIService()
 
     """Build entity for interface operational data"""

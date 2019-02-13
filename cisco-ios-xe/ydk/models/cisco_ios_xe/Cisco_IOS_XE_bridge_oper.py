@@ -60,6 +60,8 @@ class BridgeInstances(Entity):
     	The bridge lists is an ordered list of bridge entries. Each bridge entries has a list of bridge interface members, and bridge attributes
     	**type**\: list of  		 :py:class:`BridgeEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bridge_oper.BridgeInstances.BridgeEntry>`
     
+    	**config**\: False
+    
     
 
     """
@@ -100,10 +102,14 @@ class BridgeInstances(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: name
         
         	VLAN name
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: vlan
         
@@ -112,10 +118,14 @@ class BridgeInstances(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: routing_interface
         
         	The name of VLAN routing interface
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: max_macs
         
@@ -124,12 +134,16 @@ class BridgeInstances(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: num_macs
         
         	The number of MAC learned in bridge
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: age_time
         
@@ -138,12 +152,16 @@ class BridgeInstances(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: rx_packets
         
         	The number of received packets in bridge
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: rx_octets
         
@@ -152,12 +170,16 @@ class BridgeInstances(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: tx_packets
         
         	The number of transmited packets out of bridge
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: tx_octets
         
@@ -166,12 +188,16 @@ class BridgeInstances(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: flood_packets
         
         	The number of flood packets in bridge
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: flood_octets
         
@@ -180,12 +206,16 @@ class BridgeInstances(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: rx_routed_packets
         
         	L3 packets received from bridge
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: tx_routed_packets
         
@@ -194,12 +224,16 @@ class BridgeInstances(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: learn
         
         	MAC learned counter in bridge
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: age
         
@@ -208,6 +242,8 @@ class BridgeInstances(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: move
         
         	MAC move counter in bridge
@@ -215,15 +251,21 @@ class BridgeInstances(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: bridge_intf_entries
         
         	Bridge interface member information
         	**type**\:  :py:class:`BridgeIntfEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bridge_oper.BridgeInstances.BridgeEntry.BridgeIntfEntries>`
         
+        	**config**\: False
+        
         .. attribute:: bridge_matm_entries
         
         	Bridge matm member information
         	**type**\:  :py:class:`BridgeMatmEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bridge_oper.BridgeInstances.BridgeEntry.BridgeMatmEntries>`
+        
+        	**config**\: False
         
         
 
@@ -304,6 +346,8 @@ class BridgeInstances(Entity):
             	A list of bridge interface
             	**type**\: list of  		 :py:class:`BridgeIntfEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bridge_oper.BridgeInstances.BridgeEntry.BridgeIntfEntries.BridgeIntfEntry>`
             
+            	**config**\: False
+            
             
 
             """
@@ -339,6 +383,8 @@ class BridgeInstances(Entity):
                 	Switch port name belong to the bridge
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: vlan
                 
                 	VLAN identifier
@@ -346,25 +392,35 @@ class BridgeInstances(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: native_vlan
                 
                 	If the VLAN is native VLAN
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: admin_status
                 
                 	Bridge interface administration status
                 	**type**\:  :py:class:`IntfStatusType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bridge_oper.IntfStatusType>`
                 
+                	**config**\: False
+                
                 .. attribute:: oper_status
                 
                 	Bridge interface operational status
                 	**type**\:  :py:class:`IntfStatusType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bridge_oper.IntfStatusType>`
                 
+                	**config**\: False
+                
                 .. attribute:: encap_type
                 
                 	Bridge interface encapsulation type
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: ifindex
                 
@@ -373,12 +429,16 @@ class BridgeInstances(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: mtu
                 
                 	The Maximum Transmission Unit(byte) of Bridge interface
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -421,6 +481,8 @@ class BridgeInstances(Entity):
                     self._perform_setattr(BridgeInstances.BridgeEntry.BridgeIntfEntries.BridgeIntfEntry, ['if_name', 'vlan', 'native_vlan', 'admin_status', 'oper_status', 'encap_type', 'ifindex', 'mtu'], name, value)
 
 
+
+
         class BridgeMatmEntries(Entity):
             """
             Bridge matm member information
@@ -429,6 +491,8 @@ class BridgeInstances(Entity):
             
             	A list of mac table
             	**type**\: list of  		 :py:class:`BridgeMatmEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bridge_oper.BridgeInstances.BridgeEntry.BridgeMatmEntries.BridgeMatmEntry>`
+            
+            	**config**\: False
             
             
 
@@ -467,10 +531,14 @@ class BridgeInstances(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: interface
                 
                 	Interface name which MAC learnt from
                 	**type**\: list of str
+                
+                	**config**\: False
                 
                 .. attribute:: vlan
                 
@@ -479,10 +547,14 @@ class BridgeInstances(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: type
                 
                 	MAC type
                 	**type**\:  :py:class:`BridgeMacType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bridge_oper.BridgeMacType>`
+                
+                	**config**\: False
                 
                 
 
@@ -516,7 +588,12 @@ class BridgeInstances(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(BridgeInstances.BridgeEntry.BridgeMatmEntries.BridgeMatmEntry, ['mac_address', 'interface', 'vlan', 'type'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = BridgeInstances()
         return self._top_entity
+
+
 

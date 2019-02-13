@@ -118,20 +118,28 @@ class BgpStateData(Entity):
     	BGP neighbor information
     	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors>`
     
+    	**config**\: False
+    
     .. attribute:: address_families
     
     	BGP address family
     	**type**\:  :py:class:`AddressFamilies <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies>`
+    
+    	**config**\: False
     
     .. attribute:: bgp_route_vrfs
     
     	BGP VRFs
     	**type**\:  :py:class:`BgpRouteVrfs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs>`
     
+    	**config**\: False
+    
     .. attribute:: bgp_route_rds
     
     	BGP RDs
     	**type**\:  :py:class:`BgpRouteRds <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds>`
+    
+    	**config**\: False
     
     
 
@@ -183,6 +191,8 @@ class BgpStateData(Entity):
         	List of BGP neighbors
         	**type**\: list of  		 :py:class:`Neighbor <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor>`
         
+        	**config**\: False
+        
         
 
         """
@@ -219,20 +229,28 @@ class BgpStateData(Entity):
             	Afi\-safi key
             	**type**\:  :py:class:`AfiSafi <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_common_oper.AfiSafi>`
             
+            	**config**\: False
+            
             .. attribute:: vrf_name  (key)
             
             	VRF name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: neighbor_id  (key)
             
             	Neighbor identifier
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: description
             
             	Neighbor description string
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: bgp_version
             
@@ -241,25 +259,35 @@ class BgpStateData(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: link
             
             	Neighbor link type
             	**type**\:  :py:class:`BgpLink <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpLink>`
+            
+            	**config**\: False
             
             .. attribute:: up_time
             
             	Amout of time the bgp session has been up since being established
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: last_write
             
             	Time since BGP last sent a message to the neighbor
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: last_read
             
             	Time since BGP last received a message from the neighbor
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: installed_prefixes
             
@@ -268,40 +296,56 @@ class BgpStateData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: session_state
             
             	BGP neighbor session state
             	**type**\:  :py:class:`BgpFsmState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpFsmState>`
+            
+            	**config**\: False
             
             .. attribute:: negotiated_keepalive_timers
             
             	Negotiated keepalive timers status of BGP neighbor
             	**type**\:  :py:class:`NegotiatedKeepaliveTimers <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.NegotiatedKeepaliveTimers>`
             
+            	**config**\: False
+            
             .. attribute:: negotiated_cap
             
             	Negotiated capabilities for neighbor session
             	**type**\: list of str
+            
+            	**config**\: False
             
             .. attribute:: bgp_neighbor_counters
             
             	BGP neighbor session counters
             	**type**\:  :py:class:`BgpNeighborCounters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.BgpNeighborCounters>`
             
+            	**config**\: False
+            
             .. attribute:: connection
             
             	BGP neighbor connection
             	**type**\:  :py:class:`Connection <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.Connection>`
+            
+            	**config**\: False
             
             .. attribute:: transport
             
             	BGP neighbor transport
             	**type**\:  :py:class:`Transport <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.Transport>`
             
+            	**config**\: False
+            
             .. attribute:: prefix_activity
             
             	BGP neighbor activity
             	**type**\:  :py:class:`PrefixActivity <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.PrefixActivity>`
+            
+            	**config**\: False
             
             .. attribute:: as_
             
@@ -309,6 +353,8 @@ class BgpStateData(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -393,12 +439,16 @@ class BgpStateData(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: keepalive_interval
                 
                 	Keepalive interval
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -429,6 +479,7 @@ class BgpStateData(Entity):
                     self._perform_setattr(BgpStateData.Neighbors.Neighbor.NegotiatedKeepaliveTimers, ['hold_time', 'keepalive_interval'], name, value)
 
 
+
             class BgpNeighborCounters(Entity):
                 """
                 BGP neighbor session counters
@@ -438,10 +489,14 @@ class BgpStateData(Entity):
                 	Number of mesaged sent
                 	**type**\:  :py:class:`Sent <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Sent>`
                 
+                	**config**\: False
+                
                 .. attribute:: received
                 
                 	Number of mesaged received
                 	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Received>`
+                
+                	**config**\: False
                 
                 .. attribute:: inq_depth
                 
@@ -450,12 +505,16 @@ class BgpStateData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: outq_depth
                 
                 	Output Q depth
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -505,12 +564,16 @@ class BgpStateData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: updates
                     
                     	UPDATE message count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: notifications
                     
@@ -519,6 +582,8 @@ class BgpStateData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: keepalives
                     
                     	KEEPALIVE message count
@@ -526,12 +591,16 @@ class BgpStateData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: route_refreshes
                     
                     	Route refresh message count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -568,6 +637,7 @@ class BgpStateData(Entity):
                         self._perform_setattr(BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Sent, ['opens', 'updates', 'notifications', 'keepalives', 'route_refreshes'], name, value)
 
 
+
                 class Received(Entity):
                     """
                     Number of mesaged received
@@ -579,12 +649,16 @@ class BgpStateData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: updates
                     
                     	UPDATE message count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: notifications
                     
@@ -593,6 +667,8 @@ class BgpStateData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: keepalives
                     
                     	KEEPALIVE message count
@@ -600,12 +676,16 @@ class BgpStateData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: route_refreshes
                     
                     	Route refresh message count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -642,6 +722,8 @@ class BgpStateData(Entity):
                         self._perform_setattr(BgpStateData.Neighbors.Neighbor.BgpNeighborCounters.Received, ['opens', 'updates', 'notifications', 'keepalives', 'route_refreshes'], name, value)
 
 
+
+
             class Connection(Entity):
                 """
                 BGP neighbor connection
@@ -651,10 +733,14 @@ class BgpStateData(Entity):
                 	TCP FSM state
                 	**type**\:  :py:class:`TcpFsmState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_common_oper.TcpFsmState>`
                 
+                	**config**\: False
+                
                 .. attribute:: mode
                 
                 	BGP transport connection mode
                 	**type**\:  :py:class:`BgpMode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpMode>`
+                
+                	**config**\: False
                 
                 .. attribute:: total_established
                 
@@ -663,6 +749,8 @@ class BgpStateData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: total_dropped
                 
                 	The number of times that a valid session has failed or been taken down
@@ -670,15 +758,21 @@ class BgpStateData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: last_reset
                 
                 	Time since peering session was last reset
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: reset_reason
                 
                 	The reason for the last reset
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -717,6 +811,7 @@ class BgpStateData(Entity):
                     self._perform_setattr(BgpStateData.Neighbors.Neighbor.Connection, ['state', 'mode', 'total_established', 'total_dropped', 'last_reset', 'reset_reason'], name, value)
 
 
+
             class Transport(Entity):
                 """
                 BGP neighbor transport
@@ -726,12 +821,16 @@ class BgpStateData(Entity):
                 	Indication whether path MTU discovrey is enabled
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: local_port
                 
                 	Local TCP port used for TCP session
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: local_host
                 
@@ -746,12 +845,16 @@ class BgpStateData(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: foreign_port
                 
                 	Remote port used by the peer for the TCP session
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: foreign_host
                 
@@ -766,12 +869,16 @@ class BgpStateData(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: mss
                 
                 	Maximum Data segment size
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -810,6 +917,7 @@ class BgpStateData(Entity):
                     self._perform_setattr(BgpStateData.Neighbors.Neighbor.Transport, ['path_mtu_discovery', 'local_port', 'local_host', 'foreign_port', 'foreign_host', 'mss'], name, value)
 
 
+
             class PrefixActivity(Entity):
                 """
                 BGP neighbor activity
@@ -819,10 +927,14 @@ class BgpStateData(Entity):
                 	Number of prefixes sent
                 	**type**\:  :py:class:`Sent <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.PrefixActivity.Sent>`
                 
+                	**config**\: False
+                
                 .. attribute:: received
                 
                 	Number of prefixes received
                 	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.Neighbors.Neighbor.PrefixActivity.Received>`
+                
+                	**config**\: False
                 
                 
 
@@ -867,12 +979,16 @@ class BgpStateData(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_prefixes
                     
                     	The total number of accepted prefixes
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: implicit_withdraw
                     
@@ -881,12 +997,16 @@ class BgpStateData(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: explicit_withdraw
                     
                     	The number of times a prefix has been withdrawn because it is no longer feasible
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: bestpaths
                     
@@ -895,12 +1015,16 @@ class BgpStateData(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: multipaths
                     
                     	The number of received prefixes installed as multipaths
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -939,6 +1063,7 @@ class BgpStateData(Entity):
                         self._perform_setattr(BgpStateData.Neighbors.Neighbor.PrefixActivity.Sent, ['current_prefixes', 'total_prefixes', 'implicit_withdraw', 'explicit_withdraw', 'bestpaths', 'multipaths'], name, value)
 
 
+
                 class Received(Entity):
                     """
                     Number of prefixes received
@@ -950,12 +1075,16 @@ class BgpStateData(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_prefixes
                     
                     	The total number of accepted prefixes
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: implicit_withdraw
                     
@@ -964,12 +1093,16 @@ class BgpStateData(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: explicit_withdraw
                     
                     	The number of times a prefix has been withdrawn because it is no longer feasible
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: bestpaths
                     
@@ -978,12 +1111,16 @@ class BgpStateData(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: multipaths
                     
                     	The number of received prefixes installed as multipaths
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -1022,6 +1159,10 @@ class BgpStateData(Entity):
                         self._perform_setattr(BgpStateData.Neighbors.Neighbor.PrefixActivity.Received, ['current_prefixes', 'total_prefixes', 'implicit_withdraw', 'explicit_withdraw', 'bestpaths', 'multipaths'], name, value)
 
 
+
+
+
+
     class AddressFamilies(Entity):
         """
         BGP address family
@@ -1030,6 +1171,8 @@ class BgpStateData(Entity):
         
         	List of BGP address families
         	**type**\: list of  		 :py:class:`AddressFamily <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily>`
+        
+        	**config**\: False
         
         
 
@@ -1067,10 +1210,14 @@ class BgpStateData(Entity):
             	Afi\-safi value
             	**type**\:  :py:class:`AfiSafi <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_common_oper.AfiSafi>`
             
+            	**config**\: False
+            
             .. attribute:: vrf_name  (key)
             
             	VRF name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: router_id
             
@@ -1085,12 +1232,16 @@ class BgpStateData(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: bgp_table_version
             
             	BGP table version number
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: routing_table_version
             
@@ -1099,35 +1250,49 @@ class BgpStateData(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: prefixes
             
             	Prefix entry statistics
             	**type**\:  :py:class:`Prefixes <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.Prefixes>`
+            
+            	**config**\: False
             
             .. attribute:: path
             
             	Path entry statistics
             	**type**\:  :py:class:`Path <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.Path>`
             
+            	**config**\: False
+            
             .. attribute:: as_path
             
             	AS path entry statistics
             	**type**\:  :py:class:`AsPath <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.AsPath>`
+            
+            	**config**\: False
             
             .. attribute:: route_map
             
             	Route map entry statistics
             	**type**\:  :py:class:`RouteMap <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.RouteMap>`
             
+            	**config**\: False
+            
             .. attribute:: filter_list
             
             	Filter list entry statistics
             	**type**\:  :py:class:`FilterList <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.FilterList>`
             
+            	**config**\: False
+            
             .. attribute:: activities
             
             	BGP activity information
             	**type**\:  :py:class:`Activities <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.Activities>`
+            
+            	**config**\: False
             
             .. attribute:: total_memory
             
@@ -1136,10 +1301,14 @@ class BgpStateData(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: bgp_neighbor_summaries
             
             	Neighbor summary
             	**type**\:  :py:class:`BgpNeighborSummaries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries>`
+            
+            	**config**\: False
             
             .. attribute:: local_as
             
@@ -1147,6 +1316,8 @@ class BgpStateData(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1227,12 +1398,16 @@ class BgpStateData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: memory_usage
                 
                 	Total memory usage in byte
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -1263,6 +1438,7 @@ class BgpStateData(Entity):
                     self._perform_setattr(BgpStateData.AddressFamilies.AddressFamily.Prefixes, ['total_entries', 'memory_usage'], name, value)
 
 
+
             class Path(Entity):
                 """
                 Path entry statistics
@@ -1274,12 +1450,16 @@ class BgpStateData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: memory_usage
                 
                 	Total memory usage in byte
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -1310,6 +1490,7 @@ class BgpStateData(Entity):
                     self._perform_setattr(BgpStateData.AddressFamilies.AddressFamily.Path, ['total_entries', 'memory_usage'], name, value)
 
 
+
             class AsPath(Entity):
                 """
                 AS path entry statistics
@@ -1321,12 +1502,16 @@ class BgpStateData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: memory_usage
                 
                 	Total memory usage in byte
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -1357,6 +1542,7 @@ class BgpStateData(Entity):
                     self._perform_setattr(BgpStateData.AddressFamilies.AddressFamily.AsPath, ['total_entries', 'memory_usage'], name, value)
 
 
+
             class RouteMap(Entity):
                 """
                 Route map entry statistics
@@ -1368,12 +1554,16 @@ class BgpStateData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: memory_usage
                 
                 	Total memory usage in byte
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -1404,6 +1594,7 @@ class BgpStateData(Entity):
                     self._perform_setattr(BgpStateData.AddressFamilies.AddressFamily.RouteMap, ['total_entries', 'memory_usage'], name, value)
 
 
+
             class FilterList(Entity):
                 """
                 Filter list entry statistics
@@ -1415,12 +1606,16 @@ class BgpStateData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: memory_usage
                 
                 	Total memory usage in byte
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -1451,6 +1646,7 @@ class BgpStateData(Entity):
                     self._perform_setattr(BgpStateData.AddressFamilies.AddressFamily.FilterList, ['total_entries', 'memory_usage'], name, value)
 
 
+
             class Activities(Entity):
                 """
                 BGP activity information
@@ -1462,6 +1658,8 @@ class BgpStateData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: paths
                 
                 	Total number of paths
@@ -1469,10 +1667,14 @@ class BgpStateData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: scan_interval
                 
                 	Scan interval in seconds
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1505,6 +1707,7 @@ class BgpStateData(Entity):
                     self._perform_setattr(BgpStateData.AddressFamilies.AddressFamily.Activities, ['prefixes', 'paths', 'scan_interval'], name, value)
 
 
+
             class BgpNeighborSummaries(Entity):
                 """
                 Neighbor summary
@@ -1513,6 +1716,8 @@ class BgpStateData(Entity):
                 
                 	List of neighbor summaries
                 	**type**\: list of  		 :py:class:`BgpNeighborSummary <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries.BgpNeighborSummary>`
+                
+                	**config**\: False
                 
                 
 
@@ -1549,12 +1754,16 @@ class BgpStateData(Entity):
                     	Neighbor address
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: bgp_version
                     
                     	BGP protocol version
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: messages_received
                     
@@ -1563,12 +1772,16 @@ class BgpStateData(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: messages_sent
                     
                     	Number of messages sent to this neighbor
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: table_version
                     
@@ -1577,12 +1790,16 @@ class BgpStateData(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_queue
                     
                     	Number of messages in input queue
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_queue
                     
@@ -1591,15 +1808,21 @@ class BgpStateData(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: up_time
                     
                     	Neighbor session uptime
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	BGP session state
                     	**type**\:  :py:class:`BgpFsmState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpFsmState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: prefixes_received
                     
@@ -1608,10 +1831,14 @@ class BgpStateData(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: dynamically_configured
                     
                     	Indication of whether the neighbor was dyanmically configured
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: as_
                     
@@ -1619,6 +1846,8 @@ class BgpStateData(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1669,6 +1898,10 @@ class BgpStateData(Entity):
                         self._perform_setattr(BgpStateData.AddressFamilies.AddressFamily.BgpNeighborSummaries.BgpNeighborSummary, ['id', 'bgp_version', 'messages_received', 'messages_sent', 'table_version', 'input_queue', 'output_queue', 'up_time', 'state', 'prefixes_received', 'dynamically_configured', 'as_'], name, value)
 
 
+
+
+
+
     class BgpRouteVrfs(Entity):
         """
         BGP VRFs
@@ -1677,6 +1910,8 @@ class BgpStateData(Entity):
         
         	List of BGP VRFs
         	**type**\: list of  		 :py:class:`BgpRouteVrf <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf>`
+        
+        	**config**\: False
         
         
 
@@ -1714,10 +1949,14 @@ class BgpStateData(Entity):
             	BGP vrf
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: bgp_route_afs
             
             	BGP address families
             	**type**\:  :py:class:`BgpRouteAfs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs>`
+            
+            	**config**\: False
             
             
 
@@ -1760,6 +1999,8 @@ class BgpStateData(Entity):
                 	List of BGP address families
                 	**type**\: list of  		 :py:class:`BgpRouteAf <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1795,20 +2036,28 @@ class BgpStateData(Entity):
                     	BGP address family
                     	**type**\:  :py:class:`AfiSafi <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_common_oper.AfiSafi>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: bgp_route_filters
                     
                     	BGP route filters
                     	**type**\:  :py:class:`BgpRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: bgp_route_neighbors
                     
                     	BGP route neighbors
                     	**type**\:  :py:class:`BgpRouteNeighbors <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: bgp_peer_groups
                     
                     	BGP peer groups
                     	**type**\:  :py:class:`BgpPeerGroups <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1858,6 +2107,8 @@ class BgpStateData(Entity):
                         	List of BGP route filters
                         	**type**\: list of  		 :py:class:`BgpRouteFilter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -1893,10 +2144,14 @@ class BgpStateData(Entity):
                             	BGP route filter
                             	**type**\:  :py:class:`BgpRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpRouteFilters>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: bgp_route_entries
                             
                             	BGP route entries
                             	**type**\:  :py:class:`BgpRouteEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1938,6 +2193,8 @@ class BgpStateData(Entity):
                                 	List of BGP route entries
                                 	**type**\: list of  		 :py:class:`BgpRouteEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -1973,12 +2230,16 @@ class BgpStateData(Entity):
                                     	Routing table entry prefix
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: version
                                     
                                     	Routing table version
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: available_paths
                                     
@@ -1987,15 +2248,21 @@ class BgpStateData(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: advertised_to
                                     
                                     	Whom is thie prefix advertized to
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: bgp_path_entries
                                     
                                     	Prefix next hop details
                                     	**type**\:  :py:class:`BgpPathEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2043,6 +2310,8 @@ class BgpStateData(Entity):
                                         	List of prefix next hop details
                                         	**type**\: list of  		 :py:class:`BgpPathEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry>`
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -2078,12 +2347,16 @@ class BgpStateData(Entity):
                                             	Next hop for this path
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: metric
                                             
                                             	Metric associated with the path
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: local_pref
                                             
@@ -2092,6 +2365,8 @@ class BgpStateData(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: weight
                                             
                                             	Path weight
@@ -2099,45 +2374,63 @@ class BgpStateData(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: as_path
                                             
                                             	AS path
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: origin
                                             
                                             	Path origin
                                             	**type**\:  :py:class:`BgpOriginCode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpOriginCode>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: path_status
                                             
                                             	Path status
                                             	**type**\:  :py:class:`PathStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry.PathStatus>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: rpki_status
                                             
                                             	RPKI path status
                                             	**type**\:  :py:class:`BgpRpkiStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpRpkiStatus>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: community
                                             
                                             	Community label for the path
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: mpls_in
                                             
                                             	MPLS label in for the path
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: mpls_out
                                             
                                             	MPLS label out for the path
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: sr_profile_name
                                             
                                             	SR profile name for the path
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: sr_binding_sid
                                             
@@ -2146,6 +2439,8 @@ class BgpStateData(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: sr_label_indx
                                             
                                             	SR label index for the path
@@ -2153,15 +2448,21 @@ class BgpStateData(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: as4_path
                                             
                                             	path using 4\-octet AS numbers
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: atomic_aggregate
                                             
                                             	attribute indicating whether or not the prefix is an atomic aggregate
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: aggr_as_number
                                             
@@ -2170,6 +2471,8 @@ class BgpStateData(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: aggr_as4_number
                                             
                                             	AS4 number of autonomous system them performed the aggregation
@@ -2177,25 +2480,35 @@ class BgpStateData(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: aggr_address
                                             
                                             	IP address of the router that performed the aggregation
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: originator_id
                                             
                                             	the router ID of the originator of the route in the local AS
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: cluster_list
                                             
                                             	the reflection path the route has passed
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: extended_community
                                             
                                             	BGP extended community attribute
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: ext_aigp_metric
                                             
@@ -2204,12 +2517,16 @@ class BgpStateData(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: path_id
                                             
                                             	path identifier used to uniquely identify a route
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -2295,75 +2612,105 @@ class BgpStateData(Entity):
                                                 	Suppressed path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: damped
                                                 
                                                 	Damped path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: history
                                                 
                                                 	History path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: valid
                                                 
                                                 	Valid path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: sourced
                                                 
                                                 	Sourced path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: bestpath
                                                 
                                                 	Best path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: internal
                                                 
                                                 	Internal path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rib_fail
                                                 
                                                 	RIB\-fail path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: stale
                                                 
                                                 	Stale path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: multipath
                                                 
                                                 	Multipath path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: backup_path
                                                 
                                                 	Backup path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rt_filter
                                                 
                                                 	RT filter path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: best_external
                                                 
                                                 	Best externa path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: additional_path
                                                 
                                                 	Additional path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rib_compressed
                                                 
                                                 	RIB compressed path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -2420,6 +2767,13 @@ class BgpStateData(Entity):
                                                     self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteFilters.BgpRouteFilter.BgpRouteEntries.BgpRouteEntry.BgpPathEntries.BgpPathEntry.PathStatus, ['suppressed', 'damped', 'history', 'valid', 'sourced', 'bestpath', 'internal', 'rib_fail', 'stale', 'multipath', 'backup_path', 'rt_filter', 'best_external', 'additional_path', 'rib_compressed'], name, value)
 
 
+
+
+
+
+
+
+
                     class BgpRouteNeighbors(Entity):
                         """
                         BGP route neighbors
@@ -2428,6 +2782,8 @@ class BgpStateData(Entity):
                         
                         	List of BGP route neighbors
                         	**type**\: list of  		 :py:class:`BgpRouteNeighbor <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2464,10 +2820,14 @@ class BgpStateData(Entity):
                             	BGP neighbor ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: bgp_neighbor_route_filters
                             
                             	BGP neighbor route filters
                             	**type**\:  :py:class:`BgpNeighborRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2509,6 +2869,8 @@ class BgpStateData(Entity):
                                 	List of BGP neighbor route filters
                                 	**type**\: list of  		 :py:class:`BgpNeighborRouteFilter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -2544,10 +2906,14 @@ class BgpStateData(Entity):
                                     	BGP neighbor route filter
                                     	**type**\:  :py:class:`BgpNeighborRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpNeighborRouteFilters>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: bgp_neighbor_route_entries
                                     
                                     	BGP neighbor route entries
                                     	**type**\:  :py:class:`BgpNeighborRouteEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2589,6 +2955,8 @@ class BgpStateData(Entity):
                                         	List of BGP neighbor route entries
                                         	**type**\: list of  		 :py:class:`BgpNeighborRouteEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry>`
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -2624,12 +2992,16 @@ class BgpStateData(Entity):
                                             	Neighbor routing table entry prefix
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: version
                                             
                                             	Neighbor routing table version
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: available_paths
                                             
@@ -2638,15 +3010,21 @@ class BgpStateData(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: advertised_to
                                             
                                             	Who this prefix was advertized to
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: bgp_neighbor_path_entries
                                             
                                             	Prefix next hop details
                                             	**type**\:  :py:class:`BgpNeighborPathEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -2694,6 +3072,8 @@ class BgpStateData(Entity):
                                                 	List of prefix next hop details
                                                 	**type**\: list of  		 :py:class:`BgpNeighborPathEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry>`
                                                 
+                                                	**config**\: False
+                                                
                                                 
 
                                                 """
@@ -2729,12 +3109,16 @@ class BgpStateData(Entity):
                                                     	Next hop for this path
                                                     	**type**\: str
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: metric
                                                     
                                                     	Metric associated with the path
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: local_pref
                                                     
@@ -2743,6 +3127,8 @@ class BgpStateData(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: weight
                                                     
                                                     	Path weight
@@ -2750,45 +3136,63 @@ class BgpStateData(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: as_path
                                                     
                                                     	AS path
                                                     	**type**\: str
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: origin
                                                     
                                                     	Path origin
                                                     	**type**\:  :py:class:`BgpOriginCode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpOriginCode>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: path_status
                                                     
                                                     	Path status
                                                     	**type**\:  :py:class:`PathStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry.PathStatus>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: rpki_status
                                                     
                                                     	RPKI path status
                                                     	**type**\:  :py:class:`BgpRpkiStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpRpkiStatus>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: community
                                                     
                                                     	Community label for the path
                                                     	**type**\: str
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: mpls_in
                                                     
                                                     	MPLS label in for the path
                                                     	**type**\: str
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: mpls_out
                                                     
                                                     	MPLS label out for the path
                                                     	**type**\: str
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: sr_profile_name
                                                     
                                                     	SR profile name for the path
                                                     	**type**\: str
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: sr_binding_sid
                                                     
@@ -2797,6 +3201,8 @@ class BgpStateData(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: sr_label_indx
                                                     
                                                     	SR label index for the path
@@ -2804,15 +3210,21 @@ class BgpStateData(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: as4_path
                                                     
                                                     	path using 4\-octet AS numbers
                                                     	**type**\: str
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: atomic_aggregate
                                                     
                                                     	attribute indicating whether or not the prefix is an atomic aggregate
                                                     	**type**\: bool
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: aggr_as_number
                                                     
@@ -2821,6 +3233,8 @@ class BgpStateData(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: aggr_as4_number
                                                     
                                                     	AS4 number of autonomous system them performed the aggregation
@@ -2828,25 +3242,35 @@ class BgpStateData(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: aggr_address
                                                     
                                                     	IP address of the router that performed the aggregation
                                                     	**type**\: str
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: originator_id
                                                     
                                                     	the router ID of the originator of the route in the local AS
                                                     	**type**\: str
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: cluster_list
                                                     
                                                     	the reflection path the route has passed
                                                     	**type**\: str
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: extended_community
                                                     
                                                     	BGP extended community attribute
                                                     	**type**\: str
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: ext_aigp_metric
                                                     
@@ -2855,12 +3279,16 @@ class BgpStateData(Entity):
                                                     
                                                     	**range:** 0..18446744073709551615
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: path_id
                                                     
                                                     	path identifier used to uniquely identify a route
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -2946,75 +3374,105 @@ class BgpStateData(Entity):
                                                         	Suppressed path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: damped
                                                         
                                                         	Damped path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: history
                                                         
                                                         	History path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: valid
                                                         
                                                         	Valid path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: sourced
                                                         
                                                         	Sourced path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: bestpath
                                                         
                                                         	Best path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: internal
                                                         
                                                         	Internal path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: rib_fail
                                                         
                                                         	RIB\-fail path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: stale
                                                         
                                                         	Stale path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: multipath
                                                         
                                                         	Multipath path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: backup_path
                                                         
                                                         	Backup path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: rt_filter
                                                         
                                                         	RT filter path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: best_external
                                                         
                                                         	Best externa path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: additional_path
                                                         
                                                         	Additional path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: rib_compressed
                                                         
                                                         	RIB compressed path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -3071,6 +3529,15 @@ class BgpStateData(Entity):
                                                             self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpRouteNeighbors.BgpRouteNeighbor.BgpNeighborRouteFilters.BgpNeighborRouteFilter.BgpNeighborRouteEntries.BgpNeighborRouteEntry.BgpNeighborPathEntries.BgpNeighborPathEntry.PathStatus, ['suppressed', 'damped', 'history', 'valid', 'sourced', 'bestpath', 'internal', 'rib_fail', 'stale', 'multipath', 'backup_path', 'rt_filter', 'best_external', 'additional_path', 'rib_compressed'], name, value)
 
 
+
+
+
+
+
+
+
+
+
                     class BgpPeerGroups(Entity):
                         """
                         BGP peer groups
@@ -3079,6 +3546,8 @@ class BgpStateData(Entity):
                         
                         	List of BGP peer groups
                         	**type**\: list of  		 :py:class:`BgpPeerGroup <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups.BgpPeerGroup>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3115,10 +3584,14 @@ class BgpStateData(Entity):
                             	BGP peer group name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: description
                             
                             	Peer Group description string
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: remote_as
                             
@@ -3127,12 +3600,16 @@ class BgpStateData(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: bgp_version
                             
                             	BGP version being used to communicate with the remote router
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             .. attribute:: min_time
                             
@@ -3141,12 +3618,16 @@ class BgpStateData(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: num_of_sessions
                             
                             	Number of Sessions for peer group
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: num_estab_sessions
                             
@@ -3155,6 +3636,8 @@ class BgpStateData(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: num_sso_sessions
                             
                             	Number of SSO sesssions for peer group
@@ -3162,10 +3645,14 @@ class BgpStateData(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: peer_members
                             
                             	BGP peer group members
                             	**type**\: list of str
+                            
+                            	**config**\: False
                             
                             .. attribute:: fmt_grp_ix
                             
@@ -3174,12 +3661,16 @@ class BgpStateData(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: adv_ix
                             
                             	BGP peer group Advertised Index value
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             .. attribute:: aspath_in
                             
@@ -3188,6 +3679,8 @@ class BgpStateData(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: aspath_out
                             
                             	BGP peer group aspath  filter out value
@@ -3195,15 +3688,21 @@ class BgpStateData(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: routemap_in
                             
                             	BGP peer group Route Map in value
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: routemap_out
                             
                             	BGP peer group Route Map out value
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: updated_messages
                             
@@ -3212,12 +3711,16 @@ class BgpStateData(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: rep_count
                             
                             	BGP peer group Replicated Count value
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: slowpeer_detection_value
                             
@@ -3226,6 +3729,8 @@ class BgpStateData(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: weight
                             
                             	BGP weight value
@@ -3233,20 +3738,28 @@ class BgpStateData(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: send_community
                             
                             	BGP Send Community status
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: extended_community
                             
                             	BGP Extended Community status
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: remove_private_as
                             
                             	BGP Remove PrivateAs status
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -3317,6 +3830,12 @@ class BgpStateData(Entity):
                                 self._perform_setattr(BgpStateData.BgpRouteVrfs.BgpRouteVrf.BgpRouteAfs.BgpRouteAf.BgpPeerGroups.BgpPeerGroup, ['name', 'description', 'remote_as', 'bgp_version', 'min_time', 'num_of_sessions', 'num_estab_sessions', 'num_sso_sessions', 'peer_members', 'fmt_grp_ix', 'adv_ix', 'aspath_in', 'aspath_out', 'routemap_in', 'routemap_out', 'updated_messages', 'rep_count', 'slowpeer_detection_value', 'weight', 'send_community', 'extended_community', 'remove_private_as'], name, value)
 
 
+
+
+
+
+
+
     class BgpRouteRds(Entity):
         """
         BGP RDs
@@ -3325,6 +3844,8 @@ class BgpStateData(Entity):
         
         	List of BGP RDs
         	**type**\: list of  		 :py:class:`BgpRouteRd <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd>`
+        
+        	**config**\: False
         
         
 
@@ -3362,10 +3883,14 @@ class BgpStateData(Entity):
             	BGP rd value
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: bgp_rd_route_afs
             
             	BGP rd address families
             	**type**\:  :py:class:`BgpRdRouteAfs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs>`
+            
+            	**config**\: False
             
             
 
@@ -3408,6 +3933,8 @@ class BgpStateData(Entity):
                 	List of BGP RD address families
                 	**type**\: list of  		 :py:class:`BgpRdRouteAf <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -3443,15 +3970,21 @@ class BgpStateData(Entity):
                     	BGP address family
                     	**type**\:  :py:class:`AfiSafi <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_common_oper.AfiSafi>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: bgp_rd_route_filters
                     
                     	BGP RD route filters
                     	**type**\:  :py:class:`BgpRdRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: bgp_rd_route_neighbors
                     
                     	BGP RD route neighbors
                     	**type**\:  :py:class:`BgpRdRouteNeighbors <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3497,6 +4030,8 @@ class BgpStateData(Entity):
                         	List of BGP RD route filters
                         	**type**\: list of  		 :py:class:`BgpRdRouteFilter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -3532,10 +4067,14 @@ class BgpStateData(Entity):
                             	BGP RD route filter
                             	**type**\:  :py:class:`BgpRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpRouteFilters>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: bgp_rd_route_entries
                             
                             	BGP RD route entries
                             	**type**\:  :py:class:`BgpRdRouteEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -3577,6 +4116,8 @@ class BgpStateData(Entity):
                                 	List of BGP RD route entries
                                 	**type**\: list of  		 :py:class:`BgpRdRouteEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -3612,12 +4153,16 @@ class BgpStateData(Entity):
                                     	RD Routing table entry prefix
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: version
                                     
                                     	RD Routing table version
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: available_paths
                                     
@@ -3626,15 +4171,21 @@ class BgpStateData(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: advertised_to
                                     
                                     	Whom is thie prefix advertized to
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: bgp_rd_path_entries
                                     
                                     	Prefix next hop details
                                     	**type**\:  :py:class:`BgpRdPathEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3682,6 +4233,8 @@ class BgpStateData(Entity):
                                         	List of prefix next hop details
                                         	**type**\: list of  		 :py:class:`BgpRdPathEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry>`
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -3717,12 +4270,16 @@ class BgpStateData(Entity):
                                             	Next hop for this path
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: metric
                                             
                                             	Metric associated with the path
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: local_pref
                                             
@@ -3731,6 +4288,8 @@ class BgpStateData(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: weight
                                             
                                             	Path weight
@@ -3738,45 +4297,63 @@ class BgpStateData(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: as_path
                                             
                                             	AS path
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: origin
                                             
                                             	Path origin
                                             	**type**\:  :py:class:`BgpOriginCode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpOriginCode>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: path_status
                                             
                                             	Path status
                                             	**type**\:  :py:class:`PathStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry.PathStatus>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: rpki_status
                                             
                                             	RPKI path status
                                             	**type**\:  :py:class:`BgpRpkiStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpRpkiStatus>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: community
                                             
                                             	Community label for the path
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: mpls_in
                                             
                                             	MPLS label in for the path
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: mpls_out
                                             
                                             	MPLS label out for the path
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: sr_profile_name
                                             
                                             	SR profile name for the path
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: sr_binding_sid
                                             
@@ -3785,6 +4362,8 @@ class BgpStateData(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: sr_label_indx
                                             
                                             	SR label index for the path
@@ -3792,15 +4371,21 @@ class BgpStateData(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: as4_path
                                             
                                             	path using 4\-octet AS numbers
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: atomic_aggregate
                                             
                                             	attribute indicating whether or not the prefix is an atomic aggregate
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: aggr_as_number
                                             
@@ -3809,6 +4394,8 @@ class BgpStateData(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: aggr_as4_number
                                             
                                             	AS4 number of autonomous system them performed the aggregation
@@ -3816,25 +4403,35 @@ class BgpStateData(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: aggr_address
                                             
                                             	IP address of the router that performed the aggregation
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: originator_id
                                             
                                             	the router ID of the originator of the route in the local AS
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: cluster_list
                                             
                                             	the reflection path the route has passed
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: extended_community
                                             
                                             	BGP extended community attribute
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: ext_aigp_metric
                                             
@@ -3843,12 +4440,16 @@ class BgpStateData(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: path_id
                                             
                                             	path identifier used to uniquely identify a route
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -3934,75 +4535,105 @@ class BgpStateData(Entity):
                                                 	Suppressed path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: damped
                                                 
                                                 	Damped path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: history
                                                 
                                                 	History path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: valid
                                                 
                                                 	Valid path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: sourced
                                                 
                                                 	Sourced path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: bestpath
                                                 
                                                 	Best path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: internal
                                                 
                                                 	Internal path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rib_fail
                                                 
                                                 	RIB\-fail path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: stale
                                                 
                                                 	Stale path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: multipath
                                                 
                                                 	Multipath path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: backup_path
                                                 
                                                 	Backup path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rt_filter
                                                 
                                                 	RT filter path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: best_external
                                                 
                                                 	Best externa path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: additional_path
                                                 
                                                 	Additional path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: rib_compressed
                                                 
                                                 	RIB compressed path
                                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -4059,6 +4690,13 @@ class BgpStateData(Entity):
                                                     self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteFilters.BgpRdRouteFilter.BgpRdRouteEntries.BgpRdRouteEntry.BgpRdPathEntries.BgpRdPathEntry.PathStatus, ['suppressed', 'damped', 'history', 'valid', 'sourced', 'bestpath', 'internal', 'rib_fail', 'stale', 'multipath', 'backup_path', 'rt_filter', 'best_external', 'additional_path', 'rib_compressed'], name, value)
 
 
+
+
+
+
+
+
+
                     class BgpRdRouteNeighbors(Entity):
                         """
                         BGP RD route neighbors
@@ -4067,6 +4705,8 @@ class BgpStateData(Entity):
                         
                         	List of BGP RD route neighbors
                         	**type**\: list of  		 :py:class:`BgpRdRouteNeighbor <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -4103,10 +4743,14 @@ class BgpStateData(Entity):
                             	BGP RD neighbor ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: bgp_rd_neighbor_route_filters
                             
                             	BGP RD neighbor route filters
                             	**type**\:  :py:class:`BgpRdNeighborRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -4148,6 +4792,8 @@ class BgpStateData(Entity):
                                 	List of BGP RD neighbor route filters
                                 	**type**\: list of  		 :py:class:`BgpRdNeighborRouteFilter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -4183,10 +4829,14 @@ class BgpStateData(Entity):
                                     	BGP RD neighbor route filter
                                     	**type**\:  :py:class:`BgpNeighborRouteFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpNeighborRouteFilters>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: bgp_rd_neighbor_route_entries
                                     
                                     	BGP RD neighbor route entries
                                     	**type**\:  :py:class:`BgpRdNeighborRouteEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4228,6 +4878,8 @@ class BgpStateData(Entity):
                                         	List of BGP RD neighbor route entries
                                         	**type**\: list of  		 :py:class:`BgpRdNeighborRouteEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry>`
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -4263,12 +4915,16 @@ class BgpStateData(Entity):
                                             	RD neighbor routing table entry prefix
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: version
                                             
                                             	RD neighbor routing table version
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: available_paths
                                             
@@ -4277,15 +4933,21 @@ class BgpStateData(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: advertised_to
                                             
                                             	Who this prefix was advertized to
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: bgp_rd_neighbor_path_entries
                                             
                                             	Prefix next hop details
                                             	**type**\:  :py:class:`BgpRdNeighborPathEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -4333,6 +4995,8 @@ class BgpStateData(Entity):
                                                 	List of prefix next hop details
                                                 	**type**\: list of  		 :py:class:`BgpRdNeighborPathEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry>`
                                                 
+                                                	**config**\: False
+                                                
                                                 
 
                                                 """
@@ -4368,12 +5032,16 @@ class BgpStateData(Entity):
                                                     	Next hop for this path
                                                     	**type**\: str
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: metric
                                                     
                                                     	Metric associated with the path
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: local_pref
                                                     
@@ -4382,6 +5050,8 @@ class BgpStateData(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: weight
                                                     
                                                     	Path weight
@@ -4389,45 +5059,63 @@ class BgpStateData(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: as_path
                                                     
                                                     	AS path
                                                     	**type**\: str
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: origin
                                                     
                                                     	Path origin
                                                     	**type**\:  :py:class:`BgpOriginCode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpOriginCode>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: path_status
                                                     
                                                     	Path status
                                                     	**type**\:  :py:class:`PathStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_oper.BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry.PathStatus>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: rpki_status
                                                     
                                                     	RPKI path status
                                                     	**type**\:  :py:class:`BgpRpkiStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bgp_route_oper.BgpRpkiStatus>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: community
                                                     
                                                     	Community label for the path
                                                     	**type**\: str
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: mpls_in
                                                     
                                                     	MPLS label in for the path
                                                     	**type**\: str
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: mpls_out
                                                     
                                                     	MPLS label out for the path
                                                     	**type**\: str
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: sr_profile_name
                                                     
                                                     	SR profile name for the path
                                                     	**type**\: str
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: sr_binding_sid
                                                     
@@ -4436,6 +5124,8 @@ class BgpStateData(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: sr_label_indx
                                                     
                                                     	SR label index for the path
@@ -4443,15 +5133,21 @@ class BgpStateData(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: as4_path
                                                     
                                                     	path using 4\-octet AS numbers
                                                     	**type**\: str
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: atomic_aggregate
                                                     
                                                     	attribute indicating whether or not the prefix is an atomic aggregate
                                                     	**type**\: bool
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: aggr_as_number
                                                     
@@ -4460,6 +5156,8 @@ class BgpStateData(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: aggr_as4_number
                                                     
                                                     	AS4 number of autonomous system them performed the aggregation
@@ -4467,25 +5165,35 @@ class BgpStateData(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: aggr_address
                                                     
                                                     	IP address of the router that performed the aggregation
                                                     	**type**\: str
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: originator_id
                                                     
                                                     	the router ID of the originator of the route in the local AS
                                                     	**type**\: str
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: cluster_list
                                                     
                                                     	the reflection path the route has passed
                                                     	**type**\: str
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: extended_community
                                                     
                                                     	BGP extended community attribute
                                                     	**type**\: str
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: ext_aigp_metric
                                                     
@@ -4494,12 +5202,16 @@ class BgpStateData(Entity):
                                                     
                                                     	**range:** 0..18446744073709551615
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: path_id
                                                     
                                                     	path identifier used to uniquely identify a route
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -4585,75 +5297,105 @@ class BgpStateData(Entity):
                                                         	Suppressed path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: damped
                                                         
                                                         	Damped path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: history
                                                         
                                                         	History path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: valid
                                                         
                                                         	Valid path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: sourced
                                                         
                                                         	Sourced path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: bestpath
                                                         
                                                         	Best path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: internal
                                                         
                                                         	Internal path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: rib_fail
                                                         
                                                         	RIB\-fail path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: stale
                                                         
                                                         	Stale path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: multipath
                                                         
                                                         	Multipath path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: backup_path
                                                         
                                                         	Backup path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: rt_filter
                                                         
                                                         	RT filter path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: best_external
                                                         
                                                         	Best externa path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: additional_path
                                                         
                                                         	Additional path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: rib_compressed
                                                         
                                                         	RIB compressed path
                                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -4709,7 +5451,22 @@ class BgpStateData(Entity):
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(BgpStateData.BgpRouteRds.BgpRouteRd.BgpRdRouteAfs.BgpRdRouteAf.BgpRdRouteNeighbors.BgpRdRouteNeighbor.BgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry.BgpRdNeighborPathEntries.BgpRdNeighborPathEntry.PathStatus, ['suppressed', 'damped', 'history', 'valid', 'sourced', 'bestpath', 'internal', 'rib_fail', 'stale', 'multipath', 'backup_path', 'rt_filter', 'best_external', 'additional_path', 'rib_compressed'], name, value)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = BgpStateData()
         return self._top_entity
+
+
 

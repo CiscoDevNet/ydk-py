@@ -101,7 +101,10 @@ class Exception(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Exception.Choice, ['order', 'filepath'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Exception()
         return self._top_entity
+
+
 

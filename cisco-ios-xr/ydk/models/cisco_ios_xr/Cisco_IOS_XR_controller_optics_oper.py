@@ -1386,6 +1386,8 @@ class OpticsOper(Entity):
     	All Optics Port operational data
     	**type**\:  :py:class:`OpticsPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts>`
     
+    	**config**\: False
+    
     
 
     """
@@ -1423,6 +1425,8 @@ class OpticsOper(Entity):
         
         	Optics operational data
         	**type**\: list of  		 :py:class:`OpticsPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort>`
+        
+        	**config**\: False
         
         
 
@@ -1462,35 +1466,49 @@ class OpticsOper(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: optics_dwdm_carrier_channel_map
             
             	Optics operational data
             	**type**\:  :py:class:`OpticsDwdmCarrierChannelMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap>`
+            
+            	**config**\: False
             
             .. attribute:: ots_spectrum_info
             
             	Ots Spectrum Operational data
             	**type**\:  :py:class:`OtsSpectrumInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo>`
             
+            	**config**\: False
+            
             .. attribute:: optics_dwdm_carrier_channel_map_flexi
             
             	Optics operational data
             	**type**\:  :py:class:`OpticsDwdmCarrierChannelMapFlexi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi>`
+            
+            	**config**\: False
             
             .. attribute:: optics_info
             
             	Optics operational data
             	**type**\:  :py:class:`OpticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo>`
             
+            	**config**\: False
+            
             .. attribute:: optics_lanes
             
             	All Optics Port operational data
             	**type**\:  :py:class:`OpticsLanes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes>`
             
+            	**config**\: False
+            
             .. attribute:: optics_db_info
             
             	Optics operational data
             	**type**\:  :py:class:`OpticsDbInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo>`
+            
+            	**config**\: False
             
             
 
@@ -1553,12 +1571,16 @@ class OpticsOper(Entity):
                 	DWDM carrier band
                 	**type**\:  :py:class:`OpticsWaveBand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsWaveBand>`
                 
+                	**config**\: False
+                
                 .. attribute:: dwdm_carrier_min
                 
                 	Lowest DWDM carrier supported
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: dwdm_carrier_max
                 
@@ -1567,10 +1589,14 @@ class OpticsOper(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: dwdm_carrier_map_info
                 
                 	DWDM carrier mapping info
                 	**type**\: list of  		 :py:class:`DwdmCarrierMapInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -1602,7 +1628,7 @@ class OpticsOper(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap, ['dwdm_carrier_band', 'dwdm_carrier_min', 'dwdm_carrier_max'], name, value)
+                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap, [u'dwdm_carrier_band', u'dwdm_carrier_min', u'dwdm_carrier_max'], name, value)
 
 
                 class DwdmCarrierMapInfo(Entity):
@@ -1616,12 +1642,16 @@ class OpticsOper(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: g694_chan_num
                     
                     	G694 channel number
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: frequency
                     
@@ -1630,12 +1660,16 @@ class OpticsOper(Entity):
                     
                     	**length:** 0..32
                     
+                    	**config**\: False
+                    
                     .. attribute:: wavelength
                     
                     	Wavelength
                     	**type**\: str
                     
                     	**length:** 0..32
+                    
+                    	**config**\: False
                     
                     
 
@@ -1667,7 +1701,9 @@ class OpticsOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo, ['itu_chan_num', 'g694_chan_num', 'frequency', 'wavelength'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo, [u'itu_chan_num', u'g694_chan_num', u'frequency', u'wavelength'], name, value)
+
+
 
 
             class OtsSpectrumInfo(Entity):
@@ -1678,6 +1714,8 @@ class OpticsOper(Entity):
                 
                 	OTS Spectrum information
                 	**type**\:  :py:class:`SpectrumInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -1718,12 +1756,16 @@ class OpticsOper(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: spectrum_slice_spacing
                     
                     	Spacing between spectrum slices
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: first_slice_wavelength
                     
@@ -1732,10 +1774,14 @@ class OpticsOper(Entity):
                     
                     	**length:** 0..32
                     
+                    	**config**\: False
+                    
                     .. attribute:: spectrum_slice_power_info
                     
                     	Power information of spectrum slice info
                     	**type**\: list of  		 :py:class:`SpectrumSlicePowerInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo.SpectrumSlicePowerInfo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1767,7 +1813,7 @@ class OpticsOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo, ['total_spectrum_slice_count', 'spectrum_slice_spacing', 'first_slice_wavelength'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo, [u'total_spectrum_slice_count', u'spectrum_slice_spacing', u'first_slice_wavelength'], name, value)
 
 
                     class SpectrumSlicePowerInfo(Entity):
@@ -1781,12 +1827,16 @@ class OpticsOper(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: lower_frequency
                         
                         	Lower frequency of the specified PSD
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: upper_frequency
                         
@@ -1795,12 +1845,16 @@ class OpticsOper(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: rx_power
                         
                         	Received Power in dBm multiplied by 100
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: tx_power
                         
@@ -1809,6 +1863,8 @@ class OpticsOper(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: rx_psd
                         
                         	Received Power spectral density in microwatts per megahertz, uW/MHz
@@ -1816,12 +1872,16 @@ class OpticsOper(Entity):
                         
                         	**length:** 0..16
                         
+                        	**config**\: False
+                        
                         .. attribute:: tx_psd
                         
                         	Transmit Power spectral density in microwatts per megahertz, uW/MHz
                         	**type**\: str
                         
                         	**length:** 0..16
+                        
+                        	**config**\: False
                         
                         
 
@@ -1859,7 +1919,10 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo.SpectrumSlicePowerInfo, ['slice_num', 'lower_frequency', 'upper_frequency', 'rx_power', 'tx_power', 'rx_psd', 'tx_psd'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo.SpectrumSlicePowerInfo, [u'slice_num', u'lower_frequency', u'upper_frequency', u'rx_power', u'tx_power', u'rx_psd', u'tx_psd'], name, value)
+
+
+
 
 
             class OpticsDwdmCarrierChannelMapFlexi(Entity):
@@ -1871,12 +1934,16 @@ class OpticsOper(Entity):
                 	DWDM carrier band
                 	**type**\:  :py:class:`OpticsWaveBand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsWaveBand>`
                 
+                	**config**\: False
+                
                 .. attribute:: dwdm_carrier_min
                 
                 	Lowest DWDM carrier supported
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: dwdm_carrier_max
                 
@@ -1885,10 +1952,14 @@ class OpticsOper(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: dwdm_carrier_map_info
                 
                 	DWDM carrier mapping info
                 	**type**\: list of  		 :py:class:`DwdmCarrierMapInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -1920,7 +1991,7 @@ class OpticsOper(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi, ['dwdm_carrier_band', 'dwdm_carrier_min', 'dwdm_carrier_max'], name, value)
+                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi, [u'dwdm_carrier_band', u'dwdm_carrier_min', u'dwdm_carrier_max'], name, value)
 
 
                 class DwdmCarrierMapInfo(Entity):
@@ -1934,12 +2005,16 @@ class OpticsOper(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: g694_chan_num
                     
                     	G694 channel number
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: frequency
                     
@@ -1948,12 +2023,16 @@ class OpticsOper(Entity):
                     
                     	**length:** 0..32
                     
+                    	**config**\: False
+                    
                     .. attribute:: wavelength
                     
                     	Wavelength
                     	**type**\: str
                     
                     	**length:** 0..32
+                    
+                    	**config**\: False
                     
                     
 
@@ -1985,7 +2064,9 @@ class OpticsOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo, ['itu_chan_num', 'g694_chan_num', 'frequency', 'wavelength'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo, [u'itu_chan_num', u'g694_chan_num', u'frequency', u'wavelength'], name, value)
+
+
 
 
             class OpticsInfo(Entity):
@@ -1997,85 +2078,119 @@ class OpticsOper(Entity):
                 	Network SRLG information
                 	**type**\:  :py:class:`NetworkSrlgInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: optics_alarm_info
                 
                 	Optics Alarm Information
                 	**type**\:  :py:class:`OpticsAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo>`
+                
+                	**config**\: False
                 
                 .. attribute:: ots_alarm_info
                 
                 	Ots Alarm Information
                 	**type**\:  :py:class:`OtsAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: transceiver_info
                 
                 	Transceiver Vendor Details
                 	**type**\:  :py:class:`TransceiverInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo>`
+                
+                	**config**\: False
                 
                 .. attribute:: ext_param_val
                 
                 	Extended optics parameters
                 	**type**\:  :py:class:`ExtParamVal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal>`
                 
+                	**config**\: False
+                
                 .. attribute:: ext_param_threshold_val
                 
                 	Extended optics parameters threshold values
                 	**type**\:  :py:class:`ExtParamThresholdVal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal>`
+                
+                	**config**\: False
                 
                 .. attribute:: extended_alarm_alarm_info
                 
                 	Extended DOM alarm Information
                 	**type**\:  :py:class:`ExtendedAlarmAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: ains_info
                 
                 	AINS information
                 	**type**\:  :py:class:`AinsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.AinsInfo>`
+                
+                	**config**\: False
                 
                 .. attribute:: transport_admin_state
                 
                 	Transport Admin State
                 	**type**\:  :py:class:`OpticsTas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsTas>`
                 
+                	**config**\: False
+                
                 .. attribute:: optics_present
                 
                 	Is Optics Present?
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: optics_type
                 
                 	Old Optics type name, Use Derived Optics type
                 	**type**\:  :py:class:`Optics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.Optics>`
                 
+                	**config**\: False
+                
                 .. attribute:: derived_optics_type
                 
                 	Derived Optics type name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: optics_module
                 
                 	Optics module name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: dwdm_carrier_band
                 
                 	DWDM Carrier Band information
                 	**type**\:  :py:class:`OpticsWaveBand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsWaveBand>`
+                
+                	**config**\: False
                 
                 .. attribute:: dwdm_carrier_channel
                 
                 	Current ITU DWDM Carrier channel number
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: dwdm_carrier_frequency
                 
                 	DWDM Carrier frequency read from hw in the units of  1THz
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: dwdm_carrier_wavelength
                 
                 	Wavelength of color optics 0.001nm
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: grey_wavelength
                 
@@ -2084,12 +2199,16 @@ class OpticsOper(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: rx_low_threshold
                 
                 	Rx Low threshold value in units of 0.1dBm
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**config**\: False
                 
                 .. attribute:: rx_high_threshold
                 
@@ -2098,12 +2217,16 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: lbc_high_threshold
                 
                 	LBC High threshold value in units of percentage
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**config**\: False
                 
                 	**units**\: percentage
                 
@@ -2114,12 +2237,16 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: tx_high_threshold
                 
                 	Tx High threshold value in units of 0.1dBm
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**config**\: False
                 
                 .. attribute:: lbc_th_high_default
                 
@@ -2128,12 +2255,16 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: lbc_th_low_default
                 
                 	LBC low threshold default value in units of 0 .001mA
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**config**\: False
                 
                 .. attribute:: temp_low_threshold
                 
@@ -2142,12 +2273,16 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: temp_high_threshold
                 
                 	Temp High threshold value in the units of 0.01C
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**config**\: False
                 
                 .. attribute:: volt_low_threshold
                 
@@ -2156,12 +2291,16 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: volt_high_threshold
                 
                 	Volt High threshold value in the units of 0.01V
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**config**\: False
                 
                 .. attribute:: cd
                 
@@ -2170,12 +2309,16 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: cd_min
                 
                 	Chromatic Dispersion Min ps/nm
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**config**\: False
                 
                 .. attribute:: cd_max
                 
@@ -2184,12 +2327,16 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: cd_low_threshold
                 
                 	Chromatic Dispersion low threshold ps/nm
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**config**\: False
                 
                 .. attribute:: cd_high_threshold
                 
@@ -2198,50 +2345,70 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: osnr_low_threshold
                 
                 	OSNR low threshold in 0.01 dB
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: dgd_high_threshold
                 
                 	DGD high threshold in 0.1 ps
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: polarization_mode_dispersion
                 
                 	Polarization Mode Dispersion 0.1ps
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: second_order_polarization_mode_dispersion
                 
                 	Second Order Polarization Mode Dispersion 0 .1ps^2
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: optical_signal_to_noise_ratio
                 
                 	Optical Signal to Noise Ratio dB
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: polarization_dependent_loss
                 
                 	Polarization Dependent Loss dB
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: polarization_change_rate
                 
                 	Polarization Change Rate rad/s
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: differential_group_delay
                 
                 	Differential Group Delay ps
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: phase_noise
                 
                 	Phase Noise dB
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: pm_enable
                 
@@ -2250,35 +2417,49 @@ class OpticsOper(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: laser_state
                 
                 	Showing laser state.Either ON or OFF or unknown
                 	**type**\:  :py:class:`OpticsLaserState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsLaserState>`
+                
+                	**config**\: False
                 
                 .. attribute:: modulation_type
                 
                 	Available Modulation Types
                 	**type**\:  :py:class:`OpticsModulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsModulation>`
                 
+                	**config**\: False
+                
                 .. attribute:: led_state
                 
                 	Showing Current Colour of led state
                 	**type**\:  :py:class:`OpticsLedState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsLedState>`
+                
+                	**config**\: False
                 
                 .. attribute:: controller_state
                 
                 	Optics controller state\: Up, Down or Administratively Down
                 	**type**\:  :py:class:`OpticsControllerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsControllerState>`
                 
+                	**config**\: False
+                
                 .. attribute:: form_factor
                 
                 	Optics form factor
                 	**type**\:  :py:class:`OpticsFormFactor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsFormFactor>`
                 
+                	**config**\: False
+                
                 .. attribute:: phy_type
                 
                 	Optics physical type
                 	**type**\:  :py:class:`OpticsPhy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsPhy>`
+                
+                	**config**\: False
                 
                 .. attribute:: cfg_tx_power
                 
@@ -2287,10 +2468,14 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: cfg_tx_power_configurable
                 
                 	TX Power Configuration is supported or not
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: temperature
                 
@@ -2299,6 +2484,8 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: voltage
                 
                 	Voltage value in units of 0.01V
@@ -2306,20 +2493,28 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: display_volt_temp
                 
                 	Display Volt/Temp ?
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: cd_configurable
                 
                 	CD Configurable is supported or not
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: optics_fec
                 
                 	Optics FEC
                 	**type**\:  :py:class:`OpticsFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsFec>`
+                
+                	**config**\: False
                 
                 .. attribute:: skip_snmp_pm_table
                 
@@ -2328,15 +2523,21 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: port_type
                 
                 	Showing port type
                 	**type**\:  :py:class:`OpticsPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsPort>`
                 
+                	**config**\: False
+                
                 .. attribute:: port_status
                 
                 	Showing port status
                 	**type**\:  :py:class:`OpticsPortStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsPortStatus>`
+                
+                	**config**\: False
                 
                 .. attribute:: rx_voa_attenuation
                 
@@ -2345,12 +2546,16 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: tx_voa_attenuation
                 
                 	Tx Voa Attenuation in the units of 0.01dBm
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**config**\: False
                 
                 .. attribute:: ampli_gain
                 
@@ -2359,6 +2564,8 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: ampli_tilt
                 
                 	Ampli Tilt in the units of 0.01dBm
@@ -2366,15 +2573,21 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: rx_power_th_configurable
                 
                 	rx power th configurable
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: tx_power_th_configurable
                 
                 	tx power th configurable
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: rx_voa_attenuation_config_val
                 
@@ -2383,6 +2596,8 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: tx_voa_attenuation_config_val
                 
                 	TX VOA attenuation configured value in units of 0.1dB
@@ -2390,15 +2605,21 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: ampli_control_mode_config_val
                 
                 	ampli control mode config val
                 	**type**\:  :py:class:`OpticsAmplifierControlMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsAmplifierControlMode>`
                 
+                	**config**\: False
+                
                 .. attribute:: ampli_gain_range_config_val
                 
                 	ampli gain range config val
                 	**type**\:  :py:class:`OpticsAmplifierGainRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsAmplifierGainRange>`
+                
+                	**config**\: False
                 
                 .. attribute:: ampli_gain_config_val
                 
@@ -2407,12 +2628,16 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: ampli_tilt_config_val
                 
                 	Ampli tilt configured value in units of 0.1dB
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**config**\: False
                 
                 .. attribute:: ampli_channel_power_config_val
                 
@@ -2421,12 +2646,16 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: channel_power_max_delta_config_val
                 
                 	Channel power max delta configured value in units of 0.1 dBm
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**config**\: False
                 
                 .. attribute:: ampli_gain_thr_deg_low_config_val
                 
@@ -2435,6 +2664,8 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: ampli_gain_thr_deg_high_config_val
                 
                 	Ampli gain high degrade threshold configured value in units of 0.1dBm
@@ -2442,25 +2673,35 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: osri_config_val
                 
                 	osri config val
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: tx_config_val
                 
                 	tx config val
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: rx_config_val
                 
                 	rx config val
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: safety_control_mode_config_val
                 
                 	safety control mode config val
                 	**type**\:  :py:class:`OpticsAmplifierSafetyControlMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsAmplifierSafetyControlMode>`
+                
+                	**config**\: False
                 
                 .. attribute:: total_rx_power
                 
@@ -2469,6 +2710,8 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: total_tx_power
                 
                 	Total Transmit Power for Multi\-Lane Optics in units of 0.01 dBm
@@ -2476,20 +2719,28 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: is_bo_configured
                 
                 	Is BO configured ?
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: is_ext_param_valid
                 
                 	Are the Extended Parameters Valid ?
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: alarm_detected
                 
                 	Are there any alarms ?
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: rx_low_warning_threshold
                 
@@ -2498,12 +2749,16 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: rx_high_warning_threshold
                 
                 	Rx High Warning threshold value in units of 0 .1dBm
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**config**\: False
                 
                 .. attribute:: tx_low_warning_threshold
                 
@@ -2512,12 +2767,16 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: tx_high_warning_threshold
                 
                 	Tx High Warning threshold value in units of 0 .1dBm
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**config**\: False
                 
                 .. attribute:: lbc_th_high_warning_default
                 
@@ -2526,12 +2785,16 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: lbc_th_low_warning_default
                 
                 	LBC low warning threshold default value in units of 0.001mA
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**config**\: False
                 
                 .. attribute:: temp_low_warning_threshold
                 
@@ -2540,12 +2803,16 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: temp_high_warning_threshold
                 
                 	Temp High warning threshold value in the units of 0.01C
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**config**\: False
                 
                 .. attribute:: volt_low_warning_threshold
                 
@@ -2554,6 +2821,8 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: volt_high_warning_threshold
                 
                 	Volt High warning threshold value in the units of 0.01V
@@ -2561,45 +2830,63 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: description
                 
                 	Controller description string
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: ampli_gain_range
                 
                 	Ampli gain range
                 	**type**\:  :py:class:`OpticsAmplifierGainRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsAmplifierGainRange>`
                 
+                	**config**\: False
+                
                 .. attribute:: safety_control_mode
                 
                 	Safety control mode
                 	**type**\:  :py:class:`OpticsAmplifierSafetyControlMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsAmplifierSafetyControlMode>`
+                
+                	**config**\: False
                 
                 .. attribute:: osri
                 
                 	OSRI
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: tx_enable
                 
                 	TX Enable
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: rx_enable
                 
                 	RX Enable
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: is_optics_type_string_valid
                 
                 	Is the Optics type string valid ?
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: optics_type_str
                 
                 	optics type String
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: rx_low_threshold_current
                 
@@ -2608,12 +2895,16 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: rx_span_loss
                 
                 	RX Span Loss in units of 0.01 dB
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**config**\: False
                 
                 .. attribute:: tx_span_loss
                 
@@ -2622,20 +2913,28 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: baud_rate
                 
                 	Baud Rate in GBd
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: bits_per_symbol
                 
                 	Bits per Symbol
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: lane_data
                 
                 	Lane information
                 	**type**\: list of  		 :py:class:`LaneData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData>`
+                
+                	**config**\: False
                 
                 
 
@@ -2893,7 +3192,7 @@ class OpticsOper(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo, ['transport_admin_state', 'optics_present', 'optics_type', 'derived_optics_type', 'optics_module', 'dwdm_carrier_band', 'dwdm_carrier_channel', 'dwdm_carrier_frequency', 'dwdm_carrier_wavelength', 'grey_wavelength', 'rx_low_threshold', 'rx_high_threshold', 'lbc_high_threshold', 'tx_low_threshold', 'tx_high_threshold', 'lbc_th_high_default', 'lbc_th_low_default', 'temp_low_threshold', 'temp_high_threshold', 'volt_low_threshold', 'volt_high_threshold', 'cd', 'cd_min', 'cd_max', 'cd_low_threshold', 'cd_high_threshold', 'osnr_low_threshold', 'dgd_high_threshold', 'polarization_mode_dispersion', 'second_order_polarization_mode_dispersion', 'optical_signal_to_noise_ratio', 'polarization_dependent_loss', 'polarization_change_rate', 'differential_group_delay', 'phase_noise', 'pm_enable', 'laser_state', 'modulation_type', 'led_state', 'controller_state', 'form_factor', 'phy_type', 'cfg_tx_power', 'cfg_tx_power_configurable', 'temperature', 'voltage', 'display_volt_temp', 'cd_configurable', 'optics_fec', 'skip_snmp_pm_table', 'port_type', 'port_status', 'rx_voa_attenuation', 'tx_voa_attenuation', 'ampli_gain', 'ampli_tilt', 'rx_power_th_configurable', 'tx_power_th_configurable', 'rx_voa_attenuation_config_val', 'tx_voa_attenuation_config_val', 'ampli_control_mode_config_val', 'ampli_gain_range_config_val', 'ampli_gain_config_val', 'ampli_tilt_config_val', 'ampli_channel_power_config_val', 'channel_power_max_delta_config_val', 'ampli_gain_thr_deg_low_config_val', 'ampli_gain_thr_deg_high_config_val', 'osri_config_val', 'tx_config_val', 'rx_config_val', 'safety_control_mode_config_val', 'total_rx_power', 'total_tx_power', 'is_bo_configured', 'is_ext_param_valid', 'alarm_detected', 'rx_low_warning_threshold', 'rx_high_warning_threshold', 'tx_low_warning_threshold', 'tx_high_warning_threshold', 'lbc_th_high_warning_default', 'lbc_th_low_warning_default', 'temp_low_warning_threshold', 'temp_high_warning_threshold', 'volt_low_warning_threshold', 'volt_high_warning_threshold', 'description', 'ampli_gain_range', 'safety_control_mode', 'osri', 'tx_enable', 'rx_enable', 'is_optics_type_string_valid', 'optics_type_str', 'rx_low_threshold_current', 'rx_span_loss', 'tx_span_loss', 'baud_rate', 'bits_per_symbol'], name, value)
+                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo, [u'transport_admin_state', u'optics_present', u'optics_type', u'derived_optics_type', u'optics_module', u'dwdm_carrier_band', u'dwdm_carrier_channel', u'dwdm_carrier_frequency', u'dwdm_carrier_wavelength', u'grey_wavelength', u'rx_low_threshold', u'rx_high_threshold', u'lbc_high_threshold', u'tx_low_threshold', u'tx_high_threshold', u'lbc_th_high_default', u'lbc_th_low_default', u'temp_low_threshold', u'temp_high_threshold', u'volt_low_threshold', u'volt_high_threshold', u'cd', u'cd_min', u'cd_max', u'cd_low_threshold', u'cd_high_threshold', u'osnr_low_threshold', u'dgd_high_threshold', u'polarization_mode_dispersion', u'second_order_polarization_mode_dispersion', u'optical_signal_to_noise_ratio', u'polarization_dependent_loss', u'polarization_change_rate', u'differential_group_delay', u'phase_noise', u'pm_enable', u'laser_state', u'modulation_type', u'led_state', u'controller_state', u'form_factor', u'phy_type', u'cfg_tx_power', u'cfg_tx_power_configurable', u'temperature', u'voltage', u'display_volt_temp', u'cd_configurable', u'optics_fec', u'skip_snmp_pm_table', u'port_type', u'port_status', u'rx_voa_attenuation', u'tx_voa_attenuation', u'ampli_gain', u'ampli_tilt', u'rx_power_th_configurable', u'tx_power_th_configurable', u'rx_voa_attenuation_config_val', u'tx_voa_attenuation_config_val', u'ampli_control_mode_config_val', u'ampli_gain_range_config_val', u'ampli_gain_config_val', u'ampli_tilt_config_val', u'ampli_channel_power_config_val', u'channel_power_max_delta_config_val', u'ampli_gain_thr_deg_low_config_val', u'ampli_gain_thr_deg_high_config_val', u'osri_config_val', u'tx_config_val', u'rx_config_val', u'safety_control_mode_config_val', u'total_rx_power', u'total_tx_power', u'is_bo_configured', u'is_ext_param_valid', u'alarm_detected', u'rx_low_warning_threshold', u'rx_high_warning_threshold', u'tx_low_warning_threshold', u'tx_high_warning_threshold', u'lbc_th_high_warning_default', u'lbc_th_low_warning_default', u'temp_low_warning_threshold', u'temp_high_warning_threshold', u'volt_low_warning_threshold', u'volt_high_warning_threshold', u'description', u'ampli_gain_range', u'safety_control_mode', u'osri', u'tx_enable', u'rx_enable', u'is_optics_type_string_valid', u'optics_type_str', u'rx_low_threshold_current', u'rx_span_loss', u'tx_span_loss', u'baud_rate', u'bits_per_symbol'], name, value)
 
 
                 class NetworkSrlgInfo(Entity):
@@ -2904,6 +3203,8 @@ class OpticsOper(Entity):
                     
                     	Network Srlg Array
                     	**type**\: list of  		 :py:class:`NetworkSrlgArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo.NetworkSrlgArray>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2942,12 +3243,16 @@ class OpticsOper(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: network_srlg
                         
                         	Network Srlg
                         	**type**\: list of int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2975,7 +3280,9 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo.NetworkSrlgArray, ['set_number', 'network_srlg'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo.NetworkSrlgArray, [u'set_number', u'network_srlg'], name, value)
+
+
 
 
                 class OpticsAlarmInfo(Entity):
@@ -2987,240 +3294,336 @@ class OpticsOper(Entity):
                     	High Rx Power in units of 0.1 dBm
                     	**type**\:  :py:class:`HighRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: low_rx_power
                     
                     	Low Rx Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: high_tx_power
                     
                     	High Tx Power in units of 0.1 dBm
                     	**type**\:  :py:class:`HighTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTxPower>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: low_tx_power
                     
                     	Low Tx Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTxPower>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: high_lbc
                     
                     	High laser bias current in units of percentage
                     	**type**\:  :py:class:`HighLbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighLbc>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: low_temperature
                     
                     	Low Temperature alarm
                     	**type**\:  :py:class:`LowTemperature <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTemperature>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: high_temperature
                     
                     	High Temperature alarm
                     	**type**\:  :py:class:`HighTemperature <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTemperature>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: low_voltage
                     
                     	Low Voltage alarm
                     	**type**\:  :py:class:`LowVoltage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowVoltage>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: high_voltage
                     
                     	High Voltage alarm
                     	**type**\:  :py:class:`HighVoltage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighVoltage>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: high_rx1_power
                     
                     	High Rx1 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`HighRx1Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx1Power>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: high_rx2_power
                     
                     	High Rx2 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`HighRx2Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx2Power>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: high_rx3_power
                     
                     	High Rx3 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`HighRx3Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx3Power>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: high_rx4_power
                     
                     	High Rx4 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`HighRx4Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx4Power>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: low_rx1_power
                     
                     	Low Rx1 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowRx1Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx1Power>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: low_rx2_power
                     
                     	Low Rx2 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowRx2Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx2Power>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: low_rx3_power
                     
                     	Low Rx3 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowRx3Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx3Power>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: low_rx4_power
                     
                     	Low Rx4 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowRx4Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx4Power>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: high_tx1_power
                     
                     	High Tx1 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`HighTx1Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: high_tx2_power
                     
                     	High Tx2 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`HighTx2Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: high_tx3_power
                     
                     	High Tx3 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`HighTx3Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: high_tx4_power
                     
                     	High Tx4 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`HighTx4Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: low_tx1_power
                     
                     	Low Tx1 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowTx1Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: low_tx2_power
                     
                     	Low Tx2 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowTx2Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: low_tx3_power
                     
                     	Low Tx3 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowTx3Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: low_tx4_power
                     
                     	Low Tx4 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowTx4Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: high_tx1lbc
                     
                     	High Tx1 laser bias current in units of percentage
                     	**type**\:  :py:class:`HighTx1lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1lbc>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: high_tx2lbc
                     
                     	High Tx2 laser bias current in units of percentage
                     	**type**\:  :py:class:`HighTx2lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2lbc>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: high_tx3lbc
                     
                     	High Tx3 laser bias current in units of percentage
                     	**type**\:  :py:class:`HighTx3lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3lbc>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: high_tx4lbc
                     
                     	High Tx4 laser bias current in units of percentage
                     	**type**\:  :py:class:`HighTx4lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4lbc>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: low_tx1lbc
                     
                     	Low Tx1 laser bias current in units of percentage
                     	**type**\:  :py:class:`LowTx1lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1lbc>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: low_tx2lbc
                     
                     	Low Tx2 laser bias current in units of percentage
                     	**type**\:  :py:class:`LowTx2lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2lbc>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: low_tx3lbc
                     
                     	Low Tx3 laser bias current in units of percentage
                     	**type**\:  :py:class:`LowTx3lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3lbc>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: low_tx4lbc
                     
                     	Low Tx4 laser bias current in units of percentage
                     	**type**\:  :py:class:`LowTx4lbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4lbc>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: rx_los
                     
                     	RX LOS
                     	**type**\:  :py:class:`RxLos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLos>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_los
                     
                     	TX LOS
                     	**type**\:  :py:class:`TxLos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLos>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: rx_lol
                     
                     	RX LOL
                     	**type**\:  :py:class:`RxLol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLol>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_lol
                     
                     	TX LOL
                     	**type**\:  :py:class:`TxLol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLol>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_fault
                     
                     	TX Fault
                     	**type**\:  :py:class:`TxFault <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxFault>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: hidgd
                     
                     	HI DGD
                     	**type**\:  :py:class:`Hidgd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Hidgd>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: oorcd
                     
                     	OOR CD
                     	**type**\:  :py:class:`Oorcd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Oorcd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: osnr
                     
                     	OSNR
                     	**type**\:  :py:class:`Osnr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Osnr>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: wvlool
                     
                     	WVL OOL
                     	**type**\:  :py:class:`Wvlool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Wvlool>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: mea
                     
                     	MEA
                     	**type**\:  :py:class:`Mea <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Mea>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: imp_removal
                     
                     	IMPROPER REM
                     	**type**\:  :py:class:`ImpRemoval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.ImpRemoval>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: rx_loc
                     
                     	Rx LOC
                     	**type**\:  :py:class:`RxLoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLoc>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: amp_gain_deg_low
                     
                     	Ampli Gain Deg Low
                     	**type**\:  :py:class:`AmpGainDegLow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegLow>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: amp_gain_deg_high
                     
                     	Ampli Gain Deg High
                     	**type**\:  :py:class:`AmpGainDegHigh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegHigh>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: txpwr_mismatch
                     
                     	TX POWER PROV MISMATCH
                     	**type**\:  :py:class:`TxpwrMismatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxpwrMismatch>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3447,12 +3850,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3480,7 +3887,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LowRxPower(Entity):
@@ -3492,12 +3900,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3525,7 +3937,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HighTxPower(Entity):
@@ -3537,12 +3950,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3570,7 +3987,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTxPower, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTxPower, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LowTxPower(Entity):
@@ -3582,12 +4000,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3615,7 +4037,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTxPower, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTxPower, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HighLbc(Entity):
@@ -3627,12 +4050,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3660,7 +4087,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighLbc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighLbc, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LowTemperature(Entity):
@@ -3672,12 +4100,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3705,7 +4137,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTemperature, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTemperature, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HighTemperature(Entity):
@@ -3717,12 +4150,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3750,7 +4187,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTemperature, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTemperature, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LowVoltage(Entity):
@@ -3762,12 +4200,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3795,7 +4237,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowVoltage, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowVoltage, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HighVoltage(Entity):
@@ -3807,12 +4250,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3840,7 +4287,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighVoltage, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighVoltage, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HighRx1Power(Entity):
@@ -3852,12 +4300,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3885,7 +4337,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx1Power, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx1Power, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HighRx2Power(Entity):
@@ -3897,12 +4350,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3930,7 +4387,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx2Power, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx2Power, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HighRx3Power(Entity):
@@ -3942,12 +4400,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3975,7 +4437,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx3Power, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx3Power, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HighRx4Power(Entity):
@@ -3987,12 +4450,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4020,7 +4487,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx4Power, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx4Power, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LowRx1Power(Entity):
@@ -4032,12 +4500,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4065,7 +4537,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx1Power, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx1Power, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LowRx2Power(Entity):
@@ -4077,12 +4550,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4110,7 +4587,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx2Power, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx2Power, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LowRx3Power(Entity):
@@ -4122,12 +4600,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4155,7 +4637,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx3Power, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx3Power, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LowRx4Power(Entity):
@@ -4167,12 +4650,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4200,7 +4687,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx4Power, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx4Power, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HighTx1Power(Entity):
@@ -4212,12 +4700,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4245,7 +4737,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HighTx2Power(Entity):
@@ -4257,12 +4750,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4290,7 +4787,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HighTx3Power(Entity):
@@ -4302,12 +4800,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4335,7 +4837,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HighTx4Power(Entity):
@@ -4347,12 +4850,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4380,7 +4887,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LowTx1Power(Entity):
@@ -4392,12 +4900,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4425,7 +4937,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LowTx2Power(Entity):
@@ -4437,12 +4950,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4470,7 +4987,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LowTx3Power(Entity):
@@ -4482,12 +5000,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4515,7 +5037,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LowTx4Power(Entity):
@@ -4527,12 +5050,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4560,7 +5087,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HighTx1lbc(Entity):
@@ -4573,12 +5101,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4606,7 +5138,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1lbc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1lbc, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HighTx2lbc(Entity):
@@ -4619,12 +5152,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4652,7 +5189,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2lbc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2lbc, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HighTx3lbc(Entity):
@@ -4665,12 +5203,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4698,7 +5240,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3lbc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3lbc, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HighTx4lbc(Entity):
@@ -4711,12 +5254,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4744,7 +5291,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4lbc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4lbc, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LowTx1lbc(Entity):
@@ -4757,12 +5305,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4790,7 +5342,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1lbc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1lbc, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LowTx2lbc(Entity):
@@ -4803,12 +5356,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4836,7 +5393,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2lbc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2lbc, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LowTx3lbc(Entity):
@@ -4849,12 +5407,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4882,7 +5444,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3lbc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3lbc, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LowTx4lbc(Entity):
@@ -4895,12 +5458,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4928,7 +5495,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4lbc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4lbc, [u'is_detected', u'counter'], name, value)
+
 
 
                     class RxLos(Entity):
@@ -4940,12 +5508,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4973,7 +5545,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLos, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLos, [u'is_detected', u'counter'], name, value)
+
 
 
                     class TxLos(Entity):
@@ -4985,12 +5558,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5018,7 +5595,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLos, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLos, [u'is_detected', u'counter'], name, value)
+
 
 
                     class RxLol(Entity):
@@ -5030,12 +5608,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5063,7 +5645,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLol, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLol, [u'is_detected', u'counter'], name, value)
+
 
 
                     class TxLol(Entity):
@@ -5075,12 +5658,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5108,7 +5695,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLol, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLol, [u'is_detected', u'counter'], name, value)
+
 
 
                     class TxFault(Entity):
@@ -5120,12 +5708,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5153,7 +5745,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxFault, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxFault, [u'is_detected', u'counter'], name, value)
+
 
 
                     class Hidgd(Entity):
@@ -5165,12 +5758,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5198,7 +5795,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Hidgd, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Hidgd, [u'is_detected', u'counter'], name, value)
+
 
 
                     class Oorcd(Entity):
@@ -5210,12 +5808,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5243,7 +5845,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Oorcd, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Oorcd, [u'is_detected', u'counter'], name, value)
+
 
 
                     class Osnr(Entity):
@@ -5255,12 +5858,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5288,7 +5895,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Osnr, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Osnr, [u'is_detected', u'counter'], name, value)
+
 
 
                     class Wvlool(Entity):
@@ -5300,12 +5908,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5333,7 +5945,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Wvlool, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Wvlool, [u'is_detected', u'counter'], name, value)
+
 
 
                     class Mea(Entity):
@@ -5345,12 +5958,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5378,7 +5995,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Mea, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Mea, [u'is_detected', u'counter'], name, value)
+
 
 
                     class ImpRemoval(Entity):
@@ -5390,12 +6008,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5423,7 +6045,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.ImpRemoval, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.ImpRemoval, [u'is_detected', u'counter'], name, value)
+
 
 
                     class RxLoc(Entity):
@@ -5435,12 +6058,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5468,7 +6095,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLoc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLoc, [u'is_detected', u'counter'], name, value)
+
 
 
                     class AmpGainDegLow(Entity):
@@ -5480,12 +6108,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5513,7 +6145,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegLow, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegLow, [u'is_detected', u'counter'], name, value)
+
 
 
                     class AmpGainDegHigh(Entity):
@@ -5525,12 +6158,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5558,7 +6195,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegHigh, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegHigh, [u'is_detected', u'counter'], name, value)
+
 
 
                     class TxpwrMismatch(Entity):
@@ -5570,12 +6208,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5603,7 +6245,9 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxpwrMismatch, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxpwrMismatch, [u'is_detected', u'counter'], name, value)
+
+
 
 
                 class OtsAlarmInfo(Entity):
@@ -5615,60 +6259,84 @@ class OpticsOper(Entity):
                     	Low Tx Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: low_rx_power
                     
                     	Low Rx Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: rx_los_p
                     
                     	Rx LOS\_P
                     	**type**\:  :py:class:`RxLosP <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: rx_loc
                     
                     	Rx LOC
                     	**type**\:  :py:class:`RxLoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: amp_gain_deg_low
                     
                     	Ampli Gain Deg Low
                     	**type**\:  :py:class:`AmpGainDegLow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: amp_gain_deg_high
                     
                     	Ampli Gain Deg High
                     	**type**\:  :py:class:`AmpGainDegHigh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: auto_laser_shut
                     
                     	Auto Laser Shut
                     	**type**\:  :py:class:`AutoLaserShut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: auto_power_red
                     
                     	Auto Power Red
                     	**type**\:  :py:class:`AutoPowerRed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: auto_ampli_ctrl_disabled
                     
                     	Auto Ampli Ctrl Disabled
                     	**type**\:  :py:class:`AutoAmpliCtrlDisabled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: auto_ampli_ctrl_config_mismatch
                     
                     	Auto Ampli Ctrl Config Mismatch
                     	**type**\:  :py:class:`AutoAmpliCtrlConfigMismatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: switch_to_protect
                     
                     	Switch To Protect
                     	**type**\:  :py:class:`SwitchToProtect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: auto_ampli_ctrl_running
                     
                     	Auto Ampli Ctrl Running
                     	**type**\:  :py:class:`AutoAmpliCtrlRunning <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlRunning>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5751,12 +6419,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5784,7 +6456,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LowRxPower(Entity):
@@ -5796,12 +6469,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5829,7 +6506,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower, [u'is_detected', u'counter'], name, value)
+
 
 
                     class RxLosP(Entity):
@@ -5841,12 +6519,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5874,7 +6556,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP, [u'is_detected', u'counter'], name, value)
+
 
 
                     class RxLoc(Entity):
@@ -5886,12 +6569,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5919,7 +6606,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc, [u'is_detected', u'counter'], name, value)
+
 
 
                     class AmpGainDegLow(Entity):
@@ -5931,12 +6619,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5964,7 +6656,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow, [u'is_detected', u'counter'], name, value)
+
 
 
                     class AmpGainDegHigh(Entity):
@@ -5976,12 +6669,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -6009,7 +6706,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh, [u'is_detected', u'counter'], name, value)
+
 
 
                     class AutoLaserShut(Entity):
@@ -6021,12 +6719,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -6054,7 +6756,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut, [u'is_detected', u'counter'], name, value)
+
 
 
                     class AutoPowerRed(Entity):
@@ -6066,12 +6769,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -6099,7 +6806,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed, [u'is_detected', u'counter'], name, value)
+
 
 
                     class AutoAmpliCtrlDisabled(Entity):
@@ -6111,12 +6819,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -6144,7 +6856,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled, [u'is_detected', u'counter'], name, value)
+
 
 
                     class AutoAmpliCtrlConfigMismatch(Entity):
@@ -6156,12 +6869,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -6189,7 +6906,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch, [u'is_detected', u'counter'], name, value)
+
 
 
                     class SwitchToProtect(Entity):
@@ -6201,12 +6919,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -6234,7 +6956,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect, [u'is_detected', u'counter'], name, value)
+
 
 
                     class AutoAmpliCtrlRunning(Entity):
@@ -6246,12 +6969,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -6279,7 +7006,9 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlRunning, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlRunning, [u'is_detected', u'counter'], name, value)
+
+
 
 
                 class TransceiverInfo(Entity):
@@ -6291,75 +7020,105 @@ class OpticsOper(Entity):
                     	Vendor Information
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: adapter_vendor_info
                     
                     	Adapter Vendor Information
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: date
                     
                     	Date in Transceiver
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: optics_vendor_rev
                     
                     	Transceiver vendors revision number
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: optics_serial_no
                     
                     	Transceiver serial number
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: optics_vendor_part
                     
                     	Transceiver vendors part number
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: optics_type
                     
                     	Transceiver optics type
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: vendor_name
                     
                     	Transceiver optics vendor name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: oui_no
                     
                     	Transceiver optics type
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: optics_pid
                     
                     	Transceiver optics pid
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: optics_vid
                     
                     	Transceiver optics vid
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: connector_type
                     
                     	Connector type
                     	**type**\:  :py:class:`FiberConnector <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.FiberConnector>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: otn_application_code
                     
                     	Otn Application Code
                     	**type**\:  :py:class:`OtnApplicationCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OtnApplicationCode>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sonet_application_code
                     
                     	Sonet Application Code
                     	**type**\:  :py:class:`SonetApplicationCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.SonetApplicationCode>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ethernet_compliance_code
                     
                     	Ethernet Compliance Code
                     	**type**\:  :py:class:`EthernetPmd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.EthernetPmd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: internal_temperature
                     
@@ -6367,6 +7126,8 @@ class OpticsOper(Entity):
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     
 
@@ -6422,7 +7183,8 @@ class OpticsOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo, ['vendor_info', 'adapter_vendor_info', 'date', 'optics_vendor_rev', 'optics_serial_no', 'optics_vendor_part', 'optics_type', 'vendor_name', 'oui_no', 'optics_pid', 'optics_vid', 'connector_type', 'otn_application_code', 'sonet_application_code', 'ethernet_compliance_code', 'internal_temperature'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo, [u'vendor_info', u'adapter_vendor_info', u'date', u'optics_vendor_rev', u'optics_serial_no', u'optics_vendor_part', u'optics_type', u'vendor_name', u'oui_no', u'optics_pid', u'optics_vid', u'connector_type', u'otn_application_code', u'sonet_application_code', u'ethernet_compliance_code', u'internal_temperature'], name, value)
+
 
 
                 class ExtParamVal(Entity):
@@ -6436,12 +7198,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: snr_lane2
                     
                     	Signal to Noise Ratio on Lane 2
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: isi_correction_lane1
                     
@@ -6450,12 +7216,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: isi_correction_lane2
                     
                     	Inter symbol Interference correction on Lane 2
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: pam_rate_lane1
                     
@@ -6464,12 +7234,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: pam_rate_lane2
                     
                     	PAM Histogram parameter on Lane 2
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_fec_ber
                     
@@ -6478,12 +7252,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: uncorrected_ber
                     
                     	Uncorrected BER since last counter reset
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: tec_current_lane1
                     
@@ -6492,12 +7270,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: tec_current_lane2
                     
                     	Current flowing to the TEC of a cooled laser on Lane 2
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: laser_diff_frequency_lane1
                     
@@ -6506,12 +7288,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: laser_diff_frequency_lane2
                     
                     	Difference between target and actual center frequency on Lane 2
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: laser_diff_temperature_lane1
                     
@@ -6520,12 +7306,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: laser_diff_temperature_lane2
                     
                     	Difference between target and actual temperature on Lane 2
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_fec_ber_latched_min
                     
@@ -6534,12 +7324,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_fec_ber_latched_max
                     
                     	Latched maximum Pre FEC BER value since last read, line ingress
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_fec_ber_accumulated
                     
@@ -6548,12 +7342,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_fec_ber_instantaneous
                     
                     	Pre FEC BER value instantaneous line ingress
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: uncorrected_ber_latched_min
                     
@@ -6562,12 +7360,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: uncorrected_ber_latched_max
                     
                     	Latched maximum Uncorrected BER value since last read, line ingress
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: uncorrected_ber_accumulated
                     
@@ -6576,12 +7378,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: uncorrected_ber_instantaneous
                     
                     	Uncorrected BER value instantaneous line line ingress
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     
 
@@ -6649,7 +7455,8 @@ class OpticsOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal, ['snr_lane1', 'snr_lane2', 'isi_correction_lane1', 'isi_correction_lane2', 'pam_rate_lane1', 'pam_rate_lane2', 'pre_fec_ber', 'uncorrected_ber', 'tec_current_lane1', 'tec_current_lane2', 'laser_diff_frequency_lane1', 'laser_diff_frequency_lane2', 'laser_diff_temperature_lane1', 'laser_diff_temperature_lane2', 'pre_fec_ber_latched_min', 'pre_fec_ber_latched_max', 'pre_fec_ber_accumulated', 'pre_fec_ber_instantaneous', 'uncorrected_ber_latched_min', 'uncorrected_ber_latched_max', 'uncorrected_ber_accumulated', 'uncorrected_ber_instantaneous'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal, [u'snr_lane1', u'snr_lane2', u'isi_correction_lane1', u'isi_correction_lane2', u'pam_rate_lane1', u'pam_rate_lane2', u'pre_fec_ber', u'uncorrected_ber', u'tec_current_lane1', u'tec_current_lane2', u'laser_diff_frequency_lane1', u'laser_diff_frequency_lane2', u'laser_diff_temperature_lane1', u'laser_diff_temperature_lane2', u'pre_fec_ber_latched_min', u'pre_fec_ber_latched_max', u'pre_fec_ber_accumulated', u'pre_fec_ber_instantaneous', u'uncorrected_ber_latched_min', u'uncorrected_ber_latched_max', u'uncorrected_ber_accumulated', u'uncorrected_ber_instantaneous'], name, value)
+
 
 
                 class ExtParamThresholdVal(Entity):
@@ -6663,12 +7470,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: snr_alarm_low_threshold
                     
                     	Low threshold alarm for SNR
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: snr_warn_high_threshold
                     
@@ -6677,12 +7488,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: snr_warn_low_threshold
                     
                     	Low threshold warning for SNR
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: isi_correction_alarm_high_threshold
                     
@@ -6691,12 +7506,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: isi_correction_alarm_low_threshold
                     
                     	Low threshold alarm for ISI Correction
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: isi_correction_warn_high_threshold
                     
@@ -6705,12 +7524,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: isi_correction_warn_low_threshold
                     
                     	Low threshold warning for ISI Correction
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: pam_rate_alarm_high_threshold
                     
@@ -6719,12 +7542,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: pam_rate_alarm_low_threshold
                     
                     	Low threshold alarm for PAM Rate
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: pam_rate_warn_high_threshold
                     
@@ -6733,12 +7560,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: pam_rate_warn_low_threshold
                     
                     	Low threshold warning for PAM Rate
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_fec_ber_alarm_high_threshold
                     
@@ -6747,12 +7578,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_fec_ber_alarm_low_threshold
                     
                     	Low threshold alarm for Pre FEC BER
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_fec_ber_warn_high_threshold
                     
@@ -6761,12 +7596,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_fec_ber_warn_low_threshold
                     
                     	Low threshold warning for Pre FEC BER
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: uncorrected_ber_alarm_high_threshold
                     
@@ -6775,12 +7614,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: uncorrected_ber_alarm_low_threshold
                     
                     	Low threshold alarm for Uncorrected BER
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: uncorrected_ber_warn_high_threshold
                     
@@ -6789,12 +7632,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: uncorrected_ber_warn_low_threshold
                     
                     	Low threshold warning for Uncorrected BER
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: tec_current_alarm_high_threshold
                     
@@ -6803,12 +7650,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: tec_current_alarm_low_threshold
                     
                     	Low threshold alarm for TEC Current
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: tec_current_warn_high_threshold
                     
@@ -6817,12 +7668,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: tec_current_warn_low_threshold
                     
                     	Low threshold warning for TEC Current
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: laser_diff_frequency_alarm_high_threshold
                     
@@ -6831,12 +7686,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: laser_diff_frequency_alarm_low_threshold
                     
                     	Low Threshold Alarm for Differential Laser Frequency
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: laser_diff_frequency_warn_high_threshold
                     
@@ -6845,12 +7704,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: laser_diff_frequency_warn_low_threshold
                     
                     	Low Threshold Warning for Differential Laser Frequency
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: laser_diff_temperature_alarm_high_threshold
                     
@@ -6859,12 +7722,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: laser_diff_temperature_alarm_low_threshold
                     
                     	Low Threshold Alarm for Differential Laser Temperature
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: laser_diff_temperature_warn_high_threshold
                     
@@ -6873,12 +7740,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: laser_diff_temperature_warn_low_threshold
                     
                     	Low Threshold Warning for Differential Laser Temperature
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_fec_ber_latched_min_alarm_high_threshold
                     
@@ -6887,12 +7758,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_fec_ber_latched_min_alarm_low_threshold
                     
                     	Low threshold alarm for Latched Min Pre FEC BER
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_fec_ber_latched_min_warn_high_threshold
                     
@@ -6901,12 +7776,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_fec_ber_latched_min_warn_low_threshold
                     
                     	Low threshold warning for Latched Min Pre FEC BER
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_fec_ber_latched_max_alarm_high_threshold
                     
@@ -6915,12 +7794,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_fec_ber_latched_max_alarm_low_threshold
                     
                     	Low threshold alarm for Latched Max Pre FEC BER
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_fec_ber_latched_max_warn_high_threshold
                     
@@ -6929,12 +7812,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_fec_ber_latched_max_warn_low_threshold
                     
                     	Low threshold warning for Latched Max Pre FEC BER
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_fec_ber_accumulated_alarm_high_threshold
                     
@@ -6943,12 +7830,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_fec_ber_accumulated_alarm_low_threshold
                     
                     	Low threshold alarm for Accumulated Pre FEC BER
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_fec_ber_accumulated_warn_high_threshold
                     
@@ -6957,12 +7848,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_fec_ber_accumulated_warn_low_threshold
                     
                     	Low threshold warning for Accumulated Pre FEC BER
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_fec_ber_instantaneous_alarm_high_threshold
                     
@@ -6971,12 +7866,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_fec_ber_instantaneous_alarm_low_threshold
                     
                     	Low threshold alarm for Instantaneous Pre FEC BER
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_fec_ber_instantaneous_warn_high_threshold
                     
@@ -6985,12 +7884,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_fec_ber_instantaneous_warn_low_threshold
                     
                     	Low threshold warning for Instantaneous Pre FEC BER
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: uncorrected_ber_latched_min_alarm_high_threshold
                     
@@ -6999,12 +7902,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: uncorrected_ber_latched_min_alarm_low_threshold
                     
                     	Low threshold alarm for  Latched Min Uncorrected BER
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: uncorrected_ber_latched_min_warn_high_threshold
                     
@@ -7013,12 +7920,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: uncorrected_ber_latched_min_warn_low_threshold
                     
                     	Low threshold alarm for Latched Min Uncorrected BER
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: uncorrected_ber_latched_max_alarm_high_threshold
                     
@@ -7027,12 +7938,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: uncorrected_ber_latched_max_alarm_low_threshold
                     
                     	Low threshold alarm for Latched\_Max Uncorrected BER
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: uncorrected_ber_latched_max_warn_high_threshold
                     
@@ -7041,12 +7956,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: uncorrected_ber_latched_max_warn_low_threshold
                     
                     	Low threshold warning Latched\_Max for Uncorrected BER
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: uncorrected_ber_accumulated_alarm_high_threshold
                     
@@ -7055,12 +7974,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: uncorrected_ber_accumulated_alarm_low_threshold
                     
                     	Low threshold alarm for Accumulated Uncorrected BER
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: uncorrected_ber_accumulated_warn_high_threshold
                     
@@ -7069,12 +7992,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: uncorrected_ber_accumulated_warn_low_threshold
                     
                     	Low threshold warning for Accumulated Uncorrected BER
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: uncorrected_ber_instantaneous_alarm_high_threshold
                     
@@ -7083,12 +8010,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: uncorrected_ber_instantaneous_alarm_low_threshold
                     
                     	Low threshold alarm for Instantaneous Uncorrected BER
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     .. attribute:: uncorrected_ber_instantaneous_warn_high_threshold
                     
@@ -7097,12 +8028,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
+                    	**config**\: False
+                    
                     .. attribute:: uncorrected_ber_instantaneous_warn_low_threshold
                     
                     	Low threshold warning for Instantaneous Uncorrected BER
                     	**type**\: int
                     
                     	**range:** \-9223372036854775808..9223372036854775807
+                    
+                    	**config**\: False
                     
                     
 
@@ -7254,7 +8189,8 @@ class OpticsOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal, ['snr_alarm_high_threshold', 'snr_alarm_low_threshold', 'snr_warn_high_threshold', 'snr_warn_low_threshold', 'isi_correction_alarm_high_threshold', 'isi_correction_alarm_low_threshold', 'isi_correction_warn_high_threshold', 'isi_correction_warn_low_threshold', 'pam_rate_alarm_high_threshold', 'pam_rate_alarm_low_threshold', 'pam_rate_warn_high_threshold', 'pam_rate_warn_low_threshold', 'pre_fec_ber_alarm_high_threshold', 'pre_fec_ber_alarm_low_threshold', 'pre_fec_ber_warn_high_threshold', 'pre_fec_ber_warn_low_threshold', 'uncorrected_ber_alarm_high_threshold', 'uncorrected_ber_alarm_low_threshold', 'uncorrected_ber_warn_high_threshold', 'uncorrected_ber_warn_low_threshold', 'tec_current_alarm_high_threshold', 'tec_current_alarm_low_threshold', 'tec_current_warn_high_threshold', 'tec_current_warn_low_threshold', 'laser_diff_frequency_alarm_high_threshold', 'laser_diff_frequency_alarm_low_threshold', 'laser_diff_frequency_warn_high_threshold', 'laser_diff_frequency_warn_low_threshold', 'laser_diff_temperature_alarm_high_threshold', 'laser_diff_temperature_alarm_low_threshold', 'laser_diff_temperature_warn_high_threshold', 'laser_diff_temperature_warn_low_threshold', 'pre_fec_ber_latched_min_alarm_high_threshold', 'pre_fec_ber_latched_min_alarm_low_threshold', 'pre_fec_ber_latched_min_warn_high_threshold', 'pre_fec_ber_latched_min_warn_low_threshold', 'pre_fec_ber_latched_max_alarm_high_threshold', 'pre_fec_ber_latched_max_alarm_low_threshold', 'pre_fec_ber_latched_max_warn_high_threshold', 'pre_fec_ber_latched_max_warn_low_threshold', 'pre_fec_ber_accumulated_alarm_high_threshold', 'pre_fec_ber_accumulated_alarm_low_threshold', 'pre_fec_ber_accumulated_warn_high_threshold', 'pre_fec_ber_accumulated_warn_low_threshold', 'pre_fec_ber_instantaneous_alarm_high_threshold', 'pre_fec_ber_instantaneous_alarm_low_threshold', 'pre_fec_ber_instantaneous_warn_high_threshold', 'pre_fec_ber_instantaneous_warn_low_threshold', 'uncorrected_ber_latched_min_alarm_high_threshold', 'uncorrected_ber_latched_min_alarm_low_threshold', 'uncorrected_ber_latched_min_warn_high_threshold', 'uncorrected_ber_latched_min_warn_low_threshold', 'uncorrected_ber_latched_max_alarm_high_threshold', 'uncorrected_ber_latched_max_alarm_low_threshold', 'uncorrected_ber_latched_max_warn_high_threshold', 'uncorrected_ber_latched_max_warn_low_threshold', 'uncorrected_ber_accumulated_alarm_high_threshold', 'uncorrected_ber_accumulated_alarm_low_threshold', 'uncorrected_ber_accumulated_warn_high_threshold', 'uncorrected_ber_accumulated_warn_low_threshold', 'uncorrected_ber_instantaneous_alarm_high_threshold', 'uncorrected_ber_instantaneous_alarm_low_threshold', 'uncorrected_ber_instantaneous_warn_high_threshold', 'uncorrected_ber_instantaneous_warn_low_threshold'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal, [u'snr_alarm_high_threshold', u'snr_alarm_low_threshold', u'snr_warn_high_threshold', u'snr_warn_low_threshold', u'isi_correction_alarm_high_threshold', u'isi_correction_alarm_low_threshold', u'isi_correction_warn_high_threshold', u'isi_correction_warn_low_threshold', u'pam_rate_alarm_high_threshold', u'pam_rate_alarm_low_threshold', u'pam_rate_warn_high_threshold', u'pam_rate_warn_low_threshold', u'pre_fec_ber_alarm_high_threshold', u'pre_fec_ber_alarm_low_threshold', u'pre_fec_ber_warn_high_threshold', u'pre_fec_ber_warn_low_threshold', u'uncorrected_ber_alarm_high_threshold', u'uncorrected_ber_alarm_low_threshold', u'uncorrected_ber_warn_high_threshold', u'uncorrected_ber_warn_low_threshold', u'tec_current_alarm_high_threshold', u'tec_current_alarm_low_threshold', u'tec_current_warn_high_threshold', u'tec_current_warn_low_threshold', u'laser_diff_frequency_alarm_high_threshold', u'laser_diff_frequency_alarm_low_threshold', u'laser_diff_frequency_warn_high_threshold', u'laser_diff_frequency_warn_low_threshold', u'laser_diff_temperature_alarm_high_threshold', u'laser_diff_temperature_alarm_low_threshold', u'laser_diff_temperature_warn_high_threshold', u'laser_diff_temperature_warn_low_threshold', u'pre_fec_ber_latched_min_alarm_high_threshold', u'pre_fec_ber_latched_min_alarm_low_threshold', u'pre_fec_ber_latched_min_warn_high_threshold', u'pre_fec_ber_latched_min_warn_low_threshold', u'pre_fec_ber_latched_max_alarm_high_threshold', u'pre_fec_ber_latched_max_alarm_low_threshold', u'pre_fec_ber_latched_max_warn_high_threshold', u'pre_fec_ber_latched_max_warn_low_threshold', u'pre_fec_ber_accumulated_alarm_high_threshold', u'pre_fec_ber_accumulated_alarm_low_threshold', u'pre_fec_ber_accumulated_warn_high_threshold', u'pre_fec_ber_accumulated_warn_low_threshold', u'pre_fec_ber_instantaneous_alarm_high_threshold', u'pre_fec_ber_instantaneous_alarm_low_threshold', u'pre_fec_ber_instantaneous_warn_high_threshold', u'pre_fec_ber_instantaneous_warn_low_threshold', u'uncorrected_ber_latched_min_alarm_high_threshold', u'uncorrected_ber_latched_min_alarm_low_threshold', u'uncorrected_ber_latched_min_warn_high_threshold', u'uncorrected_ber_latched_min_warn_low_threshold', u'uncorrected_ber_latched_max_alarm_high_threshold', u'uncorrected_ber_latched_max_alarm_low_threshold', u'uncorrected_ber_latched_max_warn_high_threshold', u'uncorrected_ber_latched_max_warn_low_threshold', u'uncorrected_ber_accumulated_alarm_high_threshold', u'uncorrected_ber_accumulated_alarm_low_threshold', u'uncorrected_ber_accumulated_warn_high_threshold', u'uncorrected_ber_accumulated_warn_low_threshold', u'uncorrected_ber_instantaneous_alarm_high_threshold', u'uncorrected_ber_instantaneous_alarm_low_threshold', u'uncorrected_ber_instantaneous_warn_high_threshold', u'uncorrected_ber_instantaneous_warn_low_threshold'], name, value)
+
 
 
                 class ExtendedAlarmAlarmInfo(Entity):
@@ -7266,150 +8202,210 @@ class OpticsOper(Entity):
                     	Low SNR Alarm for Lane1
                     	**type**\:  :py:class:`LoSnr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hi_snr1
                     
                     	High SNR Alarm for Lane1
                     	**type**\:  :py:class:`HiSnr1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr1>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: lo_snr1
                     
                     	Low SNR Alarm for Lane2
                     	**type**\:  :py:class:`LoSnr1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr1>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hi_snr2
                     
                     	High SNR Alarm for Lane2
                     	**type**\:  :py:class:`HiSnr2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr2>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: lo_isi1
                     
                     	Low ISI Correction Alarm for Lane1
                     	**type**\:  :py:class:`LoIsi1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi1>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hi_isi1
                     
                     	High ISI Correction Alarm for Lane1
                     	**type**\:  :py:class:`HiIsi1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi1>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: lo_isi2
                     
                     	Low ISI Correction Alarm for Lane2
                     	**type**\:  :py:class:`LoIsi2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi2>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hi_isi2
                     
                     	High ISI Correction Alarm for Lane2
                     	**type**\:  :py:class:`HiIsi2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi2>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: lo_pam1
                     
                     	Low PAM Rate Alarm for Lane1
                     	**type**\:  :py:class:`LoPam1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam1>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hi_pam1
                     
                     	High PAM Rate Alarm for Lane1
                     	**type**\:  :py:class:`HiPam1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam1>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: lo_pam2
                     
                     	Low PAM Rate Alarm for Lane2
                     	**type**\:  :py:class:`LoPam2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam2>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hi_pam2
                     
                     	High PAM Rate Alarm for Lane2
                     	**type**\:  :py:class:`HiPam2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam2>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: lo_tec1
                     
                     	Low TEC Current Alarm for Lane1
                     	**type**\:  :py:class:`LoTec1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec1>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hi_tec1
                     
                     	High TEC Current Alarm for Lane1
                     	**type**\:  :py:class:`HiTec1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec1>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: lo_tec2
                     
                     	Low TEC Current Alarm for Lane2
                     	**type**\:  :py:class:`LoTec2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec2>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hi_tec2
                     
                     	High TEC Current Alarm for Lane2
                     	**type**\:  :py:class:`HiTec2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec2>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: lo_laser_freq1
                     
                     	Low Laser Differential Frequency Alarm for Lane1
                     	**type**\:  :py:class:`LoLaserFreq1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq1>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hi_laser_freq1
                     
                     	High Laser Differential Frequency Alarm for Lane1
                     	**type**\:  :py:class:`HiLaserFreq1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq1>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: lo_laser_freq2
                     
                     	Low Laser Differential Frequency Alarm for Lane2
                     	**type**\:  :py:class:`LoLaserFreq2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq2>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hi_laser_freq2
                     
                     	High Laser Differential Frequency Alarm for Lane2
                     	**type**\:  :py:class:`HiLaserFreq2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq2>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: hi_pre_fecber_cur_acc
                     
                     	High Pre FEC BER Current Accumulated Alarm
                     	**type**\:  :py:class:`HiPreFecberCurAcc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCurAcc>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hi_pre_fecber_min
                     
                     	High Pre FEC BER Min Alarm
                     	**type**\:  :py:class:`HiPreFecberMin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMin>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: hi_pre_fecber_max
                     
                     	High Pre FEC BER Max Alarm
                     	**type**\:  :py:class:`HiPreFecberMax <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMax>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hi_pre_fecber_prior_acc
                     
                     	High Pre FEC BER Prior Accumulated Alarm
                     	**type**\:  :py:class:`HiPreFecberPriorAcc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberPriorAcc>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: hi_pre_fecber_cur
                     
                     	High Pre FEC BER Current Alarm
                     	**type**\:  :py:class:`HiPreFecberCur <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCur>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hi_uncorrected_ber_cur_acc
                     
                     	High Uncorrected BER Current Accumulated Alarm
                     	**type**\:  :py:class:`HiUncorrectedBerCurAcc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCurAcc>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: hi_uncorrected_ber_min
                     
                     	High Uncorrected BER Min Alarm
                     	**type**\:  :py:class:`HiUncorrectedBerMin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMin>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hi_uncorrected_ber_max
                     
                     	High Uncorrected BER Max Alarm
                     	**type**\:  :py:class:`HiUncorrectedBerMax <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMax>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: hi_uncorrected_ber_prior_acc
                     
                     	High Uncorrected BER Prior Accumulated Alarm
                     	**type**\:  :py:class:`HiUncorrectedBerPriorAcc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hi_uncorrected_ber_cur
                     
                     	High Uncorrected BER Current Alarm
                     	**type**\:  :py:class:`HiUncorrectedBerCur <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCur>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -7564,12 +8560,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -7597,7 +8597,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HiSnr1(Entity):
@@ -7609,12 +8610,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -7642,7 +8647,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr1, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr1, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LoSnr1(Entity):
@@ -7654,12 +8660,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -7687,7 +8697,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr1, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr1, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HiSnr2(Entity):
@@ -7699,12 +8710,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -7732,7 +8747,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr2, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr2, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LoIsi1(Entity):
@@ -7744,12 +8760,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -7777,7 +8797,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi1, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi1, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HiIsi1(Entity):
@@ -7789,12 +8810,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -7822,7 +8847,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi1, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi1, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LoIsi2(Entity):
@@ -7834,12 +8860,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -7867,7 +8897,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi2, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi2, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HiIsi2(Entity):
@@ -7879,12 +8910,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -7912,7 +8947,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi2, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi2, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LoPam1(Entity):
@@ -7924,12 +8960,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -7957,7 +8997,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam1, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam1, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HiPam1(Entity):
@@ -7969,12 +9010,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8002,7 +9047,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam1, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam1, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LoPam2(Entity):
@@ -8014,12 +9060,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8047,7 +9097,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam2, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam2, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HiPam2(Entity):
@@ -8059,12 +9110,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8092,7 +9147,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam2, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam2, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LoTec1(Entity):
@@ -8104,12 +9160,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8137,7 +9197,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec1, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec1, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HiTec1(Entity):
@@ -8149,12 +9210,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8182,7 +9247,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec1, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec1, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LoTec2(Entity):
@@ -8194,12 +9260,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8227,7 +9297,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec2, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec2, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HiTec2(Entity):
@@ -8239,12 +9310,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8272,7 +9347,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec2, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec2, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LoLaserFreq1(Entity):
@@ -8284,12 +9360,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8317,7 +9397,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq1, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq1, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HiLaserFreq1(Entity):
@@ -8330,12 +9411,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8363,7 +9448,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq1, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq1, [u'is_detected', u'counter'], name, value)
+
 
 
                     class LoLaserFreq2(Entity):
@@ -8375,12 +9461,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8408,7 +9498,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq2, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq2, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HiLaserFreq2(Entity):
@@ -8421,12 +9512,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8454,7 +9549,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq2, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq2, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HiPreFecberCurAcc(Entity):
@@ -8466,12 +9562,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8499,7 +9599,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCurAcc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCurAcc, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HiPreFecberMin(Entity):
@@ -8511,12 +9612,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8544,7 +9649,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMin, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMin, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HiPreFecberMax(Entity):
@@ -8556,12 +9662,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8589,7 +9699,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMax, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMax, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HiPreFecberPriorAcc(Entity):
@@ -8601,12 +9712,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8634,7 +9749,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberPriorAcc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberPriorAcc, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HiPreFecberCur(Entity):
@@ -8646,12 +9762,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8679,7 +9799,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCur, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCur, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HiUncorrectedBerCurAcc(Entity):
@@ -8691,12 +9812,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8724,7 +9849,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCurAcc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCurAcc, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HiUncorrectedBerMin(Entity):
@@ -8736,12 +9862,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8769,7 +9899,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMin, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMin, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HiUncorrectedBerMax(Entity):
@@ -8781,12 +9912,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8814,7 +9949,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMax, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMax, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HiUncorrectedBerPriorAcc(Entity):
@@ -8826,12 +9962,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8859,7 +9999,8 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc, [u'is_detected', u'counter'], name, value)
+
 
 
                     class HiUncorrectedBerCur(Entity):
@@ -8871,12 +10012,16 @@ class OpticsOper(Entity):
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Alarm counter
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8904,7 +10049,9 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCur, ['is_detected', 'counter'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCur, [u'is_detected', u'counter'], name, value)
+
+
 
 
                 class AinsInfo(Entity):
@@ -8916,12 +10063,16 @@ class OpticsOper(Entity):
                     	AINS State
                     	**type**\:  :py:class:`OpticsAinsStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsAinsStateEt>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ains_timer_minutes
                     
                     	AINS Timer in Minutes
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: minute
                     
@@ -8931,6 +10082,8 @@ class OpticsOper(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -8962,7 +10115,8 @@ class OpticsOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.AinsInfo, ['ains_state', 'ains_timer_minutes', 'ains_remaining_secs'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.AinsInfo, [u'ains_state', u'ains_timer_minutes', u'ains_remaining_secs'], name, value)
+
 
 
                 class LaneData(Entity):
@@ -8974,6 +10128,8 @@ class OpticsOper(Entity):
                     	Lane Alarm Information
                     	**type**\:  :py:class:`LaneAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: lane_index
                     
                     	The index number of the lane
@@ -8981,12 +10137,16 @@ class OpticsOper(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: laser_bias_current_percent
                     
                     	Laser Bias Current in units of 0.01 percentage
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: percentage
                     
@@ -8997,12 +10157,16 @@ class OpticsOper(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: transmit_power
                     
                     	Transmit power in the units of 0.01dBm
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: receive_power
                     
@@ -9011,12 +10175,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: receive_signal_power
                     
                     	Transponder receive signal power in the units of 0.01dBm
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: transmit_signal_power
                     
@@ -9025,6 +10193,8 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_frequency
                     
                     	Output frequency read from hw in the units of 100MHz
@@ -9032,12 +10202,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: frequency_offset
                     
                     	Frequency Offset read from hw in units of MHz
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     
 
@@ -9083,7 +10257,7 @@ class OpticsOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData, ['lane_index', 'laser_bias_current_percent', 'laser_bias_current_milli_amps', 'transmit_power', 'receive_power', 'receive_signal_power', 'transmit_signal_power', 'output_frequency', 'frequency_offset'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData, [u'lane_index', u'laser_bias_current_percent', u'laser_bias_current_milli_amps', u'transmit_power', u'receive_power', u'receive_signal_power', u'transmit_signal_power', u'output_frequency', u'frequency_offset'], name, value)
 
 
                     class LaneAlarmInfo(Entity):
@@ -9095,25 +10269,35 @@ class OpticsOper(Entity):
                         	High Rx Power
                         	**type**\:  :py:class:`HighRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighRxPower>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: low_rx_power
                         
                         	Low Rx Power
                         	**type**\:  :py:class:`LowRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowRxPower>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: high_tx_power
                         
                         	High Tx Power
                         	**type**\:  :py:class:`HighTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighTxPower>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: low_tx_power
                         
                         	Low Tx Power
                         	**type**\:  :py:class:`LowTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowTxPower>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: high_lbc
                         
                         	High laser bias current
                         	**type**\:  :py:class:`HighLbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighLbc>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -9168,12 +10352,16 @@ class OpticsOper(Entity):
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: counter
                             
                             	Alarm counter
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -9201,7 +10389,8 @@ class OpticsOper(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighRxPower, ['is_detected', 'counter'], name, value)
+                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighRxPower, [u'is_detected', u'counter'], name, value)
+
 
 
                         class LowRxPower(Entity):
@@ -9213,12 +10402,16 @@ class OpticsOper(Entity):
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: counter
                             
                             	Alarm counter
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -9246,7 +10439,8 @@ class OpticsOper(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowRxPower, ['is_detected', 'counter'], name, value)
+                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowRxPower, [u'is_detected', u'counter'], name, value)
+
 
 
                         class HighTxPower(Entity):
@@ -9258,12 +10452,16 @@ class OpticsOper(Entity):
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: counter
                             
                             	Alarm counter
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -9291,7 +10489,8 @@ class OpticsOper(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighTxPower, ['is_detected', 'counter'], name, value)
+                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighTxPower, [u'is_detected', u'counter'], name, value)
+
 
 
                         class LowTxPower(Entity):
@@ -9303,12 +10502,16 @@ class OpticsOper(Entity):
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: counter
                             
                             	Alarm counter
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -9336,7 +10539,8 @@ class OpticsOper(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowTxPower, ['is_detected', 'counter'], name, value)
+                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowTxPower, [u'is_detected', u'counter'], name, value)
+
 
 
                         class HighLbc(Entity):
@@ -9348,12 +10552,16 @@ class OpticsOper(Entity):
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: counter
                             
                             	Alarm counter
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -9381,7 +10589,11 @@ class OpticsOper(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighLbc, ['is_detected', 'counter'], name, value)
+                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighLbc, [u'is_detected', u'counter'], name, value)
+
+
+
+
 
 
             class OpticsLanes(Entity):
@@ -9392,6 +10604,8 @@ class OpticsOper(Entity):
                 
                 	Lane Information
                 	**type**\: list of  		 :py:class:`OpticsLane <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane>`
+                
+                	**config**\: False
                 
                 
 
@@ -9430,10 +10644,14 @@ class OpticsOper(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: lane_alarm_info
                     
                     	Lane Alarm Information
                     	**type**\:  :py:class:`LaneAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: lane_index
                     
@@ -9442,12 +10660,16 @@ class OpticsOper(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: laser_bias_current_percent
                     
                     	Laser Bias Current in units of 0.01 percentage
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: percentage
                     
@@ -9458,12 +10680,16 @@ class OpticsOper(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: transmit_power
                     
                     	Transmit power in the units of 0.01dBm
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: receive_power
                     
@@ -9472,12 +10698,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: receive_signal_power
                     
                     	Transponder receive signal power in the units of 0.01dBm
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: transmit_signal_power
                     
@@ -9486,6 +10716,8 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_frequency
                     
                     	Output frequency read from hw in the units of 100MHz
@@ -9493,12 +10725,16 @@ class OpticsOper(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: frequency_offset
                     
                     	Frequency Offset read from hw in units of MHz
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     
 
@@ -9546,7 +10782,7 @@ class OpticsOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane, ['number', 'lane_index', 'laser_bias_current_percent', 'laser_bias_current_milli_amps', 'transmit_power', 'receive_power', 'receive_signal_power', 'transmit_signal_power', 'output_frequency', 'frequency_offset'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane, ['number', u'lane_index', u'laser_bias_current_percent', u'laser_bias_current_milli_amps', u'transmit_power', u'receive_power', u'receive_signal_power', u'transmit_signal_power', u'output_frequency', u'frequency_offset'], name, value)
 
 
                     class LaneAlarmInfo(Entity):
@@ -9558,25 +10794,35 @@ class OpticsOper(Entity):
                         	High Rx Power
                         	**type**\:  :py:class:`HighRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: low_rx_power
                         
                         	Low Rx Power
                         	**type**\:  :py:class:`LowRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: high_tx_power
                         
                         	High Tx Power
                         	**type**\:  :py:class:`HighTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: low_tx_power
                         
                         	Low Tx Power
                         	**type**\:  :py:class:`LowTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: high_lbc
                         
                         	High laser bias current
                         	**type**\:  :py:class:`HighLbc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -9631,12 +10877,16 @@ class OpticsOper(Entity):
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: counter
                             
                             	Alarm counter
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -9664,7 +10914,8 @@ class OpticsOper(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower, ['is_detected', 'counter'], name, value)
+                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower, [u'is_detected', u'counter'], name, value)
+
 
 
                         class LowRxPower(Entity):
@@ -9676,12 +10927,16 @@ class OpticsOper(Entity):
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: counter
                             
                             	Alarm counter
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -9709,7 +10964,8 @@ class OpticsOper(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower, ['is_detected', 'counter'], name, value)
+                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower, [u'is_detected', u'counter'], name, value)
+
 
 
                         class HighTxPower(Entity):
@@ -9721,12 +10977,16 @@ class OpticsOper(Entity):
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: counter
                             
                             	Alarm counter
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -9754,7 +11014,8 @@ class OpticsOper(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower, ['is_detected', 'counter'], name, value)
+                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower, [u'is_detected', u'counter'], name, value)
+
 
 
                         class LowTxPower(Entity):
@@ -9766,12 +11027,16 @@ class OpticsOper(Entity):
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: counter
                             
                             	Alarm counter
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -9799,7 +11064,8 @@ class OpticsOper(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower, ['is_detected', 'counter'], name, value)
+                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower, [u'is_detected', u'counter'], name, value)
+
 
 
                         class HighLbc(Entity):
@@ -9811,12 +11077,16 @@ class OpticsOper(Entity):
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: counter
                             
                             	Alarm counter
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -9844,7 +11114,11 @@ class OpticsOper(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc, ['is_detected', 'counter'], name, value)
+                                self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc, [u'is_detected', u'counter'], name, value)
+
+
+
+
 
 
             class OpticsDbInfo(Entity):
@@ -9856,15 +11130,21 @@ class OpticsOper(Entity):
                 	Network SRLG information
                 	**type**\:  :py:class:`NetworkSrlgInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: transport_admin_state
                 
                 	Transport Admin State
                 	**type**\:  :py:class:`OpticsTas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsTas>`
                 
+                	**config**\: False
+                
                 .. attribute:: controller_state
                 
                 	Optics controller state\: Up, Down or Administratively Down
                 	**type**\:  :py:class:`OpticsControllerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsControllerState>`
+                
+                	**config**\: False
                 
                 
 
@@ -9896,7 +11176,7 @@ class OpticsOper(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo, ['transport_admin_state', 'controller_state'], name, value)
+                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo, [u'transport_admin_state', u'controller_state'], name, value)
 
 
                 class NetworkSrlgInfo(Entity):
@@ -9907,6 +11187,8 @@ class OpticsOper(Entity):
                     
                     	Network Srlg Array
                     	**type**\: list of  		 :py:class:`NetworkSrlgArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo.NetworkSrlgArray>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -9945,12 +11227,16 @@ class OpticsOper(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: network_srlg
                         
                         	Network Srlg
                         	**type**\: list of int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -9978,9 +11264,16 @@ class OpticsOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo.NetworkSrlgArray, ['set_number', 'network_srlg'], name, value)
+                            self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo.NetworkSrlgArray, [u'set_number', u'network_srlg'], name, value)
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = OpticsOper()
         return self._top_entity
+
+
 

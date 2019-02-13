@@ -89,6 +89,8 @@ class ArpData(Entity):
     	List of current VRFs
     	**type**\: list of  		 :py:class:`ArpVrf <ydk.models.cisco_ios_xe.Cisco_IOS_XE_arp_oper.ArpData.ArpVrf>`
     
+    	**config**\: False
+    
     
 
     """
@@ -125,10 +127,14 @@ class ArpData(Entity):
         	VRF name that this entry is tied to
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: arp_oper
         
         	ARP entries associated with this VRF
         	**type**\: list of  		 :py:class:`ArpOper <ydk.models.cisco_ios_xe.Cisco_IOS_XE_arp_oper.ArpData.ArpVrf.ArpOper>`
+        
+        	**config**\: False
         
         
 
@@ -177,30 +183,42 @@ class ArpData(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: enctype
             
             	Protocol that produced the entry
             	**type**\:  :py:class:`IosEncapsType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_common_oper.IosEncapsType>`
+            
+            	**config**\: False
             
             .. attribute:: interface
             
             	Interface associated with this ARP entry
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: type
             
             	Protocol that this ARP entry belongs to
             	**type**\:  :py:class:`IosLinktype <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_common_oper.IosLinktype>`
+            
+            	**config**\: False
             
             .. attribute:: mode
             
             	The mode that this entry is running in
             	**type**\:  :py:class:`IosArpMode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_arp_oper.IosArpMode>`
             
+            	**config**\: False
+            
             .. attribute:: hwtype
             
             	Type of HW address
             	**type**\:  :py:class:`IosSnpaType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ios_common_oper.IosSnpaType>`
+            
+            	**config**\: False
             
             .. attribute:: hardware
             
@@ -209,12 +227,16 @@ class ArpData(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: time
             
             	Time of the last update
             	**type**\: str
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+            
+            	**config**\: False
             
             
 
@@ -256,7 +278,11 @@ class ArpData(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ArpData.ArpVrf.ArpOper, ['address', 'enctype', 'interface', 'type', 'mode', 'hwtype', 'hardware', 'time'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ArpData()
         return self._top_entity
+
+
 

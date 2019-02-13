@@ -312,6 +312,7 @@ class IfLinkType(Identity):
         super(IfLinkType, self).__init__(ns, pref, tag)
 
 
+
 class AreaType(Identity):
     """
     Base identity for OSPF area type.
@@ -325,6 +326,7 @@ class AreaType(Identity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ospf", pref="ietf-ospf", tag="ietf-ospf:area-type"):
         super(AreaType, self).__init__(ns, pref, tag)
+
 
 
 class Ospfv3(RoutingProtocol):
@@ -342,6 +344,7 @@ class Ospfv3(RoutingProtocol):
         super(Ospfv3, self).__init__(ns, pref, tag)
 
 
+
 class Ospfv2(RoutingProtocol):
     """
     OSPFv2
@@ -355,6 +358,7 @@ class Ospfv2(RoutingProtocol):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ospf", pref="ietf-ospf", tag="ietf-ospf:ospfv2"):
         super(Ospfv2, self).__init__(ns, pref, tag)
+
 
 
 class OperationMode(Identity):
@@ -372,6 +376,7 @@ class OperationMode(Identity):
         super(OperationMode, self).__init__(ns, pref, tag)
 
 
+
 class Ospf(RoutingProtocol):
     """
     OSPF Protocol
@@ -385,6 +390,7 @@ class Ospf(RoutingProtocol):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ospf", pref="ietf-ospf", tag="ietf-ospf:ospf"):
         super(Ospf, self).__init__(ns, pref, tag)
+
 
 
 class Normal(AreaType):
@@ -402,6 +408,7 @@ class Normal(AreaType):
         super(Normal, self).__init__(ns, pref, tag)
 
 
+
 class Nssa(AreaType):
     """
     OSPF NSSA area.
@@ -415,6 +422,7 @@ class Nssa(AreaType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ospf", pref="ietf-ospf", tag="ietf-ospf:nssa"):
         super(Nssa, self).__init__(ns, pref, tag)
+
 
 
 class ShipsInTheNight(OperationMode):
@@ -433,6 +441,7 @@ class ShipsInTheNight(OperationMode):
         super(ShipsInTheNight, self).__init__(ns, pref, tag)
 
 
+
 class Stub(AreaType):
     """
     OSPF stub area.
@@ -446,6 +455,7 @@ class Stub(AreaType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ospf", pref="ietf-ospf", tag="ietf-ospf:stub"):
         super(Stub, self).__init__(ns, pref, tag)
+
 
 
 class IfLinkTypeVirtualLink(IfLinkType):
@@ -463,6 +473,7 @@ class IfLinkTypeVirtualLink(IfLinkType):
         super(IfLinkTypeVirtualLink, self).__init__(ns, pref, tag)
 
 
+
 class IfLinkTypeNormal(IfLinkType):
     """
     OSPF interface link type normal.
@@ -478,6 +489,7 @@ class IfLinkTypeNormal(IfLinkType):
         super(IfLinkTypeNormal, self).__init__(ns, pref, tag)
 
 
+
 class IfLinkTypeShamLink(IfLinkType):
     """
     OSPF interface link type sham link.
@@ -491,5 +503,6 @@ class IfLinkTypeShamLink(IfLinkType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ospf", pref="ietf-ospf", tag="ietf-ospf:if-link-type-sham-link"):
         super(IfLinkTypeShamLink, self).__init__(ns, pref, tag)
+
 
 

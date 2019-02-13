@@ -87,6 +87,8 @@ class MacsecPlatform(Entity):
     	NodeTable for all the nodes
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -124,6 +126,8 @@ class MacsecPlatform(Entity):
         
         	Node where macsec interfaces exist
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -163,10 +167,14 @@ class MacsecPlatform(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: interfaces
             
             	Table of Interfaces
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces>`
+            
+            	**config**\: False
             
             
 
@@ -209,6 +217,8 @@ class MacsecPlatform(Entity):
                 	Interface Where Macsec is configured
                 	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -246,25 +256,35 @@ class MacsecPlatform(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: hw_statistics
                     
                     	The Hardware Statistics
                     	**type**\:  :py:class:`HwStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: hw_sas
                     
                     	Table of Hardware SAs
                     	**type**\:  :py:class:`HwSas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hw_flow_s
                     
                     	Table of Hardware Flows
                     	**type**\:  :py:class:`HwFlowS <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sw_statistics
                     
                     	The Software Statistics
                     	**type**\:  :py:class:`SwStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -318,6 +338,8 @@ class MacsecPlatform(Entity):
                         	ext
                         	**type**\:  :py:class:`Ext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -355,20 +377,28 @@ class MacsecPlatform(Entity):
                             	MSFPGA Stats
                             	**type**\:  :py:class:`MsfpgaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: xlfpga_stats
                             
                             	XLFPGA Stats
                             	**type**\:  :py:class:`XlfpgaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: es200_stats
                             
                             	ES200 Stats
                             	**type**\:  :py:class:`Es200Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	type
                             	**type**\:  :py:class:`MacsecPhyVendor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPhyVendor>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -406,7 +436,7 @@ class MacsecPlatform(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext, ['type'], name, value)
+                                self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext, [u'type'], name, value)
 
 
                             class MsfpgaStats(Entity):
@@ -418,20 +448,28 @@ class MacsecPlatform(Entity):
                                 	Tx SA Stats
                                 	**type**\:  :py:class:`TxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.TxSaStats>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rx_sa_stats
                                 
                                 	Rx SA Stats
                                 	**type**\:  :py:class:`RxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.RxSaStats>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: tx_interface_macsec_stats
                                 
                                 	Tx interface Macsec Stats
                                 	**type**\:  :py:class:`TxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.TxInterfaceMacsecStats>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rx_interface_macsec_stats
                                 
                                 	Rx interface Macsec Stats
                                 	**type**\:  :py:class:`RxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.RxInterfaceMacsecStats>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -484,12 +522,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_pkts_encrypted
                                     
                                     	Tx Pkts Encrypted
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: out_octets_protected
                                     
@@ -498,12 +540,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_octets_encrypted
                                     
                                     	Tx Octets Encrypted
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -535,7 +581,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.TxSaStats, ['out_pkts_protected', 'out_pkts_encrypted', 'out_octets_protected', 'out_octets_encrypted'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.TxSaStats, [u'out_pkts_protected', u'out_pkts_encrypted', u'out_octets_protected', u'out_octets_encrypted'], name, value)
+
 
 
                                 class RxSaStats(Entity):
@@ -549,12 +596,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkts_not_using_sa
                                     
                                     	Rx Pkts Not Using SA
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkts_not_valid
                                     
@@ -563,12 +614,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkts_invalid
                                     
                                     	Rx Pkts Invalid
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkts_ok
                                     
@@ -577,12 +632,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkts_delayed
                                     
                                     	Rx Pkts Delayed
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkts_late
                                     
@@ -591,12 +650,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkts_unchecked
                                     
                                     	Rx Pkts Unchecked
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_octets_validated
                                     
@@ -605,12 +668,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_octets_decrypted
                                     
                                     	Rx Octets Decrypted
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -654,7 +721,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.RxSaStats, ['in_pkts_unused_sa', 'in_pkts_not_using_sa', 'in_pkts_not_valid', 'in_pkts_invalid', 'in_pkts_ok', 'in_pkts_delayed', 'in_pkts_late', 'in_pkts_unchecked', 'in_octets_validated', 'in_octets_decrypted'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.RxSaStats, [u'in_pkts_unused_sa', u'in_pkts_not_using_sa', u'in_pkts_not_valid', u'in_pkts_invalid', u'in_pkts_ok', u'in_pkts_delayed', u'in_pkts_late', u'in_pkts_unchecked', u'in_octets_validated', u'in_octets_decrypted'], name, value)
+
 
 
                                 class TxInterfaceMacsecStats(Entity):
@@ -668,6 +736,8 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_pkt_untagged
                                     
                                     	Tx Pkts Untagged
@@ -675,12 +745,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_pkt_too_long
                                     
                                     	Tx Pkts Too Long
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -710,7 +784,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.TxInterfaceMacsecStats, ['out_pkt_uncontrolled', 'out_pkt_untagged', 'out_pkt_too_long'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.TxInterfaceMacsecStats, [u'out_pkt_uncontrolled', u'out_pkt_untagged', u'out_pkt_too_long'], name, value)
+
 
 
                                 class RxInterfaceMacsecStats(Entity):
@@ -724,12 +799,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkt_notag
                                     
                                     	Rx Pkts Notag
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkt_bad_tag
                                     
@@ -738,12 +817,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkt_no_sci
                                     
                                     	Rx Pkts No Sci
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkt_unknown_sci
                                     
@@ -752,12 +835,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkt_tagged
                                     
                                     	Rx Pkts Tagged
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkt_overrun
                                     
@@ -766,12 +853,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkt_uncontrolled
                                     
                                     	Rx Pkts Uncontrolled
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -811,7 +902,9 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.RxInterfaceMacsecStats, ['in_pkt_untagged', 'in_pkt_notag', 'in_pkt_bad_tag', 'in_pkt_no_sci', 'in_pkt_unknown_sci', 'in_pkt_tagged', 'in_pkt_overrun', 'in_pkt_uncontrolled'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.MsfpgaStats.RxInterfaceMacsecStats, [u'in_pkt_untagged', u'in_pkt_notag', u'in_pkt_bad_tag', u'in_pkt_no_sci', u'in_pkt_unknown_sci', u'in_pkt_tagged', u'in_pkt_overrun', u'in_pkt_uncontrolled'], name, value)
+
+
 
 
                             class XlfpgaStats(Entity):
@@ -823,10 +916,14 @@ class MacsecPlatform(Entity):
                                 	Tx SC and SA Level Stats
                                 	**type**\:  :py:class:`MacsecTxStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecTxStats>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: macsec_rx_stats
                                 
                                 	Rx SC and SA Level Stats
                                 	**type**\:  :py:class:`MacsecRxStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecRxStats>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -871,12 +968,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_toolong_pkts
                                     
                                     	Tx Pkts Too Long
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_encrypted_pkts
                                     
@@ -885,12 +986,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_untagged_pkts
                                     
                                     	Tx Untagged Packets
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_overrun_pkts
                                     
@@ -899,12 +1004,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_bypass_pkts
                                     
                                     	Tx Bypass Packets
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_eapol_pkts
                                     
@@ -913,12 +1022,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_dropped_pkts
                                     
                                     	Tx Dropped Packets
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: current_an
                                     
@@ -927,12 +1040,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sa_encrypted_pkts
                                     
                                     	Current Tx SA Encrypted Packets
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -976,7 +1093,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecTxStats, ['sc_encrypted_octets', 'sc_toolong_pkts', 'sc_encrypted_pkts', 'sc_untagged_pkts', 'sc_overrun_pkts', 'sc_bypass_pkts', 'sc_eapol_pkts', 'sc_dropped_pkts', 'current_an', 'sa_encrypted_pkts'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecTxStats, [u'sc_encrypted_octets', u'sc_toolong_pkts', u'sc_encrypted_pkts', u'sc_untagged_pkts', u'sc_overrun_pkts', u'sc_bypass_pkts', u'sc_eapol_pkts', u'sc_dropped_pkts', u'current_an', u'sa_encrypted_pkts'], name, value)
+
 
 
                                 class MacsecRxStats(Entity):
@@ -990,12 +1108,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_no_tag_pkts
                                     
                                     	Rx No Tag Packets
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_untagged_pkts
                                     
@@ -1004,12 +1126,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_bad_tag_pkts
                                     
                                     	Rx Bad Tag Packets
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_late_pkts
                                     
@@ -1018,12 +1144,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_delayed_pkts
                                     
                                     	Rx Delayed Pkts
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_unchecked_pkts
                                     
@@ -1032,12 +1162,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_no_sci_pkts
                                     
                                     	Rx No SCI Pkts
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_unknown_sci_pkts
                                     
@@ -1046,12 +1180,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_ok_pkts
                                     
                                     	Rx Pkts Ok
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_not_using_pkts
                                     
@@ -1060,12 +1198,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_unused_pkts
                                     
                                     	Rx Pkts Unused SA
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_not_valid_pkts
                                     
@@ -1074,12 +1216,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_invalid_pkts
                                     
                                     	Rx Pkts Invalid
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_overrun_pkts
                                     
@@ -1088,12 +1234,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_bypass_pkts
                                     
                                     	Rx Bypass Packets
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_eapol_pkts
                                     
@@ -1102,6 +1252,8 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_dropped_pkts
                                     
                                     	Rx Dropped Packets
@@ -1109,10 +1261,14 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: rx_sa_stat
                                     
                                     	Rx SA Level Stats
                                     	**type**\: list of  		 :py:class:`RxSaStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecRxStats.RxSaStat>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1174,7 +1330,7 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecRxStats, ['sc_decrypted_octets', 'sc_no_tag_pkts', 'sc_untagged_pkts', 'sc_bad_tag_pkts', 'sc_late_pkts', 'sc_delayed_pkts', 'sc_unchecked_pkts', 'sc_no_sci_pkts', 'sc_unknown_sci_pkts', 'sc_ok_pkts', 'sc_not_using_pkts', 'sc_unused_pkts', 'sc_not_valid_pkts', 'sc_invalid_pkts', 'sc_overrun_pkts', 'sc_bypass_pkts', 'sc_eapol_pkts', 'sc_dropped_pkts'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecRxStats, [u'sc_decrypted_octets', u'sc_no_tag_pkts', u'sc_untagged_pkts', u'sc_bad_tag_pkts', u'sc_late_pkts', u'sc_delayed_pkts', u'sc_unchecked_pkts', u'sc_no_sci_pkts', u'sc_unknown_sci_pkts', u'sc_ok_pkts', u'sc_not_using_pkts', u'sc_unused_pkts', u'sc_not_valid_pkts', u'sc_invalid_pkts', u'sc_overrun_pkts', u'sc_bypass_pkts', u'sc_eapol_pkts', u'sc_dropped_pkts'], name, value)
 
 
                                     class RxSaStat(Entity):
@@ -1188,12 +1344,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sa_ok_pkts
                                         
                                         	Rx Ok Pkts for Current AN
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: sa_not_using_pkts
                                         
@@ -1202,12 +1362,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sa_unused_pkts
                                         
                                         	Rx Pkts Unused Pkts for Current AN
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: sa_not_valid_pkts
                                         
@@ -1216,12 +1380,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sa_invalid_pkts
                                         
                                         	Rx Invalid Pkts for current AN
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1257,7 +1425,10 @@ class MacsecPlatform(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecRxStats.RxSaStat, ['an', 'sa_ok_pkts', 'sa_not_using_pkts', 'sa_unused_pkts', 'sa_not_valid_pkts', 'sa_invalid_pkts'], name, value)
+                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.XlfpgaStats.MacsecRxStats.RxSaStat, [u'an', u'sa_ok_pkts', u'sa_not_using_pkts', u'sa_unused_pkts', u'sa_not_valid_pkts', u'sa_invalid_pkts'], name, value)
+
+
+
 
 
                             class Es200Stats(Entity):
@@ -1269,40 +1440,56 @@ class MacsecPlatform(Entity):
                                 	Tx SA Stats
                                 	**type**\:  :py:class:`TxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxSaStats>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rx_sa_stats
                                 
                                 	Rx SA Stats
                                 	**type**\:  :py:class:`RxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxSaStats>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: tx_sc_macsec_stats
                                 
                                 	Tx SC Macsec Stats
                                 	**type**\:  :py:class:`TxScMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxScMacsecStats>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rx_sc_macsec_stats
                                 
                                 	Rx SC Macsec Stats
                                 	**type**\:  :py:class:`RxScMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxScMacsecStats>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: tx_interface_macsec_stats
                                 
                                 	Tx interface Macsec Stats
                                 	**type**\:  :py:class:`TxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxInterfaceMacsecStats>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rx_interface_macsec_stats
                                 
                                 	Rx interface Macsec Stats
                                 	**type**\:  :py:class:`RxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxInterfaceMacsecStats>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: tx_port_stats
                                 
                                 	Port level TX Stats
                                 	**type**\:  :py:class:`TxPortStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxPortStats>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rx_port_stats
                                 
                                 	Port level RX Stats
                                 	**type**\:  :py:class:`RxPortStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxPortStats>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1371,6 +1558,8 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_pkts_encrypted_protected
                                     
                                     	packets encrypted/protected
@@ -1378,12 +1567,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_octets_encrypted_protected1
                                     
                                     	octets1 encrypted/protected ?
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1413,7 +1606,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxSaStats, ['out_pkts_too_long', 'out_pkts_encrypted_protected', 'out_octets_encrypted_protected1'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxSaStats, [u'out_pkts_too_long', u'out_pkts_encrypted_protected', u'out_octets_encrypted_protected1'], name, value)
+
 
 
                                 class RxSaStats(Entity):
@@ -1427,12 +1621,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkts_delayed
                                     
                                     	PN of packet outside replay window & validateFrames !strict
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkts_late
                                     
@@ -1441,12 +1639,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkts_ok
                                     
                                     	packets with no error
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkts_invalid
                                     
@@ -1455,12 +1657,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkts_not_valid
                                     
                                     	packet not valid & validateFrames strict
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkts_not_using_sa
                                     
@@ -1469,12 +1675,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkts_unused_sa
                                     
                                     	packet assigned to SA not in use & validateFrames !strict
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_octets_decrypted_validated1
                                     
@@ -1483,12 +1693,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_octets_validated
                                     
                                     	octets validated
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1532,7 +1746,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxSaStats, ['in_pkts_unchecked', 'in_pkts_delayed', 'in_pkts_late', 'in_pkts_ok', 'in_pkts_invalid', 'in_pkts_not_valid', 'in_pkts_not_using_sa', 'in_pkts_unused_sa', 'in_octets_decrypted_validated1', 'in_octets_validated'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxSaStats, [u'in_pkts_unchecked', u'in_pkts_delayed', u'in_pkts_late', u'in_pkts_ok', u'in_pkts_invalid', u'in_pkts_not_valid', u'in_pkts_not_using_sa', u'in_pkts_unused_sa', u'in_octets_decrypted_validated1', u'in_octets_validated'], name, value)
+
 
 
                                 class TxScMacsecStats(Entity):
@@ -1545,6 +1760,8 @@ class MacsecPlatform(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1570,7 +1787,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxScMacsecStats, ['out_pkts_sa_not_in_use'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxScMacsecStats, [u'out_pkts_sa_not_in_use'], name, value)
+
 
 
                                 class RxScMacsecStats(Entity):
@@ -1583,6 +1801,8 @@ class MacsecPlatform(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1608,7 +1828,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxScMacsecStats, ['in_pkts_sa_not_in_use'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxScMacsecStats, [u'in_pkts_sa_not_in_use'], name, value)
+
 
 
                                 class TxInterfaceMacsecStats(Entity):
@@ -1622,12 +1843,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_pkt_ctrl
                                     
                                     	egress packet that is classified as control packet
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: out_pkts_untagged
                                     
@@ -1636,12 +1861,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_octets_unctrl
                                     
                                     	Octets tx on uncontrolled port
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: out_octets_ctrl
                                     
@@ -1650,12 +1879,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_octets_common
                                     
                                     	Octets tx on common port
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: out_ucast_pkts_unctrl
                                     
@@ -1664,12 +1897,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_ucast_pkts_ctrl
                                     
                                     	Unicast pkts tx on controlled port
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: out_mcast_pkts_unctrl
                                     
@@ -1678,12 +1915,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_mcast_pkts_ctrl
                                     
                                     	Multicast pkts tx on controlled port
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: out_bcast_pkts_unctrl
                                     
@@ -1692,12 +1933,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_bcast_pkts_ctrl
                                     
                                     	Broadcast pkts tx on controlled port
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: out_rx_drop_pkts_unctrl
                                     
@@ -1706,12 +1951,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_rx_drop_pkts_ctrl
                                     
                                     	Data pkts dropped due to overrun
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: out_rx_err_pkts_unctrl
                                     
@@ -1720,12 +1969,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_rx_err_pkts_ctrl
                                     
                                     	Data pkts error\-terminated due to overrun
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: out_drop_pkts_class
                                     
@@ -1734,12 +1987,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_drop_pkts_data
                                     
                                     	Packets dropped due to overflow in  processing pipeline
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1799,7 +2056,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxInterfaceMacsecStats, ['transform_error_pkts', 'out_pkt_ctrl', 'out_pkts_untagged', 'out_octets_unctrl', 'out_octets_ctrl', 'out_octets_common', 'out_ucast_pkts_unctrl', 'out_ucast_pkts_ctrl', 'out_mcast_pkts_unctrl', 'out_mcast_pkts_ctrl', 'out_bcast_pkts_unctrl', 'out_bcast_pkts_ctrl', 'out_rx_drop_pkts_unctrl', 'out_rx_drop_pkts_ctrl', 'out_rx_err_pkts_unctrl', 'out_rx_err_pkts_ctrl', 'out_drop_pkts_class', 'out_drop_pkts_data'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxInterfaceMacsecStats, [u'transform_error_pkts', u'out_pkt_ctrl', u'out_pkts_untagged', u'out_octets_unctrl', u'out_octets_ctrl', u'out_octets_common', u'out_ucast_pkts_unctrl', u'out_ucast_pkts_ctrl', u'out_mcast_pkts_unctrl', u'out_mcast_pkts_ctrl', u'out_bcast_pkts_unctrl', u'out_bcast_pkts_ctrl', u'out_rx_drop_pkts_unctrl', u'out_rx_drop_pkts_ctrl', u'out_rx_err_pkts_unctrl', u'out_rx_err_pkts_ctrl', u'out_drop_pkts_class', u'out_drop_pkts_data'], name, value)
+
 
 
                                 class RxInterfaceMacsecStats(Entity):
@@ -1813,12 +2071,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkt_ctrl
                                     
                                     	ingress packet that is classified as control packet
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkt_no_tag
                                     
@@ -1827,12 +2089,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkts_untagged
                                     
                                     	ingress packet untagged & validateFrames is  !strict
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkt_bad_tag
                                     
@@ -1841,12 +2107,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkt_no_sci
                                     
                                     	correctly tagged ingress frames for which no valid SC found &                                 validateFrames is strict
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkts_unknown_sci
                                     
@@ -1855,12 +2125,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkts_tagged_ctrl
                                     
                                     	ingress packets that are control or KaY packets
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_octets_unctrl
                                     
@@ -1869,12 +2143,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_octets_ctrl
                                     
                                     	Octets rx on controlled port
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_ucast_pkts_unctrl
                                     
@@ -1883,12 +2161,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_ucast_pkts_ctrl
                                     
                                     	Unicast pkts rx on controlled port
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_mcast_pkts_unctrl
                                     
@@ -1897,12 +2179,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_mcast_pkts_ctrl
                                     
                                     	Multicast pkts rx on controlled port
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_bcast_pkts_unctrl
                                     
@@ -1911,12 +2197,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_bcast_pkts_ctrl
                                     
                                     	Broadcast pkts rx on controlled port
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_rx_drop_pkts_unctrl
                                     
@@ -1925,12 +2215,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_rx_drop_pkts_ctrl
                                     
                                     	Data pkts dropped due to overrun
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_rx_error_pkts_unctrl
                                     
@@ -1939,12 +2233,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_rx_error_pkts_ctrl
                                     
                                     	Data pkts error\-terminated due to overrun
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_drop_pkts_class
                                     
@@ -1953,12 +2251,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_drop_pkts_data
                                     
                                     	Packets dropped due to overflow in processing pipeline
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2026,7 +2328,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxInterfaceMacsecStats, ['transform_error_pkts', 'in_pkt_ctrl', 'in_pkt_no_tag', 'in_pkts_untagged', 'in_pkt_bad_tag', 'in_pkt_no_sci', 'in_pkts_unknown_sci', 'in_pkts_tagged_ctrl', 'in_octets_unctrl', 'in_octets_ctrl', 'in_ucast_pkts_unctrl', 'in_ucast_pkts_ctrl', 'in_mcast_pkts_unctrl', 'in_mcast_pkts_ctrl', 'in_bcast_pkts_unctrl', 'in_bcast_pkts_ctrl', 'in_rx_drop_pkts_unctrl', 'in_rx_drop_pkts_ctrl', 'in_rx_error_pkts_unctrl', 'in_rx_error_pkts_ctrl', 'in_drop_pkts_class', 'in_drop_pkts_data'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxInterfaceMacsecStats, [u'transform_error_pkts', u'in_pkt_ctrl', u'in_pkt_no_tag', u'in_pkts_untagged', u'in_pkt_bad_tag', u'in_pkt_no_sci', u'in_pkts_unknown_sci', u'in_pkts_tagged_ctrl', u'in_octets_unctrl', u'in_octets_ctrl', u'in_ucast_pkts_unctrl', u'in_ucast_pkts_ctrl', u'in_mcast_pkts_unctrl', u'in_mcast_pkts_ctrl', u'in_bcast_pkts_unctrl', u'in_bcast_pkts_ctrl', u'in_rx_drop_pkts_unctrl', u'in_rx_drop_pkts_ctrl', u'in_rx_error_pkts_unctrl', u'in_rx_error_pkts_ctrl', u'in_drop_pkts_class', u'in_drop_pkts_data'], name, value)
+
 
 
                                 class TxPortStats(Entity):
@@ -2040,12 +2343,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: parser_dropped
                                     
                                     	Pkts dropped by header parser as invalid
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: flow_miss
                                     
@@ -2054,12 +2361,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pkts_ctrl
                                     
                                     	Control pkts forwarded
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: pkts_data
                                     
@@ -2068,6 +2379,8 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pkts_dropped
                                     
                                     	Pkts dropped by classifier
@@ -2075,12 +2388,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pkts_err_in
                                     
                                     	Pkts received with an error indication
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2118,7 +2435,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxPortStats, ['multi_flow_match', 'parser_dropped', 'flow_miss', 'pkts_ctrl', 'pkts_data', 'pkts_dropped', 'pkts_err_in'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.TxPortStats, [u'multi_flow_match', u'parser_dropped', u'flow_miss', u'pkts_ctrl', u'pkts_data', u'pkts_dropped', u'pkts_err_in'], name, value)
+
 
 
                                 class RxPortStats(Entity):
@@ -2132,12 +2450,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: parser_dropped
                                     
                                     	Pkts dropped by header parser as invalid
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: flow_miss
                                     
@@ -2146,12 +2468,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pkts_ctrl
                                     
                                     	Control pkts forwarded
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: pkts_data
                                     
@@ -2160,6 +2486,8 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pkts_dropped
                                     
                                     	Pkts dropped by classifier
@@ -2167,12 +2495,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pkts_err_in
                                     
                                     	Pkts received with an error indication
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2210,7 +2542,11 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxPortStats, ['multi_flow_match', 'parser_dropped', 'flow_miss', 'pkts_ctrl', 'pkts_data', 'pkts_dropped', 'pkts_err_in'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwStatistics.Ext.Es200Stats.RxPortStats, [u'multi_flow_match', u'parser_dropped', u'flow_miss', u'pkts_ctrl', u'pkts_data', u'pkts_dropped', u'pkts_err_in'], name, value)
+
+
+
+
 
 
                     class HwSas(Entity):
@@ -2221,6 +2557,8 @@ class MacsecPlatform(Entity):
                         
                         	Hardware Security Association
                         	**type**\: list of  		 :py:class:`HwSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2259,10 +2597,14 @@ class MacsecPlatform(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ext
                             
                             	ext
                             	**type**\:  :py:class:`Ext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2304,20 +2646,28 @@ class MacsecPlatform(Entity):
                                 	MSFPGA SA Information
                                 	**type**\:  :py:class:`MsfpgaSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: xlfpga_sa
                                 
                                 	XLFPGA SA Information
                                 	**type**\:  :py:class:`XlfpgaSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.XlfpgaSa>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: es200_sa
                                 
                                 	ES200 SA Information
                                 	**type**\:  :py:class:`Es200Sa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	type
                                 	**type**\:  :py:class:`MacsecPhyVendor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPhyVendor>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2355,7 +2705,7 @@ class MacsecPlatform(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext, ['type'], name, value)
+                                    self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext, [u'type'], name, value)
 
 
                                 class MsfpgaSa(Entity):
@@ -2367,10 +2717,14 @@ class MacsecPlatform(Entity):
                                     	Tx SA Details
                                     	**type**\:  :py:class:`TxSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa.TxSa>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: rx_sa
                                     
                                     	Rx SA Details
                                     	**type**\:  :py:class:`RxSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa.RxSa>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2415,15 +2769,21 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: valid
                                         
                                         	SA Validity
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: is_egress
                                         
                                         	rx\_tx direction
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: crypto_algo
                                         
@@ -2432,12 +2792,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: key_len
                                         
                                         	Key Length
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: an
                                         
@@ -2446,12 +2810,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: xpn
                                         
                                         	XPN EN
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: sci
                                         
@@ -2460,10 +2828,14 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: in_use
                                         
                                         	In Use
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: next_pn
                                         
@@ -2472,12 +2844,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: c_offset
                                         
                                         	Conf offset
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: action
                                         
@@ -2486,15 +2862,21 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: q_bit
                                         
                                         	Q bit
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: qq_bit
                                         
                                         	QQ bit
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2546,7 +2928,8 @@ class MacsecPlatform(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa.TxSa, ['sa_id', 'valid', 'is_egress', 'crypto_algo', 'key_len', 'an', 'xpn', 'sci', 'in_use', 'next_pn', 'c_offset', 'action', 'q_bit', 'qq_bit'], name, value)
+                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa.TxSa, [u'sa_id', u'valid', u'is_egress', u'crypto_algo', u'key_len', u'an', u'xpn', u'sci', u'in_use', u'next_pn', u'c_offset', u'action', u'q_bit', u'qq_bit'], name, value)
+
 
 
                                     class RxSa(Entity):
@@ -2560,15 +2943,21 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: valid
                                         
                                         	SA Validity
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: is_egress
                                         
                                         	rx\_tx direction
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: crypto_algo
                                         
@@ -2577,12 +2966,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: key_len
                                         
                                         	Key Length
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: an
                                         
@@ -2591,12 +2984,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: xpn
                                         
                                         	XPN EN
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: sci
                                         
@@ -2605,10 +3002,14 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: in_use
                                         
                                         	In Use
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: next_pn
                                         
@@ -2617,12 +3018,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: c_offset
                                         
                                         	Conf offset
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: action
                                         
@@ -2631,15 +3036,21 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: q_bit
                                         
                                         	Q bit
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: qq_bit
                                         
                                         	QQ bit
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2691,7 +3102,9 @@ class MacsecPlatform(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa.RxSa, ['sa_id', 'valid', 'is_egress', 'crypto_algo', 'key_len', 'an', 'xpn', 'sci', 'in_use', 'next_pn', 'c_offset', 'action', 'q_bit', 'qq_bit'], name, value)
+                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.MsfpgaSa.RxSa, [u'sa_id', u'valid', u'is_egress', u'crypto_algo', u'key_len', u'an', u'xpn', u'sci', u'in_use', u'next_pn', u'c_offset', u'action', u'q_bit', u'qq_bit'], name, value)
+
+
 
 
                                 class XlfpgaSa(Entity):
@@ -2703,10 +3116,14 @@ class MacsecPlatform(Entity):
                                     	Tx SA Details
                                     	**type**\:  :py:class:`TxSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.XlfpgaSa.TxSa>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: rx_sa
                                     
                                     	Rx SA Details
                                     	**type**\:  :py:class:`RxSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.XlfpgaSa.RxSa>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2749,12 +3166,16 @@ class MacsecPlatform(Entity):
                                         	Protection Enabled
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: secure_mode
                                         
                                         	Secure Mode \- Must/Should
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: secure_channel_id
                                         
@@ -2763,12 +3184,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sectag_length
                                         
                                         	Sec Tag Length(bytes) 
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -2779,12 +3204,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: confidentiality_offset
                                         
                                         	Confidentiality Offset
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: fcs_err_cfg
                                         
@@ -2793,12 +3222,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: max_packet_num
                                         
                                         	Max Packet Number
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: an
                                         
@@ -2807,12 +3240,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: initial_packet_number
                                         
                                         	Initial Packet Number
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: ssci
                                         
@@ -2821,6 +3258,8 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: current_packet_num
                                         
                                         	Current Packet Number
@@ -2828,12 +3267,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: crc_value
                                         
                                         	CRC Value
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2883,7 +3326,8 @@ class MacsecPlatform(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.XlfpgaSa.TxSa, ['protection_enable', 'secure_mode', 'secure_channel_id', 'sectag_length', 'cipher_suite', 'confidentiality_offset', 'fcs_err_cfg', 'max_packet_num', 'an', 'initial_packet_number', 'ssci', 'current_packet_num', 'crc_value'], name, value)
+                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.XlfpgaSa.TxSa, [u'protection_enable', u'secure_mode', u'secure_channel_id', u'sectag_length', u'cipher_suite', u'confidentiality_offset', u'fcs_err_cfg', u'max_packet_num', u'an', u'initial_packet_number', u'ssci', u'current_packet_num', u'crc_value'], name, value)
+
 
 
                                     class RxSa(Entity):
@@ -2895,6 +3339,8 @@ class MacsecPlatform(Entity):
                                         	Protection Enabled
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: secure_mode
                                         
                                         	Secure Mode \- Must/Should
@@ -2902,10 +3348,14 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: replay_protect_mode
                                         
                                         	Replay Protect Mode
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: validation_mode
                                         
@@ -2914,12 +3364,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: replay_window
                                         
                                         	Replay Window 
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: secure_channel_id
                                         
@@ -2928,12 +3382,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: cipher_suite
                                         
                                         	Cipher Suite Used
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: confidentiality_offset
                                         
@@ -2942,12 +3400,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: fcs_err_cfg
                                         
                                         	FCS Error Config
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: auth_err_cfg
                                         
@@ -2956,12 +3418,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: max_packet_num
                                         
                                         	Max Packet Number
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: num_an_in_use
                                         
@@ -2970,12 +3436,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: an
                                         
                                         	Association Number
                                         	**type**\: str
                                         
                                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: recent_an
                                         
@@ -2984,20 +3454,28 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: pkt_untagged_detected
                                         
                                         	Untagged Pkts Detected
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: pkt_tagged_detected
                                         
                                         	Tagged Pkts Detected
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: pkt_tagged_validated
                                         
                                         	Tagged Pkts Validated
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: current_packet_num
                                         
@@ -3006,12 +3484,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: ssci
                                         
                                         	Short Secure Channel ID
                                         	**type**\: list of int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: lowest_acceptable_packet_num
                                         
@@ -3020,6 +3502,8 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: next_expected_packet_num
                                         
                                         	Next expected Packet Number
@@ -3027,12 +3511,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: crc_value
                                         
                                         	CRC Value
                                         	**type**\: list of int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3100,7 +3588,9 @@ class MacsecPlatform(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.XlfpgaSa.RxSa, ['protection_enable', 'secure_mode', 'replay_protect_mode', 'validation_mode', 'replay_window', 'secure_channel_id', 'cipher_suite', 'confidentiality_offset', 'fcs_err_cfg', 'auth_err_cfg', 'max_packet_num', 'num_an_in_use', 'an', 'recent_an', 'pkt_untagged_detected', 'pkt_tagged_detected', 'pkt_tagged_validated', 'current_packet_num', 'ssci', 'lowest_acceptable_packet_num', 'next_expected_packet_num', 'crc_value'], name, value)
+                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.XlfpgaSa.RxSa, [u'protection_enable', u'secure_mode', u'replay_protect_mode', u'validation_mode', u'replay_window', u'secure_channel_id', u'cipher_suite', u'confidentiality_offset', u'fcs_err_cfg', u'auth_err_cfg', u'max_packet_num', u'num_an_in_use', u'an', u'recent_an', u'pkt_untagged_detected', u'pkt_tagged_detected', u'pkt_tagged_validated', u'current_packet_num', u'ssci', u'lowest_acceptable_packet_num', u'next_expected_packet_num', u'crc_value'], name, value)
+
+
 
 
                                 class Es200Sa(Entity):
@@ -3112,10 +3602,14 @@ class MacsecPlatform(Entity):
                                     	Tx SA Details
                                     	**type**\:  :py:class:`TxSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.TxSa>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: rx_sa
                                     
                                     	Rx SA Details
                                     	**type**\: list of  		 :py:class:`RxSa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.RxSa>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3156,10 +3650,14 @@ class MacsecPlatform(Entity):
                                         	 Xform Params
                                         	**type**\:  :py:class:`XformParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.TxSa.XformParams>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: is_valid
                                         
                                         	Is structure valid
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: sa_id
                                         
@@ -3168,12 +3666,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sc_no
                                         
                                         	SC Number
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: out_pkts_too_long
                                         
@@ -3182,12 +3684,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: out_pkts_encrypted_protected
                                         
                                         	packets encrypted/protected
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: out_octets_encrypted_protected1
                                         
@@ -3196,12 +3702,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: initial_pkt_number
                                         
                                         	Initial Packet Number
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: current_pkt_number
                                         
@@ -3210,12 +3720,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: max_pkt_number
                                         
                                         	Maximum packet Number
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3261,7 +3775,7 @@ class MacsecPlatform(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.TxSa, ['is_valid', 'sa_id', 'sc_no', 'out_pkts_too_long', 'out_pkts_encrypted_protected', 'out_octets_encrypted_protected1', 'initial_pkt_number', 'current_pkt_number', 'max_pkt_number'], name, value)
+                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.TxSa, [u'is_valid', u'sa_id', u'sc_no', u'out_pkts_too_long', u'out_pkts_encrypted_protected', u'out_octets_encrypted_protected1', u'initial_pkt_number', u'current_pkt_number', u'max_pkt_number'], name, value)
 
 
                                         class XformParams(Entity):
@@ -3275,20 +3789,28 @@ class MacsecPlatform(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: crypt_algo
                                             
                                             	Cryptographic algo used
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: is_egress_tr
                                             
                                             	APM\_TRUE if this is Egress Transform record, APM\_FALSE otherwise
                                             	**type**\: bool
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: aes_key_len
                                             
                                             	AES Key length
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: assoc_num
                                             
@@ -3297,15 +3819,21 @@ class MacsecPlatform(Entity):
                                             
                                             	**range:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: is_seq_num64_bit
                                             
                                             	TRUE if Seq Num is 64\-bit, FALSE if it is 32\-bit
                                             	**type**\: bool
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: bgen_auth_key
                                             
                                             	TRUE to generate the authKey, so authKey in this struct not used                                  APM\_FALSE to use provided authKey
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -3343,7 +3871,9 @@ class MacsecPlatform(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.TxSa.XformParams, ['replay_win_size', 'crypt_algo', 'is_egress_tr', 'aes_key_len', 'assoc_num', 'is_seq_num64_bit', 'bgen_auth_key'], name, value)
+                                                self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.TxSa.XformParams, [u'replay_win_size', u'crypt_algo', u'is_egress_tr', u'aes_key_len', u'assoc_num', u'is_seq_num64_bit', u'bgen_auth_key'], name, value)
+
+
 
 
                                     class RxSa(Entity):
@@ -3355,10 +3885,14 @@ class MacsecPlatform(Entity):
                                         	 Xform Params
                                         	**type**\:  :py:class:`XformParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.RxSa.XformParams>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: is_valid
                                         
                                         	Is structure valid
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: sa_id
                                         
@@ -3367,12 +3901,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sc_no
                                         
                                         	SC Number
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: in_pkts_unchecked
                                         
@@ -3381,12 +3919,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: in_pkts_delayed
                                         
                                         	PN of packet outside replay window & validateFrames !strict
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: in_pkts_late
                                         
@@ -3395,12 +3937,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: in_pkts_ok
                                         
                                         	packets with no error
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: in_pkts_invalid
                                         
@@ -3409,12 +3955,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: in_pkts_not_valid
                                         
                                         	packet not valid & validateFrames strict
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: in_pkts_not_using_sa
                                         
@@ -3423,12 +3973,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: in_pkts_unused_sa
                                         
                                         	packet assigned to SA not in use& validateFrames !strict
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: in_octets_decrypted_validated1
                                         
@@ -3437,12 +3991,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: in_octets_validated
                                         
                                         	octets validated
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3496,7 +4054,7 @@ class MacsecPlatform(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.RxSa, ['is_valid', 'sa_id', 'sc_no', 'in_pkts_unchecked', 'in_pkts_delayed', 'in_pkts_late', 'in_pkts_ok', 'in_pkts_invalid', 'in_pkts_not_valid', 'in_pkts_not_using_sa', 'in_pkts_unused_sa', 'in_octets_decrypted_validated1', 'in_octets_validated'], name, value)
+                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.RxSa, [u'is_valid', u'sa_id', u'sc_no', u'in_pkts_unchecked', u'in_pkts_delayed', u'in_pkts_late', u'in_pkts_ok', u'in_pkts_invalid', u'in_pkts_not_valid', u'in_pkts_not_using_sa', u'in_pkts_unused_sa', u'in_octets_decrypted_validated1', u'in_octets_validated'], name, value)
 
 
                                         class XformParams(Entity):
@@ -3510,20 +4068,28 @@ class MacsecPlatform(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: crypt_algo
                                             
                                             	Cryptographic algo used
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: is_egress_tr
                                             
                                             	APM\_TRUE if this is Egress Transform record, APM\_FALSE otherwise
                                             	**type**\: bool
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: aes_key_len
                                             
                                             	AES Key length
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: assoc_num
                                             
@@ -3532,15 +4098,21 @@ class MacsecPlatform(Entity):
                                             
                                             	**range:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: is_seq_num64_bit
                                             
                                             	TRUE if Seq Num is 64\-bit, FALSE if it is 32\-bit
                                             	**type**\: bool
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: bgen_auth_key
                                             
                                             	TRUE to generate the authKey, so authKey in this struct not used                                  APM\_FALSE to use provided authKey
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -3578,7 +4150,13 @@ class MacsecPlatform(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.RxSa.XformParams, ['replay_win_size', 'crypt_algo', 'is_egress_tr', 'aes_key_len', 'assoc_num', 'is_seq_num64_bit', 'bgen_auth_key'], name, value)
+                                                self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwSas.HwSa.Ext.Es200Sa.RxSa.XformParams, [u'replay_win_size', u'crypt_algo', u'is_egress_tr', u'aes_key_len', u'assoc_num', u'is_seq_num64_bit', u'bgen_auth_key'], name, value)
+
+
+
+
+
+
 
 
                     class HwFlowS(Entity):
@@ -3589,6 +4167,8 @@ class MacsecPlatform(Entity):
                         
                         	Hardware Flow
                         	**type**\: list of  		 :py:class:`HwFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3627,10 +4207,14 @@ class MacsecPlatform(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ext
                             
                             	ext
                             	**type**\:  :py:class:`Ext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -3672,15 +4256,21 @@ class MacsecPlatform(Entity):
                                 	MSFPGA Flow Information
                                 	**type**\:  :py:class:`MsfpgaFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: es200_flow
                                 
                                 	ES200 Flow Information
                                 	**type**\:  :py:class:`Es200Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.Es200Flow>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	type
                                 	**type**\:  :py:class:`MacsecPhyVendor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPhyVendor>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3714,7 +4304,7 @@ class MacsecPlatform(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext, ['type'], name, value)
+                                    self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext, [u'type'], name, value)
 
 
                                 class MsfpgaFlow(Entity):
@@ -3726,10 +4316,14 @@ class MacsecPlatform(Entity):
                                     	Tx Flow Details
                                     	**type**\:  :py:class:`TxFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow.TxFlow>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: rx_flow
                                     
                                     	Rx Flow Details
                                     	**type**\:  :py:class:`RxFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow.RxFlow>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3774,20 +4368,28 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: valid
                                         
                                         	Flow Validity
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: is_egress
                                         
                                         	rx\_tx direction
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: in_use
                                         
                                         	In Use
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: action
                                         
@@ -3796,15 +4398,21 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: smac_inuse
                                         
                                         	If MAC SA in Use
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: dmac_inuse
                                         
                                         	If MAC DA in Use
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: ethertype
                                         
@@ -3813,12 +4421,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: outer_vlan
                                         
                                         	Outer VLAN ID
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: outer_vlan_up
                                         
@@ -3827,12 +4439,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: outer_vlan_tpid
                                         
                                         	Outer Vlan TPID
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: inner_vlan
                                         
@@ -3841,12 +4457,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: inner_vlan_up
                                         
                                         	Inner Vlan UserPri
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: inner_vlan_tpid
                                         
@@ -3855,6 +4475,8 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: source_port
                                         
                                         	Source Port
@@ -3862,15 +4484,21 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: source_port_chk
                                         
                                         	Source Port ChkEn
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sci_inuse
                                         
                                         	If SCI in use
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: sci
                                         
@@ -3879,6 +4507,8 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: match_pri
                                         
                                         	Match Priority
@@ -3886,35 +4516,49 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: is_ctrl_pkt
                                         
                                         	Is Control Pkt
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: ctrl_check
                                         
                                         	Ctrl Pkt ChkEn
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: match_untagged
                                         
                                         	MatchUntagged
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: match_tagged
                                         
                                         	MatchTagged
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: match_bad_tag
                                         
                                         	Match Bad Tag
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: match_kay_tag
                                         
                                         	MatchKaYTag
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: tci_v
                                         
@@ -3923,12 +4567,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tci_e_xr
                                         
                                         	TCI ES
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: tci_sc
                                         
@@ -3937,12 +4585,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tci_scb
                                         
                                         	TCI SCB
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: tci
                                         
@@ -3951,12 +4603,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tci_c
                                         
                                         	TCI C
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: tci_an
                                         
@@ -3965,15 +4621,21 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tci_an_chk
                                         
                                         	TciAnChkEn
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tci_chk
                                         
                                         	TciChkEn
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: sai
                                         
@@ -3982,6 +4644,8 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: macsa
                                         
                                         	MAC SA
@@ -3989,12 +4653,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: macda
                                         
                                         	MAC DA
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4092,7 +4760,8 @@ class MacsecPlatform(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow.TxFlow, ['flow_id', 'valid', 'is_egress', 'in_use', 'action', 'smac_inuse', 'dmac_inuse', 'ethertype', 'outer_vlan', 'outer_vlan_up', 'outer_vlan_tpid', 'inner_vlan', 'inner_vlan_up', 'inner_vlan_tpid', 'source_port', 'source_port_chk', 'sci_inuse', 'sci', 'match_pri', 'is_ctrl_pkt', 'ctrl_check', 'match_untagged', 'match_tagged', 'match_bad_tag', 'match_kay_tag', 'tci_v', 'tci_e_xr', 'tci_sc', 'tci_scb', 'tci', 'tci_c', 'tci_an', 'tci_an_chk', 'tci_chk', 'sai', 'macsa', 'macda'], name, value)
+                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow.TxFlow, [u'flow_id', u'valid', u'is_egress', u'in_use', u'action', u'smac_inuse', u'dmac_inuse', u'ethertype', u'outer_vlan', u'outer_vlan_up', u'outer_vlan_tpid', u'inner_vlan', u'inner_vlan_up', u'inner_vlan_tpid', u'source_port', u'source_port_chk', u'sci_inuse', u'sci', u'match_pri', u'is_ctrl_pkt', u'ctrl_check', u'match_untagged', u'match_tagged', u'match_bad_tag', u'match_kay_tag', u'tci_v', u'tci_e_xr', u'tci_sc', u'tci_scb', u'tci', u'tci_c', u'tci_an', u'tci_an_chk', u'tci_chk', u'sai', u'macsa', u'macda'], name, value)
+
 
 
                                     class RxFlow(Entity):
@@ -4106,20 +4775,28 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: valid
                                         
                                         	Flow Validity
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: is_egress
                                         
                                         	rx\_tx direction
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: in_use
                                         
                                         	In Use
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: action
                                         
@@ -4128,15 +4805,21 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: smac_inuse
                                         
                                         	If MAC SA in Use
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: dmac_inuse
                                         
                                         	If MAC DA in Use
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: ethertype
                                         
@@ -4145,12 +4828,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: outer_vlan
                                         
                                         	Outer VLAN ID
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: outer_vlan_up
                                         
@@ -4159,12 +4846,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: outer_vlan_tpid
                                         
                                         	Outer Vlan TPID
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: inner_vlan
                                         
@@ -4173,12 +4864,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: inner_vlan_up
                                         
                                         	Inner Vlan UserPri
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: inner_vlan_tpid
                                         
@@ -4187,6 +4882,8 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: source_port
                                         
                                         	Source Port
@@ -4194,15 +4891,21 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: source_port_chk
                                         
                                         	Source Port ChkEn
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sci_inuse
                                         
                                         	If SCI in use
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: sci
                                         
@@ -4211,6 +4914,8 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: match_pri
                                         
                                         	Match Priority
@@ -4218,35 +4923,49 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: is_ctrl_pkt
                                         
                                         	Is Control Pkt
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: ctrl_check
                                         
                                         	Ctrl Pkt ChkEn
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: match_untagged
                                         
                                         	MatchUntagged
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: match_tagged
                                         
                                         	MatchTagged
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: match_bad_tag
                                         
                                         	Match Bad Tag
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: match_kay_tag
                                         
                                         	MatchKaYTag
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: tci_v
                                         
@@ -4255,12 +4974,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tci_e_xr
                                         
                                         	TCI ES
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: tci_sc
                                         
@@ -4269,12 +4992,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tci_scb
                                         
                                         	TCI SCB
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: tci
                                         
@@ -4283,12 +5010,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tci_c
                                         
                                         	TCI C
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: tci_an
                                         
@@ -4297,15 +5028,21 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tci_an_chk
                                         
                                         	TciAnChkEn
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tci_chk
                                         
                                         	TciChkEn
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: sai
                                         
@@ -4314,6 +5051,8 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: macsa
                                         
                                         	MAC SA
@@ -4321,12 +5060,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: macda
                                         
                                         	MAC DA
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4424,7 +5167,9 @@ class MacsecPlatform(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow.RxFlow, ['flow_id', 'valid', 'is_egress', 'in_use', 'action', 'smac_inuse', 'dmac_inuse', 'ethertype', 'outer_vlan', 'outer_vlan_up', 'outer_vlan_tpid', 'inner_vlan', 'inner_vlan_up', 'inner_vlan_tpid', 'source_port', 'source_port_chk', 'sci_inuse', 'sci', 'match_pri', 'is_ctrl_pkt', 'ctrl_check', 'match_untagged', 'match_tagged', 'match_bad_tag', 'match_kay_tag', 'tci_v', 'tci_e_xr', 'tci_sc', 'tci_scb', 'tci', 'tci_c', 'tci_an', 'tci_an_chk', 'tci_chk', 'sai', 'macsa', 'macda'], name, value)
+                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.MsfpgaFlow.RxFlow, [u'flow_id', u'valid', u'is_egress', u'in_use', u'action', u'smac_inuse', u'dmac_inuse', u'ethertype', u'outer_vlan', u'outer_vlan_up', u'outer_vlan_tpid', u'inner_vlan', u'inner_vlan_up', u'inner_vlan_tpid', u'source_port', u'source_port_chk', u'sci_inuse', u'sci', u'match_pri', u'is_ctrl_pkt', u'ctrl_check', u'match_untagged', u'match_tagged', u'match_bad_tag', u'match_kay_tag', u'tci_v', u'tci_e_xr', u'tci_sc', u'tci_scb', u'tci', u'tci_c', u'tci_an', u'tci_an_chk', u'tci_chk', u'sai', u'macsa', u'macda'], name, value)
+
+
 
 
                                 class Es200Flow(Entity):
@@ -4436,10 +5181,14 @@ class MacsecPlatform(Entity):
                                     	Tx Flow Details
                                     	**type**\:  :py:class:`TxFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.Es200Flow.TxFlow>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: rx_flow
                                     
                                     	Rx Flow Details
                                     	**type**\:  :py:class:`RxFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.Es200Flow.RxFlow>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4484,10 +5233,14 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: is_flow_enabled
                                         
                                         	Is Flow Enabled
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: ethertype
                                         
@@ -4496,12 +5249,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: outer_vlan_id
                                         
                                         	 VLAN ID for outer tag use this when             only one tag should be matched
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: outer_vlan_user_pri
                                         
@@ -4510,12 +5267,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: inner_vlan_id
                                         
                                         	VLAN ID for inner tag used when two              VLAN Tags should be matched
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: inner_vlan_user_pri
                                         
@@ -4524,12 +5285,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: psci
                                         
                                         	 SCI to be matched value required for            ingress only, pass NULL for egress
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: match_priority
                                         
@@ -4538,12 +5303,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tci_v
                                         
                                         	value of 'v' in TCI to match (1bit) 
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: tci_e_xr
                                         
@@ -4552,12 +5321,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tci_sc
                                         
                                         	value of 'sc' in TCI to match (1bit) 
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: tci_scb
                                         
@@ -4566,12 +5339,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tci
                                         
                                         	value of 'e' in TCI to match (1bit )
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: tci_c
                                         
@@ -4580,30 +5357,42 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tci_chk
                                         
                                         	TCI bits will be checked only when this          bit is enabled. All the values of TCI bits       are mandatory when TCI check is used
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: pkt_type
                                         
                                         	Type of packet. See ethMscCfyEPktType\_e
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tag_num
                                         
                                         	No. of MPLS or VLAN tags See ethMscCfyETagNum\_e 
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: inner_vlan_dei
                                         
                                         	Dei to match for innner Vlan tag
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: outer_vlan_dei
                                         
                                         	Dei to match for outer Vlan tag
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: pbb_sid
                                         
@@ -4612,12 +5401,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: pbb_bvid
                                         
                                         	 Backbone Vlan id 
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: pbb_pcp
                                         
@@ -4626,12 +5419,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: pbb_dei
                                         
                                         	 dei 
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: mpls1_label
                                         
@@ -4640,12 +5437,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: mpls1_exp
                                         
                                         	 exp 
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: mpls1_bos
                                         
@@ -4654,12 +5455,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: mpls2_label
                                         
                                         	 label 
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: mpls2_exp
                                         
@@ -4668,6 +5473,8 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: mpls2_bos
                                         
                                         	 botton of stack 
@@ -4675,12 +5482,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: plain_bits
                                         
                                         	Plain bits to compare. Max values\:               untagged pkt \- 40 bits after EthType             1 VLAN tag \- 24 bits after parsed EthType        2 VLAN tags\- 8 bits after parsed EthType         1 MPLS tag \- 32 bits after 1st tag               2 MPLS tags\- 8 bits following after 2nd          or atmost 5th MPLS tag                           PBB \- 16 bits after C\-SA                         PBB with VLAN tag \- 16 bits of VLAN tag 
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: bit
                                         
@@ -4691,15 +5502,21 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: force_ctrl
                                         
                                         	Force the pkt as control pkt irrepective         of the results of control packet detector
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: drop
                                         
                                         	Drop the packet
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: mask_da
                                         
@@ -4708,12 +5525,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: mask_ethertype
                                         
                                         	Parsed EtherType mask
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: mask_plain_bits
                                         
@@ -4722,6 +5543,8 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: flow_hits
                                         
                                         	Pkts matching the Flow
@@ -4729,12 +5552,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: macda
                                         
                                         	MAC DA
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4836,7 +5663,8 @@ class MacsecPlatform(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.Es200Flow.TxFlow, ['flow_no', 'is_flow_enabled', 'ethertype', 'outer_vlan_id', 'outer_vlan_user_pri', 'inner_vlan_id', 'inner_vlan_user_pri', 'psci', 'match_priority', 'tci_v', 'tci_e_xr', 'tci_sc', 'tci_scb', 'tci', 'tci_c', 'tci_chk', 'pkt_type', 'tag_num', 'inner_vlan_dei', 'outer_vlan_dei', 'pbb_sid', 'pbb_bvid', 'pbb_pcp', 'pbb_dei', 'mpls1_label', 'mpls1_exp', 'mpls1_bos', 'mpls2_label', 'mpls2_exp', 'mpls2_bos', 'plain_bits', 'plain_bits_size', 'force_ctrl', 'drop', 'mask_da', 'mask_ethertype', 'mask_plain_bits', 'flow_hits', 'macda'], name, value)
+                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.Es200Flow.TxFlow, [u'flow_no', u'is_flow_enabled', u'ethertype', u'outer_vlan_id', u'outer_vlan_user_pri', u'inner_vlan_id', u'inner_vlan_user_pri', u'psci', u'match_priority', u'tci_v', u'tci_e_xr', u'tci_sc', u'tci_scb', u'tci', u'tci_c', u'tci_chk', u'pkt_type', u'tag_num', u'inner_vlan_dei', u'outer_vlan_dei', u'pbb_sid', u'pbb_bvid', u'pbb_pcp', u'pbb_dei', u'mpls1_label', u'mpls1_exp', u'mpls1_bos', u'mpls2_label', u'mpls2_exp', u'mpls2_bos', u'plain_bits', u'plain_bits_size', u'force_ctrl', u'drop', u'mask_da', u'mask_ethertype', u'mask_plain_bits', u'flow_hits', u'macda'], name, value)
+
 
 
                                     class RxFlow(Entity):
@@ -4850,10 +5678,14 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: is_flow_enabled
                                         
                                         	Is Flow Enabled
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: ethertype
                                         
@@ -4862,12 +5694,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: outer_vlan_id
                                         
                                         	 VLAN ID for outer tag use this when             only one tag should be matched
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: outer_vlan_user_pri
                                         
@@ -4876,12 +5712,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: inner_vlan_id
                                         
                                         	VLAN ID for inner tag used when two              VLAN Tags should be matched
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: inner_vlan_user_pri
                                         
@@ -4890,12 +5730,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: psci
                                         
                                         	 SCI to be matched value required for            ingress only, pass NULL for egress
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: match_priority
                                         
@@ -4904,12 +5748,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tci_v
                                         
                                         	value of 'v' in TCI to match (1bit) 
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: tci_e_xr
                                         
@@ -4918,12 +5766,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tci_sc
                                         
                                         	value of 'sc' in TCI to match (1bit) 
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: tci_scb
                                         
@@ -4932,12 +5784,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tci
                                         
                                         	value of 'e' in TCI to match (1bit )
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: tci_c
                                         
@@ -4946,30 +5802,42 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tci_chk
                                         
                                         	TCI bits will be checked only when this          bit is enabled. All the values of TCI bits       are mandatory when TCI check is used
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: pkt_type
                                         
                                         	Type of packet. See ethMscCfyEPktType\_e
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tag_num
                                         
                                         	No. of MPLS or VLAN tags See ethMscCfyETagNum\_e 
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: inner_vlan_dei
                                         
                                         	Dei to match for innner Vlan tag
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: outer_vlan_dei
                                         
                                         	Dei to match for outer Vlan tag
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: pbb_sid
                                         
@@ -4978,12 +5846,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: pbb_bvid
                                         
                                         	 Backbone Vlan id 
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: pbb_pcp
                                         
@@ -4992,12 +5864,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: pbb_dei
                                         
                                         	 dei 
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: mpls1_label
                                         
@@ -5006,12 +5882,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: mpls1_exp
                                         
                                         	 exp 
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: mpls1_bos
                                         
@@ -5020,12 +5900,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: mpls2_label
                                         
                                         	 label 
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: mpls2_exp
                                         
@@ -5034,6 +5918,8 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: mpls2_bos
                                         
                                         	 botton of stack 
@@ -5041,12 +5927,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: plain_bits
                                         
                                         	Plain bits to compare. Max values\:               untagged pkt \- 40 bits after EthType             1 VLAN tag \- 24 bits after parsed EthType        2 VLAN tags\- 8 bits after parsed EthType         1 MPLS tag \- 32 bits after 1st tag               2 MPLS tags\- 8 bits following after 2nd          or atmost 5th MPLS tag                           PBB \- 16 bits after C\-SA                         PBB with VLAN tag \- 16 bits of VLAN tag 
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: bit
                                         
@@ -5057,15 +5947,21 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: force_ctrl
                                         
                                         	Force the pkt as control pkt irrepective         of the results of control packet detector
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: drop
                                         
                                         	Drop the packet
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: mask_da
                                         
@@ -5074,12 +5970,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: mask_ethertype
                                         
                                         	Parsed EtherType mask
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: mask_plain_bits
                                         
@@ -5088,6 +5988,8 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: flow_hits
                                         
                                         	Pkts matching the Flow
@@ -5095,12 +5997,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: macda
                                         
                                         	MAC DA
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5202,7 +6108,12 @@ class MacsecPlatform(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.Es200Flow.RxFlow, ['flow_no', 'is_flow_enabled', 'ethertype', 'outer_vlan_id', 'outer_vlan_user_pri', 'inner_vlan_id', 'inner_vlan_user_pri', 'psci', 'match_priority', 'tci_v', 'tci_e_xr', 'tci_sc', 'tci_scb', 'tci', 'tci_c', 'tci_chk', 'pkt_type', 'tag_num', 'inner_vlan_dei', 'outer_vlan_dei', 'pbb_sid', 'pbb_bvid', 'pbb_pcp', 'pbb_dei', 'mpls1_label', 'mpls1_exp', 'mpls1_bos', 'mpls2_label', 'mpls2_exp', 'mpls2_bos', 'plain_bits', 'plain_bits_size', 'force_ctrl', 'drop', 'mask_da', 'mask_ethertype', 'mask_plain_bits', 'flow_hits', 'macda'], name, value)
+                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.HwFlowS.HwFlow.Ext.Es200Flow.RxFlow, [u'flow_no', u'is_flow_enabled', u'ethertype', u'outer_vlan_id', u'outer_vlan_user_pri', u'inner_vlan_id', u'inner_vlan_user_pri', u'psci', u'match_priority', u'tci_v', u'tci_e_xr', u'tci_sc', u'tci_scb', u'tci', u'tci_c', u'tci_chk', u'pkt_type', u'tag_num', u'inner_vlan_dei', u'outer_vlan_dei', u'pbb_sid', u'pbb_bvid', u'pbb_pcp', u'pbb_dei', u'mpls1_label', u'mpls1_exp', u'mpls1_bos', u'mpls2_label', u'mpls2_exp', u'mpls2_bos', u'plain_bits', u'plain_bits_size', u'force_ctrl', u'drop', u'mask_da', u'mask_ethertype', u'mask_plain_bits', u'flow_hits', u'macda'], name, value)
+
+
+
+
+
 
 
                     class SwStatistics(Entity):
@@ -5213,6 +6124,8 @@ class MacsecPlatform(Entity):
                         
                         	ext
                         	**type**\:  :py:class:`Ext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5251,20 +6164,28 @@ class MacsecPlatform(Entity):
                             	MSFPGA Stats
                             	**type**\:  :py:class:`MsfpgaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: xlfpga_stats
                             
                             	XLFPGA Stats
                             	**type**\:  :py:class:`XlfpgaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: es200_stats
                             
                             	ES200 Stats
                             	**type**\:  :py:class:`Es200Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	type
                             	**type**\:  :py:class:`MacsecPhyVendor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPhyVendor>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -5302,7 +6223,7 @@ class MacsecPlatform(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext, ['type'], name, value)
+                                self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext, [u'type'], name, value)
 
 
                             class MsfpgaStats(Entity):
@@ -5314,20 +6235,28 @@ class MacsecPlatform(Entity):
                                 	Tx SA Stats
                                 	**type**\:  :py:class:`TxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.TxSaStats>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rx_sa_stats
                                 
                                 	Rx SA Stats
                                 	**type**\:  :py:class:`RxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.RxSaStats>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: tx_interface_macsec_stats
                                 
                                 	Tx interface Macsec Stats
                                 	**type**\:  :py:class:`TxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.TxInterfaceMacsecStats>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rx_interface_macsec_stats
                                 
                                 	Rx interface Macsec Stats
                                 	**type**\:  :py:class:`RxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.RxInterfaceMacsecStats>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5380,12 +6309,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_pkts_encrypted
                                     
                                     	Tx Pkts Encrypted
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: out_octets_protected
                                     
@@ -5394,12 +6327,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_octets_encrypted
                                     
                                     	Tx Octets Encrypted
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5431,7 +6368,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.TxSaStats, ['out_pkts_protected', 'out_pkts_encrypted', 'out_octets_protected', 'out_octets_encrypted'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.TxSaStats, [u'out_pkts_protected', u'out_pkts_encrypted', u'out_octets_protected', u'out_octets_encrypted'], name, value)
+
 
 
                                 class RxSaStats(Entity):
@@ -5445,12 +6383,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkts_not_using_sa
                                     
                                     	Rx Pkts Not Using SA
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkts_not_valid
                                     
@@ -5459,12 +6401,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkts_invalid
                                     
                                     	Rx Pkts Invalid
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkts_ok
                                     
@@ -5473,12 +6419,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkts_delayed
                                     
                                     	Rx Pkts Delayed
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkts_late
                                     
@@ -5487,12 +6437,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkts_unchecked
                                     
                                     	Rx Pkts Unchecked
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_octets_validated
                                     
@@ -5501,12 +6455,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_octets_decrypted
                                     
                                     	Rx Octets Decrypted
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5550,7 +6508,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.RxSaStats, ['in_pkts_unused_sa', 'in_pkts_not_using_sa', 'in_pkts_not_valid', 'in_pkts_invalid', 'in_pkts_ok', 'in_pkts_delayed', 'in_pkts_late', 'in_pkts_unchecked', 'in_octets_validated', 'in_octets_decrypted'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.RxSaStats, [u'in_pkts_unused_sa', u'in_pkts_not_using_sa', u'in_pkts_not_valid', u'in_pkts_invalid', u'in_pkts_ok', u'in_pkts_delayed', u'in_pkts_late', u'in_pkts_unchecked', u'in_octets_validated', u'in_octets_decrypted'], name, value)
+
 
 
                                 class TxInterfaceMacsecStats(Entity):
@@ -5564,6 +6523,8 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_pkt_untagged
                                     
                                     	Tx Pkts Untagged
@@ -5571,12 +6532,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_pkt_too_long
                                     
                                     	Tx Pkts Too Long
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5606,7 +6571,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.TxInterfaceMacsecStats, ['out_pkt_uncontrolled', 'out_pkt_untagged', 'out_pkt_too_long'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.TxInterfaceMacsecStats, [u'out_pkt_uncontrolled', u'out_pkt_untagged', u'out_pkt_too_long'], name, value)
+
 
 
                                 class RxInterfaceMacsecStats(Entity):
@@ -5620,12 +6586,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkt_notag
                                     
                                     	Rx Pkts Notag
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkt_bad_tag
                                     
@@ -5634,12 +6604,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkt_no_sci
                                     
                                     	Rx Pkts No Sci
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkt_unknown_sci
                                     
@@ -5648,12 +6622,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkt_tagged
                                     
                                     	Rx Pkts Tagged
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkt_overrun
                                     
@@ -5662,12 +6640,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkt_uncontrolled
                                     
                                     	Rx Pkts Uncontrolled
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5707,7 +6689,9 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.RxInterfaceMacsecStats, ['in_pkt_untagged', 'in_pkt_notag', 'in_pkt_bad_tag', 'in_pkt_no_sci', 'in_pkt_unknown_sci', 'in_pkt_tagged', 'in_pkt_overrun', 'in_pkt_uncontrolled'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.MsfpgaStats.RxInterfaceMacsecStats, [u'in_pkt_untagged', u'in_pkt_notag', u'in_pkt_bad_tag', u'in_pkt_no_sci', u'in_pkt_unknown_sci', u'in_pkt_tagged', u'in_pkt_overrun', u'in_pkt_uncontrolled'], name, value)
+
+
 
 
                             class XlfpgaStats(Entity):
@@ -5719,10 +6703,14 @@ class MacsecPlatform(Entity):
                                 	Tx SC and SA Level Stats
                                 	**type**\:  :py:class:`MacsecTxStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecTxStats>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: macsec_rx_stats
                                 
                                 	Rx SC and SA Level Stats
                                 	**type**\:  :py:class:`MacsecRxStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecRxStats>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5767,12 +6755,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_toolong_pkts
                                     
                                     	Tx Pkts Too Long
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_encrypted_pkts
                                     
@@ -5781,12 +6773,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_untagged_pkts
                                     
                                     	Tx Untagged Packets
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_overrun_pkts
                                     
@@ -5795,12 +6791,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_bypass_pkts
                                     
                                     	Tx Bypass Packets
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_eapol_pkts
                                     
@@ -5809,12 +6809,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_dropped_pkts
                                     
                                     	Tx Dropped Packets
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: current_an
                                     
@@ -5823,12 +6827,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sa_encrypted_pkts
                                     
                                     	Current Tx SA Encrypted Packets
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5872,7 +6880,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecTxStats, ['sc_encrypted_octets', 'sc_toolong_pkts', 'sc_encrypted_pkts', 'sc_untagged_pkts', 'sc_overrun_pkts', 'sc_bypass_pkts', 'sc_eapol_pkts', 'sc_dropped_pkts', 'current_an', 'sa_encrypted_pkts'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecTxStats, [u'sc_encrypted_octets', u'sc_toolong_pkts', u'sc_encrypted_pkts', u'sc_untagged_pkts', u'sc_overrun_pkts', u'sc_bypass_pkts', u'sc_eapol_pkts', u'sc_dropped_pkts', u'current_an', u'sa_encrypted_pkts'], name, value)
+
 
 
                                 class MacsecRxStats(Entity):
@@ -5886,12 +6895,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_no_tag_pkts
                                     
                                     	Rx No Tag Packets
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_untagged_pkts
                                     
@@ -5900,12 +6913,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_bad_tag_pkts
                                     
                                     	Rx Bad Tag Packets
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_late_pkts
                                     
@@ -5914,12 +6931,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_delayed_pkts
                                     
                                     	Rx Delayed Pkts
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_unchecked_pkts
                                     
@@ -5928,12 +6949,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_no_sci_pkts
                                     
                                     	Rx No SCI Pkts
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_unknown_sci_pkts
                                     
@@ -5942,12 +6967,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_ok_pkts
                                     
                                     	Rx Pkts Ok
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_not_using_pkts
                                     
@@ -5956,12 +6985,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_unused_pkts
                                     
                                     	Rx Pkts Unused SA
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_not_valid_pkts
                                     
@@ -5970,12 +7003,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_invalid_pkts
                                     
                                     	Rx Pkts Invalid
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_overrun_pkts
                                     
@@ -5984,12 +7021,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_bypass_pkts
                                     
                                     	Rx Bypass Packets
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sc_eapol_pkts
                                     
@@ -5998,6 +7039,8 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sc_dropped_pkts
                                     
                                     	Rx Dropped Packets
@@ -6005,10 +7048,14 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: rx_sa_stat
                                     
                                     	Rx SA Level Stats
                                     	**type**\: list of  		 :py:class:`RxSaStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecRxStats.RxSaStat>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6070,7 +7117,7 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecRxStats, ['sc_decrypted_octets', 'sc_no_tag_pkts', 'sc_untagged_pkts', 'sc_bad_tag_pkts', 'sc_late_pkts', 'sc_delayed_pkts', 'sc_unchecked_pkts', 'sc_no_sci_pkts', 'sc_unknown_sci_pkts', 'sc_ok_pkts', 'sc_not_using_pkts', 'sc_unused_pkts', 'sc_not_valid_pkts', 'sc_invalid_pkts', 'sc_overrun_pkts', 'sc_bypass_pkts', 'sc_eapol_pkts', 'sc_dropped_pkts'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecRxStats, [u'sc_decrypted_octets', u'sc_no_tag_pkts', u'sc_untagged_pkts', u'sc_bad_tag_pkts', u'sc_late_pkts', u'sc_delayed_pkts', u'sc_unchecked_pkts', u'sc_no_sci_pkts', u'sc_unknown_sci_pkts', u'sc_ok_pkts', u'sc_not_using_pkts', u'sc_unused_pkts', u'sc_not_valid_pkts', u'sc_invalid_pkts', u'sc_overrun_pkts', u'sc_bypass_pkts', u'sc_eapol_pkts', u'sc_dropped_pkts'], name, value)
 
 
                                     class RxSaStat(Entity):
@@ -6084,12 +7131,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sa_ok_pkts
                                         
                                         	Rx Ok Pkts for Current AN
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: sa_not_using_pkts
                                         
@@ -6098,12 +7149,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sa_unused_pkts
                                         
                                         	Rx Pkts Unused Pkts for Current AN
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: sa_not_valid_pkts
                                         
@@ -6112,12 +7167,16 @@ class MacsecPlatform(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sa_invalid_pkts
                                         
                                         	Rx Invalid Pkts for current AN
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6153,7 +7212,10 @@ class MacsecPlatform(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecRxStats.RxSaStat, ['an', 'sa_ok_pkts', 'sa_not_using_pkts', 'sa_unused_pkts', 'sa_not_valid_pkts', 'sa_invalid_pkts'], name, value)
+                                            self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.XlfpgaStats.MacsecRxStats.RxSaStat, [u'an', u'sa_ok_pkts', u'sa_not_using_pkts', u'sa_unused_pkts', u'sa_not_valid_pkts', u'sa_invalid_pkts'], name, value)
+
+
+
 
 
                             class Es200Stats(Entity):
@@ -6165,40 +7227,56 @@ class MacsecPlatform(Entity):
                                 	Tx SA Stats
                                 	**type**\:  :py:class:`TxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxSaStats>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rx_sa_stats
                                 
                                 	Rx SA Stats
                                 	**type**\:  :py:class:`RxSaStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxSaStats>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: tx_sc_macsec_stats
                                 
                                 	Tx SC Macsec Stats
                                 	**type**\:  :py:class:`TxScMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxScMacsecStats>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rx_sc_macsec_stats
                                 
                                 	Rx SC Macsec Stats
                                 	**type**\:  :py:class:`RxScMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxScMacsecStats>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: tx_interface_macsec_stats
                                 
                                 	Tx interface Macsec Stats
                                 	**type**\:  :py:class:`TxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxInterfaceMacsecStats>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rx_interface_macsec_stats
                                 
                                 	Rx interface Macsec Stats
                                 	**type**\:  :py:class:`RxInterfaceMacsecStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxInterfaceMacsecStats>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: tx_port_stats
                                 
                                 	Port level TX Stats
                                 	**type**\:  :py:class:`TxPortStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxPortStats>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rx_port_stats
                                 
                                 	Port level RX Stats
                                 	**type**\:  :py:class:`RxPortStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper.MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxPortStats>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6267,6 +7345,8 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_pkts_encrypted_protected
                                     
                                     	packets encrypted/protected
@@ -6274,12 +7354,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_octets_encrypted_protected1
                                     
                                     	octets1 encrypted/protected ?
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6309,7 +7393,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxSaStats, ['out_pkts_too_long', 'out_pkts_encrypted_protected', 'out_octets_encrypted_protected1'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxSaStats, [u'out_pkts_too_long', u'out_pkts_encrypted_protected', u'out_octets_encrypted_protected1'], name, value)
+
 
 
                                 class RxSaStats(Entity):
@@ -6323,12 +7408,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkts_delayed
                                     
                                     	PN of packet outside replay window & validateFrames !strict
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkts_late
                                     
@@ -6337,12 +7426,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkts_ok
                                     
                                     	packets with no error
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkts_invalid
                                     
@@ -6351,12 +7444,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkts_not_valid
                                     
                                     	packet not valid & validateFrames strict
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkts_not_using_sa
                                     
@@ -6365,12 +7462,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkts_unused_sa
                                     
                                     	packet assigned to SA not in use & validateFrames !strict
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_octets_decrypted_validated1
                                     
@@ -6379,12 +7480,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_octets_validated
                                     
                                     	octets validated
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6428,7 +7533,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxSaStats, ['in_pkts_unchecked', 'in_pkts_delayed', 'in_pkts_late', 'in_pkts_ok', 'in_pkts_invalid', 'in_pkts_not_valid', 'in_pkts_not_using_sa', 'in_pkts_unused_sa', 'in_octets_decrypted_validated1', 'in_octets_validated'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxSaStats, [u'in_pkts_unchecked', u'in_pkts_delayed', u'in_pkts_late', u'in_pkts_ok', u'in_pkts_invalid', u'in_pkts_not_valid', u'in_pkts_not_using_sa', u'in_pkts_unused_sa', u'in_octets_decrypted_validated1', u'in_octets_validated'], name, value)
+
 
 
                                 class TxScMacsecStats(Entity):
@@ -6441,6 +7547,8 @@ class MacsecPlatform(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6466,7 +7574,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxScMacsecStats, ['out_pkts_sa_not_in_use'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxScMacsecStats, [u'out_pkts_sa_not_in_use'], name, value)
+
 
 
                                 class RxScMacsecStats(Entity):
@@ -6479,6 +7588,8 @@ class MacsecPlatform(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6504,7 +7615,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxScMacsecStats, ['in_pkts_sa_not_in_use'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxScMacsecStats, [u'in_pkts_sa_not_in_use'], name, value)
+
 
 
                                 class TxInterfaceMacsecStats(Entity):
@@ -6518,12 +7630,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_pkt_ctrl
                                     
                                     	egress packet that is classified as control packet
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: out_pkts_untagged
                                     
@@ -6532,12 +7648,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_octets_unctrl
                                     
                                     	Octets tx on uncontrolled port
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: out_octets_ctrl
                                     
@@ -6546,12 +7666,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_octets_common
                                     
                                     	Octets tx on common port
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: out_ucast_pkts_unctrl
                                     
@@ -6560,12 +7684,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_ucast_pkts_ctrl
                                     
                                     	Unicast pkts tx on controlled port
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: out_mcast_pkts_unctrl
                                     
@@ -6574,12 +7702,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_mcast_pkts_ctrl
                                     
                                     	Multicast pkts tx on controlled port
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: out_bcast_pkts_unctrl
                                     
@@ -6588,12 +7720,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_bcast_pkts_ctrl
                                     
                                     	Broadcast pkts tx on controlled port
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: out_rx_drop_pkts_unctrl
                                     
@@ -6602,12 +7738,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_rx_drop_pkts_ctrl
                                     
                                     	Data pkts dropped due to overrun
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: out_rx_err_pkts_unctrl
                                     
@@ -6616,12 +7756,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_rx_err_pkts_ctrl
                                     
                                     	Data pkts error\-terminated due to overrun
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: out_drop_pkts_class
                                     
@@ -6630,12 +7774,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_drop_pkts_data
                                     
                                     	Packets dropped due to overflow in  processing pipeline
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6695,7 +7843,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxInterfaceMacsecStats, ['transform_error_pkts', 'out_pkt_ctrl', 'out_pkts_untagged', 'out_octets_unctrl', 'out_octets_ctrl', 'out_octets_common', 'out_ucast_pkts_unctrl', 'out_ucast_pkts_ctrl', 'out_mcast_pkts_unctrl', 'out_mcast_pkts_ctrl', 'out_bcast_pkts_unctrl', 'out_bcast_pkts_ctrl', 'out_rx_drop_pkts_unctrl', 'out_rx_drop_pkts_ctrl', 'out_rx_err_pkts_unctrl', 'out_rx_err_pkts_ctrl', 'out_drop_pkts_class', 'out_drop_pkts_data'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxInterfaceMacsecStats, [u'transform_error_pkts', u'out_pkt_ctrl', u'out_pkts_untagged', u'out_octets_unctrl', u'out_octets_ctrl', u'out_octets_common', u'out_ucast_pkts_unctrl', u'out_ucast_pkts_ctrl', u'out_mcast_pkts_unctrl', u'out_mcast_pkts_ctrl', u'out_bcast_pkts_unctrl', u'out_bcast_pkts_ctrl', u'out_rx_drop_pkts_unctrl', u'out_rx_drop_pkts_ctrl', u'out_rx_err_pkts_unctrl', u'out_rx_err_pkts_ctrl', u'out_drop_pkts_class', u'out_drop_pkts_data'], name, value)
+
 
 
                                 class RxInterfaceMacsecStats(Entity):
@@ -6709,12 +7858,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkt_ctrl
                                     
                                     	ingress packet that is classified as control packet
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkt_no_tag
                                     
@@ -6723,12 +7876,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkts_untagged
                                     
                                     	ingress packet untagged & validateFrames is  !strict
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkt_bad_tag
                                     
@@ -6737,12 +7894,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkt_no_sci
                                     
                                     	correctly tagged ingress frames for which no valid SC found &                                 validateFrames is strict
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_pkts_unknown_sci
                                     
@@ -6751,12 +7912,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_pkts_tagged_ctrl
                                     
                                     	ingress packets that are control or KaY packets
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_octets_unctrl
                                     
@@ -6765,12 +7930,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_octets_ctrl
                                     
                                     	Octets rx on controlled port
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_ucast_pkts_unctrl
                                     
@@ -6779,12 +7948,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_ucast_pkts_ctrl
                                     
                                     	Unicast pkts rx on controlled port
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_mcast_pkts_unctrl
                                     
@@ -6793,12 +7966,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_mcast_pkts_ctrl
                                     
                                     	Multicast pkts rx on controlled port
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_bcast_pkts_unctrl
                                     
@@ -6807,12 +7984,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_bcast_pkts_ctrl
                                     
                                     	Broadcast pkts rx on controlled port
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_rx_drop_pkts_unctrl
                                     
@@ -6821,12 +8002,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_rx_drop_pkts_ctrl
                                     
                                     	Data pkts dropped due to overrun
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_rx_error_pkts_unctrl
                                     
@@ -6835,12 +8020,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_rx_error_pkts_ctrl
                                     
                                     	Data pkts error\-terminated due to overrun
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: in_drop_pkts_class
                                     
@@ -6849,12 +8038,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_drop_pkts_data
                                     
                                     	Packets dropped due to overflow in processing pipeline
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6922,7 +8115,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxInterfaceMacsecStats, ['transform_error_pkts', 'in_pkt_ctrl', 'in_pkt_no_tag', 'in_pkts_untagged', 'in_pkt_bad_tag', 'in_pkt_no_sci', 'in_pkts_unknown_sci', 'in_pkts_tagged_ctrl', 'in_octets_unctrl', 'in_octets_ctrl', 'in_ucast_pkts_unctrl', 'in_ucast_pkts_ctrl', 'in_mcast_pkts_unctrl', 'in_mcast_pkts_ctrl', 'in_bcast_pkts_unctrl', 'in_bcast_pkts_ctrl', 'in_rx_drop_pkts_unctrl', 'in_rx_drop_pkts_ctrl', 'in_rx_error_pkts_unctrl', 'in_rx_error_pkts_ctrl', 'in_drop_pkts_class', 'in_drop_pkts_data'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxInterfaceMacsecStats, [u'transform_error_pkts', u'in_pkt_ctrl', u'in_pkt_no_tag', u'in_pkts_untagged', u'in_pkt_bad_tag', u'in_pkt_no_sci', u'in_pkts_unknown_sci', u'in_pkts_tagged_ctrl', u'in_octets_unctrl', u'in_octets_ctrl', u'in_ucast_pkts_unctrl', u'in_ucast_pkts_ctrl', u'in_mcast_pkts_unctrl', u'in_mcast_pkts_ctrl', u'in_bcast_pkts_unctrl', u'in_bcast_pkts_ctrl', u'in_rx_drop_pkts_unctrl', u'in_rx_drop_pkts_ctrl', u'in_rx_error_pkts_unctrl', u'in_rx_error_pkts_ctrl', u'in_drop_pkts_class', u'in_drop_pkts_data'], name, value)
+
 
 
                                 class TxPortStats(Entity):
@@ -6936,12 +8130,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: parser_dropped
                                     
                                     	Pkts dropped by header parser as invalid
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: flow_miss
                                     
@@ -6950,12 +8148,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pkts_ctrl
                                     
                                     	Control pkts forwarded
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: pkts_data
                                     
@@ -6964,6 +8166,8 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pkts_dropped
                                     
                                     	Pkts dropped by classifier
@@ -6971,12 +8175,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pkts_err_in
                                     
                                     	Pkts received with an error indication
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7014,7 +8222,8 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxPortStats, ['multi_flow_match', 'parser_dropped', 'flow_miss', 'pkts_ctrl', 'pkts_data', 'pkts_dropped', 'pkts_err_in'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.TxPortStats, [u'multi_flow_match', u'parser_dropped', u'flow_miss', u'pkts_ctrl', u'pkts_data', u'pkts_dropped', u'pkts_err_in'], name, value)
+
 
 
                                 class RxPortStats(Entity):
@@ -7028,12 +8237,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: parser_dropped
                                     
                                     	Pkts dropped by header parser as invalid
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: flow_miss
                                     
@@ -7042,12 +8255,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pkts_ctrl
                                     
                                     	Control pkts forwarded
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: pkts_data
                                     
@@ -7056,6 +8273,8 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pkts_dropped
                                     
                                     	Pkts dropped by classifier
@@ -7063,12 +8282,16 @@ class MacsecPlatform(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pkts_err_in
                                     
                                     	Pkts received with an error indication
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7106,9 +8329,19 @@ class MacsecPlatform(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxPortStats, ['multi_flow_match', 'parser_dropped', 'flow_miss', 'pkts_ctrl', 'pkts_data', 'pkts_dropped', 'pkts_err_in'], name, value)
+                                        self._perform_setattr(MacsecPlatform.Nodes.Node.Interfaces.Interface.SwStatistics.Ext.Es200Stats.RxPortStats, [u'multi_flow_match', u'parser_dropped', u'flow_miss', u'pkts_ctrl', u'pkts_data', u'pkts_dropped', u'pkts_err_in'], name, value)
+
+
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = MacsecPlatform()
         return self._top_entity
+
+
 

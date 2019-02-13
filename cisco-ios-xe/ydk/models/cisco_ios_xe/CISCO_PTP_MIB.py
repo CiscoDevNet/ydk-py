@@ -932,75 +932,105 @@ class CISCOPTPMIB(Entity):
     	
     	**type**\:  :py:class:`CiscoPtpMIBSystemInfo <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CiscoPtpMIBSystemInfo>`
     
+    	**config**\: False
+    
     .. attribute:: cptpsystemtable
     
     	Table of count information about the PTP system for all domains
     	**type**\:  :py:class:`CPtpSystemTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpSystemTable>`
+    
+    	**config**\: False
     
     .. attribute:: cptpsystemdomaintable
     
     	Table of information about the PTP system for all clock modes \-\- ordinary, boundary or transparent
     	**type**\:  :py:class:`CPtpSystemDomainTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpSystemDomainTable>`
     
+    	**config**\: False
+    
     .. attribute:: cptpclocknodetable
     
     	Table of information about the PTP system for a given domain
     	**type**\:  :py:class:`CPtpClockNodeTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockNodeTable>`
+    
+    	**config**\: False
     
     .. attribute:: cptpclockcurrentdstable
     
     	Table of information about the PTP clock Current Datasets for all domains
     	**type**\:  :py:class:`CPtpClockCurrentDSTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockCurrentDSTable>`
     
+    	**config**\: False
+    
     .. attribute:: cptpclockparentdstable
     
     	Table of information about the PTP clock Parent Datasets for all domains
     	**type**\:  :py:class:`CPtpClockParentDSTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockParentDSTable>`
+    
+    	**config**\: False
     
     .. attribute:: cptpclockdefaultdstable
     
     	Table of information about the PTP clock Default Datasets for all domains
     	**type**\:  :py:class:`CPtpClockDefaultDSTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockDefaultDSTable>`
     
+    	**config**\: False
+    
     .. attribute:: cptpclockrunningtable
     
     	Table of information about the PTP clock Running Datasets for all domains
     	**type**\:  :py:class:`CPtpClockRunningTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockRunningTable>`
+    
+    	**config**\: False
     
     .. attribute:: cptpclocktimepropertiesdstable
     
     	Table of information about the PTP clock Timeproperties Datasets for all domains
     	**type**\:  :py:class:`CPtpClockTimePropertiesDSTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockTimePropertiesDSTable>`
     
+    	**config**\: False
+    
     .. attribute:: cptpclocktransdefaultdstable
     
     	Table of information about the PTP Transparent clock Default Datasets for all domains
     	**type**\:  :py:class:`CPtpClockTransDefaultDSTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockTransDefaultDSTable>`
+    
+    	**config**\: False
     
     .. attribute:: cptpclockporttable
     
     	Table of information about the clock ports for a particular domain
     	**type**\:  :py:class:`CPtpClockPortTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortTable>`
     
+    	**config**\: False
+    
     .. attribute:: cptpclockportdstable
     
     	Table of information about the clock ports dataset for a particular domain
     	**type**\:  :py:class:`CPtpClockPortDSTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortDSTable>`
+    
+    	**config**\: False
     
     .. attribute:: cptpclockportrunningtable
     
     	Table of information about the clock ports running dataset for a particular domain
     	**type**\:  :py:class:`CPtpClockPortRunningTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortRunningTable>`
     
+    	**config**\: False
+    
     .. attribute:: cptpclockporttransdstable
     
     	Table of information about the Transparent clock ports running dataset for a particular domain
     	**type**\:  :py:class:`CPtpClockPortTransDSTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortTransDSTable>`
     
+    	**config**\: False
+    
     .. attribute:: cptpclockportassociatetable
     
     	Table of information about a given port's associated ports.  For a master port \- multiple slave ports which have established sessions with the current master port.   For a slave port \- the list of masters available for a given slave port.   Session information (pkts, errors) to be displayed based on availability and scenario
     	**type**\:  :py:class:`CPtpClockPortAssociateTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortAssociateTable>`
+    
+    	**config**\: False
     
     
 
@@ -1096,6 +1126,8 @@ class CISCOPTPMIB(Entity):
         	This object specifies the PTP Profile implemented on the system
         	**type**\:  :py:class:`ClockProfileType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockProfileType>`
         
+        	**config**\: False
+        
         
 
         """
@@ -1124,6 +1156,7 @@ class CISCOPTPMIB(Entity):
             self._perform_setattr(CISCOPTPMIB.CiscoPtpMIBSystemInfo, ['cptpsystemprofile'], name, value)
 
 
+
     class CPtpSystemTable(Entity):
         """
         Table of count information about the PTP system for all
@@ -1133,6 +1166,8 @@ class CISCOPTPMIB(Entity):
         
         	An entry in the table, containing count information about a single domain. New row entries are added when the PTP clock for this domain is configured, while the unconfiguration of the PTP clock removes it
         	**type**\: list of  		 :py:class:`CPtpSystemEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpSystemTable.CPtpSystemEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1175,6 +1210,8 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpinstanceindex  (key)
             
             	This object specifies the instance of the Clock for this domain
@@ -1182,12 +1219,16 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpdomainclockportstotal
             
             	This object specifies the total number of clock ports configured within a domain
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: ptp ports
             
@@ -1197,6 +1238,8 @@ class CISCOPTPMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: physical ports
             
@@ -1234,6 +1277,8 @@ class CISCOPTPMIB(Entity):
                 self._perform_setattr(CISCOPTPMIB.CPtpSystemTable.CPtpSystemEntry, ['cptpdomainindex', 'cptpinstanceindex', 'cptpdomainclockportstotal', 'cptpdomainclockportphysicalinterfacestotal'], name, value)
 
 
+
+
     class CPtpSystemDomainTable(Entity):
         """
         Table of information about the PTP system for all clock modes
@@ -1243,6 +1288,8 @@ class CISCOPTPMIB(Entity):
         
         	An entry in the table, containing information about a single clock mode for the PTP system. A row entry gets added when PTP clocks are configured on the router
         	**type**\: list of  		 :py:class:`CPtpSystemDomainEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpSystemDomainTable.CPtpSystemDomainEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1282,12 +1329,16 @@ class CISCOPTPMIB(Entity):
             	This object specifies the clock type as defined in the Textual convention description
             	**type**\:  :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
             
+            	**config**\: False
+            
             .. attribute:: cptpsystemdomaintotals
             
             	This object specifies the  total number of PTP domains for this particular clock type configured in this node
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: domains
             
@@ -1321,6 +1372,8 @@ class CISCOPTPMIB(Entity):
                 self._perform_setattr(CISCOPTPMIB.CPtpSystemDomainTable.CPtpSystemDomainEntry, ['cptpsystemdomainclocktypeindex', 'cptpsystemdomaintotals'], name, value)
 
 
+
+
     class CPtpClockNodeTable(Entity):
         """
         Table of information about the PTP system for a given domain.
@@ -1329,6 +1382,8 @@ class CISCOPTPMIB(Entity):
         
         	An entry in the table, containing information about a single domain. A entry is added when a new PTP clock domain is configured on the router
         	**type**\: list of  		 :py:class:`CPtpClockNodeEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockNodeTable.CPtpClockNodeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1370,10 +1425,14 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclocktypeindex  (key)
             
             	This object specifies the clock type as defined in the Textual convention description
             	**type**\:  :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
+            
+            	**config**\: False
             
             .. attribute:: cptpclockinstanceindex  (key)
             
@@ -1382,30 +1441,42 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockinput1ppsenabled
             
             	This object specifies whether the node is enabled for PTP input clocking using the 1pps interface
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cptpclockinputfrequencyenabled
             
             	This object specifies whether enabled for Frequency input using the 1.544 Mhz, 2.048 Mhz, or 10Mhz timing interface
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cptpclocktodenabled
             
             	This object specifies whether the node is enabled for TOD
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cptpclockoutput1ppsenabled
             
             	This object specifies whether the node is enabled for PTP input clocking using the 1pps interface
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cptpclockoutput1ppsoffsetenabled
             
             	This object specifies whether an offset is configured in order to compensate for a known phase error such as network asymmetry
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cptpclockoutput1ppsoffsetvalue
             
@@ -1414,25 +1485,35 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cptpclockoutput1ppsoffsetnegative
             
             	This object specifies whether the added (fixed) offset to the 1pps output is negative or not.  When object returns TRUE the offset is negative and when object returns FALSE the offset is positive
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cptpclockinput1ppsinterface
             
             	This object specifies the 1pps interface used for PTP input clocking
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: cptpclockoutput1ppsinterface
             
             	This object specifies the 1pps interface used for PTP output clocking
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: cptpclocktodinterface
             
             	This object specifies the interface used for PTP TOD
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1486,6 +1567,8 @@ class CISCOPTPMIB(Entity):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockNodeTable.CPtpClockNodeEntry, ['cptpclockdomainindex', 'cptpclocktypeindex', 'cptpclockinstanceindex', 'cptpclockinput1ppsenabled', 'cptpclockinputfrequencyenabled', 'cptpclocktodenabled', 'cptpclockoutput1ppsenabled', 'cptpclockoutput1ppsoffsetenabled', 'cptpclockoutput1ppsoffsetvalue', 'cptpclockoutput1ppsoffsetnegative', 'cptpclockinput1ppsinterface', 'cptpclockoutput1ppsinterface', 'cptpclocktodinterface'], name, value)
 
 
+
+
     class CPtpClockCurrentDSTable(Entity):
         """
         Table of information about the PTP clock Current Datasets for
@@ -1495,6 +1578,8 @@ class CISCOPTPMIB(Entity):
         
         	An entry in the table, containing information about a single PTP clock Current Datasets for a domain
         	**type**\: list of  		 :py:class:`CPtpClockCurrentDSEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockCurrentDSTable.CPtpClockCurrentDSEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1535,10 +1620,14 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockcurrentdsclocktypeindex  (key)
             
             	This object specifies the clock type as defined in the Textual convention description
             	**type**\:  :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
+            
+            	**config**\: False
             
             .. attribute:: cptpclockcurrentdsinstanceindex  (key)
             
@@ -1547,12 +1636,16 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockcurrentdsstepsremoved
             
             	The current clock dataset StepsRemoved value.  This object specifies the distance measured by the number of Boundary clocks between the local clock and the Foreign master as indicated in the stepsRemoved field of Announce messages
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: steps
             
@@ -1563,6 +1656,8 @@ class CISCOPTPMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             	**units**\: Time Interval
             
             .. attribute:: cptpclockcurrentdsmeanpathdelay
@@ -1571,6 +1666,8 @@ class CISCOPTPMIB(Entity):
             	**type**\: str
             
             	**length:** 1..255
+            
+            	**config**\: False
             
             
 
@@ -1610,6 +1707,8 @@ class CISCOPTPMIB(Entity):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockCurrentDSTable.CPtpClockCurrentDSEntry, ['cptpclockcurrentdsdomainindex', 'cptpclockcurrentdsclocktypeindex', 'cptpclockcurrentdsinstanceindex', 'cptpclockcurrentdsstepsremoved', 'cptpclockcurrentdsoffsetfrommaster', 'cptpclockcurrentdsmeanpathdelay'], name, value)
 
 
+
+
     class CPtpClockParentDSTable(Entity):
         """
         Table of information about the PTP clock Parent Datasets for
@@ -1619,6 +1718,8 @@ class CISCOPTPMIB(Entity):
         
         	An entry in the table, containing information about a single PTP clock Parent Datasets for a domain
         	**type**\: list of  		 :py:class:`CPtpClockParentDSEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockParentDSTable.CPtpClockParentDSEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1659,10 +1760,14 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockparentdsclocktypeindex  (key)
             
             	This object specifies the clock type as defined in the Textual convention description
             	**type**\:  :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
+            
+            	**config**\: False
             
             .. attribute:: cptpclockparentdsinstanceindex  (key)
             
@@ -1671,15 +1776,21 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockparentdsparentportidentity
             
             	This object specifies the value of portIdentity of the port on the master that issues the Sync messages used in synchronizing this clock
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: cptpclockparentdsparentstats
             
             	This object specifies the Parent Dataset ParentStats value.  This value indicates whether the values of ParentDSOffset and ParentDSClockPhChRate have been measured and are valid. A TRUE value shall indicate valid data
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cptpclockparentdsoffset
             
@@ -1688,12 +1799,16 @@ class CISCOPTPMIB(Entity):
             
             	**range:** \-128..127
             
+            	**config**\: False
+            
             .. attribute:: cptpclockparentdsclockphchrate
             
             	This object specifies the clock's parent dataset ParentClockPhaseChangeRate value.  This value is an estimate of the parent clocks phase change rate as measured by the slave clock
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: cptpclockparentdsgmclockidentity
             
@@ -1702,12 +1817,16 @@ class CISCOPTPMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockparentdsgmclockpriority1
             
             	This object specifies the parent dataset Grandmaster clock priority1
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: cptpclockparentdsgmclockpriority2
             
@@ -1716,6 +1835,8 @@ class CISCOPTPMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cptpclockparentdsgmclockqualityclass
             
             	This object specifies the parent dataset grandmaster clock quality class
@@ -1723,10 +1844,14 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockparentdsgmclockqualityaccuracy
             
             	This object specifies the parent dataset grandmaster clock quality accuracy
             	**type**\:  :py:class:`ClockQualityAccuracyType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockQualityAccuracyType>`
+            
+            	**config**\: False
             
             .. attribute:: cptpclockparentdsgmclockqualityoffset
             
@@ -1734,6 +1859,8 @@ class CISCOPTPMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1787,6 +1914,8 @@ class CISCOPTPMIB(Entity):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockParentDSTable.CPtpClockParentDSEntry, ['cptpclockparentdsdomainindex', 'cptpclockparentdsclocktypeindex', 'cptpclockparentdsinstanceindex', 'cptpclockparentdsparentportidentity', 'cptpclockparentdsparentstats', 'cptpclockparentdsoffset', 'cptpclockparentdsclockphchrate', 'cptpclockparentdsgmclockidentity', 'cptpclockparentdsgmclockpriority1', 'cptpclockparentdsgmclockpriority2', 'cptpclockparentdsgmclockqualityclass', 'cptpclockparentdsgmclockqualityaccuracy', 'cptpclockparentdsgmclockqualityoffset'], name, value)
 
 
+
+
     class CPtpClockDefaultDSTable(Entity):
         """
         Table of information about the PTP clock Default Datasets for
@@ -1796,6 +1925,8 @@ class CISCOPTPMIB(Entity):
         
         	An entry in the table, containing information about a single PTP clock Default Datasets for a domain
         	**type**\: list of  		 :py:class:`CPtpClockDefaultDSEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockDefaultDSTable.CPtpClockDefaultDSEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1836,10 +1967,14 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockdefaultdsclocktypeindex  (key)
             
             	This object specifies the clock type as defined in the Textual convention description
             	**type**\:  :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
+            
+            	**config**\: False
             
             .. attribute:: cptpclockdefaultdsinstanceindex  (key)
             
@@ -1848,10 +1983,14 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockdefaultdstwostepflag
             
             	This object specifies whether the Two Step process is used
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cptpclockdefaultdsclockidentity
             
@@ -1860,12 +1999,16 @@ class CISCOPTPMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockdefaultdspriority1
             
             	This object specifies the default Datasets clock Priority1
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: cptpclockdefaultdspriority2
             
@@ -1874,10 +2017,14 @@ class CISCOPTPMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cptpclockdefaultdsslaveonly
             
             	Whether the SlaveOnly flag is set
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cptpclockdefaultdsqualityclass
             
@@ -1886,10 +2033,14 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockdefaultdsqualityaccuracy
             
             	This object specifies the default dataset Quality Accurarcy
             	**type**\:  :py:class:`ClockQualityAccuracyType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockQualityAccuracyType>`
+            
+            	**config**\: False
             
             .. attribute:: cptpclockdefaultdsqualityoffset
             
@@ -1897,6 +2048,8 @@ class CISCOPTPMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             
 
@@ -1946,6 +2099,8 @@ class CISCOPTPMIB(Entity):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockDefaultDSTable.CPtpClockDefaultDSEntry, ['cptpclockdefaultdsdomainindex', 'cptpclockdefaultdsclocktypeindex', 'cptpclockdefaultdsinstanceindex', 'cptpclockdefaultdstwostepflag', 'cptpclockdefaultdsclockidentity', 'cptpclockdefaultdspriority1', 'cptpclockdefaultdspriority2', 'cptpclockdefaultdsslaveonly', 'cptpclockdefaultdsqualityclass', 'cptpclockdefaultdsqualityaccuracy', 'cptpclockdefaultdsqualityoffset'], name, value)
 
 
+
+
     class CPtpClockRunningTable(Entity):
         """
         Table of information about the PTP clock Running Datasets for
@@ -1955,6 +2110,8 @@ class CISCOPTPMIB(Entity):
         
         	An entry in the table, containing information about a single PTP clock running Datasets for a domain
         	**type**\: list of  		 :py:class:`CPtpClockRunningEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockRunningTable.CPtpClockRunningEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1995,10 +2152,14 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockrunningclocktypeindex  (key)
             
             	This object specifies the clock type as defined in the Textual convention description
             	**type**\:  :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
+            
+            	**config**\: False
             
             .. attribute:: cptpclockrunninginstanceindex  (key)
             
@@ -2007,10 +2168,14 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockrunningstate
             
             	This object specifies the Clock state returned by PTP engine which was described earlier.  Freerun state. Applies to a slave device that is not locked to a master. This is the initial state a slave starts out with when it is not getting any PTP packets from the master or because of some other input error (erroneous packets, etc).  Holdover state. In this state the slave device is locked to a master but communication with the master is lost or the timestamps in the ptp packets are incorrect. But since the slave was locked to the master, it can run with the same accuracy for sometime. The slave can continue to operate in this state for some time. If communication with the master is not restored for a while, the device is moved to the FREERUN state.  Acquiring state. The slave device is receiving packets from a master and is trying to acquire a lock.  Freq\_locked state. Slave device is locked to the Master with respect to frequency, but not phase aligned  Phase\_aligned state. Locked to the master with respect to frequency and phase
             	**type**\:  :py:class:`ClockStateType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockStateType>`
+            
+            	**config**\: False
             
             .. attribute:: cptpclockrunningpacketssent
             
@@ -2019,12 +2184,16 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cptpclockrunningpacketsreceived
             
             	This object specifies the total number of all packet Unicast and multicast that have been received for this clock in this domain for this type
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -2064,6 +2233,8 @@ class CISCOPTPMIB(Entity):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockRunningTable.CPtpClockRunningEntry, ['cptpclockrunningdomainindex', 'cptpclockrunningclocktypeindex', 'cptpclockrunninginstanceindex', 'cptpclockrunningstate', 'cptpclockrunningpacketssent', 'cptpclockrunningpacketsreceived'], name, value)
 
 
+
+
     class CPtpClockTimePropertiesDSTable(Entity):
         """
         Table of information about the PTP clock Timeproperties
@@ -2073,6 +2244,8 @@ class CISCOPTPMIB(Entity):
         
         	An entry in the table, containing information about a single PTP clock timeproperties Datasets for a domain
         	**type**\: list of  		 :py:class:`CPtpClockTimePropertiesDSEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockTimePropertiesDSTable.CPtpClockTimePropertiesDSEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2113,10 +2286,14 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclocktimepropertiesdsclocktypeindex  (key)
             
             	This object specifies the clock type as defined in the Textual convention description
             	**type**\:  :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
+            
+            	**config**\: False
             
             .. attribute:: cptpclocktimepropertiesdsinstanceindex  (key)
             
@@ -2125,10 +2302,14 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclocktimepropertiesdscurrentutcoffsetvalid
             
             	This object specifies the timeproperties dataset value of whether current UTC offset is valid
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cptpclocktimepropertiesdscurrentutcoffset
             
@@ -2137,35 +2318,49 @@ class CISCOPTPMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cptpclocktimepropertiesdsleap59
             
             	This object specifies the Leap59 value in the clock Current Dataset
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cptpclocktimepropertiesdsleap61
             
             	This object specifies the Leap61 value in the clock Current Dataset
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cptpclocktimepropertiesdstimetraceable
             
             	This object specifies the Timetraceable value in the clock Current Dataset
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cptpclocktimepropertiesdsfreqtraceable
             
             	This object specifies the Frequency Traceable value in the clock Current Dataset
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cptpclocktimepropertiesdsptptimescale
             
             	This object specifies the PTP Timescale value in the clock Current Dataset
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cptpclocktimepropertiesdssource
             
             	This object specifies the Timesource value in the clock Current Dataset
             	**type**\:  :py:class:`ClockTimeSourceType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockTimeSourceType>`
+            
+            	**config**\: False
             
             
 
@@ -2215,6 +2410,8 @@ class CISCOPTPMIB(Entity):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockTimePropertiesDSTable.CPtpClockTimePropertiesDSEntry, ['cptpclocktimepropertiesdsdomainindex', 'cptpclocktimepropertiesdsclocktypeindex', 'cptpclocktimepropertiesdsinstanceindex', 'cptpclocktimepropertiesdscurrentutcoffsetvalid', 'cptpclocktimepropertiesdscurrentutcoffset', 'cptpclocktimepropertiesdsleap59', 'cptpclocktimepropertiesdsleap61', 'cptpclocktimepropertiesdstimetraceable', 'cptpclocktimepropertiesdsfreqtraceable', 'cptpclocktimepropertiesdsptptimescale', 'cptpclocktimepropertiesdssource'], name, value)
 
 
+
+
     class CPtpClockTransDefaultDSTable(Entity):
         """
         Table of information about the PTP Transparent clock Default
@@ -2224,6 +2421,8 @@ class CISCOPTPMIB(Entity):
         
         	An entry in the table, containing information about a single PTP Transparent clock Default Datasets for a domain
         	**type**\: list of  		 :py:class:`CPtpClockTransDefaultDSEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockTransDefaultDSTable.CPtpClockTransDefaultDSEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2264,12 +2463,16 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclocktransdefaultdsinstanceindex  (key)
             
             	This object specifies the instance of the clock for this clock type in the given domain
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: cptpclocktransdefaultdsclockidentity
             
@@ -2278,6 +2481,8 @@ class CISCOPTPMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclocktransdefaultdsnumofports
             
             	This object specifies the number of PTP ports of the device
@@ -2285,10 +2490,14 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cptpclocktransdefaultdsdelay
             
             	This object, if the transparent clock is an end\-to\-end transparent clock, has the value shall be E2E; If the transparent clock is a peer\-to\-peer transparent clock, the value shall be P2P
             	**type**\:  :py:class:`ClockMechanismType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockMechanismType>`
+            
+            	**config**\: False
             
             .. attribute:: cptpclocktransdefaultdsprimarydomain
             
@@ -2296,6 +2505,8 @@ class CISCOPTPMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             
 
@@ -2335,6 +2546,8 @@ class CISCOPTPMIB(Entity):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockTransDefaultDSTable.CPtpClockTransDefaultDSEntry, ['cptpclocktransdefaultdsdomainindex', 'cptpclocktransdefaultdsinstanceindex', 'cptpclocktransdefaultdsclockidentity', 'cptpclocktransdefaultdsnumofports', 'cptpclocktransdefaultdsdelay', 'cptpclocktransdefaultdsprimarydomain'], name, value)
 
 
+
+
     class CPtpClockPortTable(Entity):
         """
         Table of information about the clock ports for a particular
@@ -2344,6 +2557,8 @@ class CISCOPTPMIB(Entity):
         
         	An entry in the table, containing information about a single clock port
         	**type**\: list of  		 :py:class:`CPtpClockPortEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortTable.CPtpClockPortEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2384,10 +2599,14 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportclocktypeindex  (key)
             
             	This object specifies the clock type as defined in the Textual convention description
             	**type**\:  :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
+            
+            	**config**\: False
             
             .. attribute:: cptpclockportclockinstanceindex  (key)
             
@@ -2396,12 +2615,16 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockporttableportnumberindex  (key)
             
             	This object specifies the PTP Portnumber for this port
             	**type**\: int
             
             	**range:** 1..65535
+            
+            	**config**\: False
             
             .. attribute:: cptpclockportname
             
@@ -2410,20 +2633,28 @@ class CISCOPTPMIB(Entity):
             
             	**length:** 1..64
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportrole
             
             	This object describes the current role (slave/master) of the port
             	**type**\:  :py:class:`ClockRoleType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockRoleType>`
+            
+            	**config**\: False
             
             .. attribute:: cptpclockportsynconestep
             
             	This object specifies that one\-step clock operation between the PTP master and slave device is enabled
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportcurrentpeeraddresstype
             
             	This object specifies the current peer's network address used for PTP communication. Based on the scenario and the setup involved, the values might look like these \- Scenario                   Value \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- Single Master          master port Multiple Masters       selected master port Single Slave           slave port Multiple Slaves        <empty>  (In relevant setups, information on available slaves and available masters will be available through  cPtpClockPortAssociateTable)
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cptpclockportcurrentpeeraddress
             
@@ -2432,12 +2663,16 @@ class CISCOPTPMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportnumofassociatedports
             
             	This object specifies \- For a master port \- the number of PTP slave sessions (peers) associated with this PTP port. For a slave port \- the number of masters available to this slave port (might or might not be peered)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2485,6 +2720,8 @@ class CISCOPTPMIB(Entity):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockPortTable.CPtpClockPortEntry, ['cptpclockportdomainindex', 'cptpclockportclocktypeindex', 'cptpclockportclockinstanceindex', 'cptpclockporttableportnumberindex', 'cptpclockportname', 'cptpclockportrole', 'cptpclockportsynconestep', 'cptpclockportcurrentpeeraddresstype', 'cptpclockportcurrentpeeraddress', 'cptpclockportnumofassociatedports'], name, value)
 
 
+
+
     class CPtpClockPortDSTable(Entity):
         """
         Table of information about the clock ports dataset for a
@@ -2494,6 +2731,8 @@ class CISCOPTPMIB(Entity):
         
         	An entry in the table, containing port dataset information for a single clock port
         	**type**\: list of  		 :py:class:`CPtpClockPortDSEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortDSTable.CPtpClockPortDSEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2534,10 +2773,14 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportdsclocktypeindex  (key)
             
             	This object specifies the clock type as defined in the Textual convention description
             	**type**\:  :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
+            
+            	**config**\: False
             
             .. attribute:: cptpclockportdsclockinstanceindex  (key)
             
@@ -2546,12 +2789,16 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportdsportnumberindex  (key)
             
             	This object specifies the PTP portnumber associated with this PTP port
             	**type**\: int
             
             	**range:** 1..65535
+            
+            	**config**\: False
             
             .. attribute:: cptpclockportdsname
             
@@ -2560,10 +2807,14 @@ class CISCOPTPMIB(Entity):
             
             	**length:** 1..64
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportdsportidentity
             
             	This object specifies the PTP clock port Identity
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: cptpclockportdsannouncementinterval
             
@@ -2572,12 +2823,16 @@ class CISCOPTPMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportdsannouncercttimeout
             
             	This object specifies the Announce receipt timeout associated with this clock port
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: cptpclockportdssyncinterval
             
@@ -2586,12 +2841,16 @@ class CISCOPTPMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportdsmindelayreqinterval
             
             	This object specifies the Delay\_Req message transmission interval
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: cptpclockportdspeerdelayreqinterval
             
@@ -2600,10 +2859,14 @@ class CISCOPTPMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportdsdelaymech
             
             	This object specifies the delay mechanism used. If the clock is an end\-to\-end clock, the value of the is e2e, else if the clock is a peer to\-peer clock, the value shall be p2p
             	**type**\:  :py:class:`ClockMechanismType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockMechanismType>`
+            
+            	**config**\: False
             
             .. attribute:: cptpclockportdspeermeanpathdelay
             
@@ -2612,6 +2875,8 @@ class CISCOPTPMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportdsgrantduration
             
             	This object specifies the grant duration allocated by the master
@@ -2619,12 +2884,16 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportdsptpversion
             
             	This object specifies the PTP version being used
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             
 
@@ -2682,6 +2951,8 @@ class CISCOPTPMIB(Entity):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockPortDSTable.CPtpClockPortDSEntry, ['cptpclockportdsdomainindex', 'cptpclockportdsclocktypeindex', 'cptpclockportdsclockinstanceindex', 'cptpclockportdsportnumberindex', 'cptpclockportdsname', 'cptpclockportdsportidentity', 'cptpclockportdsannouncementinterval', 'cptpclockportdsannouncercttimeout', 'cptpclockportdssyncinterval', 'cptpclockportdsmindelayreqinterval', 'cptpclockportdspeerdelayreqinterval', 'cptpclockportdsdelaymech', 'cptpclockportdspeermeanpathdelay', 'cptpclockportdsgrantduration', 'cptpclockportdsptpversion'], name, value)
 
 
+
+
     class CPtpClockPortRunningTable(Entity):
         """
         Table of information about the clock ports running dataset for
@@ -2691,6 +2962,8 @@ class CISCOPTPMIB(Entity):
         
         	An entry in the table, containing runing dataset information about a single clock port
         	**type**\: list of  		 :py:class:`CPtpClockPortRunningEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortRunningTable.CPtpClockPortRunningEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2731,10 +3004,14 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportrunningclocktypeindex  (key)
             
             	This object specifies the clock type as defined in the Textual convention description
             	**type**\:  :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
+            
+            	**config**\: False
             
             .. attribute:: cptpclockportrunningclockinstanceindex  (key)
             
@@ -2743,12 +3020,16 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportrunningportnumberindex  (key)
             
             	This object specifies the PTP portnumber associated with this clock port
             	**type**\: int
             
             	**range:** 1..65535
+            
+            	**config**\: False
             
             .. attribute:: cptpclockportrunningname
             
@@ -2757,15 +3038,21 @@ class CISCOPTPMIB(Entity):
             
             	**length:** 1..64
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportrunningstate
             
             	This object specifies the port state returned by PTP engine.  initializing \- In this state a port initializes                its data sets, hardware, and                communication facilities. faulty       \- The fault state of the protocol. disabled     \- The port shall not place any                messages on its communication path. listening    \- The port is waiting for the                announceReceiptTimeout to expire or                to receive an Announce message from                a master. preMaster    \- The port shall behave in all respects                as though it were in the MASTER state                except that it shall not place any                messages on its communication path                except for Pdelay\_Req, Pdelay\_Resp,                Pdelay\_Resp\_Follow\_Up, signaling, or                management messages. master       \- The port is behaving as a master port.             passive      \- The port shall not place any                messages on its communication path                except for Pdelay\_Req, Pdelay\_Resp,                Pdelay\_Resp\_Follow\_Up, or signaling                messages, or management messages                that are a required response to                another management message uncalibrated \- The local port is preparing to                synchronize to the master port. slave        \- The port is synchronizing to the                selected master port
             	**type**\:  :py:class:`ClockPortState <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockPortState>`
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportrunningrole
             
             	This object specifies the Clock Role
             	**type**\:  :py:class:`ClockRoleType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockRoleType>`
+            
+            	**config**\: False
             
             .. attribute:: cptpclockportrunninginterfaceindex
             
@@ -2774,12 +3061,16 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportrunningipversion
             
             	This object specifirst the IP version being used for PTP communication (the mapping used)
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: cptpclockportrunningencapsulationtype
             
@@ -2788,15 +3079,21 @@ class CISCOPTPMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportrunningtxmode
             
             	This object specifies the clock transmission mode as  unicast\:       Using unicast commnuication channel. multicast\:     Using Multicast communication channel. multicast\-mix\: Using multicast\-unicast communication channel
             	**type**\:  :py:class:`ClockTxModeType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockTxModeType>`
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportrunningrxmode
             
             	This object specifie the clock receive mode as  unicast\:       Using unicast commnuication channel. multicast\:     Using Multicast communication channel. multicast\-mix\: Using multicast\-unicast communication channel
             	**type**\:  :py:class:`ClockTxModeType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockTxModeType>`
+            
+            	**config**\: False
             
             .. attribute:: cptpclockportrunningpacketsreceived
             
@@ -2804,6 +3101,8 @@ class CISCOPTPMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -2813,6 +3112,8 @@ class CISCOPTPMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -2870,6 +3171,8 @@ class CISCOPTPMIB(Entity):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockPortRunningTable.CPtpClockPortRunningEntry, ['cptpclockportrunningdomainindex', 'cptpclockportrunningclocktypeindex', 'cptpclockportrunningclockinstanceindex', 'cptpclockportrunningportnumberindex', 'cptpclockportrunningname', 'cptpclockportrunningstate', 'cptpclockportrunningrole', 'cptpclockportrunninginterfaceindex', 'cptpclockportrunningipversion', 'cptpclockportrunningencapsulationtype', 'cptpclockportrunningtxmode', 'cptpclockportrunningrxmode', 'cptpclockportrunningpacketsreceived', 'cptpclockportrunningpacketssent'], name, value)
 
 
+
+
     class CPtpClockPortTransDSTable(Entity):
         """
         Table of information about the Transparent clock ports running
@@ -2879,6 +3182,8 @@ class CISCOPTPMIB(Entity):
         
         	An entry in the table, containing clock port Transparent dataset information about a single clock port
         	**type**\: list of  		 :py:class:`CPtpClockPortTransDSEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortTransDSTable.CPtpClockPortTransDSEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2919,12 +3224,16 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockporttransdsinstanceindex  (key)
             
             	This object specifies the instance of the clock for this clock type in the given domain
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: cptpclockporttransdsportnumberindex  (key)
             
@@ -2933,12 +3242,16 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: cptpclockporttransdsportidentity
             
             	This object specifies the value of the PortIdentity attribute of the local port
             	**type**\: str
             
             	**length:** 1..255
+            
+            	**config**\: False
             
             .. attribute:: cptpclockporttransdslogminpdelayreqint
             
@@ -2947,10 +3260,14 @@ class CISCOPTPMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cptpclockporttransdsfaultyflag
             
             	This object specifies the value TRUE if the port is faulty and FALSE if the port is operating normally
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cptpclockporttransdspeermeanpathdelay
             
@@ -2958,6 +3275,8 @@ class CISCOPTPMIB(Entity):
             	**type**\: str
             
             	**length:** 1..255
+            
+            	**config**\: False
             
             
 
@@ -2999,6 +3318,8 @@ class CISCOPTPMIB(Entity):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockPortTransDSTable.CPtpClockPortTransDSEntry, ['cptpclockporttransdsdomainindex', 'cptpclockporttransdsinstanceindex', 'cptpclockporttransdsportnumberindex', 'cptpclockporttransdsportidentity', 'cptpclockporttransdslogminpdelayreqint', 'cptpclockporttransdsfaultyflag', 'cptpclockporttransdspeermeanpathdelay'], name, value)
 
 
+
+
     class CPtpClockPortAssociateTable(Entity):
         """
         Table of information about a given port's associated ports.
@@ -3015,6 +3336,8 @@ class CISCOPTPMIB(Entity):
         
         	An entry in the table, containing information about a single associated port for the given clockport
         	**type**\: list of  		 :py:class:`CPtpClockPortAssociateEntry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortAssociateTable.CPtpClockPortAssociateEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3055,10 +3378,14 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportcurrentclocktypeindex  (key)
             
             	This object specifies the given port's clock type
             	**type**\:  :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
+            
+            	**config**\: False
             
             .. attribute:: cptpclockportcurrentclockinstanceindex  (key)
             
@@ -3067,12 +3394,16 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportcurrentportnumberindex  (key)
             
             	This object specifies the PTP Port Number for the given port
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: cptpclockportassociateportindex  (key)
             
@@ -3081,10 +3412,14 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportassociateaddresstype
             
             	This object specifies the peer port's network address type used for PTP communication
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cptpclockportassociateaddress
             
@@ -3093,12 +3428,16 @@ class CISCOPTPMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cptpclockportassociatepacketssent
             
             	The number of packets sent to this peer port from the current port
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -3109,6 +3448,8 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: cptpclockportassociateinerrors
@@ -3118,6 +3459,8 @@ class CISCOPTPMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: cptpclockportassociateouterrors
@@ -3126,6 +3469,8 @@ class CISCOPTPMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -3176,7 +3521,11 @@ class CISCOPTPMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockPortAssociateTable.CPtpClockPortAssociateEntry, ['cptpclockportcurrentdomainindex', 'cptpclockportcurrentclocktypeindex', 'cptpclockportcurrentclockinstanceindex', 'cptpclockportcurrentportnumberindex', 'cptpclockportassociateportindex', 'cptpclockportassociateaddresstype', 'cptpclockportassociateaddress', 'cptpclockportassociatepacketssent', 'cptpclockportassociatepacketsreceived', 'cptpclockportassociateinerrors', 'cptpclockportassociateouterrors'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOPTPMIB()
         return self._top_entity
+
+
 

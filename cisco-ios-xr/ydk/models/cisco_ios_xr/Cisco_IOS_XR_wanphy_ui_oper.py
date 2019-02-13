@@ -72,6 +72,8 @@ class Wanphy(Entity):
     	All WANPHY controller operational data
     	**type**\:  :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.Wanphy.Controllers>`
     
+    	**config**\: False
+    
     
 
     """
@@ -109,6 +111,8 @@ class Wanphy(Entity):
         
         	WANPHY controller operational data
         	**type**\: list of  		 :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.Wanphy.Controllers.Controller>`
+        
+        	**config**\: False
         
         
 
@@ -148,10 +152,14 @@ class Wanphy(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: info
             
             	WANPHY controller operational data
             	**type**\:  :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.Wanphy.Controllers.Controller.Info>`
+            
+            	**config**\: False
             
             
 
@@ -194,12 +202,16 @@ class Wanphy(Entity):
                 	Configuration Mode
                 	**type**\:  :py:class:`WanphyModeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.WanphyModeInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: port_state
                 
                 	Port State
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: section_lof
                 
@@ -208,12 +220,16 @@ class Wanphy(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: section_los
                 
                 	Section LOS
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: section_bip
                 
@@ -222,12 +238,16 @@ class Wanphy(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: line_ais
                 
                 	Line AIS
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: line_rdi
                 
@@ -236,12 +256,16 @@ class Wanphy(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: line_febe
                 
                 	Line FEBE
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: line_bip
                 
@@ -250,12 +274,16 @@ class Wanphy(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: path_ais
                 
                 	Path AIS
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: path_rdi
                 
@@ -264,12 +292,16 @@ class Wanphy(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: path_febe
                 
                 	Path FEBE
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: path_bip
                 
@@ -278,12 +310,16 @@ class Wanphy(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: path_lop
                 
                 	Path LOP
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: path_newptr
                 
@@ -292,12 +328,16 @@ class Wanphy(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: path_pse
                 
                 	Path PSE
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: path_nse
                 
@@ -306,12 +346,16 @@ class Wanphy(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: wis_alarms_ser
                 
                 	WIS Alarms SER
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: wis_alarms_felcdp
                 
@@ -320,12 +364,16 @@ class Wanphy(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: wis_alarms_feaisp
                 
                 	WIS Alarms FEAISP
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: wis_alarms_wlos
                 
@@ -334,12 +382,16 @@ class Wanphy(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: wis_alarms_plcd
                 
                 	WIS Alarms PLCD
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: wis_alarms_lfebip
                 
@@ -348,12 +400,16 @@ class Wanphy(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: wis_alarms_pbec
                 
                 	WIS Alarms PBEC
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: wis_alarms_plmp
                 
@@ -362,12 +418,16 @@ class Wanphy(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: sf_ber_threshold
                 
                 	BER thresholds\: SF. Value 'd' in 10e\-%d
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: sd_ber_threshold
                 
@@ -376,25 +436,35 @@ class Wanphy(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: sf_ber_report
                 
                 	SF\_BER Report
                 	**type**\:  :py:class:`WanphyAlarmRepStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.WanphyAlarmRepStatus>`
+                
+                	**config**\: False
                 
                 .. attribute:: sd_ber_report
                 
                 	SD\_BER Report
                 	**type**\:  :py:class:`WanphyAlarmRepStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.WanphyAlarmRepStatus>`
                 
+                	**config**\: False
+                
                 .. attribute:: operational_mode
                 
                 	Operational Mode
                 	**type**\:  :py:class:`WanphyModeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.WanphyModeInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: remote_ip
                 
                 	Remote IP Address
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: register_p_febe
                 
@@ -403,12 +473,16 @@ class Wanphy(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: register_l_fe_bip
                 
                 	Register L\_FE\_BIP
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: register_l_bip
                 
@@ -417,12 +491,16 @@ class Wanphy(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: register_p_bec
                 
                 	Register P\_BEC
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: register_s_bip
                 
@@ -431,12 +509,16 @@ class Wanphy(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: register_j1_rx0
                 
                 	Register J1\-Rx0
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: register_j1_rx1
                 
@@ -445,12 +527,16 @@ class Wanphy(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: register_j1_rx2
                 
                 	Register J1\-Rx2
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: register_j1_rx3
                 
@@ -459,12 +545,16 @@ class Wanphy(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: register_j1_rx4
                 
                 	Register J1\-Rx4
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: register_j1_rx5
                 
@@ -473,12 +563,16 @@ class Wanphy(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: register_j1_rx6
                 
                 	Register J1\-Rx6
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: register_j1_rx7
                 
@@ -487,12 +581,16 @@ class Wanphy(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: wanphy_poll_timer
                 
                 	wanphy poll timer
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -608,7 +706,12 @@ class Wanphy(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Wanphy.Controllers.Controller.Info, ['admin_mode', 'port_state', 'section_lof', 'section_los', 'section_bip', 'line_ais', 'line_rdi', 'line_febe', 'line_bip', 'path_ais', 'path_rdi', 'path_febe', 'path_bip', 'path_lop', 'path_newptr', 'path_pse', 'path_nse', 'wis_alarms_ser', 'wis_alarms_felcdp', 'wis_alarms_feaisp', 'wis_alarms_wlos', 'wis_alarms_plcd', 'wis_alarms_lfebip', 'wis_alarms_pbec', 'wis_alarms_plmp', 'sf_ber_threshold', 'sd_ber_threshold', 'sf_ber_report', 'sd_ber_report', 'operational_mode', 'remote_ip', 'register_p_febe', 'register_l_fe_bip', 'register_l_bip', 'register_p_bec', 'register_s_bip', 'register_j1_rx0', 'register_j1_rx1', 'register_j1_rx2', 'register_j1_rx3', 'register_j1_rx4', 'register_j1_rx5', 'register_j1_rx6', 'register_j1_rx7', 'wanphy_poll_timer'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Wanphy()
         return self._top_entity
+
+
 

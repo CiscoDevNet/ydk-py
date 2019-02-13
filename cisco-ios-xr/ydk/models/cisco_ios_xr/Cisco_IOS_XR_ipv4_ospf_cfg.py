@@ -1252,6 +1252,8 @@ class Ospf(Entity):
                         self._perform_setattr(Ospf.Processes.Process.Snmp.TrapRateLimit, ['window_size', 'max_window_traps'], name, value)
 
 
+
+
             class Distribute(Entity):
                 """
                 Enable distribution of link\-state database
@@ -1303,6 +1305,7 @@ class Ospf(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ospf.Processes.Process.Distribute, ['throttle', 'instance_id'], name, value)
+
 
 
             class Vrfs(Entity):
@@ -1770,6 +1773,7 @@ class Ospf(Entity):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.DomainId.PrimaryDomainId, ['domain_id_type', 'domain_id_name'], name, value)
 
 
+
                         class SecondaryDomainIds(Entity):
                             """
                             Secondary domain ID Table
@@ -1848,6 +1852,9 @@ class Ospf(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.DomainId.SecondaryDomainIds.SecondaryDomainId, ['domain_id_type', 'domain_id_name'], name, value)
+
+
+
 
 
                     class Microloop(Entity):
@@ -1938,6 +1945,8 @@ class Ospf(Entity):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.Microloop.Avoidance, ['enable', 'rib_update_delay'], name, value)
 
 
+
+
                     class MaximumRedistributePrefix(Entity):
                         """
                         Maximum number of prefixes redistributed into
@@ -1991,6 +2000,7 @@ class Ospf(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.MaximumRedistributePrefix, ['number_of_prefixes', 'threshold', 'warning_only'], name, value)
+
 
 
                     class DefaultInformation(Entity):
@@ -2058,6 +2068,7 @@ class Ospf(Entity):
                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.DefaultInformation, ['always_advertise', 'metric', 'metric_type', 'route_policy_name'], name, value)
 
 
+
                     class Af(Entity):
                         """
                         OSPF address family
@@ -2104,6 +2115,7 @@ class Ospf(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.Af, ['af_name', 'saf_name'], name, value)
+
 
 
                     class Queue(Entity):
@@ -2211,6 +2223,7 @@ class Ospf(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.Queue, ['dispatch_rate_limited_flush', 'limit_high', 'dispatch_spf_lsa_limit', 'limit_low', 'dispatch_rate_limited', 'limit_medium', 'dispatch_incoming'], name, value)
+
 
 
                     class MaxMetric(Entity):
@@ -2383,6 +2396,7 @@ class Ospf(Entity):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnProcRestart, ['wait_for_bgp', 'startup_max', 'include_stub', 'summary_lsa', 'summary_lsa_maximum_metric', 'external_lsa', 'external_lsa_maximum_metric'], name, value)
 
 
+
                         class MaxMetricOnStartup(Entity):
                             """
                             Set maximum metric on\-startup configuration
@@ -2469,6 +2483,7 @@ class Ospf(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnStartup, ['wait_for_bgp', 'startup_max', 'include_stub', 'summary_lsa', 'summary_lsa_maximum_metric', 'external_lsa', 'external_lsa_maximum_metric'], name, value)
+
 
 
                         class MaxMetricOnProcMigration(Entity):
@@ -2560,6 +2575,7 @@ class Ospf(Entity):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnProcMigration, ['wait_for_bgp', 'startup_max', 'include_stub', 'summary_lsa', 'summary_lsa_maximum_metric', 'external_lsa', 'external_lsa_maximum_metric'], name, value)
 
 
+
                         class MaxMetricAlways(Entity):
                             """
                             Set maximum metric always configuration
@@ -2628,6 +2644,7 @@ class Ospf(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricAlways, ['include_stub', 'summary_lsa', 'summary_lsa_maximum_metric', 'external_lsa', 'external_lsa_maximum_metric'], name, value)
+
 
 
                         class MaxMetricOnSwitchover(Entity):
@@ -2716,6 +2733,8 @@ class Ospf(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.MaxMetric.MaxMetricOnSwitchover, ['wait_for_bgp', 'startup_max', 'include_stub', 'summary_lsa', 'summary_lsa_maximum_metric', 'external_lsa', 'external_lsa_maximum_metric'], name, value)
+
+
 
 
                     class Nsf(Entity):
@@ -2812,6 +2831,7 @@ class Ospf(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.Nsf, ['lifetime', 'ietf', 'ietf_support_role', 'cisco', 'interval', 'flush_delay_time', 'ietf_strict_lsa_checking'], name, value)
+
 
 
                     class ProcessScope(Entity):
@@ -3174,6 +3194,7 @@ class Ospf(Entity):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Srgb, ['lower_bound', 'upper_bound'], name, value)
 
 
+
                         class FastReroute(Entity):
                             """
                             Fast\-reroute configuration
@@ -3358,6 +3379,8 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
 
+
+
                                 class ExcludeInterfaces(Entity):
                                     """
                                     Fast\-reroute per\-link/per\-prefix or UCMP exclude
@@ -3431,6 +3454,9 @@ class Ospf(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
+
+
+
 
 
                             class PerPrefix(Entity):
@@ -3550,6 +3576,7 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa, ['tunnel', 'maximum_cost'], name, value)
 
 
+
                                 class CandidateInterfaces(Entity):
                                     """
                                     Fast\-reroute per\-link/per\-prefix candidate
@@ -3622,6 +3649,8 @@ class Ospf(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
+
+
 
 
                                 class ExcludeInterfaces(Entity):
@@ -3699,6 +3728,10 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
 
+
+
+
+
                         class DistributeList(Entity):
                             """
                             Filter networks intalled to RIB (disable as ACL
@@ -3744,6 +3777,7 @@ class Ospf(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.DistributeList, ['access_list_name', 'route_policy_name'], name, value)
+
 
 
                         class Bfd(Entity):
@@ -3800,6 +3834,7 @@ class Ospf(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Bfd, ['interval', 'detection_multiplier', 'fast_detect_mode'], name, value)
+
 
 
                         class Authentication(Entity):
@@ -3908,6 +3943,7 @@ class Ospf(Entity):
                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                             class MessageDigestKeys(Entity):
                                 """
                                 Message digest authentication password (key)
@@ -3994,6 +4030,9 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
 
 
+
+
+
                         class Security(Entity):
                             """
                             Container class for security related
@@ -4077,6 +4116,8 @@ class Ospf(Entity):
                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.Security.Ttl, ['enable', 'hop_count'], name, value)
 
 
+
+
                         class DeadIntervalMinimal(Entity):
                             """
                             Interval after which a neighbor is declared dead
@@ -4126,6 +4167,7 @@ class Ospf(Entity):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
 
 
+
                         class CostFallback(Entity):
                             """
                             Interface fallback cost
@@ -4171,6 +4213,8 @@ class Ospf(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.ProcessScope.CostFallback, ['cost', 'threshold'], name, value)
+
+
 
 
                     class Redistribution(Entity):
@@ -4458,6 +4502,7 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.ConnectedOrStaticOrDagrOrSubscriberOrMobileOrRip, ['classful', 'default_redistributed_route_metric', 'tag', 'metric_type', 'eigrp_route_type', 'isis_levels', 'ospf_internal', 'ospf_external', 'ospf_nssa_level', 'route_policy_name', 'bgp_preserve_med', 'bgp_preserve_default_info', 'ospf_redist_lsa_type', 'ospfnssa_only', 'ospf_use_rib_metric'], name, value)
 
 
+
                                 class ApplicationOrIsisOrOspf(Entity):
                                     """
                                     application or isis or ospf
@@ -4607,6 +4652,7 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.ApplicationOrIsisOrOspf, ['instance_name', 'classful', 'default_redistributed_route_metric', 'tag', 'metric_type', 'eigrp_route_type', 'isis_levels', 'ospf_internal', 'ospf_external', 'ospf_nssa_level', 'route_policy_name', 'bgp_preserve_med', 'bgp_preserve_default_info', 'ospf_redist_lsa_type', 'ospfnssa_only', 'ospf_use_rib_metric'], name, value)
+
 
 
                                 class Bgp(Entity):
@@ -4778,6 +4824,7 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.Bgp, ['instance_name', 'as_xx', 'as_yy', 'classful', 'default_redistributed_route_metric', 'tag', 'metric_type', 'eigrp_route_type', 'isis_levels', 'ospf_internal', 'ospf_external', 'ospf_nssa_level', 'route_policy_name', 'bgp_preserve_med', 'bgp_preserve_default_info', 'ospf_redist_lsa_type', 'ospfnssa_only', 'ospf_use_rib_metric'], name, value)
 
 
+
                                 class Eigrp(Entity):
                                     """
                                     eigrp
@@ -4938,6 +4985,10 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.Redistribution.Redistributes.Redistribute.Eigrp, ['instance_name', 'as_xx', 'classful', 'default_redistributed_route_metric', 'tag', 'metric_type', 'eigrp_route_type', 'isis_levels', 'ospf_internal', 'ospf_external', 'ospf_nssa_level', 'route_policy_name', 'bgp_preserve_med', 'bgp_preserve_default_info', 'ospf_redist_lsa_type', 'ospfnssa_only', 'ospf_use_rib_metric'], name, value)
 
 
+
+
+
+
                     class AdjacencyStagger(Entity):
                         """
                         Staggering OSPF adjacency bring up
@@ -4994,6 +5045,7 @@ class Ospf(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AdjacencyStagger, ['disable', 'initial_nbr', 'max_nbr'], name, value)
+
 
 
                     class MaxLsa(Entity):
@@ -5084,6 +5136,7 @@ class Ospf(Entity):
                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.MaxLsa, ['max_lsa_limit', 'max_lsa_threshold', 'max_lsa_warning_only', 'max_lsa_ignore_time', 'max_lsa_ignore_count', 'max_lsa_reset_time'], name, value)
 
 
+
                     class AutoCost(Entity):
                         """
                         Controls automatic cost based on bandwidth
@@ -5133,6 +5186,7 @@ class Ospf(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AutoCost, ['disable', 'bandwidth'], name, value)
+
 
 
                     class Ucmp(Entity):
@@ -5242,6 +5296,7 @@ class Ospf(Entity):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.Ucmp.Enable, ['variance', 'prefix_list_name'], name, value)
 
 
+
                         class ExcludeInterfaces(Entity):
                             """
                             Fast\-reroute per\-link/per\-prefix or UCMP exclude
@@ -5315,6 +5370,9 @@ class Ospf(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.Ucmp.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
+
+
+
 
 
                     class FastReroute(Entity):
@@ -5397,6 +5455,7 @@ class Ospf(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerLink, ['priority'], name, value)
+
 
 
                         class PerPrefix(Entity):
@@ -5533,6 +5592,10 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, ['tiebreaker_type', 'tiebreaker_index'], name, value)
 
 
+
+
+
+
                     class SummaryPrefixes(Entity):
                         """
                         Configure IP prefix summary
@@ -5636,6 +5699,7 @@ class Ospf(Entity):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefixData, ['not_advertise', 'tag'], name, value)
 
 
+
                         class PrefixAndNetmask(Entity):
                             """
                             keys\: prefix, netmask
@@ -5701,6 +5765,7 @@ class Ospf(Entity):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.PrefixAndNetmask, ['prefix', 'netmask', 'not_advertise', 'tag'], name, value)
 
 
+
                         class Prefix(Entity):
                             """
                             keys\: prefix
@@ -5757,6 +5822,7 @@ class Ospf(Entity):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.Prefix, ['prefix', 'not_advertise', 'tag'], name, value)
 
 
+
                         class Netmask(Entity):
                             """
                             keys\: netmask
@@ -5811,6 +5877,8 @@ class Ospf(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.SummaryPrefixes.Netmask, ['netmask', 'not_advertise', 'tag'], name, value)
+
+
 
 
                     class OutgoingRouteUpdates(Entity):
@@ -5915,6 +5983,8 @@ class Ospf(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.OutgoingRouteUpdates.OutgoingRouteUpdate, ['protocol_name', 'access_list_name', 'as_xx', 'as_yy', 'ospf_process_name'], name, value)
+
+
 
 
                     class Distance(Entity):
@@ -6037,6 +6107,7 @@ class Ospf(Entity):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.Distance.OspfDistance, ['intra_area', 'inter_area', 'external_routes'], name, value)
 
 
+
                         class IpDistances(Entity):
                             """
                             IP specific administrative distance
@@ -6137,6 +6208,9 @@ class Ospf(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.Distance.IpDistances.IpDistance, ['address', 'wildcard', 'distance', 'access_list_name'], name, value)
+
+
+
 
 
                     class AreaAddresses(Entity):
@@ -6596,6 +6670,7 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                                         class MessageDigestKeys(Entity):
                                             """
                                             Message digest authentication password (key)
@@ -6682,6 +6757,9 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
 
 
+
+
+
                                     class DeadIntervalMinimal(Entity):
                                         """
                                         Interval after which a neighbor is declared dead
@@ -6729,6 +6807,9 @@ class Ospf(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
+
+
+
 
 
                             class ShamLinkScopes(Entity):
@@ -6999,6 +7080,7 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                                         class MessageDigestKeys(Entity):
                                             """
                                             Message digest authentication password (key)
@@ -7085,6 +7167,9 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
 
 
+
+
+
                                     class DeadIntervalMinimal(Entity):
                                         """
                                         Interval after which a neighbor is declared dead
@@ -7132,6 +7217,9 @@ class Ospf(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
+
+
+
 
 
                             class AreaScope(Entity):
@@ -7456,6 +7544,7 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.DistributeList, ['access_list_name', 'route_policy_name'], name, value)
 
 
+
                                 class Bfd(Entity):
                                     """
                                     BFD configuration
@@ -7510,6 +7599,7 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Bfd, ['interval', 'detection_multiplier', 'fast_detect_mode'], name, value)
+
 
 
                                 class Authentication(Entity):
@@ -7618,6 +7708,7 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                                     class MessageDigestKeys(Entity):
                                         """
                                         Message digest authentication password (key)
@@ -7704,6 +7795,9 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
 
 
+
+
+
                                 class Security(Entity):
                                     """
                                     Container class for security related
@@ -7787,6 +7881,8 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.Security.Ttl, ['enable', 'hop_count'], name, value)
 
 
+
+
                                 class DeadIntervalMinimal(Entity):
                                     """
                                     Interval after which a neighbor is declared dead
@@ -7834,6 +7930,7 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
+
 
 
                                 class FastReroute(Entity):
@@ -8020,6 +8117,8 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
 
+
+
                                         class ExcludeInterfaces(Entity):
                                             """
                                             Fast\-reroute per\-link/per\-prefix or UCMP exclude
@@ -8093,6 +8192,9 @@ class Ospf(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
+
+
+
 
 
                                     class PerPrefix(Entity):
@@ -8221,6 +8323,7 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.RemoteLfa, ['tunnel', 'maximum_cost'], name, value)
 
 
+
                                         class Tiebreakers(Entity):
                                             """
                                             Fast\-reroute tiebreakers configurations
@@ -8303,6 +8406,8 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, ['tiebreaker_type', 'tiebreaker_index'], name, value)
 
 
+
+
                                         class CandidateInterfaces(Entity):
                                             """
                                             Fast\-reroute per\-link/per\-prefix candidate
@@ -8375,6 +8480,8 @@ class Ospf(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
+
+
 
 
                                         class ExcludeInterfaces(Entity):
@@ -8452,6 +8559,10 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
 
+
+
+
+
                                 class CostFallback(Entity):
                                     """
                                     Interface fallback cost
@@ -8497,6 +8608,8 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaScope.CostFallback, ['cost', 'threshold'], name, value)
+
+
 
 
                             class NameScopes(Entity):
@@ -8924,6 +9037,7 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid, ['sid_value', 'explicit_null', 'type', 'n_flag_clear'], name, value)
 
 
+
                                     class PrefixSidStrict(Entity):
                                         """
                                         Strict Prefix SID
@@ -8994,6 +9108,7 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSidStrict, ['sid_value', 'explicit_null', 'type', 'n_flag_clear'], name, value)
 
 
+
                                     class DistributeList(Entity):
                                         """
                                         Filter networks intalled to RIB (disable as ACL
@@ -9039,6 +9154,7 @@ class Ospf(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DistributeList, ['access_list_name', 'route_policy_name'], name, value)
+
 
 
                                     class Bfd(Entity):
@@ -9095,6 +9211,7 @@ class Ospf(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Bfd, ['interval', 'detection_multiplier', 'fast_detect_mode'], name, value)
+
 
 
                                     class Authentication(Entity):
@@ -9203,6 +9320,7 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                                         class MessageDigestKeys(Entity):
                                             """
                                             Message digest authentication password (key)
@@ -9289,6 +9407,9 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
 
 
+
+
+
                                     class Security(Entity):
                                         """
                                         Container class for security related
@@ -9370,6 +9491,8 @@ class Ospf(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security.Ttl, ['enable', 'hop_count'], name, value)
+
+
 
 
                                     class Neighbors(Entity):
@@ -9490,6 +9613,8 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors.Neighbor, ['neighbor_address', 'priority', 'poll_interval', 'cost', 'database_filter'], name, value)
 
 
+
+
                                     class DeadIntervalMinimal(Entity):
                                         """
                                         Interval after which a neighbor is declared dead
@@ -9537,6 +9662,7 @@ class Ospf(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
+
 
 
                                     class FastReroute(Entity):
@@ -9723,6 +9849,8 @@ class Ospf(Entity):
                                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
 
+
+
                                             class ExcludeInterfaces(Entity):
                                                 """
                                                 Fast\-reroute per\-link/per\-prefix or UCMP exclude
@@ -9796,6 +9924,9 @@ class Ospf(Entity):
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
+
+
+
 
 
                                         class PerPrefix(Entity):
@@ -9924,6 +10055,7 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa, ['tunnel', 'maximum_cost'], name, value)
 
 
+
                                             class Tiebreakers(Entity):
                                                 """
                                                 Fast\-reroute tiebreakers configurations
@@ -10006,6 +10138,8 @@ class Ospf(Entity):
                                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, ['tiebreaker_type', 'tiebreaker_index'], name, value)
 
 
+
+
                                             class CandidateInterfaces(Entity):
                                                 """
                                                 Fast\-reroute per\-link/per\-prefix candidate
@@ -10078,6 +10212,8 @@ class Ospf(Entity):
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
+
+
 
 
                                             class ExcludeInterfaces(Entity):
@@ -10155,6 +10291,10 @@ class Ospf(Entity):
                                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
 
+
+
+
+
                                     class CostFallback(Entity):
                                         """
                                         Interface fallback cost
@@ -10200,6 +10340,9 @@ class Ospf(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.NameScopes.NameScope.CostFallback, ['cost', 'threshold'], name, value)
+
+
+
 
 
                             class MultiAreaInterfaceScopes(Entity):
@@ -10466,6 +10609,7 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList, ['access_list_name', 'route_policy_name'], name, value)
 
 
+
                                     class Authentication(Entity):
                                         """
                                         Authentication
@@ -10572,6 +10716,7 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                                         class MessageDigestKeys(Entity):
                                             """
                                             Message digest authentication password (key)
@@ -10656,6 +10801,9 @@ class Ospf(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
+
+
+
 
 
                                     class Neighbors(Entity):
@@ -10776,6 +10924,8 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors.Neighbor, ['neighbor_address', 'priority', 'poll_interval', 'cost', 'database_filter'], name, value)
 
 
+
+
                                     class DeadIntervalMinimal(Entity):
                                         """
                                         Interval after which a neighbor is declared dead
@@ -10823,6 +10973,7 @@ class Ospf(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
+
 
 
                                     class FastReroute(Entity):
@@ -11009,6 +11160,8 @@ class Ospf(Entity):
                                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
 
+
+
                                             class ExcludeInterfaces(Entity):
                                                 """
                                                 Fast\-reroute per\-link/per\-prefix or UCMP exclude
@@ -11082,6 +11235,9 @@ class Ospf(Entity):
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
+
+
+
 
 
                                         class PerPrefix(Entity):
@@ -11210,6 +11366,7 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa, ['tunnel', 'maximum_cost'], name, value)
 
 
+
                                             class Tiebreakers(Entity):
                                                 """
                                                 Fast\-reroute tiebreakers configurations
@@ -11292,6 +11449,8 @@ class Ospf(Entity):
                                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, ['tiebreaker_type', 'tiebreaker_index'], name, value)
 
 
+
+
                                             class CandidateInterfaces(Entity):
                                                 """
                                                 Fast\-reroute per\-link/per\-prefix candidate
@@ -11364,6 +11523,8 @@ class Ospf(Entity):
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
+
+
 
 
                                             class ExcludeInterfaces(Entity):
@@ -11441,6 +11602,10 @@ class Ospf(Entity):
                                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
 
+
+
+
+
                                     class CostFallback(Entity):
                                         """
                                         Interface fallback cost
@@ -11486,6 +11651,9 @@ class Ospf(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback, ['cost', 'threshold'], name, value)
+
+
+
 
 
                             class AreaRanges(Entity):
@@ -11578,6 +11746,8 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.AreaRanges.AreaRange, ['address', 'netmask', 'not_advertise'], name, value)
 
 
+
+
                             class Nssa(Entity):
                                 """
                                 Specify area as a NSSA area
@@ -11650,6 +11820,8 @@ class Ospf(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAddress.Nssa, ['no_redistribution', 'default_info_originate', 'no_summary', 'nssa_def_metric', 'metric_type'], name, value)
+
+
 
 
                         class AreaAreaId(Entity):
@@ -12068,6 +12240,7 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                                         class MessageDigestKeys(Entity):
                                             """
                                             Message digest authentication password (key)
@@ -12154,6 +12327,9 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
 
 
+
+
+
                                     class DeadIntervalMinimal(Entity):
                                         """
                                         Interval after which a neighbor is declared dead
@@ -12201,6 +12377,9 @@ class Ospf(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
+
+
+
 
 
                             class ShamLinkScopes(Entity):
@@ -12471,6 +12650,7 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                                         class MessageDigestKeys(Entity):
                                             """
                                             Message digest authentication password (key)
@@ -12557,6 +12737,9 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
 
 
+
+
+
                                     class DeadIntervalMinimal(Entity):
                                         """
                                         Interval after which a neighbor is declared dead
@@ -12604,6 +12787,9 @@ class Ospf(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
+
+
+
 
 
                             class AreaScope(Entity):
@@ -12928,6 +13114,7 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.DistributeList, ['access_list_name', 'route_policy_name'], name, value)
 
 
+
                                 class Bfd(Entity):
                                     """
                                     BFD configuration
@@ -12982,6 +13169,7 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Bfd, ['interval', 'detection_multiplier', 'fast_detect_mode'], name, value)
+
 
 
                                 class Authentication(Entity):
@@ -13090,6 +13278,7 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                                     class MessageDigestKeys(Entity):
                                         """
                                         Message digest authentication password (key)
@@ -13176,6 +13365,9 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
 
 
+
+
+
                                 class Security(Entity):
                                     """
                                     Container class for security related
@@ -13259,6 +13451,8 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.Security.Ttl, ['enable', 'hop_count'], name, value)
 
 
+
+
                                 class DeadIntervalMinimal(Entity):
                                     """
                                     Interval after which a neighbor is declared dead
@@ -13306,6 +13500,7 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
+
 
 
                                 class FastReroute(Entity):
@@ -13492,6 +13687,8 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
 
+
+
                                         class ExcludeInterfaces(Entity):
                                             """
                                             Fast\-reroute per\-link/per\-prefix or UCMP exclude
@@ -13565,6 +13762,9 @@ class Ospf(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
+
+
+
 
 
                                     class PerPrefix(Entity):
@@ -13693,6 +13893,7 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.RemoteLfa, ['tunnel', 'maximum_cost'], name, value)
 
 
+
                                         class Tiebreakers(Entity):
                                             """
                                             Fast\-reroute tiebreakers configurations
@@ -13775,6 +13976,8 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, ['tiebreaker_type', 'tiebreaker_index'], name, value)
 
 
+
+
                                         class CandidateInterfaces(Entity):
                                             """
                                             Fast\-reroute per\-link/per\-prefix candidate
@@ -13847,6 +14050,8 @@ class Ospf(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
+
+
 
 
                                         class ExcludeInterfaces(Entity):
@@ -13924,6 +14129,10 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
 
+
+
+
+
                                 class CostFallback(Entity):
                                     """
                                     Interface fallback cost
@@ -13969,6 +14178,8 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaScope.CostFallback, ['cost', 'threshold'], name, value)
+
+
 
 
                             class NameScopes(Entity):
@@ -14396,6 +14607,7 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid, ['sid_value', 'explicit_null', 'type', 'n_flag_clear'], name, value)
 
 
+
                                     class PrefixSidStrict(Entity):
                                         """
                                         Strict Prefix SID
@@ -14466,6 +14678,7 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSidStrict, ['sid_value', 'explicit_null', 'type', 'n_flag_clear'], name, value)
 
 
+
                                     class DistributeList(Entity):
                                         """
                                         Filter networks intalled to RIB (disable as ACL
@@ -14511,6 +14724,7 @@ class Ospf(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DistributeList, ['access_list_name', 'route_policy_name'], name, value)
+
 
 
                                     class Bfd(Entity):
@@ -14567,6 +14781,7 @@ class Ospf(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Bfd, ['interval', 'detection_multiplier', 'fast_detect_mode'], name, value)
+
 
 
                                     class Authentication(Entity):
@@ -14675,6 +14890,7 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                                         class MessageDigestKeys(Entity):
                                             """
                                             Message digest authentication password (key)
@@ -14761,6 +14977,9 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
 
 
+
+
+
                                     class Security(Entity):
                                         """
                                         Container class for security related
@@ -14842,6 +15061,8 @@ class Ospf(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security.Ttl, ['enable', 'hop_count'], name, value)
+
+
 
 
                                     class Neighbors(Entity):
@@ -14962,6 +15183,8 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors.Neighbor, ['neighbor_address', 'priority', 'poll_interval', 'cost', 'database_filter'], name, value)
 
 
+
+
                                     class DeadIntervalMinimal(Entity):
                                         """
                                         Interval after which a neighbor is declared dead
@@ -15009,6 +15232,7 @@ class Ospf(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
+
 
 
                                     class FastReroute(Entity):
@@ -15195,6 +15419,8 @@ class Ospf(Entity):
                                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
 
+
+
                                             class ExcludeInterfaces(Entity):
                                                 """
                                                 Fast\-reroute per\-link/per\-prefix or UCMP exclude
@@ -15268,6 +15494,9 @@ class Ospf(Entity):
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
+
+
+
 
 
                                         class PerPrefix(Entity):
@@ -15396,6 +15625,7 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa, ['tunnel', 'maximum_cost'], name, value)
 
 
+
                                             class Tiebreakers(Entity):
                                                 """
                                                 Fast\-reroute tiebreakers configurations
@@ -15478,6 +15708,8 @@ class Ospf(Entity):
                                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, ['tiebreaker_type', 'tiebreaker_index'], name, value)
 
 
+
+
                                             class CandidateInterfaces(Entity):
                                                 """
                                                 Fast\-reroute per\-link/per\-prefix candidate
@@ -15550,6 +15782,8 @@ class Ospf(Entity):
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
+
+
 
 
                                             class ExcludeInterfaces(Entity):
@@ -15627,6 +15861,10 @@ class Ospf(Entity):
                                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
 
+
+
+
+
                                     class CostFallback(Entity):
                                         """
                                         Interface fallback cost
@@ -15672,6 +15910,9 @@ class Ospf(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.CostFallback, ['cost', 'threshold'], name, value)
+
+
+
 
 
                             class MultiAreaInterfaceScopes(Entity):
@@ -15938,6 +16179,7 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList, ['access_list_name', 'route_policy_name'], name, value)
 
 
+
                                     class Authentication(Entity):
                                         """
                                         Authentication
@@ -16044,6 +16286,7 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                                         class MessageDigestKeys(Entity):
                                             """
                                             Message digest authentication password (key)
@@ -16128,6 +16371,9 @@ class Ospf(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
+
+
+
 
 
                                     class Neighbors(Entity):
@@ -16248,6 +16494,8 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors.Neighbor, ['neighbor_address', 'priority', 'poll_interval', 'cost', 'database_filter'], name, value)
 
 
+
+
                                     class DeadIntervalMinimal(Entity):
                                         """
                                         Interval after which a neighbor is declared dead
@@ -16295,6 +16543,7 @@ class Ospf(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
+
 
 
                                     class FastReroute(Entity):
@@ -16481,6 +16730,8 @@ class Ospf(Entity):
                                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
 
+
+
                                             class ExcludeInterfaces(Entity):
                                                 """
                                                 Fast\-reroute per\-link/per\-prefix or UCMP exclude
@@ -16554,6 +16805,9 @@ class Ospf(Entity):
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
+
+
+
 
 
                                         class PerPrefix(Entity):
@@ -16682,6 +16936,7 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa, ['tunnel', 'maximum_cost'], name, value)
 
 
+
                                             class Tiebreakers(Entity):
                                                 """
                                                 Fast\-reroute tiebreakers configurations
@@ -16764,6 +17019,8 @@ class Ospf(Entity):
                                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, ['tiebreaker_type', 'tiebreaker_index'], name, value)
 
 
+
+
                                             class CandidateInterfaces(Entity):
                                                 """
                                                 Fast\-reroute per\-link/per\-prefix candidate
@@ -16836,6 +17093,8 @@ class Ospf(Entity):
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
+
+
 
 
                                             class ExcludeInterfaces(Entity):
@@ -16913,6 +17172,10 @@ class Ospf(Entity):
                                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
 
+
+
+
+
                                     class CostFallback(Entity):
                                         """
                                         Interface fallback cost
@@ -16958,6 +17221,9 @@ class Ospf(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback, ['cost', 'threshold'], name, value)
+
+
+
 
 
                             class AreaRanges(Entity):
@@ -17050,6 +17316,8 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.AreaRanges.AreaRange, ['address', 'netmask', 'not_advertise'], name, value)
 
 
+
+
                             class Nssa(Entity):
                                 """
                                 Specify area as a NSSA area
@@ -17122,6 +17390,9 @@ class Ospf(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.AreaAddresses.AreaAreaId.Nssa, ['no_redistribution', 'default_info_originate', 'no_summary', 'nssa_def_metric', 'metric_type'], name, value)
+
+
+
 
 
                     class Timers(Entity):
@@ -17302,6 +17573,7 @@ class Ospf(Entity):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.Timers.SpfTimer, ['initial_delay', 'backoff_increment', 'max_delay'], name, value)
 
 
+
                         class LsaGenerationTimer(Entity):
                             """
                             OSPF LSA timers (in milliseconds)
@@ -17368,6 +17640,10 @@ class Ospf(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospf.Processes.Process.Vrfs.Vrf.Timers.LsaGenerationTimer, ['initial_delay', 'backoff_increment', 'max_delay'], name, value)
+
+
+
+
 
 
             class TraceBufs(Entity):
@@ -17453,6 +17729,8 @@ class Ospf(Entity):
                         self._perform_setattr(Ospf.Processes.Process.TraceBufs.TraceBuf, ['trace_buf_name', 'bufsize'], name, value)
 
 
+
+
             class GracefulShutdownTimers(Entity):
                 """
                 Adjust routing timers
@@ -17506,6 +17784,7 @@ class Ospf(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ospf.Processes.Process.GracefulShutdownTimers, ['graceful_shutdown_retain_routes', 'graceful_shutdown_initial_delay'], name, value)
+
 
 
             class DefaultVrf(Entity):
@@ -17883,6 +18162,7 @@ class Ospf(Entity):
                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.MonitorConvergence, ['enable', 'prefix_list', 'track_ip_frr', 'track_external_routes', 'track_summary_routes'], name, value)
 
 
+
                 class SegmentRouting(Entity):
                     """
                     Segment Routing instance scoped parameters
@@ -17984,6 +18264,8 @@ class Ospf(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.SegmentRouting.SrPrefer, ['enable', 'prefix_list_name'], name, value)
+
+
 
 
                 class Mpls(Entity):
@@ -18102,6 +18384,8 @@ class Ospf(Entity):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.Mpls.MplsRouterId, ['address', 'interface_name'], name, value)
 
 
+
+
                 class Microloop(Entity):
                     """
                     Microloop configuration
@@ -18190,6 +18474,8 @@ class Ospf(Entity):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.Microloop.Avoidance, ['enable', 'rib_update_delay'], name, value)
 
 
+
+
                 class MaximumRedistributePrefix(Entity):
                     """
                     Maximum number of prefixes redistributed into
@@ -18243,6 +18529,7 @@ class Ospf(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.MaximumRedistributePrefix, ['number_of_prefixes', 'threshold', 'warning_only'], name, value)
+
 
 
                 class DefaultInformation(Entity):
@@ -18310,6 +18597,7 @@ class Ospf(Entity):
                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.DefaultInformation, ['always_advertise', 'metric', 'metric_type', 'route_policy_name'], name, value)
 
 
+
                 class Af(Entity):
                     """
                     OSPF address family
@@ -18356,6 +18644,7 @@ class Ospf(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.Af, ['af_name', 'saf_name'], name, value)
+
 
 
                 class Queue(Entity):
@@ -18463,6 +18752,7 @@ class Ospf(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.Queue, ['dispatch_rate_limited_flush', 'limit_high', 'dispatch_spf_lsa_limit', 'limit_low', 'dispatch_rate_limited', 'limit_medium', 'dispatch_incoming'], name, value)
+
 
 
                 class MaxMetric(Entity):
@@ -18635,6 +18925,7 @@ class Ospf(Entity):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnProcRestart, ['wait_for_bgp', 'startup_max', 'include_stub', 'summary_lsa', 'summary_lsa_maximum_metric', 'external_lsa', 'external_lsa_maximum_metric'], name, value)
 
 
+
                     class MaxMetricOnStartup(Entity):
                         """
                         Set maximum metric on\-startup configuration
@@ -18721,6 +19012,7 @@ class Ospf(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnStartup, ['wait_for_bgp', 'startup_max', 'include_stub', 'summary_lsa', 'summary_lsa_maximum_metric', 'external_lsa', 'external_lsa_maximum_metric'], name, value)
+
 
 
                     class MaxMetricOnProcMigration(Entity):
@@ -18812,6 +19104,7 @@ class Ospf(Entity):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnProcMigration, ['wait_for_bgp', 'startup_max', 'include_stub', 'summary_lsa', 'summary_lsa_maximum_metric', 'external_lsa', 'external_lsa_maximum_metric'], name, value)
 
 
+
                     class MaxMetricAlways(Entity):
                         """
                         Set maximum metric always configuration
@@ -18880,6 +19173,7 @@ class Ospf(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricAlways, ['include_stub', 'summary_lsa', 'summary_lsa_maximum_metric', 'external_lsa', 'external_lsa_maximum_metric'], name, value)
+
 
 
                     class MaxMetricOnSwitchover(Entity):
@@ -18968,6 +19262,8 @@ class Ospf(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.MaxMetric.MaxMetricOnSwitchover, ['wait_for_bgp', 'startup_max', 'include_stub', 'summary_lsa', 'summary_lsa_maximum_metric', 'external_lsa', 'external_lsa_maximum_metric'], name, value)
+
+
 
 
                 class Nsf(Entity):
@@ -19064,6 +19360,7 @@ class Ospf(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.Nsf, ['lifetime', 'ietf', 'ietf_support_role', 'cisco', 'interval', 'flush_delay_time', 'ietf_strict_lsa_checking'], name, value)
+
 
 
                 class ProcessScope(Entity):
@@ -19426,6 +19723,7 @@ class Ospf(Entity):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.ProcessScope.Srgb, ['lower_bound', 'upper_bound'], name, value)
 
 
+
                     class FastReroute(Entity):
                         """
                         Fast\-reroute configuration
@@ -19610,6 +19908,8 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
 
+
+
                             class ExcludeInterfaces(Entity):
                                 """
                                 Fast\-reroute per\-link/per\-prefix or UCMP exclude
@@ -19683,6 +19983,9 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
+
+
+
 
 
                         class PerPrefix(Entity):
@@ -19802,6 +20105,7 @@ class Ospf(Entity):
                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.RemoteLfa, ['tunnel', 'maximum_cost'], name, value)
 
 
+
                             class CandidateInterfaces(Entity):
                                 """
                                 Fast\-reroute per\-link/per\-prefix candidate
@@ -19874,6 +20178,8 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
+
+
 
 
                             class ExcludeInterfaces(Entity):
@@ -19951,6 +20257,10 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.ProcessScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
 
+
+
+
+
                     class DistributeList(Entity):
                         """
                         Filter networks intalled to RIB (disable as ACL
@@ -19996,6 +20306,7 @@ class Ospf(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.ProcessScope.DistributeList, ['access_list_name', 'route_policy_name'], name, value)
+
 
 
                     class Bfd(Entity):
@@ -20052,6 +20363,7 @@ class Ospf(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.ProcessScope.Bfd, ['interval', 'detection_multiplier', 'fast_detect_mode'], name, value)
+
 
 
                     class Authentication(Entity):
@@ -20160,6 +20472,7 @@ class Ospf(Entity):
                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                         class MessageDigestKeys(Entity):
                             """
                             Message digest authentication password (key)
@@ -20246,6 +20559,9 @@ class Ospf(Entity):
                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.ProcessScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
 
 
+
+
+
                     class Security(Entity):
                         """
                         Container class for security related
@@ -20329,6 +20645,8 @@ class Ospf(Entity):
                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.ProcessScope.Security.Ttl, ['enable', 'hop_count'], name, value)
 
 
+
+
                     class DeadIntervalMinimal(Entity):
                         """
                         Interval after which a neighbor is declared dead
@@ -20378,6 +20696,7 @@ class Ospf(Entity):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.ProcessScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
 
 
+
                     class CostFallback(Entity):
                         """
                         Interface fallback cost
@@ -20423,6 +20742,8 @@ class Ospf(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.ProcessScope.CostFallback, ['cost', 'threshold'], name, value)
+
+
 
 
                 class Redistribution(Entity):
@@ -20710,6 +21031,7 @@ class Ospf(Entity):
                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.ConnectedOrStaticOrDagrOrSubscriberOrMobileOrRip, ['classful', 'default_redistributed_route_metric', 'tag', 'metric_type', 'eigrp_route_type', 'isis_levels', 'ospf_internal', 'ospf_external', 'ospf_nssa_level', 'route_policy_name', 'bgp_preserve_med', 'bgp_preserve_default_info', 'ospf_redist_lsa_type', 'ospfnssa_only', 'ospf_use_rib_metric'], name, value)
 
 
+
                             class ApplicationOrIsisOrOspf(Entity):
                                 """
                                 application or isis or ospf
@@ -20859,6 +21181,7 @@ class Ospf(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.ApplicationOrIsisOrOspf, ['instance_name', 'classful', 'default_redistributed_route_metric', 'tag', 'metric_type', 'eigrp_route_type', 'isis_levels', 'ospf_internal', 'ospf_external', 'ospf_nssa_level', 'route_policy_name', 'bgp_preserve_med', 'bgp_preserve_default_info', 'ospf_redist_lsa_type', 'ospfnssa_only', 'ospf_use_rib_metric'], name, value)
+
 
 
                             class Bgp(Entity):
@@ -21030,6 +21353,7 @@ class Ospf(Entity):
                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.Bgp, ['instance_name', 'as_xx', 'as_yy', 'classful', 'default_redistributed_route_metric', 'tag', 'metric_type', 'eigrp_route_type', 'isis_levels', 'ospf_internal', 'ospf_external', 'ospf_nssa_level', 'route_policy_name', 'bgp_preserve_med', 'bgp_preserve_default_info', 'ospf_redist_lsa_type', 'ospfnssa_only', 'ospf_use_rib_metric'], name, value)
 
 
+
                             class Eigrp(Entity):
                                 """
                                 eigrp
@@ -21190,6 +21514,10 @@ class Ospf(Entity):
                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.Redistribution.Redistributes.Redistribute.Eigrp, ['instance_name', 'as_xx', 'classful', 'default_redistributed_route_metric', 'tag', 'metric_type', 'eigrp_route_type', 'isis_levels', 'ospf_internal', 'ospf_external', 'ospf_nssa_level', 'route_policy_name', 'bgp_preserve_med', 'bgp_preserve_default_info', 'ospf_redist_lsa_type', 'ospfnssa_only', 'ospf_use_rib_metric'], name, value)
 
 
+
+
+
+
                 class AdjacencyStagger(Entity):
                     """
                     Staggering OSPF adjacency bring up
@@ -21246,6 +21574,7 @@ class Ospf(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AdjacencyStagger, ['disable', 'initial_nbr', 'max_nbr'], name, value)
+
 
 
                 class MaxLsa(Entity):
@@ -21336,6 +21665,7 @@ class Ospf(Entity):
                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.MaxLsa, ['max_lsa_limit', 'max_lsa_threshold', 'max_lsa_warning_only', 'max_lsa_ignore_time', 'max_lsa_ignore_count', 'max_lsa_reset_time'], name, value)
 
 
+
                 class AutoCost(Entity):
                     """
                     Controls automatic cost based on bandwidth
@@ -21385,6 +21715,7 @@ class Ospf(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AutoCost, ['disable', 'bandwidth'], name, value)
+
 
 
                 class Ucmp(Entity):
@@ -21494,6 +21825,7 @@ class Ospf(Entity):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.Ucmp.Enable, ['variance', 'prefix_list_name'], name, value)
 
 
+
                     class ExcludeInterfaces(Entity):
                         """
                         Fast\-reroute per\-link/per\-prefix or UCMP exclude
@@ -21567,6 +21899,9 @@ class Ospf(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.Ucmp.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
+
+
+
 
 
                 class FastReroute(Entity):
@@ -21649,6 +21984,7 @@ class Ospf(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.FastReroute.PerLink, ['priority'], name, value)
+
 
 
                     class PerPrefix(Entity):
@@ -21785,6 +22121,10 @@ class Ospf(Entity):
                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, ['tiebreaker_type', 'tiebreaker_index'], name, value)
 
 
+
+
+
+
                 class SummaryPrefixes(Entity):
                     """
                     Configure IP prefix summary
@@ -21888,6 +22228,7 @@ class Ospf(Entity):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.SummaryPrefixData, ['not_advertise', 'tag'], name, value)
 
 
+
                     class PrefixAndNetmask(Entity):
                         """
                         keys\: prefix, netmask
@@ -21953,6 +22294,7 @@ class Ospf(Entity):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.PrefixAndNetmask, ['prefix', 'netmask', 'not_advertise', 'tag'], name, value)
 
 
+
                     class Prefix(Entity):
                         """
                         keys\: prefix
@@ -22009,6 +22351,7 @@ class Ospf(Entity):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.Prefix, ['prefix', 'not_advertise', 'tag'], name, value)
 
 
+
                     class Netmask(Entity):
                         """
                         keys\: netmask
@@ -22063,6 +22406,8 @@ class Ospf(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.SummaryPrefixes.Netmask, ['netmask', 'not_advertise', 'tag'], name, value)
+
+
 
 
                 class OutgoingRouteUpdates(Entity):
@@ -22167,6 +22512,8 @@ class Ospf(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.OutgoingRouteUpdates.OutgoingRouteUpdate, ['protocol_name', 'access_list_name', 'as_xx', 'as_yy', 'ospf_process_name'], name, value)
+
+
 
 
                 class Distance(Entity):
@@ -22289,6 +22636,7 @@ class Ospf(Entity):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.Distance.OspfDistance, ['intra_area', 'inter_area', 'external_routes'], name, value)
 
 
+
                     class IpDistances(Entity):
                         """
                         IP specific administrative distance
@@ -22389,6 +22737,9 @@ class Ospf(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.Distance.IpDistances.IpDistance, ['address', 'wildcard', 'distance', 'access_list_name'], name, value)
+
+
+
 
 
                 class AreaAddresses(Entity):
@@ -22848,6 +23199,7 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                                     class MessageDigestKeys(Entity):
                                         """
                                         Message digest authentication password (key)
@@ -22934,6 +23286,9 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
 
 
+
+
+
                                 class DeadIntervalMinimal(Entity):
                                     """
                                     Interval after which a neighbor is declared dead
@@ -22981,6 +23336,9 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
+
+
+
 
 
                         class ShamLinkScopes(Entity):
@@ -23251,6 +23609,7 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                                     class MessageDigestKeys(Entity):
                                         """
                                         Message digest authentication password (key)
@@ -23337,6 +23696,9 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
 
 
+
+
+
                                 class DeadIntervalMinimal(Entity):
                                     """
                                     Interval after which a neighbor is declared dead
@@ -23384,6 +23746,9 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
+
+
+
 
 
                         class AreaScope(Entity):
@@ -23708,6 +24073,7 @@ class Ospf(Entity):
                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.DistributeList, ['access_list_name', 'route_policy_name'], name, value)
 
 
+
                             class Bfd(Entity):
                                 """
                                 BFD configuration
@@ -23762,6 +24128,7 @@ class Ospf(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Bfd, ['interval', 'detection_multiplier', 'fast_detect_mode'], name, value)
+
 
 
                             class Authentication(Entity):
@@ -23870,6 +24237,7 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                                 class MessageDigestKeys(Entity):
                                     """
                                     Message digest authentication password (key)
@@ -23956,6 +24324,9 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
 
 
+
+
+
                             class Security(Entity):
                                 """
                                 Container class for security related
@@ -24039,6 +24410,8 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.Security.Ttl, ['enable', 'hop_count'], name, value)
 
 
+
+
                             class DeadIntervalMinimal(Entity):
                                 """
                                 Interval after which a neighbor is declared dead
@@ -24086,6 +24459,7 @@ class Ospf(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
+
 
 
                             class FastReroute(Entity):
@@ -24272,6 +24646,8 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
 
+
+
                                     class ExcludeInterfaces(Entity):
                                         """
                                         Fast\-reroute per\-link/per\-prefix or UCMP exclude
@@ -24345,6 +24721,9 @@ class Ospf(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
+
+
+
 
 
                                 class PerPrefix(Entity):
@@ -24473,6 +24852,7 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.RemoteLfa, ['tunnel', 'maximum_cost'], name, value)
 
 
+
                                     class Tiebreakers(Entity):
                                         """
                                         Fast\-reroute tiebreakers configurations
@@ -24555,6 +24935,8 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, ['tiebreaker_type', 'tiebreaker_index'], name, value)
 
 
+
+
                                     class CandidateInterfaces(Entity):
                                         """
                                         Fast\-reroute per\-link/per\-prefix candidate
@@ -24627,6 +25009,8 @@ class Ospf(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
+
+
 
 
                                     class ExcludeInterfaces(Entity):
@@ -24704,6 +25088,10 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
 
+
+
+
+
                             class CostFallback(Entity):
                                 """
                                 Interface fallback cost
@@ -24749,6 +25137,8 @@ class Ospf(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaScope.CostFallback, ['cost', 'threshold'], name, value)
+
+
 
 
                         class NameScopes(Entity):
@@ -25176,6 +25566,7 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSid, ['sid_value', 'explicit_null', 'type', 'n_flag_clear'], name, value)
 
 
+
                                 class PrefixSidStrict(Entity):
                                     """
                                     Strict Prefix SID
@@ -25246,6 +25637,7 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.PrefixSidStrict, ['sid_value', 'explicit_null', 'type', 'n_flag_clear'], name, value)
 
 
+
                                 class DistributeList(Entity):
                                     """
                                     Filter networks intalled to RIB (disable as ACL
@@ -25291,6 +25683,7 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DistributeList, ['access_list_name', 'route_policy_name'], name, value)
+
 
 
                                 class Bfd(Entity):
@@ -25347,6 +25740,7 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Bfd, ['interval', 'detection_multiplier', 'fast_detect_mode'], name, value)
+
 
 
                                 class Authentication(Entity):
@@ -25455,6 +25849,7 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                                     class MessageDigestKeys(Entity):
                                         """
                                         Message digest authentication password (key)
@@ -25541,6 +25936,9 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
 
 
+
+
+
                                 class Security(Entity):
                                     """
                                     Container class for security related
@@ -25622,6 +26020,8 @@ class Ospf(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Security.Ttl, ['enable', 'hop_count'], name, value)
+
+
 
 
                                 class Neighbors(Entity):
@@ -25742,6 +26142,8 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.Neighbors.Neighbor, ['neighbor_address', 'priority', 'poll_interval', 'cost', 'database_filter'], name, value)
 
 
+
+
                                 class DeadIntervalMinimal(Entity):
                                     """
                                     Interval after which a neighbor is declared dead
@@ -25789,6 +26191,7 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
+
 
 
                                 class FastReroute(Entity):
@@ -25975,6 +26378,8 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
 
+
+
                                         class ExcludeInterfaces(Entity):
                                             """
                                             Fast\-reroute per\-link/per\-prefix or UCMP exclude
@@ -26048,6 +26453,9 @@ class Ospf(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
+
+
+
 
 
                                     class PerPrefix(Entity):
@@ -26176,6 +26584,7 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa, ['tunnel', 'maximum_cost'], name, value)
 
 
+
                                         class Tiebreakers(Entity):
                                             """
                                             Fast\-reroute tiebreakers configurations
@@ -26258,6 +26667,8 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, ['tiebreaker_type', 'tiebreaker_index'], name, value)
 
 
+
+
                                         class CandidateInterfaces(Entity):
                                             """
                                             Fast\-reroute per\-link/per\-prefix candidate
@@ -26330,6 +26741,8 @@ class Ospf(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
+
+
 
 
                                         class ExcludeInterfaces(Entity):
@@ -26407,6 +26820,10 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
 
+
+
+
+
                                 class CostFallback(Entity):
                                     """
                                     Interface fallback cost
@@ -26452,6 +26869,9 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.NameScopes.NameScope.CostFallback, ['cost', 'threshold'], name, value)
+
+
+
 
 
                         class MultiAreaInterfaceScopes(Entity):
@@ -26718,6 +27138,7 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList, ['access_list_name', 'route_policy_name'], name, value)
 
 
+
                                 class Authentication(Entity):
                                     """
                                     Authentication
@@ -26824,6 +27245,7 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                                     class MessageDigestKeys(Entity):
                                         """
                                         Message digest authentication password (key)
@@ -26908,6 +27330,9 @@ class Ospf(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
+
+
+
 
 
                                 class Neighbors(Entity):
@@ -27028,6 +27453,8 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors.Neighbor, ['neighbor_address', 'priority', 'poll_interval', 'cost', 'database_filter'], name, value)
 
 
+
+
                                 class DeadIntervalMinimal(Entity):
                                     """
                                     Interval after which a neighbor is declared dead
@@ -27075,6 +27502,7 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
+
 
 
                                 class FastReroute(Entity):
@@ -27261,6 +27689,8 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
 
+
+
                                         class ExcludeInterfaces(Entity):
                                             """
                                             Fast\-reroute per\-link/per\-prefix or UCMP exclude
@@ -27334,6 +27764,9 @@ class Ospf(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
+
+
+
 
 
                                     class PerPrefix(Entity):
@@ -27462,6 +27895,7 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa, ['tunnel', 'maximum_cost'], name, value)
 
 
+
                                         class Tiebreakers(Entity):
                                             """
                                             Fast\-reroute tiebreakers configurations
@@ -27544,6 +27978,8 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, ['tiebreaker_type', 'tiebreaker_index'], name, value)
 
 
+
+
                                         class CandidateInterfaces(Entity):
                                             """
                                             Fast\-reroute per\-link/per\-prefix candidate
@@ -27616,6 +28052,8 @@ class Ospf(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
+
+
 
 
                                         class ExcludeInterfaces(Entity):
@@ -27693,6 +28131,10 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
 
+
+
+
+
                                 class CostFallback(Entity):
                                     """
                                     Interface fallback cost
@@ -27738,6 +28180,9 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback, ['cost', 'threshold'], name, value)
+
+
+
 
 
                         class AreaRanges(Entity):
@@ -27830,6 +28275,8 @@ class Ospf(Entity):
                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.AreaRanges.AreaRange, ['address', 'netmask', 'not_advertise'], name, value)
 
 
+
+
                         class Nssa(Entity):
                             """
                             Specify area as a NSSA area
@@ -27902,6 +28349,8 @@ class Ospf(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAddress.Nssa, ['no_redistribution', 'default_info_originate', 'no_summary', 'nssa_def_metric', 'metric_type'], name, value)
+
+
 
 
                     class AreaAreaId(Entity):
@@ -28320,6 +28769,7 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                                     class MessageDigestKeys(Entity):
                                         """
                                         Message digest authentication password (key)
@@ -28406,6 +28856,9 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
 
 
+
+
+
                                 class DeadIntervalMinimal(Entity):
                                     """
                                     Interval after which a neighbor is declared dead
@@ -28453,6 +28906,9 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.VirtualLinkScopes.VirtualLinkScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
+
+
+
 
 
                         class ShamLinkScopes(Entity):
@@ -28723,6 +29179,7 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                                     class MessageDigestKeys(Entity):
                                         """
                                         Message digest authentication password (key)
@@ -28809,6 +29266,9 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
 
 
+
+
+
                                 class DeadIntervalMinimal(Entity):
                                     """
                                     Interval after which a neighbor is declared dead
@@ -28856,6 +29316,9 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.ShamLinkScopes.ShamLinkScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
+
+
+
 
 
                         class AreaScope(Entity):
@@ -29180,6 +29643,7 @@ class Ospf(Entity):
                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.DistributeList, ['access_list_name', 'route_policy_name'], name, value)
 
 
+
                             class Bfd(Entity):
                                 """
                                 BFD configuration
@@ -29234,6 +29698,7 @@ class Ospf(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Bfd, ['interval', 'detection_multiplier', 'fast_detect_mode'], name, value)
+
 
 
                             class Authentication(Entity):
@@ -29342,6 +29807,7 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                                 class MessageDigestKeys(Entity):
                                     """
                                     Message digest authentication password (key)
@@ -29428,6 +29894,9 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
 
 
+
+
+
                             class Security(Entity):
                                 """
                                 Container class for security related
@@ -29511,6 +29980,8 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.Security.Ttl, ['enable', 'hop_count'], name, value)
 
 
+
+
                             class DeadIntervalMinimal(Entity):
                                 """
                                 Interval after which a neighbor is declared dead
@@ -29558,6 +30029,7 @@ class Ospf(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
+
 
 
                             class FastReroute(Entity):
@@ -29744,6 +30216,8 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
 
+
+
                                     class ExcludeInterfaces(Entity):
                                         """
                                         Fast\-reroute per\-link/per\-prefix or UCMP exclude
@@ -29817,6 +30291,9 @@ class Ospf(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
+
+
+
 
 
                                 class PerPrefix(Entity):
@@ -29945,6 +30422,7 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.RemoteLfa, ['tunnel', 'maximum_cost'], name, value)
 
 
+
                                     class Tiebreakers(Entity):
                                         """
                                         Fast\-reroute tiebreakers configurations
@@ -30027,6 +30505,8 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, ['tiebreaker_type', 'tiebreaker_index'], name, value)
 
 
+
+
                                     class CandidateInterfaces(Entity):
                                         """
                                         Fast\-reroute per\-link/per\-prefix candidate
@@ -30099,6 +30579,8 @@ class Ospf(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
+
+
 
 
                                     class ExcludeInterfaces(Entity):
@@ -30176,6 +30658,10 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
 
+
+
+
+
                             class CostFallback(Entity):
                                 """
                                 Interface fallback cost
@@ -30221,6 +30707,8 @@ class Ospf(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaScope.CostFallback, ['cost', 'threshold'], name, value)
+
+
 
 
                         class NameScopes(Entity):
@@ -30648,6 +31136,7 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSid, ['sid_value', 'explicit_null', 'type', 'n_flag_clear'], name, value)
 
 
+
                                 class PrefixSidStrict(Entity):
                                     """
                                     Strict Prefix SID
@@ -30718,6 +31207,7 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.PrefixSidStrict, ['sid_value', 'explicit_null', 'type', 'n_flag_clear'], name, value)
 
 
+
                                 class DistributeList(Entity):
                                     """
                                     Filter networks intalled to RIB (disable as ACL
@@ -30763,6 +31253,7 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DistributeList, ['access_list_name', 'route_policy_name'], name, value)
+
 
 
                                 class Bfd(Entity):
@@ -30819,6 +31310,7 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Bfd, ['interval', 'detection_multiplier', 'fast_detect_mode'], name, value)
+
 
 
                                 class Authentication(Entity):
@@ -30927,6 +31419,7 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                                     class MessageDigestKeys(Entity):
                                         """
                                         Message digest authentication password (key)
@@ -31013,6 +31506,9 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
 
 
+
+
+
                                 class Security(Entity):
                                     """
                                     Container class for security related
@@ -31094,6 +31590,8 @@ class Ospf(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Security.Ttl, ['enable', 'hop_count'], name, value)
+
+
 
 
                                 class Neighbors(Entity):
@@ -31214,6 +31712,8 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.Neighbors.Neighbor, ['neighbor_address', 'priority', 'poll_interval', 'cost', 'database_filter'], name, value)
 
 
+
+
                                 class DeadIntervalMinimal(Entity):
                                     """
                                     Interval after which a neighbor is declared dead
@@ -31261,6 +31761,7 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
+
 
 
                                 class FastReroute(Entity):
@@ -31447,6 +31948,8 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
 
+
+
                                         class ExcludeInterfaces(Entity):
                                             """
                                             Fast\-reroute per\-link/per\-prefix or UCMP exclude
@@ -31520,6 +32023,9 @@ class Ospf(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
+
+
+
 
 
                                     class PerPrefix(Entity):
@@ -31648,6 +32154,7 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.RemoteLfa, ['tunnel', 'maximum_cost'], name, value)
 
 
+
                                         class Tiebreakers(Entity):
                                             """
                                             Fast\-reroute tiebreakers configurations
@@ -31730,6 +32237,8 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, ['tiebreaker_type', 'tiebreaker_index'], name, value)
 
 
+
+
                                         class CandidateInterfaces(Entity):
                                             """
                                             Fast\-reroute per\-link/per\-prefix candidate
@@ -31802,6 +32311,8 @@ class Ospf(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
+
+
 
 
                                         class ExcludeInterfaces(Entity):
@@ -31879,6 +32390,10 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
 
+
+
+
+
                                 class CostFallback(Entity):
                                     """
                                     Interface fallback cost
@@ -31924,6 +32439,9 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.NameScopes.NameScope.CostFallback, ['cost', 'threshold'], name, value)
+
+
+
 
 
                         class MultiAreaInterfaceScopes(Entity):
@@ -32190,6 +32708,7 @@ class Ospf(Entity):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DistributeList, ['access_list_name', 'route_policy_name'], name, value)
 
 
+
                                 class Authentication(Entity):
                                     """
                                     Authentication
@@ -32296,6 +32815,7 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.Type, ['authen_type', 'keychain_authen_type', 'keychain_name'], name, value)
 
 
+
                                     class MessageDigestKeys(Entity):
                                         """
                                         Message digest authentication password (key)
@@ -32380,6 +32900,9 @@ class Ospf(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Authentication.MessageDigestKeys.MessageDigestKey, ['key_id', 'password'], name, value)
+
+
+
 
 
                                 class Neighbors(Entity):
@@ -32500,6 +33023,8 @@ class Ospf(Entity):
                                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.Neighbors.Neighbor, ['neighbor_address', 'priority', 'poll_interval', 'cost', 'database_filter'], name, value)
 
 
+
+
                                 class DeadIntervalMinimal(Entity):
                                     """
                                     Interval after which a neighbor is declared dead
@@ -32547,6 +33072,7 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.DeadIntervalMinimal, ['interval', 'multiplier'], name, value)
+
 
 
                                 class FastReroute(Entity):
@@ -32733,6 +33259,8 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
 
 
+
+
                                         class ExcludeInterfaces(Entity):
                                             """
                                             Fast\-reroute per\-link/per\-prefix or UCMP exclude
@@ -32806,6 +33334,9 @@ class Ospf(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerLink.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
+
+
+
 
 
                                     class PerPrefix(Entity):
@@ -32934,6 +33465,7 @@ class Ospf(Entity):
                                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.RemoteLfa, ['tunnel', 'maximum_cost'], name, value)
 
 
+
                                         class Tiebreakers(Entity):
                                             """
                                             Fast\-reroute tiebreakers configurations
@@ -33016,6 +33548,8 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.Tiebreakers.Tiebreaker, ['tiebreaker_type', 'tiebreaker_index'], name, value)
 
 
+
+
                                         class CandidateInterfaces(Entity):
                                             """
                                             Fast\-reroute per\-link/per\-prefix candidate
@@ -33088,6 +33622,8 @@ class Ospf(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.CandidateInterfaces.CandidateInterface, ['interface_name'], name, value)
+
+
 
 
                                         class ExcludeInterfaces(Entity):
@@ -33165,6 +33701,10 @@ class Ospf(Entity):
                                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.FastReroute.PerPrefix.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
 
 
+
+
+
+
                                 class CostFallback(Entity):
                                     """
                                     Interface fallback cost
@@ -33210,6 +33750,9 @@ class Ospf(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.MultiAreaInterfaceScopes.MultiAreaInterfaceScope.CostFallback, ['cost', 'threshold'], name, value)
+
+
+
 
 
                         class AreaRanges(Entity):
@@ -33302,6 +33845,8 @@ class Ospf(Entity):
                                     self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.AreaRanges.AreaRange, ['address', 'netmask', 'not_advertise'], name, value)
 
 
+
+
                         class Nssa(Entity):
                             """
                             Specify area as a NSSA area
@@ -33374,6 +33919,9 @@ class Ospf(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ospf.Processes.Process.DefaultVrf.AreaAddresses.AreaAreaId.Nssa, ['no_redistribution', 'default_info_originate', 'no_summary', 'nssa_def_metric', 'metric_type'], name, value)
+
+
+
 
 
                 class Timers(Entity):
@@ -33554,6 +34102,7 @@ class Ospf(Entity):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.Timers.SpfTimer, ['initial_delay', 'backoff_increment', 'max_delay'], name, value)
 
 
+
                     class LsaGenerationTimer(Entity):
                         """
                         OSPF LSA timers (in milliseconds)
@@ -33622,6 +34171,11 @@ class Ospf(Entity):
                             self._perform_setattr(Ospf.Processes.Process.DefaultVrf.Timers.LsaGenerationTimer, ['initial_delay', 'backoff_increment', 'max_delay'], name, value)
 
 
+
+
+
+
+
     class Global(Entity):
         """
         OSPF global configuration data
@@ -33658,7 +34212,10 @@ class Ospf(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ospf.Global, ['dns_name_lookup'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Ospf()
         return self._top_entity
+
+
 

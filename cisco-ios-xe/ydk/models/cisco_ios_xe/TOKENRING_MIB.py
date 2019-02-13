@@ -29,6 +29,7 @@ class Dot5ChipSetTItms380(ObjectIdentity):
         super(Dot5ChipSetTItms380, self).__init__(ns, pref, tag)
 
 
+
 class Dot5ChipSetTItms380c16(ObjectIdentity):
     """
     Texas Instruments' TMS 380C16 16/4 Mbs chip\-set
@@ -44,6 +45,7 @@ class Dot5ChipSetTItms380c16(ObjectIdentity):
         super(Dot5ChipSetTItms380c16, self).__init__(ns, pref, tag)
 
 
+
 class Dot5ChipSetIBM16(ObjectIdentity):
     """
     IBM's 16/4 Mbs chip set.
@@ -57,6 +59,7 @@ class Dot5ChipSetIBM16(ObjectIdentity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:TOKENRING-MIB", pref="TOKENRING-MIB", tag="TOKENRING-MIB:dot5ChipSetIBM16"):
         super(Dot5ChipSetIBM16, self).__init__(ns, pref, tag)
+
 
 
 class Dot5TestInsertFunc(ObjectIdentity):
@@ -79,6 +82,7 @@ class Dot5TestInsertFunc(ObjectIdentity):
         super(Dot5TestInsertFunc, self).__init__(ns, pref, tag)
 
 
+
 class Dot5TestFullDuplexLoopBack(ObjectIdentity):
     """
     Invoking this test on a 802.5 interface causes the
@@ -98,6 +102,7 @@ class Dot5TestFullDuplexLoopBack(ObjectIdentity):
         super(Dot5TestFullDuplexLoopBack, self).__init__(ns, pref, tag)
 
 
+
 class TOKENRINGMIB(Entity):
     """
     
@@ -107,15 +112,21 @@ class TOKENRINGMIB(Entity):
     	This table contains Token Ring interface parameters and state variables, one entry per 802.5 interface
     	**type**\:  :py:class:`Dot5Table <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5Table>`
     
+    	**config**\: False
+    
     .. attribute:: dot5statstable
     
     	A table containing Token Ring statistics, one entry per 802.5 interface.     All the statistics are defined using the syntax Counter32 as 32\-bit wrap around counters.  Thus, if an interface's hardware maintains these statistics in 16\-bit counters, then the agent must read the hardware's counters frequently enough to prevent loss of significance, in order to maintain 32\-bit counters in software
     	**type**\:  :py:class:`Dot5StatsTable <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5StatsTable>`
     
+    	**config**\: False
+    
     .. attribute:: dot5timertable
     
     	This table contains Token Ring interface timer values, one entry per 802.5 interface
     	**type**\:  :py:class:`Dot5TimerTable <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5TimerTable>`
+    
+    	**config**\: False
     
     	**status**\: obsolete
     
@@ -167,6 +178,8 @@ class TOKENRINGMIB(Entity):
         	A list of Token Ring status and parameter values for an 802.5 interface
         	**type**\: list of  		 :py:class:`Dot5Entry <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5Table.Dot5Entry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -206,10 +219,14 @@ class TOKENRINGMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: dot5commands
             
             	When this object is set to the value of open(2), the station should go into the open state.  The progress and success of the open is given by the values of the objects dot5RingState and dot5RingOpenStatus.     When this object is set to the value of reset(3), then the station should do a reset.  On a reset, all MIB counters should retain their values, if possible. Other side affects are dependent on the hardware chip set.     When this object is set to the value of close(4), the station should go into the stopped state by removing itself from the ring.     Setting this object to a value of noop(1) has no effect.     When read, this object always has a value of noop(1).     The open(2) and close(4) values correspond to the up(1) and down(2) values of MIB\-II's ifAdminStatus and ifOperStatus, i.e., the setting of ifAdminStatus and   dot5Commands affects the values of both dot5Commands and ifOperStatus
             	**type**\:  :py:class:`Dot5Commands <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5Table.Dot5Entry.Dot5Commands>`
+            
+            	**config**\: False
             
             .. attribute:: dot5ringstatus
             
@@ -218,20 +235,28 @@ class TOKENRINGMIB(Entity):
             
             	**range:** 0..262143
             
+            	**config**\: False
+            
             .. attribute:: dot5ringstate
             
             	The current interface state with respect to entering or leaving the ring
             	**type**\:  :py:class:`Dot5RingState <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5Table.Dot5Entry.Dot5RingState>`
+            
+            	**config**\: False
             
             .. attribute:: dot5ringopenstatus
             
             	This object indicates the success, or the reason for failure, of the station's most recent attempt to enter the ring
             	**type**\:  :py:class:`Dot5RingOpenStatus <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5Table.Dot5Entry.Dot5RingOpenStatus>`
             
+            	**config**\: False
+            
             .. attribute:: dot5ringspeed
             
             	The ring\-speed at the next insertion into the ring.  Note that this may or may not be different to the current ring\-speed which is given by MIB\-II's ifSpeed.  For interfaces which do not support changing ring\-speed, dot5RingSpeed can only be set to its current value.  When dot5RingSpeed has the value unknown(1), the ring's actual ring\-speed is to be used
             	**type**\:  :py:class:`Dot5RingSpeed <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5Table.Dot5Entry.Dot5RingSpeed>`
+            
+            	**config**\: False
             
             .. attribute:: dot5upstream
             
@@ -240,10 +265,14 @@ class TOKENRINGMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: dot5actmonparticipate
             
             	If this object has a value of true(1) then this interface will participate in the active monitor selection process.  If the value is false(2) then it will not. Setting this object does not take effect until the next Active Monitor election, and might not take effect until the next time the interface is opened
             	**type**\:  :py:class:`Dot5ActMonParticipate <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5Table.Dot5Entry.Dot5ActMonParticipate>`
+            
+            	**config**\: False
             
             .. attribute:: dot5functional
             
@@ -252,12 +281,16 @@ class TOKENRINGMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: dot5lastbeaconsent
             
             	The value of MIB\-II's sysUpTime object at which the local system last transmitted a Beacon frame on this interface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -544,6 +577,8 @@ class TOKENRINGMIB(Entity):
 
 
 
+
+
     class Dot5StatsTable(Entity):
         """
         A table containing Token Ring statistics,
@@ -561,6 +596,8 @@ class TOKENRINGMIB(Entity):
         
         	An entry contains the 802.5 statistics for a particular interface
         	**type**\: list of  		 :py:class:`Dot5StatsEntry <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5StatsTable.Dot5StatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -601,12 +638,16 @@ class TOKENRINGMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: dot5statslineerrors
             
             	This counter is incremented when a frame or token is copied or repeated by a station, the E bit is zero in the frame or token and one of the following conditions exists\: 1) there is a non\-data bit (J or K bit) between the SD and the ED of the frame or token, or 2) there is an FCS error in the frame
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dot5statsbursterrors
             
@@ -615,12 +656,16 @@ class TOKENRINGMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot5statsacerrors
             
             	This counter is incremented when a station receives an AMP or SMP frame in which A is equal to C is equal to 0, and then receives another SMP frame with A is equal to C is equal to 0 without first receiving an AMP frame. It denotes a station that cannot set the AC bits properly
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dot5statsaborttranserrors
             
@@ -629,12 +674,16 @@ class TOKENRINGMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot5statsinternalerrors
             
             	This counter is incremented when a station recognizes an internal error
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dot5statslostframeerrors
             
@@ -643,12 +692,16 @@ class TOKENRINGMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot5statsreceivecongestions
             
             	This counter is incremented when a station recognizes a frame addressed to its specific address, but has no available buffer space indicating that the station is congested
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dot5statsframecopiederrors
             
@@ -657,12 +710,16 @@ class TOKENRINGMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot5statstokenerrors
             
             	This counter is incremented when a station acting as the active monitor recognizes an error condition that needs a token transmitted
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dot5statssofterrors
             
@@ -671,12 +728,16 @@ class TOKENRINGMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot5statsharderrors
             
             	The number of times this interface has detected an immediately recoverable fatal error.  It denotes the number of times this interface is either transmitting or receiving beacon MAC frames
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dot5statssignalloss
             
@@ -685,12 +746,16 @@ class TOKENRINGMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot5statstransmitbeacons
             
             	The number of times this interface has transmitted a beacon frame
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dot5statsrecoverys
             
@@ -699,12 +764,16 @@ class TOKENRINGMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot5statslobewires
             
             	The number of times the interface has detected an open or short circuit in the lobe data path.  The adapter will be closed and dot5RingState will signify this condition
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dot5statsremoves
             
@@ -713,6 +782,8 @@ class TOKENRINGMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot5statssingles
             
             	The number of times the interface has sensed that it is the only station on the ring.  This will happen if the interface is the first one up on a ring, or if there is a hardware problem
@@ -720,12 +791,16 @@ class TOKENRINGMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot5statsfreqerrors
             
             	The number of times the interface has detected that the frequency of the incoming signal differs from the expected frequency by more than that specified by the IEEE 802.5 standard
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -791,6 +866,8 @@ class TOKENRINGMIB(Entity):
                 self._perform_setattr(TOKENRINGMIB.Dot5StatsTable.Dot5StatsEntry, ['dot5statsifindex', 'dot5statslineerrors', 'dot5statsbursterrors', 'dot5statsacerrors', 'dot5statsaborttranserrors', 'dot5statsinternalerrors', 'dot5statslostframeerrors', 'dot5statsreceivecongestions', 'dot5statsframecopiederrors', 'dot5statstokenerrors', 'dot5statssofterrors', 'dot5statsharderrors', 'dot5statssignalloss', 'dot5statstransmitbeacons', 'dot5statsrecoverys', 'dot5statslobewires', 'dot5statsremoves', 'dot5statssingles', 'dot5statsfreqerrors'], name, value)
 
 
+
+
     class Dot5TimerTable(Entity):
         """
         This table contains Token Ring interface
@@ -801,6 +878,8 @@ class TOKENRINGMIB(Entity):
         
         	A list of Token Ring timer values for an 802.5 interface
         	**type**\: list of  		 :py:class:`Dot5TimerEntry <ydk.models.cisco_ios_xe.TOKENRING_MIB.TOKENRINGMIB.Dot5TimerTable.Dot5TimerEntry>`
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -843,6 +922,8 @@ class TOKENRINGMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: dot5timerreturnrepeat
@@ -851,6 +932,8 @@ class TOKENRINGMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -861,6 +944,8 @@ class TOKENRINGMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: dot5timerqueuepdu
@@ -869,6 +954,8 @@ class TOKENRINGMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -879,6 +966,8 @@ class TOKENRINGMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: dot5timernotoken
@@ -887,6 +976,8 @@ class TOKENRINGMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -897,6 +988,8 @@ class TOKENRINGMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: dot5timerstandbymon
@@ -905,6 +998,8 @@ class TOKENRINGMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -915,6 +1010,8 @@ class TOKENRINGMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: dot5timerbeacontransmit
@@ -924,6 +1021,8 @@ class TOKENRINGMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: dot5timerbeaconreceive
@@ -932,6 +1031,8 @@ class TOKENRINGMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -982,7 +1083,11 @@ class TOKENRINGMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(TOKENRINGMIB.Dot5TimerTable.Dot5TimerEntry, ['dot5timerifindex', 'dot5timerreturnrepeat', 'dot5timerholding', 'dot5timerqueuepdu', 'dot5timervalidtransmit', 'dot5timernotoken', 'dot5timeractivemon', 'dot5timerstandbymon', 'dot5timererrorreport', 'dot5timerbeacontransmit', 'dot5timerbeaconreceive'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = TOKENRINGMIB()
         return self._top_entity
+
+
 

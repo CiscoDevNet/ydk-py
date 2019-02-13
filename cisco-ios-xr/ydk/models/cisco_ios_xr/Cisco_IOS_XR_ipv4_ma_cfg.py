@@ -250,6 +250,9 @@ class Ipv4NetworkGlobal(Entity):
                     self._perform_setattr(Ipv4NetworkGlobal.Unnumbered.Mpls.Te, ['interface'], name, value)
 
 
+
+
+
     class Qppb(Entity):
         """
         QPPB
@@ -293,9 +296,12 @@ class Ipv4NetworkGlobal(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv4NetworkGlobal.Qppb, ['source', 'destination'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Ipv4NetworkGlobal()
         return self._top_entity
+
+
 
 class SubscriberPta(Entity):
     """
@@ -340,4 +346,6 @@ class SubscriberPta(Entity):
     def clone_ptr(self):
         self._top_entity = SubscriberPta()
         return self._top_entity
+
+
 

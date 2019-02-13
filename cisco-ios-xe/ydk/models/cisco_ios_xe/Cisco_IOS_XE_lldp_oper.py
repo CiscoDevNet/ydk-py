@@ -25,6 +25,8 @@ class LldpEntries(Entity):
     	The list of LLDP entries
     	**type**\: list of  		 :py:class:`LldpEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lldp_oper.LldpEntries.LldpEntry>`
     
+    	**config**\: False
+    
     
 
     """
@@ -61,15 +63,21 @@ class LldpEntries(Entity):
         	Device ID of the link
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: local_interface  (key)
         
         	Name of the local interface on the current device
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: connecting_interface  (key)
         
         	Name of the connected interface to 'local\-interface'
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: ttl
         
@@ -78,10 +86,14 @@ class LldpEntries(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: capabilities
         
         	LLD device capabilities
         	**type**\:  :py:class:`Capabilities <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lldp_oper.LldpEntries.LldpEntry.Capabilities>`
+        
+        	**config**\: False
         
         
 
@@ -130,40 +142,56 @@ class LldpEntries(Entity):
             	Repeater
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
+            	**config**\: False
+            
             .. attribute:: bridge
             
             	Bridge
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            	**config**\: False
             
             .. attribute:: access_point
             
             	Access point
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
+            	**config**\: False
+            
             .. attribute:: router
             
             	Router
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            	**config**\: False
             
             .. attribute:: telephone
             
             	Phone
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
+            	**config**\: False
+            
             .. attribute:: docsis
             
             	Docsis
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            	**config**\: False
             
             .. attribute:: station
             
             	Station
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
+            	**config**\: False
+            
             .. attribute:: other
             
             	Other
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            	**config**\: False
             
             
 
@@ -205,7 +233,11 @@ class LldpEntries(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(LldpEntries.LldpEntry.Capabilities, ['repeater', 'bridge', 'access_point', 'router', 'telephone', 'docsis', 'station', 'other'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = LldpEntries()
         return self._top_entity
+
+
 

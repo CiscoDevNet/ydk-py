@@ -648,10 +648,14 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
     	This table is a common extension to the call active table of IETF Dial Control MIB. It contains common call  leg information about a network call leg
     	**type**\:  :py:class:`CvCommonDcCallActiveTable <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallActiveTable>`
     
+    	**config**\: False
+    
     .. attribute:: cvcommondccallhistorytable
     
     	This table is the Common extension to the call history table of IETF Dial Control MIB. It contains Common call  leg information about a network call leg
     	**type**\:  :py:class:`CvCommonDcCallHistoryTable <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallHistoryTable>`
+    
+    	**config**\: False
     
     
 
@@ -696,6 +700,8 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
         
         	The common information regarding a single network call leg. The call leg entry is identified by using the same  index objects that are used by Call Active table of IETF  Dial Control MIB to identify the call. An entry of this table is created when its associated  call active entry in the IETF Dial Control MIB is created and the call active entry contains information for the  call establishment to a network dialpeer.              The entry is deleted when its associated call active entry  in the IETF Dial Control MIB is deleted
         	**type**\: list of  		 :py:class:`CvCommonDcCallActiveEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallActiveTable.CvCommonDcCallActiveEntry>`
+        
+        	**config**\: False
         
         
 
@@ -746,6 +752,8 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`callactivesetuptime <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.CallActiveTable.CallActiveEntry>`
             
+            	**config**\: False
+            
             .. attribute:: callactiveindex  (key)
             
             	
@@ -755,6 +763,8 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`callactiveindex <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.CallActiveTable.CallActiveEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cvcommondccallactiveconnectionid
             
             	The global call identifier for the network call
@@ -762,15 +772,21 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             
             	**length:** 0..16
             
+            	**config**\: False
+            
             .. attribute:: cvcommondccallactivevadenable
             
             	The object indicates whether or not the VAD (Voice Activity Detection) is enabled for the voice call
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cvcommondccallactivecodertyperate
             
             	The negotiated coder rate. It specifies the transmit rate of voice/fax compression to its associated call leg  for the call. This rate is different from the configuration rate  because of rate negotiation during the call
             	**type**\:  :py:class:`CvcCoderTypeRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcCoderTypeRate>`
+            
+            	**config**\: False
             
             .. attribute:: cvcommondccallactivecodecbytes
             
@@ -779,10 +795,14 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             
             	**range:** 10..255
             
+            	**config**\: False
+            
             .. attribute:: cvcommondccallactiveinbandsignaling
             
             	Specifies the type of in\-band signaling being used on the call.  This object is instantiated only for  Connection Trunk calls
             	**type**\:  :py:class:`CvcInBandSignaling <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcInBandSignaling>`
+            
+            	**config**\: False
             
             .. attribute:: cvcommondccallactivecallingname
             
@@ -791,10 +811,14 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             
             	**length:** 0..64
             
+            	**config**\: False
+            
             .. attribute:: cvcommondccallactivecalleridblock
             
             	The object indicates whether or not the caller ID feature is blocked for this voice call
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -837,7 +861,9 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallActiveTable.CvCommonDcCallActiveEntry, [u'callactivesetuptime', u'callactiveindex', u'cvcommondccallactiveconnectionid', u'cvcommondccallactivevadenable', u'cvcommondccallactivecodertyperate', u'cvcommondccallactivecodecbytes', u'cvcommondccallactiveinbandsignaling', u'cvcommondccallactivecallingname', u'cvcommondccallactivecalleridblock'], name, value)
+                self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallActiveTable.CvCommonDcCallActiveEntry, ['callactivesetuptime', 'callactiveindex', 'cvcommondccallactiveconnectionid', 'cvcommondccallactivevadenable', 'cvcommondccallactivecodertyperate', 'cvcommondccallactivecodecbytes', 'cvcommondccallactiveinbandsignaling', 'cvcommondccallactivecallingname', 'cvcommondccallactivecalleridblock'], name, value)
+
+
 
 
     class CvCommonDcCallHistoryTable(Entity):
@@ -850,6 +876,8 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
         
         	The common information regarding a single network call leg. The call leg entry is identified by using the same  index objects that are used by Call Active table of IETF  Dial Control MIB to identify the call. An entry of this table is created when its associated  call history entry in the IETF Dial Control MIB is  created and the call history entry contains information  for the call establishment to a network dialpeer. The entry is deleted when its associated call history  entry in the IETF Dial Control MIB is deleted
         	**type**\: list of  		 :py:class:`CvCommonDcCallHistoryEntry <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallHistoryTable.CvCommonDcCallHistoryEntry>`
+        
+        	**config**\: False
         
         
 
@@ -900,6 +928,8 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`ccallhistoryindex <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.CCallHistoryTable.CCallHistoryEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cvcommondccallhistoryconnectionid
             
             	The global call identifier for the gateway call
@@ -907,15 +937,21 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             
             	**length:** 0..16
             
+            	**config**\: False
+            
             .. attribute:: cvcommondccallhistoryvadenable
             
             	The object indicates whether or not the VAD (Voice Activity Detection) was enabled for the voice call
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cvcommondccallhistorycodertyperate
             
             	The negotiated coder rate. It specifies the transmit rate of voice/fax compression to its associated call leg for  the call. This rate is different from the configuration rate  because of rate negotiation during the call
             	**type**\:  :py:class:`CvcCoderTypeRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcCoderTypeRate>`
+            
+            	**config**\: False
             
             .. attribute:: cvcommondccallhistorycodecbytes
             
@@ -924,10 +960,14 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             
             	**range:** 10..255
             
+            	**config**\: False
+            
             .. attribute:: cvcommondccallhistoryinbandsignaling
             
             	Specifies the type of in\-band signaling used on the call.  This object is instantiated only for  Connection Trunk calls
             	**type**\:  :py:class:`CvcInBandSignaling <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcInBandSignaling>`
+            
+            	**config**\: False
             
             .. attribute:: cvcommondccallhistorycallingname
             
@@ -936,10 +976,14 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             
             	**length:** 0..64
             
+            	**config**\: False
+            
             .. attribute:: cvcommondccallhistorycalleridblock
             
             	The object indicates whether or not the caller ID feature is blocked for this voice call
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -980,9 +1024,13 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallHistoryTable.CvCommonDcCallHistoryEntry, [u'ccallhistoryindex', u'cvcommondccallhistoryconnectionid', u'cvcommondccallhistoryvadenable', u'cvcommondccallhistorycodertyperate', u'cvcommondccallhistorycodecbytes', u'cvcommondccallhistoryinbandsignaling', u'cvcommondccallhistorycallingname', u'cvcommondccallhistorycalleridblock'], name, value)
+                self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.CvCommonDcCallHistoryTable.CvCommonDcCallHistoryEntry, ['ccallhistoryindex', 'cvcommondccallhistoryconnectionid', 'cvcommondccallhistoryvadenable', 'cvcommondccallhistorycodertyperate', 'cvcommondccallhistorycodecbytes', 'cvcommondccallhistoryinbandsignaling', 'cvcommondccallhistorycallingname', 'cvcommondccallhistorycalleridblock'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = CISCOVOICECOMMONDIALCONTROLMIB()
         return self._top_entity
+
+
 

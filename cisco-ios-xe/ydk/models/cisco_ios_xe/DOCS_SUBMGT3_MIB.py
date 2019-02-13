@@ -24,25 +24,35 @@ class DOCSSUBMGT3MIB(Entity):
     	
     	**type**\:  :py:class:`DocsSubmgt3Base <ydk.models.cisco_ios_xe.DOCS_SUBMGT3_MIB.DOCSSUBMGT3MIB.DocsSubmgt3Base>`
     
+    	**config**\: False
+    
     .. attribute:: docssubmgt3cpectrltable
     
     	This object maintains per\-CM traffic policies enforced  by the CMTS. The CMTS acquires the CM traffic policies  through the CM registration process, or in the  absence of some or all of those parameters, from the  Base object. The CM information and controls are meaningful  and used by the CMTS, but only after the CM is  operational
     	**type**\:  :py:class:`DocsSubmgt3CpeCtrlTable <ydk.models.cisco_ios_xe.DOCS_SUBMGT3_MIB.DOCSSUBMGT3MIB.DocsSubmgt3CpeCtrlTable>`
+    
+    	**config**\: False
     
     .. attribute:: docssubmgt3cpeiptable
     
     	This object defines the list of IP Addresses behind  the CM known by the CMTS.   If the Active attribute of the CpeCtrl object associated  with a CM is set to 'true' and the CMTS receives an  IP packet from a CM that contains a source IP address that  does not match one of the CPE IP addresses associated  with this CM, one of two things occurs. If the number  of CPE IPs is less than the MaxCpeIp of the CpeCtrl object  for that CM, the source IP address is added to this  object and the packet is forwarded; otherwise, the  packet is dropped
     	**type**\:  :py:class:`DocsSubmgt3CpeIpTable <ydk.models.cisco_ios_xe.DOCS_SUBMGT3_MIB.DOCSSUBMGT3MIB.DocsSubmgt3CpeIpTable>`
     
+    	**config**\: False
+    
     .. attribute:: docssubmgt3grptable
     
     	This object defines the set of downstream and upstream  filter groups that the CMTS applies to traffic associated  with that CM
     	**type**\:  :py:class:`DocsSubmgt3GrpTable <ydk.models.cisco_ios_xe.DOCS_SUBMGT3_MIB.DOCSSUBMGT3MIB.DocsSubmgt3GrpTable>`
     
+    	**config**\: False
+    
     .. attribute:: docssubmgt3filtergrptable
     
     	This object describes a set of filter or classifier  criteria. Classifiers are assigned by group to the  individual CMs. That assignment is made via the 'Subscriber  Management TLVs' encodings sent upstream from  the CM to the CMTS during registration or in their  absence, default values configured in the CMTS.  A Filter Group ID (GrpId) is a set of rules that correspond  to the expansion of a UDC Group ID into UDC individual   classification rules.  The Filter Group Ids are generated   whenever the CMTS is configured to send UDCs during the CM   registration process. Implementation of L2 classification   criteria is optional for the CMTS; LLC/MAC upstream and   downstream filter criteria can be ignored during the packet  matching process
     	**type**\:  :py:class:`DocsSubmgt3FilterGrpTable <ydk.models.cisco_ios_xe.DOCS_SUBMGT3_MIB.DOCSSUBMGT3MIB.DocsSubmgt3FilterGrpTable>`
+    
+    	**config**\: False
     
     
 
@@ -100,6 +110,8 @@ class DOCSSUBMGT3MIB(Entity):
         
         	**range:** 0..1023
         
+        	**config**\: False
+        
         .. attribute:: docssubmgt3basecpemaxipv6prefixdef
         
         	This attribute represents the maximum number of IPv6   prefixes allowed for the CM's CPEs if not signaled in  the registration process
@@ -107,15 +119,21 @@ class DOCSSUBMGT3MIB(Entity):
         
         	**range:** 0..1023
         
+        	**config**\: False
+        
         .. attribute:: docssubmgt3basecpeactivedef
         
         	This attribute represents the default value for enabling  Subscriber Management filters and controls  in the CM if the parameter is not signaled in the DOCSIS  Registration process
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: docssubmgt3basecpelearnabledef
         
         	This attribute represents the default value for enabling  the CPE learning process for the CM if the parameter  is not signaled in the DOCSIS Registration process
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: docssubmgt3basesubfilterdowndef
         
@@ -124,12 +142,16 @@ class DOCSSUBMGT3MIB(Entity):
         
         	**range:** 0..1024
         
+        	**config**\: False
+        
         .. attribute:: docssubmgt3basesubfilterupdef
         
         	This attribute represents the default value for the  subscriber (CPE) upstream filter group for the CM  if the parameter is not signaled in the DOCSIS Registration  process
         	**type**\: int
         
         	**range:** 0..1024
+        
+        	**config**\: False
         
         .. attribute:: docssubmgt3basecmfilterdowndef
         
@@ -138,12 +160,16 @@ class DOCSSUBMGT3MIB(Entity):
         
         	**range:** 0..1024
         
+        	**config**\: False
+        
         .. attribute:: docssubmgt3basecmfilterupdef
         
         	This attribute represents the default value for the  CM stack upstream filter group applying to the CM if  the parameter is not signaled in the DOCSIS Registration  process
         	**type**\: int
         
         	**range:** 0..1024
+        
+        	**config**\: False
         
         .. attribute:: docssubmgt3basepsfilterdowndef
         
@@ -152,12 +178,16 @@ class DOCSSUBMGT3MIB(Entity):
         
         	**range:** 0..1024
         
+        	**config**\: False
+        
         .. attribute:: docssubmgt3basepsfilterupdef
         
         	This attribute represents the default value for the  PS or eRouter upstream filter group for the CM if the  parameter is not signaled in the DOCSIS Registration  process
         	**type**\: int
         
         	**range:** 0..1024
+        
+        	**config**\: False
         
         .. attribute:: docssubmgt3basemtafilterdowndef
         
@@ -166,12 +196,16 @@ class DOCSSUBMGT3MIB(Entity):
         
         	**range:** 0..1024
         
+        	**config**\: False
+        
         .. attribute:: docssubmgt3basemtafilterupdef
         
         	This attribute represents the default value for the  MTA upstream filter group for the CM if the parameter  is not signaled in the DOCSIS Registration process
         	**type**\: int
         
         	**range:** 0..1024
+        
+        	**config**\: False
         
         .. attribute:: docssubmgt3basestbfilterdowndef
         
@@ -180,12 +214,16 @@ class DOCSSUBMGT3MIB(Entity):
         
         	**range:** 0..1024
         
+        	**config**\: False
+        
         .. attribute:: docssubmgt3basestbfilterupdef
         
         	This attribute represents the default value for the  STB upstream filter group for the CM if the parameter  is not signaled in the DOCSIS Registration process
         	**type**\: int
         
         	**range:** 0..1024
+        
+        	**config**\: False
         
         
 
@@ -241,6 +279,7 @@ class DOCSSUBMGT3MIB(Entity):
             self._perform_setattr(DOCSSUBMGT3MIB.DocsSubmgt3Base, ['docssubmgt3basecpemaxipv4def', 'docssubmgt3basecpemaxipv6prefixdef', 'docssubmgt3basecpeactivedef', 'docssubmgt3basecpelearnabledef', 'docssubmgt3basesubfilterdowndef', 'docssubmgt3basesubfilterupdef', 'docssubmgt3basecmfilterdowndef', 'docssubmgt3basecmfilterupdef', 'docssubmgt3basepsfilterdowndef', 'docssubmgt3basepsfilterupdef', 'docssubmgt3basemtafilterdowndef', 'docssubmgt3basemtafilterupdef', 'docssubmgt3basestbfilterdowndef', 'docssubmgt3basestbfilterupdef'], name, value)
 
 
+
     class DocsSubmgt3CpeCtrlTable(Entity):
         """
         This object maintains per\-CM traffic policies enforced 
@@ -255,6 +294,8 @@ class DOCSSUBMGT3MIB(Entity):
         
         	The conceptual row of docsSubmgt3CpeCtrlTable.  The CMTS does not persist the instances of the CpeCtrl  object across reinitializations
         	**type**\: list of  		 :py:class:`DocsSubmgt3CpeCtrlEntry <ydk.models.cisco_ios_xe.DOCS_SUBMGT3_MIB.DOCSSUBMGT3MIB.DocsSubmgt3CpeCtrlTable.DocsSubmgt3CpeCtrlEntry>`
+        
+        	**config**\: False
         
         
 
@@ -298,12 +339,16 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**refers to**\:  :py:class:`docsif3cmtscmregstatusid <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsCmRegStatusTable.DocsIf3CmtsCmRegStatusEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3cpectrlmaxcpeipv4
             
             	This attribute represents the number of simultaneous  IP v4 addresses permitted for CPE connected to the CM.  When the MaxCpeIpv4 attribute is set to zero (0), all Ipv4 CPE  traffic from the CM is dropped. The CMTS configures this  attribute with whichever of the 'Subscriber Management CPE IPv4  List' or 'Subscriber Management Control\-Max\_CpeIPv4' signaled  encodings is greater, or in the absence of all of those  provisioning parameters, with the CpeMaxIp v4Def  from the Base object. This limit applies to learned  and DOCSIS\-provisioned entries but not to entries added  through some administrative process at the CMTS.  Note that this attribute is only meaningful when the  Active attribute of the CM is set to 'true'
             	**type**\: int
             
             	**range:** 0..1023
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3cpectrlmaxcpeipv6prefix
             
@@ -312,20 +357,28 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**range:** 0..1023
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3cpectrlactive
             
             	This attribute controls the application of subscriber  management to this CM. If this is set to 'true',  CMTS\-based CPE control is active, and all the actions  required by the various filter policies and controls  apply at the CMTS. If this is set to false, no subscriber  management filtering is done at the CMTS (but other  filters may apply). If not set through DOCSIS provisioning,  this object defaults to the value of the Active  attribute of the Base object
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3cpectrllearnable
             
             	This attribute controls whether the CMTS may learn  (and pass traffic for) CPE IP addresses associated  with a CM. If this is set to 'true', the CMTS may learn up  to the CM MaxCpeIp value less any DOCSIS\-provisioned  entries related to this CM. The nature of the learning  mechanism is not specified here. If not set through  DOCSIS provisioning, this object defaults to the  value of the CpeLearnableDef attribute from the Base  object. Note that this attribute is only meaningful  if docsSubMgtCpeControlActive is 'true' to enforce  a limit in the number of CPEs learned. CPE learning  is always performed for the CMTS for security reasons
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3cpectrlreset
             
             	If set to 'true', this attribute commands the CMTS  to delete the instances denoted as 'learned' addresses  in the CpeIp object. This attribute always returns  false on read
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3cpectrllastreset
             
@@ -333,6 +386,8 @@ class DOCSSUBMGT3MIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -374,6 +429,8 @@ class DOCSSUBMGT3MIB(Entity):
                 self._perform_setattr(DOCSSUBMGT3MIB.DocsSubmgt3CpeCtrlTable.DocsSubmgt3CpeCtrlEntry, ['docsif3cmtscmregstatusid', 'docssubmgt3cpectrlmaxcpeipv4', 'docssubmgt3cpectrlmaxcpeipv6prefix', 'docssubmgt3cpectrlactive', 'docssubmgt3cpectrllearnable', 'docssubmgt3cpectrlreset', 'docssubmgt3cpectrllastreset'], name, value)
 
 
+
+
     class DocsSubmgt3CpeIpTable(Entity):
         """
         This object defines the list of IP Addresses behind 
@@ -393,6 +450,8 @@ class DOCSSUBMGT3MIB(Entity):
         
         	The conceptual row of docsSubmgt3CpeIpTable
         	**type**\: list of  		 :py:class:`DocsSubmgt3CpeIpEntry <ydk.models.cisco_ios_xe.DOCS_SUBMGT3_MIB.DOCSSUBMGT3MIB.DocsSubmgt3CpeIpTable.DocsSubmgt3CpeIpEntry>`
+        
+        	**config**\: False
         
         
 
@@ -434,6 +493,8 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**refers to**\:  :py:class:`docsif3cmtscmregstatusid <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsCmRegStatusTable.DocsIf3CmtsCmRegStatusEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3cpeipid  (key)
             
             	This attribute represents a unique identifier for  a CPE IP of the CM. An instance of this attribute exists  for each CPE provisioned in the 'Subscriber Management  CPE IPv4 Table' or 'Subscriber Management CPE  IPv6 Table' encodings. An entry is created either through  the included CPE IP addresses in the provisioning  object, or CPEs learned from traffic sourced from the  CM
@@ -441,10 +502,14 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**range:** 1..1023
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3cpeipaddrtype
             
             	The type of Internet address of the Addr attribute
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3cpeipaddr
             
@@ -453,6 +518,8 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3cpeipaddrprefixlen
             
             	This attribute represents the prefix length associated with  the IP subnet prefix either set from provisioning or learned  via address gleaning or other forwarding means. For IPv4 CPE  addresses this attribute generally reports the value 32   (32 bits) to indicate a unicast IPv4 address. For IPv6, this  attribute represents either an IPv6 unicast address  (128 bits, equal to /128 prefix length) or a subnet prefix   length (for example 56 bits, equal to /56 prefix length)
@@ -460,15 +527,21 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**range:** 0..2040
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3cpeiplearned
             
             	This attribute is set to 'true' when the IP address  was learned from IP packets sent upstream rather than  via the CM provisioning process
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3cpeiptype
             
             	This attribute represents the type of CPE based on  the following classification below\:               'cpe' Regular CPE clients.               'ps'  CableHome Portal Server (PS)               'mta' PacketCable Multimedia Terminal Adapter (MTA)               'stb' Digital Set\-top Box (STB).               'tea' T1 Emulation adapter (TEA)               'erouter' Embedded Router (eRouter)
             	**type**\:  :py:class:`DocsSubmgt3CpeIpType <ydk.models.cisco_ios_xe.DOCS_SUBMGT3_MIB.DOCSSUBMGT3MIB.DocsSubmgt3CpeIpTable.DocsSubmgt3CpeIpEntry.DocsSubmgt3CpeIpType>`
+            
+            	**config**\: False
             
             
 
@@ -557,6 +630,8 @@ class DOCSSUBMGT3MIB(Entity):
 
 
 
+
+
     class DocsSubmgt3GrpTable(Entity):
         """
         This object defines the set of downstream and upstream 
@@ -567,6 +642,8 @@ class DOCSSUBMGT3MIB(Entity):
         
         	The conceptual row of docsSubmgt3GrpTable.  The CMTS does not persist the instances of the Grp  object across reinitializations
         	**type**\: list of  		 :py:class:`DocsSubmgt3GrpEntry <ydk.models.cisco_ios_xe.DOCS_SUBMGT3_MIB.DOCSSUBMGT3MIB.DocsSubmgt3GrpTable.DocsSubmgt3GrpEntry>`
+        
+        	**config**\: False
         
         
 
@@ -610,15 +687,21 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**refers to**\:  :py:class:`docsif3cmtscmregstatusid <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsCmRegStatusTable.DocsIf3CmtsCmRegStatusEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3grpudcgroupids
             
             	This attribute represents the filter group(s) associated  with the CM signaled 'Upstream Drop Classifier Group ID'   encodings during the registration process. UDC Group IDs are  integer values and this attribute reports them as decimal   numbers that are space\-separated. The zero\-length string indicates   that the CM didn't signal UDC Group IDs.   This attribute provides two functions\:   \- Communicate the CM the configured UDC Group ID(s), irrespective   of the CM being provisioned to filter upstream traffic based   on IP Filters or UDCs.   \- Optionally, and with regards to the CMTS, if the value of the  attribute UdcSentInReqRsp is 'true', indicates that the filtering   rules associated with the Subscriber Management Group ID(s) will  be sent during registration to the CM. It is vendor specific   whether the CMTS updates individual CM UDCs after registration  when rules are changed in the Grp object
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3grpudcsentinregrsp
             
             	This attribute represents the CMTS upstream filtering   status for this CM. The value 'true' indicates that the   CMTS has sent UDCs to the CM during registration process.     In order for a CMTS to send UDCs to a CM, the CMTS MAC Domain  needed to be enabled via the MAC Domain attribute   SendUdcRulesEnabled and the CM had indicated the UDC capability   support during the registration process. The value 'false'   indicates that the CMTS was not enabled to sent UDCs to the   CMs in the MAC Domain, or the CM does not advertised UDC   support in its capabilities encodings, or both. Since the   CMTS capability to sent UDCs to CMs during the registration  process is optional, the CMTS is not required to implement   the value 'true'
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3grpsubfilterds
             
@@ -627,12 +710,16 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**range:** 0..1024
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3grpsubfilterus
             
             	This attribute represents the filter group applied  to traffic originating from subscriber's CPE attached  to the referenced CM (attached to CM CPE interfaces).  This value corresponds to the 'Subscriber Upstream  Group' value of the 'Subscriber Management Filter  Groups' encoding signaled during the CM registration  or in its absence, to the SubFilterUpDef attribute  of the Base object. The value zero or a filter group  ID not configured in the CMTS means no filtering  is applied to traffic originating from hosts attached  to this CM
             	**type**\: int
             
             	**range:** 0..1024
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3grpcmfilterds
             
@@ -641,12 +728,16 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**range:** 0..1024
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3grpcmfilterus
             
             	This attribute represents the filter group applied  to traffic originating from the CM itself. This value  corresponds to the 'Subscriber Upstream Group'  value of the 'Subscriber Management Filter Groups'  encoding signaled during the CM registration or in its  absence, to the SubFilterUpDef attribute of the Base  object. The value zero or a filter group ID not configured  in the CMTS means no filtering is applied to traffic  originating from this CM
             	**type**\: int
             
             	**range:** 0..1024
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3grppsfilterds
             
@@ -655,12 +746,16 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**range:** 0..1024
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3grppsfilterus
             
             	This attribute represents the filter group applied  to traffic originating from the Embedded CableHome  Portal Services Element or Embedded Router on the  referenced CM. This value corresponds to the 'PS Upstream  Group' value of the 'Subscriber Management Filter  Groups' encoding signaled during the CM registration  or in its absence, to the SubFilterUpDef attribute  of the Base object. The value zero or a filter group  ID not configured in the CMTS means no filtering is  applied to traffic originating from the Embedded CableHome  Portal Services Element or Embedded Router  on this CM
             	**type**\: int
             
             	**range:** 0..1024
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3grpmtafilterds
             
@@ -669,12 +764,16 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**range:** 0..1024
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3grpmtafilterus
             
             	This attribute represents the filter group applied  to traffic originating from the Embedded Multimedia  Terminal Adapter on the referenced CM. This value  corresponds to the 'MTA Upstream Group' value of the  'Subscriber Management Filter Groups' encoding signaled  during the CM registration or in its absence,  to the SubFilterUpDef attribute of the Base object.  The value zero or a filter group ID not configured in  the CMTS means no filtering is applied to traffic originating  from the Embedded Multimedia Terminal Adapter  on this CM
             	**type**\: int
             
             	**range:** 0..1024
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3grpstbfilterds
             
@@ -683,12 +782,16 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**range:** 0..1024
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3grpstbfilterus
             
             	This attribute represents the filter group applied  to traffic originating from the Embedded Set\-Top  Box on the referenced CM. This value corresponds to the  'STB Upstream Group' value of the 'Subscriber Management  Filter Groups' encoding signaled during the  CM registration or in its absence, to the SubFilterUpDef  attribute of the Base object. The value zero or  a filter group ID not configured in the CMTS means no filtering  is applied to traffic originating from the  Embedded Set\-Top Box on this CM
             	**type**\: int
             
             	**range:** 0..1024
+            
+            	**config**\: False
             
             
 
@@ -742,6 +845,8 @@ class DOCSSUBMGT3MIB(Entity):
                 self._perform_setattr(DOCSSUBMGT3MIB.DocsSubmgt3GrpTable.DocsSubmgt3GrpEntry, ['docsif3cmtscmregstatusid', 'docssubmgt3grpudcgroupids', 'docssubmgt3grpudcsentinregrsp', 'docssubmgt3grpsubfilterds', 'docssubmgt3grpsubfilterus', 'docssubmgt3grpcmfilterds', 'docssubmgt3grpcmfilterus', 'docssubmgt3grppsfilterds', 'docssubmgt3grppsfilterus', 'docssubmgt3grpmtafilterds', 'docssubmgt3grpmtafilterus', 'docssubmgt3grpstbfilterds', 'docssubmgt3grpstbfilterus'], name, value)
 
 
+
+
     class DocsSubmgt3FilterGrpTable(Entity):
         """
         This object describes a set of filter or classifier 
@@ -763,6 +868,8 @@ class DOCSSUBMGT3MIB(Entity):
         
         	The conceptual row of docsSubmgt3FilterGrpTable.  The CMTS persists all instances of the FilterGrp object  across reinitializations
         	**type**\: list of  		 :py:class:`DocsSubmgt3FilterGrpEntry <ydk.models.cisco_ios_xe.DOCS_SUBMGT3_MIB.DOCSSUBMGT3MIB.DocsSubmgt3FilterGrpTable.DocsSubmgt3FilterGrpEntry>`
+        
+        	**config**\: False
         
         
 
@@ -804,6 +911,8 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3filtergrpruleid  (key)
             
             	This key represents an ordered classifier identifier  within the group.  Filters are applied in order if  the Priority attribute is not supported
@@ -811,10 +920,14 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3filtergrpaction
             
             	This attribute represents the action to take upon  this filter matching.  'permit' means to stop the classification  matching and accept the packet for further  processing.  'deny' means to drop the packet
             	**type**\:  :py:class:`DocsSubmgt3FilterGrpAction <ydk.models.cisco_ios_xe.DOCS_SUBMGT3_MIB.DOCSSUBMGT3MIB.DocsSubmgt3FilterGrpTable.DocsSubmgt3FilterGrpEntry.DocsSubmgt3FilterGrpAction>`
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3filtergrppriority
             
@@ -823,12 +936,16 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3filtergrpiptoslow
             
             	This attribute represents the low value of a range  of ToS (Type of Service) octet values. This object is  defined as an 8\-bit octet as per the DOCSIS Specification  for packet classification.  The IP ToS octet, as originally defined in RFC 791, has  been superseded by the 6\-bit Differentiated Services  Field (DSField, RFC 3260) and the 2\-bit Explicit  Congestion Notification Field (ECN field, RFC 3168)
             	**type**\: str
             
             	**length:** 1
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3filtergrpiptoshigh
             
@@ -837,12 +954,16 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**length:** 1
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3filtergrpiptosmask
             
             	This attribute represents the mask value that is bitwise  ANDed with ToS octet in an IP packet, and the resulting value  is used for range checking of IpTosLow and IpTosHigh
             	**type**\: str
             
             	**length:** 1
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3filtergrpipprotocol
             
@@ -851,10 +972,14 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**range:** 0..257
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3filtergrpinetaddrtype
             
             	The type of the Internet address for InetSrcAddr,  InetSrcMask, InetDestAddr, and InetDestMask
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3filtergrpinetsrcaddr
             
@@ -863,12 +988,16 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3filtergrpinetsrcmask
             
             	This attribute represents which bits of a packet's  IP Source Address are compared to match this rule. An  IP packet matches the rule when the packet's IP Source  Address bitwise ANDed with the InetSrcMask value equals  the InetSrcAddr value. The address type of this  object is specified by InetAddrType
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3filtergrpinetdestaddr
             
@@ -877,12 +1006,16 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3filtergrpinetdestmask
             
             	This attribute represents which bits of a packet's  IP Destination Address are compared to match this rule.  An IP packet matches the rule when the packet's IP Destination  Address bitwise ANDed with the InetDestMask value  equals the InetDestAddr value. The address type  of this object is specified by InetAddrType
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3filtergrpsrcportstart
             
@@ -891,12 +1024,16 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3filtergrpsrcportend
             
             	This attribute represents the high\-end inclusive  range of TCP/UDP source port numbers to which a packet  is compared. This attribute is irrelevant for non\-TCP/UDP  IP packets
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3filtergrpdestportstart
             
@@ -905,12 +1042,16 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3filtergrpdestportend
             
             	This attribute represents the high\-end inclusive  range of TCP/UDP destination port numbers to which a packet  is compared. This attribute is irrelevant for non\-TCP/UDP  IP packets
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3filtergrpdestmacaddr
             
@@ -919,12 +1060,16 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3filtergrpdestmacmask
             
             	An Ethernet packet matches an entry when its  destination MAC address bitwise ANDed with  the DestMacMask attribute equals the value of  the DestMacAddr attribute
             	**type**\: str
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3filtergrpsrcmacaddr
             
@@ -933,10 +1078,14 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3filtergrpenetprotocoltype
             
             	This attribute indicates the format of the layer 3  protocol ID in the Ethernet packet. A value of 'none'  means that the rule does not use the layer 3 protocol  type as a matching criteria. A value of 'ethertype'  means that the rule applies only to frames that contain  an EtherType value. EtherType values are contained  in packets using the DEC\-Intel\-Xerox (DIX) encapsulation  or the RFC 1042 Sub\-Network Access Protocol  (SNAP) encapsulation formats. A value of 'dsap' means  that the rule applies only to frames using the IEEE802.3  encapsulation format with a Destination Service  Access Point (DSAP) other than 0xAA (which is reserved  for SNAP). A value of 'mac' means that the rule  applies only to MAC management messages for MAC management  messages. A value of 'all' means that the rule  matches all Ethernet packets. If the Ethernet frame  contains an 802.1P/Q Tag header (i.e., EtherType  0x8100), this attribute applies to the embedded EtherType  field within the 802.1p/Q header.  The value 'mac' is only used for passing UDCs to CMs during   Registration. The CMTS ignores filter rules that include   the value of this attribute set to 'mac' for CMTS enforced   upstream and downstream subscriber management filter group  rules
             	**type**\:  :py:class:`DocsSubmgt3FilterGrpEnetProtocolType <ydk.models.cisco_ios_xe.DOCS_SUBMGT3_MIB.DOCSSUBMGT3MIB.DocsSubmgt3FilterGrpTable.DocsSubmgt3FilterGrpEntry.DocsSubmgt3FilterGrpEnetProtocolType>`
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3filtergrpenetprotocol
             
@@ -945,12 +1094,16 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3filtergrpuserprilow
             
             	This attribute applies only to Ethernet frames using  the 802.1p/Q tag header (indicated with EtherType  0x8100). Such frames include a 16\-bit Tag that contains  a 3\-bit Priority field and a 12\-bit VLAN number.  Tagged Ethernet packets must have a 3\-bit Priority  field within the range of PriLow to PriHigh in order to  match this rule
             	**type**\: int
             
             	**range:** 0..7
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3filtergrpuserprihigh
             
@@ -959,12 +1112,16 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**range:** 0..7
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3filtergrpvlanid
             
             	This attribute applies only to Ethernet frames using  the 802.1p/Q tag header. Tagged packets must have  a VLAN Identifier that matches the value in order to  match the rule
             	**type**\: int
             
             	**range:** 0..4094
+            
+            	**config**\: False
             
             .. attribute:: docssubmgt3filtergrpclasspkts
             
@@ -973,6 +1130,8 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3filtergrpflowlabel
             
             	This attribute represents the Flow Label field in  the IPv6 header to be matched by the classifier.  The value zero indicates that the Flow Label is not specified  as part of the classifier and is not matched against packets
@@ -980,15 +1139,21 @@ class DOCSSUBMGT3MIB(Entity):
             
             	**range:** 0..1048575
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3filtergrpcminterfacemask
             
             	This attribute represents a bit\-mask of the CM in\-bound  interfaces to which this classifier applies.  This attribute only applies to upstream Drop Classifiers   being sent to CMs during the registration process
             	**type**\:  :py:class:`DocsL2vpnIfList <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DocsL2vpnIfList>`
             
+            	**config**\: False
+            
             .. attribute:: docssubmgt3filtergrprowstatus
             
             	The conceptual row status of this object
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1171,7 +1336,11 @@ class DOCSSUBMGT3MIB(Entity):
                 all = Enum.YLeaf(4, "all")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = DOCSSUBMGT3MIB()
         return self._top_entity
+
+
 

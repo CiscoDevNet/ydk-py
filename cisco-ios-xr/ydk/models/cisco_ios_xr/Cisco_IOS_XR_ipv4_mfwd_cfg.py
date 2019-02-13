@@ -380,6 +380,8 @@ class Mfwd(Entity):
                         self._perform_setattr(Mfwd.DefaultContext.Ipv6.StaticRpfRules.StaticRpfRule, ['address', 'prefix_mask', 'neighbor_address', 'interface_name'], name, value)
 
 
+
+
             class Interfaces(Entity):
                 """
                 Interface\-level Configuration
@@ -478,6 +480,9 @@ class Mfwd(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mfwd.DefaultContext.Ipv6.Interfaces.Interface, ['interface_name', 'ttl_threshold', 'enable_on_interface', 'boundary'], name, value)
+
+
+
 
 
         class Ipv4(Entity):
@@ -731,6 +736,8 @@ class Mfwd(Entity):
                         self._perform_setattr(Mfwd.DefaultContext.Ipv4.StaticRpfRules.StaticRpfRule, ['address', 'prefix_mask', 'neighbor_address', 'interface_name'], name, value)
 
 
+
+
             class Interfaces(Entity):
                 """
                 Interface\-level Configuration
@@ -829,6 +836,10 @@ class Mfwd(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mfwd.DefaultContext.Ipv4.Interfaces.Interface, ['interface_name', 'ttl_threshold', 'enable_on_interface', 'boundary'], name, value)
+
+
+
+
 
 
     class Vrfs(Entity):
@@ -1122,6 +1133,8 @@ class Mfwd(Entity):
                             self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules.StaticRpfRule, ['address', 'prefix_mask', 'neighbor_address', 'interface_name'], name, value)
 
 
+
+
                 class Interfaces(Entity):
                     """
                     Interface\-level Configuration
@@ -1218,6 +1231,9 @@ class Mfwd(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv6.Interfaces.Interface, ['interface_name', 'ttl_threshold', 'enable_on_interface', 'boundary'], name, value)
+
+
+
 
 
             class Ipv4(Entity):
@@ -1418,6 +1434,8 @@ class Mfwd(Entity):
                             self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules.StaticRpfRule, ['address', 'prefix_mask', 'neighbor_address', 'interface_name'], name, value)
 
 
+
+
                 class Interfaces(Entity):
                     """
                     Interface\-level Configuration
@@ -1515,7 +1533,14 @@ class Mfwd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv4.Interfaces.Interface, ['interface_name', 'ttl_threshold', 'enable_on_interface', 'boundary'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Mfwd()
         return self._top_entity
+
+
 

@@ -63,6 +63,7 @@ class SchemaFormat(Identity):
         super(SchemaFormat, self).__init__(ns, pref, tag)
 
 
+
 class Transport(Identity):
     """
     Base identity for NETCONF transport types.
@@ -76,6 +77,7 @@ class Transport(Identity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:transport"):
         super(Transport, self).__init__(ns, pref, tag)
+
 
 
 class GetSchema(Entity):
@@ -187,6 +189,7 @@ class GetSchema(Entity):
             self._perform_setattr(GetSchema.Input, ['identifier', 'version', 'format'], name, value)
 
 
+
     class Output(Entity):
         """
         
@@ -223,9 +226,12 @@ class GetSchema(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(GetSchema.Output, ['data'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = GetSchema()
         return self._top_entity
+
+
 
 class NetconfState(Entity):
     """
@@ -237,25 +243,35 @@ class NetconfState(Entity):
     	Contains the list of NETCONF capabilities supported by the server
     	**type**\:  :py:class:`Capabilities <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Capabilities>`
     
+    	**config**\: False
+    
     .. attribute:: datastores
     
     	Contains the list of NETCONF configuration datastores
     	**type**\:  :py:class:`Datastores <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores>`
+    
+    	**config**\: False
     
     .. attribute:: schemas
     
     	Contains the list of data model schemas supported by the server
     	**type**\:  :py:class:`Schemas <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Schemas>`
     
+    	**config**\: False
+    
     .. attribute:: sessions
     
     	The sessions container includes session\-specific data for NETCONF management sessions.  The session list MUST include all currently active NETCONF sessions
     	**type**\:  :py:class:`Sessions <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Sessions>`
     
+    	**config**\: False
+    
     .. attribute:: statistics
     
     	Statistical data pertaining to the NETCONF server
     	**type**\:  :py:class:`Statistics <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Statistics>`
+    
+    	**config**\: False
     
     
 
@@ -312,6 +328,8 @@ class NetconfState(Entity):
         	List of NETCONF capabilities supported by the server
         	**type**\: list of str
         
+        	**config**\: False
+        
         
 
         """
@@ -340,6 +358,7 @@ class NetconfState(Entity):
             self._perform_setattr(NetconfState.Capabilities, ['capability'], name, value)
 
 
+
     class Datastores(Entity):
         """
         Contains the list of NETCONF configuration datastores.
@@ -348,6 +367,8 @@ class NetconfState(Entity):
         
         	List of NETCONF configuration datastores supported by the NETCONF server and related information
         	**type**\: list of  		 :py:class:`Datastore <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore>`
+        
+        	**config**\: False
         
         
 
@@ -386,12 +407,16 @@ class NetconfState(Entity):
             	Name of the datastore associated with this list entry
             	**type**\:  :py:class:`NetconfDatastoreType <ydk.models.ietf.ietf_netconf_monitoring.NetconfDatastoreType>`
             
+            	**config**\: False
+            
             .. attribute:: locks
             
             	The NETCONF <lock> and <partial\-lock> operations allow a client to lock specific resources in a datastore.  The NETCONF server will prevent changes to the locked resources by all sessions except the one that acquired the lock(s).  Monitoring information is provided for each datastore entry including details such as the session that acquired the lock, the type of lock (global or partial) and the list of locked resources.  Multiple locks per datastore are supported
             	**type**\:  :py:class:`Locks <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore.Locks>`
             
             	**presence node**\: True
+            
+            	**config**\: False
             
             
 
@@ -443,10 +468,14 @@ class NetconfState(Entity):
                 	Present if the global lock is set
                 	**type**\:  :py:class:`GlobalLock <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore.Locks.GlobalLock>`
                 
+                	**config**\: False
+                
                 .. attribute:: partial_lock
                 
                 	List of partial locks
                 	**type**\: list of  		 :py:class:`PartialLock <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore.Locks.PartialLock>`
+                
+                	**config**\: False
                 
                 
 
@@ -494,6 +523,8 @@ class NetconfState(Entity):
                     
                     	**mandatory**\: True
                     
+                    	**config**\: False
+                    
                     .. attribute:: locked_time
                     
                     	The date and time of when the resource was locked
@@ -502,6 +533,8 @@ class NetconfState(Entity):
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
                     	**mandatory**\: True
+                    
+                    	**config**\: False
                     
                     
 
@@ -532,6 +565,7 @@ class NetconfState(Entity):
                         self._perform_setattr(NetconfState.Datastores.Datastore.Locks.GlobalLock, ['locked_by_session', 'locked_time'], name, value)
 
 
+
                 class PartialLock(Entity):
                     """
                     List of partial locks.
@@ -543,6 +577,8 @@ class NetconfState(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: locked_by_session
                     
                     	The session ID of the session that has locked this resource.  Both a global lock and a partial lock MUST contain the NETCONF session\-id.  If the lock is held by a session that is not managed by the NETCONF server (e.g., a CLI session), a session id of 0 (zero) is reported
@@ -551,6 +587,8 @@ class NetconfState(Entity):
                     	**range:** 0..4294967295
                     
                     	**mandatory**\: True
+                    
+                    	**config**\: False
                     
                     .. attribute:: locked_time
                     
@@ -561,15 +599,21 @@ class NetconfState(Entity):
                     
                     	**mandatory**\: True
                     
+                    	**config**\: False
+                    
                     .. attribute:: select
                     
                     	The xpath expression that was used to request the lock.  The select expression indicates the original intended scope of the lock
                     	**type**\: list of str
                     
+                    	**config**\: False
+                    
                     .. attribute:: locked_node
                     
                     	The list of instance\-identifiers (i.e., the locked nodes).  The scope of the partial lock is defined by the list of locked nodes
                     	**type**\: list of str
+                    
+                    	**config**\: False
                     
                     
 
@@ -606,6 +650,10 @@ class NetconfState(Entity):
                         self._perform_setattr(NetconfState.Datastores.Datastore.Locks.PartialLock, ['lock_id', 'locked_by_session', 'locked_time', 'select', 'locked_node'], name, value)
 
 
+
+
+
+
     class Schemas(Entity):
         """
         Contains the list of data model schemas supported by the
@@ -615,6 +663,8 @@ class NetconfState(Entity):
         
         	List of data model schemas supported by the server
         	**type**\: list of  		 :py:class:`Schema <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Schemas.Schema>`
+        
+        	**config**\: False
         
         
 
@@ -652,15 +702,21 @@ class NetconfState(Entity):
             	Identifier to uniquely reference the schema.  The identifier is used in the <get\-schema> operation and may be used for other purposes such as file retrieval.  For modeling languages that support or require a data model name (e.g., YANG module name) the identifier MUST match that name.  For YANG data models, the identifier is the name of the module or submodule.  In other cases, an identifier such as a filename MAY be used instead
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: version  (key)
             
             	Version of the schema supported.  Multiple versions MAY be supported simultaneously by a NETCONF server.  Each version MUST be reported individually in the schema list, i.e., with same identifier, possibly different location, but different version.  For YANG data models, version is the value of the most recent YANG 'revision' statement in the module or submodule, or the empty string if no 'revision' statement is present
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: format  (key)
             
             	The data modeling language the schema is written in (currently xsd, yang, yin, rng, or rnc). For YANG data models, 'yang' format MUST be supported and 'yin' format MAY also be provided
             	**type**\:  :py:class:`SchemaFormat <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormat>`
+            
+            	**config**\: False
             
             .. attribute:: namespace
             
@@ -668,6 +724,8 @@ class NetconfState(Entity):
             	**type**\: str
             
             	**mandatory**\: True
+            
+            	**config**\: False
             
             .. attribute:: location
             
@@ -677,6 +735,8 @@ class NetconfState(Entity):
             		**type**\: list of   :py:class:`Location <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Schemas.Schema.Location>`
             
             		**type**\: list of str
+            
+            	**config**\: False
             
             
 
@@ -739,6 +799,8 @@ class NetconfState(Entity):
 
 
 
+
+
     class Sessions(Entity):
         """
         The sessions container includes session\-specific data for
@@ -749,6 +811,8 @@ class NetconfState(Entity):
         
         	All NETCONF sessions managed by the NETCONF server MUST be reported in this list
         	**type**\: list of  		 :py:class:`Session <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Sessions.Session>`
+        
+        	**config**\: False
         
         
 
@@ -789,6 +853,8 @@ class NetconfState(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: transport
             
             	Identifies the transport for each session, e.g., 'netconf\-ssh', 'netconf\-soap', etc
@@ -796,12 +862,16 @@ class NetconfState(Entity):
             
             	**mandatory**\: True
             
+            	**config**\: False
+            
             .. attribute:: username
             
             	The username is the client identity that was authenticated by the NETCONF transport protocol.  The algorithm used to derive the username is NETCONF transport protocol specific and in addition specific to the authentication mechanism used by the NETCONF transport protocol
             	**type**\: str
             
             	**mandatory**\: True
+            
+            	**config**\: False
             
             .. attribute:: source_host
             
@@ -818,7 +888,9 @@ class NetconfState(Entity):
             
             		**type**\: str
             
-            			**pattern:** ((([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.)\*([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.?)\|\\.
+            			**length:** 1..253
+            
+            	**config**\: False
             
             .. attribute:: login_time
             
@@ -829,12 +901,16 @@ class NetconfState(Entity):
             
             	**mandatory**\: True
             
+            	**config**\: False
+            
             .. attribute:: in_rpcs
             
             	Number of correct <rpc> messages received
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: in_bad_rpcs
             
@@ -843,6 +919,8 @@ class NetconfState(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: out_rpc_errors
             
             	Number of <rpc\-reply> messages sent that contained an <rpc\-error> element
@@ -850,12 +928,16 @@ class NetconfState(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: out_notifications
             
             	Number of <notification> messages sent
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -901,6 +983,8 @@ class NetconfState(Entity):
                 self._perform_setattr(NetconfState.Sessions.Session, ['session_id', 'transport', 'username', 'source_host', 'login_time', 'in_rpcs', 'in_bad_rpcs', 'out_rpc_errors', 'out_notifications'], name, value)
 
 
+
+
     class Statistics(Entity):
         """
         Statistical data pertaining to the NETCONF server.
@@ -912,12 +996,16 @@ class NetconfState(Entity):
         
         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
+        	**config**\: False
+        
         .. attribute:: in_bad_hellos
         
         	Number of sessions silently dropped because an invalid <hello> message was received.  This includes <hello> messages with a 'session\-id' attribute, bad namespace, and bad capability declarations
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: in_sessions
         
@@ -926,12 +1014,16 @@ class NetconfState(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: dropped_sessions
         
         	Number of sessions that were abnormally terminated, e.g., due to idle timeout or transport close.  This counter is not incremented when a session is properly closed by a <close\-session> operation, or killed by a <kill\-session> operation
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: in_rpcs
         
@@ -940,12 +1032,16 @@ class NetconfState(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: in_bad_rpcs
         
         	Number of messages received when an <rpc> message was expected, that were not correct <rpc> messages.  This includes XML parse errors and errors on the rpc layer
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: out_rpc_errors
         
@@ -954,12 +1050,16 @@ class NetconfState(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: out_notifications
         
         	Number of <notification> messages sent
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -1002,9 +1102,12 @@ class NetconfState(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(NetconfState.Statistics, ['netconf_start_time', 'in_bad_hellos', 'in_sessions', 'dropped_sessions', 'in_rpcs', 'in_bad_rpcs', 'out_rpc_errors', 'out_notifications'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = NetconfState()
         return self._top_entity
+
+
 
 class NetconfBeep(Transport):
     """
@@ -1019,6 +1122,7 @@ class NetconfBeep(Transport):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:netconf-beep"):
         super(NetconfBeep, self).__init__(ns, pref, tag)
+
 
 
 class NetconfSsh(Transport):
@@ -1036,6 +1140,7 @@ class NetconfSsh(Transport):
         super(NetconfSsh, self).__init__(ns, pref, tag)
 
 
+
 class Rnc(SchemaFormat):
     """
     Relax NG Compact Syntax
@@ -1049,6 +1154,7 @@ class Rnc(SchemaFormat):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:rnc"):
         super(Rnc, self).__init__(ns, pref, tag)
+
 
 
 class Yin(SchemaFormat):
@@ -1066,6 +1172,7 @@ class Yin(SchemaFormat):
         super(Yin, self).__init__(ns, pref, tag)
 
 
+
 class Rng(SchemaFormat):
     """
     Regular Language for XML Next Generation (RELAX NG).
@@ -1081,6 +1188,7 @@ class Rng(SchemaFormat):
         super(Rng, self).__init__(ns, pref, tag)
 
 
+
 class Xsd(SchemaFormat):
     """
     W3C XML Schema Definition.
@@ -1094,6 +1202,7 @@ class Xsd(SchemaFormat):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:xsd"):
         super(Xsd, self).__init__(ns, pref, tag)
+
 
 
 class NetconfSoapOverBeep(Transport):
@@ -1112,6 +1221,7 @@ class NetconfSoapOverBeep(Transport):
         super(NetconfSoapOverBeep, self).__init__(ns, pref, tag)
 
 
+
 class NetconfTls(Transport):
     """
     NETCONF over Transport Layer Security (TLS).
@@ -1125,6 +1235,7 @@ class NetconfTls(Transport):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:netconf-tls"):
         super(NetconfTls, self).__init__(ns, pref, tag)
+
 
 
 class Yang(SchemaFormat):
@@ -1142,6 +1253,7 @@ class Yang(SchemaFormat):
         super(Yang, self).__init__(ns, pref, tag)
 
 
+
 class NetconfSoapOverHttps(Transport):
     """
     NETCONF over Simple Object Access Protocol (SOAP)
@@ -1156,5 +1268,6 @@ class NetconfSoapOverHttps(Transport):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:netconf-soap-over-https"):
         super(NetconfSoapOverHttps, self).__init__(ns, pref, tag)
+
 
 

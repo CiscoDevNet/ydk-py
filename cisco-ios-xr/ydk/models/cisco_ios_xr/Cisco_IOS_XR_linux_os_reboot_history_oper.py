@@ -30,6 +30,8 @@ class RebootHistory(Entity):
     	Node ID
     	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_linux_os_reboot_history_oper.RebootHistory.Node>`
     
+    	**config**\: False
+    
     
 
     """
@@ -68,10 +70,14 @@ class RebootHistory(Entity):
         
         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
         
+        	**config**\: False
+        
         .. attribute:: reboot_history
         
         	Last Reboots
         	**type**\: list of  		 :py:class:`RebootHistory_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_linux_os_reboot_history_oper.RebootHistory.Node.RebootHistory_>`
+        
+        	**config**\: False
         
         
 
@@ -114,10 +120,14 @@ class RebootHistory(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: time
             
             	Time of reboot
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: cause_code
             
@@ -126,10 +136,14 @@ class RebootHistory(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: reason
             
             	Reason for reboot
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -163,7 +177,11 @@ class RebootHistory(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(RebootHistory.Node.RebootHistory_, ['no', 'time', 'cause_code', 'reason'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = RebootHistory()
         return self._top_entity
+
+
 

@@ -332,15 +332,21 @@ class SubscriberRedundancyManager(Entity):
     	Subscriber Redundancy Manager group table
     	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyManager.Groups>`
     
+    	**config**\: False
+    
     .. attribute:: summary
     
     	Subscriber redundancy manager summary
     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyManager.Summary>`
     
+    	**config**\: False
+    
     .. attribute:: interfaces
     
     	Subscriber Redundancy Manager interface table
     	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyManager.Interfaces>`
+    
+    	**config**\: False
     
     
 
@@ -388,6 +394,8 @@ class SubscriberRedundancyManager(Entity):
         	Subscriber redundancy manager group
         	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyManager.Groups.Group>`
         
+        	**config**\: False
+        
         
 
         """
@@ -426,6 +434,8 @@ class SubscriberRedundancyManager(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: group_id
             
             	Group ID
@@ -433,20 +443,28 @@ class SubscriberRedundancyManager(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: description
             
             	Group Description
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: disabled
             
             	Disabled by Config
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: role
             
             	SRG Role
             	**type**\:  :py:class:`SrgShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowImRole>`
+            
+            	**config**\: False
             
             .. attribute:: peer_ipv4_address
             
@@ -455,12 +473,16 @@ class SubscriberRedundancyManager(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: peer_ipv6_address
             
             	Peer IPv6 Address
             	**type**\: str
             
             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: interface_count
             
@@ -469,35 +491,49 @@ class SubscriberRedundancyManager(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: preferred_role
             
             	Preferred Role
             	**type**\:  :py:class:`SrgShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowRole>`
+            
+            	**config**\: False
             
             .. attribute:: slave_mode
             
             	Slave Mode
             	**type**\:  :py:class:`SrgShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowSlaveMode>`
             
+            	**config**\: False
+            
             .. attribute:: object_tracking_status
             
             	Object Tracking Status (Enabled/Disabled)
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: virtual_mac_address
             
             	Virtual MAC Address
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: virtual_mac_address_disable
             
             	Virtual MAC Address Disable
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: node_name
             
             	Node Information
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -553,6 +589,8 @@ class SubscriberRedundancyManager(Entity):
                 self._perform_setattr(SubscriberRedundancyManager.Groups.Group, ['group', 'group_id', 'description', 'disabled', 'role', 'peer_ipv4_address', 'peer_ipv6_address', 'interface_count', 'preferred_role', 'slave_mode', 'object_tracking_status', 'virtual_mac_address', 'virtual_mac_address_disable', 'node_name'], name, value)
 
 
+
+
     class Summary(Entity):
         """
         Subscriber redundancy manager summary
@@ -562,20 +600,28 @@ class SubscriberRedundancyManager(Entity):
         	Disabled by Config
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: active_state
         
         	Process Active State
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: preferred_role
         
         	Preferred Role
         	**type**\:  :py:class:`SrgShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowRole>`
         
+        	**config**\: False
+        
         .. attribute:: slave_mode
         
         	Slave Mode
         	**type**\:  :py:class:`SrgShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowSlaveMode>`
+        
+        	**config**\: False
         
         .. attribute:: hold_timer
         
@@ -584,15 +630,21 @@ class SubscriberRedundancyManager(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: source_interface_name
         
         	Source Interface Name
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: vrf_name
         
         	VRF Name
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: source_interface_ipv4_address
         
@@ -601,12 +653,16 @@ class SubscriberRedundancyManager(Entity):
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: source_interface_ipv6_address
         
         	Source Interface IPv6 Address
         	**type**\: str
         
         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+        
+        	**config**\: False
         
         .. attribute:: group_count
         
@@ -615,12 +671,16 @@ class SubscriberRedundancyManager(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: disabled_group_count
         
         	No. of Disabled Groups by Config
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: master_group_count
         
@@ -629,12 +689,16 @@ class SubscriberRedundancyManager(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: slave_group_count
         
         	No. of Slave Groups
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: interface_count
         
@@ -643,6 +707,8 @@ class SubscriberRedundancyManager(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: master_interface_count
         
         	No. of Master/Active Interfaces
@@ -650,12 +716,16 @@ class SubscriberRedundancyManager(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: slave_interface_count
         
         	No. of Slave Interfaces
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -715,6 +785,7 @@ class SubscriberRedundancyManager(Entity):
             self._perform_setattr(SubscriberRedundancyManager.Summary, ['disabled', 'active_state', 'preferred_role', 'slave_mode', 'hold_timer', 'source_interface_name', 'vrf_name', 'source_interface_ipv4_address', 'source_interface_ipv6_address', 'group_count', 'disabled_group_count', 'master_group_count', 'slave_group_count', 'interface_count', 'master_interface_count', 'slave_interface_count'], name, value)
 
 
+
     class Interfaces(Entity):
         """
         Subscriber Redundancy Manager interface table
@@ -723,6 +794,8 @@ class SubscriberRedundancyManager(Entity):
         
         	Subscriber redundancy manager interface
         	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyManager.Interfaces.Interface>`
+        
+        	**config**\: False
         
         
 
@@ -762,10 +835,14 @@ class SubscriberRedundancyManager(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: interface_name
             
             	Interface Name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: interface_mapping_id
             
@@ -774,10 +851,14 @@ class SubscriberRedundancyManager(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: forward_referenced
             
             	Forward Referenced
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: group_id
             
@@ -786,10 +867,14 @@ class SubscriberRedundancyManager(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: role
             
             	SRG Role
             	**type**\:  :py:class:`SrgShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowImRole>`
+            
+            	**config**\: False
             
             
 
@@ -828,9 +913,13 @@ class SubscriberRedundancyManager(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SubscriberRedundancyManager.Interfaces.Interface, ['interface', 'interface_name', 'interface_mapping_id', 'forward_referenced', 'group_id', 'role'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = SubscriberRedundancyManager()
         return self._top_entity
+
+
 
 class SubscriberRedundancyAgent(Entity):
     """
@@ -840,6 +929,8 @@ class SubscriberRedundancyAgent(Entity):
     
     	List of nodes for which subscriber data is collected
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes>`
+    
+    	**config**\: False
     
     
 
@@ -880,6 +971,8 @@ class SubscriberRedundancyAgent(Entity):
         	Subscriber data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node>`
         
+        	**config**\: False
+        
         
 
         """
@@ -918,25 +1011,35 @@ class SubscriberRedundancyAgent(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: group_id_xr
             
             	Data for particular subscriber group session
             	**type**\:  :py:class:`GroupIdXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.GroupIdXr>`
+            
+            	**config**\: False
             
             .. attribute:: interfaces
             
             	List of interfaces
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.Interfaces>`
             
+            	**config**\: False
+            
             .. attribute:: group_summaries
             
             	Subscriber data for a particular node
             	**type**\:  :py:class:`GroupSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.GroupSummaries>`
             
+            	**config**\: False
+            
             .. attribute:: group_ids
             
             	Data for particular subscriber group 
             	**type**\:  :py:class:`GroupIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.GroupIds>`
+            
+            	**config**\: False
             
             
 
@@ -991,6 +1094,8 @@ class SubscriberRedundancyAgent(Entity):
                 	Group id for subscriber group session
                 	**type**\: list of  		 :py:class:`GroupId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1028,6 +1133,8 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: group_id_xr
                     
                     	Group ID
@@ -1035,10 +1142,14 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_name
                     
                     	Interface Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: outer_vlan
                     
@@ -1047,6 +1158,8 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: inner_vlan
                     
                     	Inner VLAN Information
@@ -1054,10 +1167,14 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_mac_address
                     
                     	Session MAC Address
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: pppoe_session_id
                     
@@ -1066,6 +1183,8 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: l2tp_tunnel_id
                     
                     	L2TP Tunnel local ID
@@ -1073,30 +1192,42 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: role_master
                     
                     	Master Role is Set
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: valid_mac_address
                     
                     	Holds a Valid MAC Address
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: negative_acknowledgement_update_all
                     
                     	Negative Acknowledgement Update Flag is Set
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: session_detailed_information
                     
                     	More Session Information
                     	**type**\: list of  		 :py:class:`SessionDetailedInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_sync_error_information
                     
                     	Session Synchroniation Error Information
                     	**type**\: list of  		 :py:class:`SessionSyncErrorInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1157,25 +1288,35 @@ class SubscriberRedundancyAgent(Entity):
                         	Component
                         	**type**\:  :py:class:`SrgShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowComp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: operation_
                         
                         	Operation Code
                         	**type**\:  :py:class:`SrgShowSessionOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowSessionOperation>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: tx_list_queue_fail
                         
                         	Tx List Queue Failed
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_for_sweeping
                         
                         	Marked For Sweeping
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_for_cleanup
                         
                         	Marked For Cleanup
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -1212,6 +1353,7 @@ class SubscriberRedundancyAgent(Entity):
                             self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, ['component', 'operation_', 'tx_list_queue_fail', 'marked_for_sweeping', 'marked_for_cleanup'], name, value)
 
 
+
                     class SessionSyncErrorInformation(Entity):
                         """
                         Session Synchroniation Error Information
@@ -1223,6 +1365,8 @@ class SubscriberRedundancyAgent(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_error_code
                         
                         	Last Error Code
@@ -1230,10 +1374,14 @@ class SubscriberRedundancyAgent(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_error_type
                         
                         	Last Error Type
                         	**type**\:  :py:class:`SrgShowSessionError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowSessionError>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1266,6 +1414,9 @@ class SubscriberRedundancyAgent(Entity):
                             self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, ['sync_error_count', 'last_error_code', 'last_error_type'], name, value)
 
 
+
+
+
             class Interfaces(Entity):
                 """
                 List of interfaces
@@ -1274,6 +1425,8 @@ class SubscriberRedundancyAgent(Entity):
                 
                 	Specify interface name
                 	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface>`
+                
+                	**config**\: False
                 
                 
 
@@ -1312,20 +1465,28 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_oper
                     
                     	Interface Batch Operation
                     	**type**\:  :py:class:`InterfaceOper <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_status
                     
                     	Interface Status
                     	**type**\:  :py:class:`InterfaceStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_name
                     
                     	Interface Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_synchronization_id
                     
@@ -1334,6 +1495,8 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: group_id
                     
                     	Group ID
@@ -1341,15 +1504,21 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: role
                     
                     	SRG Role
                     	**type**\:  :py:class:`SrgShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowImRole>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: forward_referenced
                     
                     	Forward Referenced
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: session_count
                     
@@ -1358,12 +1527,16 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_enable_error_count
                     
                     	Interface Enable Error Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_disable_error_count
                     
@@ -1372,12 +1545,16 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_caps_add_error_count
                     
                     	Interface Caps Add Error Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_caps_remove_error_count
                     
@@ -1386,6 +1563,8 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_attribute_update_error_count
                     
                     	Interface Attribute Update Error Count
@@ -1393,10 +1572,14 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: client_status
                     
                     	Interface status for each client
                     	**type**\: list of  		 :py:class:`ClientStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1466,25 +1649,35 @@ class SubscriberRedundancyAgent(Entity):
                         	Operational Registration Enabled
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: idb_oper_reg_disable
                         
                         	Operational Registration Disabled
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: idb_oper_caps_add
                         
                         	Operational Caps Add
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: idb_oper_caps_remove
                         
                         	Operational Caps Remove
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: idb_oper_attr_update
                         
                         	Operational Attribute Update
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -1521,6 +1714,7 @@ class SubscriberRedundancyAgent(Entity):
                             self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, ['idb_oper_reg_enable', 'idb_oper_reg_disable', 'idb_oper_caps_add', 'idb_oper_caps_remove', 'idb_oper_attr_update'], name, value)
 
 
+
                     class InterfaceStatus(Entity):
                         """
                         Interface Status
@@ -1530,40 +1724,56 @@ class SubscriberRedundancyAgent(Entity):
                         	Interface Forward Referenced
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: idb_state_stale
                         
                         	Interface State Stale
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: idb_state_registered
                         
                         	Interface State Registered
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: idb_state_caps_added
                         
                         	Interface State Caps Added
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: idb_state_owned_re_source
                         
                         	Interface State Owned Resource
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: idb_client_eoms_pending
                         
                         	Interface Client EOMS Pending
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: idb_state_p_end_caps_rem
                         
                         	Interface Caps Remove Pending
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: idb_state_p_end_reg_disable
                         
                         	Interface Registration Disable Pending
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -1606,6 +1816,7 @@ class SubscriberRedundancyAgent(Entity):
                             self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, ['idb_state_fwd_ref', 'idb_state_stale', 'idb_state_registered', 'idb_state_caps_added', 'idb_state_owned_re_source', 'idb_client_eoms_pending', 'idb_state_p_end_caps_rem', 'idb_state_p_end_reg_disable'], name, value)
 
 
+
                     class ClientStatus(Entity):
                         """
                         Interface status for each client
@@ -1615,15 +1826,21 @@ class SubscriberRedundancyAgent(Entity):
                         	Component
                         	**type**\:  :py:class:`SrgShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowComp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: srg_show_idb_client_eoms_pending
                         
                         	SRG SHOW IDB CLIENT EOMS PENDING
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: srg_show_idb_client_sync_eod_pending
                         
                         	SRG SHOW IDB CLIENT SYNC EOD PENDING
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: session_count
                         
@@ -1631,6 +1848,8 @@ class SubscriberRedundancyAgent(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1665,6 +1884,9 @@ class SubscriberRedundancyAgent(Entity):
                             self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, ['component', 'srg_show_idb_client_eoms_pending', 'srg_show_idb_client_sync_eod_pending', 'session_count'], name, value)
 
 
+
+
+
             class GroupSummaries(Entity):
                 """
                 Subscriber data for a particular node
@@ -1673,6 +1895,8 @@ class SubscriberRedundancyAgent(Entity):
                 
                 	Subscriber redundancy agent group summary
                 	**type**\: list of  		 :py:class:`GroupSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary>`
+                
+                	**config**\: False
                 
                 
 
@@ -1711,6 +1935,8 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: group_id_xr
                     
                     	Group ID
@@ -1718,15 +1944,21 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: role
                     
                     	SRG Role
                     	**type**\:  :py:class:`SrgShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowImRole>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: disabled
                     
                     	Disabled by Config
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: peer_ipv4_address
                     
@@ -1735,6 +1967,8 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_ipv6_address
                     
                     	Peer IPv6 Address
@@ -1742,25 +1976,35 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_status
                     
                     	Peer Status
                     	**type**\:  :py:class:`SrgPeerStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgPeerStatus>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: preferred_role
                     
                     	Preferred Role
                     	**type**\:  :py:class:`SrgShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowRole>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: slave_mode
                     
                     	Slave Mode
                     	**type**\:  :py:class:`SrgShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowSlaveMode>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: object_tracking_status
                     
                     	Object Tracking Status (Enabled/Disabled)
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_count
                     
@@ -1769,6 +2013,8 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_count
                     
                     	Session Count
@@ -1776,12 +2022,16 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: pending_add_session_count
                     
                     	Pending Session Count for Synchornization
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1834,6 +2084,8 @@ class SubscriberRedundancyAgent(Entity):
                         self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, ['group_id', 'group_id_xr', 'role', 'disabled', 'peer_ipv4_address', 'peer_ipv6_address', 'peer_status', 'preferred_role', 'slave_mode', 'object_tracking_status', 'interface_count', 'session_count', 'pending_add_session_count'], name, value)
 
 
+
+
             class GroupIds(Entity):
                 """
                 Data for particular subscriber group 
@@ -1842,6 +2094,8 @@ class SubscriberRedundancyAgent(Entity):
                 
                 	Group id for subscriber group
                 	**type**\: list of  		 :py:class:`GroupId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId>`
+                
+                	**config**\: False
                 
                 
 
@@ -1880,6 +2134,8 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: group_id_xr
                     
                     	Group ID
@@ -1887,35 +2143,49 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	Group Description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: disabled
                     
                     	Disabled by Config
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: init_role
                     
                     	Preferred Init Role
                     	**type**\:  :py:class:`SrgShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowRole>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: negotiating_role
                     
                     	Negotiating Role
                     	**type**\:  :py:class:`SrgShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowRole>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: current_role
                     
                     	Current Role
                     	**type**\:  :py:class:`SrgShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowRole>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: slave_mode
                     
                     	Slave Mode
                     	**type**\:  :py:class:`SrgShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowSlaveMode>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: hold_timer
                     
@@ -1924,15 +2194,21 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: virtual_mac_address
                     
                     	Virtual MAC Address
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: virtual_mac_address_disable
                     
                     	Virtual MAC Address Disable
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: l2tp_source_ip
                     
@@ -1941,30 +2217,42 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: core_tracking_object_name
                     
                     	Core Object Tracking Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: core_tracking_object_status
                     
                     	Core Object Tracking Status
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: access_tracking_object_name
                     
                     	Access Object Tracking Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: access_tracking_object_status
                     
                     	Access Object Tracking Status
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: object_tracking_status
                     
                     	Object Tracking Status (Enabled/Disabled)
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: peer_ipv4_address
                     
@@ -1973,6 +2261,8 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_ipv6_address
                     
                     	Peer IPv6 Address
@@ -1980,50 +2270,70 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_status
                     
                     	Peer Status
                     	**type**\:  :py:class:`SrgPeerStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgPeerStatus>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: peer_last_negotiation_time
                     
                     	Last Negotiation time of Peer
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_last_up_time
                     
                     	Last UP time of Peer
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: peer_last_down_time
                     
                     	Last Down time of Peer
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_init_role
                     
                     	Peer Preferred Init Role
                     	**type**\:  :py:class:`SrgShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowRole>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: peer_negotiating_role
                     
                     	Peer Negotiating Role
                     	**type**\:  :py:class:`SrgShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowRole>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_current_role
                     
                     	Peer Current Role
                     	**type**\:  :py:class:`SrgShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowRole>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: peer_object_tracking_status
                     
                     	Peer Object Tracking Status
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_switchover_time
                     
                     	Last Switchover time
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: switchover_count
                     
@@ -2032,10 +2342,14 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_switchover_reason
                     
                     	Last Switchover Reason
                     	**type**\:  :py:class:`SrgShowSoReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SrgShowSoReason>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: switchover_hold_time
                     
@@ -2043,6 +2357,8 @@ class SubscriberRedundancyAgent(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -2053,12 +2369,16 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: slave_update_failure_count
                     
                     	Slave Session update fail count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tunnel_count
                     
@@ -2067,12 +2387,16 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: pending_session_update_count
                     
                     	Pending Session Update Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: pending_session_delete_count
                     
@@ -2081,12 +2405,16 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_count
                     
                     	No. of Configured Interfaces
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: revertive_timer
                     
@@ -2095,6 +2423,8 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: switchover_revert_time
                     
                     	Switchover Revert Time in seconds
@@ -2102,12 +2432,16 @@ class SubscriberRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: interface
                     
                     	Interface List
                     	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper.SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2223,6 +2557,8 @@ class SubscriberRedundancyAgent(Entity):
                         	Interface Name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: interface_synchronization_id
                         
                         	Interface Synchronization ID
@@ -2230,10 +2566,14 @@ class SubscriberRedundancyAgent(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: forward_referenced
                         
                         	Forward Referenced
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: session_count
                         
@@ -2241,6 +2581,8 @@ class SubscriberRedundancyAgent(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2274,7 +2616,14 @@ class SubscriberRedundancyAgent(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, ['interface_name', 'interface_synchronization_id', 'forward_referenced', 'session_count'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = SubscriberRedundancyAgent()
         return self._top_entity
+
+
 

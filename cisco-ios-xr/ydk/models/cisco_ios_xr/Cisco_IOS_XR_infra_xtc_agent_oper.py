@@ -343,10 +343,14 @@ class Pcc(Entity):
     	PCC PLSP database in XTC
     	**type**\:  :py:class:`Plsps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Pcc.Plsps>`
     
+    	**config**\: False
+    
     .. attribute:: peers
     
     	PCC peer database in XTC
     	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Pcc.Peers>`
+    
+    	**config**\: False
     
     
 
@@ -390,6 +394,8 @@ class Pcc(Entity):
         	PCC PLSP information
         	**type**\: list of  		 :py:class:`Plsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Pcc.Plsps.Plsp>`
         
+        	**config**\: False
+        
         
 
         """
@@ -428,10 +434,14 @@ class Pcc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: stats
             
             	Stats
             	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Pcc.Plsps.Plsp.Stats>`
+            
+            	**config**\: False
             
             .. attribute:: plsp_id_xr
             
@@ -440,10 +450,14 @@ class Pcc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sym_path_name
             
             	Symbolic Path Name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: refcnt
             
@@ -452,6 +466,8 @@ class Pcc(Entity):
             
             	**range:** \-9223372036854775808..9223372036854775807
             
+            	**config**\: False
+            
             .. attribute:: conn_delegated_to
             
             	CONN delegated to
@@ -459,15 +475,21 @@ class Pcc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: event_history
             
             	event history
             	**type**\: list of  		 :py:class:`EventHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Pcc.Plsps.Plsp.EventHistory>`
             
+            	**config**\: False
+            
             .. attribute:: path
             
             	path
             	**type**\: list of  		 :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Pcc.Plsps.Plsp.Path>`
+            
+            	**config**\: False
             
             
 
@@ -523,12 +545,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: paths_destroyed
                 
                 	Paths Destroyed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: path_create_errors
                 
@@ -537,12 +563,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: path_destroy_errors
                 
                 	Path destroy errors
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: requests_created
                 
@@ -551,6 +581,8 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: requests_destroyed
                 
                 	Requests destroyed
@@ -558,12 +590,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: requests_failed
                 
                 	Requests failed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -604,6 +640,7 @@ class Pcc(Entity):
                     self._perform_setattr(Pcc.Plsps.Plsp.Stats, ['paths_created', 'paths_destroyed', 'path_create_errors', 'path_destroy_errors', 'requests_created', 'requests_destroyed', 'requests_failed'], name, value)
 
 
+
             class EventHistory(Entity):
                 """
                 event history
@@ -615,10 +652,14 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: desc
                 
                 	Description
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -649,6 +690,7 @@ class Pcc(Entity):
                     self._perform_setattr(Pcc.Plsps.Plsp.EventHistory, ['ts', 'desc'], name, value)
 
 
+
             class Path(Entity):
                 """
                 path
@@ -658,12 +700,16 @@ class Pcc(Entity):
                 	stats
                 	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Pcc.Plsps.Plsp.Path.Stats>`
                 
+                	**config**\: False
+                
                 .. attribute:: used_bw
                 
                 	used bw
                 	**type**\: int
                 
                 	**range:** \-9223372036854775808..9223372036854775807
+                
+                	**config**\: False
                 
                 .. attribute:: requested_bw
                 
@@ -672,12 +718,16 @@ class Pcc(Entity):
                 
                 	**range:** \-9223372036854775808..9223372036854775807
                 
+                	**config**\: False
+                
                 .. attribute:: metric_value
                 
                 	metric value
                 	**type**\: int
                 
                 	**range:** \-9223372036854775808..9223372036854775807
+                
+                	**config**\: False
                 
                 .. attribute:: refcnt
                 
@@ -686,12 +736,16 @@ class Pcc(Entity):
                 
                 	**range:** \-9223372036854775808..9223372036854775807
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_plsp_id
                 
                 	LSP PLSP ID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: binding_sid_value
                 
@@ -700,12 +754,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_id_tlv_ext_tunnel_id
                 
                 	Ext Tun ID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_id_tlv_tunnel_endpoint_address
                 
@@ -714,12 +772,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_id_tlv_tunnel_sender_address
                 
                 	Tun sender address
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: srp_id
                 
@@ -728,12 +790,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_id_tlv_lsp_id
                 
                 	LSP ID
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_id_tlv_tunnel_id
                 
@@ -742,12 +808,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_id
                 
                 	Application LSP ID
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 .. attribute:: binding_sid_type
                 
@@ -756,12 +826,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_oper
                 
                 	LSP oper flags
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: path_setup_type
                 
@@ -770,6 +844,8 @@ class Pcc(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: metric_type
                 
                 	Metric type
@@ -777,45 +853,63 @@ class Pcc(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: is_reported
                 
                 	is reported
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_a_flag
                 
                 	LSP A Flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_r_flag
                 
                 	LSP R Flag
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_s_flag
                 
                 	LSP S Flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_d_flag
                 
                 	LSP D Flag
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_c_flag
                 
                 	LSP C Flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: ero_hop
                 
                 	ero hop
                 	**type**\: list of  		 :py:class:`EroHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Pcc.Plsps.Plsp.Path.EroHop>`
                 
+                	**config**\: False
+                
                 .. attribute:: rro_hop
                 
                 	rro hop
                 	**type**\: list of  		 :py:class:`RroHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Pcc.Plsps.Plsp.Path.RroHop>`
+                
+                	**config**\: False
                 
                 
 
@@ -906,6 +1000,8 @@ class Pcc(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: reports_sent
                     
                     	Reports sent
@@ -913,12 +1009,16 @@ class Pcc(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: reports_failed_to_send
                     
                     	Reports failed
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -951,6 +1051,7 @@ class Pcc(Entity):
                         self._perform_setattr(Pcc.Plsps.Plsp.Path.Stats, ['reports_requested', 'reports_sent', 'reports_failed_to_send'], name, value)
 
 
+
                 class EroHop(Entity):
                     """
                     ero hop
@@ -960,10 +1061,14 @@ class Pcc(Entity):
                     	data
                     	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Pcc.Plsps.Plsp.Path.EroHop.Data>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: loose
                     
                     	is loose hop
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -1005,10 +1110,14 @@ class Pcc(Entity):
                         	IPv4 hop info
                         	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Pcc.Plsps.Plsp.Path.EroHop.Data.Ipv4>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: sr_v4
                         
                         	SR IPv4 hop info
                         	**type**\:  :py:class:`SrV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Pcc.Plsps.Plsp.Path.EroHop.Data.SrV4>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: hop_type
                         
@@ -1016,6 +1125,8 @@ class Pcc(Entity):
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -1063,12 +1174,16 @@ class Pcc(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: prefix_len
                             
                             	Prefix length
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -1099,6 +1214,7 @@ class Pcc(Entity):
                                 self._perform_setattr(Pcc.Plsps.Plsp.Path.EroHop.Data.Ipv4, ['v4_addr', 'prefix_len'], name, value)
 
 
+
                         class SrV4(Entity):
                             """
                             SR IPv4 hop info
@@ -1110,10 +1226,14 @@ class Pcc(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: cflag
                             
                             	C flag
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: sid
                             
@@ -1122,6 +1242,8 @@ class Pcc(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: remote_addr
                             
                             	Remote address
@@ -1129,12 +1251,16 @@ class Pcc(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: local_addr
                             
                             	Local address
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1171,6 +1297,9 @@ class Pcc(Entity):
                                 self._perform_setattr(Pcc.Plsps.Plsp.Path.EroHop.Data.SrV4, ['type', 'cflag', 'sid', 'remote_addr', 'local_addr'], name, value)
 
 
+
+
+
                 class RroHop(Entity):
                     """
                     rro hop
@@ -1180,10 +1309,14 @@ class Pcc(Entity):
                     	data
                     	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Pcc.Plsps.Plsp.Path.RroHop.Data>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: loose
                     
                     	is loose hop
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -1225,10 +1358,14 @@ class Pcc(Entity):
                         	IPv4 hop info
                         	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Pcc.Plsps.Plsp.Path.RroHop.Data.Ipv4>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: sr_v4
                         
                         	SR IPv4 hop info
                         	**type**\:  :py:class:`SrV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Pcc.Plsps.Plsp.Path.RroHop.Data.SrV4>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: hop_type
                         
@@ -1236,6 +1373,8 @@ class Pcc(Entity):
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -1283,12 +1422,16 @@ class Pcc(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: prefix_len
                             
                             	Prefix length
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -1319,6 +1462,7 @@ class Pcc(Entity):
                                 self._perform_setattr(Pcc.Plsps.Plsp.Path.RroHop.Data.Ipv4, ['v4_addr', 'prefix_len'], name, value)
 
 
+
                         class SrV4(Entity):
                             """
                             SR IPv4 hop info
@@ -1330,10 +1474,14 @@ class Pcc(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: cflag
                             
                             	C flag
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: sid
                             
@@ -1342,6 +1490,8 @@ class Pcc(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: remote_addr
                             
                             	Remote address
@@ -1349,12 +1499,16 @@ class Pcc(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: local_addr
                             
                             	Local address
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1391,6 +1545,12 @@ class Pcc(Entity):
                                 self._perform_setattr(Pcc.Plsps.Plsp.Path.RroHop.Data.SrV4, ['type', 'cflag', 'sid', 'remote_addr', 'local_addr'], name, value)
 
 
+
+
+
+
+
+
     class Peers(Entity):
         """
         PCC peer database in XTC
@@ -1399,6 +1559,8 @@ class Pcc(Entity):
         
         	PCC peer information
         	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Pcc.Peers.Peer>`
+        
+        	**config**\: False
         
         
 
@@ -1444,15 +1606,21 @@ class Pcc(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: socket_info
             
             	socket info
             	**type**\:  :py:class:`SocketInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Pcc.Peers.Peer.SocketInfo>`
             
+            	**config**\: False
+            
             .. attribute:: stats
             
             	stats
             	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Pcc.Peers.Peer.Stats>`
+            
+            	**config**\: False
             
             .. attribute:: handle
             
@@ -1461,20 +1629,28 @@ class Pcc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: state_str
             
             	connection state
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: local_ok
             
             	local accepted
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: remote_ok
             
             	remote accepted
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: open_retry
             
@@ -1483,6 +1659,8 @@ class Pcc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ref_cnt
             
             	ref count
@@ -1490,10 +1668,14 @@ class Pcc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rx_state_str
             
             	socket state
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: holddown_counter
             
@@ -1502,12 +1684,16 @@ class Pcc(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: pcep_up_ts
             
             	PCEP up timestamp
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: precedence
             
@@ -1516,12 +1702,16 @@ class Pcc(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ka_interval_local
             
             	KA interval local
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ka_interval_remote
             
@@ -1530,12 +1720,16 @@ class Pcc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dead_interval_local
             
             	Dead interval local
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dead_interval_remote
             
@@ -1544,12 +1738,16 @@ class Pcc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: pcep_session_id_local
             
             	PCEP session ID local
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: pcep_session_id_remote
             
@@ -1558,12 +1756,16 @@ class Pcc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: pcep_server_ipv4_addr
             
             	PCEP server Ipv4 address
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: pcep_client_ipv4_addr
             
@@ -1572,50 +1774,70 @@ class Pcc(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: is_stateful_local
             
             	is stateful local
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: is_stateful_remote
             
             	is stateful remote
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: is_stateful_u_flag_local
             
             	is stateful with U flag local
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: is_stateful_u_flag_remote
             
             	is stateful with U flag remote
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: is_segment_routing_local
             
             	is segment routing local
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: is_segment_routing_remote
             
             	is segment routing remote
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: is_initiate_local
             
             	local initiate capability
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: is_initiate_remote
             
             	remote initiate capability
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: is_best_pce
             
             	is this the best PCE to delegate to
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: sr_msd_local
             
@@ -1624,12 +1846,16 @@ class Pcc(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: sr_msd_remote
             
             	SR MSD remote
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             
 
@@ -1736,15 +1962,21 @@ class Pcc(Entity):
                 
                 	**range:** \-9223372036854775808..9223372036854775807
                 
+                	**config**\: False
+                
                 .. attribute:: wnotify
                 
                 	write notify
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: rnotify
                 
                 	read notify
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: refcnt
                 
@@ -1753,10 +1985,14 @@ class Pcc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: selected
                 
                 	selected
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: owner
                 
@@ -1765,15 +2001,21 @@ class Pcc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: csockaddr_str
                 
                 	client address
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: ssockaddr_str
                 
                 	server address
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1816,6 +2058,7 @@ class Pcc(Entity):
                     self._perform_setattr(Pcc.Peers.Peer.SocketInfo, ['fd', 'wnotify', 'rnotify', 'refcnt', 'selected', 'owner', 'csockaddr_str', 'ssockaddr_str'], name, value)
 
 
+
             class Stats(Entity):
                 """
                 stats
@@ -1827,12 +2070,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: ka_msg_fail_rx
                 
                 	KA messages fail rxed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: ka_msg_tx
                 
@@ -1841,12 +2088,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: ka_msg_fail_tx
                 
                 	KA messages fail txed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: pcreq_msg_rx
                 
@@ -1855,12 +2106,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: pcreq_msg_fail_rx
                 
                 	PCREQ messages fail rxed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: pcreq_msg_tx
                 
@@ -1869,12 +2124,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: pcreq_msg_fail_tx
                 
                 	PCREQ messages fail txed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: pcrep_msg_rx
                 
@@ -1883,12 +2142,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: pcrep_msg_fail_rx
                 
                 	PCREP messages fail rxed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: pcrep_msg_tx
                 
@@ -1897,12 +2160,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: pcrep_msg_fail_tx
                 
                 	PCREP messages fail txed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: pcrpt_msg_rx
                 
@@ -1911,12 +2178,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: pcrpt_msg_fail_rx
                 
                 	PCRPT messages fail rxed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: pcrpt_msg_tx
                 
@@ -1925,12 +2196,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: pcrpt_msg_fail_tx
                 
                 	PCRPT messages fail txed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: pcupd_msg_rx
                 
@@ -1939,12 +2214,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: pcupd_msg_fail_rx
                 
                 	PCUPD messages fail rxed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: pcupd_msg_tx
                 
@@ -1953,12 +2232,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: pcupd_msg_fail_tx
                 
                 	PCUPD messages fail txed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: open_msg_rx
                 
@@ -1967,12 +2250,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: open_msg_fail_rx
                 
                 	OPEN messages fail rxed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: open_msg_tx
                 
@@ -1981,12 +2268,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: open_msg_fail_tx
                 
                 	OPEN messages fail txed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: pcerr_msg_rx
                 
@@ -1995,12 +2286,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: pcerr_msg_fail_rx
                 
                 	PCERR messages fail rxed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: pcerr_msg_tx
                 
@@ -2009,12 +2304,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: pcerr_msg_fail_tx
                 
                 	PCERR messages fail txed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: pcntf_msg_rx
                 
@@ -2023,12 +2322,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: pcntf_msg_fail_rx
                 
                 	PCNTF messages fail rxed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: pcntf_msg_tx
                 
@@ -2037,12 +2340,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: pcntf_msg_fail_tx
                 
                 	PCNTF messages fail txed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: pce_eos_msg_tx
                 
@@ -2051,12 +2358,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: pce_eos_msg_fail_tx
                 
                 	PCE EOS messages fail txed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: close_msg_rx
                 
@@ -2065,12 +2376,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: close_msg_fail_rx
                 
                 	CLOSE messages fail rxed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: close_msg_tx
                 
@@ -2079,12 +2394,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: close_msg_fail_tx
                 
                 	CLOSE messages fail txed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: unexpected_msg_rx
                 
@@ -2093,12 +2412,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: corrupted_msg_rx
                 
                 	Corrupted messages rxed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: reply_time_index
                 
@@ -2107,12 +2430,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: minimum_reply_time
                 
                 	min reply time
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: maximum_reply_time
                 
@@ -2121,12 +2448,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: requests_timed_out
                 
                 	requests timed out
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: last_pcerr_type_rx
                 
@@ -2135,12 +2466,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: last_pcerr_val_rx
                 
                 	last PCERR value received
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: last_pcerr_rx_ts
                 
@@ -2149,12 +2484,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: last_pcerr_type_tx
                 
                 	last PCERR type transmitted
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: last_pcerr_val_tx
                 
@@ -2163,12 +2502,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: last_pcerr_tx_ts
                 
                 	last time when PCERR was transmitted
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: pcinitiate_msg_rx
                 
@@ -2177,6 +2520,8 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: pcinitiate_msg_fail_rx
                 
                 	PCINITIATE messages fail rxed
@@ -2184,12 +2529,16 @@ class Pcc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: recorded_reply_time
                 
                 	Recorded reply time
                 	**type**\: list of int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -2321,9 +2670,14 @@ class Pcc(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pcc.Peers.Peer.Stats, ['ka_msg_rx', 'ka_msg_fail_rx', 'ka_msg_tx', 'ka_msg_fail_tx', 'pcreq_msg_rx', 'pcreq_msg_fail_rx', 'pcreq_msg_tx', 'pcreq_msg_fail_tx', 'pcrep_msg_rx', 'pcrep_msg_fail_rx', 'pcrep_msg_tx', 'pcrep_msg_fail_tx', 'pcrpt_msg_rx', 'pcrpt_msg_fail_rx', 'pcrpt_msg_tx', 'pcrpt_msg_fail_tx', 'pcupd_msg_rx', 'pcupd_msg_fail_rx', 'pcupd_msg_tx', 'pcupd_msg_fail_tx', 'open_msg_rx', 'open_msg_fail_rx', 'open_msg_tx', 'open_msg_fail_tx', 'pcerr_msg_rx', 'pcerr_msg_fail_rx', 'pcerr_msg_tx', 'pcerr_msg_fail_tx', 'pcntf_msg_rx', 'pcntf_msg_fail_rx', 'pcntf_msg_tx', 'pcntf_msg_fail_tx', 'pce_eos_msg_tx', 'pce_eos_msg_fail_tx', 'close_msg_rx', 'close_msg_fail_rx', 'close_msg_tx', 'close_msg_fail_tx', 'unexpected_msg_rx', 'corrupted_msg_rx', 'reply_time_index', 'minimum_reply_time', 'maximum_reply_time', 'requests_timed_out', 'last_pcerr_type_rx', 'last_pcerr_val_rx', 'last_pcerr_rx_ts', 'last_pcerr_type_tx', 'last_pcerr_val_tx', 'last_pcerr_tx_ts', 'pcinitiate_msg_rx', 'pcinitiate_msg_fail_rx', 'recorded_reply_time'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Pcc()
         return self._top_entity
+
+
 
 class Xtc(Entity):
     """
@@ -2334,40 +2688,56 @@ class Xtc(Entity):
     	Policy database in XTC Agent
     	**type**\:  :py:class:`Policies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies>`
     
+    	**config**\: False
+    
     .. attribute:: policy_summary
     
     	Summary of all policies
     	**type**\:  :py:class:`PolicySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.PolicySummary>`
+    
+    	**config**\: False
     
     .. attribute:: on_demand_colors
     
     	On\-Demand Color database in XTC Agent
     	**type**\:  :py:class:`OnDemandColors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.OnDemandColors>`
     
+    	**config**\: False
+    
     .. attribute:: forwarding
     
     	Forwarding information
     	**type**\:  :py:class:`Forwarding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Forwarding>`
+    
+    	**config**\: False
     
     .. attribute:: controller
     
     	Controller information
     	**type**\:  :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller>`
     
+    	**config**\: False
+    
     .. attribute:: topology_summary
     
     	Node summary database
     	**type**\:  :py:class:`TopologySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologySummary>`
+    
+    	**config**\: False
     
     .. attribute:: topology_nodes
     
     	Node database in XTC Agent
     	**type**\:  :py:class:`TopologyNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes>`
     
+    	**config**\: False
+    
     .. attribute:: prefix_infos
     
     	Prefixes database in XTC Agent
     	**type**\:  :py:class:`PrefixInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.PrefixInfos>`
+    
+    	**config**\: False
     
     
 
@@ -2435,6 +2805,8 @@ class Xtc(Entity):
         	Policy information
         	**type**\: list of  		 :py:class:`Policy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy>`
         
+        	**config**\: False
+        
         
 
         """
@@ -2473,25 +2845,35 @@ class Xtc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: destination_address
             
             	Destination address
             	**type**\:  :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.DestinationAddress>`
+            
+            	**config**\: False
             
             .. attribute:: binding_sid
             
             	Binding SID information
             	**type**\:  :py:class:`BindingSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.BindingSid>`
             
+            	**config**\: False
+            
             .. attribute:: auto_policy_info
             
             	Autopolicy information
             	**type**\:  :py:class:`AutoPolicyInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.AutoPolicyInfo>`
             
+            	**config**\: False
+            
             .. attribute:: policy_name
             
             	Policy name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: administrative_up
             
@@ -2500,12 +2882,16 @@ class Xtc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: operational_up
             
             	Operational up
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: color
             
@@ -2514,10 +2900,14 @@ class Xtc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: is_auto_policy
             
             	Whether policy was automatically created or configured
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: transition_count
             
@@ -2526,6 +2916,8 @@ class Xtc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: forward_class
             
             	Forward class of the policy
@@ -2533,12 +2925,16 @@ class Xtc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: up_time
             
             	Policy up time in nano seconds
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: nanosecond
             
@@ -2549,6 +2945,8 @@ class Xtc(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: nanosecond
             
             .. attribute:: down_time
@@ -2557,6 +2955,8 @@ class Xtc(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: nanosecond
             
@@ -2567,6 +2967,8 @@ class Xtc(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: nanosecond
             
             .. attribute:: lsp_id
@@ -2576,10 +2978,14 @@ class Xtc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: steering_bgp_disabled
             
             	Whether steering to BGP client is disabled
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: interface_handle
             
@@ -2588,12 +2994,16 @@ class Xtc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: policy_group_identifier
             
             	Policy group identifier
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: local_label_identifier
             
@@ -2602,12 +3012,16 @@ class Xtc(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: local_label
             
             	Local label
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: profile_id
             
@@ -2616,15 +3030,21 @@ class Xtc(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: ipv6_caps_enabled
             
             	IPv6 caps enabled
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: paths
             
             	Path options
             	**type**\: list of  		 :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.Paths>`
+            
+            	**config**\: False
             
             
 
@@ -2715,6 +3135,8 @@ class Xtc(Entity):
                 	AFName
                 	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4
                 
                 	IPv4 address type
@@ -2722,12 +3144,16 @@ class Xtc(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv6
                 
                 	IPv6 address type
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 
 
@@ -2760,6 +3186,7 @@ class Xtc(Entity):
                     self._perform_setattr(Xtc.Policies.Policy.DestinationAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
+
             class BindingSid(Entity):
                 """
                 Binding SID information
@@ -2769,30 +3196,42 @@ class Xtc(Entity):
                 	Binding SID value
                 	**type**\:  :py:class:`Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.BindingSid.Value>`
                 
+                	**config**\: False
+                
                 .. attribute:: bsid_mode
                 
                 	Binding SID Mode
                 	**type**\:  :py:class:`XtcBsidMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcBsidMode>`
+                
+                	**config**\: False
                 
                 .. attribute:: error
                 
                 	Binding SID error, if any
                 	**type**\:  :py:class:`XtcBsidError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcBsidError>`
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	State of the binding SID
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: explicit_based
                 
                 	Whether the binding SID is explicit\-based
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: policy_selected
                 
                 	Whether the policy is selected for forwarding on this BSID
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -2842,6 +3281,8 @@ class Xtc(Entity):
                     	SIDType
                     	**type**\:  :py:class:`XtcSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcSid>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: label
                     
                     	MPLS label
@@ -2849,12 +3290,16 @@ class Xtc(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -2887,6 +3332,8 @@ class Xtc(Entity):
                         self._perform_setattr(Xtc.Policies.Policy.BindingSid.Value, ['sid_type', 'label', 'ipv6'], name, value)
 
 
+
+
             class AutoPolicyInfo(Entity):
                 """
                 Autopolicy information
@@ -2896,6 +3343,8 @@ class Xtc(Entity):
                 	Name of client who created policy
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: distinguisher
                 
                 	Distinguisher
@@ -2903,12 +3352,16 @@ class Xtc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: preference
                 
                 	Preference of the policy
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -2941,6 +3394,7 @@ class Xtc(Entity):
                     self._perform_setattr(Xtc.Policies.Policy.AutoPolicyInfo, ['creator_name', 'distinguisher', 'preference'], name, value)
 
 
+
             class Paths(Entity):
                 """
                 Path options
@@ -2950,6 +3404,8 @@ class Xtc(Entity):
                 	SR path constraints
                 	**type**\:  :py:class:`SrPathConstraints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.Paths.SrPathConstraints>`
                 
+                	**config**\: False
+                
                 .. attribute:: index
                 
                 	Index number
@@ -2957,20 +3413,28 @@ class Xtc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: type
                 
                 	Path option type
                 	**type**\:  :py:class:`XtcPolicyPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcPolicyPath>`
+                
+                	**config**\: False
                 
                 .. attribute:: name
                 
                 	Explicit path option name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: active
                 
                 	Whether the path is active (used)
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: weight
                 
@@ -2979,12 +3443,16 @@ class Xtc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: metric_type
                 
                 	Configured path metric type
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: metric_value
                 
@@ -2993,15 +3461,21 @@ class Xtc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: is_valid
                 
                 	True if path is valid
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: pce_based_path
                 
                 	True if the path is to be computed by PCE
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: pce_address
                 
@@ -3010,15 +3484,21 @@ class Xtc(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: error
                 
                 	Error (for display only)
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: hops
                 
                 	SR hop list
                 	**type**\: list of  		 :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.Paths.Hops>`
+                
+                	**config**\: False
                 
                 
 
@@ -3082,15 +3562,21 @@ class Xtc(Entity):
                     	Path metrics
                     	**type**\:  :py:class:`PathMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.Paths.SrPathConstraints.PathMetrics>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: segments
                     
                     	Segments constraints
                     	**type**\:  :py:class:`Segments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.Paths.SrPathConstraints.Segments>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: affinity_constraint
                     
                     	Affinity constraints list
                     	**type**\: list of  		 :py:class:`AffinityConstraint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.Paths.SrPathConstraints.AffinityConstraint>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3137,12 +3623,16 @@ class Xtc(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: margin_absolute
                         
                         	Margin Absolute
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: maximum_segments
                         
@@ -3151,12 +3641,16 @@ class Xtc(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: accumulative_te_metric
                         
                         	Accumulative TE metric
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: accumulative_igp_metric
                         
@@ -3165,12 +3659,16 @@ class Xtc(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: accumulative_delay
                         
                         	Accumulative delay
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3209,6 +3707,7 @@ class Xtc(Entity):
                             self._perform_setattr(Xtc.Policies.Policy.Paths.SrPathConstraints.PathMetrics, ['margin_relative', 'margin_absolute', 'maximum_segments', 'accumulative_te_metric', 'accumulative_igp_metric', 'accumulative_delay'], name, value)
 
 
+
                     class Segments(Entity):
                         """
                         Segments constraints
@@ -3219,6 +3718,8 @@ class Xtc(Entity):
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -3247,6 +3748,7 @@ class Xtc(Entity):
                             self._perform_setattr(Xtc.Policies.Policy.Paths.SrPathConstraints.Segments, ['segment_algorithm'], name, value)
 
 
+
                     class AffinityConstraint(Entity):
                         """
                         Affinity constraints list
@@ -3258,6 +3760,8 @@ class Xtc(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: value
                         
                         	Affinity value
@@ -3265,10 +3769,14 @@ class Xtc(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: color
                         
                         	Colors
                         	**type**\: list of  		 :py:class:`Color <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.Paths.SrPathConstraints.AffinityConstraint.Color>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3310,6 +3818,8 @@ class Xtc(Entity):
                             	An affinity color
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -3337,6 +3847,9 @@ class Xtc(Entity):
                                 self._perform_setattr(Xtc.Policies.Policy.Paths.SrPathConstraints.AffinityConstraint.Color, ['color'], name, value)
 
 
+
+
+
                 class Hops(Entity):
                     """
                     SR hop list
@@ -3346,20 +3859,28 @@ class Xtc(Entity):
                     	SID value
                     	**type**\:  :py:class:`Sid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.Paths.Hops.Sid>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_address
                     
                     	Local address
                     	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.Paths.Hops.LocalAddress>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: remote_address
                     
                     	Remote address
                     	**type**\:  :py:class:`RemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Policies.Policy.Paths.Hops.RemoteAddress>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sid_type
                     
                     	SID type
                     	**type**\:  :py:class:`XtcSrSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcSrSid>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: algorithm
                     
@@ -3367,6 +3888,8 @@ class Xtc(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -3418,6 +3941,8 @@ class Xtc(Entity):
                         	SIDType
                         	**type**\:  :py:class:`XtcSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcSid>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: label
                         
                         	MPLS label
@@ -3425,12 +3950,16 @@ class Xtc(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -3463,6 +3992,7 @@ class Xtc(Entity):
                             self._perform_setattr(Xtc.Policies.Policy.Paths.Hops.Sid, ['sid_type', 'label', 'ipv6'], name, value)
 
 
+
                     class LocalAddress(Entity):
                         """
                         Local address
@@ -3472,6 +4002,8 @@ class Xtc(Entity):
                         	AFName
                         	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4 address type
@@ -3479,12 +4011,16 @@ class Xtc(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -3517,6 +4053,7 @@ class Xtc(Entity):
                             self._perform_setattr(Xtc.Policies.Policy.Paths.Hops.LocalAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
+
                     class RemoteAddress(Entity):
                         """
                         Remote address
@@ -3526,6 +4063,8 @@ class Xtc(Entity):
                         	AFName
                         	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4 address type
@@ -3533,12 +4072,16 @@ class Xtc(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -3571,6 +4114,11 @@ class Xtc(Entity):
                             self._perform_setattr(Xtc.Policies.Policy.Paths.Hops.RemoteAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
+
+
+
+
+
     class PolicySummary(Entity):
         """
         Summary of all policies
@@ -3580,12 +4128,16 @@ class Xtc(Entity):
         	IPv4 address used for IPv4 policies
         	**type**\:  :py:class:`Ipv4SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.PolicySummary.Ipv4SourceAddress>`
         
+        	**config**\: False
+        
         .. attribute:: configured_total_policy_count
         
         	Total number of configured policies
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: configured_up_policy_count
         
@@ -3594,12 +4146,16 @@ class Xtc(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: configured_down_policy_count
         
         	Total number of configured policies that are operationally down
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -3646,6 +4202,8 @@ class Xtc(Entity):
             	AFName
             	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
             
+            	**config**\: False
+            
             .. attribute:: ipv4
             
             	IPv4 address type
@@ -3653,12 +4211,16 @@ class Xtc(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ipv6
             
             	IPv6 address type
             	**type**\: str
             
             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             
 
@@ -3692,6 +4254,8 @@ class Xtc(Entity):
                 self._perform_setattr(Xtc.PolicySummary.Ipv4SourceAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
+
+
     class OnDemandColors(Entity):
         """
         On\-Demand Color database in XTC Agent
@@ -3700,6 +4264,8 @@ class Xtc(Entity):
         
         	On Demand Color information
         	**type**\: list of  		 :py:class:`OnDemandColor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.OnDemandColors.OnDemandColor>`
+        
+        	**config**\: False
         
         
 
@@ -3739,10 +4305,14 @@ class Xtc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: disjoint_path_info
             
             	Disjoint path information
             	**type**\:  :py:class:`DisjointPathInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.OnDemandColors.OnDemandColor.DisjointPathInfo>`
+            
+            	**config**\: False
             
             .. attribute:: color_xr
             
@@ -3751,12 +4321,16 @@ class Xtc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: maximum_sid_depth
             
             	Maximum SID Depth
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -3803,6 +4377,8 @@ class Xtc(Entity):
                 	Disjointness type
                 	**type**\:  :py:class:`XtcDisjointness <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcDisjointness>`
                 
+                	**config**\: False
+                
                 .. attribute:: group_id
                 
                 	Group ID
@@ -3810,12 +4386,16 @@ class Xtc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: sub_id
                 
                 	Sub ID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -3848,6 +4428,9 @@ class Xtc(Entity):
                     self._perform_setattr(Xtc.OnDemandColors.OnDemandColor.DisjointPathInfo, ['disjointness_type', 'group_id', 'sub_id'], name, value)
 
 
+
+
+
     class Forwarding(Entity):
         """
         Forwarding information
@@ -3856,6 +4439,8 @@ class Xtc(Entity):
         
         	Forwarding information for policies
         	**type**\:  :py:class:`PolicyForwardings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Forwarding.PolicyForwardings>`
+        
+        	**config**\: False
         
         
 
@@ -3895,6 +4480,8 @@ class Xtc(Entity):
             	Forwarding information for the policy
             	**type**\: list of  		 :py:class:`PolicyForwarding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Forwarding.PolicyForwardings.PolicyForwarding>`
             
+            	**config**\: False
+            
             
 
             """
@@ -3933,15 +4520,21 @@ class Xtc(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: policy_name
                 
                 	Policy name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: is_local_label_valid
                 
                 	Is local label valid and allocated?
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: local_label
                 
@@ -3950,10 +4543,14 @@ class Xtc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: are_stats_valid
                 
                 	Are policy stats valid?
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: forwarding_stats_pkts
                 
@@ -3962,6 +4559,8 @@ class Xtc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: forwarding_stats_bytes
                 
                 	Number of bytes forwarded
@@ -3969,12 +4568,16 @@ class Xtc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 	**units**\: byte
                 
                 .. attribute:: paths
                 
                 	Forwarding paths
                 	**type**\: list of  		 :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Forwarding.PolicyForwardings.PolicyForwarding.Paths>`
+                
+                	**config**\: False
                 
                 
 
@@ -4029,12 +4632,16 @@ class Xtc(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_hop_ipv4
                     
                     	IPv4 Next Hop
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: next_hop_table_id
                     
@@ -4043,15 +4650,21 @@ class Xtc(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_protected
                     
                     	Is this path protected ?
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_pure_bkup
                     
                     	Is this path a pure backup ?
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: load_metric
                     
@@ -4060,12 +4673,16 @@ class Xtc(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: path_id
                     
                     	path Id
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: bkup_path_id
                     
@@ -4074,15 +4691,21 @@ class Xtc(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: segment_list_name
                     
                     	Associated segment\-list
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: are_stats_valid
                     
                     	Are per path stats valid?
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: forwarding_stats_pkts
                     
@@ -4091,12 +4714,16 @@ class Xtc(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: forwarding_stats_bytes
                     
                     	Number of bytes forwarded on this path
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -4106,6 +4733,8 @@ class Xtc(Entity):
                     	**type**\: list of int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -4158,6 +4787,10 @@ class Xtc(Entity):
                         self._perform_setattr(Xtc.Forwarding.PolicyForwardings.PolicyForwarding.Paths, ['outgoing_interface', 'next_hop_ipv4', 'next_hop_table_id', 'is_protected', 'is_pure_bkup', 'load_metric', 'path_id', 'bkup_path_id', 'segment_list_name', 'are_stats_valid', 'forwarding_stats_pkts', 'forwarding_stats_bytes', 'label_stack'], name, value)
 
 
+
+
+
+
     class Controller(Entity):
         """
         Controller information
@@ -4166,6 +4799,8 @@ class Xtc(Entity):
         
         	Table containing policy requests
         	**type**\:  :py:class:`PolicyRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests>`
+        
+        	**config**\: False
         
         
 
@@ -4204,6 +4839,8 @@ class Xtc(Entity):
             
             	Policy request information
             	**type**\: list of  		 :py:class:`PolicyRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest>`
+            
+            	**config**\: False
             
             
 
@@ -4249,10 +4886,14 @@ class Xtc(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: end_point_type  (key)
                 
                 	Endpoint Address Type
                 	**type**\:  :py:class:`XtcAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAddressFamily>`
+                
+                	**config**\: False
                 
                 .. attribute:: end_point_address  (key)
                 
@@ -4267,12 +4908,16 @@ class Xtc(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: color  (key)
                 
                 	Color
                 	**type**\: int
                 
                 	**range:** 1..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: route_distinguisher  (key)
                 
@@ -4281,10 +4926,14 @@ class Xtc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: end_point
                 
                 	End point
                 	**type**\:  :py:class:`EndPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.EndPoint>`
+                
+                	**config**\: False
                 
                 .. attribute:: source_address_xr
                 
@@ -4293,12 +4942,16 @@ class Xtc(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: binding_sid
                 
                 	Binding SID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: preference
                 
@@ -4307,12 +4960,16 @@ class Xtc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: color_xr
                 
                 	Color
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: route_distinguisher_xr
                 
@@ -4321,12 +4978,16 @@ class Xtc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: creation_time
                 
                 	Creation time of the request in seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -4337,12 +4998,16 @@ class Xtc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: paths
                 
                 	Path options
                 	**type**\: list of  		 :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths>`
+                
+                	**config**\: False
                 
                 
 
@@ -4409,6 +5074,8 @@ class Xtc(Entity):
                     	AFName
                     	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4
                     
                     	IPv4 address type
@@ -4416,12 +5083,16 @@ class Xtc(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -4454,6 +5125,7 @@ class Xtc(Entity):
                         self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.EndPoint, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
+
                 class Paths(Entity):
                     """
                     Path options
@@ -4463,6 +5135,8 @@ class Xtc(Entity):
                     	SR path constraints
                     	**type**\:  :py:class:`SrPathConstraints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: index
                     
                     	Index number
@@ -4470,20 +5144,28 @@ class Xtc(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: type
                     
                     	Path option type
                     	**type**\:  :py:class:`XtcPolicyPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcPolicyPath>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: name
                     
                     	Explicit path option name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: active
                     
                     	Whether the path is active (used)
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: weight
                     
@@ -4492,12 +5174,16 @@ class Xtc(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: metric_type
                     
                     	Configured path metric type
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: metric_value
                     
@@ -4506,15 +5192,21 @@ class Xtc(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_valid
                     
                     	True if path is valid
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: pce_based_path
                     
                     	True if the path is to be computed by PCE
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: pce_address
                     
@@ -4523,15 +5215,21 @@ class Xtc(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: error
                     
                     	Error (for display only)
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: hops
                     
                     	SR hop list
                     	**type**\: list of  		 :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4595,15 +5293,21 @@ class Xtc(Entity):
                         	Path metrics
                         	**type**\:  :py:class:`PathMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.PathMetrics>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: segments
                         
                         	Segments constraints
                         	**type**\:  :py:class:`Segments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.Segments>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: affinity_constraint
                         
                         	Affinity constraints list
                         	**type**\: list of  		 :py:class:`AffinityConstraint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.AffinityConstraint>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -4650,12 +5354,16 @@ class Xtc(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: margin_absolute
                             
                             	Margin Absolute
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: maximum_segments
                             
@@ -4664,12 +5372,16 @@ class Xtc(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: accumulative_te_metric
                             
                             	Accumulative TE metric
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: accumulative_igp_metric
                             
@@ -4678,12 +5390,16 @@ class Xtc(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: accumulative_delay
                             
                             	Accumulative delay
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -4722,6 +5438,7 @@ class Xtc(Entity):
                                 self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.PathMetrics, ['margin_relative', 'margin_absolute', 'maximum_segments', 'accumulative_te_metric', 'accumulative_igp_metric', 'accumulative_delay'], name, value)
 
 
+
                         class Segments(Entity):
                             """
                             Segments constraints
@@ -4732,6 +5449,8 @@ class Xtc(Entity):
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -4760,6 +5479,7 @@ class Xtc(Entity):
                                 self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.Segments, ['segment_algorithm'], name, value)
 
 
+
                         class AffinityConstraint(Entity):
                             """
                             Affinity constraints list
@@ -4771,6 +5491,8 @@ class Xtc(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: value
                             
                             	Affinity value
@@ -4778,10 +5500,14 @@ class Xtc(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: color
                             
                             	Colors
                             	**type**\: list of  		 :py:class:`Color <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.AffinityConstraint.Color>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -4823,6 +5549,8 @@ class Xtc(Entity):
                                 	An affinity color
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -4850,6 +5578,9 @@ class Xtc(Entity):
                                     self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.SrPathConstraints.AffinityConstraint.Color, ['color'], name, value)
 
 
+
+
+
                     class Hops(Entity):
                         """
                         SR hop list
@@ -4859,20 +5590,28 @@ class Xtc(Entity):
                         	SID value
                         	**type**\:  :py:class:`Sid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.Sid>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: local_address
                         
                         	Local address
                         	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.LocalAddress>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: remote_address
                         
                         	Remote address
                         	**type**\:  :py:class:`RemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.RemoteAddress>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: sid_type
                         
                         	SID type
                         	**type**\:  :py:class:`XtcSrSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcSrSid>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: algorithm
                         
@@ -4880,6 +5619,8 @@ class Xtc(Entity):
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -4931,6 +5672,8 @@ class Xtc(Entity):
                             	SIDType
                             	**type**\:  :py:class:`XtcSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcSid>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: label
                             
                             	MPLS label
@@ -4938,12 +5681,16 @@ class Xtc(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv6
                             
                             	IPv6 address
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -4976,6 +5723,7 @@ class Xtc(Entity):
                                 self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.Sid, ['sid_type', 'label', 'ipv6'], name, value)
 
 
+
                         class LocalAddress(Entity):
                             """
                             Local address
@@ -4985,6 +5733,8 @@ class Xtc(Entity):
                             	AFName
                             	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4
                             
                             	IPv4 address type
@@ -4992,12 +5742,16 @@ class Xtc(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv6
                             
                             	IPv6 address type
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -5030,6 +5784,7 @@ class Xtc(Entity):
                                 self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.LocalAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
+
                         class RemoteAddress(Entity):
                             """
                             Remote address
@@ -5039,6 +5794,8 @@ class Xtc(Entity):
                             	AFName
                             	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4
                             
                             	IPv4 address type
@@ -5046,12 +5803,16 @@ class Xtc(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv6
                             
                             	IPv6 address type
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -5084,6 +5845,12 @@ class Xtc(Entity):
                                 self._perform_setattr(Xtc.Controller.PolicyRequests.PolicyRequest.Paths.Hops.RemoteAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
+
+
+
+
+
+
     class TopologySummary(Entity):
         """
         Node summary database
@@ -5095,12 +5862,16 @@ class Xtc(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: prefixes
         
         	Number of prefixes
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: prefix_sids
         
@@ -5109,6 +5880,8 @@ class Xtc(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: links
         
         	Number of links
@@ -5116,12 +5889,16 @@ class Xtc(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: adjacency_sids
         
         	Number of adjacency SIDs
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -5159,6 +5936,7 @@ class Xtc(Entity):
             self._perform_setattr(Xtc.TopologySummary, ['nodes', 'prefixes', 'prefix_sids', 'links', 'adjacency_sids'], name, value)
 
 
+
     class TopologyNodes(Entity):
         """
         Node database in XTC Agent
@@ -5167,6 +5945,8 @@ class Xtc(Entity):
         
         	Node information
         	**type**\: list of  		 :py:class:`TopologyNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode>`
+        
+        	**config**\: False
         
         
 
@@ -5206,10 +5986,14 @@ class Xtc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: node_protocol_identifier
             
             	Node protocol identifier
             	**type**\:  :py:class:`NodeProtocolIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier>`
+            
+            	**config**\: False
             
             .. attribute:: node_identifier_xr
             
@@ -5218,25 +6002,35 @@ class Xtc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: overload
             
             	Node Overload Bit
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: prefix_sid
             
             	Prefix SIDs
             	**type**\: list of  		 :py:class:`PrefixSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.PrefixSid>`
             
+            	**config**\: False
+            
             .. attribute:: ipv4_link
             
             	IPv4 Link information
             	**type**\: list of  		 :py:class:`Ipv4Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv4Link>`
             
+            	**config**\: False
+            
             .. attribute:: ipv6_link
             
             	IPv6 Link information
             	**type**\: list of  		 :py:class:`Ipv6Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv6Link>`
+            
+            	**config**\: False
             
             
 
@@ -5287,10 +6081,14 @@ class Xtc(Entity):
                 	Node Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4_bgp_router_id_set
                 
                 	True if IPv4 BGP router ID is set
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ipv4_bgp_router_id
                 
@@ -5299,10 +6097,14 @@ class Xtc(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4te_router_id_set
                 
                 	True if IPv4 TE router ID is set
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ipv4te_router_id
                 
@@ -5311,10 +6113,14 @@ class Xtc(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: igp_information
                 
                 	IGP information
                 	**type**\: list of  		 :py:class:`IgpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation>`
+                
+                	**config**\: False
                 
                 
 
@@ -5362,12 +6168,16 @@ class Xtc(Entity):
                     	IGP\-specific information
                     	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_identifier
                     
                     	Domain identifier
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -5409,20 +6219,28 @@ class Xtc(Entity):
                         	ISIS information
                         	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ospf
                         
                         	OSPF information
                         	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: bgp
                         
                         	BGP information
                         	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: igp_id
                         
                         	IGP ID
                         	**type**\:  :py:class:`XtcIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcIgpInfoId>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5472,12 +6290,16 @@ class Xtc(Entity):
                             	ISIS system ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: level
                             
                             	ISIS level
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -5508,6 +6330,7 @@ class Xtc(Entity):
                                 self._perform_setattr(Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis, ['system_id', 'level'], name, value)
 
 
+
                         class Ospf(Entity):
                             """
                             OSPF information
@@ -5519,12 +6342,16 @@ class Xtc(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: area
                             
                             	OSPF area
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -5555,6 +6382,7 @@ class Xtc(Entity):
                                 self._perform_setattr(Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
+
                         class Bgp(Entity):
                             """
                             BGP information
@@ -5565,6 +6393,8 @@ class Xtc(Entity):
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -5593,6 +6423,10 @@ class Xtc(Entity):
                                 self._perform_setattr(Xtc.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp, ['router_id'], name, value)
 
 
+
+
+
+
             class PrefixSid(Entity):
                 """
                 Prefix SIDs
@@ -5602,10 +6436,14 @@ class Xtc(Entity):
                 	Prefix
                 	**type**\:  :py:class:`SidPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.PrefixSid.SidPrefix>`
                 
+                	**config**\: False
+                
                 .. attribute:: sid_type
                 
                 	SID Type
                 	**type**\:  :py:class:`XtcSid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcSid1>`
+                
+                	**config**\: False
                 
                 .. attribute:: algorithm
                 
@@ -5614,12 +6452,16 @@ class Xtc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: mpls_label
                 
                 	MPLS Label
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -5665,6 +6507,8 @@ class Xtc(Entity):
                     	AFName
                     	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4
                     
                     	IPv4 address type
@@ -5672,12 +6516,16 @@ class Xtc(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -5710,6 +6558,8 @@ class Xtc(Entity):
                         self._perform_setattr(Xtc.TopologyNodes.TopologyNode.PrefixSid.SidPrefix, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
+
+
             class Ipv4Link(Entity):
                 """
                 IPv4 Link information
@@ -5719,10 +6569,14 @@ class Xtc(Entity):
                 	Local node IGP information
                 	**type**\:  :py:class:`LocalIgpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: remote_node_protocol_identifier
                 
                 	Remote node protocol identifier
                 	**type**\:  :py:class:`RemoteNodeProtocolIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_ipv4_address
                 
@@ -5731,12 +6585,16 @@ class Xtc(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: remote_ipv4_address
                 
                 	Remote IPv4 address
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: igp_metric
                 
@@ -5745,12 +6603,16 @@ class Xtc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: te_metric
                 
                 	TE Metric
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: maximum_link_bandwidth
                 
@@ -5759,12 +6621,16 @@ class Xtc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: max_reservable_bandwidth
                 
                 	Max Reservable bandwidth
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: administrative_groups
                 
@@ -5773,6 +6639,8 @@ class Xtc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: srlgs
                 
                 	SRLG Values
@@ -5780,10 +6648,14 @@ class Xtc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: adjacency_sid
                 
                 	Adjacency SIDs
                 	**type**\: list of  		 :py:class:`AdjacencySid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid>`
+                
+                	**config**\: False
                 
                 
 
@@ -5845,12 +6717,16 @@ class Xtc(Entity):
                     	IGP\-specific information
                     	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_identifier
                     
                     	Domain identifier
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -5892,20 +6768,28 @@ class Xtc(Entity):
                         	ISIS information
                         	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ospf
                         
                         	OSPF information
                         	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: bgp
                         
                         	BGP information
                         	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: igp_id
                         
                         	IGP ID
                         	**type**\:  :py:class:`XtcIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcIgpInfoId>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5955,12 +6839,16 @@ class Xtc(Entity):
                             	ISIS system ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: level
                             
                             	ISIS level
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -5991,6 +6879,7 @@ class Xtc(Entity):
                                 self._perform_setattr(Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis, ['system_id', 'level'], name, value)
 
 
+
                         class Ospf(Entity):
                             """
                             OSPF information
@@ -6002,12 +6891,16 @@ class Xtc(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: area
                             
                             	OSPF area
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -6038,6 +6931,7 @@ class Xtc(Entity):
                                 self._perform_setattr(Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
+
                         class Bgp(Entity):
                             """
                             BGP information
@@ -6048,6 +6942,8 @@ class Xtc(Entity):
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -6076,6 +6972,9 @@ class Xtc(Entity):
                                 self._perform_setattr(Xtc.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp, ['router_id'], name, value)
 
 
+
+
+
                 class RemoteNodeProtocolIdentifier(Entity):
                     """
                     Remote node protocol identifier
@@ -6085,10 +6984,14 @@ class Xtc(Entity):
                     	Node Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4_bgp_router_id_set
                     
                     	True if IPv4 BGP router ID is set
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4_bgp_router_id
                     
@@ -6097,10 +7000,14 @@ class Xtc(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4te_router_id_set
                     
                     	True if IPv4 TE router ID is set
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4te_router_id
                     
@@ -6109,10 +7016,14 @@ class Xtc(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: igp_information
                     
                     	IGP information
                     	**type**\: list of  		 :py:class:`IgpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -6160,12 +7071,16 @@ class Xtc(Entity):
                         	IGP\-specific information
                         	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: domain_identifier
                         
                         	Domain identifier
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -6207,20 +7122,28 @@ class Xtc(Entity):
                             	ISIS information
                             	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospf
                             
                             	OSPF information
                             	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: bgp
                             
                             	BGP information
                             	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: igp_id
                             
                             	IGP ID
                             	**type**\:  :py:class:`XtcIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcIgpInfoId>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -6270,12 +7193,16 @@ class Xtc(Entity):
                                 	ISIS system ID
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: level
                                 
                                 	ISIS level
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6306,6 +7233,7 @@ class Xtc(Entity):
                                     self._perform_setattr(Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis, ['system_id', 'level'], name, value)
 
 
+
                             class Ospf(Entity):
                                 """
                                 OSPF information
@@ -6317,12 +7245,16 @@ class Xtc(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: area
                                 
                                 	OSPF area
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6353,6 +7285,7 @@ class Xtc(Entity):
                                     self._perform_setattr(Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
+
                             class Bgp(Entity):
                                 """
                                 BGP information
@@ -6363,6 +7296,8 @@ class Xtc(Entity):
                                 	**type**\: str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6391,6 +7326,10 @@ class Xtc(Entity):
                                     self._perform_setattr(Xtc.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp, ['router_id'], name, value)
 
 
+
+
+
+
                 class AdjacencySid(Entity):
                     """
                     Adjacency SIDs
@@ -6400,10 +7339,14 @@ class Xtc(Entity):
                     	Prefix
                     	**type**\:  :py:class:`SidPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sid_type
                     
                     	SID Type
                     	**type**\:  :py:class:`XtcSid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcSid1>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: algorithm
                     
@@ -6412,12 +7355,16 @@ class Xtc(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: mpls_label
                     
                     	MPLS Label
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -6463,6 +7410,8 @@ class Xtc(Entity):
                         	AFName
                         	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4 address type
@@ -6470,12 +7419,16 @@ class Xtc(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -6508,6 +7461,9 @@ class Xtc(Entity):
                             self._perform_setattr(Xtc.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
+
+
+
             class Ipv6Link(Entity):
                 """
                 IPv6 Link information
@@ -6517,10 +7473,14 @@ class Xtc(Entity):
                 	Local node IGP information
                 	**type**\:  :py:class:`LocalIgpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: remote_node_protocol_identifier
                 
                 	Remote node protocol identifier
                 	**type**\:  :py:class:`RemoteNodeProtocolIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_ipv6_address
                 
@@ -6529,12 +7489,16 @@ class Xtc(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: remote_ipv6_address
                 
                 	Remote IPv6 address
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: igp_metric
                 
@@ -6543,12 +7507,16 @@ class Xtc(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: te_metric
                 
                 	TE Metric
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: maximum_link_bandwidth
                 
@@ -6557,6 +7525,8 @@ class Xtc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: max_reservable_bandwidth
                 
                 	Max Reservable bandwidth
@@ -6564,10 +7534,14 @@ class Xtc(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: adjacency_sid
                 
                 	Adjacency SIDs
                 	**type**\: list of  		 :py:class:`AdjacencySid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid>`
+                
+                	**config**\: False
                 
                 
 
@@ -6625,12 +7599,16 @@ class Xtc(Entity):
                     	IGP\-specific information
                     	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_identifier
                     
                     	Domain identifier
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -6672,20 +7650,28 @@ class Xtc(Entity):
                         	ISIS information
                         	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ospf
                         
                         	OSPF information
                         	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: bgp
                         
                         	BGP information
                         	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: igp_id
                         
                         	IGP ID
                         	**type**\:  :py:class:`XtcIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcIgpInfoId>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -6735,12 +7721,16 @@ class Xtc(Entity):
                             	ISIS system ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: level
                             
                             	ISIS level
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -6771,6 +7761,7 @@ class Xtc(Entity):
                                 self._perform_setattr(Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis, ['system_id', 'level'], name, value)
 
 
+
                         class Ospf(Entity):
                             """
                             OSPF information
@@ -6782,12 +7773,16 @@ class Xtc(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: area
                             
                             	OSPF area
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -6818,6 +7813,7 @@ class Xtc(Entity):
                                 self._perform_setattr(Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
+
                         class Bgp(Entity):
                             """
                             BGP information
@@ -6828,6 +7824,8 @@ class Xtc(Entity):
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -6856,6 +7854,9 @@ class Xtc(Entity):
                                 self._perform_setattr(Xtc.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp, ['router_id'], name, value)
 
 
+
+
+
                 class RemoteNodeProtocolIdentifier(Entity):
                     """
                     Remote node protocol identifier
@@ -6865,10 +7866,14 @@ class Xtc(Entity):
                     	Node Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4_bgp_router_id_set
                     
                     	True if IPv4 BGP router ID is set
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4_bgp_router_id
                     
@@ -6877,10 +7882,14 @@ class Xtc(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4te_router_id_set
                     
                     	True if IPv4 TE router ID is set
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4te_router_id
                     
@@ -6889,10 +7898,14 @@ class Xtc(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: igp_information
                     
                     	IGP information
                     	**type**\: list of  		 :py:class:`IgpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -6940,12 +7953,16 @@ class Xtc(Entity):
                         	IGP\-specific information
                         	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: domain_identifier
                         
                         	Domain identifier
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -6987,20 +8004,28 @@ class Xtc(Entity):
                             	ISIS information
                             	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospf
                             
                             	OSPF information
                             	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: bgp
                             
                             	BGP information
                             	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: igp_id
                             
                             	IGP ID
                             	**type**\:  :py:class:`XtcIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcIgpInfoId>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -7050,12 +8075,16 @@ class Xtc(Entity):
                                 	ISIS system ID
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: level
                                 
                                 	ISIS level
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7086,6 +8115,7 @@ class Xtc(Entity):
                                     self._perform_setattr(Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis, ['system_id', 'level'], name, value)
 
 
+
                             class Ospf(Entity):
                                 """
                                 OSPF information
@@ -7097,12 +8127,16 @@ class Xtc(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: area
                                 
                                 	OSPF area
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7133,6 +8167,7 @@ class Xtc(Entity):
                                     self._perform_setattr(Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
+
                             class Bgp(Entity):
                                 """
                                 BGP information
@@ -7143,6 +8178,8 @@ class Xtc(Entity):
                                 	**type**\: str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7171,6 +8208,10 @@ class Xtc(Entity):
                                     self._perform_setattr(Xtc.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp, ['router_id'], name, value)
 
 
+
+
+
+
                 class AdjacencySid(Entity):
                     """
                     Adjacency SIDs
@@ -7180,10 +8221,14 @@ class Xtc(Entity):
                     	Prefix
                     	**type**\:  :py:class:`SidPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sid_type
                     
                     	SID Type
                     	**type**\:  :py:class:`XtcSid1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcSid1>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: algorithm
                     
@@ -7192,12 +8237,16 @@ class Xtc(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: mpls_label
                     
                     	MPLS Label
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -7243,6 +8292,8 @@ class Xtc(Entity):
                         	AFName
                         	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4 address type
@@ -7250,12 +8301,16 @@ class Xtc(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -7288,6 +8343,11 @@ class Xtc(Entity):
                             self._perform_setattr(Xtc.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix, ['af_name', 'ipv4', 'ipv6'], name, value)
 
 
+
+
+
+
+
     class PrefixInfos(Entity):
         """
         Prefixes database in XTC Agent
@@ -7296,6 +8356,8 @@ class Xtc(Entity):
         
         	Prefix information
         	**type**\: list of  		 :py:class:`PrefixInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.PrefixInfos.PrefixInfo>`
+        
+        	**config**\: False
         
         
 
@@ -7335,10 +8397,14 @@ class Xtc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: node_protocol_identifier
             
             	Node protocol identifier
             	**type**\:  :py:class:`NodeProtocolIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier>`
+            
+            	**config**\: False
             
             .. attribute:: node_identifier_xr
             
@@ -7347,10 +8413,14 @@ class Xtc(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: address
             
             	Prefix address
             	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.PrefixInfos.PrefixInfo.Address>`
+            
+            	**config**\: False
             
             
 
@@ -7397,10 +8467,14 @@ class Xtc(Entity):
                 	Node Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4_bgp_router_id_set
                 
                 	True if IPv4 BGP router ID is set
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ipv4_bgp_router_id
                 
@@ -7409,10 +8483,14 @@ class Xtc(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4te_router_id_set
                 
                 	True if IPv4 TE router ID is set
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ipv4te_router_id
                 
@@ -7421,10 +8499,14 @@ class Xtc(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: igp_information
                 
                 	IGP information
                 	**type**\: list of  		 :py:class:`IgpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation>`
+                
+                	**config**\: False
                 
                 
 
@@ -7472,12 +8554,16 @@ class Xtc(Entity):
                     	IGP\-specific information
                     	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_identifier
                     
                     	Domain identifier
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -7519,20 +8605,28 @@ class Xtc(Entity):
                         	ISIS information
                         	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ospf
                         
                         	OSPF information
                         	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: bgp
                         
                         	BGP information
                         	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: igp_id
                         
                         	IGP ID
                         	**type**\:  :py:class:`XtcIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcIgpInfoId>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -7582,12 +8676,16 @@ class Xtc(Entity):
                             	ISIS system ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: level
                             
                             	ISIS level
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -7618,6 +8716,7 @@ class Xtc(Entity):
                                 self._perform_setattr(Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis, ['system_id', 'level'], name, value)
 
 
+
                         class Ospf(Entity):
                             """
                             OSPF information
@@ -7629,12 +8728,16 @@ class Xtc(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: area
                             
                             	OSPF area
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -7665,6 +8768,7 @@ class Xtc(Entity):
                                 self._perform_setattr(Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf, ['router_id', 'area'], name, value)
 
 
+
                         class Bgp(Entity):
                             """
                             BGP information
@@ -7675,6 +8779,8 @@ class Xtc(Entity):
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -7703,6 +8809,10 @@ class Xtc(Entity):
                                 self._perform_setattr(Xtc.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp, ['router_id'], name, value)
 
 
+
+
+
+
             class Address(Entity):
                 """
                 Prefix address
@@ -7711,6 +8821,8 @@ class Xtc(Entity):
                 
                 	Prefix IP address
                 	**type**\:  :py:class:`IpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.Xtc.PrefixInfos.PrefixInfo.Address.IpAddress>`
+                
+                	**config**\: False
                 
                 
 
@@ -7749,6 +8861,8 @@ class Xtc(Entity):
                     	AFName
                     	**type**\:  :py:class:`XtcAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_oper.XtcAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4
                     
                     	IPv4 address type
@@ -7756,12 +8870,16 @@ class Xtc(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -7793,7 +8911,13 @@ class Xtc(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Xtc.PrefixInfos.PrefixInfo.Address.IpAddress, ['af_name', 'ipv4', 'ipv6'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Xtc()
         return self._top_entity
+
+
 

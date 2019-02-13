@@ -633,6 +633,8 @@ class NtpOperData(Entity):
     
     	**presence node**\: True
     
+    	**config**\: False
+    
     
 
     """
@@ -672,12 +674,16 @@ class NtpOperData(Entity):
         	Reference id can either be a KOD code or a clock source or an IP address
         	**type**\:  :py:class:`Refid <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper.NtpOperData.NtpStatusInfo.Refid>`
         
+        	**config**\: False
+        
         .. attribute:: reftime
         
         	Unix calendar time
         	**type**\: str
         
         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+        
+        	**config**\: False
         
         .. attribute:: sys_poll
         
@@ -686,12 +692,16 @@ class NtpOperData(Entity):
         
         	**range:** 0..255
         
+        	**config**\: False
+        
         .. attribute:: stratum
         
         	How far away the current switch is in term of hops  from the primary time source of the subnet or from the root of the subnet
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: root_delay
         
@@ -700,12 +710,16 @@ class NtpOperData(Entity):
         
         	**range:** \-92233720368547758.08..92233720368547758.07
         
+        	**config**\: False
+        
         .. attribute:: root_disp
         
         	Deviation of offset with respect to time. All measurements are between the current switch and the root of the subnet
         	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
         
         	**range:** \-92233720368547758.08..92233720368547758.07
+        
+        	**config**\: False
         
         .. attribute:: offset
         
@@ -714,10 +728,14 @@ class NtpOperData(Entity):
         
         	**range:** \-92233720368547758.08..92233720368547758.07
         
+        	**config**\: False
+        
         .. attribute:: ntp_associations
         
         	Table of NTP associations with servers and peers
         	**type**\: list of  		 :py:class:`NtpAssociations <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper.NtpOperData.NtpStatusInfo.NtpAssociations>`
+        
+        	**config**\: False
         
         .. attribute:: freq_drift_ppm
         
@@ -725,6 +743,8 @@ class NtpOperData(Entity):
         	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
         
         	**range:** \-92233720368547758.08..92233720368547758.07
+        
+        	**config**\: False
         
         
 
@@ -792,15 +812,21 @@ class NtpOperData(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: kod_data
             
             	Container for KOD type eg INIT ACTS
             	**type**\:  :py:class:`KodData <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper.NtpOperData.NtpStatusInfo.Refid.KodData>`
             
+            	**config**\: False
+            
             .. attribute:: ref_clk_src_data
             
             	Container for clock data. GPS is the only source supported by Cisco currrently
             	**type**\:  :py:class:`RefClkSrcData <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper.NtpOperData.NtpStatusInfo.Refid.RefClkSrcData>`
+            
+            	**config**\: False
             
             .. attribute:: exception_code
             
@@ -808,6 +834,8 @@ class NtpOperData(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -856,6 +884,8 @@ class NtpOperData(Entity):
                 	KOD types could be any of  the enums including INIT   ACTS etc
                 	**type**\:  :py:class:`KissCodeType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper.KissCodeType>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -884,6 +914,7 @@ class NtpOperData(Entity):
                     self._perform_setattr(NtpOperData.NtpStatusInfo.Refid.KodData, ['kod_type'], name, value)
 
 
+
             class RefClkSrcData(Entity):
                 """
                 Container for clock data. GPS is the only source supported by Cisco currrently
@@ -892,6 +923,8 @@ class NtpOperData(Entity):
                 
                 	Contains clock source type specifics eg GPS and container extensions
                 	**type**\:  :py:class:`RefClockSourceType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper.RefClockSourceType>`
+                
+                	**config**\: False
                 
                 
 
@@ -921,6 +954,8 @@ class NtpOperData(Entity):
                     self._perform_setattr(NtpOperData.NtpStatusInfo.Refid.RefClkSrcData, ['ref_clk_src_type'], name, value)
 
 
+
+
         class NtpAssociations(Entity):
             """
             Table of NTP associations with servers and peers
@@ -932,12 +967,16 @@ class NtpOperData(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: peer_reach
             
             	The status of the last 8 NTP packet exchanges with peers. 1 is encoded in the bitmask for a successful attempt and 0 is encoded for failure. If all the last 8 transactions with peers or messages sent to peers are successful the encoding becomes 0xff
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: peer_stratum
             
@@ -946,10 +985,14 @@ class NtpOperData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: refid
             
             	refid refers to either an IP address or a clock source or KOD type code
             	**type**\:  :py:class:`Refid <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper.NtpOperData.NtpStatusInfo.NtpAssociations.Refid>`
+            
+            	**config**\: False
             
             .. attribute:: reftime
             
@@ -958,12 +1001,16 @@ class NtpOperData(Entity):
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
+            	**config**\: False
+            
             .. attribute:: last_poll_time
             
             	The time of  the last NTP poll or update that happened in seconds. How many seconds back did the last update happen or when did the last NTP update happen ?
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: poll
             
@@ -972,12 +1019,16 @@ class NtpOperData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: delay
             
             	Round trip delay of reaching the peer and returning
             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
             
             	**range:** \-92233720368547758.08..92233720368547758.07
+            
+            	**config**\: False
             
             .. attribute:: offset
             
@@ -986,6 +1037,8 @@ class NtpOperData(Entity):
             
             	**range:** \-92233720368547758.08..92233720368547758.07
             
+            	**config**\: False
+            
             .. attribute:: jitter
             
             	Jitter in ms refers to short\-term variations in frequency of components greater than 10 hz
@@ -993,10 +1046,14 @@ class NtpOperData(Entity):
             
             	**range:** \-92233720368547758.08..92233720368547758.07
             
+            	**config**\: False
+            
             .. attribute:: ntp_address
             
             	NTP address consists of an IP address and a VRF name
             	**type**\:  :py:class:`NtpAddress <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper.NtpOperData.NtpStatusInfo.NtpAssociations.NtpAddress>`
+            
+            	**config**\: False
             
             .. attribute:: num_events
             
@@ -1005,30 +1062,42 @@ class NtpOperData(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: last_peer_event
             
             	Last event received from peer
             	**type**\:  :py:class:`PeerEvent <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper.PeerEvent>`
+            
+            	**config**\: False
             
             .. attribute:: peer_selection_status
             
             	Status of peer selection based on the NTP selection  algorithm
             	**type**\:  :py:class:`PeerSelectStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper.PeerSelectStatus>`
             
+            	**config**\: False
+            
             .. attribute:: peer_authentication_status
             
             	Status of authentication of switch or router by peer
             	**type**\:  :py:class:`PeerAuthStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper.PeerAuthStatus>`
+            
+            	**config**\: False
             
             .. attribute:: serv_type
             
             	Whether the remote NTP device is a server or peer
             	**type**\:  :py:class:`ServerType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper.ServerType>`
             
+            	**config**\: False
+            
             .. attribute:: psw_crypto
             
             	Peer status word of ntp server or peer when authentication configured
             	**type**\:  :py:class:`PeerStatusWord <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper.PeerStatusWord>`
+            
+            	**config**\: False
             
             
 
@@ -1111,15 +1180,21 @@ class NtpOperData(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: kod_data
                 
                 	Container for KOD type eg INIT ACTS
                 	**type**\:  :py:class:`KodData <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper.NtpOperData.NtpStatusInfo.NtpAssociations.Refid.KodData>`
                 
+                	**config**\: False
+                
                 .. attribute:: ref_clk_src_data
                 
                 	Container for clock data. GPS is the only source supported by Cisco currrently
                 	**type**\:  :py:class:`RefClkSrcData <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper.NtpOperData.NtpStatusInfo.NtpAssociations.Refid.RefClkSrcData>`
+                
+                	**config**\: False
                 
                 .. attribute:: exception_code
                 
@@ -1127,6 +1202,8 @@ class NtpOperData(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1174,6 +1251,8 @@ class NtpOperData(Entity):
                     	KOD types could be any of  the enums including INIT   ACTS etc
                     	**type**\:  :py:class:`KissCodeType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper.KissCodeType>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1201,6 +1280,7 @@ class NtpOperData(Entity):
                         self._perform_setattr(NtpOperData.NtpStatusInfo.NtpAssociations.Refid.KodData, ['kod_type'], name, value)
 
 
+
                 class RefClkSrcData(Entity):
                     """
                     Container for clock data. GPS is the only source supported by Cisco currrently
@@ -1209,6 +1289,8 @@ class NtpOperData(Entity):
                     
                     	Contains clock source type specifics eg GPS and container extensions
                     	**type**\:  :py:class:`RefClockSourceType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ntp_oper.RefClockSourceType>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1237,6 +1319,8 @@ class NtpOperData(Entity):
                         self._perform_setattr(NtpOperData.NtpStatusInfo.NtpAssociations.Refid.RefClkSrcData, ['ref_clk_src_type'], name, value)
 
 
+
+
             class NtpAddress(Entity):
                 """
                 NTP address consists of an IP address and a VRF name
@@ -1254,10 +1338,14 @@ class NtpOperData(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: vrf_name
                 
                 	VRF name is the virtual routing instance through which we can find the ntp server or peer
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1287,7 +1375,12 @@ class NtpOperData(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NtpOperData.NtpStatusInfo.NtpAssociations.NtpAddress, ['ip_addr', 'vrf_name'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = NtpOperData()
         return self._top_entity
+
+
 

@@ -187,6 +187,7 @@ class IpArm(Entity):
                 self._perform_setattr(IpArm.Ipv4.ConflictPolicyTable, ['conflict_policy'], name, value)
 
 
+
         class MulticastHost(Entity):
             """
             IP ARM Multicast Host configuration
@@ -224,6 +225,8 @@ class IpArm(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IpArm.Ipv4.MulticastHost, ['multicast_host_interface'], name, value)
+
+
 
 
     class Ipv6(Entity):
@@ -310,6 +313,7 @@ class IpArm(Entity):
                 self._perform_setattr(IpArm.Ipv6.ConflictPolicyTable, ['conflict_policy'], name, value)
 
 
+
         class MulticastHost(Entity):
             """
             IP ARM Multicast Host configuration
@@ -348,7 +352,11 @@ class IpArm(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(IpArm.Ipv6.MulticastHost, ['multicast_host_interface'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = IpArm()
         return self._top_entity
+
+
 

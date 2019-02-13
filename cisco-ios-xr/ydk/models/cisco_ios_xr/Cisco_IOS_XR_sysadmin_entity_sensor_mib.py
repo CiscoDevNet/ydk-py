@@ -233,10 +233,14 @@ class CISCOENTITYSENSORMIB(Entity):
     	
     	**type**\:  :py:class:`EntSensorValueTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_sensor_mib.CISCOENTITYSENSORMIB.EntSensorValueTable>`
     
+    	**config**\: False
+    
     .. attribute:: entsensorthresholdtable
     
     	
     	**type**\:  :py:class:`EntSensorThresholdTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_sensor_mib.CISCOENTITYSENSORMIB.EntSensorThresholdTable>`
+    
+    	**config**\: False
     
     
 
@@ -280,6 +284,8 @@ class CISCOENTITYSENSORMIB(Entity):
         	
         	**type**\: list of  		 :py:class:`EntSensorValueEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_sensor_mib.CISCOENTITYSENSORMIB.EntSensorValueTable.EntSensorValueEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -318,15 +324,21 @@ class CISCOENTITYSENSORMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: entsensortype
             
             	
             	**type**\:  :py:class:`SensorDataType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_sensor_mib.SensorDataType>`
             
+            	**config**\: False
+            
             .. attribute:: entsensorscale
             
             	
             	**type**\:  :py:class:`SensorDataScale <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_sensor_mib.SensorDataScale>`
+            
+            	**config**\: False
             
             .. attribute:: entsensorprecision
             
@@ -335,6 +347,8 @@ class CISCOENTITYSENSORMIB(Entity):
             
             	**range:** \-8..9
             
+            	**config**\: False
+            
             .. attribute:: entsensorvalue
             
             	
@@ -342,10 +356,14 @@ class CISCOENTITYSENSORMIB(Entity):
             
             	**range:** \-1000000000..1000000000
             
+            	**config**\: False
+            
             .. attribute:: entsensorstatus
             
             	
             	**type**\:  :py:class:`SensorStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_sensor_mib.SensorStatus>`
+            
+            	**config**\: False
             
             .. attribute:: entsensorvaluetimestamp
             
@@ -354,6 +372,8 @@ class CISCOENTITYSENSORMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: entsensorvalueupdaterate
             
             	
@@ -361,12 +381,16 @@ class CISCOENTITYSENSORMIB(Entity):
             
             	**range:** 0..999999999
             
+            	**config**\: False
+            
             .. attribute:: entsensormeasuredentity
             
             	
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             
 
@@ -412,6 +436,8 @@ class CISCOENTITYSENSORMIB(Entity):
                 self._perform_setattr(CISCOENTITYSENSORMIB.EntSensorValueTable.EntSensorValueEntry, ['entphysicalindex', 'entsensortype', 'entsensorscale', 'entsensorprecision', 'entsensorvalue', 'entsensorstatus', 'entsensorvaluetimestamp', 'entsensorvalueupdaterate', 'entsensormeasuredentity'], name, value)
 
 
+
+
     class EntSensorThresholdTable(Entity):
         """
         
@@ -420,6 +446,8 @@ class CISCOENTITYSENSORMIB(Entity):
         
         	
         	**type**\: list of  		 :py:class:`EntSensorThresholdEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_sensor_mib.CISCOENTITYSENSORMIB.EntSensorThresholdTable.EntSensorThresholdEntry>`
+        
+        	**config**\: False
         
         
 
@@ -459,6 +487,8 @@ class CISCOENTITYSENSORMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: entsensorthresholdindex  (key)
             
             	
@@ -466,15 +496,21 @@ class CISCOENTITYSENSORMIB(Entity):
             
             	**range:** 1..99999999
             
+            	**config**\: False
+            
             .. attribute:: entsensorthresholdseverity
             
             	
             	**type**\:  :py:class:`SensorThresholdSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_sensor_mib.SensorThresholdSeverity>`
             
+            	**config**\: False
+            
             .. attribute:: entsensorthresholdrelation
             
             	
             	**type**\:  :py:class:`SensorThresholdRelation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_sensor_mib.SensorThresholdRelation>`
+            
+            	**config**\: False
             
             .. attribute:: entsensorthresholdvalue
             
@@ -483,15 +519,21 @@ class CISCOENTITYSENSORMIB(Entity):
             
             	**range:** \-1000000000..1000000000
             
+            	**config**\: False
+            
             .. attribute:: entsensorthresholdevaluation
             
             	
             	**type**\:  :py:class:`TruthValue <ydk.models.cisco_ios_xr.SNMPv2_TC.TruthValue>`
             
+            	**config**\: False
+            
             .. attribute:: entsensorthresholdnotificationenable
             
             	
             	**type**\:  :py:class:`TruthValue <ydk.models.cisco_ios_xr.SNMPv2_TC.TruthValue>`
+            
+            	**config**\: False
             
             
 
@@ -532,7 +574,11 @@ class CISCOENTITYSENSORMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYSENSORMIB.EntSensorThresholdTable.EntSensorThresholdEntry, ['entphysicalindex', 'entsensorthresholdindex', 'entsensorthresholdseverity', 'entsensorthresholdrelation', 'entsensorthresholdvalue', 'entsensorthresholdevaluation', 'entsensorthresholdnotificationenable'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOENTITYSENSORMIB()
         return self._top_entity
+
+
 

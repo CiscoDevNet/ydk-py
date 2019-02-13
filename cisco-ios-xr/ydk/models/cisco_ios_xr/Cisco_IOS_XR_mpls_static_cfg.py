@@ -640,6 +640,8 @@ class MplsStatic(Entity):
                                 self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
 
 
+
+
                     class InLabel(Entity):
                         """
                         MPLS Static Local Label Value
@@ -714,6 +716,7 @@ class MplsStatic(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel, ['in_label_value', 'label_mode', 'prefix', 'prefix_length', 'tlh_mode'], name, value)
+
 
 
                     class Paths(Entity):
@@ -889,6 +892,10 @@ class MplsStatic(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
+
+
+
+
 
 
             class Afs(Entity):
@@ -1175,6 +1182,7 @@ class MplsStatic(Entity):
                                         self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType, ['label_mode', 'prefix', 'prefix_length'], name, value)
 
 
+
                                 class Paths(Entity):
                                     """
                                     Forward Path Parameters
@@ -1350,6 +1358,11 @@ class MplsStatic(Entity):
                                             self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
 
 
+
+
+
+
+
                     class LocalLabels(Entity):
                         """
                         Local Label
@@ -1499,6 +1512,7 @@ class MplsStatic(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.LabelType, ['label_mode', 'prefix', 'prefix_length'], name, value)
+
 
 
                             class Paths(Entity):
@@ -1676,6 +1690,14 @@ class MplsStatic(Entity):
                                         self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
 
 
+
+
+
+
+
+
+
+
     class Interfaces(Entity):
         """
         MPLS Static Interface Table
@@ -1749,6 +1771,8 @@ class MplsStatic(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsStatic.Interfaces.Interface, ['interface_name'], name, value)
+
+
 
 
     class DefaultVrf(Entity):
@@ -2090,6 +2114,8 @@ class MplsStatic(Entity):
                             self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
 
 
+
+
                 class InLabel(Entity):
                     """
                     MPLS Static Local Label Value
@@ -2164,6 +2190,7 @@ class MplsStatic(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel, ['in_label_value', 'label_mode', 'prefix', 'prefix_length', 'tlh_mode'], name, value)
+
 
 
                 class Paths(Entity):
@@ -2339,6 +2366,10 @@ class MplsStatic(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
+
+
+
+
 
 
         class Afs(Entity):
@@ -2627,6 +2658,7 @@ class MplsStatic(Entity):
                                     self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType, ['label_mode', 'prefix', 'prefix_length'], name, value)
 
 
+
                             class Paths(Entity):
                                 """
                                 Forward Path Parameters
@@ -2802,6 +2834,11 @@ class MplsStatic(Entity):
                                         self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
 
 
+
+
+
+
+
                 class LocalLabels(Entity):
                     """
                     Local Label
@@ -2951,6 +2988,7 @@ class MplsStatic(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.LabelType, ['label_mode', 'prefix', 'prefix_length'], name, value)
+
 
 
                         class Paths(Entity):
@@ -3127,7 +3165,16 @@ class MplsStatic(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
 
+
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = MplsStatic()
         return self._top_entity
+
+
 

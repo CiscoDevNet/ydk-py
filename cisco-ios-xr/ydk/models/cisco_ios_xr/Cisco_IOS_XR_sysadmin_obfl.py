@@ -22,10 +22,14 @@ class Obfl(Entity):
     	
     	**type**\:  :py:class:`ObflMgr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_obfl.Obfl.ObflMgr>`
     
+    	**config**\: False
+    
     .. attribute:: obfl_show
     
     	
     	**type**\:  :py:class:`ObflShow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_obfl.Obfl.ObflShow>`
+    
+    	**config**\: False
     
     
 
@@ -69,6 +73,8 @@ class Obfl(Entity):
         	show traceable processes
         	**type**\: list of  		 :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_obfl.Obfl.ObflMgr.Trace>`
         
+        	**config**\: False
+        
         
 
         """
@@ -105,10 +111,14 @@ class Obfl(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_obfl.Obfl.ObflMgr.Trace.Location>`
+            
+            	**config**\: False
             
             
 
@@ -149,10 +159,14 @@ class Obfl(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: all_options
                 
                 	
                 	**type**\: list of  		 :py:class:`AllOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_obfl.Obfl.ObflMgr.Trace.Location.AllOptions>`
+                
+                	**config**\: False
                 
                 
 
@@ -192,10 +206,14 @@ class Obfl(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: trace_blocks
                     
                     	
                     	**type**\: list of  		 :py:class:`TraceBlocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_obfl.Obfl.ObflMgr.Trace.Location.AllOptions.TraceBlocks>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -235,6 +253,8 @@ class Obfl(Entity):
                         	Trace output block
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -262,6 +282,11 @@ class Obfl(Entity):
                             self._perform_setattr(Obfl.ObflMgr.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
 
+
+
+
+
+
     class ObflShow(Entity):
         """
         
@@ -270,6 +295,8 @@ class Obfl(Entity):
         
         	show traceable processes
         	**type**\: list of  		 :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_obfl.Obfl.ObflShow.Trace>`
+        
+        	**config**\: False
         
         
 
@@ -307,10 +334,14 @@ class Obfl(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_obfl.Obfl.ObflShow.Trace.Location>`
+            
+            	**config**\: False
             
             
 
@@ -351,10 +382,14 @@ class Obfl(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: all_options
                 
                 	
                 	**type**\: list of  		 :py:class:`AllOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_obfl.Obfl.ObflShow.Trace.Location.AllOptions>`
+                
+                	**config**\: False
                 
                 
 
@@ -394,10 +429,14 @@ class Obfl(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: trace_blocks
                     
                     	
                     	**type**\: list of  		 :py:class:`TraceBlocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_obfl.Obfl.ObflShow.Trace.Location.AllOptions.TraceBlocks>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -437,6 +476,8 @@ class Obfl(Entity):
                         	Trace output block
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -463,7 +504,14 @@ class Obfl(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Obfl.ObflShow.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Obfl()
         return self._top_entity
+
+
 

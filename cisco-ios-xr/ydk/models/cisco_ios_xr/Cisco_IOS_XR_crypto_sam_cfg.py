@@ -135,7 +135,10 @@ class Sam(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Sam.PromptInterval, ['action', 'prompt_time'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Sam()
         return self._top_entity
+
+
 

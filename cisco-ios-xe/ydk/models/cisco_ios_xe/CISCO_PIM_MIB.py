@@ -25,10 +25,14 @@ class CISCOPIMMIB(Entity):
     	
     	**type**\:  :py:class:`Cpim <ydk.models.cisco_ios_xe.CISCO_PIM_MIB.CISCOPIMMIB.Cpim>`
     
+    	**config**\: False
+    
     .. attribute:: ciscopimmibnotificationobjects
     
     	
     	**type**\:  :py:class:`CiscoPimMIBNotificationObjects <ydk.models.cisco_ios_xe.CISCO_PIM_MIB.CISCOPIMMIB.CiscoPimMIBNotificationObjects>`
+    
+    	**config**\: False
     
     
 
@@ -74,6 +78,8 @@ class CISCOPIMMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: cpiminvalidjoinprunemsgsrcvd
         
         	A count of the number of invalid PIM Join/Prune messages received by this device. A PIM Join/Prune message is termed invalid if  o the RP specified in the packet is not the RP for   the group in question
@@ -81,15 +87,21 @@ class CISCOPIMMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: cpimlasterrortype
         
         	The type of the last invalid message that was received by this device
         	**type**\:  :py:class:`CpimLastErrorType <ydk.models.cisco_ios_xe.CISCO_PIM_MIB.CISCOPIMMIB.Cpim.CpimLastErrorType>`
         
+        	**config**\: False
+        
         .. attribute:: cpimlasterrororigintype
         
         	Represents the type of address stored in cpimLastErrorOrigin. The value of this object is irrelevant if the value of cpimLastErrorType is none(1)
         	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+        
+        	**config**\: False
         
         .. attribute:: cpimlasterrororigin
         
@@ -98,10 +110,14 @@ class CISCOPIMMIB(Entity):
         
         	**length:** 0..255
         
+        	**config**\: False
+        
         .. attribute:: cpimlasterrorgrouptype
         
         	Represents the type of address stored in cpimLastErrorGroup. The value of this object is unknown(0) if there is a problem in the packet received from the DR.  The value of this object is irrelevant if the value of cpimLastErrorType is none(1)
         	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+        
+        	**config**\: False
         
         .. attribute:: cpimlasterrorgroup
         
@@ -110,10 +126,14 @@ class CISCOPIMMIB(Entity):
         
         	**length:** 0..255
         
+        	**config**\: False
+        
         .. attribute:: cpimlasterrorrptype
         
         	Represents the type of address stored in cpimLastErrorRP. The value of this object is irrelevant if the value of cpimLastErrorType is none(1)
         	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+        
+        	**config**\: False
         
         .. attribute:: cpimlasterrorrp
         
@@ -121,6 +141,8 @@ class CISCOPIMMIB(Entity):
         	**type**\: str
         
         	**length:** 0..255
+        
+        	**config**\: False
         
         
 
@@ -189,6 +211,7 @@ class CISCOPIMMIB(Entity):
 
 
 
+
     class CiscoPimMIBNotificationObjects(Entity):
         """
         
@@ -197,6 +220,8 @@ class CISCOPIMMIB(Entity):
         
         	Describes the operation that resulted in generation of cpimRPMappingChange notification.  o newMapping, as the name suggests indicates that a new   mapping has been added into the pimRPSetTable,  o deletedMapping indicates that a mapping has been    deleted from the pimRPSetTable, and, o modifiedXXXMapping indicates that an RP mapping (which   already existed in the table) has been modified.   The two modifications types i.e. modifiedOldMapping   and modifiedNewMapping, are defined to differentiate   the notification generated before modification from   that generated after modification
         	**type**\:  :py:class:`CpimRPMappingChangeType <ydk.models.cisco_ios_xe.CISCO_PIM_MIB.CISCOPIMMIB.CiscoPimMIBNotificationObjects.CpimRPMappingChangeType>`
+        
+        	**config**\: False
         
         
 
@@ -272,7 +297,10 @@ class CISCOPIMMIB(Entity):
             modifiedNewMapping = Enum.YLeaf(4, "modifiedNewMapping")
 
 
+
     def clone_ptr(self):
         self._top_entity = CISCOPIMMIB()
         return self._top_entity
+
+
 

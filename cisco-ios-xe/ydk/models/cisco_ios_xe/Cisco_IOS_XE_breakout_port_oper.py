@@ -42,6 +42,8 @@ class BreakoutPortOperData(Entity):
     	List of breakout ports, keyed by name
     	**type**\: list of  		 :py:class:`PortBreakout <ydk.models.cisco_ios_xe.Cisco_IOS_XE_breakout_port_oper.BreakoutPortOperData.PortBreakout>`
     
+    	**config**\: False
+    
     
 
     """
@@ -78,6 +80,8 @@ class BreakoutPortOperData(Entity):
         	Name of the breakout port
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: number
         
         	Number of channels to 'breakout' on a port capable of channelization
@@ -85,10 +89,14 @@ class BreakoutPortOperData(Entity):
         
         	**range:** \-32768..32767
         
+        	**config**\: False
+        
         .. attribute:: speed
         
         	Channel speed on each channel
         	**type**\:  :py:class:`BcChannelSpeed <ydk.models.cisco_ios_xe.Cisco_IOS_XE_breakout_port_oper.BcChannelSpeed>`
+        
+        	**config**\: False
         
         
 
@@ -121,7 +129,10 @@ class BreakoutPortOperData(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(BreakoutPortOperData.PortBreakout, ['name', 'number', 'speed'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = BreakoutPortOperData()
         return self._top_entity
+
+
 

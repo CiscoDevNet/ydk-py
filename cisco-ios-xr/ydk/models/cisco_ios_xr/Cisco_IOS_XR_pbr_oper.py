@@ -51,6 +51,8 @@ class Pbr(Entity):
     	Node\-specific PBR operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -88,6 +90,8 @@ class Pbr(Entity):
         
         	PBR operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -127,10 +131,14 @@ class Pbr(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: policy_map
             
             	Operational data for policymaps
             	**type**\:  :py:class:`PolicyMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap>`
+            
+            	**config**\: False
             
             
 
@@ -173,6 +181,8 @@ class Pbr(Entity):
                 	Operational data for all interfaces
                 	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -209,6 +219,8 @@ class Pbr(Entity):
                     
                     	PBR action data for a particular interface
                     	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -247,10 +259,14 @@ class Pbr(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: direction
                         
                         	PBR direction
                         	**type**\:  :py:class:`Direction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -292,6 +308,8 @@ class Pbr(Entity):
                             	PBR policy statistics
                             	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -331,6 +349,8 @@ class Pbr(Entity):
                                 
                                 	**length:** 0..42
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: policy_name
                                 
                                 	PolicyName
@@ -338,10 +358,14 @@ class Pbr(Entity):
                                 
                                 	**length:** 0..65
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: state
                                 
                                 	State
                                 	**type**\:  :py:class:`PolicyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.PolicyState>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: state_description
                                 
@@ -350,10 +374,14 @@ class Pbr(Entity):
                                 
                                 	**length:** 0..128
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: class_stat
                                 
                                 	Array of classes contained in policy
                                 	**type**\: list of  		 :py:class:`ClassStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -399,15 +427,21 @@ class Pbr(Entity):
                                     	general stats
                                     	**type**\:  :py:class:`GeneralStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: httpr_stats
                                     
                                     	HTTPR stats
                                     	**type**\:  :py:class:`HttprStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: http_enrich_stats
                                     
                                     	HTTP Enrichment stats
                                     	**type**\:  :py:class:`HttpEnrichStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttpEnrichStats>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: counter_validity_bitmask
                                     
@@ -415,6 +449,8 @@ class Pbr(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -425,12 +461,16 @@ class Pbr(Entity):
                                     
                                     	**length:** 0..65
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: class_id
                                     
                                     	ClassId
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -486,6 +526,8 @@ class Pbr(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: byte
                                         
                                         .. attribute:: transmit_bytes
@@ -494,6 +536,8 @@ class Pbr(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -504,6 +548,8 @@ class Pbr(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: byte
                                         
                                         .. attribute:: total_drop_bytes
@@ -512,6 +558,8 @@ class Pbr(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -522,6 +570,8 @@ class Pbr(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: byte
                                         
                                         .. attribute:: match_data_rate
@@ -530,6 +580,8 @@ class Pbr(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: kbit/s
                                         
@@ -540,6 +592,8 @@ class Pbr(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: kbit/s
                                         
                                         .. attribute:: pre_policy_matched_packets
@@ -549,12 +603,16 @@ class Pbr(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: pre_policy_matched_bytes
                                         
                                         	Matched bytes before applying policy
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -601,6 +659,7 @@ class Pbr(Entity):
                                             self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats, [u'transmit_packets', u'transmit_bytes', u'total_drop_packets', u'total_drop_bytes', u'total_drop_rate', u'match_data_rate', u'total_transmit_rate', u'pre_policy_matched_packets', u'pre_policy_matched_bytes'], name, value)
 
 
+
                                     class HttprStats(Entity):
                                         """
                                         HTTPR stats
@@ -612,12 +671,16 @@ class Pbr(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: rqst_rcvd_bytes
                                         
                                         	TotalNum of Bytes HTTP request received
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -628,12 +691,16 @@ class Pbr(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: drop_bytes
                                         
                                         	Dropped bytes
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -644,12 +711,16 @@ class Pbr(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: resp_sent_bytes
                                         
                                         	TotalNum of Bytes HTTPR response sent
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -690,6 +761,7 @@ class Pbr(Entity):
                                             self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats, [u'rqst_rcvd_packets', u'rqst_rcvd_bytes', u'drop_packets', u'drop_bytes', u'resp_sent_packets', u'resp_sent_bytes'], name, value)
 
 
+
                                     class HttpEnrichStats(Entity):
                                         """
                                         HTTP Enrichment stats
@@ -701,12 +773,16 @@ class Pbr(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: rqst_rcvd_bytes
                                         
                                         	TotalNum of Bytes HTTP request received
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -717,12 +793,16 @@ class Pbr(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: drop_bytes
                                         
                                         	Dropped bytes
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -733,12 +813,16 @@ class Pbr(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: resp_sent_bytes
                                         
                                         	TotalNum of Bytes HTTP Enrichment response sent
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -749,12 +833,16 @@ class Pbr(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tcp_sent_packets
                                         
                                         	TotalNum of pkts HTTP Enrichment TCP packet sent
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -796,7 +884,18 @@ class Pbr(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttpEnrichStats, [u'rqst_rcvd_packets', u'rqst_rcvd_bytes', u'drop_packets', u'drop_bytes', u'resp_sent_packets', u'resp_sent_bytes', u'req_sent_packets', u'tcp_sent_packets'], name, value)
 
+
+
+
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Pbr()
         return self._top_entity
+
+
 

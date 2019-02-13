@@ -15,8 +15,8 @@
 # ------------------------------------------------------------------
 
 from .codec_provider import CodecServiceProvider
+from .netconf_provider import NetconfServiceProvider
 from ydk.ext.providers import ServiceProvider
-from ydk.ext.providers import NetconfServiceProvider
 from ydk.ext.providers import RestconfServiceProvider
 from ydk.ext.providers import OpenDaylightServiceProvider
 

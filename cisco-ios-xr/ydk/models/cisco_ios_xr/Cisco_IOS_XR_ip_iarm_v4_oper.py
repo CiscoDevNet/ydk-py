@@ -32,20 +32,28 @@ class Ipv4arm(Entity):
     	IPv4 ARM address database information
     	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses>`
     
+    	**config**\: False
+    
     .. attribute:: summary
     
     	IPv4 ARM summary information
     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Summary>`
+    
+    	**config**\: False
     
     .. attribute:: vrf_summaries
     
     	IPv4 ARM VRFs summary information
     	**type**\:  :py:class:`VrfSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.VrfSummaries>`
     
+    	**config**\: False
+    
     .. attribute:: router_id
     
     	IPv4 ARM Router ID information
     	**type**\:  :py:class:`RouterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.RouterId>`
+    
+    	**config**\: False
     
     .. attribute:: multicast_host_interface
     
@@ -53,6 +61,8 @@ class Ipv4arm(Entity):
     	**type**\: str
     
     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+    
+    	**config**\: False
     
     
 
@@ -107,6 +117,8 @@ class Ipv4arm(Entity):
         	IPv4 ARM address database information per VRF
         	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs>`
         
+        	**config**\: False
+        
         
 
         """
@@ -145,6 +157,8 @@ class Ipv4arm(Entity):
             	IPv4 ARM address database information in a VRF
             	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs.Vrf>`
             
+            	**config**\: False
+            
             
 
             """
@@ -181,15 +195,21 @@ class Ipv4arm(Entity):
                 	VRF name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: networks
                 
                 	IPv4 ARM address database information by network
                 	**type**\:  :py:class:`Networks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs.Vrf.Networks>`
                 
+                	**config**\: False
+                
                 .. attribute:: interfaces
                 
                 	IPv4 ARM address database information by interface
                 	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs.Vrf.Interfaces>`
+                
+                	**config**\: False
                 
                 
 
@@ -237,6 +257,8 @@ class Ipv4arm(Entity):
                     	An IPv4 Address in IPv4 ARM
                     	**type**\: list of  		 :py:class:`Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -274,12 +296,16 @@ class Ipv4arm(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix_length
                         
                         	Prefix Length
                         	**type**\: int
                         
                         	**range:** 0..32
+                        
+                        	**config**\: False
                         
                         .. attribute:: handle
                         
@@ -288,25 +314,35 @@ class Ipv4arm(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: address_xr
                         
                         	Address info
                         	**type**\:  :py:class:`AddressXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: interface_name
                         
                         	Interface name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: referenced_interface
                         
                         	Referenced Interface \- only valid for an unnumbered interface
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrf_name
                         
                         	VRF Name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -346,7 +382,7 @@ class Ipv4arm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network, ['address', 'prefix_length', 'handle', 'interface_name', 'referenced_interface', 'vrf_name'], name, value)
+                            self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network, ['address', 'prefix_length', 'handle', u'interface_name', u'referenced_interface', u'vrf_name'], name, value)
 
 
                         class AddressXr(Entity):
@@ -358,12 +394,16 @@ class Ipv4arm(Entity):
                             	Address
                             	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: prefix_length
                             
                             	Prefix length
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: route_tag
                             
@@ -372,25 +412,35 @@ class Ipv4arm(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_primary
                             
                             	Is address primary \- valid only for IPv4 addresses
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_tentative
                             
                             	Is address valid/tentative \- valid only for IPV6 addresses
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_prefix_sid
                             
                             	Is prefix\_sid valid \- valid only for IPV6 addresses
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: producer
                             
                             	Producer Name
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -430,7 +480,7 @@ class Ipv4arm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr, ['prefix_length', 'route_tag', 'is_primary', 'is_tentative', 'is_prefix_sid', 'producer'], name, value)
+                                self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr, [u'prefix_length', u'route_tag', u'is_primary', u'is_tentative', u'is_prefix_sid', u'producer'], name, value)
 
 
                             class Address(Entity):
@@ -444,6 +494,8 @@ class Ipv4arm(Entity):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_address
                                 
                                 	IPV4 Address
@@ -451,12 +503,16 @@ class Ipv4arm(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv6_address
                                 
                                 	IPV6 Address
                                 	**type**\: str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -486,7 +542,11 @@ class Ipv4arm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
+                                    self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address, [u'afi', u'ipv4_address', u'ipv6_address'], name, value)
+
+
+
+
 
 
                 class Interfaces(Entity):
@@ -498,6 +558,8 @@ class Ipv4arm(Entity):
                     
                     	An IPv4 address in IPv4 ARM
                     	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -536,20 +598,28 @@ class Ipv4arm(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: referenced_interface
                         
                         	Referenced Interface \- only valid for an unnumbered interface
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: vrf_name
                         
                         	VRF Name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: address
                         
                         	Address info
                         	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -581,7 +651,7 @@ class Ipv4arm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface, ['interface', 'referenced_interface', 'vrf_name'], name, value)
+                            self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface, ['interface', u'referenced_interface', u'vrf_name'], name, value)
 
 
                         class Address(Entity):
@@ -593,12 +663,16 @@ class Ipv4arm(Entity):
                             	Address
                             	**type**\:  :py:class:`Address_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: prefix_length
                             
                             	Prefix length
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: route_tag
                             
@@ -607,25 +681,35 @@ class Ipv4arm(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_primary
                             
                             	Is address primary \- valid only for IPv4 addresses
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_tentative
                             
                             	Is address valid/tentative \- valid only for IPV6 addresses
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_prefix_sid
                             
                             	Is prefix\_sid valid \- valid only for IPV6 addresses
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: producer
                             
                             	Producer Name
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -665,7 +749,7 @@ class Ipv4arm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, ['prefix_length', 'route_tag', 'is_primary', 'is_tentative', 'is_prefix_sid', 'producer'], name, value)
+                                self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, [u'prefix_length', u'route_tag', u'is_primary', u'is_tentative', u'is_prefix_sid', u'producer'], name, value)
 
 
                             class Address_(Entity):
@@ -679,6 +763,8 @@ class Ipv4arm(Entity):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_address
                                 
                                 	IPV4 Address
@@ -686,12 +772,16 @@ class Ipv4arm(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv6_address
                                 
                                 	IPV6 Address
                                 	**type**\: str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -721,7 +811,14 @@ class Ipv4arm(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
+                                    self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_, [u'afi', u'ipv4_address', u'ipv6_address'], name, value)
+
+
+
+
+
+
+
 
 
     class Summary(Entity):
@@ -735,12 +832,16 @@ class Ipv4arm(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         .. attribute:: address_conflict_count
         
         	Number of address conflicts
         	**type**\: int
         
         	**range:** \-2147483648..2147483647
+        
+        	**config**\: False
         
         .. attribute:: unnumbered_conflict_count
         
@@ -749,6 +850,8 @@ class Ipv4arm(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         .. attribute:: db_master_version
         
         	IP\-ARM DB master version
@@ -756,12 +859,16 @@ class Ipv4arm(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: vrf_count
         
         	Number of known VRFs
         	**type**\: int
         
         	**range:** \-2147483648..2147483647
+        
+        	**config**\: False
         
         
 
@@ -796,7 +903,8 @@ class Ipv4arm(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ipv4arm.Summary, ['producer_count', 'address_conflict_count', 'unnumbered_conflict_count', 'db_master_version', 'vrf_count'], name, value)
+            self._perform_setattr(Ipv4arm.Summary, [u'producer_count', u'address_conflict_count', u'unnumbered_conflict_count', u'db_master_version', u'vrf_count'], name, value)
+
 
 
     class VrfSummaries(Entity):
@@ -807,6 +915,8 @@ class Ipv4arm(Entity):
         
         	IPv4 ARM VRF summary information
         	**type**\: list of  		 :py:class:`VrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4arm.VrfSummaries.VrfSummary>`
+        
+        	**config**\: False
         
         
 
@@ -844,6 +954,8 @@ class Ipv4arm(Entity):
             	VRF name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: vrf_id
             
             	VRF ID
@@ -851,10 +963,14 @@ class Ipv4arm(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: vrf_name_xr
             
             	VRF Name
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -885,7 +1001,9 @@ class Ipv4arm(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ipv4arm.VrfSummaries.VrfSummary, ['vrf_name', 'vrf_id', 'vrf_name_xr'], name, value)
+                self._perform_setattr(Ipv4arm.VrfSummaries.VrfSummary, ['vrf_name', u'vrf_id', u'vrf_name_xr'], name, value)
+
+
 
 
     class RouterId(Entity):
@@ -899,15 +1017,21 @@ class Ipv4arm(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: vrf_name
         
         	VRF Name
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: interface_name
         
         	Interface name
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: router_id
         
@@ -915,6 +1039,8 @@ class Ipv4arm(Entity):
         	**type**\: str
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        	**config**\: False
         
         
 
@@ -947,9 +1073,12 @@ class Ipv4arm(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ipv4arm.RouterId, ['vrf_id', 'vrf_name', 'interface_name', 'router_id'], name, value)
+            self._perform_setattr(Ipv4arm.RouterId, [u'vrf_id', u'vrf_name', u'interface_name', u'router_id'], name, value)
+
 
     def clone_ptr(self):
         self._top_entity = Ipv4arm()
         return self._top_entity
+
+
 

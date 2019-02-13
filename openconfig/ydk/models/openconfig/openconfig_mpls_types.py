@@ -124,6 +124,7 @@ class PROTECTIONTYPE(Identity):
         super(PROTECTIONTYPE, self).__init__(ns, pref, tag)
 
 
+
 class PATHSETUPPROTOCOL(Identity):
     """
     base identity for supported MPLS signaling
@@ -138,6 +139,7 @@ class PATHSETUPPROTOCOL(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/mpls-types", pref="openconfig-mpls-types", tag="openconfig-mpls-types:PATH_SETUP_PROTOCOL"):
         super(PATHSETUPPROTOCOL, self).__init__(ns, pref, tag)
+
 
 
 class PATHCOMPUTATIONMETHOD(Identity):
@@ -156,6 +158,7 @@ class PATHCOMPUTATIONMETHOD(Identity):
         super(PATHCOMPUTATIONMETHOD, self).__init__(ns, pref, tag)
 
 
+
 class TUNNELADMINSTATUS(Identity):
     """
     Base identity for tunnel administrative status
@@ -169,6 +172,7 @@ class TUNNELADMINSTATUS(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/mpls-types", pref="openconfig-mpls-types", tag="openconfig-mpls-types:TUNNEL_ADMIN_STATUS"):
         super(TUNNELADMINSTATUS, self).__init__(ns, pref, tag)
+
 
 
 class TUNNELTYPE(Identity):
@@ -187,6 +191,7 @@ class TUNNELTYPE(Identity):
         super(TUNNELTYPE, self).__init__(ns, pref, tag)
 
 
+
 class NULLLABELTYPE(Identity):
     """
     Base identity from which specific null\-label types are
@@ -201,6 +206,7 @@ class NULLLABELTYPE(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/mpls-types", pref="openconfig-mpls-types", tag="openconfig-mpls-types:NULL_LABEL_TYPE"):
         super(NULLLABELTYPE, self).__init__(ns, pref, tag)
+
 
 
 class LSPOPERSTATUS(Identity):
@@ -218,6 +224,7 @@ class LSPOPERSTATUS(Identity):
         super(LSPOPERSTATUS, self).__init__(ns, pref, tag)
 
 
+
 class LSPMETRICTYPE(Identity):
     """
     Base identity for types of LSP metric specification
@@ -231,6 +238,7 @@ class LSPMETRICTYPE(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/mpls-types", pref="openconfig-mpls-types", tag="openconfig-mpls-types:LSP_METRIC_TYPE"):
         super(LSPMETRICTYPE, self).__init__(ns, pref, tag)
+
 
 
 class LSPROLE(Identity):
@@ -247,6 +255,7 @@ class LSPROLE(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/mpls-types", pref="openconfig-mpls-types", tag="openconfig-mpls-types:LSP_ROLE"):
         super(LSPROLE, self).__init__(ns, pref, tag)
+
 
 
 class LSPMETRICINHERITED(LSPMETRICTYPE):
@@ -266,6 +275,7 @@ class LSPMETRICINHERITED(LSPMETRICTYPE):
         super(LSPMETRICINHERITED, self).__init__(ns, pref, tag)
 
 
+
 class DOWN(LSPOPERSTATUS):
     """
     LSP is operationally down or out of service
@@ -279,6 +289,7 @@ class DOWN(LSPOPERSTATUS):
 
     def __init__(self, ns="http://openconfig.net/yang/mpls-types", pref="openconfig-mpls-types", tag="openconfig-mpls-types:DOWN"):
         super(DOWN, self).__init__(ns, pref, tag)
+
 
 
 class LOCALLYCOMPUTED(PATHCOMPUTATIONMETHOD):
@@ -297,6 +308,7 @@ class LOCALLYCOMPUTED(PATHCOMPUTATIONMETHOD):
         super(LOCALLYCOMPUTED, self).__init__(ns, pref, tag)
 
 
+
 class P2P(TUNNELTYPE):
     """
     TE point\-to\-point tunnel type.
@@ -312,6 +324,7 @@ class P2P(TUNNELTYPE):
         super(P2P, self).__init__(ns, pref, tag)
 
 
+
 class PATHSETUPSR(PATHSETUPPROTOCOL):
     """
     Segment routing
@@ -325,6 +338,7 @@ class PATHSETUPSR(PATHSETUPPROTOCOL):
 
     def __init__(self, ns="http://openconfig.net/yang/mpls-types", pref="openconfig-mpls-types", tag="openconfig-mpls-types:PATH_SETUP_SR"):
         super(PATHSETUPSR, self).__init__(ns, pref, tag)
+
 
 
 class INGRESS(LSPROLE):
@@ -343,6 +357,7 @@ class INGRESS(LSPROLE):
         super(INGRESS, self).__init__(ns, pref, tag)
 
 
+
 class PATHSETUPRSVP(PATHSETUPPROTOCOL):
     """
     RSVP\-TE signaling protocol
@@ -356,6 +371,7 @@ class PATHSETUPRSVP(PATHSETUPPROTOCOL):
 
     def __init__(self, ns="http://openconfig.net/yang/mpls-types", pref="openconfig-mpls-types", tag="openconfig-mpls-types:PATH_SETUP_RSVP"):
         super(PATHSETUPRSVP, self).__init__(ns, pref, tag)
+
 
 
 class PATHSETUPLDP(PATHSETUPPROTOCOL):
@@ -373,6 +389,7 @@ class PATHSETUPLDP(PATHSETUPPROTOCOL):
         super(PATHSETUPLDP, self).__init__(ns, pref, tag)
 
 
+
 class EXPLICIT(NULLLABELTYPE):
     """
     Explicit null label is used.
@@ -386,6 +403,7 @@ class EXPLICIT(NULLLABELTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/mpls-types", pref="openconfig-mpls-types", tag="openconfig-mpls-types:EXPLICIT"):
         super(EXPLICIT, self).__init__(ns, pref, tag)
+
 
 
 class ADMINUP(TUNNELADMINSTATUS):
@@ -403,6 +421,7 @@ class ADMINUP(TUNNELADMINSTATUS):
         super(ADMINUP, self).__init__(ns, pref, tag)
 
 
+
 class P2MP(TUNNELTYPE):
     """
     TE point\-to\-multipoint tunnel type.
@@ -418,6 +437,7 @@ class P2MP(TUNNELTYPE):
         super(P2MP, self).__init__(ns, pref, tag)
 
 
+
 class LINKPROTECTIONREQUIRED(PROTECTIONTYPE):
     """
     link protection is desired
@@ -431,6 +451,7 @@ class LINKPROTECTIONREQUIRED(PROTECTIONTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/mpls-types", pref="openconfig-mpls-types", tag="openconfig-mpls-types:LINK_PROTECTION_REQUIRED"):
         super(LINKPROTECTIONREQUIRED, self).__init__(ns, pref, tag)
+
 
 
 class EGRESS(LSPROLE):
@@ -449,6 +470,7 @@ class EGRESS(LSPROLE):
         super(EGRESS, self).__init__(ns, pref, tag)
 
 
+
 class IMPLICIT(NULLLABELTYPE):
     """
     Implicit null label is used.
@@ -462,6 +484,7 @@ class IMPLICIT(NULLLABELTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/mpls-types", pref="openconfig-mpls-types", tag="openconfig-mpls-types:IMPLICIT"):
         super(IMPLICIT, self).__init__(ns, pref, tag)
+
 
 
 class LINKNODEPROTECTIONREQUESTED(PROTECTIONTYPE):
@@ -479,6 +502,7 @@ class LINKNODEPROTECTIONREQUESTED(PROTECTIONTYPE):
         super(LINKNODEPROTECTIONREQUESTED, self).__init__(ns, pref, tag)
 
 
+
 class LSPMETRICABSOLUTE(LSPMETRICTYPE):
     """
     The metric specified for the LSPs to which this identity refers
@@ -493,6 +517,7 @@ class LSPMETRICABSOLUTE(LSPMETRICTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/mpls-types", pref="openconfig-mpls-types", tag="openconfig-mpls-types:LSP_METRIC_ABSOLUTE"):
         super(LSPMETRICABSOLUTE, self).__init__(ns, pref, tag)
+
 
 
 class EXTERNALLYQUERIED(PATHCOMPUTATIONMETHOD):
@@ -517,6 +542,7 @@ class EXTERNALLYQUERIED(PATHCOMPUTATIONMETHOD):
         super(EXTERNALLYQUERIED, self).__init__(ns, pref, tag)
 
 
+
 class ADMINDOWN(TUNNELADMINSTATUS):
     """
     LSP is administratively down
@@ -530,6 +556,7 @@ class ADMINDOWN(TUNNELADMINSTATUS):
 
     def __init__(self, ns="http://openconfig.net/yang/mpls-types", pref="openconfig-mpls-types", tag="openconfig-mpls-types:ADMIN_DOWN"):
         super(ADMINDOWN, self).__init__(ns, pref, tag)
+
 
 
 class EXPLICITLYDEFINED(PATHCOMPUTATIONMETHOD):
@@ -549,6 +576,7 @@ class EXPLICITLYDEFINED(PATHCOMPUTATIONMETHOD):
         super(EXPLICITLYDEFINED, self).__init__(ns, pref, tag)
 
 
+
 class TRANSIT(LSPROLE):
     """
     Label switched path is a transit LSP
@@ -562,6 +590,7 @@ class TRANSIT(LSPROLE):
 
     def __init__(self, ns="http://openconfig.net/yang/mpls-types", pref="openconfig-mpls-types", tag="openconfig-mpls-types:TRANSIT"):
         super(TRANSIT, self).__init__(ns, pref, tag)
+
 
 
 class UP(LSPOPERSTATUS):
@@ -578,6 +607,7 @@ class UP(LSPOPERSTATUS):
 
     def __init__(self, ns="http://openconfig.net/yang/mpls-types", pref="openconfig-mpls-types", tag="openconfig-mpls-types:UP"):
         super(UP, self).__init__(ns, pref, tag)
+
 
 
 class LSPMETRICRELATIVE(LSPMETRICTYPE):
@@ -597,6 +627,7 @@ class LSPMETRICRELATIVE(LSPMETRICTYPE):
         super(LSPMETRICRELATIVE, self).__init__(ns, pref, tag)
 
 
+
 class UNPROTECTED(PROTECTIONTYPE):
     """
     no protection is desired
@@ -610,5 +641,6 @@ class UNPROTECTED(PROTECTIONTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/mpls-types", pref="openconfig-mpls-types", tag="openconfig-mpls-types:UNPROTECTED"):
         super(UNPROTECTED, self).__init__(ns, pref, tag)
+
 
 

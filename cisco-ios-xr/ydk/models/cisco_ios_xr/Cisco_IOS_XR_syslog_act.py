@@ -103,7 +103,10 @@ class Logmsg(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Logmsg.Input, ['severity', 'message'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Logmsg()
         return self._top_entity
+
+
 

@@ -165,10 +165,14 @@ class CISCOCABLESPECTRUMMIB(Entity):
     	
     	**type**\:  :py:class:`CcsFlapObjects <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsFlapObjects>`
     
+    	**config**\: False
+    
     .. attribute:: ccsflaptable
     
     	This table keeps the records of modem state changes. It can be used to identify the problematic cable modems. An entry can be deleted from the table but can not be added to the table
     	**type**\:  :py:class:`CcsFlapTable <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsFlapTable>`
+    
+    	**config**\: False
     
     	**status**\: deprecated
     
@@ -177,40 +181,56 @@ class CISCOCABLESPECTRUMMIB(Entity):
     	This table keeps the records of modem state changes, so it can be used to identify the problematic cable  modems. An entry per modem is added to the table automatically  by the system when it detects any state changes to the modem.  Therefore, it can be deleted but  can not be added by the management system
     	**type**\:  :py:class:`CcsCmFlapTable <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsCmFlapTable>`
     
+    	**config**\: False
+    
     .. attribute:: ccsspectrumrequesttable
     
     	This table contains the spectrum data requests.  There are two types of request\: background noise and SNR. Refer to ccsSpectrumRequestIfIndex and ccsSpectrumRequestMacAddr DESCRIPTIONS on how the type of request is determined
     	**type**\:  :py:class:`CcsSpectrumRequestTable <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsSpectrumRequestTable>`
+    
+    	**config**\: False
     
     .. attribute:: ccsspectrumdatatable
     
     	This table contains the receiving power or background noise measurement based on the criteria that is set in the ccsSpectrumRequestEntry
     	**type**\:  :py:class:`CcsSpectrumDataTable <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsSpectrumDataTable>`
     
+    	**config**\: False
+    
     .. attribute:: ccssnrrequesttable
     
     	A table of CNR requests
     	**type**\:  :py:class:`CcsSNRRequestTable <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsSNRRequestTable>`
+    
+    	**config**\: False
     
     .. attribute:: ccsupinspecgrouptable
     
     	This table contains the cable upstream interfaces assigned to a spectrum group. A spectrum group contains one or more fixed frequencies or frequency bands which can be assigned to cable upstream interfaces in the spectrum group
     	**type**\:  :py:class:`CcsUpInSpecGroupTable <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsUpInSpecGroupTable>`
     
+    	**config**\: False
+    
     .. attribute:: ccsupinfibernodetable
     
     	This table contains the cable upstream interfaces in a fiber\-node.Each fiber\-node uniquely represents an RF domain.Cable upstream interfaces in the same fiber\-node are physically combined together into the same RF domain
     	**type**\:  :py:class:`CcsUpInFiberNodeTable <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsUpInFiberNodeTable>`
+    
+    	**config**\: False
     
     .. attribute:: ccsupspecmgmttable
     
     	This table contains the attributes of the cable upstream interfaces, ifType of docsCableUpstream(129), to be used for improving performance and proactive hopping.  Proactive hopping is achieved by setting the SNR  polling period over the in\-use band without CM signals
     	**type**\:  :py:class:`CcsUpSpecMgmtTable <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsUpSpecMgmtTable>`
     
+    	**config**\: False
+    
     .. attribute:: ccsspecgroupfreqtable
     
     	This table contains the frequency and band configuration of the spectrum group
     	**type**\:  :py:class:`CcsSpecGroupFreqTable <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsSpecGroupFreqTable>`
+    
+    	**config**\: False
     
     
 
@@ -288,6 +308,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
         
         	**range:** 1..65536
         
+        	**config**\: False
+        
         	**units**\: modems
         
         .. attribute:: ccsflaplistcurrentsize
@@ -296,6 +318,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
         	**type**\: int
         
         	**range:** 0..65536
+        
+        	**config**\: False
         
         	**units**\: modems
         
@@ -306,6 +330,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
         
         	**range:** 1..86400
         
+        	**config**\: False
+        
         	**units**\: minutes
         
         .. attribute:: ccsflapinsertiontime
@@ -315,6 +341,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
         
         	**range:** 60..86400
         
+        	**config**\: False
+        
         	**units**\: seconds
         
         .. attribute:: ccsflappoweradjustthreshold
@@ -323,6 +351,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
         	**type**\: int
         
         	**range:** 1..10
+        
+        	**config**\: False
         
         	**units**\: db
         
@@ -335,12 +365,16 @@ class CISCOCABLESPECTRUMMIB(Entity):
         
         	**range:** 1..12
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: ccsflapresetall
         
         	Setting this object to true(1) causes ccsFlapInsertionFailNum, ccsFlapHitNum, ccsFlapMissNum, ccsFlapCrcErrorNum,  ccsFlapPowerAdjustmentNum and ccsFlapTotalNum objects of each entry in ccsFlapTable to be started from zero. Reading this  object always returns false(2)
         	**type**\: bool
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -349,12 +383,16 @@ class CISCOCABLESPECTRUMMIB(Entity):
         	Setting this object to true(1) removes all cable modems from flap\-list and all the entries in the ccsFlapTable are destroyed. If a modem keeps flapping, the modem will be added again into the flap list and a new entry in the ccsFlapTable will be created.  The newly created entry for that modem will have new value of ccsFlapCreateTime and all the statistical objects will be started from zero. Reading this object always returns false(2)
         	**type**\: bool
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: ccsflaplastcleartime
         
         	The last time that all the entries in the ccsFlapTable are destroyed. There are several ways to destroy all the entries in the ccsFlapTable. Setting the object ccsFlapClearAll to true is one way, and the other way is through Command Line Interface. This timestamp can be used to know when all the entries in the ccsFlapTable are destroyed. The special value of all '00'Hs indicates that the entries in the ccsFlapTable have never been destroyed
         	**type**\: str
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -402,6 +440,7 @@ class CISCOCABLESPECTRUMMIB(Entity):
             self._perform_setattr(CISCOCABLESPECTRUMMIB.CcsFlapObjects, ['ccsflaplistmaxsize', 'ccsflaplistcurrentsize', 'ccsflapaging', 'ccsflapinsertiontime', 'ccsflappoweradjustthreshold', 'ccsflapmissthreshold', 'ccsflapresetall', 'ccsflapclearall', 'ccsflaplastcleartime'], name, value)
 
 
+
     class CcsFlapTable(Entity):
         """
         This table keeps the records of modem state changes.
@@ -413,6 +452,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
         
         	List of attributes for an entry in the ccsFlapTable. An entry in this table exists for each cable modem that triggered one of our flap detectors
         	**type**\: list of  		 :py:class:`CcsFlapEntry <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsFlapTable.CcsFlapEntry>`
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -456,6 +497,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ccsflapupstreamifindex
@@ -464,6 +507,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -474,6 +519,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ccsflapinsertionfails
@@ -482,6 +529,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -492,6 +541,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ccsflapmisses
@@ -500,6 +551,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -510,6 +563,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ccsflappoweradjustments
@@ -518,6 +573,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -528,12 +585,16 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ccsflaplastflaptime
             
             	The flap time is set whenever the Cable Modem triggers a flap detector
             	**type**\: str
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -542,12 +603,16 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	The time that this entry was added to the table. If an entry is removed and then later re\-added, there may be a discontinuity in the counters associated with this entry. This timestamp can be used to detect those  discontinuities
             	**type**\: str
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ccsflaprowstatus
             
             	Controls and reflects the status of rows in this table.  When a cable modem triggers a flap detector, if an entry does not already exist for this cable modem, and ccsFlapListCurrentSize is less than ccsFlapListMaxSize, then an entry will be created in this table. The new  instance of this object will be set to active(1).  All  flapping modems have the status of active(1).  Active entries are removed from the table after they have not triggered any additional flap detectors for the period of time defined in ccsFlapAging. Alternatively, setting this instance to destroy(6) will remove the entry immediately.  createAndGo(4) and createAndWait(5) are not supported
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -558,6 +623,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ccsflaphitnum
@@ -566,6 +633,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -576,6 +645,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ccsflapcrcerrornum
@@ -584,6 +655,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -594,6 +667,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ccsflaptotalnum
@@ -603,6 +678,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ccsflapresetnow
@@ -610,12 +687,16 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	Setting this object to true(1) will set the following objects of this entry to 0\: ccsFlapInsertionFailsNum, ccsFlapHitsNum, ccsFlapMissesNum, ccsFlapCrcErrorsNum, ccsFlapPowerAdjustmentsNum and ccsFlapTotalNum. Setting this object to true does not destroy the entry, so the ccsFlapCreateTime will be unchanged. Reading this object always returns false(2)
             	**type**\: bool
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ccsflaplastresettime
             
             	The last time that all the statistical objects of this entry are started from zero. There are several ways to restart the the statistical objects from zero. Setting the object ccsFlapResetNow or ccsFlapResetAll to true via SNMP is one way and and the other way is via command Line Interface. This timestamp can be used to know the last time the statistical objects are started from zero. The special value of all '00'Hs indicates that these statistical objects of this entry in the ccsFlapTable have never been reset
             	**type**\: str
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -685,6 +766,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
                 self._perform_setattr(CISCOCABLESPECTRUMMIB.CcsFlapTable.CcsFlapEntry, ['ccsflapmacaddr', 'ccsflapupstreamifindex', 'ccsflapdownstreamifindex', 'ccsflapinsertionfails', 'ccsflaphits', 'ccsflapmisses', 'ccsflapcrcerrors', 'ccsflappoweradjustments', 'ccsflaptotal', 'ccsflaplastflaptime', 'ccsflapcreatetime', 'ccsflaprowstatus', 'ccsflapinsertionfailnum', 'ccsflaphitnum', 'ccsflapmissnum', 'ccsflapcrcerrornum', 'ccsflappoweradjustmentnum', 'ccsflaptotalnum', 'ccsflapresetnow', 'ccsflaplastresettime'], name, value)
 
 
+
+
     class CcsCmFlapTable(Entity):
         """
         This table keeps the records of modem state changes,
@@ -699,6 +782,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
         
         	List of attributes for an entry in the ccsCmFlapTable. An entry in this table exists for each cable modem that triggered one of our flap detectors
         	**type**\: list of  		 :py:class:`CcsCmFlapEntry <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsCmFlapTable.CcsCmFlapEntry>`
+        
+        	**config**\: False
         
         
 
@@ -740,12 +825,16 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ccscmflapupstreamifindex  (key)
             
             	The ifIndex of the Cable upstream interface whose ifType is docsCableUpstream(129).  The CMTS detects a flapping Cable Modem from its Cable upstream interface
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             .. attribute:: ccscmflapmacaddr  (key)
             
@@ -754,15 +843,21 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: ccscmflaplastflaptime
             
             	The flap time is set whenever the Cable Modem triggers a flap detector
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: ccscmflapcreatetime
             
             	The time that this entry was added to the table. If an entry is removed and then later re\-added, there may be a discontinuity in the counters associated with this entry. This timestamp can be used to detect those  discontinuities
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: ccscmflapinsertionfailnum
             
@@ -771,12 +866,16 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccscmflaphitnum
             
             	The number of times the CMTS receives the Ranging request from the Cable Modem.  The CMTS issues a Station Maintenance transmit opportunity at a typical rate of once every 10 seconds and waits for a Ranging request from the Cable Modem. If the CMTS receives a Ranging request then the Hit number will be increased by 1  If the FlapTotal object is high, both Hit and Miss objects are high, and other statistical objects are relatively low then the flapping is probably caused by the modem going up and down. The Hit and Miss objects keep\-alive polling statistics. The Hit object should be much greater than the Misses count.  The value of this object can be reset to zero if this entry  is removed from the table and then re\-added, or if the  ccsCmFlapResetNow object was set to true(1). The value of the  object ccsCmFlapLastResetTime indicates the last reset time
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ccscmflapmissnum
             
@@ -785,12 +884,16 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccscmflapcrcerrornum
             
             	The number of times the CMTS upstream receiver flagged a packet with a CRC error.  If ccsCmFlapCrcErrorNum is high, it indicates the cable upstream may have high noise level. The modem may not be flapping yet but it may be a potential problem.  This object can indicate\:     Intermittent upstream,     Laser clipping, or     Noise bursts.  Laser clipping can happen if the signal power is too high when the upstream electrical signal is converted to an optical signal.  When it happens the more input produces less output, until finally there is no more increase in output. This phenomena is called laser clipping.  The value of this object can be reset to zero if this entry  is removed from the table and then re\-added, or if the  ccsCmFlapResetNow object was set to true(1). The value of the  object ccsCmFlapLastResetTime indicates the last reset time
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ccscmflappoweradjustmentnum
             
@@ -799,6 +902,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccscmflaptotalnum
             
             	Whenever the Cable Modem passes flap detection, then the flap number is increased.  There are 3 flap detectors defined\: (1) When ccsCmFlapInsertionFailNum is increased the Flap number     will be increased. (2) When the CMTS receives a Miss followed by a Hit     then the Flap number will be increased. (3) When ccsCmFlapPowerAdjustmentNum is increased the Flap     number will be increased.  The value of this object can be reset to zero if this entry  is removed from the table and then re\-added, or if the  ccsCmFlapResetNow object was set to true(1). The value of the  object ccsCmFlapLastResetTime indicates the last reset time
@@ -806,20 +911,28 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccscmflapresetnow
             
             	Setting this object to true(1) will set the value of certain objects in this table to 0 and does not destroy the entry, so the ccsCmFlapCreateTime will be  unchanged. Reading this object always returns false(2)
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: ccscmflaplastresettime
             
             	The last time that all the statistical objects of this entry are started from zero. There are several ways to restart the the statistical objects from zero. Setting the object ccsCmFlapResetNow or ccsCmFlapResetAll to true via SNMP is one way and and the other way is via command Line Interface. This timestamp can be used to know the last time the statistical objects are started from zero. The special value of all '00'Hs indicates that these statistical objects of this entry in the ccsCmFlapTable have never been reset
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: ccscmflaprowstatus
             
             	Controls and reflects the status of rows in this table.  When a cable modem triggers a flap detector, if an entry does not already exist for this cable modem,  an entry will be created in this table.  The new instance of this object will be set to active(1).  All flapping modems have the status of active(1).  Active entries are removed from the table after they have not triggered any additional flap detectors for the period of time defined in ccsFlapAging. Alternatively, setting this instance to destroy(6) will remove the entry immediately.  createAndGo(4) and createAndWait(5) are not supported
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -875,6 +988,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
                 self._perform_setattr(CISCOCABLESPECTRUMMIB.CcsCmFlapTable.CcsCmFlapEntry, ['ccscmflapdownstreamifindex', 'ccscmflapupstreamifindex', 'ccscmflapmacaddr', 'ccscmflaplastflaptime', 'ccscmflapcreatetime', 'ccscmflapinsertionfailnum', 'ccscmflaphitnum', 'ccscmflapmissnum', 'ccscmflapcrcerrornum', 'ccscmflappoweradjustmentnum', 'ccscmflaptotalnum', 'ccscmflapresetnow', 'ccscmflaplastresettime', 'ccscmflaprowstatus'], name, value)
 
 
+
+
     class CcsSpectrumRequestTable(Entity):
         """
         This table contains the spectrum data requests.
@@ -887,6 +1002,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
         
         	Information about a spectrum data request.  The management system uses ccsSpectrumRequestStatus to control entry modification, creation, and deletion.  Setting ccsSpectrumRequestEntry to 'destroy' causes entry and its associated data (example\: ccsSpectrumDataEntry) to be cleaned up properly.  It is suggested the entry to be set to 'destroy' when the row is no longer in use
         	**type**\: list of  		 :py:class:`CcsSpectrumRequestEntry <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsSpectrumRequestTable.CcsSpectrumRequestEntry>`
+        
+        	**config**\: False
         
         
 
@@ -933,12 +1050,16 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 1..100
             
+            	**config**\: False
+            
             .. attribute:: ccsspectrumrequestifindex
             
             	The ifIndex of a docsCableUpstream(129) interface.  The background noise measurement is requested when ccsSpectrumRequestIfIndex is specified.  The receiving power measurement is requested when ccsSpectrumRequestMacAddr is specified; In this case, ccsSpectrumRequestIfIndex is the ifIndex of the remote CM's upstream
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: ccsspectrumrequestmacaddr
             
@@ -947,12 +1068,16 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: ccsspectrumrequestlowfreq
             
             	Start of frequency range.  The ccsSpectrumRequestLowFreq is adjusted slightly to accurately represent the actual starting point of the frequency range.  The adjustment is done as follows\:    aFactor = (center frequency \- ccsSpectrumRequestLowFreq)/12K   ccsSpectrumRequestLowFreq = center frequency \- (aFactor \* 12K)  where 12K is the FFT's bin size
             	**type**\: int
             
             	**range:** 5000..85000
+            
+            	**config**\: False
             
             	**units**\: KHz
             
@@ -963,6 +1088,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 5000..85000
             
+            	**config**\: False
+            
             	**units**\: KHz
             
             .. attribute:: ccsspectrumrequestresolution
@@ -972,6 +1099,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 12..37000
             
+            	**config**\: False
+            
             	**units**\: KHz
             
             .. attribute:: ccsspectrumrequestoperation
@@ -979,10 +1108,14 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	The control that allows 'start' or 'abort' of the test.  Since there is only 1 FFT engine running on the CMTS, 'start' changes ccsSpectrumRequestOperState to 'pending' state if the FFT is busy; Otherwise, it changes ccsSpectrumRequestOperState to 'running'.  'abort' changes ccsSpectrumRequestOperState to 'aborted' state.  'abort' is only allowed when ccsSpectrumRequestOperState is in 'pending' state.  Only 'start' when request is to be started and 'abort' when request is to be aborted can be set by the user. It is set to 'none' only on completion of the request by the FFT engine.  Note\: The SNMP SET is rejected if ccsSpectrumRequestStatus is not 'active'
             	**type**\:  :py:class:`CCSRequestOperation <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CCSRequestOperation>`
             
+            	**config**\: False
+            
             .. attribute:: ccsspectrumrequestoperstate
             
             	The operational state of the test.  ccsSpectrumRequestIfIndex, ccsSpectrumRequestMacAddr, ccsSpectrumRequestUpperFreq, ccsSpectrumRequestLowFreq and ccsSpectrumRequestResolution cannot be changed when CCSRequestOperState is in the 'running' state.  For a detailed description, see the CCSRequestOperState DESCRIPTION
             	**type**\:  :py:class:`CCSRequestOperState <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CCSRequestOperState>`
+            
+            	**config**\: False
             
             .. attribute:: ccsspectrumrequeststarttime
             
@@ -991,6 +1124,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccsspectrumrequeststoppedtime
             
             	The value of sysUpTime when the spectrum measurement operation stops
@@ -998,10 +1133,14 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccsspectrumrequeststatus
             
             	The control that allows modification, creation, and deletion of entries.  For detailed rules, see the ccsSpectrumRequestEntry DESCRIPTION
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1051,6 +1190,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
                 self._perform_setattr(CISCOCABLESPECTRUMMIB.CcsSpectrumRequestTable.CcsSpectrumRequestEntry, ['ccsspectrumrequestindex', 'ccsspectrumrequestifindex', 'ccsspectrumrequestmacaddr', 'ccsspectrumrequestlowfreq', 'ccsspectrumrequestupperfreq', 'ccsspectrumrequestresolution', 'ccsspectrumrequestoperation', 'ccsspectrumrequestoperstate', 'ccsspectrumrequeststarttime', 'ccsspectrumrequeststoppedtime', 'ccsspectrumrequeststatus'], name, value)
 
 
+
+
     class CcsSpectrumDataTable(Entity):
         """
         This table contains the receiving power or background
@@ -1061,6 +1202,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
         
         	Information about the receiving power or background noise measured at a particular frequency for the ccsSpectrumRequestEntry
         	**type**\: list of  		 :py:class:`CcsSpectrumDataEntry <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsSpectrumDataTable.CcsSpectrumDataEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1104,12 +1247,16 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**refers to**\:  :py:class:`ccsspectrumrequestindex <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsSpectrumRequestTable.CcsSpectrumRequestEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ccsspectrumdatafreq  (key)
             
             	ccsSpectrumDataPower measurement frequency.  Due to the adjustment calculation the starting frequency range for the actual measured frequency if off comparing to the configured frequency.  Refer to ccsSpectrumRequestLowFreq DESCRIPTIONS for the adjustment calculation
             	**type**\: int
             
             	**range:** 4000..85000
+            
+            	**config**\: False
             
             	**units**\: KHz
             
@@ -1119,6 +1266,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	**type**\: int
             
             	**range:** \-50..50
+            
+            	**config**\: False
             
             	**units**\: dBmV
             
@@ -1154,6 +1303,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
                 self._perform_setattr(CISCOCABLESPECTRUMMIB.CcsSpectrumDataTable.CcsSpectrumDataEntry, ['ccsspectrumrequestindex', 'ccsspectrumdatafreq', 'ccsspectrumdatapower'], name, value)
 
 
+
+
     class CcsSNRRequestTable(Entity):
         """
         A table of CNR requests.
@@ -1162,6 +1313,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
         
         	Information about an CNR request.  The management system uses ccsSNRRequestStatus to control entry modification, creation, and deletion
         	**type**\: list of  		 :py:class:`CcsSNRRequestEntry <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsSNRRequestTable.CcsSNRRequestEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1203,12 +1356,16 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 1..100
             
+            	**config**\: False
+            
             .. attribute:: ccssnrrequestmacaddr
             
             	A MAC address that identifies the remote online CM that the CNR measurement operation is being performed on
             	**type**\: str
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+            
+            	**config**\: False
             
             .. attribute:: ccssnrrequestsnr
             
@@ -1217,6 +1374,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** \-100..100
             
+            	**config**\: False
+            
             	**units**\: dB
             
             .. attribute:: ccssnrrequestoperation
@@ -1224,10 +1383,14 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	The control that allows start or abort of the test.  Since there is only 1 FFT engine running on the CMTS, 'start' changes ccsSNRRequestOperState to 'pending' state if the FFT is busy; Otherwise, it changes ccsSNRRequestOperState to 'running'.  'abort' changes ccsSNRRequestOperState to 'aborted' state.  Only 'start' when request is to be started and 'abort' when request is to be aborted can be set by the user. It is set to 'none' only on completion of the request by the FFT engine
             	**type**\:  :py:class:`CCSRequestOperation <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CCSRequestOperation>`
             
+            	**config**\: False
+            
             .. attribute:: ccssnrrequestoperstate
             
             	The operational state of the test.  ccsSNRRequestMacAddr, cannot be changed when the ccsSNRRequestOperState is in the 'running' state
             	**type**\:  :py:class:`CCSRequestOperState <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CCSRequestOperState>`
+            
+            	**config**\: False
             
             .. attribute:: ccssnrrequeststarttime
             
@@ -1236,6 +1399,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccssnrrequeststoppedtime
             
             	The value of sysUpTime when the CNR measurement operation stops
@@ -1243,10 +1408,14 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccssnrrequeststatus
             
             	The control that allows modification, creation, and deletion of entries.  For detailed rules see the ccsSpectrumRequestEntry DESCRIPTION
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1290,6 +1459,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
                 self._perform_setattr(CISCOCABLESPECTRUMMIB.CcsSNRRequestTable.CcsSNRRequestEntry, ['ccssnrrequestindex', 'ccssnrrequestmacaddr', 'ccssnrrequestsnr', 'ccssnrrequestoperation', 'ccssnrrequestoperstate', 'ccssnrrequeststarttime', 'ccssnrrequeststoppedtime', 'ccssnrrequeststatus'], name, value)
 
 
+
+
     class CcsUpInSpecGroupTable(Entity):
         """
         This table contains the cable upstream interfaces assigned to
@@ -1301,6 +1472,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
         
         	An entry in ccsUpInSpecGroupTable table. Each entry represents a cable upstream interface assigned to a spectrum group
         	**type**\: list of  		 :py:class:`CcsUpInSpecGroupEntry <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsUpInSpecGroupTable.CcsUpInSpecGroupEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1341,6 +1514,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccsspecgroupupstreamifindex  (key)
             
             	The ifIndex of the Cable upstream interface belonging to this Spectrum Group. The value of the corresponding instance of ifType is 'docsCableUpstream(129)'
@@ -1348,15 +1523,21 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ccsspecgroupupstreamstorage
             
             	The storage type for this conceptual row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: ccsspecgroupupstreamrowstatus
             
             	The status for this conceptual row. This object is used for creating/deleting entries in ccsUpInSpecGroupTable
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1392,6 +1573,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
                 self._perform_setattr(CISCOCABLESPECTRUMMIB.CcsUpInSpecGroupTable.CcsUpInSpecGroupEntry, ['ccsspecgroupnumber', 'ccsspecgroupupstreamifindex', 'ccsspecgroupupstreamstorage', 'ccsspecgroupupstreamrowstatus'], name, value)
 
 
+
+
     class CcsUpInFiberNodeTable(Entity):
         """
         This table contains the cable upstream interfaces in a
@@ -1403,6 +1586,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
         
         	An entry in ccsUpInFiberNodeTable. Each entry represents a cable upstream interface assigned to a fiber\-node
         	**type**\: list of  		 :py:class:`CcsUpInFiberNodeEntry <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsUpInFiberNodeTable.CcsUpInFiberNodeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1443,6 +1628,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccsfibernodeupstreamifindex  (key)
             
             	The ifIndex of the Cable upstream interface belonging to this Spectrum Group. The value of the corresponding instance of ifType is 'docsCableUpstream(129)'
@@ -1450,15 +1637,21 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ccsfibernodeupstreamstorage
             
             	The storage type for this conceptual row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: ccsfibernodeupstreamrowstatus
             
             	The status for this conceptual row. This object is used for creating/deleting entries in ccsUpInFiberNodeTable
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1494,6 +1687,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
                 self._perform_setattr(CISCOCABLESPECTRUMMIB.CcsUpInFiberNodeTable.CcsUpInFiberNodeEntry, ['ccsfibernodenumber', 'ccsfibernodeupstreamifindex', 'ccsfibernodeupstreamstorage', 'ccsfibernodeupstreamrowstatus'], name, value)
 
 
+
+
     class CcsUpSpecMgmtTable(Entity):
         """
         This table contains the attributes of the cable
@@ -1509,6 +1704,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
         
         	Upstream interface's spectrum management information
         	**type**\: list of  		 :py:class:`CcsUpSpecMgmtEntry <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsUpSpecMgmtTable.CcsUpSpecMgmtEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1550,10 +1747,14 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ccsupspecmgmthoppriority
             
             	A preference priority for changing the frequency, modulation, or channel width supporting the automatic switching of the modulation scheme when the channel becomes noisy.  The default priority is frequency, modulation, and channel width.  With the default preference, the frequency is changed if there is a clean band available.  If there's no clean band available, the modulation is changed.  And if the clean band is still not available, the bandwidth is reduced until an acceptable band is found or a minimum bandwidth of 200KHz
             	**type**\:  :py:class:`CcsUpSpecMgmtHopPriority <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsUpSpecMgmtTable.CcsUpSpecMgmtEntry.CcsUpSpecMgmtHopPriority>`
+            
+            	**config**\: False
             
             .. attribute:: ccsupspecmgmtsnrthres1
             
@@ -1561,6 +1762,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..None \| 5..35
+            
+            	**config**\: False
             
             	**units**\: dB
             
@@ -1571,6 +1774,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..None \| 5..35
             
+            	**config**\: False
+            
             	**units**\: dB
             
             .. attribute:: ccsupspecmgmtfeccorrectthres1
@@ -1580,12 +1785,16 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..30
             
+            	**config**\: False
+            
             .. attribute:: ccsupspecmgmtfeccorrectthres2
             
             	The FEC correctable count threshold.  This object is applicable for profile 2.  When CMTS detects that FEC correctable count goes higher than ccsUpSpecMgmtFecCorrectThres2, modulation change can occur, depending on the type of ccsUpSpecMgmtHopPriority.  Note\: SNMP SET will be rejected if  ccsUpSpecMgmtFecCorrectThres2 is lower than  ccsUpSpecMgmtFecCorrectThres1
             	**type**\: int
             
             	**range:** 1..20
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -1596,6 +1805,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..30
             
+            	**config**\: False
+            
             .. attribute:: ccsupspecmgmtfecuncorrectthres2
             
             	The FEC uncorrectable count threshold.  This object is applicable for modulation profile 2.  A value 0 indicates to bypass the threshold check.  Refer to ccsUpSpecMgmtCriteria on how  ccsUpSpecMgmtFecUnCorrectThres2 can trigger a change  in frequency, modulation or channel width.  Note\: SNMP SET is rejected if ccsUpSpecMgmtFecUnCorrectThres2 is lower than ccsUpSpecMgmtFecUnCorrectThres1
@@ -1603,12 +1814,16 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..30
             
+            	**config**\: False
+            
             .. attribute:: ccsupspecmgmtsnrpollperiod
             
             	A period between SNR pollings.  The SNR is collected from the Fast Fourier Transform (FFT) measurement over the in\-use band when there is no CM signals. When the CMTS detects that SNR doesn't meet ccsUpSpecMgmtSnrThres1 or ccsUpSpecMgmtSnrThres2, a possible hopping occurs, depending on the type of ccsUpSpecMgmtHopPriority
             	**type**\: int
             
             	**range:** 0..None \| 500..25000
+            
+            	**config**\: False
             
             	**units**\: msec
             
@@ -1619,6 +1834,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	A condition that triggers hopping.  The SNR condition occurs when SNR does not meet the ccsUpSpecMgmtSnrThres1 or ccsUpSpecMgmtSnrThres2.  The stationMaintainenceMiss condition occurs when the  percentage of offline CMs is reached
             	**type**\:  :py:class:`CcsUpSpecMgmtHopCondition <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsUpSpecMgmtTable.CcsUpSpecMgmtEntry.CcsUpSpecMgmtHopCondition>`
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ccsupspecmgmtfromcenterfreq
@@ -1627,6 +1844,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..None \| 5000..65000
+            
+            	**config**\: False
             
             	**units**\: KHz
             
@@ -1637,6 +1856,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..None \| 5000..65000
             
+            	**config**\: False
+            
             	**units**\: KHz
             
             .. attribute:: ccsupspecmgmtfrombandwidth
@@ -1645,6 +1866,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	**type**\: int
             
             	**range:** 200..None \| 400..None \| 800..None \| 1600..None \| 3200..None \| 6400..None
+            
+            	**config**\: False
             
             	**units**\: KHz
             
@@ -1655,6 +1878,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 200..None \| 400..None \| 800..None \| 1600..None \| 3200..None \| 6400..None
             
+            	**config**\: False
+            
             	**units**\: KHz
             
             .. attribute:: ccsupspecmgmtfrommodprofile
@@ -1664,6 +1889,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ccsupspecmgmttomodprofile
             
             	The current modulation profile index. It is the index identical to the docsIfModIndex in the docsIfCmtsModulationTable.  For the detailed descriptions, see the docsIfCmtsModulationTable and docsIfCmtsModIndex DESCRIPTIONS
@@ -1671,12 +1898,16 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ccsupspecmgmtsnr
             
             	Current SNR. A value \-99 indicates the system detected no  modem on line, and a value of \-100 indicates the  system was unable to retrieve the SNR value
             	**type**\: int
             
             	**range:** \-100..100
+            
+            	**config**\: False
             
             	**units**\: dB
             
@@ -1687,6 +1918,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 5000..85000
             
+            	**config**\: False
+            
             	**units**\: KHz
             
             .. attribute:: ccsupspecmgmtcnrthres1
@@ -1695,6 +1928,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..None \| 5..35
+            
+            	**config**\: False
             
             	**units**\: dB
             
@@ -1705,6 +1940,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..None \| 5..35
             
+            	**config**\: False
+            
             	**units**\: dB
             
             .. attribute:: ccsupspecmgmtcnr
@@ -1713,6 +1950,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	**type**\: int
             
             	**range:** \-100..100
+            
+            	**config**\: False
             
             	**units**\: dB
             
@@ -1723,12 +1962,16 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..100
             
+            	**config**\: False
+            
             .. attribute:: ccsupspecmgmthopperiod
             
             	The minimum time between frequency hops in seconds.  A value 0 indicates that the interface has no spectrum group assigned. i.e. ccsUpSpecMgmtSpecGroup equals to 0
             	**type**\: int
             
             	**range:** 0..3600
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1737,6 +1980,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	Defines the criteria that trigger a change in frequency hopping, modulation or channel width.    Depending on the type of linecards, the criteria  are slightly different\:  For the linecards that have no Hardware  Based Spectrum Management capability like  the uBR\-MC1xC, change in modulation or frequency occurs in the following criteria\:  1) Change from modulation profile 1 to     modulation profile 2 would occur when CMTS     detects the SNR that goes below the     threshold and either corr FEC or uncorr FEC     is above the threshold.  In this case,     snrBelowThres and either corrFecAboveThres or     uncorrFecAboveThres bits will get set.   2) Change from modulation profile 2 to     modulation profile 1 would occur when CMTS     detects the SNR goes above the threshold+3    and both corr FEC and uncorr FEC are     below the threshold.  In this case,     snrAboveThres and corrFecBelowThres    and uncorrFecBelowThres bits will get set.   3) Change in frequency or frequency hopping would    occur when CMTS detects no active modem on the link.      In this case, noActiveModem bit will get    set accordingly.   For the linecards that have the Hardware Based  Spectrum Management capability, change in  frequency, modulation or channel width occurs  in the following criteria\:  1) when CMTS detects the SNR or CNR goes below the     threshold and either corr FEC or uncorr FEC is     above the threshold.  In this case,     either snrBelowThres or cnrBelowThres and     either corrFecAboveThres or uncorrFecAboveThres     bits will get set.   2) when CMTS detects the SNR or CNR goes above the     threshold + 3 and both corr FEC and uncorr FEC are     below the threshold.  In this case,     either snrAboveThres or cnrAboveThres and both     corrFecBelowThres and uncorrFecBelowThres bits     will get set.   3) when CMTS detects no active modem on the link or     uncorr FEC is above ccsUpSpecMgmtFecUnCorrectThres2.     In this case noActiveModem or     uncorrFecAboveSecondThres bit will get set     accordingly.  Note\: The order of frequency, modulation or channel  width changes for the advanced spectrum management linecards will be determined based on the selection of  the ccsUpSpecMgmtHopPriority
             	**type**\:  :py:class:`CcsUpSpecMgmtCriteria <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsUpSpecMgmtTable.CcsUpSpecMgmtEntry.CcsUpSpecMgmtCriteria>`
             
+            	**config**\: False
+            
             .. attribute:: ccsupspecmgmtspecgroup
             
             	The spectrum group assigned to the upstream. The value of 0 for the object indicates that the upstream has no spectrum group assigned
@@ -1744,12 +1989,16 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccsupspecmgmtsharedspectrum
             
             	The fiber\-node assigned to the upstreams. Upstreams having same fiber\-node number indicates that they physically combine together into same RF domain and must have unique frequency assigned. The value of 0 for the object indicates that the upstream is not physically combine with any others
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1913,6 +2162,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
 
 
 
+
+
     class CcsSpecGroupFreqTable(Entity):
         """
         This table contains the frequency and band configuration
@@ -1922,6 +2173,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
         
         	An entry in ccsSpecGroupFreqTable. Each entry represents a center frequency or a frequency band configured for the spectrum group
         	**type**\: list of  		 :py:class:`CcsSpecGroupFreqEntry <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsSpecGroupFreqTable.CcsSpecGroupFreqEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1965,6 +2218,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**refers to**\:  :py:class:`ccsspecgroupnumber <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsUpInSpecGroupTable.CcsUpInSpecGroupEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ccsspecgroupfreqindex  (key)
             
             	An arbitrary index to uniquely identify frequencies or bands configured in spectrum group
@@ -1972,10 +2227,14 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccsspecgroupfreqtype
             
             	The type of the frequency configured in spectrum group. This is a mandatory object and can be modified when the row is active. If the value of centerFreq(1) is specified, the values of the corresponding instance of ccsSpecGroupFreqLower and csSpecGroupFreqUpper object must be identical. If the value of bandFreq(2) is specified, the values of the corresponding instance of ccsSpecGroupFreqLower and csSpecGroupFreqUpper must be unique
             	**type**\:  :py:class:`CcsSpecGroupFreqType <ydk.models.cisco_ios_xe.CISCO_CABLE_SPECTRUM_MIB.CISCOCABLESPECTRUMMIB.CcsSpecGroupFreqTable.CcsSpecGroupFreqEntry.CcsSpecGroupFreqType>`
+            
+            	**config**\: False
             
             .. attribute:: ccsspecgroupfreqlower
             
@@ -1983,6 +2242,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..1000000000
+            
+            	**config**\: False
             
             	**units**\: Hz
             
@@ -1993,6 +2254,8 @@ class CISCOCABLESPECTRUMMIB(Entity):
             
             	**range:** 0..1000000000
             
+            	**config**\: False
+            
             	**units**\: Hz
             
             .. attribute:: ccsspecgroupstorage
@@ -2000,10 +2263,14 @@ class CISCOCABLESPECTRUMMIB(Entity):
             	The storage type for this conceptual row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: ccsspecgrouprowstatus
             
             	The status of this conceptual row. This object is used for creating/deleting entries in ccsSpecGroupFreqTable.  A conceptual row may not be created via SNMP without explicitly setting the value of ccsSpecGroupRowStatus to createAndGo(4).  A conceptual row can not have the status of active(1) until proper values have been assigned to the mandatory objects ccsSpecGroupFreqType, ccsSpecGroupFreqLower, and ccsSpecGroupFreqUpper.  A conceptual row may be modified or deleted any time. If the frequency represents by the row has been assigned to a cable upstream interface, modifying or deleting such row would cause the cable upstream interface frequency reassignment
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -2075,7 +2342,11 @@ class CISCOCABLESPECTRUMMIB(Entity):
                 bandFreq = Enum.YLeaf(2, "bandFreq")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOCABLESPECTRUMMIB()
         return self._top_entity
+
+
 

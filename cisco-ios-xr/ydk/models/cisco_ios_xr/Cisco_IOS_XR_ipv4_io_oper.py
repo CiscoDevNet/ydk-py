@@ -111,10 +111,14 @@ class Ipv4Network(Entity):
     	Node\-specific IPv4 network operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes>`
     
+    	**config**\: False
+    
     .. attribute:: interfaces
     
     	IPv4 network operational interface data
     	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces>`
+    
+    	**config**\: False
     
     
 
@@ -158,6 +162,8 @@ class Ipv4Network(Entity):
         	IPv4 network operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node>`
         
+        	**config**\: False
+        
         
 
         """
@@ -197,15 +203,21 @@ class Ipv4Network(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: interface_data
             
             	IPv4 network operational interface data
             	**type**\:  :py:class:`InterfaceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData>`
             
+            	**config**\: False
+            
             .. attribute:: statistics
             
             	Statistical IPv4 network operational data for a node
             	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.Statistics>`
+            
+            	**config**\: False
             
             
 
@@ -240,7 +252,7 @@ class Ipv4Network(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ipv4Network.Nodes.Node, ['node_name'], name, value)
+                self._perform_setattr(Ipv4Network.Nodes.Node, [u'node_name'], name, value)
 
 
             class InterfaceData(Entity):
@@ -252,10 +264,14 @@ class Ipv4Network(Entity):
                 	VRF specific IPv4 network operational interface data
                 	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs>`
                 
+                	**config**\: False
+                
                 .. attribute:: summary
                 
                 	Summary of IPv4 network operational interface data on a node
                 	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary>`
+                
+                	**config**\: False
                 
                 
 
@@ -299,6 +315,8 @@ class Ipv4Network(Entity):
                     	VRF name of an interface belong to
                     	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -336,15 +354,21 @@ class Ipv4Network(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: briefs
                         
                         	Brief interface IPv4 network operational data for a node
                         	**type**\:  :py:class:`Briefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: details
                         
                         	Detail interface IPv4 network operational data for a node
                         	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -378,7 +402,7 @@ class Ipv4Network(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf, ['vrf_name'], name, value)
+                            self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf, [u'vrf_name'], name, value)
 
 
                         class Briefs(Entity):
@@ -390,6 +414,8 @@ class Ipv4Network(Entity):
                             
                             	Brief interface IPv4 network operational data for an interface
                             	**type**\: list of  		 :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -429,12 +455,16 @@ class Ipv4Network(Entity):
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: primary_address
                                 
                                 	Primary address
                                 	**type**\: str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: vrf_id
                                 
@@ -443,15 +473,21 @@ class Ipv4Network(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vrf_name
                                 
                                 	VRF name of the interface
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: line_state
                                 
                                 	Line state of the interface
                                 	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineState>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -485,7 +521,9 @@ class Ipv4Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, ['interface_name', u'primary_address', u'vrf_id', u'vrf_name', u'line_state'], name, value)
+                                    self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, [u'interface_name', u'primary_address', u'vrf_id', u'vrf_name', u'line_state'], name, value)
+
+
 
 
                         class Details(Entity):
@@ -497,6 +535,8 @@ class Ipv4Network(Entity):
                             
                             	Detail interface IPv4 network operational data for an interface
                             	**type**\: list of  		 :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -536,55 +576,77 @@ class Ipv4Network(Entity):
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: acl
                                 
                                 	ACLs configured on the interface
                                 	**type**\:  :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: multi_acl
                                 
                                 	Multi ACLs configured on the interface
                                 	**type**\:  :py:class:`MultiAcl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: helper_address
                                 
                                 	Helper Addresses configured on the interface
                                 	**type**\:  :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: rpf
                                 
                                 	RPF config on the interface
                                 	**type**\:  :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bgp_pa
                                 
                                 	BGP PA config on the interface
                                 	**type**\:  :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: pub_utime
                                 
                                 	Address Publish Time
                                 	**type**\:  :py:class:`PubUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.PubUtime>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: idb_utime
                                 
                                 	IDB Create Time
                                 	**type**\:  :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: caps_utime
                                 
                                 	CAPS Add Time
                                 	**type**\:  :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fwd_en_utime
                                 
                                 	FWD ENABLE Time
                                 	**type**\:  :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fwd_dis_utime
                                 
                                 	FWD DISABLE Time
                                 	**type**\:  :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: primary_address
                                 
@@ -593,6 +655,8 @@ class Ipv4Network(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vrf_id
                                 
                                 	VRF ID of the interface
@@ -600,10 +664,14 @@ class Ipv4Network(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: line_state
                                 
                                 	Line state of the interface
                                 	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineState>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: prefix_length
                                 
@@ -612,12 +680,16 @@ class Ipv4Network(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: route_tag
                                 
                                 	Route tag associated with the primary address (0 = no tag)
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mtu
                                 
@@ -626,60 +698,84 @@ class Ipv4Network(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: unreachable
                                 
                                 	Are ICMP unreachables sent on the interface?
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: redirect
                                 
                                 	Are ICMP redirects sent on the interface?
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: direct_broadcast
                                 
                                 	Are direct broadcasts sent on the interface?
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mask_reply
                                 
                                 	Are mask replies sent on the interface?
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rg_id_exists
                                 
                                 	Does ICCP RG ID exist on the interface?
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mlacp_active
                                 
                                 	Is mLACP state Active (valid if RG ID exists)
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: unnumbered_interface_name
                                 
                                 	Name of referenced interface (valid if unnumbered)
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: next_unnumbered_interface_name
                                 
                                 	Name of interface which is also unnum to         same interface where this intf is unnumbered
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: proxy_arp_disabled
                                 
                                 	Is Proxy ARP disabled on the interface?
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: flow_tag_src
                                 
                                 	Is BGP Flow Tag Source is enable
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: flow_tag_dst
                                 
                                 	Is BGP Flow Tag Destination is enable
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: config_flags
                                 
@@ -688,12 +784,16 @@ class Ipv4Network(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: oper_flags
                                 
                                 	IDB operational flags
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: arm_flags
                                 
@@ -702,10 +802,14 @@ class Ipv4Network(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: state_recvd_frm_im
                                 
                                 	state as recieved                                from IM
                                 	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineState>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: cflct_address
                                 
@@ -714,20 +818,28 @@ class Ipv4Network(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: client_type
                                 
                                 	Client type for IDB
                                 	**type**\:  :py:class:`Ipv4MaOperConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperConfig>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: is_or_event
                                 
                                 	Is OR event for IDB
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: or_im_state
                                 
                                 	OR IM state type
                                 	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineState>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idb_pointer
                                 
@@ -736,15 +848,21 @@ class Ipv4Network(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: multicast_group
                                 
                                 	Multicast groups joined on the interface
                                 	**type**\: list of  		 :py:class:`MulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: secondary_address
                                 
                                 	Secondary addresses on the interface
                                 	**type**\: list of  		 :py:class:`SecondaryAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -865,7 +983,7 @@ class Ipv4Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, ['interface_name', u'primary_address', u'vrf_id', u'line_state', u'prefix_length', u'route_tag', u'mtu', u'unreachable', u'redirect', u'direct_broadcast', u'mask_reply', u'rg_id_exists', u'mlacp_active', u'unnumbered_interface_name', u'next_unnumbered_interface_name', u'proxy_arp_disabled', u'flow_tag_src', u'flow_tag_dst', u'config_flags', u'oper_flags', u'arm_flags', u'state_recvd_frm_im', u'cflct_address', u'client_type', u'is_or_event', u'or_im_state', u'idb_pointer'], name, value)
+                                    self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, [u'interface_name', u'primary_address', u'vrf_id', u'line_state', u'prefix_length', u'route_tag', u'mtu', u'unreachable', u'redirect', u'direct_broadcast', u'mask_reply', u'rg_id_exists', u'mlacp_active', u'unnumbered_interface_name', u'next_unnumbered_interface_name', u'proxy_arp_disabled', u'flow_tag_src', u'flow_tag_dst', u'config_flags', u'oper_flags', u'arm_flags', u'state_recvd_frm_im', u'cflct_address', u'client_type', u'is_or_event', u'or_im_state', u'idb_pointer'], name, value)
 
 
                                 class Acl(Entity):
@@ -877,20 +995,28 @@ class Ipv4Network(Entity):
                                     	ACL applied to incoming packets
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: outbound
                                     
                                     	ACL applied to outgoing packets
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: common_in_bound
                                     
                                     	Common ACL applied to incoming packets
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: common_out_bound
                                     
                                     	Common ACL applied to outgoing packets
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -925,6 +1051,7 @@ class Ipv4Network(Entity):
                                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl, [u'inbound', u'outbound', u'common_in_bound', u'common_out_bound'], name, value)
 
 
+
                                 class MultiAcl(Entity):
                                     """
                                     Multi ACLs configured on the interface
@@ -934,15 +1061,21 @@ class Ipv4Network(Entity):
                                     	Inbound ACLs
                                     	**type**\: list of  		 :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Inbound>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: outbound
                                     
                                     	Outbound ACLs
                                     	**type**\: list of  		 :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Outbound>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: common
                                     
                                     	Common ACLs
                                     	**type**\: list of  		 :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Common>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -981,6 +1114,8 @@ class Ipv4Network(Entity):
                                         	
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -1008,6 +1143,7 @@ class Ipv4Network(Entity):
                                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Inbound, [u'entry'], name, value)
 
 
+
                                     class Outbound(Entity):
                                         """
                                         Outbound ACLs
@@ -1016,6 +1152,8 @@ class Ipv4Network(Entity):
                                         
                                         	
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1044,6 +1182,7 @@ class Ipv4Network(Entity):
                                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Outbound, [u'entry'], name, value)
 
 
+
                                     class Common(Entity):
                                         """
                                         Common ACLs
@@ -1052,6 +1191,8 @@ class Ipv4Network(Entity):
                                         
                                         	
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1080,6 +1221,8 @@ class Ipv4Network(Entity):
                                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Common, [u'entry'], name, value)
 
 
+
+
                                 class HelperAddress(Entity):
                                     """
                                     Helper Addresses configured on the interface
@@ -1088,6 +1231,8 @@ class Ipv4Network(Entity):
                                     
                                     	Helper address
                                     	**type**\: list of  		 :py:class:`AddressArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress.AddressArray>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1126,6 +1271,8 @@ class Ipv4Network(Entity):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -1153,6 +1300,8 @@ class Ipv4Network(Entity):
                                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress.AddressArray, [u'entry'], name, value)
 
 
+
+
                                 class Rpf(Entity):
                                     """
                                     RPF config on the interface
@@ -1162,20 +1311,28 @@ class Ipv4Network(Entity):
                                     	Enable RPF config
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: allow_default_route
                                     
                                     	Allow Default Route
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: allow_self_ping
                                     
                                     	Allow Self Ping
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: mode
                                     
                                     	RPF Mode (loose/strict)
                                     	**type**\:  :py:class:`RpfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.RpfMode>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1210,6 +1367,7 @@ class Ipv4Network(Entity):
                                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, [u'enable', u'allow_default_route', u'allow_self_ping', u'mode'], name, value)
 
 
+
                                 class BgpPa(Entity):
                                     """
                                     BGP PA config on the interface
@@ -1219,10 +1377,14 @@ class Ipv4Network(Entity):
                                     	BGP PA input config
                                     	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: output
                                     
                                     	BGP PA output config
                                     	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1265,15 +1427,21 @@ class Ipv4Network(Entity):
                                         	Enable BGP PA for ingress/egress
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: source
                                         
                                         	Enable source accouting
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: destination
                                         
                                         	Enable destination accouting
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1306,6 +1474,7 @@ class Ipv4Network(Entity):
                                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, [u'enable', u'source', u'destination'], name, value)
 
 
+
                                     class Output(Entity):
                                         """
                                         BGP PA output config
@@ -1315,15 +1484,21 @@ class Ipv4Network(Entity):
                                         	Enable BGP PA for ingress/egress
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: source
                                         
                                         	Enable source accouting
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: destination
                                         
                                         	Enable destination accouting
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1356,6 +1531,8 @@ class Ipv4Network(Entity):
                                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, [u'enable', u'source', u'destination'], name, value)
 
 
+
+
                                 class PubUtime(Entity):
                                     """
                                     Address Publish Time
@@ -1379,6 +1556,7 @@ class Ipv4Network(Entity):
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "pub-utime"
                                         self._is_frozen = True
+
 
 
                                 class IdbUtime(Entity):
@@ -1406,6 +1584,7 @@ class Ipv4Network(Entity):
                                         self._is_frozen = True
 
 
+
                                 class CapsUtime(Entity):
                                     """
                                     CAPS Add Time
@@ -1429,6 +1608,7 @@ class Ipv4Network(Entity):
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "caps-utime"
                                         self._is_frozen = True
+
 
 
                                 class FwdEnUtime(Entity):
@@ -1456,6 +1636,7 @@ class Ipv4Network(Entity):
                                         self._is_frozen = True
 
 
+
                                 class FwdDisUtime(Entity):
                                     """
                                     FWD DISABLE Time
@@ -1481,6 +1662,7 @@ class Ipv4Network(Entity):
                                         self._is_frozen = True
 
 
+
                                 class MulticastGroup(Entity):
                                     """
                                     Multicast groups joined on the interface
@@ -1491,6 +1673,8 @@ class Ipv4Network(Entity):
                                     	**type**\: str
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1519,6 +1703,7 @@ class Ipv4Network(Entity):
                                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, [u'group_address'], name, value)
 
 
+
                                 class SecondaryAddress(Entity):
                                     """
                                     Secondary addresses on the interface
@@ -1530,6 +1715,8 @@ class Ipv4Network(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: prefix_length
                                     
                                     	Prefix length of address
@@ -1537,12 +1724,16 @@ class Ipv4Network(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: route_tag
                                     
                                     	Route Tag associated with this address (0 = no tag)
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1575,6 +1766,11 @@ class Ipv4Network(Entity):
                                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress, [u'address', u'prefix_length', u'route_tag'], name, value)
 
 
+
+
+
+
+
                 class Summary(Entity):
                     """
                     Summary of IPv4 network operational interface
@@ -1585,20 +1781,28 @@ class Ipv4Network(Entity):
                     	Number of interfaces (up,up)
                     	**type**\:  :py:class:`IfUpUp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: if_up_down
                     
                     	Number of interfaces (up,down)
                     	**type**\:  :py:class:`IfUpDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: if_down_down
                     
                     	Number of interfaces (down,down)
                     	**type**\:  :py:class:`IfDownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary.IfDownDown>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: if_shutdown_down
                     
                     	Number of interfaces (shutdown,down)
                     	**type**\:  :py:class:`IfShutdownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: if_up_down_basecaps_up
                     
@@ -1606,6 +1810,8 @@ class Ipv4Network(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1661,6 +1867,8 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
@@ -1668,12 +1876,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_unassigned
                         
                         	Number of unassigned interfaces with explicit addresses
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1706,6 +1918,7 @@ class Ipv4Network(Entity):
                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
 
 
+
                     class IfUpDown(Entity):
                         """
                         Number of interfaces (up,down)
@@ -1717,6 +1930,8 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
@@ -1724,12 +1939,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_unassigned
                         
                         	Number of unassigned interfaces with explicit addresses
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1762,6 +1981,7 @@ class Ipv4Network(Entity):
                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
 
 
+
                     class IfDownDown(Entity):
                         """
                         Number of interfaces (down,down)
@@ -1773,6 +1993,8 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
@@ -1780,12 +2002,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_unassigned
                         
                         	Number of unassigned interfaces with explicit addresses
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1818,6 +2044,7 @@ class Ipv4Network(Entity):
                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfDownDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
 
 
+
                     class IfShutdownDown(Entity):
                         """
                         Number of interfaces (shutdown,down)
@@ -1829,6 +2056,8 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
@@ -1836,12 +2065,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_unassigned
                         
                         	Number of unassigned interfaces with explicit addresses
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1874,6 +2107,9 @@ class Ipv4Network(Entity):
                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
 
 
+
+
+
             class Statistics(Entity):
                 """
                 Statistical IPv4 network operational data for
@@ -1883,6 +2119,8 @@ class Ipv4Network(Entity):
                 
                 	Traffic statistics for a node
                 	**type**\:  :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.Statistics.Traffic>`
+                
+                	**config**\: False
                 
                 
 
@@ -1921,10 +2159,14 @@ class Ipv4Network(Entity):
                     	IPv4 Network Stats
                     	**type**\:  :py:class:`Ipv4Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: icmp_stats
                     
                     	ICMP Stats
                     	**type**\:  :py:class:`IcmpStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Nodes.Node.Statistics.Traffic.IcmpStats>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1969,12 +2211,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_packets
                         
                         	Received Packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: format_errors
                         
@@ -1983,12 +2229,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_hop_count
                         
                         	Bad Hop Count
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_source_address
                         
@@ -1997,12 +2247,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_header
                         
                         	Bad Header
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: no_protocol
                         
@@ -2011,12 +2265,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: no_gateway
                         
                         	No Gateway
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: reassemble_input
                         
@@ -2025,12 +2283,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: reassembled
                         
                         	Reassembled
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: reassemble_timeout
                         
@@ -2039,12 +2301,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: reassemble_max_drop
                         
                         	Reassembly Max Drop
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: reassemble_failed
                         
@@ -2053,12 +2319,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: options_present
                         
                         	IP Options Present
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_option
                         
@@ -2067,12 +2337,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unknown_option
                         
                         	Unknown Option
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_security_option
                         
@@ -2081,12 +2355,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: basic_security_option
                         
                         	Basic Security Option
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: extended_security_option
                         
@@ -2095,12 +2373,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: cipso_option
                         
                         	Cipso Option
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: strict_source_route_option
                         
@@ -2109,12 +2391,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: loose_source_route_option
                         
                         	Loose Source Route Option
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: record_route_option
                         
@@ -2123,12 +2409,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: sid_option
                         
                         	SID Option
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: timestamp_option
                         
@@ -2137,12 +2427,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: router_alert_option
                         
                         	Router Alert Option
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: noop_option
                         
@@ -2151,12 +2445,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: end_option
                         
                         	End Option
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: packets_output
                         
@@ -2165,12 +2463,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: packets_forwarded
                         
                         	Packets Forwarded
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: packets_fragmented
                         
@@ -2179,12 +2481,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: fragment_count
                         
                         	Fragment Count
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: encapsulation_failed
                         
@@ -2193,12 +2499,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: no_router
                         
                         	No Router
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: packet_too_big
                         
@@ -2207,12 +2517,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: multicast_in
                         
                         	Multicast In
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: multicast_out
                         
@@ -2221,12 +2535,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: broadcast_in
                         
                         	Broadcast In
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: broadcast_out
                         
@@ -2235,12 +2553,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: lisp_v4_encap
                         
                         	Lisp IPv4 encapped packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: lisp_v4_decap
                         
@@ -2249,12 +2571,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: lisp_v6_encap
                         
                         	Lisp IPv6 encapped packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: lisp_v6_decap
                         
@@ -2263,6 +2589,8 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: lisp_encap_error
                         
                         	Lisp encap errors
@@ -2270,12 +2598,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: lisp_decap_error
                         
                         	Lisp decap errors
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2392,6 +2724,7 @@ class Ipv4Network(Entity):
                             self._perform_setattr(Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats, [u'input_packets', u'received_packets', u'format_errors', u'bad_hop_count', u'bad_source_address', u'bad_header', u'no_protocol', u'no_gateway', u'reassemble_input', u'reassembled', u'reassemble_timeout', u'reassemble_max_drop', u'reassemble_failed', u'options_present', u'bad_option', u'unknown_option', u'bad_security_option', u'basic_security_option', u'extended_security_option', u'cipso_option', u'strict_source_route_option', u'loose_source_route_option', u'record_route_option', u'sid_option', u'timestamp_option', u'router_alert_option', u'noop_option', u'end_option', u'packets_output', u'packets_forwarded', u'packets_fragmented', u'fragment_count', u'encapsulation_failed', u'no_router', u'packet_too_big', u'multicast_in', u'multicast_out', u'broadcast_in', u'broadcast_out', u'lisp_v4_encap', u'lisp_v4_decap', u'lisp_v6_encap', u'lisp_v6_decap', u'lisp_encap_error', u'lisp_decap_error'], name, value)
 
 
+
                     class IcmpStats(Entity):
                         """
                         ICMP Stats
@@ -2403,12 +2736,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: checksum_error
                         
                         	ICMP Checksum Errors
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: unknown
                         
@@ -2417,12 +2754,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: output
                         
                         	ICMP Transmitted
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: admin_unreachable_sent
                         
@@ -2431,12 +2772,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: network_unreachable_sent
                         
                         	ICMP Network Unreachable Sent
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: host_unreachable_sent
                         
@@ -2445,12 +2790,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: protocol_unreachable_sent
                         
                         	ICMP Protocol Unreachable Sent
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: port_unreachable_sent
                         
@@ -2459,12 +2808,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: fragment_unreachable_sent
                         
                         	ICMP Fragment Unreachable Sent
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: admin_unreachable_received
                         
@@ -2473,12 +2826,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: network_unreachable_received
                         
                         	ICMP Network Unreachable Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: host_unreachable_received
                         
@@ -2487,12 +2844,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: protocol_unreachable_received
                         
                         	ICMP Protocol Unreachable Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: port_unreachable_received
                         
@@ -2501,12 +2862,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: fragment_unreachable_received
                         
                         	ICMP Fragment Unreachable Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: hopcount_sent
                         
@@ -2515,12 +2880,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: reassembly_sent
                         
                         	ICMP Reassembly Sent
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: hopcount_received
                         
@@ -2529,12 +2898,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: reassebly_received
                         
                         	ICMP Reassembly Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: param_error_received
                         
@@ -2543,12 +2916,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: param_error_send
                         
                         	ICMP Parameter Error Sent
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: echo_request_sent
                         
@@ -2557,12 +2934,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: echo_request_received
                         
                         	ICMP Echo Request Sent
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: echo_reply_sent
                         
@@ -2571,12 +2952,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: echo_reply_received
                         
                         	ICMP Echo Reply Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: mask_request_sent
                         
@@ -2585,12 +2970,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: mask_request_received
                         
                         	ICMP Mask Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: mask_reply_sent
                         
@@ -2599,12 +2988,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: mask_reply_received
                         
                         	ICMP Mask Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: source_quench_received
                         
@@ -2613,12 +3006,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: redirect_received
                         
                         	ICMP Redirect Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: redirect_send
                         
@@ -2627,12 +3024,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: timestamp_received
                         
                         	ICMP Timestamp Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: timestamp_reply_received
                         
@@ -2641,6 +3042,8 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: router_advert_received
                         
                         	ICMP Router Advertisement Received
@@ -2648,12 +3051,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: router_solicit_received
                         
                         	ICMP Router Solicited Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2754,6 +3161,11 @@ class Ipv4Network(Entity):
                             self._perform_setattr(Ipv4Network.Nodes.Node.Statistics.Traffic.IcmpStats, [u'received', u'checksum_error', u'unknown', u'output', u'admin_unreachable_sent', u'network_unreachable_sent', u'host_unreachable_sent', u'protocol_unreachable_sent', u'port_unreachable_sent', u'fragment_unreachable_sent', u'admin_unreachable_received', u'network_unreachable_received', u'host_unreachable_received', u'protocol_unreachable_received', u'port_unreachable_received', u'fragment_unreachable_received', u'hopcount_sent', u'reassembly_sent', u'hopcount_received', u'reassebly_received', u'param_error_received', u'param_error_send', u'echo_request_sent', u'echo_request_received', u'echo_reply_sent', u'echo_reply_received', u'mask_request_sent', u'mask_request_received', u'mask_reply_sent', u'mask_reply_received', u'source_quench_received', u'redirect_received', u'redirect_send', u'timestamp_received', u'timestamp_reply_received', u'router_advert_received', u'router_solicit_received'], name, value)
 
 
+
+
+
+
+
     class Interfaces(Entity):
         """
         IPv4 network operational interface data
@@ -2762,6 +3174,8 @@ class Ipv4Network(Entity):
         
         	Interface names with VRF
         	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface>`
+        
+        	**config**\: False
         
         
 
@@ -2801,10 +3215,14 @@ class Ipv4Network(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: vrfs
             
             	List of VRF on the interface
             	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs>`
+            
+            	**config**\: False
             
             
 
@@ -2847,6 +3265,8 @@ class Ipv4Network(Entity):
                 	VRF information on the interface
                 	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -2884,15 +3304,21 @@ class Ipv4Network(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: detail
                     
                     	Detail IPv4 network operational data for an interface
                     	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: brief
                     
                     	Brief IPv4 network operational data for an interface
                     	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2939,50 +3365,70 @@ class Ipv4Network(Entity):
                         	ACLs configured on the interface
                         	**type**\:  :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: multi_acl
                         
                         	Multi ACLs configured on the interface
                         	**type**\:  :py:class:`MultiAcl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: helper_address
                         
                         	Helper Addresses configured on the interface
                         	**type**\:  :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: rpf
                         
                         	RPF config on the interface
                         	**type**\:  :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: bgp_pa
                         
                         	BGP PA config on the interface
                         	**type**\:  :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: pub_utime
                         
                         	Address Publish Time
                         	**type**\:  :py:class:`PubUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.PubUtime>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: idb_utime
                         
                         	IDB Create Time
                         	**type**\:  :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.IdbUtime>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: caps_utime
                         
                         	CAPS Add Time
                         	**type**\:  :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.CapsUtime>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: fwd_en_utime
                         
                         	FWD ENABLE Time
                         	**type**\:  :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdEnUtime>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: fwd_dis_utime
                         
                         	FWD DISABLE Time
                         	**type**\:  :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdDisUtime>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: primary_address
                         
@@ -2991,6 +3437,8 @@ class Ipv4Network(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrf_id
                         
                         	VRF ID of the interface
@@ -2998,10 +3446,14 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: line_state
                         
                         	Line state of the interface
                         	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineState>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: prefix_length
                         
@@ -3010,12 +3462,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: route_tag
                         
                         	Route tag associated with the primary address (0 = no tag)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: mtu
                         
@@ -3024,60 +3480,84 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unreachable
                         
                         	Are ICMP unreachables sent on the interface?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: redirect
                         
                         	Are ICMP redirects sent on the interface?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: direct_broadcast
                         
                         	Are direct broadcasts sent on the interface?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: mask_reply
                         
                         	Are mask replies sent on the interface?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: rg_id_exists
                         
                         	Does ICCP RG ID exist on the interface?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: mlacp_active
                         
                         	Is mLACP state Active (valid if RG ID exists)
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: unnumbered_interface_name
                         
                         	Name of referenced interface (valid if unnumbered)
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: next_unnumbered_interface_name
                         
                         	Name of interface which is also unnum to         same interface where this intf is unnumbered
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: proxy_arp_disabled
                         
                         	Is Proxy ARP disabled on the interface?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: flow_tag_src
                         
                         	Is BGP Flow Tag Source is enable
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: flow_tag_dst
                         
                         	Is BGP Flow Tag Destination is enable
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: config_flags
                         
@@ -3086,12 +3566,16 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: oper_flags
                         
                         	IDB operational flags
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: arm_flags
                         
@@ -3100,10 +3584,14 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: state_recvd_frm_im
                         
                         	state as recieved                                from IM
                         	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineState>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: cflct_address
                         
@@ -3112,20 +3600,28 @@ class Ipv4Network(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: client_type
                         
                         	Client type for IDB
                         	**type**\:  :py:class:`Ipv4MaOperConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperConfig>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_or_event
                         
                         	Is OR event for IDB
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: or_im_state
                         
                         	OR IM state type
                         	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineState>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: idb_pointer
                         
@@ -3134,15 +3630,21 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: multicast_group
                         
                         	Multicast groups joined on the interface
                         	**type**\: list of  		 :py:class:`MulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: secondary_address
                         
                         	Secondary addresses on the interface
                         	**type**\: list of  		 :py:class:`SecondaryAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3261,7 +3763,7 @@ class Ipv4Network(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail, ['primary_address', 'vrf_id', 'line_state', 'prefix_length', 'route_tag', 'mtu', 'unreachable', 'redirect', 'direct_broadcast', 'mask_reply', 'rg_id_exists', 'mlacp_active', 'unnumbered_interface_name', 'next_unnumbered_interface_name', 'proxy_arp_disabled', 'flow_tag_src', 'flow_tag_dst', 'config_flags', 'oper_flags', 'arm_flags', 'state_recvd_frm_im', 'cflct_address', 'client_type', 'is_or_event', 'or_im_state', 'idb_pointer'], name, value)
+                            self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail, [u'primary_address', u'vrf_id', u'line_state', u'prefix_length', u'route_tag', u'mtu', u'unreachable', u'redirect', u'direct_broadcast', u'mask_reply', u'rg_id_exists', u'mlacp_active', u'unnumbered_interface_name', u'next_unnumbered_interface_name', u'proxy_arp_disabled', u'flow_tag_src', u'flow_tag_dst', u'config_flags', u'oper_flags', u'arm_flags', u'state_recvd_frm_im', u'cflct_address', u'client_type', u'is_or_event', u'or_im_state', u'idb_pointer'], name, value)
 
 
                         class Acl(Entity):
@@ -3273,20 +3775,28 @@ class Ipv4Network(Entity):
                             	ACL applied to incoming packets
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: outbound
                             
                             	ACL applied to outgoing packets
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: common_in_bound
                             
                             	Common ACL applied to incoming packets
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: common_out_bound
                             
                             	Common ACL applied to outgoing packets
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -3318,7 +3828,8 @@ class Ipv4Network(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl, ['inbound', 'outbound', 'common_in_bound', 'common_out_bound'], name, value)
+                                self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl, [u'inbound', u'outbound', u'common_in_bound', u'common_out_bound'], name, value)
+
 
 
                         class MultiAcl(Entity):
@@ -3330,15 +3841,21 @@ class Ipv4Network(Entity):
                             	Inbound ACLs
                             	**type**\: list of  		 :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Inbound>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: outbound
                             
                             	Outbound ACLs
                             	**type**\: list of  		 :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Outbound>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: common
                             
                             	Common ACLs
                             	**type**\: list of  		 :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Common>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -3377,6 +3894,8 @@ class Ipv4Network(Entity):
                                 	
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -3401,7 +3920,8 @@ class Ipv4Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Inbound, ['entry'], name, value)
+                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Inbound, [u'entry'], name, value)
+
 
 
                             class Outbound(Entity):
@@ -3412,6 +3932,8 @@ class Ipv4Network(Entity):
                                 
                                 	
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3437,7 +3959,8 @@ class Ipv4Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Outbound, ['entry'], name, value)
+                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Outbound, [u'entry'], name, value)
+
 
 
                             class Common(Entity):
@@ -3448,6 +3971,8 @@ class Ipv4Network(Entity):
                                 
                                 	
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3473,7 +3998,9 @@ class Ipv4Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Common, ['entry'], name, value)
+                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Common, [u'entry'], name, value)
+
+
 
 
                         class HelperAddress(Entity):
@@ -3484,6 +4011,8 @@ class Ipv4Network(Entity):
                             
                             	Helper address
                             	**type**\: list of  		 :py:class:`AddressArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress.AddressArray>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -3522,6 +4051,8 @@ class Ipv4Network(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -3546,7 +4077,9 @@ class Ipv4Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress.AddressArray, ['entry'], name, value)
+                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress.AddressArray, [u'entry'], name, value)
+
+
 
 
                         class Rpf(Entity):
@@ -3558,20 +4091,28 @@ class Ipv4Network(Entity):
                             	Enable RPF config
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: allow_default_route
                             
                             	Allow Default Route
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: allow_self_ping
                             
                             	Allow Self Ping
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: mode
                             
                             	RPF Mode (loose/strict)
                             	**type**\:  :py:class:`RpfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper.RpfMode>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -3603,7 +4144,8 @@ class Ipv4Network(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf, ['enable', 'allow_default_route', 'allow_self_ping', 'mode'], name, value)
+                                self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf, [u'enable', u'allow_default_route', u'allow_self_ping', u'mode'], name, value)
+
 
 
                         class BgpPa(Entity):
@@ -3615,10 +4157,14 @@ class Ipv4Network(Entity):
                             	BGP PA input config
                             	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Input>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: output
                             
                             	BGP PA output config
                             	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Output>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -3661,15 +4207,21 @@ class Ipv4Network(Entity):
                                 	Enable BGP PA for ingress/egress
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: source
                                 
                                 	Enable source accouting
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: destination
                                 
                                 	Enable destination accouting
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3699,7 +4251,8 @@ class Ipv4Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Input, ['enable', 'source', 'destination'], name, value)
+                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Input, [u'enable', u'source', u'destination'], name, value)
+
 
 
                             class Output(Entity):
@@ -3711,15 +4264,21 @@ class Ipv4Network(Entity):
                                 	Enable BGP PA for ingress/egress
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: source
                                 
                                 	Enable source accouting
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: destination
                                 
                                 	Enable destination accouting
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3749,7 +4308,9 @@ class Ipv4Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Output, ['enable', 'source', 'destination'], name, value)
+                                    self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Output, [u'enable', u'source', u'destination'], name, value)
+
+
 
 
                         class PubUtime(Entity):
@@ -3777,6 +4338,7 @@ class Ipv4Network(Entity):
                                 self._is_frozen = True
 
 
+
                         class IdbUtime(Entity):
                             """
                             IDB Create Time
@@ -3800,6 +4362,7 @@ class Ipv4Network(Entity):
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "idb-utime"
                                 self._is_frozen = True
+
 
 
                         class CapsUtime(Entity):
@@ -3827,6 +4390,7 @@ class Ipv4Network(Entity):
                                 self._is_frozen = True
 
 
+
                         class FwdEnUtime(Entity):
                             """
                             FWD ENABLE Time
@@ -3850,6 +4414,7 @@ class Ipv4Network(Entity):
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "fwd-en-utime"
                                 self._is_frozen = True
+
 
 
                         class FwdDisUtime(Entity):
@@ -3877,6 +4442,7 @@ class Ipv4Network(Entity):
                                 self._is_frozen = True
 
 
+
                         class MulticastGroup(Entity):
                             """
                             Multicast groups joined on the interface
@@ -3887,6 +4453,8 @@ class Ipv4Network(Entity):
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -3912,7 +4480,8 @@ class Ipv4Network(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup, ['group_address'], name, value)
+                                self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup, [u'group_address'], name, value)
+
 
 
                         class SecondaryAddress(Entity):
@@ -3926,6 +4495,8 @@ class Ipv4Network(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: prefix_length
                             
                             	Prefix length of address
@@ -3933,12 +4504,16 @@ class Ipv4Network(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: route_tag
                             
                             	Route Tag associated with this address (0 = no tag)
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3968,7 +4543,9 @@ class Ipv4Network(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress, ['address', 'prefix_length', 'route_tag'], name, value)
+                                self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress, [u'address', u'prefix_length', u'route_tag'], name, value)
+
+
 
 
                     class Brief(Entity):
@@ -3983,6 +4560,8 @@ class Ipv4Network(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrf_id
                         
                         	VRF ID of the interface
@@ -3990,15 +4569,21 @@ class Ipv4Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrf_name
                         
                         	VRF name of the interface
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: line_state
                         
                         	Line state of the interface
                         	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineState>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -4030,9 +4615,16 @@ class Ipv4Network(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief, ['primary_address', 'vrf_id', 'vrf_name', 'line_state'], name, value)
+                            self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief, [u'primary_address', u'vrf_id', u'vrf_name', u'line_state'], name, value)
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Ipv4Network()
         return self._top_entity
+
+
 

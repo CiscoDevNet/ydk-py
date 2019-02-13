@@ -29,35 +29,49 @@ class MPLSVPNMIB(Entity):
     	
     	**type**\:  :py:class:`MplsVpnScalars <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnScalars>`
     
+    	**config**\: False
+    
     .. attribute:: mplsvpninterfaceconftable
     
     	This table specifies per\-interface MPLS capability and associated information
     	**type**\:  :py:class:`MplsVpnInterfaceConfTable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnInterfaceConfTable>`
+    
+    	**config**\: False
     
     .. attribute:: mplsvpnvrftable
     
     	This table specifies per\-interface MPLS/BGP VPN VRF Table capability and associated information. Entries in this table define VRF routing instances associated with MPLS/VPN interfaces. Note that multiple interfaces can belong to the same VRF instance. The collection of all VRF instances comprises an actual VPN
     	**type**\:  :py:class:`MplsVpnVrfTable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfTable>`
     
+    	**config**\: False
+    
     .. attribute:: mplsvpnvrfroutetargettable
     
     	This table specifies per\-VRF route target association. Each entry identifies a connectivity policy supported as part of a VPN
     	**type**\:  :py:class:`MplsVpnVrfRouteTargetTable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfRouteTargetTable>`
+    
+    	**config**\: False
     
     .. attribute:: mplsvpnvrfbgpnbraddrtable
     
     	Each entry in this table specifies a per\-interface  MPLS/EBGP neighbor
     	**type**\:  :py:class:`MplsVpnVrfBgpNbrAddrTable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfBgpNbrAddrTable>`
     
+    	**config**\: False
+    
     .. attribute:: mplsvpnvrfbgpnbrprefixtable
     
     	This table specifies per\-VRF vpnv4 multi\-protocol prefixes supported by BGP
     	**type**\:  :py:class:`MplsVpnVrfBgpNbrPrefixTable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfBgpNbrPrefixTable>`
     
+    	**config**\: False
+    
     .. attribute:: mplsvpnvrfroutetable
     
     	This table specifies per\-interface MPLS/BGP VPN VRF Table routing information. Entries in this table define VRF routing entries associated with the specified MPLS/VPN interfaces. Note that this table contains both BGP and IGP routes, as both may appear in the same VRF
     	**type**\:  :py:class:`MplsVpnVrfRouteTable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfRouteTable>`
+    
+    	**config**\: False
     
     
 
@@ -123,12 +137,16 @@ class MPLSVPNMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: mplsvpnactivevrfs
         
         	The number of VRFs which are active on this node. That is, those VRFs whose corresponding mplsVpnVrfOperStatus  object value is equal to operational (1)
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: mplsvpnconnectedinterfaces
         
@@ -137,10 +155,14 @@ class MPLSVPNMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: mplsvpnnotificationenable
         
         	If this object is true, then it enables the generation of all notifications defined in  this MIB
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: mplsvpnvrfconfmaxpossibleroutes
         
@@ -148,6 +170,8 @@ class MPLSVPNMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -185,6 +209,7 @@ class MPLSVPNMIB(Entity):
             self._perform_setattr(MPLSVPNMIB.MplsVpnScalars, ['mplsvpnconfiguredvrfs', 'mplsvpnactivevrfs', 'mplsvpnconnectedinterfaces', 'mplsvpnnotificationenable', 'mplsvpnvrfconfmaxpossibleroutes'], name, value)
 
 
+
     class MplsVpnInterfaceConfTable(Entity):
         """
         This table specifies per\-interface MPLS capability
@@ -194,6 +219,8 @@ class MPLSVPNMIB(Entity):
         
         	An entry in this table is created by an LSR for every interface capable of supporting MPLS/BGP VPN.   Each entry in this table is meant to correspond to an entry in the Interfaces Table
         	**type**\: list of  		 :py:class:`MplsVpnInterfaceConfEntry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnInterfaceConfTable.MplsVpnInterfaceConfEntry>`
+        
+        	**config**\: False
         
         
 
@@ -240,6 +267,8 @@ class MPLSVPNMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsvpnvrfname <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfTable.MplsVpnVrfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsvpninterfaceconfindex  (key)
             
             	This is a unique index for an entry in the MplsVPNInterfaceConfTable. A non\-zero index for an entry indicates the ifIndex for the corresponding interface entry in the MPLS\-VPN\-layer in the ifTable. Note that this table does not necessarily correspond one\-to\-one with all entries in the Interface MIB having an ifType of MPLS\-layer; rather, only those which are enabled for MPLS/BGP VPN functionality
@@ -247,30 +276,42 @@ class MPLSVPNMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: mplsvpninterfacelabeledgetype
             
             	Either the providerEdge(0) (PE) or customerEdge(1) (CE) bit MUST be set
             	**type**\:  :py:class:`MplsVpnInterfaceLabelEdgeType <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnInterfaceConfTable.MplsVpnInterfaceConfEntry.MplsVpnInterfaceLabelEdgeType>`
+            
+            	**config**\: False
             
             .. attribute:: mplsvpninterfacevpnclassification
             
             	Denotes whether this link participates in a carrier\-of\-carrier's, enterprise, or inter\-provider scenario
             	**type**\:  :py:class:`MplsVpnInterfaceVpnClassification <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnInterfaceConfTable.MplsVpnInterfaceConfEntry.MplsVpnInterfaceVpnClassification>`
             
+            	**config**\: False
+            
             .. attribute:: mplsvpninterfacevpnroutedistprotocol
             
             	Denotes the route distribution protocol across the PE\-CE link. Note that more than one routing protocol may be enabled at the same time
             	**type**\:  :py:class:`MplsVpnInterfaceVpnRouteDistProtocol <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnInterfaceConfTable.MplsVpnInterfaceConfEntry.MplsVpnInterfaceVpnRouteDistProtocol>`
+            
+            	**config**\: False
             
             .. attribute:: mplsvpninterfaceconfstoragetype
             
             	The storage type for this entry
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: mplsvpninterfaceconfrowstatus
             
             	The row status for this entry. This value is used to create a row in this table, signifying that the specified interface is to be associated with the specified interface. If this operation succeeds, the interface will have been associated, otherwise the agent would not allow the association.  If the agent only allows read\-only operations on this table, it will create entries in this table as they are created
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -356,6 +397,8 @@ class MPLSVPNMIB(Entity):
 
 
 
+
+
     class MplsVpnVrfTable(Entity):
         """
         This table specifies per\-interface MPLS/BGP VPN
@@ -370,6 +413,8 @@ class MPLSVPNMIB(Entity):
         
         	An entry in this table is created by an LSR for every VRF capable of supporting MPLS/BGP VPN. The indexing provides an ordering of VRFs per\-VPN interface
         	**type**\: list of  		 :py:class:`MplsVpnVrfEntry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfTable.MplsVpnVrfEntry>`
+        
+        	**config**\: False
         
         
 
@@ -412,10 +457,14 @@ class MPLSVPNMIB(Entity):
             
             	**length:** 0..31
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfdescription
             
             	The human\-readable description of this VRF
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfroutedistinguisher
             
@@ -424,6 +473,8 @@ class MPLSVPNMIB(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfcreationtime
             
             	The time at which this VRF entry was created
@@ -431,10 +482,14 @@ class MPLSVPNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfoperstatus
             
             	Denotes whether a VRF is operational or not. A VRF is  up(1) when at least one interface associated with the VRF, which ifOperStatus is up(1). A VRF is down(2) when\:  a. There does not exist at least one interface whose    ifOperStatus is up(1).  b. There are no interfaces associated with the VRF
             	**type**\:  :py:class:`MplsVpnVrfOperStatus <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfTable.MplsVpnVrfEntry.MplsVpnVrfOperStatus>`
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfactiveinterfaces
             
@@ -443,12 +498,16 @@ class MPLSVPNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfassociatedinterfaces
             
             	Total number of interfaces connected to this VRF  (independent of ifOperStatus type)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfconfmidroutethreshold
             
@@ -457,12 +516,16 @@ class MPLSVPNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfconfhighroutethreshold
             
             	Denotes high\-level water marker for the number of routes which  this VRF may hold
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfconfmaxroutes
             
@@ -471,6 +534,8 @@ class MPLSVPNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfconflastchanged
             
             	The value of sysUpTime at the time of the last change of this table entry, which includes changes of VRF parameters defined in this table or addition or deletion of interfaces associated with this VRF
@@ -478,15 +543,21 @@ class MPLSVPNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfconfrowstatus
             
             	This variable is used to create, modify, and/or delete a row in this table
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfconfstoragetype
             
             	The storage type for this entry
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfsecillegallabelviolations
             
@@ -495,12 +566,16 @@ class MPLSVPNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfsecillegallabelrcvthresh
             
             	The number of illegally received labels above which this  notification is issued
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfperfroutesadded
             
@@ -509,6 +584,8 @@ class MPLSVPNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfperfroutesdeleted
             
             	Indicates the number of routes removed from this VPN/VRF
@@ -516,12 +593,16 @@ class MPLSVPNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfperfcurrnumroutes
             
             	Indicates the number of routes currently used by this VRF
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -612,6 +693,8 @@ class MPLSVPNMIB(Entity):
 
 
 
+
+
     class MplsVpnVrfRouteTargetTable(Entity):
         """
         This table specifies per\-VRF route target association.
@@ -622,6 +705,8 @@ class MPLSVPNMIB(Entity):
         
         	 An entry in this table is created by an LSR for each route target configured for a VRF supporting a MPLS/BGP VPN instance. The indexing provides an ordering per\-VRF instance
         	**type**\: list of  		 :py:class:`MplsVpnVrfRouteTargetEntry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfRouteTargetTable.MplsVpnVrfRouteTargetEntry>`
+        
+        	**config**\: False
         
         
 
@@ -666,6 +751,8 @@ class MPLSVPNMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsvpnvrfname <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfTable.MplsVpnVrfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfroutetargetindex  (key)
             
             	Auxiliary index for route\-targets configured for a  particular VRF
@@ -673,10 +760,14 @@ class MPLSVPNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfroutetargettype  (key)
             
             	The route target export distribution type
             	**type**\:  :py:class:`MplsVpnVrfRouteTargetType <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfRouteTargetTable.MplsVpnVrfRouteTargetEntry.MplsVpnVrfRouteTargetType>`
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfroutetarget
             
@@ -685,15 +776,21 @@ class MPLSVPNMIB(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfroutetargetdescr
             
             	Description of the route target
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfroutetargetrowstatus
             
             	Row status for this entry
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -754,6 +851,8 @@ class MPLSVPNMIB(Entity):
 
 
 
+
+
     class MplsVpnVrfBgpNbrAddrTable(Entity):
         """
         Each entry in this table specifies a per\-interface 
@@ -763,6 +862,8 @@ class MPLSVPNMIB(Entity):
         
         	An entry in this table is created by an LSR for every VRF capable of supporting MPLS/BGP VPN. The indexing provides an ordering of VRFs per\-VPN interface
         	**type**\: list of  		 :py:class:`MplsVpnVrfBgpNbrAddrEntry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfBgpNbrAddrTable.MplsVpnVrfBgpNbrAddrEntry>`
+        
+        	**config**\: False
         
         
 
@@ -807,6 +908,8 @@ class MPLSVPNMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsvpnvrfname <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfTable.MplsVpnVrfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsvpninterfaceconfindex  (key)
             
             	
@@ -816,6 +919,8 @@ class MPLSVPNMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsvpninterfaceconfindex <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnInterfaceConfTable.MplsVpnInterfaceConfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfbgpnbrindex  (key)
             
             	This is a unique tertiary index for an entry in the MplsVpnVrfBgpNbrAddrEntry Table
@@ -823,15 +928,21 @@ class MPLSVPNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfbgpnbrrole
             
             	Denotes the role played by this EBGP neighbor with respect to this VRF
             	**type**\:  :py:class:`MplsVpnVrfBgpNbrRole <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfBgpNbrAddrTable.MplsVpnVrfBgpNbrAddrEntry.MplsVpnVrfBgpNbrRole>`
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfbgpnbrtype
             
             	Denotes the address family of the PE address
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfbgpnbraddr
             
@@ -840,15 +951,21 @@ class MPLSVPNMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfbgpnbrrowstatus
             
             	This variable is used to create, modify, and/or delete a row in this table
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfbgpnbrstoragetype
             
             	The storage type for this entry
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            	**config**\: False
             
             
 
@@ -911,6 +1028,8 @@ class MPLSVPNMIB(Entity):
 
 
 
+
+
     class MplsVpnVrfBgpNbrPrefixTable(Entity):
         """
         This table specifies per\-VRF vpnv4 multi\-protocol
@@ -920,6 +1039,8 @@ class MPLSVPNMIB(Entity):
         
         	An entry in this table is created by an LSR for every BGP prefix associated with a VRF supporting a  MPLS/BGP VPN. The indexing provides an ordering of  BGP prefixes per VRF
         	**type**\: list of  		 :py:class:`MplsVpnVrfBgpNbrPrefixEntry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfBgpNbrPrefixTable.MplsVpnVrfBgpNbrPrefixEntry>`
+        
+        	**config**\: False
         
         
 
@@ -964,12 +1085,16 @@ class MPLSVPNMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsvpnvrfname <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfTable.MplsVpnVrfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfbgppathattripaddrprefix  (key)
             
             	An IP address prefix in the Network Layer Reachability Information field.  This object is an IP address containing the prefix with length specified by mplsVpnVrfBgpPathAttrIpAddrPrefixLen. Any bits beyond the length specified by mplsVpnVrfBgpPathAttrIpAddrPrefixLen are zeroed
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfbgppathattripaddrprefixlen  (key)
             
@@ -978,6 +1103,8 @@ class MPLSVPNMIB(Entity):
             
             	**range:** 0..32
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfbgppathattrpeer  (key)
             
             	The IP address of the peer where the path information was learned
@@ -985,10 +1112,14 @@ class MPLSVPNMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfbgppathattrorigin
             
             	The ultimate origin of the path information
             	**type**\:  :py:class:`MplsVpnVrfBgpPathAttrOrigin <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfBgpNbrPrefixTable.MplsVpnVrfBgpNbrPrefixEntry.MplsVpnVrfBgpPathAttrOrigin>`
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfbgppathattraspathsegment
             
@@ -997,12 +1128,16 @@ class MPLSVPNMIB(Entity):
             
             	**length:** 2..255
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfbgppathattrnexthop
             
             	The address of the border router that should be used for the destination network
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfbgppathattrmultiexitdisc
             
@@ -1011,6 +1146,8 @@ class MPLSVPNMIB(Entity):
             
             	**range:** \-1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfbgppathattrlocalpref
             
             	The originating BGP4 speaker's degree of preference for an advertised route.  A value of \-1 indicates the absence of this attribute
@@ -1018,10 +1155,14 @@ class MPLSVPNMIB(Entity):
             
             	**range:** \-1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfbgppathattratomicaggregate
             
             	Whether or not the local system has selected a less specific route without selecting a more specific route
             	**type**\:  :py:class:`MplsVpnVrfBgpPathAttrAtomicAggregate <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfBgpNbrPrefixTable.MplsVpnVrfBgpNbrPrefixEntry.MplsVpnVrfBgpPathAttrAtomicAggregate>`
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfbgppathattraggregatoras
             
@@ -1030,12 +1171,16 @@ class MPLSVPNMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfbgppathattraggregatoraddr
             
             	The IP address of the last BGP4 speaker that performed route aggregation.  A value of 0.0.0.0 indicates the absence of this attribute
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfbgppathattrcalclocalpref
             
@@ -1044,10 +1189,14 @@ class MPLSVPNMIB(Entity):
             
             	**range:** \-1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfbgppathattrbest
             
             	An indication of whether or not this route was chosen as the best BGP4 route
             	**type**\:  :py:class:`MplsVpnVrfBgpPathAttrBest <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfBgpNbrPrefixTable.MplsVpnVrfBgpNbrPrefixEntry.MplsVpnVrfBgpPathAttrBest>`
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfbgppathattrunknown
             
@@ -1055,6 +1204,8 @@ class MPLSVPNMIB(Entity):
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             
 
@@ -1175,6 +1326,8 @@ class MPLSVPNMIB(Entity):
 
 
 
+
+
     class MplsVpnVrfRouteTable(Entity):
         """
         This table specifies per\-interface MPLS/BGP VPN VRF Table
@@ -1187,6 +1340,8 @@ class MPLSVPNMIB(Entity):
         
         	An entry in this table is created by an LSR for every route present configured (either dynamically or statically) within the context of a specific VRF capable of supporting MPLS/BGP VPN. The indexing provides an ordering of VRFs per\-VPN interface
         	**type**\: list of  		 :py:class:`MplsVpnVrfRouteEntry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfRouteTable.MplsVpnVrfRouteEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1232,12 +1387,16 @@ class MPLSVPNMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsvpnvrfname <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfTable.MplsVpnVrfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfroutedest  (key)
             
             	The destination IP address of this route. This object may not take a Multicast (Class D) address value.  Any assignment (implicit or otherwise) of an instance of this object to a value x must be rejected if the bit\-wise logical\-AND of x with the value of the corresponding instance of the mplsVpnVrfRouteMask object is not equal to x
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfroutemask  (key)
             
@@ -1246,12 +1405,16 @@ class MPLSVPNMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfroutetos  (key)
             
             	The IP TOS Field is used to specify the policy to be applied to this route.  The encoding of IP TOS is as specified  by  the  following convention. Zero indicates the default path if no more specific policy applies.  +\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+ \|                 \|                       \|     \| \|   PRECEDENCE    \|    TYPE OF SERVICE    \|  0  \| \|                 \|                       \|     \| +\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+\-\-\-\-\-+             IP TOS                IP TOS       Field     Policy      Field     Policy       Contents    Code      Contents    Code       0 0 0 0  ==>   0      0 0 0 1  ==>   2       0 0 1 0  ==>   4      0 0 1 1  ==>   6       0 1 0 0  ==>   8      0 1 0 1  ==>  10       0 1 1 0  ==>  12      0 1 1 1  ==>  14       1 0 0 0  ==>  16      1 0 0 1  ==>  18       1 0 1 0  ==>  20      1 0 1 1  ==>  22       1 1 0 0  ==>  24      1 1 0 1  ==>  26       1 1 1 0  ==>  28      1 1 1 1  ==>  30
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfroutenexthop  (key)
             
@@ -1260,20 +1423,28 @@ class MPLSVPNMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfroutedestaddrtype
             
             	The address type of the mplsVpnVrfRouteDest entry
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfroutemaskaddrtype
             
             	The address type of mplsVpnVrfRouteMask
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfroutenexthopaddrtype
             
             	The address type of the mplsVpnVrfRouteNextHopAddrType object
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfrouteifindex
             
@@ -1282,15 +1453,21 @@ class MPLSVPNMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfroutetype
             
             	The type of route.  Note that local(3)  refers to a route for which the next hop is the final destination; remote(4) refers to a route for that the next  hop is not the final destination. Routes which do not result in traffic forwarding or rejection should not be displayed even if the implementation keeps them stored internally.  reject (2) refers to a route which, if matched, discards the message as unreachable. This is used in some protocols as a means of correctly aggregating routes
             	**type**\:  :py:class:`MplsVpnVrfRouteType <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfRouteTable.MplsVpnVrfRouteEntry.MplsVpnVrfRouteType>`
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfrouteproto
             
             	The routing mechanism via which this route was learned.  Inclusion of values for gateway rout\- ing protocols is not  intended  to  imply  that hosts should support those protocols
             	**type**\:  :py:class:`MplsVpnVrfRouteProto <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.MplsVpnVrfRouteTable.MplsVpnVrfRouteEntry.MplsVpnVrfRouteProto>`
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfrouteage
             
@@ -1299,12 +1476,16 @@ class MPLSVPNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfrouteinfo
             
             	A reference to MIB definitions specific to the particular routing protocol which is responsi\-   ble for this route, as determined by the  value specified  in the route's mplsVpnVrfRouteProto value. If this information is not present, its value SHOULD be set to the OBJECT IDENTIFIER { 0 0 }, which is a syntactically valid object identif\-ier, and any implementation conforming to ASN.1 and the Basic Encoding Rules must be able to generate and recognize this value
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfroutenexthopas
             
@@ -1313,12 +1494,16 @@ class MPLSVPNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfroutemetric1
             
             	The primary routing metric for this route. The semantics of this metric are determined by the routing\-protocol specified in  the  route's mplsVpnVrfRouteProto value. If this metric is not used, its value should be set to \-1
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfroutemetric2
             
@@ -1327,12 +1512,16 @@ class MPLSVPNMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfroutemetric3
             
             	An alternate routing metric for this route. The semantics of this metric are determined by the routing\-protocol specified in  the  route's mplsVpnVrfRouteProto value. If this metric is not used, its value should be set to \-1
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: mplsvpnvrfroutemetric4
             
@@ -1341,6 +1530,8 @@ class MPLSVPNMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfroutemetric5
             
             	An alternate routing metric for this route. The semantics of this metric are determined by the routing\-protocol specified in  the  route's mplsVpnVrfRouteProto value. If this metric is not used, its value should be set to \-1
@@ -1348,15 +1539,21 @@ class MPLSVPNMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfrouterowstatus
             
             	Row status for this table. It is used according to row installation and removal conventions
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: mplsvpnvrfroutestoragetype
             
             	Storage type value
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            	**config**\: False
             
             
 
@@ -1549,7 +1746,11 @@ class MPLSVPNMIB(Entity):
                 remote = Enum.YLeaf(4, "remote")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = MPLSVPNMIB()
         return self._top_entity
+
+
 

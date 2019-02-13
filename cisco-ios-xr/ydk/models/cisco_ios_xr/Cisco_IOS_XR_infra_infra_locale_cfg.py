@@ -2348,3 +2348,5 @@ class Locale(Entity):
         self._top_entity = Locale()
         return self._top_entity
 
+
+

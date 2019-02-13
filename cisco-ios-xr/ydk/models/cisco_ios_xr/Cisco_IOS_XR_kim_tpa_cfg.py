@@ -264,6 +264,8 @@ class Tpa(Entity):
                         self._perform_setattr(Tpa.VrfNames.VrfName.EastWestNames.EastWestName, ['east_west_name', 'vrf', 'interface'], name, value)
 
 
+
+
             class AddressFamily(Entity):
                 """
                 Address family
@@ -447,6 +449,8 @@ class Tpa(Entity):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames.InterfaceName, ['interface_name', 'egress_interface_source'], name, value)
 
 
+
+
                     class UpdateSource(Entity):
                         """
                         Interface used for Source Address
@@ -490,6 +494,8 @@ class Tpa(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.UpdateSource, ['interface_name', 'active_management'], name, value)
+
+
 
 
                 class Ipv4(Entity):
@@ -629,6 +635,8 @@ class Tpa(Entity):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames.InterfaceName, ['interface_name', 'egress_interface_source'], name, value)
 
 
+
+
                     class UpdateSource(Entity):
                         """
                         Interface used for Source Address
@@ -672,6 +680,11 @@ class Tpa(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.UpdateSource, ['interface_name', 'active_management'], name, value)
+
+
+
+
+
 
 
     class Logging(Entity):
@@ -762,6 +775,8 @@ class Tpa(Entity):
                 self._perform_setattr(Tpa.Logging.Kim, ['rotation_max', 'file_size_max_kb'], name, value)
 
 
+
+
     class Statistics(Entity):
         """
         Statistics
@@ -820,7 +835,10 @@ class Tpa(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Tpa.Statistics, ['max_intf_events', 'max_lpts_events', 'statistics_update_frequency'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Tpa()
         return self._top_entity
+
+
 

@@ -127,65 +127,91 @@ class DOCSIETFBPI2MIB(Entity):
     	
     	**type**\:  :py:class:`DocsIetfBpi2CodeDownloadControl <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CodeDownloadControl>`
     
+    	**config**\: False
+    
     .. attribute:: docsietfbpi2cmbasetable
     
     	This table describes the basic and authorization related Baseline Privacy Plus attributes of each CM MAC interface
     	**type**\:  :py:class:`DocsIetfBpi2CmBaseTable <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmBaseTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsietfbpi2cmtektable
     
     	This table describes the attributes of each CM Traffic Encryption Key (TEK) association. The CM maintains (no more than) one TEK association per SAID per CM MAC interface
     	**type**\:  :py:class:`DocsIetfBpi2CmTEKTable <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmTEKTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsietfbpi2cmipmulticastmaptable
     
     	This table maps multicast IP addresses to SAIDs per CM MAC Interface. It is intended to map multicast IP addresses associated with SA MAP Request messages
     	**type**\:  :py:class:`DocsIetfBpi2CmIpMulticastMapTable <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmIpMulticastMapTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsietfbpi2cmdevicecerttable
     
     	This table describes the Baseline Privacy Plus device certificates for each CM MAC interface
     	**type**\:  :py:class:`DocsIetfBpi2CmDeviceCertTable <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmDeviceCertTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsietfbpi2cmcryptosuitetable
     
     	This table describes the Baseline Privacy Plus cryptographic suite capabilities for each CM MAC interface
     	**type**\:  :py:class:`DocsIetfBpi2CmCryptoSuiteTable <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmCryptoSuiteTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsietfbpi2cmtsbasetable
     
     	This table describes the basic Baseline Privacy attributes of each CMTS MAC interface
     	**type**\:  :py:class:`DocsIetfBpi2CmtsBaseTable <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsBaseTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsietfbpi2cmtsauthtable
     
     	This table describes the attributes of each CM authorization association. The CMTS maintains one authorization association with each Baseline Privacy\- enabled CM, registered on each CMTS MAC interface, regardless of whether the CM is authorized or rejected
     	**type**\:  :py:class:`DocsIetfBpi2CmtsAuthTable <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsAuthTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsietfbpi2cmtstektable
     
     	This table describes the attributes of each Traffic Encryption Key (TEK) association. The CMTS Maintains one TEK association per SAID on each CMTS MAC interface
     	**type**\:  :py:class:`DocsIetfBpi2CmtsTEKTable <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsTEKTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsietfbpi2cmtsipmulticastmaptable
     
     	This table maps multicast IP addresses to SAIDs. If a multicast IP address is mapped by multiple rows in the table, the row with the lowest docsIetfBpi2CmtsIpMulticastIndex must be utilized for the mapping
     	**type**\:  :py:class:`DocsIetfBpi2CmtsIpMulticastMapTable <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsIpMulticastMapTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsietfbpi2cmtsmulticastauthtable
     
     	This table describes the multicast SAID authorization for each CM on each CMTS MAC interface
     	**type**\:  :py:class:`DocsIetfBpi2CmtsMulticastAuthTable <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsMulticastAuthTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsietfbpi2cmtsprovisionedcmcerttable
     
     	A table of CM certificate trust entries provisioned to the CMTS.  The trust object for a certificate in this table has an overriding effect on the validity object of a certificate in the authorization table, as long as the entire contents of the two certificates are identical
     	**type**\:  :py:class:`DocsIetfBpi2CmtsProvisionedCmCertTable <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsProvisionedCmCertTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsietfbpi2cmtscacerttable
     
     	The table of known Certificate Authority certificates acquired by this device
     	**type**\:  :py:class:`DocsIetfBpi2CmtsCACertTable <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsCACertTable>`
+    
+    	**config**\: False
     
     
 
@@ -273,15 +299,21 @@ class DOCSIETFBPI2MIB(Entity):
         	The value indicates the result of the latest config file CVC verification, SNMP CVC verification, or code file verification
         	**type**\:  :py:class:`DocsIetfBpi2CodeDownloadStatusCode <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CodeDownloadControl.DocsIetfBpi2CodeDownloadStatusCode>`
         
+        	**config**\: False
+        
         .. attribute:: docsietfbpi2codedownloadstatusstring
         
         	The value of this object indicates the additional information to the status code.  The value will include the error code and error description which will be defined separately
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: docsietfbpi2codemfgorgname
         
         	The value of this object is the device manufacturer's organizationName
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: docsietfbpi2codemfgcodeaccessstart
         
@@ -290,6 +322,8 @@ class DOCSIETFBPI2MIB(Entity):
         
         	**length:** 11
         
+        	**config**\: False
+        
         .. attribute:: docsietfbpi2codemfgcvcaccessstart
         
         	The value of this object is the device manufacturer's current cvcAccessStart value. This value always be referenced to Greenwich Mean Time (GMT) and the value format must contain TimeZone information (fields 8\-10)
@@ -297,10 +331,14 @@ class DOCSIETFBPI2MIB(Entity):
         
         	**length:** 11
         
+        	**config**\: False
+        
         .. attribute:: docsietfbpi2codecosignerorgname
         
         	The value of this object is the Co\-Signer's organizationName.  The value is a zero length string if the co\-signer is not specified
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: docsietfbpi2codecosignercodeaccessstart
         
@@ -309,6 +347,8 @@ class DOCSIETFBPI2MIB(Entity):
         
         	**length:** 11
         
+        	**config**\: False
+        
         .. attribute:: docsietfbpi2codecosignercvcaccessstart
         
         	The value of this object is the Co\-Signer's current cvcAccessStart value. This value always be referenced to Greenwich Mean Time (GMT) and the value format must contain TimeZone information (fields 8\-10). If docsIetfBpi2CodeCoSignerOrgName is a zero length string, the value of this object is meaningless
@@ -316,12 +356,16 @@ class DOCSIETFBPI2MIB(Entity):
         
         	**length:** 11
         
+        	**config**\: False
+        
         .. attribute:: docsietfbpi2codecvcupdate
         
         	Setting a CVC to this object triggers the device to verify the CVC and update the cvcAccessStart values, then the content of this object is discarded.. If the device is not enabled to upgrade codefiles, or the CVC verification fails, the CVC will be rejected. Reading this object always returns the zero\-length OCTET STRING
         	**type**\: str
         
         	**length:** 0..4096
+        
+        	**config**\: False
         
         
 
@@ -408,6 +452,7 @@ class DOCSIETFBPI2MIB(Entity):
 
 
 
+
     class DocsIetfBpi2CmBaseTable(Entity):
         """
         This table describes the basic and authorization
@@ -418,6 +463,8 @@ class DOCSIETFBPI2MIB(Entity):
         
         	Each entry contains objects describing attributes of one CM MAC interface. An entry in this table exists for each ifEntry with an ifType of docsCableMaclayer(127)
         	**type**\: list of  		 :py:class:`DocsIetfBpi2CmBaseEntry <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmBaseTable.DocsIetfBpi2CmBaseEntry>`
+        
+        	**config**\: False
         
         
 
@@ -461,10 +508,14 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmprivacyenable
             
             	This object identifies whether this CM is provisioned to run Baseline Privacy Plus
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmpublickey
             
@@ -473,10 +524,14 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**length:** 0..524
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmauthstate
             
             	The value of this object is the state of the CM authorization FSM.  The start state indicates that FSM is in its initial state
             	**type**\:  :py:class:`DocsIetfBpi2CmAuthState <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmBaseTable.DocsIetfBpi2CmBaseEntry.DocsIetfBpi2CmAuthState>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmauthkeysequencenumber
             
@@ -485,20 +540,28 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..15
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmauthexpiresold
             
             	The value of this object is the actual clock time for expiration of the immediate predecessor of the most recent authorization key for this FSM.  If this FSM has only one authorization key, then the value is the time of activation of this FSM
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmauthexpiresnew
             
             	The value of this object is the actual clock time for expiration of the most recent authorization key for this FSM
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmauthreset
             
             	Setting this object to 'true' generates a Reauthorize event in the authorization FSM. Reading this object always returns FALSE. This object is for testing purposes only and therefore it does not require to be associated with a last reset object
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmauthgracetime
             
@@ -506,6 +569,8 @@ class DOCSIETFBPI2MIB(Entity):
             	**type**\: int
             
             	**range:** 1..6047999
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -516,6 +581,8 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 1..302399
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: docsietfbpi2cmauthwaittimeout
@@ -524,6 +591,8 @@ class DOCSIETFBPI2MIB(Entity):
             	**type**\: int
             
             	**range:** 1..30
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -534,6 +603,8 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 1..30
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: docsietfbpi2cmopwaittimeout
@@ -542,6 +613,8 @@ class DOCSIETFBPI2MIB(Entity):
             	**type**\: int
             
             	**range:** 1..10
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -552,6 +625,8 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 1..10
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: docsietfbpi2cmauthrejectwaittimeout
@@ -560,6 +635,8 @@ class DOCSIETFBPI2MIB(Entity):
             	**type**\: int
             
             	**range:** 1..600
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -570,6 +647,8 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 1..10
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: docsietfbpi2cmsamapmaxretries
@@ -578,6 +657,8 @@ class DOCSIETFBPI2MIB(Entity):
             	**type**\: int
             
             	**range:** 0..10
+            
+            	**config**\: False
             
             	**units**\: count
             
@@ -588,12 +669,16 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmauthrequests
             
             	The value of this object is the count of times the CM has transmitted an Authorization Request message. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmauthreplies
             
@@ -602,12 +687,16 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmauthrejects
             
             	The value of this object is the count of times the CM has received an Authorization Reject message. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmauthinvalids
             
@@ -616,10 +705,14 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmauthrejecterrorcode
             
             	The value of this object is the enumerated description of the Error\-Code in most recent Authorization Reject message received by the CM.  This has value unknown(2) if the last Error\-Code value was 0, and none(1) if no Authorization Reject message has been received since reboot
             	**type**\:  :py:class:`DocsIetfBpi2CmAuthRejectErrorCode <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmBaseTable.DocsIetfBpi2CmBaseEntry.DocsIetfBpi2CmAuthRejectErrorCode>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmauthrejecterrorstring
             
@@ -628,10 +721,14 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**length:** 0..128
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmauthinvaliderrorcode
             
             	The value of this object is the enumerated description of the Error\-Code in most recent Authorization Invalid message received by the CM.  This has value unknown(2) if the last Error\-Code value was 0, and none(1) if no Authorization Invalid message has been received since reboot
             	**type**\:  :py:class:`DocsIetfBpi2CmAuthInvalidErrorCode <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmBaseTable.DocsIetfBpi2CmBaseEntry.DocsIetfBpi2CmAuthInvalidErrorCode>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmauthinvaliderrorstring
             
@@ -639,6 +736,8 @@ class DOCSIETFBPI2MIB(Entity):
             	**type**\: str
             
             	**length:** 0..128
+            
+            	**config**\: False
             
             
 
@@ -841,6 +940,8 @@ class DOCSIETFBPI2MIB(Entity):
 
 
 
+
+
     class DocsIetfBpi2CmTEKTable(Entity):
         """
         This table describes the attributes of each CM
@@ -852,6 +953,8 @@ class DOCSIETFBPI2MIB(Entity):
         
         	Each entry contains objects describing the TEK association attributes of one SAID. The CM MUST create one entry per SAID, regardless of whether the SAID was obtained from a Registration Response message, from an Authorization Reply message, or from any dynamic SAID establishment mechanisms
         	**type**\: list of  		 :py:class:`DocsIetfBpi2CmTEKEntry <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmTEKTable.DocsIetfBpi2CmTEKEntry>`
+        
+        	**config**\: False
         
         
 
@@ -898,6 +1001,8 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmteksaid  (key)
             
             	The value of this object is the DOCSIS Security Association ID (SAID)
@@ -905,25 +1010,35 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 1..16383
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmteksatype
             
             	The value of this object is the type of security association
             	**type**\:  :py:class:`DocsBpkmSAType <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DocsBpkmSAType>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtekdataencryptalg
             
             	The value of this object is the data encryption algorithm for this SAID
             	**type**\:  :py:class:`DocsBpkmDataEncryptAlg <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DocsBpkmDataEncryptAlg>`
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtekdataauthentalg
             
             	The value of this object is the data authentication algorithm for this SAID
             	**type**\:  :py:class:`DocsBpkmDataAuthentAlg <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DocsBpkmDataAuthentAlg>`
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtekstate
             
             	The value of this object is the state of the indicated TEK FSM.  The start(1) state indicates that FSM is in its initial state
             	**type**\:  :py:class:`DocsIetfBpi2CmTEKState <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmTEKTable.DocsIetfBpi2CmTEKEntry.DocsIetfBpi2CmTEKState>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtekkeysequencenumber
             
@@ -932,15 +1047,21 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..15
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtekexpiresold
             
             	The value of this object is the actual clock time for expiration of the immediate predecessor of the most recent TEK for this FSM.  If this FSM has only one TEK, then the value is the time of activation of this FSM
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtekexpiresnew
             
             	The value of this object is the actual clock time for expiration of the most recent TEK for this FSM
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtekkeyrequests
             
@@ -949,12 +1070,16 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtekkeyreplies
             
             	The value of this object is the count of times the CM has received a Key Reply message, including a message whose authentication failed. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtekkeyrejects
             
@@ -963,12 +1088,16 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtekinvalids
             
             	The value of this object is the count of times the CM has received a TEK Invalid message, including a message whose authentication failed. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtekauthpends
             
@@ -977,10 +1106,14 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtekkeyrejecterrorcode
             
             	The value of this object is the enumerated description of the Error\-Code in most recent Key Reject message received by the CM. This has value unknown(2) if the last Error\-Code value was 0, and none(1) if no Key Reject message has been received since registration
             	**type**\:  :py:class:`DocsIetfBpi2CmTEKKeyRejectErrorCode <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmTEKTable.DocsIetfBpi2CmTEKEntry.DocsIetfBpi2CmTEKKeyRejectErrorCode>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtekkeyrejecterrorstring
             
@@ -989,10 +1122,14 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**length:** 0..128
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtekinvaliderrorcode
             
             	The value of this object is the enumerated description of the Error\-Code in most recent TEK Invalid message received by the CM.  This has value unknown(2) if the last Error\-Code value was 0, and none(1) if no TEK Invalid message has been received since registration
             	**type**\:  :py:class:`DocsIetfBpi2CmTEKInvalidErrorCode <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmTEKTable.DocsIetfBpi2CmTEKEntry.DocsIetfBpi2CmTEKInvalidErrorCode>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtekinvaliderrorstring
             
@@ -1000,6 +1137,8 @@ class DOCSIETFBPI2MIB(Entity):
             	**type**\: str
             
             	**length:** 0..128
+            
+            	**config**\: False
             
             
 
@@ -1158,6 +1297,8 @@ class DOCSIETFBPI2MIB(Entity):
 
 
 
+
+
     class DocsIetfBpi2CmIpMulticastMapTable(Entity):
         """
         This table maps multicast IP addresses to SAIDs per
@@ -1169,6 +1310,8 @@ class DOCSIETFBPI2MIB(Entity):
         
         	Each entry contains objects describing the mapping of one multicast IP address to one SAID, as well as associated state, message counters, and error information.  An entry may be removed from this table upon the reception of an SA Map Reject
         	**type**\: list of  		 :py:class:`DocsIetfBpi2CmIpMulticastMapEntry <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmIpMulticastMapTable.DocsIetfBpi2CmIpMulticastMapEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1215,6 +1358,8 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmipmulticastindex  (key)
             
             	The index of this row
@@ -1222,10 +1367,14 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmipmulticastaddresstype
             
             	The type of internet address for docsIetfBpi2CmIpMulticastAddress
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmipmulticastaddress
             
@@ -1234,6 +1383,8 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmipmulticastsaid
             
             	This object represents the SAID to which the IP multicast address has been mapped.  If no SA Map Reply has been received for the IP address, this object should have the value 0
@@ -1241,10 +1392,14 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..16383
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmipmulticastsamapstate
             
             	The value of this object is the state of the SA Mapping FSM for this IP
             	**type**\:  :py:class:`DocsIetfBpi2CmIpMulticastSAMapState <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmIpMulticastMapTable.DocsIetfBpi2CmIpMulticastMapEntry.DocsIetfBpi2CmIpMulticastSAMapState>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmipmulticastsamaprequests
             
@@ -1253,12 +1408,16 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmipmulticastsamapreplies
             
             	The value of this object is the count of times the CM has received an SA Map Reply message for this IP. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmipmulticastsamaprejects
             
@@ -1267,10 +1426,14 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmipmulticastsamaprejecterrorcode
             
             	The value of this object is the enumerated description of the Error\-Code in the most recent SA Map Reject message sent in response to an SA Map Request for This IP.  It has the value none(1) if no SA MAP Reject message has been received since entry creation
             	**type**\:  :py:class:`DocsIetfBpi2CmIpMulticastSAMapRejectErrorCode <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmIpMulticastMapTable.DocsIetfBpi2CmIpMulticastMapEntry.DocsIetfBpi2CmIpMulticastSAMapRejectErrorCode>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmipmulticastsamaprejecterrorstring
             
@@ -1278,6 +1441,8 @@ class DOCSIETFBPI2MIB(Entity):
             	**type**\: str
             
             	**length:** 0..128
+            
+            	**config**\: False
             
             
 
@@ -1383,6 +1548,8 @@ class DOCSIETFBPI2MIB(Entity):
 
 
 
+
+
     class DocsIetfBpi2CmDeviceCertTable(Entity):
         """
         This table describes the Baseline Privacy Plus
@@ -1392,6 +1559,8 @@ class DOCSIETFBPI2MIB(Entity):
         
         	Each entry contains the device certificates of one CM MAC interface.  An entry in this table exists for each ifEntry with an ifType of docsCableMaclayer(127)
         	**type**\: list of  		 :py:class:`DocsIetfBpi2CmDeviceCertEntry <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmDeviceCertTable.DocsIetfBpi2CmDeviceCertEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1435,6 +1604,8 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmdevicecmcert
             
             	The X509 DER\-encoded cable modem certificate. Note\:  This object can be set only when the value is the zero\-length OCTET STRING, otherwise an error 'inconsistentValue' is returned.  Once the object contains  the certificate, its access MUST be read\-only and persists after re\-initialization of the managed system
@@ -1442,12 +1613,16 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**length:** 0..4096
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmdevicemanufcert
             
             	The X509 DER\-encoded manufacturer certificate which signed the cable modem certificate
             	**type**\: str
             
             	**length:** 0..4096
+            
+            	**config**\: False
             
             
 
@@ -1481,6 +1656,8 @@ class DOCSIETFBPI2MIB(Entity):
                 self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmDeviceCertTable.DocsIetfBpi2CmDeviceCertEntry, [u'ifindex', u'docsietfbpi2cmdevicecmcert', u'docsietfbpi2cmdevicemanufcert'], name, value)
 
 
+
+
     class DocsIetfBpi2CmCryptoSuiteTable(Entity):
         """
         This table describes the Baseline Privacy Plus
@@ -1491,6 +1668,8 @@ class DOCSIETFBPI2MIB(Entity):
         
         	Each entry contains a cryptographic suite pair which this CM MAC supports
         	**type**\: list of  		 :py:class:`DocsIetfBpi2CmCryptoSuiteEntry <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmCryptoSuiteTable.DocsIetfBpi2CmCryptoSuiteEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1533,6 +1712,8 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmcryptosuiteindex  (key)
             
             	The index for a cryptographic suite row
@@ -1540,15 +1721,21 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 1..1000
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmcryptosuitedataencryptalg
             
             	The value of this object is the data encryption algorithm for this cryptographic suite capability
             	**type**\:  :py:class:`DocsBpkmDataEncryptAlg <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DocsBpkmDataEncryptAlg>`
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmcryptosuitedataauthentalg
             
             	The value of this object is the data authentication algorithm for this cryptographic suite capability
             	**type**\:  :py:class:`DocsBpkmDataAuthentAlg <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DocsBpkmDataAuthentAlg>`
+            
+            	**config**\: False
             
             
 
@@ -1584,6 +1771,8 @@ class DOCSIETFBPI2MIB(Entity):
                 self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmCryptoSuiteTable.DocsIetfBpi2CmCryptoSuiteEntry, [u'ifindex', u'docsietfbpi2cmcryptosuiteindex', u'docsietfbpi2cmcryptosuitedataencryptalg', u'docsietfbpi2cmcryptosuitedataauthentalg'], name, value)
 
 
+
+
     class DocsIetfBpi2CmtsBaseTable(Entity):
         """
         This table describes the basic Baseline Privacy
@@ -1593,6 +1782,8 @@ class DOCSIETFBPI2MIB(Entity):
         
         	Each entry contains objects describing attributes of one CMTS MAC interface.  An entry in this table exists for each ifEntry with an ifType of docsCableMaclayer(127)
         	**type**\: list of  		 :py:class:`DocsIetfBpi2CmtsBaseEntry <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsBaseTable.DocsIetfBpi2CmtsBaseEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1636,12 +1827,16 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsdefaultauthlifetime
             
             	The value of this object is the default lifetime, in seconds, the CMTS assigns to a new authorization key. This object value persist after re\-initialization of the managed system
             	**type**\: int
             
             	**range:** 1..6048000
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1652,6 +1847,8 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 1..604800
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: docsietfbpi2cmtsdefaultselfsignedmanufcerttrust
@@ -1659,10 +1856,14 @@ class DOCSIETFBPI2MIB(Entity):
             	This object determines the default trust of self\-signed  manufacturer certificate entries, contained in docsIetfBpi2CmtsCACertTable, created after setting this object. This object needs not to persist after re\-initialization  of the managed system
             	**type**\:  :py:class:`DocsIetfBpi2CmtsDefaultSelfSignedManufCertTrust <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsBaseTable.DocsIetfBpi2CmtsBaseEntry.DocsIetfBpi2CmtsDefaultSelfSignedManufCertTrust>`
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtscheckcertvalidityperiods
             
             	Setting this object to 'true' causes all chained and root certificates in the chain to have their validity periods checked against the current time of day, when the CMTS receives an Authorization Request from the CM. A 'false' setting causes all certificates in the chain not to have their validity periods checked against the current time of day. This object needs not to persist after re\-initialization  of the managed system
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsauthentinfos
             
@@ -1671,12 +1872,16 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsauthrequests
             
             	The value of this object is the count of times the CMTS has received an Authorization Request message from any CM. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsauthreplies
             
@@ -1685,12 +1890,16 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsauthrejects
             
             	The value of this object is the count of times the CMTS has transmitted an Authorization Reject message to any CM. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsauthinvalids
             
@@ -1699,12 +1908,16 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtssamaprequests
             
             	The value of this object is the count of times the CMTS has received an SA Map Request message from any CM. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtssamapreplies
             
@@ -1713,12 +1926,16 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtssamaprejects
             
             	The value of this object is the count of times the CMTS has transmitted an SA Map Reject message to any CM. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1799,6 +2016,8 @@ class DOCSIETFBPI2MIB(Entity):
 
 
 
+
+
     class DocsIetfBpi2CmtsAuthTable(Entity):
         """
         This table describes the attributes of each CM
@@ -1811,6 +2030,8 @@ class DOCSIETFBPI2MIB(Entity):
         
         	Each entry contains objects describing attributes of one authorization association. The CMTS MUST create one entry per CM per MAC interface, based on the receipt of an Authorization Request message, and MUST not delete the entry until the CM loses registration
         	**type**\: list of  		 :py:class:`DocsIetfBpi2CmtsAuthEntry <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsAuthTable.DocsIetfBpi2CmtsAuthEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1856,6 +2077,8 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsauthcmmacaddress  (key)
             
             	The value of this object is the physical address of the CM to which the authorization association applies
@@ -1863,10 +2086,14 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsauthcmbpiversion
             
             	The value of this object is the version of Baseline Privacy for which this CM has registered. The value 'bpiplus' represents the value of BPI\-Version Attribute of the Baseline Privacy Key Management BPKM attribute BPI\-Version (1). The value 'bpi' is used to represent the CM registered using DOCSIS 1.0 Baseline Privacy
             	**type**\:  :py:class:`DocsIetfBpi2CmtsAuthCmBpiVersion <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsAuthTable.DocsIetfBpi2CmtsAuthEntry.DocsIetfBpi2CmtsAuthCmBpiVersion>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsauthcmpublickey
             
@@ -1875,6 +2102,8 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**length:** 0..524
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsauthcmkeysequencenumber
             
             	The value of this object is the most recent authorization key sequence number for this CM
@@ -1882,15 +2111,21 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..15
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsauthcmexpiresold
             
             	The value of this object is the actual clock time for expiration of the immediate predecessor of the most recent authorization key for this FSM. If this FSM has only one authorization key, then the value is the time of activation of this FSM. Note\: This object has no meaning for CMs running in BPI mode, therefore this object is not instantiated for entries associated to those CMs
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsauthcmexpiresnew
             
             	The value of this object is the actual clock time for expiration of the most recent authorization key for this FSM
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsauthcmlifetime
             
@@ -1899,12 +2134,16 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 1..6048000
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: docsietfbpi2cmtsauthcmreset
             
             	Setting this object to invalidateAuth(2) causes the CMTS to invalidate the current CM authorization key(s), but not to transmit an Authorization Invalid message nor to invalidate the primary SAID's TEKs.  Setting this object to sendAuthInvalid(3) causes the CMTS to invalidate the current CM authorization key(s), and to transmit an Authorization Invalid message to the CM, but not to invalidate the primary SAID's TEKs.  Setting this object to invalidateTeks(4) causes the CMTS to invalidate the current CM authorization key(s), to transmit an Authorization Invalid message to the CM, and to invalidate the TEKs associated with this CM's primary SAID. For BPI mode, substitute all of the CM's unicast TEK(s) for the primary SAID's TEKs in the previous paragraph. Reading this object returns the most recently set value of this object, or returns noResetRequested(1) if the object has not been set since entry creation
             	**type**\:  :py:class:`DocsIetfBpi2CmtsAuthCmReset <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsAuthTable.DocsIetfBpi2CmtsAuthEntry.DocsIetfBpi2CmtsAuthCmReset>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsauthcminfos
             
@@ -1913,12 +2152,16 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsauthcmrequests
             
             	The value of this object is the count of times the CMTS has received an Authorization Request message from this CM. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsauthcmreplies
             
@@ -1927,12 +2170,16 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsauthcmrejects
             
             	The value of this object is the count of times the CMTS has transmitted an Authorization Reject message to this CM. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsauthcminvalids
             
@@ -1941,10 +2188,14 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsauthrejecterrorcode
             
             	The value of this object is the enumerated description of the Error\-Code in most recent Authorization Reject message transmitted to the CM.  This has value unknown(2) if the last Error\-Code value was 0, and none(1) if no Authorization Reject message has been transmitted to the CM, since entry creation
             	**type**\:  :py:class:`DocsIetfBpi2CmtsAuthRejectErrorCode <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsAuthTable.DocsIetfBpi2CmtsAuthEntry.DocsIetfBpi2CmtsAuthRejectErrorCode>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsauthrejecterrorstring
             
@@ -1953,10 +2204,14 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**length:** 0..128
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsauthinvaliderrorcode
             
             	The value of this object is the enumerated description of the Error\-Code in most recent Authorization Invalid message transmitted to the CM.  This has value unknown(2) if the last Error\-Code value was 0, and none(1) if no Authorization Invalid message has been transmitted to the CM since entry creation
             	**type**\:  :py:class:`DocsIetfBpi2CmtsAuthInvalidErrorCode <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsAuthTable.DocsIetfBpi2CmtsAuthEntry.DocsIetfBpi2CmtsAuthInvalidErrorCode>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsauthinvaliderrorstring
             
@@ -1965,6 +2220,8 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**length:** 0..128
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsauthprimarysaid
             
             	The value of this object is the Primary Security Association identifier.  For BPI mode, the value must be any unicast SID
@@ -1972,10 +2229,14 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..16383
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsauthbpkmcmcertvalid
             
             	Contains the reason why a CM's certificate is deemed valid or invalid. Return unknown(0) if the CM is running BPI mode. ValidCmChained(1) means the certificate is valid    because it chains to a valid certificate. ValidCmTrusted(2) means the certificate is valid    because it has been provisioned (in the    docsIetfBpi2CmtsProvisionedCmCert table) to be trusted. InvalidCmUntrusted(3) means the certificate is invalid      because it has been provisioned (in the      docsIetfBpi2CmtsProvisionedCmCert table) to be untrusted. InvalidCAUntrusted(4) means the certificate is invalid      because it chains to an untrusted certificate. InvalidCmOther(5) and InvalidCAOther(6) refer to      errors in parsing, validity periods, etc, which are      attributable to the CM certificate or its chain      respectively; additional information may be found      in docsIetfBpi2AuthRejectErrorString for these types      of errors. InvalidCmRevoked(7) means the certificate is    invalid as it was marked as revoked.  InvalidCARevoked(8) means the CA certificate is    invalid as it was marked as revoked
             	**type**\:  :py:class:`DocsIetfBpi2CmtsAuthBpkmCmCertValid <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsAuthTable.DocsIetfBpi2CmtsAuthEntry.DocsIetfBpi2CmtsAuthBpkmCmCertValid>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsauthbpkmcmcert
             
@@ -1984,12 +2245,16 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**length:** 0..4096
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsauthcacertindexptr
             
             	A row index into docsIetfBpi2CmtsCACertTable. Returns the index in docsIetfBpi2CmtsCACertTable which CA certificate this CM is chained to.  A value of 0 means it could not be found or not applicable
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2322,6 +2587,8 @@ class DOCSIETFBPI2MIB(Entity):
 
 
 
+
+
     class DocsIetfBpi2CmtsTEKTable(Entity):
         """
         This table describes the attributes of each
@@ -2333,6 +2600,8 @@ class DOCSIETFBPI2MIB(Entity):
         
         	Each entry contains objects describing attributes of one TEK association on a particular CMTS MAC interface. The CMTS MUST create one entry per SAID per MAC interface, based on the receipt of a Key Request message, and MUST not delete the entry before the CM authorization for the SAID permanently expires
         	**type**\: list of  		 :py:class:`DocsIetfBpi2CmtsTEKEntry <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsTEKTable.DocsIetfBpi2CmtsTEKEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2379,6 +2648,8 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsteksaid  (key)
             
             	The value of this object is the DOCSIS Security Association ID (SAID)
@@ -2386,20 +2657,28 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 1..16383
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsteksatype
             
             	The value of this object is the type of security association.  'dynamic' does not apply to CMs running in BPI mode.  Unicast BPI TEKs must utilize the 'primary' encoding and multicast BPI TEKs must utilize the 'static' encoding
             	**type**\:  :py:class:`DocsBpkmSAType <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DocsBpkmSAType>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtstekdataencryptalg
             
             	The value of this object is the data encryption algorithm for this SAID
             	**type**\:  :py:class:`DocsBpkmDataEncryptAlg <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DocsBpkmDataEncryptAlg>`
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtstekdataauthentalg
             
             	The value of this object is the data authentication algorithm for this SAID
             	**type**\:  :py:class:`DocsBpkmDataAuthentAlg <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DocsBpkmDataAuthentAlg>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsteklifetime
             
@@ -2407,6 +2686,8 @@ class DOCSIETFBPI2MIB(Entity):
             	**type**\: int
             
             	**range:** 1..604800
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -2417,20 +2698,28 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..15
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtstekexpiresold
             
             	The value of this object is the actual clock time for expiration of the immediate predecessor of the most recent TEK for this FSM. If this FSM has only one TEK, then the value is the time of activation of this FSM
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtstekexpiresnew
             
             	The value of this object is the actual clock time for expiration of the most recent TEK for this FSM
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtstekreset
             
             	Setting this object to 'true' causes the CMTS to invalidate all currently active TEK(s) and to generate new TEK(s) for the associated SAID; the CMTS MAY also generate unsolicited TEK Invalid message(s), to optimize the TEK synchronization between the CMTS and the CM(s). Reading this object always returns FALSE
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtskeyrequests
             
@@ -2439,12 +2728,16 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtskeyreplies
             
             	The value of this object is the count of times the CMTS has transmitted a Key Reply message. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtskeyrejects
             
@@ -2453,6 +2746,8 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtstekinvalids
             
             	The value of this object is the count of times the CMTS has transmitted a TEK Invalid message. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
@@ -2460,10 +2755,14 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtskeyrejecterrorcode
             
             	The value of this object is the enumerated description of the Error\-Code in the most recent Key Reject message sent in response to a Key Request for this SAID. This has value unknown(2) if the last Error\-Code value was 0, and none(1) if no Key Reject message has been received since registration
             	**type**\:  :py:class:`DocsIetfBpi2CmtsKeyRejectErrorCode <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsTEKTable.DocsIetfBpi2CmtsTEKEntry.DocsIetfBpi2CmtsKeyRejectErrorCode>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtskeyrejecterrorstring
             
@@ -2472,10 +2771,14 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**length:** 0..128
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtstekinvaliderrorcode
             
             	The value of this object is the enumerated description of the Error\-Code in the most recent TEK Invalid message sent in association with this SAID.  This has value unknown(2) if the last Error\-Code value was 0, and none(1) if no TEK Invalid message has been received since registration
             	**type**\:  :py:class:`DocsIetfBpi2CmtsTEKInvalidErrorCode <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsTEKTable.DocsIetfBpi2CmtsTEKEntry.DocsIetfBpi2CmtsTEKInvalidErrorCode>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtstekinvaliderrorstring
             
@@ -2483,6 +2786,8 @@ class DOCSIETFBPI2MIB(Entity):
             	**type**\: str
             
             	**length:** 0..128
+            
+            	**config**\: False
             
             
 
@@ -2608,6 +2913,8 @@ class DOCSIETFBPI2MIB(Entity):
 
 
 
+
+
     class DocsIetfBpi2CmtsIpMulticastMapTable(Entity):
         """
         This table maps multicast IP addresses to SAIDs.
@@ -2620,6 +2927,8 @@ class DOCSIETFBPI2MIB(Entity):
         
         	Each entry contains objects describing the mapping of a set of multicast IP address and mask to one SAID associated to a CMTS MAC Interface, as well as associated message counters and error information
         	**type**\: list of  		 :py:class:`DocsIetfBpi2CmtsIpMulticastMapEntry <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsIpMulticastMapTable.DocsIetfBpi2CmtsIpMulticastMapEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2665,6 +2974,8 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsipmulticastindex  (key)
             
             	The index of this row. Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
@@ -2672,10 +2983,14 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsipmulticastaddresstype
             
             	The type of internet address for docsIetfBpi2CmtsIpMulticastAddress and docsIetfBpi2CmtsIpMulticastMask
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsipmulticastaddress
             
@@ -2684,12 +2999,16 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsipmulticastmask
             
             	This object represents the IP multicast address mask for this row. An IP multicast address matches this row if the logical AND of the address with docsIetfBpi2CmtsIpMulticastMask is identical to the logical AND of docsIetfBpi2CmtsIpMulticastAddr with docsIetfBpi2CmtsIpMulticastMask. The type of this address is determined by the value of the object docsIetfBpi2CmtsIpMulticastAddressType.  Note\: For IPv6 this object needs not to represent a  contiguous netmask, e.g. to associate an SAID to a  multicast group matching 'any' multicast scope. The TC  InetAddressPrefixLength is not used because it only  represents contiguous netmask
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsipmulticastsaid
             
@@ -2698,20 +3017,28 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..16383
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsipmulticastsatype
             
             	The value of this object is the type of security association.  'dynamic' does not apply to CMs running in BPI mode.  Unicast BPI TEKs must utilize the 'primary' encoding and multicast BPI TEKs must utilize the 'static' encoding.  SNMP created entries set this object by default to 'static' if not set at row creation
             	**type**\:  :py:class:`DocsBpkmSAType <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DocsBpkmSAType>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsipmulticastdataencryptalg
             
             	The value of this object is the data encryption algorithm for this IP
             	**type**\:  :py:class:`DocsBpkmDataEncryptAlg <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DocsBpkmDataEncryptAlg>`
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsipmulticastdataauthentalg
             
             	The value of this object is the data authentication algorithm for this IP
             	**type**\:  :py:class:`DocsBpkmDataAuthentAlg <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DocsBpkmDataAuthentAlg>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsipmulticastsamaprequests
             
@@ -2720,12 +3047,16 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsipmulticastsamapreplies
             
             	The value of this object is the count of times the CMTS has transmitted an SA Map Reply message for this IP. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsipmulticastsamaprejects
             
@@ -2734,10 +3065,14 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsipmulticastsamaprejecterrorcode
             
             	The value of this object is the enumerated description of the Error\-Code in the most recent SA Map Reject message sent in response to a SA Map Request for This IP.  It has value unknown(2) if the last Error\-Code Value was 0, and none(1) if no SA MAP Reject message has been received since entry creation
             	**type**\:  :py:class:`DocsIetfBpi2CmtsIpMulticastSAMapRejectErrorCode <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsIpMulticastMapTable.DocsIetfBpi2CmtsIpMulticastMapEntry.DocsIetfBpi2CmtsIpMulticastSAMapRejectErrorCode>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsipmulticastsamaprejecterrorstring
             
@@ -2746,15 +3081,21 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**length:** 0..128
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsipmulticastmapcontrol
             
             	This object controls and reflects the IP multicast address mapping entry.  There is no restriction on the ability to change values in this row while the row is active. A created row can be set to active only after the Corresponding instances of docsIetfBpi2CmtsIpMulticastAddress, docsIetfBpi2CmtsIpMulticastMask, docsIetfBpi2CmtsIpMulticastSAId and docsIetfBpi2CmtsIpMulticastSAType have all been set
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsipmulticastmapstoragetype
             
             	The storage type for this conceptual row. Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            	**config**\: False
             
             
 
@@ -2849,6 +3190,8 @@ class DOCSIETFBPI2MIB(Entity):
 
 
 
+
+
     class DocsIetfBpi2CmtsMulticastAuthTable(Entity):
         """
         This table describes the multicast SAID
@@ -2858,6 +3201,8 @@ class DOCSIETFBPI2MIB(Entity):
         
         	Each entry contains objects describing the key authorization of one cable modem for one multicast SAID for one CMTS MAC interface. Row entries persist after re\-initialization of the managed system
         	**type**\: list of  		 :py:class:`DocsIetfBpi2CmtsMulticastAuthEntry <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsMulticastAuthTable.DocsIetfBpi2CmtsMulticastAuthEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2903,12 +3248,16 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsmulticastauthsaid  (key)
             
             	This object represents the multicast SAID for authorization
             	**type**\: int
             
             	**range:** 1..16383
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsmulticastauthcmmacaddress  (key)
             
@@ -2917,10 +3266,14 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsmulticastauthcontrol
             
             	The status of this conceptual row for the authorization of  multicast SAIDs to CMs. 
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -2956,6 +3309,8 @@ class DOCSIETFBPI2MIB(Entity):
                 self._perform_setattr(DOCSIETFBPI2MIB.DocsIetfBpi2CmtsMulticastAuthTable.DocsIetfBpi2CmtsMulticastAuthEntry, [u'ifindex', u'docsietfbpi2cmtsmulticastauthsaid', u'docsietfbpi2cmtsmulticastauthcmmacaddress', u'docsietfbpi2cmtsmulticastauthcontrol'], name, value)
 
 
+
+
     class DocsIetfBpi2CmtsProvisionedCmCertTable(Entity):
         """
         A table of CM certificate trust entries provisioned
@@ -2968,6 +3323,8 @@ class DOCSIETFBPI2MIB(Entity):
         
         	An entry in the CMTS's provisioned CM certificate table.  Row entries persist after re\-initialization of the managed system
         	**type**\: list of  		 :py:class:`DocsIetfBpi2CmtsProvisionedCmCertEntry <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsProvisionedCmCertTable.DocsIetfBpi2CmtsProvisionedCmCertEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3009,20 +3366,28 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsprovisionedcmcerttrust
             
             	Trust state for the provisioned CM certificate entry. Note\: Setting this object need only override the validity of CM certificates sent in future authorization requests; instantaneous effect need not occur
             	**type**\:  :py:class:`DocsIetfBpi2CmtsProvisionedCmCertTrust <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsProvisionedCmCertTable.DocsIetfBpi2CmtsProvisionedCmCertEntry.DocsIetfBpi2CmtsProvisionedCmCertTrust>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsprovisionedcmcertsource
             
             	This object indicates how the certificate reached the CMTS.  Other(4) means is originated from a source not identified above
             	**type**\:  :py:class:`DocsIetfBpi2CmtsProvisionedCmCertSource <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsProvisionedCmCertTable.DocsIetfBpi2CmtsProvisionedCmCertEntry.DocsIetfBpi2CmtsProvisionedCmCertSource>`
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtsprovisionedcmcertstatus
             
             	The status of this conceptual row. Values in this row cannot be changed while the row is 'active'
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtsprovisionedcmcert
             
@@ -3030,6 +3395,8 @@ class DOCSIETFBPI2MIB(Entity):
             	**type**\: str
             
             	**length:** 0..4096
+            
+            	**config**\: False
             
             
 
@@ -3119,6 +3486,8 @@ class DOCSIETFBPI2MIB(Entity):
 
 
 
+
+
     class DocsIetfBpi2CmtsCACertTable(Entity):
         """
         The table of known Certificate Authority certificates
@@ -3128,6 +3497,8 @@ class DOCSIETFBPI2MIB(Entity):
         
         	A row in the Certificate Authority certificate table.  Row entries with trust status 'trusted', 'untrusted', or 'root' persist after re\-initialization  of the managed system
         	**type**\: list of  		 :py:class:`DocsIetfBpi2CmtsCACertEntry <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsCACertTable.DocsIetfBpi2CmtsCACertEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3170,15 +3541,21 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtscacertsubject
             
             	The subject name exactly as it is encoded in the X509 certificate. The organizationName portion of the certificate's subject name must be present.  All other fields are optional.  Any optional field present must be pre pended with <CR> (carriage return, U+000D) <LF> (line feed, U+000A). Ordering of fields present must conform to\: organizationName <CR> <LF> countryName <CR> <LF> stateOrProvinceName <CR> <LF> localityName <CR> <LF> organizationalUnitName <CR> <LF> organizationalUnitName=<Manufacturing Location> <CR> <LF> commonName
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtscacertissuer
             
             	The issuer name exactly as it is encoded in the X509 certificate. The commonName portion of the certificate's issuer name must be present.  All other fields are optional.  Any optional field present must be pre pended with <CR> (carriage return, U+000D) <LF> (line feed, U+000A). Ordering of fields present must conform to\:  CommonName <CR><LF> countryName <CR><LF> stateOrProvinceName <CR><LF> localityName <CR><LF> organizationName <CR><LF> organizationalUnitName <CR><LF> organizationalUnitName=<Manufacturing Location>
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtscacertserialnumber
             
@@ -3187,20 +3564,28 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**length:** 1..32
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtscacerttrust
             
             	This object controls the trust status of this certificate.  Root certificates must be given root(4) trust; manufacturer certificates must not be given root(4) trust.  Trust on root certificates must not change. Note\: Setting this object need only affect the validity of CM certificates sent in future authorization requests; instantaneous effect need not occur
             	**type**\:  :py:class:`DocsIetfBpi2CmtsCACertTrust <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsCACertTable.DocsIetfBpi2CmtsCACertEntry.DocsIetfBpi2CmtsCACertTrust>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtscacertsource
             
             	This object indicates how the certificate reached the CMTS.  Other(4) means it originated from a source not identified above
             	**type**\:  :py:class:`DocsIetfBpi2CmtsCACertSource <ydk.models.cisco_ios_xe.DOCS_IETF_BPI2_MIB.DOCSIETFBPI2MIB.DocsIetfBpi2CmtsCACertTable.DocsIetfBpi2CmtsCACertEntry.DocsIetfBpi2CmtsCACertSource>`
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtscacertstatus
             
             	The status of this conceptual row. An attempt to set writable columnar values while this row is active behaves as follows\: \- Sets to the object docsIetfBpi2CmtsCACertTrust are allowed. \- Sets to the object docsIetfBpi2CmtsCACert will return an   error inconsistentValue'. A newly create entry cannot be set to active until the value of docsIetfBpi2CmtsCACert is being set
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             .. attribute:: docsietfbpi2cmtscacert
             
@@ -3209,12 +3594,16 @@ class DOCSIETFBPI2MIB(Entity):
             
             	**length:** 0..4096
             
+            	**config**\: False
+            
             .. attribute:: docsietfbpi2cmtscacertthumbprint
             
             	The SHA\-1 hash of a CA certificate. To help identify certificates, either this object or docsIetfBpi2CmtsCACert must be returned by a CMTS for self\-signed CA certificates.  Note\: The zero\-length OCTET STRING must be returned, on reads, if the CA certificate thumb print is not retained in the CMTS
             	**type**\: str
             
             	**length:** 20
+            
+            	**config**\: False
             
             
 
@@ -3333,7 +3722,11 @@ class DOCSIETFBPI2MIB(Entity):
                 root = Enum.YLeaf(4, "root")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = DOCSIETFBPI2MIB()
         return self._top_entity
+
+
 

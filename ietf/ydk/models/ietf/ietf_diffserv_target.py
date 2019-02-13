@@ -42,6 +42,7 @@ class Direction(Identity):
         super(Direction, self).__init__(ns, pref, tag)
 
 
+
 class Inbound(Direction):
     """
     Direction of traffic coming into the network entry
@@ -57,6 +58,7 @@ class Inbound(Direction):
         super(Inbound, self).__init__(ns, pref, tag)
 
 
+
 class Outbound(Direction):
     """
     Direction of traffic going out of the network entry
@@ -70,5 +72,6 @@ class Outbound(Direction):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-target", pref="ietf-diffserv-target", tag="ietf-diffserv-target:outbound"):
         super(Outbound, self).__init__(ns, pref, tag)
+
 
 

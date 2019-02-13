@@ -200,9 +200,13 @@ class StartTransaction(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(StartTransaction.Input.Target, ['startup', 'running', 'candidate'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = StartTransaction()
         return self._top_entity
+
+
 
 class PrepareTransaction(Entity):
     """
@@ -251,6 +255,8 @@ class PrepareTransaction(Entity):
         self._top_entity = PrepareTransaction()
         return self._top_entity
 
+
+
 class CommitTransaction(Entity):
     """
     Applies the changes made in the transaction to the configuration
@@ -284,6 +290,8 @@ class CommitTransaction(Entity):
         self._top_entity = CommitTransaction()
         return self._top_entity
 
+
+
 class AbortTransaction(Entity):
     """
     Aborts the ongoing transaction, and all pending changes are
@@ -316,4 +324,6 @@ class AbortTransaction(Entity):
     def clone_ptr(self):
         self._top_entity = AbortTransaction()
         return self._top_entity
+
+
 

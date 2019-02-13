@@ -366,6 +366,7 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.Padr, ['session_unique_relay_session_id', 'invalid_payload_allow'], name, value)
 
 
+
                 class ServiceNameConfigureds(Entity):
                     """
                     Service name
@@ -439,6 +440,8 @@ class PppoeCfg(Entity):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds.ServiceNameConfigured, ['name'], name, value)
 
 
+
+
                 class PppMaxPayload(Entity):
                     """
                     Minimum and maximum payloads
@@ -491,6 +494,8 @@ class PppoeCfg(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.PppMaxPayload, ['min', 'max'], name, value)
+
+
 
 
             class Sessions(Entity):
@@ -797,6 +802,7 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
 
 
+
                 class InnerVlanThrottle(Entity):
                     """
                     Set Inner VLAN session throttle
@@ -862,6 +868,7 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
 
 
+
                 class RemoteIdLimit(Entity):
                     """
                     Set Remote ID session limit and threshold
@@ -912,6 +919,7 @@ class PppoeCfg(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdLimit, ['limit', 'threshold'], name, value)
+
 
 
                 class MacIwfAccessInterfaceThrottle(Entity):
@@ -980,6 +988,7 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
 
 
+
                 class AccessInterfaceLimit(Entity):
                     """
                     Set per\-access interface limit
@@ -1030,6 +1039,7 @@ class PppoeCfg(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.AccessInterfaceLimit, ['limit', 'threshold'], name, value)
+
 
 
                 class MacAccessInterfaceThrottle(Entity):
@@ -1097,6 +1107,7 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
 
 
+
                 class OuterVlanLimit(Entity):
                     """
                     Set Outer VLAN session limit and threshold
@@ -1147,6 +1158,7 @@ class PppoeCfg(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanLimit, ['limit', 'threshold'], name, value)
+
 
 
                 class CircuitIdThrottle(Entity):
@@ -1214,6 +1226,7 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
 
 
+
                 class MacLimit(Entity):
                     """
                     Set per\-MAC address session limit and
@@ -1267,6 +1280,7 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacLimit, ['limit', 'threshold'], name, value)
 
 
+
                 class CircuitIdLimit(Entity):
                     """
                     Set Circuit ID session limit and threshold
@@ -1317,6 +1331,7 @@ class PppoeCfg(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdLimit, ['limit', 'threshold'], name, value)
+
 
 
                 class MacIwfLimit(Entity):
@@ -1372,6 +1387,7 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfLimit, ['limit', 'threshold'], name, value)
 
 
+
                 class MacIwfAccessInterfaceLimit(Entity):
                     """
                     Set per\-MAC access interface session limit
@@ -1425,6 +1441,7 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceLimit, ['limit', 'threshold'], name, value)
 
 
+
                 class InnerVlanLimit(Entity):
                     """
                     Set Inner VLAN session limit and threshold
@@ -1475,6 +1492,7 @@ class PppoeCfg(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanLimit, ['limit', 'threshold'], name, value)
+
 
 
                 class OuterVlanThrottle(Entity):
@@ -1542,6 +1560,7 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
 
 
+
                 class MacThrottle(Entity):
                     """
                     Set per\-MAC throttle
@@ -1607,6 +1626,7 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
 
 
+
                 class CircuitIdAndRemoteIdLimit(Entity):
                     """
                     Set Circuit ID and Remote ID session
@@ -1658,6 +1678,7 @@ class PppoeCfg(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdLimit, ['limit', 'threshold'], name, value)
+
 
 
                 class VlanLimit(Entity):
@@ -1713,6 +1734,7 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanLimit, ['limit', 'threshold'], name, value)
 
 
+
                 class MacAccessInterfaceLimit(Entity):
                     """
                     Set per\-MAC access interface session limit
@@ -1764,6 +1786,7 @@ class PppoeCfg(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceLimit, ['limit', 'threshold'], name, value)
+
 
 
                 class RemoteIdThrottle(Entity):
@@ -1831,6 +1854,7 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
 
 
+
                 class MaxLimit(Entity):
                     """
                     Set per\-card session limit and threshold
@@ -1881,6 +1905,7 @@ class PppoeCfg(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MaxLimit, ['limit', 'threshold'], name, value)
+
 
 
                 class CircuitIdAndRemoteIdThrottle(Entity):
@@ -1948,6 +1973,8 @@ class PppoeCfg(Entity):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
 
 
+
+
             class ControlPackets(Entity):
                 """
                 PPPoE control\-packet configuration data
@@ -1984,6 +2011,7 @@ class PppoeCfg(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.ControlPackets, ['priority'], name, value)
+
 
 
             class PaDoDelay(Entity):
@@ -2195,6 +2223,8 @@ class PppoeCfg(Entity):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings.RemoteIdSubstring, ['name', 'delay'], name, value)
 
 
+
+
                 class RemoteIdStrings(Entity):
                     """
                     Delay the PADO response when there is an
@@ -2281,6 +2311,8 @@ class PppoeCfg(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings.RemoteIdString, ['name', 'delay'], name, value)
+
+
 
 
                 class ServiceNameStrings(Entity):
@@ -2371,6 +2403,8 @@ class PppoeCfg(Entity):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings.ServiceNameString, ['name', 'delay'], name, value)
 
 
+
+
                 class CircuitIdSubstrings(Entity):
                     """
                     Delay the PADO response when the received
@@ -2457,6 +2491,8 @@ class PppoeCfg(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings.CircuitIdSubstring, ['name', 'delay'], name, value)
+
+
 
 
                 class ServiceNameSubstrings(Entity):
@@ -2547,6 +2583,8 @@ class PppoeCfg(Entity):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings.ServiceNameSubstring, ['name', 'delay'], name, value)
 
 
+
+
                 class CircuitIdStrings(Entity):
                     """
                     Delay the PADO response when there is an
@@ -2634,7 +2672,14 @@ class PppoeCfg(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings.CircuitIdString, ['name', 'delay'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = PppoeCfg()
         return self._top_entity
+
+
 

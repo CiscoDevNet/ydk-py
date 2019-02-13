@@ -475,6 +475,8 @@ class Pce(Entity):
                 self._perform_setattr(Pce.Ipv6StateSyncs.Ipv6StateSync, ['address'], name, value)
 
 
+
+
     class PccAddresses(Entity):
         """
         Path computation client configuration
@@ -806,6 +808,7 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Affinity, ['include_any', 'include_all', 'exclude_any'], name, value)
 
 
+
                         class Priority(Entity):
                             """
                             Tunnel Setup and Hold Priorities
@@ -860,6 +863,12 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Priority, ['setup_priority', 'hold_priority'], name, value)
 
 
+
+
+
+
+
+
     class Logging(Entity):
         """
         PCE logging configuration
@@ -909,6 +918,7 @@ class Pce(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(Pce.Logging, ['no_path', 'pcerr', 'fallback'], name, value)
+
 
 
     class Backoff(Entity):
@@ -975,6 +985,7 @@ class Pce(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(Pce.Backoff, ['ratio', 'threshold', 'difference'], name, value)
+
 
 
     class Rest(Entity):
@@ -1128,6 +1139,9 @@ class Pce(Entity):
                     self._perform_setattr(Pce.Rest.RestUsers.RestUser, ['name', 'rest_user_password', 'enable'], name, value)
 
 
+
+
+
     class StateSyncs(Entity):
         """
         Standby IPv4 PCE configuration
@@ -1201,6 +1215,8 @@ class Pce(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Pce.StateSyncs.StateSync, ['address'], name, value)
+
+
 
 
     class SegmentRouting(Entity):
@@ -1404,6 +1420,8 @@ class Pce(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.AffinityBits.AffinityBit, ['color_name', 'bit'], name, value)
+
+
 
 
             class Peers(Entity):
@@ -1662,6 +1680,7 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.BindingSid, ['binding_sid_type', 'mpls_label'], name, value)
 
 
+
                             class ColorEndpoint(Entity):
                                 """
                                 Color and Endpoint
@@ -1720,6 +1739,7 @@ class Pce(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.ColorEndpoint, ['color', 'end_point_type', 'end_point_address'], name, value)
+
 
 
                             class CandidatePaths(Entity):
@@ -1856,6 +1876,8 @@ class Pce(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.AffinityRules.AffinityRule, ['rule', 'aff_value'], name, value)
+
+
 
 
                                 class Preferences(Entity):
@@ -2094,6 +2116,16 @@ class Pce(Entity):
                                                         self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Peers.Peer.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric, ['metric_type'], name, value)
 
 
+
+
+
+
+
+
+
+
+
+
             class Segments(Entity):
                 """
                 Segment\-lists configuration
@@ -2277,6 +2309,12 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.SegmentRouting.TrafficEngineering.Segments.Segment.Segments_.Segment_, ['segment_index', 'segment_type', 'address', 'mpls_label'], name, value)
 
 
+
+
+
+
+
+
     class Timers(Entity):
         """
         PCE Timers configuration
@@ -2347,6 +2385,7 @@ class Pce(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(Pce.Timers, ['reoptimization_timer', 'keepalive', 'minimum_peer_keepalive'], name, value)
+
 
 
     class Netconf(Entity):
@@ -2439,6 +2478,8 @@ class Pce(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Pce.Netconf.NetconfSsh, ['netconf_ssh_password', 'netconf_ssh_user'], name, value)
+
+
 
 
     class DisjointPath(Entity):
@@ -2700,6 +2741,11 @@ class Pce(Entity):
                             self._perform_setattr(Pce.DisjointPath.Groups.Group.GroupLspRecords.GroupLspRecord, ['lsp_id', 'ip_addr', 'lsp_name', 'disj_path'], name, value)
 
 
+
+
+
+
+
     class ExplicitPaths(Entity):
         """
         Explicit paths
@@ -2903,7 +2949,13 @@ class Pce(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.ExplicitPaths.ExplicitPath.PathHops.PathHop, ['index', 'hop_type', 'address', 'remote_address', 'mpls_label'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Pce()
         return self._top_entity
+
+
 

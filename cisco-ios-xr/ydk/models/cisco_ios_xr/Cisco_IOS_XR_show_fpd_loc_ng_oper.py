@@ -30,30 +30,42 @@ class ShowFpd(Entity):
     	location table
     	**type**\:  :py:class:`Locations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations>`
     
+    	**config**\: False
+    
     .. attribute:: hw_module_fpd
     
     	Display fpds on all locations \-show hw\-module fpd
     	**type**\:  :py:class:`HwModuleFpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HwModuleFpd>`
+    
+    	**config**\: False
     
     .. attribute:: help_locations
     
     	help location table
     	**type**\:  :py:class:`HelpLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HelpLocations>`
     
+    	**config**\: False
+    
     .. attribute:: hw_module_fpd_help_fpd
     
     	Display help\-fpd \-show hw\-module fpd help\-fpd
     	**type**\:  :py:class:`HwModuleFpdHelpFpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HwModuleFpdHelpFpd>`
+    
+    	**config**\: False
     
     .. attribute:: package
     
     	gets fpd package info
     	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Package>`
     
+    	**config**\: False
+    
     .. attribute:: location_help
     
     	fpd upgradable locations
     	**type**\:  :py:class:`LocationHelp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.LocationHelp>`
+    
+    	**config**\: False
     
     
 
@@ -113,6 +125,8 @@ class ShowFpd(Entity):
         	location
         	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location>`
         
+        	**config**\: False
+        
         
 
         """
@@ -151,10 +165,14 @@ class ShowFpd(Entity):
             
             	**length:** 1..32
             
+            	**config**\: False
+            
             .. attribute:: details
             
             	Display fpds on given locations
             	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location.Details>`
+            
+            	**config**\: False
             
             
 
@@ -197,6 +215,8 @@ class ShowFpd(Entity):
                 	Display fpds detail
                 	**type**\: list of  		 :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location.Details.Detail>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -234,15 +254,21 @@ class ShowFpd(Entity):
                     
                     	**length:** 1..32
                     
+                    	**config**\: False
+                    
                     .. attribute:: upgrade_status
                     
                     	Either Upgrading or free used by CTC 
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: fpd_info_detaile
                     
                     	 fpd list with all detailes
                     	**type**\: list of  		 :py:class:`FpdInfoDetaile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Locations.Location.Details.Detail.FpdInfoDetaile>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -272,7 +298,7 @@ class ShowFpd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ShowFpd.Locations.Location.Details.Detail, ['fpd_name', 'upgrade_status'], name, value)
+                        self._perform_setattr(ShowFpd.Locations.Location.Details.Detail, ['fpd_name', u'upgrade_status'], name, value)
 
 
                     class FpdInfoDetaile(Entity):
@@ -284,40 +310,56 @@ class ShowFpd(Entity):
                         	fpd location
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: card_name
                         
                         	Name of card on which fpd is located
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: fpd_name
                         
                         	fpd name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: hw_version
                         
                         	hadware version
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: secure_boot_attr
                         
                         	secure boot attribur
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: status
                         
                         	status of the fpd
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: running_version
                         
                         	image running version 
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: programd_version
                         
                         	image programd version
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -357,7 +399,12 @@ class ShowFpd(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ShowFpd.Locations.Location.Details.Detail.FpdInfoDetaile, ['location', 'card_name', 'fpd_name', 'hw_version', 'secure_boot_attr', 'status', 'running_version', 'programd_version'], name, value)
+                            self._perform_setattr(ShowFpd.Locations.Location.Details.Detail.FpdInfoDetaile, [u'location', u'card_name', u'fpd_name', u'hw_version', u'secure_boot_attr', u'status', u'running_version', u'programd_version'], name, value)
+
+
+
+
+
 
 
     class HwModuleFpd(Entity):
@@ -370,10 +417,14 @@ class ShowFpd(Entity):
         	Either Upgrading or free used by CTC 
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: fpd_info_detaile
         
         	 fpd list with all detailes
         	**type**\: list of  		 :py:class:`FpdInfoDetaile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HwModuleFpd.FpdInfoDetaile>`
+        
+        	**config**\: False
         
         
 
@@ -402,7 +453,7 @@ class ShowFpd(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ShowFpd.HwModuleFpd, ['upgrade_status'], name, value)
+            self._perform_setattr(ShowFpd.HwModuleFpd, [u'upgrade_status'], name, value)
 
 
         class FpdInfoDetaile(Entity):
@@ -414,40 +465,56 @@ class ShowFpd(Entity):
             	fpd location
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: card_name
             
             	Name of card on which fpd is located
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: fpd_name
             
             	fpd name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: hw_version
             
             	hadware version
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: secure_boot_attr
             
             	secure boot attribur
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: status
             
             	status of the fpd
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: running_version
             
             	image running version 
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: programd_version
             
             	image programd version
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -488,7 +555,9 @@ class ShowFpd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ShowFpd.HwModuleFpd.FpdInfoDetaile, ['location', 'card_name', 'fpd_name', 'hw_version', 'secure_boot_attr', 'status', 'running_version', 'programd_version'], name, value)
+                self._perform_setattr(ShowFpd.HwModuleFpd.FpdInfoDetaile, [u'location', u'card_name', u'fpd_name', u'hw_version', u'secure_boot_attr', u'status', u'running_version', u'programd_version'], name, value)
+
+
 
 
     class HelpLocations(Entity):
@@ -499,6 +568,8 @@ class ShowFpd(Entity):
         
         	location
         	**type**\: list of  		 :py:class:`HelpLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HelpLocations.HelpLocation>`
+        
+        	**config**\: False
         
         
 
@@ -538,10 +609,14 @@ class ShowFpd(Entity):
             
             	**length:** 1..32
             
+            	**config**\: False
+            
             .. attribute:: help_fpd
             
             	Display fpds on given locations
             	**type**\:  :py:class:`HelpFpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HelpLocations.HelpLocation.HelpFpd>`
+            
+            	**config**\: False
             
             
 
@@ -584,6 +659,8 @@ class ShowFpd(Entity):
                 	Fpd name list
                 	**type**\: list of  		 :py:class:`FpdName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HelpLocations.HelpLocation.HelpFpd.FpdName>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -619,10 +696,14 @@ class ShowFpd(Entity):
                     	fpd location
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: fpd_name
                     
                     	fpd name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -650,7 +731,11 @@ class ShowFpd(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ShowFpd.HelpLocations.HelpLocation.HelpFpd.FpdName, ['location', 'fpd_name'], name, value)
+                        self._perform_setattr(ShowFpd.HelpLocations.HelpLocation.HelpFpd.FpdName, [u'location', u'fpd_name'], name, value)
+
+
+
+
 
 
     class HwModuleFpdHelpFpd(Entity):
@@ -661,6 +746,8 @@ class ShowFpd(Entity):
         
         	Fpd name list
         	**type**\: list of  		 :py:class:`FpdName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.HwModuleFpdHelpFpd.FpdName>`
+        
+        	**config**\: False
         
         
 
@@ -698,10 +785,14 @@ class ShowFpd(Entity):
             	fpd location
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: fpd_name
             
             	fpd name
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -730,7 +821,9 @@ class ShowFpd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ShowFpd.HwModuleFpdHelpFpd.FpdName, ['location', 'fpd_name'], name, value)
+                self._perform_setattr(ShowFpd.HwModuleFpdHelpFpd.FpdName, [u'location', u'fpd_name'], name, value)
+
+
 
 
     class Package(Entity):
@@ -741,6 +834,8 @@ class ShowFpd(Entity):
         
         	 fpd pkg list 
         	**type**\: list of  		 :py:class:`FpdPkgData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.Package.FpdPkgData>`
+        
+        	**config**\: False
         
         
 
@@ -778,30 +873,42 @@ class ShowFpd(Entity):
             	card type
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: fpd_desc
             
             	fpd desc
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: upgrade_method
             
             	reload or not
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: fpd_ver
             
             	fpd version
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: min_sw_ver
             
             	minimum sw version
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: min_hw_ver
             
             	minimum hw version
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -838,7 +945,9 @@ class ShowFpd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ShowFpd.Package.FpdPkgData, ['card_type', 'fpd_desc', 'upgrade_method', 'fpd_ver', 'min_sw_ver', 'min_hw_ver'], name, value)
+                self._perform_setattr(ShowFpd.Package.FpdPkgData, [u'card_type', u'fpd_desc', u'upgrade_method', u'fpd_ver', u'min_sw_ver', u'min_hw_ver'], name, value)
+
+
 
 
     class LocationHelp(Entity):
@@ -849,6 +958,8 @@ class ShowFpd(Entity):
         
         	card location list
         	**type**\: list of  		 :py:class:`LocationName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_show_fpd_loc_ng_oper.ShowFpd.LocationHelp.LocationName>`
+        
+        	**config**\: False
         
         
 
@@ -886,6 +997,8 @@ class ShowFpd(Entity):
             	card location
             	**type**\: str
             
+            	**config**\: False
+            
             
 
             """
@@ -911,9 +1024,13 @@ class ShowFpd(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ShowFpd.LocationHelp.LocationName, ['location_name'], name, value)
+                self._perform_setattr(ShowFpd.LocationHelp.LocationName, [u'location_name'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = ShowFpd()
         return self._top_entity
+
+
 

@@ -30,6 +30,8 @@ class Oor(Entity):
     	OOR data for available nodes
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class Oor(Entity):
         
         	DPA operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -106,15 +110,21 @@ class Oor(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: summary
             
             	Summary
             	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.Summary>`
             
+            	**config**\: False
+            
             .. attribute:: interface_names
             
             	OOR Interface Information
             	**type**\:  :py:class:`InterfaceNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceNames>`
+            
+            	**config**\: False
             
             
 
@@ -163,6 +173,8 @@ class Oor(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: green
                 
                 	interfaces in green state
@@ -170,12 +182,16 @@ class Oor(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: yel_low
                 
                 	interfaces in yellow state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -208,6 +224,7 @@ class Oor(Entity):
                     self._perform_setattr(Oor.Nodes.Node.Summary, ['red', 'green', 'yel_low'], name, value)
 
 
+
             class InterfaceNames(Entity):
                 """
                 OOR Interface Information
@@ -216,6 +233,8 @@ class Oor(Entity):
                 
                 	OOR Data for particular interface
                 	**type**\: list of  		 :py:class:`InterfaceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceNames.InterfaceName>`
+                
+                	**config**\: False
                 
                 
 
@@ -254,10 +273,14 @@ class Oor(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface
                     
                     	Interface details
                     	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceNames.InterfaceName.Interface>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -297,25 +320,35 @@ class Oor(Entity):
                         	Name of the interface
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: interface_status
                         
                         	The current state of the interface
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: time_stamp
                         
                         	Timestamp
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: npu_id
                         
                         	Npuid of the interface
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: hardware_resource
                         
                         	Type of harware resoruce
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -351,7 +384,14 @@ class Oor(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Oor.Nodes.Node.InterfaceNames.InterfaceName.Interface, ['interface_name', 'interface_status', 'time_stamp', 'npu_id', 'hardware_resource'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Oor()
         return self._top_entity
+
+
 

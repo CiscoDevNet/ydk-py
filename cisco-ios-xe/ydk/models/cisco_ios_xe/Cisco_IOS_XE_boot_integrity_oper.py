@@ -28,12 +28,16 @@ class BootIntegrityOperData(Entity):
     
     	**presence node**\: True
     
+    	**config**\: False
+    
     .. attribute:: sudi_certificate
     
     	List of system  certificate measurements for Cisco Root CA (CRCA), Cisco Manufacturing CA (CMCA), and ACT2 RSA Secure Unique Device  Identity (SUDI) CA PEM certifcates and SUDI generated signatures. These measurements are captured utilizing Trusted Anchor Module (TAM) services to communicate with system ACT2  (2nd Gen Anti\-Counterfeit Technology) hardware chip
     	**type**\:  :py:class:`SudiCertificate <ydk.models.cisco_ios_xe.Cisco_IOS_XE_boot_integrity_oper.BootIntegrityOperData.SudiCertificate>`
     
     	**presence node**\: True
+    
+    	**config**\: False
     
     
 
@@ -80,35 +84,49 @@ class BootIntegrityOperData(Entity):
         	Product Identifier
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: boot_ver
         
         	Boot 0 Version
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: boot_loader_ver
         
         	Boot Loader Version
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: os_version
         
         	Operating System Version
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: boot_hash
         
         	Boot 0 Hash
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: boot_loader_hash
         
         	Boot Loader Hash
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: os_hash
         
         	Operating System Hash
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: package_count
         
@@ -117,20 +135,28 @@ class BootIntegrityOperData(Entity):
         
         	**range:** 0..255
         
+        	**config**\: False
+        
         .. attribute:: pcr_register
         
         	System Platform Configuration Registers
         	**type**\: list of  		 :py:class:`PcrRegister <ydk.models.cisco_ios_xe.Cisco_IOS_XE_boot_integrity_oper.BootIntegrityOperData.BootIntegrity.PcrRegister>`
+        
+        	**config**\: False
         
         .. attribute:: package_signature
         
         	System Package Signatures
         	**type**\: list of  		 :py:class:`PackageSignature <ydk.models.cisco_ios_xe.Cisco_IOS_XE_boot_integrity_oper.BootIntegrityOperData.BootIntegrity.PackageSignature>`
         
+        	**config**\: False
+        
         .. attribute:: signature
         
         	System ACT2 PCR Quote Signed Signature
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: sig_version
         
@@ -138,6 +164,8 @@ class BootIntegrityOperData(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -202,10 +230,14 @@ class BootIntegrityOperData(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: pcr_content
             
             	References PCR Register Content
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -237,6 +269,7 @@ class BootIntegrityOperData(Entity):
                 self._perform_setattr(BootIntegrityOperData.BootIntegrity.PcrRegister, ['index', 'pcr_content'], name, value)
 
 
+
         class PackageSignature(Entity):
             """
             System Package Signatures
@@ -246,10 +279,14 @@ class BootIntegrityOperData(Entity):
             	Package Name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: hash
             
             	Package Hash
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -281,6 +318,8 @@ class BootIntegrityOperData(Entity):
                 self._perform_setattr(BootIntegrityOperData.BootIntegrity.PackageSignature, ['name', 'hash'], name, value)
 
 
+
+
     class SudiCertificate(Entity):
         """
         List of system  certificate measurements for Cisco Root CA (CRCA),
@@ -295,20 +334,28 @@ class BootIntegrityOperData(Entity):
         	Cisco Root CA PEM Certficate
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: cmca_pem
         
         	Cisco Manufacturing CA PEM Certficate
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: sudi_pem
         
         	ACT2 RSA SUDI CA PEM Certficate
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: sudi_signature
         
         	ACT2 RSA SUDI Certificate Generated Signature
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -346,7 +393,10 @@ class BootIntegrityOperData(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(BootIntegrityOperData.SudiCertificate, ['crca_pem', 'cmca_pem', 'sudi_pem', 'sudi_signature'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = BootIntegrityOperData()
         return self._top_entity
+
+
 

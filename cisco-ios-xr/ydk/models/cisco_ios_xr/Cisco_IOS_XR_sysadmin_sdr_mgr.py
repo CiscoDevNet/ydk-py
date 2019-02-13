@@ -183,25 +183,35 @@ class SdrConfig(Entity):
         	
         	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrConfig.Sdr.Action>`
         
+        	**config**\: False
+        
         .. attribute:: detail
         
         	
         	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrConfig.Sdr.Detail>`
+        
+        	**config**\: False
         
         .. attribute:: reboot_history
         
         	
         	**type**\:  :py:class:`RebootHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrConfig.Sdr.RebootHistory>`
         
+        	**config**\: False
+        
         .. attribute:: nodes
         
         	
         	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrConfig.Sdr.Nodes>`
         
+        	**config**\: False
+        
         .. attribute:: pairing2
         
         	
         	**type**\:  :py:class:`Pairing2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrConfig.Sdr.Pairing2>`
+        
+        	**config**\: False
         
         .. attribute:: pairing
         
@@ -418,6 +428,8 @@ class SdrConfig(Entity):
                     self._perform_setattr(SdrConfig.Sdr.Resources.CardType, ['type', 'vm_memory', 'vm_cpu'], name, value)
 
 
+
+
         class Location(Entity):
             """
             Enter list of nodes' location to add to this LR
@@ -456,6 +468,7 @@ class SdrConfig(Entity):
                 self._perform_setattr(SdrConfig.Sdr.Location, ['node_location'], name, value)
 
 
+
         class Action(Entity):
             """
             
@@ -464,6 +477,8 @@ class SdrConfig(Entity):
             
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrConfig.Sdr.Action.Location>`
+            
+            	**config**\: False
             
             
 
@@ -502,6 +517,8 @@ class SdrConfig(Entity):
                 
                 	**pattern:** ((0?[0\-9]\|1[1\-5]\|[bB]\\d)/((([rR]([sS]){0,1}[pP])\|[cC][bB])?\\d{1,2})/[V][M](0?[0\-9]\|1[1\-5]))?\|all
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -529,6 +546,8 @@ class SdrConfig(Entity):
                     self._perform_setattr(SdrConfig.Sdr.Action.Location, ['node_location'], name, value)
 
 
+
+
         class Detail(Entity):
             """
             
@@ -537,6 +556,8 @@ class SdrConfig(Entity):
             
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrConfig.Sdr.Detail.Location>`
+            
+            	**config**\: False
             
             
 
@@ -575,12 +596,16 @@ class SdrConfig(Entity):
                 
                 	**pattern:** ((0?[0\-9]\|1[1\-5]\|[bB]\\d)/((([rR]([sS]){0,1}[pP])\|[cC][bB])?\\d{1,2})/[V][M](0?[0\-9]\|1[1\-5]))?
                 
+                	**config**\: False
+                
                 .. attribute:: sdr_id
                 
                 	
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: ip_addr
                 
@@ -595,25 +620,35 @@ class SdrConfig(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: mac_address
                 
                 	MAC address of VM
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: boot_part
                 
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: data_part
                 
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: big_disk
                 
                 	
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: vm_id
                 
@@ -622,12 +657,16 @@ class SdrConfig(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: vmcpu
                 
                 	
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: vmmemory
                 
@@ -636,45 +675,63 @@ class SdrConfig(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: card_type
                 
                 	
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: card_serial
                 
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: rack_type
                 
                 	
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: chassis_serial
                 
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: hw_version
                 
                 	
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: mgmt_ext_vlan
                 
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	State of VM
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: start_time
                 
                 	
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: reboot_count
                 
@@ -683,6 +740,8 @@ class SdrConfig(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: rh_count
                 
                 	Number of times rebooted since lasr card reload
@@ -690,10 +749,14 @@ class SdrConfig(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: reboot_hist1
                 
                 	
                 	**type**\: list of  		 :py:class:`RebootHist1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrConfig.Sdr.Detail.Location.RebootHist1>`
+                
+                	**config**\: False
                 
                 
 
@@ -773,15 +836,21 @@ class SdrConfig(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: time
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: reason
                     
                     	Reason for reload
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -814,6 +883,9 @@ class SdrConfig(Entity):
                         self._perform_setattr(SdrConfig.Sdr.Detail.Location.RebootHist1, ['count', 'time', 'reason'], name, value)
 
 
+
+
+
         class RebootHistory(Entity):
             """
             
@@ -823,10 +895,14 @@ class SdrConfig(Entity):
             	
             	**type**\:  :py:class:`Reverse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrConfig.Sdr.RebootHistory.Reverse>`
             
+            	**config**\: False
+            
             .. attribute:: default_disp
             
             	
             	**type**\:  :py:class:`DefaultDisp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrConfig.Sdr.RebootHistory.DefaultDisp>`
+            
+            	**config**\: False
             
             
 
@@ -869,6 +945,8 @@ class SdrConfig(Entity):
                 	
                 	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrConfig.Sdr.RebootHistory.Reverse.Location>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -906,12 +984,16 @@ class SdrConfig(Entity):
                     
                     	**pattern:** ((0?[0\-9]\|1[1\-5]\|[bB]\\d)/((([rR]([sS]){0,1}[pP])\|[cC][bB])?\\d{1,2})/[V][M](0?[0\-9]\|1[1\-5]))?
                     
+                    	**config**\: False
+                    
                     .. attribute:: reboot_count
                     
                     	Number of times rebooted since first boot
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: rh_count
                     
@@ -920,10 +1002,14 @@ class SdrConfig(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: reboot_hist2
                     
                     	
                     	**type**\: list of  		 :py:class:`RebootHist2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrConfig.Sdr.RebootHistory.Reverse.Location.RebootHist2>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -969,15 +1055,21 @@ class SdrConfig(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: time
                         
                         	
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: reason
                         
                         	Reason for reload
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -1010,6 +1102,9 @@ class SdrConfig(Entity):
                             self._perform_setattr(SdrConfig.Sdr.RebootHistory.Reverse.Location.RebootHist2, ['count', 'time', 'reason'], name, value)
 
 
+
+
+
             class DefaultDisp(Entity):
                 """
                 
@@ -1018,6 +1113,8 @@ class SdrConfig(Entity):
                 
                 	
                 	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrConfig.Sdr.RebootHistory.DefaultDisp.Location>`
+                
+                	**config**\: False
                 
                 
 
@@ -1056,12 +1153,16 @@ class SdrConfig(Entity):
                     
                     	**pattern:** ((0?[0\-9]\|1[1\-5]\|[bB]\\d)/((([rR]([sS]){0,1}[pP])\|[cC][bB])?\\d{1,2})/[V][M](0?[0\-9]\|1[1\-5]))?
                     
+                    	**config**\: False
+                    
                     .. attribute:: reboot_count
                     
                     	Number of times rebooted since first boot
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: rh_count
                     
@@ -1070,10 +1171,14 @@ class SdrConfig(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: reboot_hist2
                     
                     	
                     	**type**\: list of  		 :py:class:`RebootHist2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrConfig.Sdr.RebootHistory.DefaultDisp.Location.RebootHist2>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1119,15 +1224,21 @@ class SdrConfig(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: time
                         
                         	
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: reason
                         
                         	Reason for reload
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -1160,6 +1271,10 @@ class SdrConfig(Entity):
                             self._perform_setattr(SdrConfig.Sdr.RebootHistory.DefaultDisp.Location.RebootHist2, ['count', 'time', 'reason'], name, value)
 
 
+
+
+
+
         class Nodes(Entity):
             """
             
@@ -1168,6 +1283,8 @@ class SdrConfig(Entity):
             
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrConfig.Sdr.Nodes.Location>`
+            
+            	**config**\: False
             
             
 
@@ -1206,12 +1323,16 @@ class SdrConfig(Entity):
                 
                 	**pattern:** ((0?[0\-9]\|1[1\-5]\|[bB]\\d)/((([rR]([sS]){0,1}[pP])\|[cC][bB])?\\d{1,2})/[V][M](0?[0\-9]\|1[1\-5]))?
                 
+                	**config**\: False
+                
                 .. attribute:: sdr_id
                 
                 	
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: ip_addr
                 
@@ -1226,25 +1347,35 @@ class SdrConfig(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: mac_address
                 
                 	MAC address of VM
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: state
                 
                 	State of VM
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: start_time
                 
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: reload_reason
                 
                 	Reason for last reload
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: reboot_count
                 
@@ -1253,12 +1384,16 @@ class SdrConfig(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: rh_count
                 
                 	Number of times rebooted since first boot
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1303,6 +1438,8 @@ class SdrConfig(Entity):
                     self._perform_setattr(SdrConfig.Sdr.Nodes.Location, ['node_location', 'sdr_id', 'ip_addr', 'mac_address', 'state', 'start_time', 'reload_reason', 'reboot_count', 'rh_count'], name, value)
 
 
+
+
         class Pairing2(Entity):
             """
             
@@ -1312,15 +1449,21 @@ class SdrConfig(Entity):
             	Mode of Pairing
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: sdrlead
             
             	
             	**type**\:  :py:class:`Sdrlead <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrConfig.Sdr.Pairing2.Sdrlead>`
             
+            	**config**\: False
+            
             .. attribute:: pairing
             
             	
             	**type**\: list of  		 :py:class:`Pairing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrConfig.Sdr.Pairing2.Pairing>`
+            
+            	**config**\: False
             
             
 
@@ -1364,10 +1507,14 @@ class SdrConfig(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: rp2
                 
                 	
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1398,6 +1545,7 @@ class SdrConfig(Entity):
                     self._perform_setattr(SdrConfig.Sdr.Pairing2.Sdrlead, ['rp1', 'rp2'], name, value)
 
 
+
             class Pairing(Entity):
                 """
                 
@@ -1407,15 +1555,21 @@ class SdrConfig(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: rp1
                 
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: rp2
                 
                 	
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1446,6 +1600,8 @@ class SdrConfig(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SdrConfig.Sdr.Pairing2.Pairing, ['name', 'rp1', 'rp2'], name, value)
+
+
 
 
         class Pairing(Entity):
@@ -1507,9 +1663,13 @@ class SdrConfig(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SdrConfig.Sdr.Pairing, ['name', 'rp1', 'rp2'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = SdrConfig()
         return self._top_entity
+
+
 
 class SdrManager(Entity):
     """
@@ -1519,6 +1679,8 @@ class SdrManager(Entity):
     
     	
     	**type**\:  :py:class:`SdrMgr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrManager.SdrMgr>`
+    
+    	**config**\: False
     
     
 
@@ -1558,6 +1720,8 @@ class SdrManager(Entity):
         	show traceable processes
         	**type**\: list of  		 :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrManager.SdrMgr.Trace>`
         
+        	**config**\: False
+        
         
 
         """
@@ -1594,10 +1758,14 @@ class SdrManager(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrManager.SdrMgr.Trace.Location>`
+            
+            	**config**\: False
             
             
 
@@ -1638,10 +1806,14 @@ class SdrManager(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: all_options
                 
                 	
                 	**type**\: list of  		 :py:class:`AllOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrManager.SdrMgr.Trace.Location.AllOptions>`
+                
+                	**config**\: False
                 
                 
 
@@ -1681,10 +1853,14 @@ class SdrManager(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: trace_blocks
                     
                     	
                     	**type**\: list of  		 :py:class:`TraceBlocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrManager.SdrMgr.Trace.Location.AllOptions.TraceBlocks>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1724,6 +1900,8 @@ class SdrManager(Entity):
                         	Trace output block
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -1750,9 +1928,16 @@ class SdrManager(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SdrManager.SdrMgr.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = SdrManager()
         return self._top_entity
+
+
 
 class SdrOperation(Entity):
     """
@@ -1762,6 +1947,8 @@ class SdrOperation(Entity):
     
     	SDR
     	**type**\: list of  		 :py:class:`Sdr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrOperation.Sdr>`
+    
+    	**config**\: False
     
     
 
@@ -1801,10 +1988,14 @@ class SdrOperation(Entity):
         
         	**pattern:** [a\-zA\-Z0\-9\_\-]{1,30}
         
+        	**config**\: False
+        
         .. attribute:: nodes
         
         	
         	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrOperation.Sdr.Nodes>`
+        
+        	**config**\: False
         
         
 
@@ -1847,6 +2038,8 @@ class SdrOperation(Entity):
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr.SdrOperation.Sdr.Nodes.Location>`
             
+            	**config**\: False
+            
             
 
             """
@@ -1882,6 +2075,8 @@ class SdrOperation(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: node_type  (key)
                 
                 	
@@ -1889,15 +2084,21 @@ class SdrOperation(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: progress
                 
                 	Progress of Operation
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	State of Operation
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1931,9 +2132,14 @@ class SdrOperation(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SdrOperation.Sdr.Nodes.Location, ['node_location', 'node_type', 'progress', 'state'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = SdrOperation()
         return self._top_entity
+
+
 
 class PrivateSdr(Entity):
     """
@@ -2122,7 +2328,11 @@ class PrivateSdr(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(PrivateSdr.SdrName.Pairing, ['num', 'second_exist', 'rp1_rack', 'rp1_slot', 'rp2_rack', 'rp2_slot'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = PrivateSdr()
         return self._top_entity
+
+
 

@@ -253,6 +253,7 @@ class Traceroute(Entity):
                 self._perform_setattr(Traceroute.Input.Destination, [u'destination', u'source', u'timeout', u'probe', u'numeric', u'vrf_name', u'min_ttl', u'max_ttl', u'port', u'verbose', 'priority', 'outgoing_interface'], name, value)
 
 
+
         class Ipv4(Entity):
             """
             
@@ -371,6 +372,7 @@ class Traceroute(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Traceroute.Input.Ipv4, [u'destination', u'source', u'timeout', u'probe', u'numeric', u'vrf_name', u'min_ttl', u'max_ttl', u'port', u'verbose'], name, value)
+
 
 
         class Ipv6(Entity):
@@ -507,6 +509,8 @@ class Traceroute(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Traceroute.Input.Ipv6, [u'destination', u'source', u'timeout', u'probe', u'numeric', u'vrf_name', u'min_ttl', u'max_ttl', u'port', u'verbose', 'priority', 'outgoing_interface'], name, value)
+
+
 
 
     class Output(Entity):
@@ -848,6 +852,11 @@ class Traceroute(Entity):
                                     self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Hop.Probes.Probe, [u'probe_index', u'result', u'delta_time', u'hop_address', u'hop_hostname'], name, value)
 
 
+
+
+
+
+
             class Ipv6(Entity):
                 """
                 
@@ -1101,7 +1110,16 @@ class Traceroute(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Hop.Probes.Probe, [u'probe_index', u'result', u'delta_time', u'hop_address', u'hop_hostname'], name, value)
 
+
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Traceroute()
         return self._top_entity
+
+
 

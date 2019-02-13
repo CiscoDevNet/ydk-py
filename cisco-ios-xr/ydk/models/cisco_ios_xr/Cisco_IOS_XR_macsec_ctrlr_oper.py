@@ -84,6 +84,8 @@ class MacsecCtrlrOper(Entity):
     	All Macsec Controller Port operational data
     	**type**\:  :py:class:`MacsecCtrlrPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts>`
     
+    	**config**\: False
+    
     
 
     """
@@ -121,6 +123,8 @@ class MacsecCtrlrOper(Entity):
         
         	Controller name
         	**type**\: list of  		 :py:class:`MacsecCtrlrPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort>`
+        
+        	**config**\: False
         
         
 
@@ -160,10 +164,14 @@ class MacsecCtrlrOper(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: macsec_ctrlr_info
             
             	Macsec Controller operational data
             	**type**\:  :py:class:`MacsecCtrlrInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo>`
+            
+            	**config**\: False
             
             
 
@@ -206,15 +214,21 @@ class MacsecCtrlrOper(Entity):
                 	Encrypt Secure Channel Status
                 	**type**\:  :py:class:`EncryptScStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus>`
                 
+                	**config**\: False
+                
                 .. attribute:: decrypt_sc_status
                 
                 	Decrypt Secure Channel Status
                 	**type**\:  :py:class:`DecryptScStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus>`
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	State
                 	**type**\:  :py:class:`MacsecCtrlrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrState>`
+                
+                	**config**\: False
                 
                 .. attribute:: replay_window_size
                 
@@ -223,10 +237,14 @@ class MacsecCtrlrOper(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: must_secure
                 
                 	Must Secure
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: secure_mode
                 
@@ -234,6 +252,8 @@ class MacsecCtrlrOper(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -285,10 +305,14 @@ class MacsecCtrlrOper(Entity):
                     	Protection Enabled
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: secure_channel_id
                     
                     	Secure Channel Id
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: confidentiality_offset
                     
@@ -297,10 +321,14 @@ class MacsecCtrlrOper(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: cipher_suite
                     
                     	Cipher Suite
                     	**type**\:  :py:class:`MacsecCtrlrCiphersuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrCiphersuit>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: max_packet_number
                     
@@ -309,6 +337,8 @@ class MacsecCtrlrOper(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: recent_packet_number
                     
                     	Recent Packet Number
@@ -316,10 +346,14 @@ class MacsecCtrlrOper(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: active_association
                     
                     	Active Associations
                     	**type**\: list of  		 :py:class:`ActiveAssociation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus.ActiveAssociation>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -371,12 +405,16 @@ class MacsecCtrlrOper(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: short_secure_channel_id
                         
                         	Short secure channel id
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -407,6 +445,8 @@ class MacsecCtrlrOper(Entity):
                             self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus.ActiveAssociation, [u'association_number', u'short_secure_channel_id'], name, value)
 
 
+
+
                 class DecryptScStatus(Entity):
                     """
                     Decrypt Secure Channel Status
@@ -416,10 +456,14 @@ class MacsecCtrlrOper(Entity):
                     	Protection Enabled
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: secure_channel_id
                     
                     	Secure Channel Id
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: confidentiality_offset
                     
@@ -428,10 +472,14 @@ class MacsecCtrlrOper(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: cipher_suite
                     
                     	Cipher Suite
                     	**type**\:  :py:class:`MacsecCtrlrCiphersuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrCiphersuit>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: max_packet_number
                     
@@ -440,6 +488,8 @@ class MacsecCtrlrOper(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: recent_packet_number
                     
                     	Recent Packet Number
@@ -447,10 +497,14 @@ class MacsecCtrlrOper(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: active_association
                     
                     	Active Associations
                     	**type**\: list of  		 :py:class:`ActiveAssociation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper.MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus.ActiveAssociation>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -502,12 +556,16 @@ class MacsecCtrlrOper(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: short_secure_channel_id
                         
                         	Short secure channel id
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -537,7 +595,14 @@ class MacsecCtrlrOper(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.DecryptScStatus.ActiveAssociation, [u'association_number', u'short_secure_channel_id'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = MacsecCtrlrOper()
         return self._top_entity
+
+
 

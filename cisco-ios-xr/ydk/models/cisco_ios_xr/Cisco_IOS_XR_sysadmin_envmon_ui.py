@@ -28,10 +28,14 @@ class Environment(Entity):
     	environment operational (show) data
     	**type**\:  :py:class:`Oper <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Oper>`
     
+    	**config**\: False
+    
     .. attribute:: all
     
     	
     	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.All>`
+    
+    	**config**\: False
     
     .. attribute:: config
     
@@ -42,6 +46,8 @@ class Environment(Entity):
     
     	show traceable processes
     	**type**\: list of  		 :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Trace>`
+    
+    	**config**\: False
     
     
 
@@ -91,30 +97,42 @@ class Environment(Entity):
         	
         	**type**\:  :py:class:`Temperatures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Oper.Temperatures>`
         
+        	**config**\: False
+        
         .. attribute:: voltages
         
         	
         	**type**\:  :py:class:`Voltages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Oper.Voltages>`
+        
+        	**config**\: False
         
         .. attribute:: current
         
         	
         	**type**\:  :py:class:`Current <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Oper.Current>`
         
+        	**config**\: False
+        
         .. attribute:: fan
         
         	
         	**type**\:  :py:class:`Fan <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Oper.Fan>`
+        
+        	**config**\: False
         
         .. attribute:: power
         
         	
         	**type**\:  :py:class:`Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Oper.Power>`
         
+        	**config**\: False
+        
         .. attribute:: altitude
         
         	
         	**type**\:  :py:class:`Altitude <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Oper.Altitude>`
+        
+        	**config**\: False
         
         
 
@@ -174,6 +192,8 @@ class Environment(Entity):
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Oper.Temperatures.Location>`
             
+            	**config**\: False
+            
             
 
             """
@@ -210,6 +230,8 @@ class Environment(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: loc_header
                 
                 	
@@ -217,10 +239,14 @@ class Environment(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: print_header
                 
                 	
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 	**default value**\: false
                 
@@ -228,6 +254,8 @@ class Environment(Entity):
                 
                 	
                 	**type**\: list of  		 :py:class:`SensorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Oper.Temperatures.Location.SensorAttributes>`
+                
+                	**config**\: False
                 
                 
 
@@ -272,20 +300,28 @@ class Environment(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: sensor_id
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: alarm
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: temperature_value
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: value
                     
@@ -294,12 +330,16 @@ class Environment(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: critical_lo
                     
                     	
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: major_lo
                     
@@ -308,12 +348,16 @@ class Environment(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: minor_lo
                     
                     	
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: minor_hi
                     
@@ -322,6 +366,8 @@ class Environment(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: major_hi
                     
                     	
@@ -329,12 +375,16 @@ class Environment(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: critical_hi
                     
                     	
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     
 
@@ -383,6 +433,9 @@ class Environment(Entity):
                         self._perform_setattr(Environment.Oper.Temperatures.Location.SensorAttributes, ['sensor', 'sensor_id', 'alarm', 'temperature_value', 'value', 'critical_lo', 'major_lo', 'minor_lo', 'minor_hi', 'major_hi', 'critical_hi'], name, value)
 
 
+
+
+
         class Voltages(Entity):
             """
             
@@ -391,6 +444,8 @@ class Environment(Entity):
             
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Oper.Voltages.Location>`
+            
+            	**config**\: False
             
             
 
@@ -428,10 +483,14 @@ class Environment(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: print_header
                 
                 	
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 	**default value**\: false
                 
@@ -442,10 +501,14 @@ class Environment(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: sensor_attributes
                 
                 	
                 	**type**\: list of  		 :py:class:`SensorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Oper.Voltages.Location.SensorAttributes>`
+                
+                	**config**\: False
                 
                 
 
@@ -490,20 +553,28 @@ class Environment(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: sensor_id
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: alarm
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: value
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: temperature_value
                     
@@ -512,12 +583,16 @@ class Environment(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: critical_lo
                     
                     	
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: major_lo
                     
@@ -526,12 +601,16 @@ class Environment(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: minor_lo
                     
                     	
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: minor_hi
                     
@@ -540,6 +619,8 @@ class Environment(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: major_hi
                     
                     	
@@ -547,12 +628,16 @@ class Environment(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: critical_hi
                     
                     	
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     
 
@@ -601,6 +686,9 @@ class Environment(Entity):
                         self._perform_setattr(Environment.Oper.Voltages.Location.SensorAttributes, ['sensor', 'sensor_id', 'alarm', 'value', 'temperature_value', 'critical_lo', 'major_lo', 'minor_lo', 'minor_hi', 'major_hi', 'critical_hi'], name, value)
 
 
+
+
+
         class Current(Entity):
             """
             
@@ -609,6 +697,8 @@ class Environment(Entity):
             
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Oper.Current.Location>`
+            
+            	**config**\: False
             
             
 
@@ -646,10 +736,14 @@ class Environment(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: print_header
                 
                 	
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 	**default value**\: false
                 
@@ -660,10 +754,14 @@ class Environment(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: sensor_attributes
                 
                 	
                 	**type**\: list of  		 :py:class:`SensorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Oper.Current.Location.SensorAttributes>`
+                
+                	**config**\: False
                 
                 
 
@@ -708,20 +806,28 @@ class Environment(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: sensor_id
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: alarm
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: value
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: temperature_value
                     
@@ -729,6 +835,8 @@ class Environment(Entity):
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     
 
@@ -765,6 +873,9 @@ class Environment(Entity):
                         self._perform_setattr(Environment.Oper.Current.Location.SensorAttributes, ['sensor', 'sensor_id', 'alarm', 'value', 'temperature_value'], name, value)
 
 
+
+
+
         class Fan(Entity):
             """
             
@@ -773,6 +884,8 @@ class Environment(Entity):
             
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Oper.Fan.Location>`
+            
+            	**config**\: False
             
             
 
@@ -810,10 +923,14 @@ class Environment(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: print_header
                 
                 	
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 	**default value**\: false
                 
@@ -824,10 +941,14 @@ class Environment(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: fan_attributes
                 
                 	
                 	**type**\: list of  		 :py:class:`FanAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Oper.Fan.Location.FanAttributes>`
+                
+                	**config**\: False
                 
                 
 
@@ -872,25 +993,35 @@ class Environment(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: print_fan_header
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: location
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: fru_pid
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: fans_speed
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: fan_header
                     
@@ -899,12 +1030,16 @@ class Environment(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: speed_space
                     
                     	
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -945,6 +1080,9 @@ class Environment(Entity):
                         self._perform_setattr(Environment.Oper.Fan.Location.FanAttributes, ['logical_slot', 'print_fan_header', 'location', 'fru_pid', 'fans_speed', 'fan_header', 'speed_space'], name, value)
 
 
+
+
+
         class Power(Entity):
             """
             
@@ -953,6 +1091,8 @@ class Environment(Entity):
             
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Oper.Power.Location>`
+            
+            	**config**\: False
             
             
 
@@ -990,10 +1130,14 @@ class Environment(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: pem_attributes
                 
                 	
                 	**type**\: list of  		 :py:class:`PemAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Oper.Power.Location.PemAttributes>`
+                
+                	**config**\: False
                 
                 
 
@@ -1034,20 +1178,28 @@ class Environment(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: pem_id
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: card_type
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: ps_type
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: shelf_num
                     
@@ -1056,35 +1208,49 @@ class Environment(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: supply_type
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_voltage
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_current
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_voltage
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_current
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: status
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_power_to_ps
                     
@@ -1093,10 +1259,14 @@ class Environment(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_current_to_ps
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_power_from_ps
                     
@@ -1105,10 +1275,14 @@ class Environment(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_current_from_ps
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: power_allocated
                     
@@ -1117,20 +1291,28 @@ class Environment(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: power_consumed
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: power_status
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: confgd_power_redundancy_mode
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: usable_power_capacity
                     
@@ -1139,12 +1321,16 @@ class Environment(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: protection_power_capacity
                     
                     	
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: power_resrv_and_alloc
                     
@@ -1153,12 +1339,16 @@ class Environment(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: system_power_used
                     
                     	
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: system_power_input
                     
@@ -1167,12 +1357,16 @@ class Environment(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: power_level
                     
                     	
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_header
                     
@@ -1181,6 +1375,8 @@ class Environment(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_footer
                     
                     	
@@ -1188,12 +1384,16 @@ class Environment(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: ps_sum_footer
                     
                     	
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -1276,6 +1476,9 @@ class Environment(Entity):
                         self._perform_setattr(Environment.Oper.Power.Location.PemAttributes, ['pem', 'pem_id', 'card_type', 'ps_type', 'shelf_num', 'supply_type', 'input_voltage', 'input_current', 'output_voltage', 'output_current', 'status', 'input_power_to_ps', 'input_current_to_ps', 'output_power_from_ps', 'output_current_from_ps', 'power_allocated', 'power_consumed', 'power_status', 'confgd_power_redundancy_mode', 'usable_power_capacity', 'protection_power_capacity', 'power_resrv_and_alloc', 'system_power_used', 'system_power_input', 'power_level', 'output_header', 'output_footer', 'ps_sum_footer'], name, value)
 
 
+
+
+
         class Altitude(Entity):
             """
             
@@ -1284,6 +1487,8 @@ class Environment(Entity):
             
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Oper.Altitude.Location>`
+            
+            	**config**\: False
             
             
 
@@ -1321,10 +1526,14 @@ class Environment(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: alt_attributes
                 
                 	
                 	**type**\: list of  		 :py:class:`AltAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Oper.Altitude.Location.AltAttributes>`
+                
+                	**config**\: False
                 
                 
 
@@ -1365,6 +1574,8 @@ class Environment(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: rack
                     
                     	
@@ -1372,20 +1583,28 @@ class Environment(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: sensor_value
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: source
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: print_header
                     
                     	
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     	**default value**\: false
                     
@@ -1424,6 +1643,10 @@ class Environment(Entity):
                         self._perform_setattr(Environment.Oper.Altitude.Location.AltAttributes, ['sensor', 'rack', 'sensor_value', 'source', 'print_header'], name, value)
 
 
+
+
+
+
     class All(Entity):
         """
         
@@ -1432,6 +1655,8 @@ class Environment(Entity):
         
         	
         	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.All.Location>`
+        
+        	**config**\: False
         
         
 
@@ -1469,35 +1694,49 @@ class Environment(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: temperatures
             
             	
             	**type**\: list of  		 :py:class:`Temperatures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.All.Location.Temperatures>`
+            
+            	**config**\: False
             
             .. attribute:: voltages
             
             	
             	**type**\: list of  		 :py:class:`Voltages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.All.Location.Voltages>`
             
+            	**config**\: False
+            
             .. attribute:: current
             
             	
             	**type**\: list of  		 :py:class:`Current <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.All.Location.Current>`
+            
+            	**config**\: False
             
             .. attribute:: fan
             
             	
             	**type**\: list of  		 :py:class:`Fan <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.All.Location.Fan>`
             
+            	**config**\: False
+            
             .. attribute:: power
             
             	
             	**type**\: list of  		 :py:class:`Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.All.Location.Power>`
             
+            	**config**\: False
+            
             .. attribute:: altitude
             
             	
             	**type**\: list of  		 :py:class:`Altitude <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.All.Location.Altitude>`
+            
+            	**config**\: False
             
             
 
@@ -1543,10 +1782,14 @@ class Environment(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: print_header
                 
                 	
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 	**default value**\: false
                 
@@ -1554,6 +1797,8 @@ class Environment(Entity):
                 
                 	
                 	**type**\: list of  		 :py:class:`SensorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.All.Location.Temperatures.SensorAttributes>`
+                
+                	**config**\: False
                 
                 
 
@@ -1595,20 +1840,28 @@ class Environment(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: sensor_id
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: alarm
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: temperature_value
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: value
                     
@@ -1617,12 +1870,16 @@ class Environment(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: critical_lo
                     
                     	
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: major_lo
                     
@@ -1631,12 +1888,16 @@ class Environment(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: minor_lo
                     
                     	
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: minor_hi
                     
@@ -1645,6 +1906,8 @@ class Environment(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: major_hi
                     
                     	
@@ -1652,12 +1915,16 @@ class Environment(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: critical_hi
                     
                     	
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     
 
@@ -1706,6 +1973,8 @@ class Environment(Entity):
                         self._perform_setattr(Environment.All.Location.Temperatures.SensorAttributes, ['sensor', 'sensor_id', 'alarm', 'temperature_value', 'value', 'critical_lo', 'major_lo', 'minor_lo', 'minor_hi', 'major_hi', 'critical_hi'], name, value)
 
 
+
+
             class Voltages(Entity):
                 """
                 
@@ -1715,10 +1984,14 @@ class Environment(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: print_header
                 
                 	
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 	**default value**\: false
                 
@@ -1726,6 +1999,8 @@ class Environment(Entity):
                 
                 	
                 	**type**\: list of  		 :py:class:`SensorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.All.Location.Voltages.SensorAttributes>`
+                
+                	**config**\: False
                 
                 
 
@@ -1767,20 +2042,28 @@ class Environment(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: sensor_id
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: alarm
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: value
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: temperature_value
                     
@@ -1789,12 +2072,16 @@ class Environment(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: critical_lo
                     
                     	
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: major_lo
                     
@@ -1803,12 +2090,16 @@ class Environment(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: minor_lo
                     
                     	
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: minor_hi
                     
@@ -1817,6 +2108,8 @@ class Environment(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: major_hi
                     
                     	
@@ -1824,12 +2117,16 @@ class Environment(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: critical_hi
                     
                     	
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     
 
@@ -1878,6 +2175,8 @@ class Environment(Entity):
                         self._perform_setattr(Environment.All.Location.Voltages.SensorAttributes, ['sensor', 'sensor_id', 'alarm', 'value', 'temperature_value', 'critical_lo', 'major_lo', 'minor_lo', 'minor_hi', 'major_hi', 'critical_hi'], name, value)
 
 
+
+
             class Current(Entity):
                 """
                 
@@ -1887,10 +2186,14 @@ class Environment(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: print_header
                 
                 	
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 	**default value**\: false
                 
@@ -1898,6 +2201,8 @@ class Environment(Entity):
                 
                 	
                 	**type**\: list of  		 :py:class:`SensorAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.All.Location.Current.SensorAttributes>`
+                
+                	**config**\: False
                 
                 
 
@@ -1939,15 +2244,21 @@ class Environment(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: sensor_id
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: value
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1980,6 +2291,8 @@ class Environment(Entity):
                         self._perform_setattr(Environment.All.Location.Current.SensorAttributes, ['sensor', 'sensor_id', 'value'], name, value)
 
 
+
+
             class Fan(Entity):
                 """
                 
@@ -1989,10 +2302,14 @@ class Environment(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: fan_attributes
                 
                 	
                 	**type**\: list of  		 :py:class:`FanAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.All.Location.Fan.FanAttributes>`
+                
+                	**config**\: False
                 
                 
 
@@ -2032,25 +2349,35 @@ class Environment(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: print_fan_header
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: location
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: fru_pid
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: fans_speed
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: fan_header
                     
@@ -2059,12 +2386,16 @@ class Environment(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: speed_space
                     
                     	
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -2105,6 +2436,8 @@ class Environment(Entity):
                         self._perform_setattr(Environment.All.Location.Fan.FanAttributes, ['logical_slot', 'print_fan_header', 'location', 'fru_pid', 'fans_speed', 'fan_header', 'speed_space'], name, value)
 
 
+
+
             class Power(Entity):
                 """
                 
@@ -2114,10 +2447,14 @@ class Environment(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: pem_attributes
                 
                 	
                 	**type**\: list of  		 :py:class:`PemAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.All.Location.Power.PemAttributes>`
+                
+                	**config**\: False
                 
                 
 
@@ -2157,20 +2494,28 @@ class Environment(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: pem_id
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: card_type
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: ps_type
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: shelf_num
                     
@@ -2179,35 +2524,49 @@ class Environment(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: supply_type
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_voltage
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_current
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_voltage
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_current
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: status
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_power_to_ps
                     
@@ -2216,10 +2575,14 @@ class Environment(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_current_to_ps
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_power_from_ps
                     
@@ -2228,10 +2591,14 @@ class Environment(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_current_from_ps
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: power_allocated
                     
@@ -2240,20 +2607,28 @@ class Environment(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: power_consumed
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: power_status
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: confgd_power_redundancy_mode
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: usable_power_capacity
                     
@@ -2262,12 +2637,16 @@ class Environment(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: protection_power_capacity
                     
                     	
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: power_resrv_and_alloc
                     
@@ -2276,12 +2655,16 @@ class Environment(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: system_power_used
                     
                     	
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: system_power_input
                     
@@ -2290,12 +2673,16 @@ class Environment(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: power_level
                     
                     	
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_header
                     
@@ -2304,6 +2691,8 @@ class Environment(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_footer
                     
                     	
@@ -2311,12 +2700,16 @@ class Environment(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: ps_sum_footer
                     
                     	
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -2399,6 +2792,8 @@ class Environment(Entity):
                         self._perform_setattr(Environment.All.Location.Power.PemAttributes, ['pem', 'pem_id', 'card_type', 'ps_type', 'shelf_num', 'supply_type', 'input_voltage', 'input_current', 'output_voltage', 'output_current', 'status', 'input_power_to_ps', 'input_current_to_ps', 'output_power_from_ps', 'output_current_from_ps', 'power_allocated', 'power_consumed', 'power_status', 'confgd_power_redundancy_mode', 'usable_power_capacity', 'protection_power_capacity', 'power_resrv_and_alloc', 'system_power_used', 'system_power_input', 'power_level', 'output_header', 'output_footer', 'ps_sum_footer'], name, value)
 
 
+
+
             class Altitude(Entity):
                 """
                 
@@ -2408,10 +2803,14 @@ class Environment(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: alt_attributes
                 
                 	
                 	**type**\: list of  		 :py:class:`AltAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.All.Location.Altitude.AltAttributes>`
+                
+                	**config**\: False
                 
                 
 
@@ -2451,10 +2850,14 @@ class Environment(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: print_header
                     
                     	
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     	**default value**\: false
                     
@@ -2465,15 +2868,21 @@ class Environment(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: sensor_value
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: source
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -2508,6 +2917,10 @@ class Environment(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Environment.All.Location.Altitude.AltAttributes, ['sensor', 'print_header', 'rack', 'sensor_value', 'source'], name, value)
+
+
+
+
 
 
     class Config(Entity):
@@ -2546,6 +2959,8 @@ class Environment(Entity):
         
         	**range:** 0..100
         
+        	**config**\: False
+        
         .. attribute:: fan_ctrl_optics
         
         	
@@ -2553,12 +2968,16 @@ class Environment(Entity):
         
         	**range:** 0..1
         
+        	**config**\: False
+        
         .. attribute:: graceful_shutdown
         
         	
         	**type**\: int
         
         	**range:** 0..1
+        
+        	**config**\: False
         
         
 
@@ -2609,7 +3028,7 @@ class Environment(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Environment.Config, ['raise_fan_speed', 'fan_ctrl_optics', 'graceful_shutdown'], name, value)
+            self._perform_setattr(Environment.Config, [u'raise_fan_speed', u'fan_ctrl_optics', u'graceful_shutdown'], name, value)
 
 
         class Router(Entity):
@@ -2736,6 +3155,7 @@ class Environment(Entity):
                         self._perform_setattr(Environment.Config.Router.Altitude.All, ['num_meters'], name, value)
 
 
+
                 class RackLoc(Entity):
                     """
                     
@@ -2816,6 +3236,10 @@ class Environment(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Environment.Config.Router.Altitude.RackLoc.Location, ['rackid', 'num_meters'], name, value)
+
+
+
+
 
 
         class AirFilter(Entity):
@@ -2940,6 +3364,7 @@ class Environment(Entity):
                         self._perform_setattr(Environment.Config.AirFilter.Replaced.All, ['date'], name, value)
 
 
+
                 class RackLoc(Entity):
                     """
                     
@@ -3018,6 +3443,10 @@ class Environment(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Environment.Config.AirFilter.Replaced.RackLoc.Location, ['rackid', 'date'], name, value)
+
+
+
+
 
 
         class FanCtrl(Entity):
@@ -3177,6 +3606,10 @@ class Environment(Entity):
                             self._perform_setattr(Environment.Config.FanCtrl.Disable.RackLoc.Location, ['rackid'], name, value)
 
 
+
+
+
+
         class Temperature(Entity):
             """
             
@@ -3332,6 +3765,10 @@ class Environment(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Environment.Config.Temperature.Disable.RackLoc.Location, ['rackid'], name, value)
+
+
+
+
 
 
         class Monitoring(Entity):
@@ -3491,6 +3928,11 @@ class Environment(Entity):
                             self._perform_setattr(Environment.Config.Monitoring.Disable.RackLoc.Location, ['rackid'], name, value)
 
 
+
+
+
+
+
     class Trace(Entity):
         """
         show traceable processes
@@ -3500,10 +3942,14 @@ class Environment(Entity):
         	
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: location
         
         	
         	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Trace.Location>`
+        
+        	**config**\: False
         
         
 
@@ -3544,10 +3990,14 @@ class Environment(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: all_options
             
             	
             	**type**\: list of  		 :py:class:`AllOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Trace.Location.AllOptions>`
+            
+            	**config**\: False
             
             
 
@@ -3587,10 +4037,14 @@ class Environment(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: trace_blocks
                 
                 	
                 	**type**\: list of  		 :py:class:`TraceBlocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_envmon_ui.Environment.Trace.Location.AllOptions.TraceBlocks>`
+                
+                	**config**\: False
                 
                 
 
@@ -3630,6 +4084,8 @@ class Environment(Entity):
                     	Trace output block
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -3656,9 +4112,15 @@ class Environment(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Environment.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Environment()
         return self._top_entity
+
+
 
 class PowerMgmt(Entity):
     """
@@ -3929,6 +4391,10 @@ class PowerMgmt(Entity):
                             self._perform_setattr(PowerMgmt.Config.Action.Disable.RackLoc.Location, ['rackid'], name, value)
 
 
+
+
+
+
         class SingleFeedMode(Entity):
             """
             
@@ -4084,6 +4550,10 @@ class PowerMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PowerMgmt.Config.SingleFeedMode.Enable.RackLoc.Location, ['rackid'], name, value)
+
+
+
+
 
 
         class ExtendedTemp(Entity):
@@ -4243,6 +4713,10 @@ class PowerMgmt(Entity):
                             self._perform_setattr(PowerMgmt.Config.ExtendedTemp.Enable.RackLoc.Location, ['rackid'], name, value)
 
 
+
+
+
+
         class RedundancyNumPms(Entity):
             """
             
@@ -4329,6 +4803,7 @@ class PowerMgmt(Entity):
                     self._perform_setattr(PowerMgmt.Config.RedundancyNumPms.All, ['num_pm'], name, value)
 
 
+
             class RackLoc(Entity):
                 """
                 
@@ -4409,6 +4884,9 @@ class PowerMgmt(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PowerMgmt.Config.RedundancyNumPms.RackLoc.Location, ['rackid', 'num_pm'], name, value)
+
+
+
 
 
         class Progressive(Entity):
@@ -4603,7 +5081,14 @@ class PowerMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PowerMgmt.Config.Progressive.Enable.Priority.Location, ['loc', 'prior'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = PowerMgmt()
         return self._top_entity
+
+
 

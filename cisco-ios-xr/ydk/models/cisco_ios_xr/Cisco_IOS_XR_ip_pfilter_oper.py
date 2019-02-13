@@ -30,6 +30,8 @@ class PfilterMa(Entity):
     	Node\-specific operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class PfilterMa(Entity):
         
         	PfilterMa operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -107,10 +111,14 @@ class PfilterMa(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: process
             
             	Operational data for pfilter
             	**type**\:  :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes.Node.Process>`
+            
+            	**config**\: False
             
             
 
@@ -153,10 +161,14 @@ class PfilterMa(Entity):
                 	Operational data for pfilter
                 	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes.Node.Process.Ipv6>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4
                 
                 	Operational data for pfilter
                 	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes.Node.Process.Ipv4>`
+                
+                	**config**\: False
                 
                 
 
@@ -199,6 +211,8 @@ class PfilterMa(Entity):
                     	Operational data for pfilter
                     	**type**\:  :py:class:`AclInfoTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -235,6 +249,8 @@ class PfilterMa(Entity):
                         
                         	Operational data for pfilter
                         	**type**\:  :py:class:`InterfaceInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -273,6 +289,8 @@ class PfilterMa(Entity):
                             	Operational data for pfilter in bag
                             	**type**\: list of  		 :py:class:`InterfaceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos.InterfaceInfo>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -310,10 +328,14 @@ class PfilterMa(Entity):
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: acl_info
                                 
                                 	acl information
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -344,6 +366,10 @@ class PfilterMa(Entity):
                                     self._perform_setattr(PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos.InterfaceInfo, ['interface_name', u'acl_info'], name, value)
 
 
+
+
+
+
                 class Ipv4(Entity):
                     """
                     Operational data for pfilter
@@ -352,6 +378,8 @@ class PfilterMa(Entity):
                     
                     	Operational data for pfilter
                     	**type**\:  :py:class:`AclInfoTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -390,6 +418,8 @@ class PfilterMa(Entity):
                         	Operational data for pfilter
                         	**type**\:  :py:class:`InterfaceInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -426,6 +456,8 @@ class PfilterMa(Entity):
                             
                             	Operational data for pfilter in bag
                             	**type**\: list of  		 :py:class:`InterfaceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper.PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos.InterfaceInfo>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -464,10 +496,14 @@ class PfilterMa(Entity):
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: acl_info
                                 
                                 	acl information
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -497,7 +533,16 @@ class PfilterMa(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos.InterfaceInfo, ['interface_name', u'acl_info'], name, value)
 
+
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = PfilterMa()
         return self._top_entity
+
+
 

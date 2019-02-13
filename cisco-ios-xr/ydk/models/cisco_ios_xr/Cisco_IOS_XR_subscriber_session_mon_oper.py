@@ -30,6 +30,8 @@ class SessionMon(Entity):
     	Subscriber Sessionmon list of nodes
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_session_mon_oper.SessionMon.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class SessionMon(Entity):
         
         	Subscriber sessionmon operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_session_mon_oper.SessionMon.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -107,20 +111,28 @@ class SessionMon(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: session_mon_statistics
             
             	Session Mon Statistics
             	**type**\:  :py:class:`SessionMonStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_session_mon_oper.SessionMon.Nodes.Node.SessionMonStatistics>`
+            
+            	**config**\: False
             
             .. attribute:: interface_all_statistics
             
             	Statistics Table
             	**type**\:  :py:class:`InterfaceAllStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_session_mon_oper.SessionMon.Nodes.Node.InterfaceAllStatistics>`
             
+            	**config**\: False
+            
             .. attribute:: license_statistics
             
             	Smart license
             	**type**\:  :py:class:`LicenseStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_session_mon_oper.SessionMon.Nodes.Node.LicenseStatistics>`
+            
+            	**config**\: False
             
             
 
@@ -173,12 +185,16 @@ class SessionMon(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pppoe
                 
                 	pppoe
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: pppoe_ds
                 
@@ -187,12 +203,16 @@ class SessionMon(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: dhcpv4
                 
                 	dhcpv4
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: dhcpv6
                 
@@ -201,12 +221,16 @@ class SessionMon(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: dhcp_ds
                 
                 	dhcp ds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: ippkt
                 
@@ -215,12 +239,16 @@ class SessionMon(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: active_sessions
                 
                 	active sessions
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: standby_sessions
                 
@@ -229,12 +257,16 @@ class SessionMon(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: peak_active_sessions
                 
                 	peak active sessions
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: peak_standby_sessions
                 
@@ -243,6 +275,8 @@ class SessionMon(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: peak_start_time
                 
                 	peak start time
@@ -250,12 +284,16 @@ class SessionMon(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: timeout_value
                 
                 	timeout value
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -305,7 +343,8 @@ class SessionMon(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SessionMon.Nodes.Node.SessionMonStatistics, ['total', 'pppoe', 'pppoe_ds', 'dhcpv4', 'dhcpv6', 'dhcp_ds', 'ippkt', 'active_sessions', 'standby_sessions', 'peak_active_sessions', 'peak_standby_sessions', 'peak_start_time', 'timeout_value'], name, value)
+                    self._perform_setattr(SessionMon.Nodes.Node.SessionMonStatistics, [u'total', u'pppoe', u'pppoe_ds', u'dhcpv4', u'dhcpv6', u'dhcp_ds', u'ippkt', u'active_sessions', u'standby_sessions', u'peak_active_sessions', u'peak_standby_sessions', u'peak_start_time', u'timeout_value'], name, value)
+
 
 
             class InterfaceAllStatistics(Entity):
@@ -316,6 +355,8 @@ class SessionMon(Entity):
                 
                 	Statistics
                 	**type**\: list of  		 :py:class:`InterfaceAllStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_session_mon_oper.SessionMon.Nodes.Node.InterfaceAllStatistics.InterfaceAllStatistic>`
+                
+                	**config**\: False
                 
                 
 
@@ -354,12 +395,16 @@ class SessionMon(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: total
                     
                     	total
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: pppoe
                     
@@ -368,12 +413,16 @@ class SessionMon(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: pppoe_ds
                     
                     	pppoe ds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: dhcpv4
                     
@@ -382,12 +431,16 @@ class SessionMon(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: dhcpv6
                     
                     	dhcpv6
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: dhcp_ds
                     
@@ -396,12 +449,16 @@ class SessionMon(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: ippkt
                     
                     	ippkt
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: active_sessions
                     
@@ -410,12 +467,16 @@ class SessionMon(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: standby_sessions
                     
                     	standby sessions
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: peak_active_sessions
                     
@@ -424,12 +485,16 @@ class SessionMon(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: peak_standby_sessions
                     
                     	peak standby sessions
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: peak_start_time
                     
@@ -438,12 +503,16 @@ class SessionMon(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: timeout_value
                     
                     	timeout value
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -495,7 +564,9 @@ class SessionMon(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionMon.Nodes.Node.InterfaceAllStatistics.InterfaceAllStatistic, ['interface_name', 'total', 'pppoe', 'pppoe_ds', 'dhcpv4', 'dhcpv6', 'dhcp_ds', 'ippkt', 'active_sessions', 'standby_sessions', 'peak_active_sessions', 'peak_standby_sessions', 'peak_start_time', 'timeout_value'], name, value)
+                        self._perform_setattr(SessionMon.Nodes.Node.InterfaceAllStatistics.InterfaceAllStatistic, ['interface_name', u'total', u'pppoe', u'pppoe_ds', u'dhcpv4', u'dhcpv6', u'dhcp_ds', u'ippkt', u'active_sessions', u'standby_sessions', u'peak_active_sessions', u'peak_standby_sessions', u'peak_start_time', u'timeout_value'], name, value)
+
+
 
 
             class LicenseStatistics(Entity):
@@ -509,12 +580,16 @@ class SessionMon(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pppoe
                 
                 	pppoe
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: pppoe_ds
                 
@@ -523,12 +598,16 @@ class SessionMon(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: dhcpv4
                 
                 	dhcpv4
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: dhcpv6
                 
@@ -537,12 +616,16 @@ class SessionMon(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: dhcp_ds
                 
                 	dhcp ds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: ippkt
                 
@@ -551,12 +634,16 @@ class SessionMon(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: active_sessions
                 
                 	active sessions
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: standby_sessions
                 
@@ -565,12 +652,16 @@ class SessionMon(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: peak_active_sessions
                 
                 	peak active sessions
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: peak_standby_sessions
                 
@@ -579,6 +670,8 @@ class SessionMon(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: peak_start_time
                 
                 	peak start time
@@ -586,12 +679,16 @@ class SessionMon(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: timeout_value
                 
                 	timeout value
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -641,9 +738,14 @@ class SessionMon(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SessionMon.Nodes.Node.LicenseStatistics, ['total', 'pppoe', 'pppoe_ds', 'dhcpv4', 'dhcpv6', 'dhcp_ds', 'ippkt', 'active_sessions', 'standby_sessions', 'peak_active_sessions', 'peak_standby_sessions', 'peak_start_time', 'timeout_value'], name, value)
+                    self._perform_setattr(SessionMon.Nodes.Node.LicenseStatistics, [u'total', u'pppoe', u'pppoe_ds', u'dhcpv4', u'dhcpv6', u'dhcp_ds', u'ippkt', u'active_sessions', u'standby_sessions', u'peak_active_sessions', u'peak_standby_sessions', u'peak_start_time', u'timeout_value'], name, value)
+
+
+
 
     def clone_ptr(self):
         self._top_entity = SessionMon()
         return self._top_entity
+
+
 

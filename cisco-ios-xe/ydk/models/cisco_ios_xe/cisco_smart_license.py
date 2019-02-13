@@ -1368,6 +1368,7 @@ class RegisterIdToken(Entity):
             self._perform_setattr(RegisterIdToken.Input, ['id_token', 'force'], name, value)
 
 
+
     class Output(Entity):
         """
         
@@ -1404,9 +1405,12 @@ class RegisterIdToken(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RegisterIdToken.Output, ['return_code'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = RegisterIdToken()
         return self._top_entity
+
+
 
 class DeRegister(Entity):
     """
@@ -1479,9 +1483,12 @@ class DeRegister(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(DeRegister.Output, ['return_code'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = DeRegister()
         return self._top_entity
+
+
 
 class RenewId(Entity):
     """
@@ -1557,9 +1564,12 @@ class RenewId(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RenewId.Output, ['return_code'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = RenewId()
         return self._top_entity
+
+
 
 class RenewAuth(Entity):
     """
@@ -1635,9 +1645,12 @@ class RenewAuth(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RenewAuth.Output, ['return_code'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = RenewAuth()
         return self._top_entity
+
+
 
 class Licensing(Entity):
     """
@@ -1652,6 +1665,8 @@ class Licensing(Entity):
     
     	Smart licensing state
     	**type**\:  :py:class:`State <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State>`
+    
+    	**config**\: False
     
     
 
@@ -1802,6 +1817,7 @@ class Licensing(Entity):
                 self._perform_setattr(Licensing.Config.Privacy, ['hostname', 'version'], name, value)
 
 
+
         class Utility(Entity):
             """
             Utility settings.
@@ -1940,6 +1956,8 @@ class Licensing(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Licensing.Config.Utility.CustomerInfo, ['id', 'name', 'street', 'city', 'state', 'country', 'postal_code'], name, value)
+
+
 
 
         class Transport(Entity):
@@ -2081,6 +2099,10 @@ class Licensing(Entity):
                         self._perform_setattr(Licensing.Config.Transport.TransportSmart.Urls, ['url_registration', 'url_utility'], name, value)
 
 
+
+
+
+
     class State(Entity):
         """
         Smart licensing state.
@@ -2090,10 +2112,14 @@ class Licensing(Entity):
         	Smart Licensing is always enabled. the smart\-enabled leaf below  will always be true. The config\:enable setting above will be silently  ignored by Smart licensing
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: smart_enabled
         
         	Is smart licensing enabled. If always\-enabled above is true then  smart licensing is always enabled and can not be disabled
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: version
         
@@ -2102,10 +2128,14 @@ class Licensing(Entity):
         
         	**length:** 1..255
         
+        	**config**\: False
+        
         .. attribute:: state_info
         
         	Smart licensing state information.     This is only valid if smart\-enabled = true
         	**type**\:  :py:class:`StateInfo <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo>`
+        
+        	**config**\: False
         
         
 
@@ -2153,45 +2183,63 @@ class Licensing(Entity):
             	State of license registration
             	**type**\:  :py:class:`Registration <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Registration>`
             
+            	**config**\: False
+            
             .. attribute:: authorization
             
             	State of license authorization
             	**type**\:  :py:class:`Authorization <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Authorization>`
+            
+            	**config**\: False
             
             .. attribute:: utility
             
             	State of utility reporting
             	**type**\:  :py:class:`Utility <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Utility>`
             
+            	**config**\: False
+            
             .. attribute:: custom_id
             
             	The custom ID set by the customer that will be included in the utility usage (RUM) report and in th emessage header
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: transport
             
             	State of the transport
             	**type**\:  :py:class:`Transport <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Transport>`
             
+            	**config**\: False
+            
             .. attribute:: privacy
             
             	State of the privacy settings
             	**type**\:  :py:class:`Privacy <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Privacy>`
+            
+            	**config**\: False
             
             .. attribute:: evaluation
             
             	State of the evaluation period
             	**type**\:  :py:class:`Evaluation <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Evaluation>`
             
+            	**config**\: False
+            
             .. attribute:: udi
             
             	UDI of the system
             	**type**\:  :py:class:`Udi <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Udi>`
             
+            	**config**\: False
+            
             .. attribute:: usage
             
             	List of license (entitlement tag) usage information.  This only contains the information for licenses that are in use
             	**type**\: list of  		 :py:class:`Usage <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Usage>`
+            
+            	**config**\: False
             
             
 
@@ -2260,30 +2308,42 @@ class Licensing(Entity):
                 	The current registration state
                 	**type**\:  :py:class:`RegistrationStateEnum <ydk.models.cisco_ios_xe.cisco_smart_license.RegistrationStateEnum>`
                 
+                	**config**\: False
+                
                 .. attribute:: registration_in_progress
                 
                 	Registration is in progress
                 	**type**\:  :py:class:`RegistrationInProgress <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Registration.RegistrationInProgress>`
+                
+                	**config**\: False
                 
                 .. attribute:: registration_failed
                 
                 	Registration failed
                 	**type**\:  :py:class:`RegistrationFailed <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Registration.RegistrationFailed>`
                 
+                	**config**\: False
+                
                 .. attribute:: registration_retry
                 
                 	Registration failed and doing a retry
                 	**type**\:  :py:class:`RegistrationRetry <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Registration.RegistrationRetry>`
+                
+                	**config**\: False
                 
                 .. attribute:: registration_complete
                 
                 	Registration success
                 	**type**\:  :py:class:`RegistrationComplete <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Registration.RegistrationComplete>`
                 
+                	**config**\: False
+                
                 .. attribute:: export_control_allowed
                 
                 	Is the device allowed to enable export controlled features
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -2342,6 +2402,8 @@ class Licensing(Entity):
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -2370,6 +2432,7 @@ class Licensing(Entity):
                         self._perform_setattr(Licensing.State.StateInfo.Registration.RegistrationInProgress, ['start_time'], name, value)
 
 
+
                 class RegistrationFailed(Entity):
                     """
                     Registration failed.
@@ -2381,12 +2444,16 @@ class Licensing(Entity):
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
+                    	**config**\: False
+                    
                     .. attribute:: fail_message
                     
                     	Failure message that can be displayed for the user.  This is not a parsable message
                     	**type**\: str
                     
                     	**length:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -2418,6 +2485,7 @@ class Licensing(Entity):
                         self._perform_setattr(Licensing.State.StateInfo.Registration.RegistrationFailed, ['fail_time', 'fail_message'], name, value)
 
 
+
                 class RegistrationRetry(Entity):
                     """
                     Registration failed and doing a retry.
@@ -2429,6 +2497,8 @@ class Licensing(Entity):
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
+                    	**config**\: False
+                    
                     .. attribute:: fail_time
                     
                     	Time the registration failed
@@ -2436,12 +2506,16 @@ class Licensing(Entity):
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
+                    	**config**\: False
+                    
                     .. attribute:: fail_message
                     
                     	Failure message that can be displayed for the user.  This is not a parsable message
                     	**type**\: str
                     
                     	**length:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -2475,6 +2549,7 @@ class Licensing(Entity):
                         self._perform_setattr(Licensing.State.StateInfo.Registration.RegistrationRetry, ['retry_next_time', 'fail_time', 'fail_message'], name, value)
 
 
+
                 class RegistrationComplete(Entity):
                     """
                     Registration success.
@@ -2486,12 +2561,16 @@ class Licensing(Entity):
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_renew_time
                     
                     	Time the last registration renewal occurred.  If empty then no renewal has occurred
                     	**type**\: str
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+                    
+                    	**config**\: False
                     
                     .. attribute:: next_renew_time
                     
@@ -2500,6 +2579,8 @@ class Licensing(Entity):
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
+                    	**config**\: False
+                    
                     .. attribute:: expire_time
                     
                     	Time the registration will expire if it is not renewed
@@ -2507,10 +2588,14 @@ class Licensing(Entity):
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_renew_success
                     
                     	Was the last renewal attempt successful
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: fail_message
                     
@@ -2519,6 +2604,8 @@ class Licensing(Entity):
                     
                     	**length:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: smart_account
                     
                     	The smart account name for this registration
@@ -2526,12 +2613,16 @@ class Licensing(Entity):
                     
                     	**length:** 1..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: virtual_account
                     
                     	The virtual account name for this registration
                     	**type**\: str
                     
                     	**length:** 1..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -2575,6 +2666,8 @@ class Licensing(Entity):
                         self._perform_setattr(Licensing.State.StateInfo.Registration.RegistrationComplete, ['complete_time', 'last_renew_time', 'next_renew_time', 'expire_time', 'last_renew_success', 'fail_message', 'smart_account', 'virtual_account'], name, value)
 
 
+
+
             class Authorization(Entity):
                 """
                 State of license authorization.
@@ -2584,40 +2677,56 @@ class Licensing(Entity):
                 	The current authorization state
                 	**type**\:  :py:class:`AuthorizationStateEnum <ydk.models.cisco_ios_xe.cisco_smart_license.AuthorizationStateEnum>`
                 
+                	**config**\: False
+                
                 .. attribute:: authorization_none
                 
                 	No licenses in use. This empty container is not needed but is  a place holder to show there is no data for this state
                 	**type**\:  :py:class:`AuthorizationNone <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Authorization.AuthorizationNone>`
+                
+                	**config**\: False
                 
                 .. attribute:: authorization_eval
                 
                 	Evaluation period is in use and counting down. The evaluation period only counts down when licenses are in use
                 	**type**\:  :py:class:`AuthorizationEval <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Authorization.AuthorizationEval>`
                 
+                	**config**\: False
+                
                 .. attribute:: authorization_eval_expired
                 
                 	Evaluation period is in use but has expired
                 	**type**\:  :py:class:`AuthorizationEvalExpired <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Authorization.AuthorizationEvalExpired>`
+                
+                	**config**\: False
                 
                 .. attribute:: authorization_authorized
                 
                 	All license usage is authorized and within terms of the contract
                 	**type**\:  :py:class:`AuthorizationAuthorized <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Authorization.AuthorizationAuthorized>`
                 
+                	**config**\: False
+                
                 .. attribute:: authorization_authorized_reservation
                 
                 	All license usage is authorized because a   reservation authorization code is installed
                 	**type**\:  :py:class:`AuthorizationAuthorizedReservation <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Authorization.AuthorizationAuthorizedReservation>`
+                
+                	**config**\: False
                 
                 .. attribute:: authorization_out_of_compliance
                 
                 	License usage is out of compliance with the terms of the  contract because more licenses are in use than were purchased
                 	**type**\:  :py:class:`AuthorizationOutOfCompliance <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Authorization.AuthorizationOutOfCompliance>`
                 
+                	**config**\: False
+                
                 .. attribute:: authorization_authorization_expired
                 
                 	The authorization period has expired because the product  instance ahs not communicated with the SSM or satellite in  over 90 days
                 	**type**\:  :py:class:`AuthorizationAuthorizationExpired <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Authorization.AuthorizationAuthorizationExpired>`
+                
+                	**config**\: False
                 
                 
 
@@ -2702,6 +2811,7 @@ class Licensing(Entity):
                         self._is_frozen = True
 
 
+
                 class AuthorizationEval(Entity):
                     """
                     Evaluation period is in use and counting down.
@@ -2714,6 +2824,8 @@ class Licensing(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -2743,6 +2855,7 @@ class Licensing(Entity):
                         self._perform_setattr(Licensing.State.StateInfo.Authorization.AuthorizationEval, ['seconds_left'], name, value)
 
 
+
                 class AuthorizationEvalExpired(Entity):
                     """
                     Evaluation period is in use but has expired.
@@ -2753,6 +2866,8 @@ class Licensing(Entity):
                     	**type**\: str
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+                    
+                    	**config**\: False
                     
                     
 
@@ -2782,6 +2897,7 @@ class Licensing(Entity):
                         self._perform_setattr(Licensing.State.StateInfo.Authorization.AuthorizationEvalExpired, ['expire_time'], name, value)
 
 
+
                 class AuthorizationAuthorized(Entity):
                     """
                     All license usage is authorized and within terms of the contract.
@@ -2791,12 +2907,16 @@ class Licensing(Entity):
                     	Last communication was successful or failed
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: fail_message
                     
                     	Failure message if the last communications attempt failed. This can be displayed for the user. It is not a parsable string
                     	**type**\: str
                     
                     	**length:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: last_comm_time
                     
@@ -2805,6 +2925,8 @@ class Licensing(Entity):
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_comm_time
                     
                     	The next time communications will be attempted to the back end. This will be zero if the initial communication has not completed
@@ -2812,12 +2934,16 @@ class Licensing(Entity):
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
+                    	**config**\: False
+                    
                     .. attribute:: comm_deadline_time
                     
                     	If there are no communications between now and this time smart licensing will enter the authorization expired state.  This may be zero indicating there is no deadline
                     	**type**\: str
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+                    
+                    	**config**\: False
                     
                     
 
@@ -2855,6 +2981,7 @@ class Licensing(Entity):
                         self._perform_setattr(Licensing.State.StateInfo.Authorization.AuthorizationAuthorized, ['last_comm_status_success', 'fail_message', 'last_comm_time', 'next_comm_time', 'comm_deadline_time'], name, value)
 
 
+
                 class AuthorizationAuthorizedReservation(Entity):
                     """
                     All license usage is authorized because a  
@@ -2866,6 +2993,8 @@ class Licensing(Entity):
                     	**type**\: str
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+                    
+                    	**config**\: False
                     
                     
 
@@ -2895,6 +3024,7 @@ class Licensing(Entity):
                         self._perform_setattr(Licensing.State.StateInfo.Authorization.AuthorizationAuthorizedReservation, ['reservation_time'], name, value)
 
 
+
                 class AuthorizationOutOfCompliance(Entity):
                     """
                     License usage is out of compliance with the terms of the 
@@ -2905,12 +3035,16 @@ class Licensing(Entity):
                     	Last communication was successful or failed
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: fail_message
                     
                     	Failure message if the last communications attempt failed. This can be displayed for the user. It is not a parsable string
                     	**type**\: str
                     
                     	**length:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: last_comm_time
                     
@@ -2919,12 +3053,16 @@ class Licensing(Entity):
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_comm_time
                     
                     	The next time communications will be attempted to the back end. This will be zero if the initial communication has not completed
                     	**type**\: str
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+                    
+                    	**config**\: False
                     
                     .. attribute:: comm_deadline_time
                     
@@ -2933,12 +3071,16 @@ class Licensing(Entity):
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
+                    	**config**\: False
+                    
                     .. attribute:: ooc_time
                     
                     	Time the product instance entered the out of compliance state
                     	**type**\: str
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+                    
+                    	**config**\: False
                     
                     
 
@@ -2978,6 +3120,7 @@ class Licensing(Entity):
                         self._perform_setattr(Licensing.State.StateInfo.Authorization.AuthorizationOutOfCompliance, ['last_comm_status_success', 'fail_message', 'last_comm_time', 'next_comm_time', 'comm_deadline_time', 'ooc_time'], name, value)
 
 
+
                 class AuthorizationAuthorizationExpired(Entity):
                     """
                     The authorization period has expired because the product 
@@ -2989,12 +3132,16 @@ class Licensing(Entity):
                     	Last communication was successful or failed
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: fail_message
                     
                     	Failure message if the last communications attempt failed. This can be displayed for the user. It is not a parsable string
                     	**type**\: str
                     
                     	**length:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: last_comm_time
                     
@@ -3003,6 +3150,8 @@ class Licensing(Entity):
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_comm_time
                     
                     	The next time communications will be attempted to the back end. This will be zero if the initial communication has not completed
@@ -3010,12 +3159,16 @@ class Licensing(Entity):
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
+                    	**config**\: False
+                    
                     .. attribute:: comm_deadline_time
                     
                     	If there are no communications between now and this time smart licensing will enter the authorization expired state.  This may be zero indicating there is no deadline
                     	**type**\: str
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+                    
+                    	**config**\: False
                     
                     
 
@@ -3053,6 +3206,8 @@ class Licensing(Entity):
                         self._perform_setattr(Licensing.State.StateInfo.Authorization.AuthorizationAuthorizationExpired, ['last_comm_status_success', 'fail_message', 'last_comm_time', 'next_comm_time', 'comm_deadline_time'], name, value)
 
 
+
+
             class Utility(Entity):
                 """
                 State of utility reporting.
@@ -3062,20 +3217,28 @@ class Licensing(Entity):
                 	Utility reporting is enabled. The system still  needs a utility certificate registration or a subscription  to begin reporting actual utility data
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: reporting
                 
                 	Is the system reporting utility data. If so then what triggered  it to start reporting. If this is utility\-reporting\-none then all of the times below will be zero
                 	**type**\:  :py:class:`UtilityReportingTypeEnum <ydk.models.cisco_ios_xe.cisco_smart_license.UtilityReportingTypeEnum>`
+                
+                	**config**\: False
                 
                 .. attribute:: reporting_times
                 
                 	If the product instance is reporting utility data this will contain various timing information about that reporting
                 	**type**\:  :py:class:`ReportingTimes <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Utility.ReportingTimes>`
                 
+                	**config**\: False
+                
                 .. attribute:: customer_info
                 
                 	Customer address information that will be sent  in the utility usage reports
                 	**type**\:  :py:class:`CustomerInfo <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Utility.CustomerInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -3127,10 +3290,14 @@ class Licensing(Entity):
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_report_success
                     
                     	Was the last report successfully sent?
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: fail_message
                     
@@ -3139,12 +3306,16 @@ class Licensing(Entity):
                     
                     	**length:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_report_time
                     
                     	Time the next report is scheduled to be sent
                     	**type**\: str
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+                    
+                    	**config**\: False
                     
                     
 
@@ -3180,6 +3351,7 @@ class Licensing(Entity):
                         self._perform_setattr(Licensing.State.StateInfo.Utility.ReportingTimes, ['last_report_time', 'last_report_success', 'fail_message', 'next_report_time'], name, value)
 
 
+
                 class CustomerInfo(Entity):
                     """
                     Customer address information that will be sent 
@@ -3192,12 +3364,16 @@ class Licensing(Entity):
                     
                     	**length:** 1..250
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	The customer company name which will be included in the utility usage (RUM) report
                     	**type**\: str
                     
                     	**length:** 1..250
+                    
+                    	**config**\: False
                     
                     .. attribute:: street
                     
@@ -3206,12 +3382,16 @@ class Licensing(Entity):
                     
                     	**length:** 1..250
                     
+                    	**config**\: False
+                    
                     .. attribute:: city
                     
                     	The customer company city which will be included in the utility usage (RUM) report
                     	**type**\: str
                     
                     	**length:** 1..250
+                    
+                    	**config**\: False
                     
                     .. attribute:: state
                     
@@ -3220,6 +3400,8 @@ class Licensing(Entity):
                     
                     	**length:** 1..250
                     
+                    	**config**\: False
+                    
                     .. attribute:: country
                     
                     	The customer company country which will be included in the utility usage (RUM) report
@@ -3227,12 +3409,16 @@ class Licensing(Entity):
                     
                     	**length:** 1..250
                     
+                    	**config**\: False
+                    
                     .. attribute:: postal_code
                     
                     	The customer location specific postal code which will be included in the utility usage (RUM) report
                     	**type**\: str
                     
                     	**length:** 1..250
+                    
+                    	**config**\: False
                     
                     
 
@@ -3274,6 +3460,8 @@ class Licensing(Entity):
                         self._perform_setattr(Licensing.State.StateInfo.Utility.CustomerInfo, ['id', 'name', 'street', 'city', 'state', 'country', 'postal_code'], name, value)
 
 
+
+
             class Transport(Entity):
                 """
                 State of the transport.
@@ -3283,10 +3471,14 @@ class Licensing(Entity):
                 	Type of communications transport smart licensing is using
                 	**type**\:  :py:class:`TransportTypeEnum <ydk.models.cisco_ios_xe.cisco_smart_license.TransportTypeEnum>`
                 
+                	**config**\: False
+                
                 .. attribute:: url_settings
                 
                 	URLs in use if the transport type is smart
                 	**type**\:  :py:class:`UrlSettings <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Transport.UrlSettings>`
+                
+                	**config**\: False
                 
                 
 
@@ -3329,10 +3521,14 @@ class Licensing(Entity):
                     	The URL used for registration, authorization and any  other messages not related to utility
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: url_utility
                     
                     	The URL used for utility reporting. url\-utility and  url\-registration may be the same or different. If a satellite is in use then they will probably be the same
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -3364,6 +3560,8 @@ class Licensing(Entity):
                         self._perform_setattr(Licensing.State.StateInfo.Transport.UrlSettings, ['url_registration', 'url_utility'], name, value)
 
 
+
+
             class Privacy(Entity):
                 """
                 State of the privacy settings.
@@ -3373,10 +3571,14 @@ class Licensing(Entity):
                 	If true then the hostname will not be sent in  any messages
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: version
                 
                 	If true then the smart licensing version will not be sent in  any messages
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -3408,6 +3610,7 @@ class Licensing(Entity):
                     self._perform_setattr(Licensing.State.StateInfo.Privacy, ['hostname', 'version'], name, value)
 
 
+
             class Evaluation(Entity):
                 """
                 State of the evaluation period.
@@ -3417,20 +3620,28 @@ class Licensing(Entity):
                 	Is the evaluation period currently in use and counting down
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: eval_expired
                 
                 	Has the evaluation period expired
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: eval_period_left
                 
                 	If the evaluation period is not expired this is the number  of seconds left in the period
                 	**type**\:  :py:class:`EvalPeriodLeft <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Evaluation.EvalPeriodLeft>`
                 
+                	**config**\: False
+                
                 .. attribute:: eval_expire_time
                 
                 	If the evaluation period has expired then this is the  time of the expiration
                 	**type**\:  :py:class:`EvalExpireTime <ydk.models.cisco_ios_xe.cisco_smart_license.Licensing.State.StateInfo.Evaluation.EvalExpireTime>`
+                
+                	**config**\: False
                 
                 
 
@@ -3482,6 +3693,8 @@ class Licensing(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -3510,6 +3723,7 @@ class Licensing(Entity):
                         self._perform_setattr(Licensing.State.StateInfo.Evaluation.EvalPeriodLeft, ['time_left'], name, value)
 
 
+
                 class EvalExpireTime(Entity):
                     """
                     If the evaluation period has expired then this is the 
@@ -3521,6 +3735,8 @@ class Licensing(Entity):
                     	**type**\: str
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+                    
+                    	**config**\: False
                     
                     
 
@@ -3550,6 +3766,8 @@ class Licensing(Entity):
                         self._perform_setattr(Licensing.State.StateInfo.Evaluation.EvalExpireTime, ['expire_time'], name, value)
 
 
+
+
             class Udi(Entity):
                 """
                 UDI of the system.
@@ -3561,12 +3779,16 @@ class Licensing(Entity):
                 
                 	**length:** 1..255
                 
+                	**config**\: False
+                
                 .. attribute:: sn
                 
                 	The system serial number. Always combined with pid
                 	**type**\: str
                 
                 	**length:** 1..255
+                
+                	**config**\: False
                 
                 .. attribute:: vid
                 
@@ -3575,12 +3797,16 @@ class Licensing(Entity):
                 
                 	**length:** 1..255
                 
+                	**config**\: False
+                
                 .. attribute:: uuid
                 
                 	A 32 byte hex value generated by the system.  This will be in proper UUID format 8\-4\-4\-4\-12. Often used by VMs or other systems that do not have a hardware identifier
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{8}\-[0\-9a\-fA\-F]{4}\-[0\-9a\-fA\-F]{4}\-[0\-9a\-fA\-F]{4}\-[0\-9a\-fA\-F]{12}
+                
+                	**config**\: False
                 
                 .. attribute:: suvi
                 
@@ -3589,6 +3815,8 @@ class Licensing(Entity):
                 
                 	**length:** 1..255
                 
+                	**config**\: False
+                
                 .. attribute:: host_identifier
                 
                 	Host identifier available on some systems.  Typically 8 hex digits
@@ -3596,12 +3824,16 @@ class Licensing(Entity):
                 
                 	**length:** 1..255
                 
+                	**config**\: False
+                
                 .. attribute:: mac_address
                 
                 	The MAC address of the system. This is usually only used if there  is nothing else available to be used as an identifier
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                	**config**\: False
                 
                 
 
@@ -3643,6 +3875,7 @@ class Licensing(Entity):
                     self._perform_setattr(Licensing.State.StateInfo.Udi, ['pid', 'sn', 'vid', 'uuid', 'suvi', 'host_identifier', 'mac_address'], name, value)
 
 
+
             class Usage(Entity):
                 """
                 List of license (entitlement tag) usage information. 
@@ -3653,20 +3886,28 @@ class Licensing(Entity):
                 	The ISO 19770 entitlement tag used to define this license
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: short_name
                 
                 	The human readable license name from the entitlement tag
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: license_name
                 
                 	The license name that can be seen in the CSSM portal or on  the satellite.  This is only available after the product has registered
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: description
                 
                 	The long description of this license. This is only available after the product has registered
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: count
                 
@@ -3675,20 +3916,28 @@ class Licensing(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: enforcement_mode
                 
                 	The current enforcement mode of this license
                 	**type**\:  :py:class:`EnforcementModeEnum <ydk.models.cisco_ios_xe.cisco_smart_license.EnforcementModeEnum>`
+                
+                	**config**\: False
                 
                 .. attribute:: post_paid
                 
                 	If true then this entitlement is being reported in a post paid mode with utility usage reports. Otherwise it will be reported in  the regular prepaid mode
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: subscription_id
                 
                 	If this entitlement tag is being reported in the post paid utility usage mode and there is a subscription id in the customer's  virtual account this will be that subscription id
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -3731,7 +3980,12 @@ class Licensing(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Licensing.State.StateInfo.Usage, ['entitlement_tag', 'short_name', 'license_name', 'description', 'count', 'enforcement_mode', 'post_paid', 'subscription_id'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Licensing()
         return self._top_entity
+
+
 

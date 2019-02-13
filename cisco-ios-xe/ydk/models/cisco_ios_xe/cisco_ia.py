@@ -298,6 +298,7 @@ class SyncFrom(Entity):
             self._perform_setattr(SyncFrom.Input, ['sync_defaults', 'ignore_presrv_paths'], name, value)
 
 
+
     class Output(Entity):
         """
         
@@ -334,9 +335,12 @@ class SyncFrom(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SyncFrom.Output, ['result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = SyncFrom()
         return self._top_entity
+
+
 
 class SaveConfig(Entity):
     """
@@ -411,9 +415,12 @@ class SaveConfig(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SaveConfig.Output, ['result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = SaveConfig()
         return self._top_entity
+
+
 
 class IsSyncing(Entity):
     """
@@ -488,9 +495,12 @@ class IsSyncing(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(IsSyncing.Output, ['result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = IsSyncing()
         return self._top_entity
+
+
 
 class Checkpoint(Entity):
     """
@@ -564,9 +574,12 @@ class Checkpoint(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Checkpoint.Output, ['result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Checkpoint()
         return self._top_entity
+
+
 
 class Revert(Entity):
     """
@@ -669,6 +682,7 @@ class Revert(Entity):
             self._perform_setattr(Revert.Input, ['now', 'timer', 'idle'], name, value)
 
 
+
     class Output(Entity):
         """
         
@@ -705,9 +719,12 @@ class Revert(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Revert.Output, ['result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Revert()
         return self._top_entity
+
+
 
 class Rollback(Entity):
     """
@@ -827,6 +844,7 @@ class Rollback(Entity):
             self._perform_setattr(Rollback.Input, ['target_url', 'verbose', 'nolock', 'revert_on_error', 'revert_timer'], name, value)
 
 
+
     class Output(Entity):
         """
         
@@ -863,7 +881,10 @@ class Rollback(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Rollback.Output, ['result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Rollback()
         return self._top_entity
+
+
 

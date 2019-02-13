@@ -31,6 +31,8 @@ class Sla(Entity):
     	Table of all SLA protocols
     	**type**\:  :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols>`
     
+    	**config**\: False
+    
     
 
     """
@@ -68,6 +70,8 @@ class Sla(Entity):
         
         	The Ethernet SLA protocol
         	**type**\:  :py:class:`Ethernet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet>`
+        
+        	**config**\: False
         
         
 
@@ -107,35 +111,49 @@ class Sla(Entity):
             	Table of current statistics for SLA on\-demand operations
             	**type**\:  :py:class:`StatisticsOnDemandCurrents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents>`
             
+            	**config**\: False
+            
             .. attribute:: operations
             
             	Table of SLA operations
             	**type**\:  :py:class:`Operations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations>`
+            
+            	**config**\: False
             
             .. attribute:: statistics_historicals
             
             	Table of historical statistics for SLA operations
             	**type**\:  :py:class:`StatisticsHistoricals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals>`
             
+            	**config**\: False
+            
             .. attribute:: statistics_on_demand_historicals
             
             	Table of historical statistics for SLA on\-demand operations
             	**type**\:  :py:class:`StatisticsOnDemandHistoricals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals>`
+            
+            	**config**\: False
             
             .. attribute:: config_errors
             
             	Table of SLA configuration errors on configured operations
             	**type**\:  :py:class:`ConfigErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.ConfigErrors>`
             
+            	**config**\: False
+            
             .. attribute:: on_demand_operations
             
             	Table of SLA on\-demand operations
             	**type**\:  :py:class:`OnDemandOperations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations>`
             
+            	**config**\: False
+            
             .. attribute:: statistics_currents
             
             	Table of current statistics for SLA operations
             	**type**\:  :py:class:`StatisticsCurrents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents>`
+            
+            	**config**\: False
             
             
 
@@ -200,6 +218,8 @@ class Sla(Entity):
                 	Current statistics data for an SLA on\-demand operation
                 	**type**\: list of  		 :py:class:`StatisticsOnDemandCurrent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -239,10 +259,14 @@ class Sla(Entity):
                     
                     	**range:** 1..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_name
                     
                     	Domain name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_name
                     
@@ -251,12 +275,16 @@ class Sla(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: mep_id
                     
                     	MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be specified
                     	**type**\: int
                     
                     	**range:** 1..8191
+                    
+                    	**config**\: False
                     
                     .. attribute:: mac_address
                     
@@ -265,30 +293,42 @@ class Sla(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: specific_options
                     
                     	Options specific to the type of operation
                     	**type**\:  :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: operation_schedule
                     
                     	Operation schedule
                     	**type**\:  :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: probe_type
                     
                     	Type of probe used by the operation
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: display_short
                     
                     	Short display name used by the operation
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: display_long
                     
                     	Long display name used by the operation
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: flr_calculation_interval
                     
@@ -297,12 +337,16 @@ class Sla(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: operation_metric
                     
                     	Metrics gathered for the operation
                     	**type**\: list of  		 :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -355,7 +399,7 @@ class Sla(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'probe_type', 'display_short', 'display_long', 'flr_calculation_interval'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'probe_type', u'display_short', u'display_long', u'flr_calculation_interval'], name, value)
 
 
                     class SpecificOptions(Entity):
@@ -367,15 +411,21 @@ class Sla(Entity):
                         	Parameters for a configured operation
                         	**type**\:  :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.ConfiguredOperationOptions>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ondemand_operation_options
                         
                         	Parameters for an ondemand operation
                         	**type**\:  :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.OndemandOperationOptions>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: oper_type
                         
                         	OperType
                         	**type**\:  :py:class:`SlaOperOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperation>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -410,7 +460,7 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions, ['oper_type'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions, [u'oper_type'], name, value)
 
 
                         class ConfiguredOperationOptions(Entity):
@@ -421,6 +471,8 @@ class Sla(Entity):
                             
                             	Name of the profile used by the operation
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -447,7 +499,8 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.ConfiguredOperationOptions, [u'profile_name'], name, value)
+
 
 
                         class OndemandOperationOptions(Entity):
@@ -461,12 +514,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: probe_count
                             
                             	Total number of probes sent during the operation
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -495,7 +552,9 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.OndemandOperationOptions, [u'ondemand_operation_id', u'probe_count'], name, value)
+
+
 
 
                     class OperationSchedule(Entity):
@@ -509,6 +568,8 @@ class Sla(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: second
                         
                         .. attribute:: start_time_configured
@@ -516,12 +577,16 @@ class Sla(Entity):
                         	Whether or not the operation start time was explicitly configured
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: schedule_duration
                         
                         	Duration of a probe for the operation in seconds
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -531,6 +596,8 @@ class Sla(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -565,7 +632,8 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule, [u'start_time', u'start_time_configured', u'schedule_duration', u'schedule_interval'], name, value)
+
 
 
                     class OperationMetric(Entity):
@@ -577,10 +645,14 @@ class Sla(Entity):
                         	Configuration of the metric
                         	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: bucket
                         
                         	Buckets stored for the metric
                         	**type**\: list of  		 :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -622,12 +694,16 @@ class Sla(Entity):
                             	Type of metric to which this configuration applies
                             	**type**\:  :py:class:`SlaRecordableMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetric>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: bins_count
                             
                             	Total number of bins into which to aggregate. 0 if no aggregation
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             .. attribute:: bins_width
                             
@@ -636,6 +712,8 @@ class Sla(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: bucket_size
                             
                             	Size of buckets into which measurements are collected
@@ -643,10 +721,14 @@ class Sla(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: bucket_size_unit
                             
                             	Whether bucket size is 'per\-probe' or 'probes'
                             	**type**\:  :py:class:`SlaBucketSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSize>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: buckets_archive
                             
@@ -654,6 +736,8 @@ class Sla(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -690,7 +774,8 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config, [u'metric_type', u'bins_count', u'bins_width', u'bucket_size', u'bucket_size_unit', u'buckets_archive'], name, value)
+
 
 
                         class Bucket(Entity):
@@ -702,6 +787,8 @@ class Sla(Entity):
                             	The contents of the bucket; bins or samples
                             	**type**\:  :py:class:`Contents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: start_at
                             
                             	Absolute time that the bucket started being filled at
@@ -709,12 +796,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: duration
                             
                             	Length of time for which the bucket is being filled in seconds
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: second
                             
@@ -725,12 +816,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: lost
                             
                             	Number of lost packets in the probe
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: corrupt
                             
@@ -739,12 +834,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: out_of_order
                             
                             	Number of packets recieved out\-of\-order in the probe
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: duplicates
                             
@@ -753,12 +852,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: minimum
                             
                             	Overall minimum result in the probe, in microseconds or millionths of a percent
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: maximum
                             
@@ -767,12 +870,16 @@ class Sla(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: time_of_minimum
                             
                             	Absolute time that the minimum value was recorded
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: time_of_maximum
                             
@@ -781,12 +888,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: average
                             
                             	Mean of the results in the probe, in microseconds or millionths of a percent
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: standard_deviation
                             
@@ -795,12 +906,16 @@ class Sla(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: result_count
                             
                             	The count of samples collected in the bucket
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: data_sent_count
                             
@@ -809,12 +924,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: data_lost_count
                             
                             	The number of data packets lost across the bucket, used in the calculation of overall FLR
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: overall_flr
                             
@@ -823,6 +942,8 @@ class Sla(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             	**units**\: percentage
                             
                             .. attribute:: suspect_start_mid_bucket
@@ -830,60 +951,84 @@ class Sla(Entity):
                             	Results suspect due to a probe starting mid\-way through a bucket
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_schedule_latency
                             
                             	Results suspect due to scheduling latency causing one or more packets to not be sent
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: suspect_send_fail
                             
                             	Results suspect due to failure to send one or more packets
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_premature_end
                             
                             	Results suspect due to a probe ending prematurely
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: suspect_clock_drift
                             
                             	Results suspect as more than 10 seconds time drift detected
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_memory_allocation_failed
                             
                             	Results suspect due to a memory allocation failure
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: suspect_cleared_mid_bucket
                             
                             	Results suspect as bucket was cleared mid\-way through being filled
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_probe_restarted
                             
                             	Results suspect as probe restarted mid\-way through the bucket
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: suspect_management_latency
                             
                             	Results suspect as processing of results has been delayed
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_multiple_buckets
                             
                             	Results suspect as the probe has been configured across multiple buckets
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: suspect_misordering
                             
                             	Results suspect as misordering has been detected , affecting results
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_flr_low_packet_count
                             
                             	Results suspect as FLR calculated based on a low packet count
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: premature_reason
                             
@@ -892,10 +1037,14 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: premature_reason_string
                             
                             	Description of the error code that caused the probe to end prematurely. For informational purposes only
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -986,7 +1135,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket, ['start_at', 'duration', 'sent', 'lost', 'corrupt', 'out_of_order', 'duplicates', 'minimum', 'maximum', 'time_of_minimum', 'time_of_maximum', 'average', 'standard_deviation', 'result_count', 'data_sent_count', 'data_lost_count', 'overall_flr', 'suspect_start_mid_bucket', 'suspect_schedule_latency', 'suspect_send_fail', 'suspect_premature_end', 'suspect_clock_drift', 'suspect_memory_allocation_failed', 'suspect_cleared_mid_bucket', 'suspect_probe_restarted', 'suspect_management_latency', 'suspect_multiple_buckets', 'suspect_misordering', 'suspect_flr_low_packet_count', 'premature_reason', 'premature_reason_string'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket, [u'start_at', u'duration', u'sent', u'lost', u'corrupt', u'out_of_order', u'duplicates', u'minimum', u'maximum', u'time_of_minimum', u'time_of_maximum', u'average', u'standard_deviation', u'result_count', u'data_sent_count', u'data_lost_count', u'overall_flr', u'suspect_start_mid_bucket', u'suspect_schedule_latency', u'suspect_send_fail', u'suspect_premature_end', u'suspect_clock_drift', u'suspect_memory_allocation_failed', u'suspect_cleared_mid_bucket', u'suspect_probe_restarted', u'suspect_management_latency', u'suspect_multiple_buckets', u'suspect_misordering', u'suspect_flr_low_packet_count', u'premature_reason', u'premature_reason_string'], name, value)
 
 
                             class Contents(Entity):
@@ -998,15 +1147,21 @@ class Sla(Entity):
                                 	Result bins in an SLA metric bucket
                                 	**type**\:  :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: unaggregated
                                 
                                 	Result samples in an SLA metric bucket
                                 	**type**\:  :py:class:`Unaggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bucket_type
                                 
                                 	BucketType
                                 	**type**\:  :py:class:`SlaOperBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperBucket>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1041,7 +1196,7 @@ class Sla(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents, ['bucket_type'], name, value)
+                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents, [u'bucket_type'], name, value)
 
 
                                 class Aggregated(Entity):
@@ -1052,6 +1207,8 @@ class Sla(Entity):
                                     
                                     	The bins of an SLA metric bucket
                                     	**type**\: list of  		 :py:class:`Bins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1091,6 +1248,8 @@ class Sla(Entity):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: upper_bound
                                         
                                         	Upper bound (exclusive) of the bin, in milliseconds or single units of percent. This field is not used for LMM measurements
@@ -1098,12 +1257,16 @@ class Sla(Entity):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: lower_bound_tenths
                                         
                                         	Lower bound (inclusive) of the bin, in tenths of percent. This field is only used for LMM measurements
                                         	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: percentage
                                         
@@ -1114,6 +1277,8 @@ class Sla(Entity):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: percentage
                                         
                                         .. attribute:: sum
@@ -1123,12 +1288,16 @@ class Sla(Entity):
                                         
                                         	**range:** \-9223372036854775808..9223372036854775807
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: count
                                         
                                         	The total number of results in the bin
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1165,7 +1334,9 @@ class Sla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, ['lower_bound', 'upper_bound', 'lower_bound_tenths', 'upper_bound_tenths', 'sum', 'count'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, [u'lower_bound', u'upper_bound', u'lower_bound_tenths', u'upper_bound_tenths', u'sum', u'count'], name, value)
+
+
 
 
                                 class Unaggregated(Entity):
@@ -1176,6 +1347,8 @@ class Sla(Entity):
                                     
                                     	The samples of an SLA metric bucket
                                     	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1215,6 +1388,8 @@ class Sla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: millisecond
                                         
                                         .. attribute:: sent
@@ -1222,25 +1397,35 @@ class Sla(Entity):
                                         	Whether the sample packet was sucessfully sent
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: timed_out
                                         
                                         	Whether the sample packet timed out
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: corrupt
                                         
                                         	Whether the sample packet was corrupt
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: out_of_order
                                         
                                         	Whether the sample packet was received out\-of\-order
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: no_data_packets
                                         
                                         	Whether a measurement could not be made because no data packets were sent in the sample period. Only applicable for LMM measurements
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: result
                                         
@@ -1249,6 +1434,8 @@ class Sla(Entity):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: frames_sent
                                         
                                         	For FLR measurements, the number of frames sent, if available
@@ -1256,12 +1443,16 @@ class Sla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: frames_lost
                                         
                                         	For FLR measurements, the number of frames lost, if available
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1304,7 +1495,14 @@ class Sla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, ['sent_at', 'sent', 'timed_out', 'corrupt', 'out_of_order', 'no_data_packets', 'result', 'frames_sent', 'frames_lost'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, [u'sent_at', u'sent', u'timed_out', u'corrupt', u'out_of_order', u'no_data_packets', u'result', u'frames_sent', u'frames_lost'], name, value)
+
+
+
+
+
+
+
 
 
             class Operations(Entity):
@@ -1315,6 +1513,8 @@ class Sla(Entity):
                 
                 	SLA operation to get operation data for
                 	**type**\: list of  		 :py:class:`Operation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation>`
+                
+                	**config**\: False
                 
                 
 
@@ -1354,10 +1554,14 @@ class Sla(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_name
                     
                     	Domain name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_name
                     
@@ -1366,12 +1570,16 @@ class Sla(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: mep_id
                     
                     	MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be specified
                     	**type**\: int
                     
                     	**range:** 1..8191
+                    
+                    	**config**\: False
                     
                     .. attribute:: mac_address
                     
@@ -1380,25 +1588,35 @@ class Sla(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: profile_options
                     
                     	Options that are only valid if the operation has a profile
                     	**type**\:  :py:class:`ProfileOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: specific_options
                     
                     	Options specific to the type of operation
                     	**type**\:  :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: display_short
                     
                     	Short display name used by the operation
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: display_long
                     
                     	Long display name used by the operation
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: last_run
                     
@@ -1406,6 +1624,8 @@ class Sla(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1454,7 +1674,7 @@ class Sla(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'display_short', 'display_long', 'last_run'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'display_short', u'display_long', u'last_run'], name, value)
 
 
                     class ProfileOptions(Entity):
@@ -1467,20 +1687,28 @@ class Sla(Entity):
                         	Configuration of the packet padding
                         	**type**\:  :py:class:`PacketPadding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.PacketPadding>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: priority
                         
                         	Priority at which to send the packet, if configured
                         	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: operation_schedule
                         
                         	Operation schedule
                         	**type**\:  :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: probe_type
                         
                         	Type of probe used by the operation
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: packets_per_burst
                         
@@ -1489,12 +1717,16 @@ class Sla(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: inter_packet_interval
                         
                         	Interval between packets within a burst in milliseconds
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         	**units**\: millisecond
                         
@@ -1505,12 +1737,16 @@ class Sla(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: inter_burst_interval
                         
                         	Interval between bursts within a probe in milliseconds
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: millisecond
                         
@@ -1521,12 +1757,16 @@ class Sla(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: millisecond
                         
                         .. attribute:: operation_metric
                         
                         	Array of the metrics that are measured by the operation
                         	**type**\: list of  		 :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1577,7 +1817,7 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions, ['probe_type', 'packets_per_burst', 'inter_packet_interval', 'bursts_per_probe', 'inter_burst_interval', 'flr_calculation_interval'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions, [u'probe_type', u'packets_per_burst', u'inter_packet_interval', u'bursts_per_probe', u'inter_burst_interval', u'flr_calculation_interval'], name, value)
 
 
                         class PacketPadding(Entity):
@@ -1591,10 +1831,14 @@ class Sla(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: test_pattern_pad_scheme
                             
                             	Test pattern scheme that is used in the packet padding
                             	**type**\:  :py:class:`SlaOperTestPatternScheme <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperTestPatternScheme>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: test_pattern_pad_hex_string
                             
@@ -1602,6 +1846,8 @@ class Sla(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1632,7 +1878,8 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.PacketPadding, ['packet_pad_size', 'test_pattern_pad_scheme', 'test_pattern_pad_hex_string'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.PacketPadding, [u'packet_pad_size', u'test_pattern_pad_scheme', u'test_pattern_pad_hex_string'], name, value)
+
 
 
                         class Priority(Entity):
@@ -1645,12 +1892,16 @@ class Sla(Entity):
                             	PriorityType
                             	**type**\:  :py:class:`SlaOperPacketPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperPacketPriority>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: cos
                             
                             	3\-bit COS priority value applied to packets
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -1679,7 +1930,8 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority, ['priority_type', 'cos'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority, [u'priority_type', u'cos'], name, value)
+
 
 
                         class OperationSchedule(Entity):
@@ -1693,6 +1945,8 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             	**units**\: second
                             
                             .. attribute:: start_time_configured
@@ -1700,12 +1954,16 @@ class Sla(Entity):
                             	Whether or not the operation start time was explicitly configured
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: schedule_duration
                             
                             	Duration of a probe for the operation in seconds
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: second
                             
@@ -1715,6 +1973,8 @@ class Sla(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: second
                             
@@ -1749,7 +2009,8 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule, [u'start_time', u'start_time_configured', u'schedule_duration', u'schedule_interval'], name, value)
+
 
 
                         class OperationMetric(Entity):
@@ -1762,12 +2023,16 @@ class Sla(Entity):
                             	Configuration of the metric
                             	**type**\:  :py:class:`MetricConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: current_buckets_archive
                             
                             	Number of valid buckets currently in the buckets archive
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1798,7 +2063,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric, ['current_buckets_archive'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric, [u'current_buckets_archive'], name, value)
 
 
                             class MetricConfig(Entity):
@@ -1810,12 +2075,16 @@ class Sla(Entity):
                                 	Type of metric to which this configuration applies
                                 	**type**\:  :py:class:`SlaRecordableMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetric>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bins_count
                                 
                                 	Total number of bins into which to aggregate. 0 if no aggregation
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: bins_width
                                 
@@ -1824,6 +2093,8 @@ class Sla(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bucket_size
                                 
                                 	Size of buckets into which measurements are collected
@@ -1831,10 +2102,14 @@ class Sla(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bucket_size_unit
                                 
                                 	Whether bucket size is 'per\-probe' or 'probes'
                                 	**type**\:  :py:class:`SlaBucketSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSize>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: buckets_archive
                                 
@@ -1842,6 +2117,8 @@ class Sla(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1878,7 +2155,10 @@ class Sla(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
+                                    self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig, [u'metric_type', u'bins_count', u'bins_width', u'bucket_size', u'bucket_size_unit', u'buckets_archive'], name, value)
+
+
+
 
 
                     class SpecificOptions(Entity):
@@ -1890,15 +2170,21 @@ class Sla(Entity):
                         	Parameters for a configured operation
                         	**type**\:  :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.ConfiguredOperationOptions>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ondemand_operation_options
                         
                         	Parameters for an ondemand operation
                         	**type**\:  :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.OndemandOperationOptions>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: oper_type
                         
                         	OperType
                         	**type**\:  :py:class:`SlaOperOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperation>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1933,7 +2219,7 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions, ['oper_type'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions, [u'oper_type'], name, value)
 
 
                         class ConfiguredOperationOptions(Entity):
@@ -1944,6 +2230,8 @@ class Sla(Entity):
                             
                             	Name of the profile used by the operation
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -1970,7 +2258,8 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.ConfiguredOperationOptions, [u'profile_name'], name, value)
+
 
 
                         class OndemandOperationOptions(Entity):
@@ -1984,12 +2273,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: probe_count
                             
                             	Total number of probes sent during the operation
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -2018,7 +2311,11 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.OndemandOperationOptions, [u'ondemand_operation_id', u'probe_count'], name, value)
+
+
+
+
 
 
             class StatisticsHistoricals(Entity):
@@ -2030,6 +2327,8 @@ class Sla(Entity):
                 
                 	Historical statistics data for an SLA configured operation
                 	**type**\: list of  		 :py:class:`StatisticsHistorical <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical>`
+                
+                	**config**\: False
                 
                 
 
@@ -2070,10 +2369,14 @@ class Sla(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_name
                     
                     	Domain name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_name
                     
@@ -2082,12 +2385,16 @@ class Sla(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: mep_id
                     
                     	MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be specified
                     	**type**\: int
                     
                     	**range:** 1..8191
+                    
+                    	**config**\: False
                     
                     .. attribute:: mac_address
                     
@@ -2096,30 +2403,42 @@ class Sla(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: specific_options
                     
                     	Options specific to the type of operation
                     	**type**\:  :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: operation_schedule
                     
                     	Operation schedule
                     	**type**\:  :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: probe_type
                     
                     	Type of probe used by the operation
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: display_short
                     
                     	Short display name used by the operation
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: display_long
                     
                     	Long display name used by the operation
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: flr_calculation_interval
                     
@@ -2128,12 +2447,16 @@ class Sla(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: operation_metric
                     
                     	Metrics gathered for the operation
                     	**type**\: list of  		 :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2186,7 +2509,7 @@ class Sla(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'probe_type', 'display_short', 'display_long', 'flr_calculation_interval'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'probe_type', u'display_short', u'display_long', u'flr_calculation_interval'], name, value)
 
 
                     class SpecificOptions(Entity):
@@ -2198,15 +2521,21 @@ class Sla(Entity):
                         	Parameters for a configured operation
                         	**type**\:  :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.ConfiguredOperationOptions>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ondemand_operation_options
                         
                         	Parameters for an ondemand operation
                         	**type**\:  :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.OndemandOperationOptions>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: oper_type
                         
                         	OperType
                         	**type**\:  :py:class:`SlaOperOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperation>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2241,7 +2570,7 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions, ['oper_type'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions, [u'oper_type'], name, value)
 
 
                         class ConfiguredOperationOptions(Entity):
@@ -2252,6 +2581,8 @@ class Sla(Entity):
                             
                             	Name of the profile used by the operation
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -2278,7 +2609,8 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.ConfiguredOperationOptions, [u'profile_name'], name, value)
+
 
 
                         class OndemandOperationOptions(Entity):
@@ -2292,12 +2624,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: probe_count
                             
                             	Total number of probes sent during the operation
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -2326,7 +2662,9 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.OndemandOperationOptions, [u'ondemand_operation_id', u'probe_count'], name, value)
+
+
 
 
                     class OperationSchedule(Entity):
@@ -2340,6 +2678,8 @@ class Sla(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: second
                         
                         .. attribute:: start_time_configured
@@ -2347,12 +2687,16 @@ class Sla(Entity):
                         	Whether or not the operation start time was explicitly configured
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: schedule_duration
                         
                         	Duration of a probe for the operation in seconds
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -2362,6 +2706,8 @@ class Sla(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -2396,7 +2742,8 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule, [u'start_time', u'start_time_configured', u'schedule_duration', u'schedule_interval'], name, value)
+
 
 
                     class OperationMetric(Entity):
@@ -2408,10 +2755,14 @@ class Sla(Entity):
                         	Configuration of the metric
                         	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: bucket
                         
                         	Buckets stored for the metric
                         	**type**\: list of  		 :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2453,12 +2804,16 @@ class Sla(Entity):
                             	Type of metric to which this configuration applies
                             	**type**\:  :py:class:`SlaRecordableMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetric>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: bins_count
                             
                             	Total number of bins into which to aggregate. 0 if no aggregation
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             .. attribute:: bins_width
                             
@@ -2467,6 +2822,8 @@ class Sla(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: bucket_size
                             
                             	Size of buckets into which measurements are collected
@@ -2474,10 +2831,14 @@ class Sla(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: bucket_size_unit
                             
                             	Whether bucket size is 'per\-probe' or 'probes'
                             	**type**\:  :py:class:`SlaBucketSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSize>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: buckets_archive
                             
@@ -2485,6 +2846,8 @@ class Sla(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2521,7 +2884,8 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config, [u'metric_type', u'bins_count', u'bins_width', u'bucket_size', u'bucket_size_unit', u'buckets_archive'], name, value)
+
 
 
                         class Bucket(Entity):
@@ -2533,6 +2897,8 @@ class Sla(Entity):
                             	The contents of the bucket; bins or samples
                             	**type**\:  :py:class:`Contents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: start_at
                             
                             	Absolute time that the bucket started being filled at
@@ -2540,12 +2906,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: duration
                             
                             	Length of time for which the bucket is being filled in seconds
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: second
                             
@@ -2556,12 +2926,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: lost
                             
                             	Number of lost packets in the probe
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: corrupt
                             
@@ -2570,12 +2944,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: out_of_order
                             
                             	Number of packets recieved out\-of\-order in the probe
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: duplicates
                             
@@ -2584,12 +2962,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: minimum
                             
                             	Overall minimum result in the probe, in microseconds or millionths of a percent
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: maximum
                             
@@ -2598,12 +2980,16 @@ class Sla(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: time_of_minimum
                             
                             	Absolute time that the minimum value was recorded
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: time_of_maximum
                             
@@ -2612,12 +2998,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: average
                             
                             	Mean of the results in the probe, in microseconds or millionths of a percent
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: standard_deviation
                             
@@ -2626,12 +3016,16 @@ class Sla(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: result_count
                             
                             	The count of samples collected in the bucket
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: data_sent_count
                             
@@ -2640,12 +3034,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: data_lost_count
                             
                             	The number of data packets lost across the bucket, used in the calculation of overall FLR
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: overall_flr
                             
@@ -2654,6 +3052,8 @@ class Sla(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             	**units**\: percentage
                             
                             .. attribute:: suspect_start_mid_bucket
@@ -2661,60 +3061,84 @@ class Sla(Entity):
                             	Results suspect due to a probe starting mid\-way through a bucket
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_schedule_latency
                             
                             	Results suspect due to scheduling latency causing one or more packets to not be sent
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: suspect_send_fail
                             
                             	Results suspect due to failure to send one or more packets
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_premature_end
                             
                             	Results suspect due to a probe ending prematurely
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: suspect_clock_drift
                             
                             	Results suspect as more than 10 seconds time drift detected
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_memory_allocation_failed
                             
                             	Results suspect due to a memory allocation failure
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: suspect_cleared_mid_bucket
                             
                             	Results suspect as bucket was cleared mid\-way through being filled
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_probe_restarted
                             
                             	Results suspect as probe restarted mid\-way through the bucket
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: suspect_management_latency
                             
                             	Results suspect as processing of results has been delayed
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_multiple_buckets
                             
                             	Results suspect as the probe has been configured across multiple buckets
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: suspect_misordering
                             
                             	Results suspect as misordering has been detected , affecting results
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_flr_low_packet_count
                             
                             	Results suspect as FLR calculated based on a low packet count
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: premature_reason
                             
@@ -2723,10 +3147,14 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: premature_reason_string
                             
                             	Description of the error code that caused the probe to end prematurely. For informational purposes only
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -2817,7 +3245,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket, ['start_at', 'duration', 'sent', 'lost', 'corrupt', 'out_of_order', 'duplicates', 'minimum', 'maximum', 'time_of_minimum', 'time_of_maximum', 'average', 'standard_deviation', 'result_count', 'data_sent_count', 'data_lost_count', 'overall_flr', 'suspect_start_mid_bucket', 'suspect_schedule_latency', 'suspect_send_fail', 'suspect_premature_end', 'suspect_clock_drift', 'suspect_memory_allocation_failed', 'suspect_cleared_mid_bucket', 'suspect_probe_restarted', 'suspect_management_latency', 'suspect_multiple_buckets', 'suspect_misordering', 'suspect_flr_low_packet_count', 'premature_reason', 'premature_reason_string'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket, [u'start_at', u'duration', u'sent', u'lost', u'corrupt', u'out_of_order', u'duplicates', u'minimum', u'maximum', u'time_of_minimum', u'time_of_maximum', u'average', u'standard_deviation', u'result_count', u'data_sent_count', u'data_lost_count', u'overall_flr', u'suspect_start_mid_bucket', u'suspect_schedule_latency', u'suspect_send_fail', u'suspect_premature_end', u'suspect_clock_drift', u'suspect_memory_allocation_failed', u'suspect_cleared_mid_bucket', u'suspect_probe_restarted', u'suspect_management_latency', u'suspect_multiple_buckets', u'suspect_misordering', u'suspect_flr_low_packet_count', u'premature_reason', u'premature_reason_string'], name, value)
 
 
                             class Contents(Entity):
@@ -2829,15 +3257,21 @@ class Sla(Entity):
                                 	Result bins in an SLA metric bucket
                                 	**type**\:  :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: unaggregated
                                 
                                 	Result samples in an SLA metric bucket
                                 	**type**\:  :py:class:`Unaggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bucket_type
                                 
                                 	BucketType
                                 	**type**\:  :py:class:`SlaOperBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperBucket>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2872,7 +3306,7 @@ class Sla(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents, ['bucket_type'], name, value)
+                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents, [u'bucket_type'], name, value)
 
 
                                 class Aggregated(Entity):
@@ -2883,6 +3317,8 @@ class Sla(Entity):
                                     
                                     	The bins of an SLA metric bucket
                                     	**type**\: list of  		 :py:class:`Bins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2922,6 +3358,8 @@ class Sla(Entity):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: upper_bound
                                         
                                         	Upper bound (exclusive) of the bin, in milliseconds or single units of percent. This field is not used for LMM measurements
@@ -2929,12 +3367,16 @@ class Sla(Entity):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: lower_bound_tenths
                                         
                                         	Lower bound (inclusive) of the bin, in tenths of percent. This field is only used for LMM measurements
                                         	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: percentage
                                         
@@ -2945,6 +3387,8 @@ class Sla(Entity):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: percentage
                                         
                                         .. attribute:: sum
@@ -2954,12 +3398,16 @@ class Sla(Entity):
                                         
                                         	**range:** \-9223372036854775808..9223372036854775807
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: count
                                         
                                         	The total number of results in the bin
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2996,7 +3444,9 @@ class Sla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, ['lower_bound', 'upper_bound', 'lower_bound_tenths', 'upper_bound_tenths', 'sum', 'count'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, [u'lower_bound', u'upper_bound', u'lower_bound_tenths', u'upper_bound_tenths', u'sum', u'count'], name, value)
+
+
 
 
                                 class Unaggregated(Entity):
@@ -3007,6 +3457,8 @@ class Sla(Entity):
                                     
                                     	The samples of an SLA metric bucket
                                     	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3046,6 +3498,8 @@ class Sla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: millisecond
                                         
                                         .. attribute:: sent
@@ -3053,25 +3507,35 @@ class Sla(Entity):
                                         	Whether the sample packet was sucessfully sent
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: timed_out
                                         
                                         	Whether the sample packet timed out
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: corrupt
                                         
                                         	Whether the sample packet was corrupt
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: out_of_order
                                         
                                         	Whether the sample packet was received out\-of\-order
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: no_data_packets
                                         
                                         	Whether a measurement could not be made because no data packets were sent in the sample period. Only applicable for LMM measurements
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: result
                                         
@@ -3080,6 +3544,8 @@ class Sla(Entity):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: frames_sent
                                         
                                         	For FLR measurements, the number of frames sent, if available
@@ -3087,12 +3553,16 @@ class Sla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: frames_lost
                                         
                                         	For FLR measurements, the number of frames lost, if available
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3135,7 +3605,14 @@ class Sla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, ['sent_at', 'sent', 'timed_out', 'corrupt', 'out_of_order', 'no_data_packets', 'result', 'frames_sent', 'frames_lost'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, [u'sent_at', u'sent', u'timed_out', u'corrupt', u'out_of_order', u'no_data_packets', u'result', u'frames_sent', u'frames_lost'], name, value)
+
+
+
+
+
+
+
 
 
             class StatisticsOnDemandHistoricals(Entity):
@@ -3147,6 +3624,8 @@ class Sla(Entity):
                 
                 	Historical statistics data for an SLA on\-demand  operation
                 	**type**\: list of  		 :py:class:`StatisticsOnDemandHistorical <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical>`
+                
+                	**config**\: False
                 
                 
 
@@ -3187,10 +3666,14 @@ class Sla(Entity):
                     
                     	**range:** 1..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_name
                     
                     	Domain name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_name
                     
@@ -3199,12 +3682,16 @@ class Sla(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: mep_id
                     
                     	MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be specified
                     	**type**\: int
                     
                     	**range:** 1..8191
+                    
+                    	**config**\: False
                     
                     .. attribute:: mac_address
                     
@@ -3213,30 +3700,42 @@ class Sla(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: specific_options
                     
                     	Options specific to the type of operation
                     	**type**\:  :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: operation_schedule
                     
                     	Operation schedule
                     	**type**\:  :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: probe_type
                     
                     	Type of probe used by the operation
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: display_short
                     
                     	Short display name used by the operation
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: display_long
                     
                     	Long display name used by the operation
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: flr_calculation_interval
                     
@@ -3245,12 +3744,16 @@ class Sla(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: operation_metric
                     
                     	Metrics gathered for the operation
                     	**type**\: list of  		 :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3303,7 +3806,7 @@ class Sla(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'probe_type', 'display_short', 'display_long', 'flr_calculation_interval'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'probe_type', u'display_short', u'display_long', u'flr_calculation_interval'], name, value)
 
 
                     class SpecificOptions(Entity):
@@ -3315,15 +3818,21 @@ class Sla(Entity):
                         	Parameters for a configured operation
                         	**type**\:  :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.ConfiguredOperationOptions>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ondemand_operation_options
                         
                         	Parameters for an ondemand operation
                         	**type**\:  :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.OndemandOperationOptions>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: oper_type
                         
                         	OperType
                         	**type**\:  :py:class:`SlaOperOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperation>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3358,7 +3867,7 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions, ['oper_type'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions, [u'oper_type'], name, value)
 
 
                         class ConfiguredOperationOptions(Entity):
@@ -3369,6 +3878,8 @@ class Sla(Entity):
                             
                             	Name of the profile used by the operation
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -3395,7 +3906,8 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.ConfiguredOperationOptions, [u'profile_name'], name, value)
+
 
 
                         class OndemandOperationOptions(Entity):
@@ -3409,12 +3921,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: probe_count
                             
                             	Total number of probes sent during the operation
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -3443,7 +3959,9 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.OndemandOperationOptions, [u'ondemand_operation_id', u'probe_count'], name, value)
+
+
 
 
                     class OperationSchedule(Entity):
@@ -3457,6 +3975,8 @@ class Sla(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: second
                         
                         .. attribute:: start_time_configured
@@ -3464,12 +3984,16 @@ class Sla(Entity):
                         	Whether or not the operation start time was explicitly configured
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: schedule_duration
                         
                         	Duration of a probe for the operation in seconds
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -3479,6 +4003,8 @@ class Sla(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -3513,7 +4039,8 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule, [u'start_time', u'start_time_configured', u'schedule_duration', u'schedule_interval'], name, value)
+
 
 
                     class OperationMetric(Entity):
@@ -3525,10 +4052,14 @@ class Sla(Entity):
                         	Configuration of the metric
                         	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: bucket
                         
                         	Buckets stored for the metric
                         	**type**\: list of  		 :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3570,12 +4101,16 @@ class Sla(Entity):
                             	Type of metric to which this configuration applies
                             	**type**\:  :py:class:`SlaRecordableMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetric>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: bins_count
                             
                             	Total number of bins into which to aggregate. 0 if no aggregation
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             .. attribute:: bins_width
                             
@@ -3584,6 +4119,8 @@ class Sla(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: bucket_size
                             
                             	Size of buckets into which measurements are collected
@@ -3591,10 +4128,14 @@ class Sla(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: bucket_size_unit
                             
                             	Whether bucket size is 'per\-probe' or 'probes'
                             	**type**\:  :py:class:`SlaBucketSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSize>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: buckets_archive
                             
@@ -3602,6 +4143,8 @@ class Sla(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3638,7 +4181,8 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config, [u'metric_type', u'bins_count', u'bins_width', u'bucket_size', u'bucket_size_unit', u'buckets_archive'], name, value)
+
 
 
                         class Bucket(Entity):
@@ -3650,6 +4194,8 @@ class Sla(Entity):
                             	The contents of the bucket; bins or samples
                             	**type**\:  :py:class:`Contents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: start_at
                             
                             	Absolute time that the bucket started being filled at
@@ -3657,12 +4203,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: duration
                             
                             	Length of time for which the bucket is being filled in seconds
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: second
                             
@@ -3673,12 +4223,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: lost
                             
                             	Number of lost packets in the probe
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: corrupt
                             
@@ -3687,12 +4241,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: out_of_order
                             
                             	Number of packets recieved out\-of\-order in the probe
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: duplicates
                             
@@ -3701,12 +4259,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: minimum
                             
                             	Overall minimum result in the probe, in microseconds or millionths of a percent
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: maximum
                             
@@ -3715,12 +4277,16 @@ class Sla(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: time_of_minimum
                             
                             	Absolute time that the minimum value was recorded
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: time_of_maximum
                             
@@ -3729,12 +4295,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: average
                             
                             	Mean of the results in the probe, in microseconds or millionths of a percent
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: standard_deviation
                             
@@ -3743,12 +4313,16 @@ class Sla(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: result_count
                             
                             	The count of samples collected in the bucket
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: data_sent_count
                             
@@ -3757,12 +4331,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: data_lost_count
                             
                             	The number of data packets lost across the bucket, used in the calculation of overall FLR
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: overall_flr
                             
@@ -3771,6 +4349,8 @@ class Sla(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             	**units**\: percentage
                             
                             .. attribute:: suspect_start_mid_bucket
@@ -3778,60 +4358,84 @@ class Sla(Entity):
                             	Results suspect due to a probe starting mid\-way through a bucket
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_schedule_latency
                             
                             	Results suspect due to scheduling latency causing one or more packets to not be sent
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: suspect_send_fail
                             
                             	Results suspect due to failure to send one or more packets
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_premature_end
                             
                             	Results suspect due to a probe ending prematurely
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: suspect_clock_drift
                             
                             	Results suspect as more than 10 seconds time drift detected
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_memory_allocation_failed
                             
                             	Results suspect due to a memory allocation failure
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: suspect_cleared_mid_bucket
                             
                             	Results suspect as bucket was cleared mid\-way through being filled
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_probe_restarted
                             
                             	Results suspect as probe restarted mid\-way through the bucket
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: suspect_management_latency
                             
                             	Results suspect as processing of results has been delayed
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_multiple_buckets
                             
                             	Results suspect as the probe has been configured across multiple buckets
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: suspect_misordering
                             
                             	Results suspect as misordering has been detected , affecting results
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_flr_low_packet_count
                             
                             	Results suspect as FLR calculated based on a low packet count
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: premature_reason
                             
@@ -3840,10 +4444,14 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: premature_reason_string
                             
                             	Description of the error code that caused the probe to end prematurely. For informational purposes only
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -3934,7 +4542,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket, ['start_at', 'duration', 'sent', 'lost', 'corrupt', 'out_of_order', 'duplicates', 'minimum', 'maximum', 'time_of_minimum', 'time_of_maximum', 'average', 'standard_deviation', 'result_count', 'data_sent_count', 'data_lost_count', 'overall_flr', 'suspect_start_mid_bucket', 'suspect_schedule_latency', 'suspect_send_fail', 'suspect_premature_end', 'suspect_clock_drift', 'suspect_memory_allocation_failed', 'suspect_cleared_mid_bucket', 'suspect_probe_restarted', 'suspect_management_latency', 'suspect_multiple_buckets', 'suspect_misordering', 'suspect_flr_low_packet_count', 'premature_reason', 'premature_reason_string'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket, [u'start_at', u'duration', u'sent', u'lost', u'corrupt', u'out_of_order', u'duplicates', u'minimum', u'maximum', u'time_of_minimum', u'time_of_maximum', u'average', u'standard_deviation', u'result_count', u'data_sent_count', u'data_lost_count', u'overall_flr', u'suspect_start_mid_bucket', u'suspect_schedule_latency', u'suspect_send_fail', u'suspect_premature_end', u'suspect_clock_drift', u'suspect_memory_allocation_failed', u'suspect_cleared_mid_bucket', u'suspect_probe_restarted', u'suspect_management_latency', u'suspect_multiple_buckets', u'suspect_misordering', u'suspect_flr_low_packet_count', u'premature_reason', u'premature_reason_string'], name, value)
 
 
                             class Contents(Entity):
@@ -3946,15 +4554,21 @@ class Sla(Entity):
                                 	Result bins in an SLA metric bucket
                                 	**type**\:  :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: unaggregated
                                 
                                 	Result samples in an SLA metric bucket
                                 	**type**\:  :py:class:`Unaggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bucket_type
                                 
                                 	BucketType
                                 	**type**\:  :py:class:`SlaOperBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperBucket>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3989,7 +4603,7 @@ class Sla(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents, ['bucket_type'], name, value)
+                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents, [u'bucket_type'], name, value)
 
 
                                 class Aggregated(Entity):
@@ -4000,6 +4614,8 @@ class Sla(Entity):
                                     
                                     	The bins of an SLA metric bucket
                                     	**type**\: list of  		 :py:class:`Bins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4039,6 +4655,8 @@ class Sla(Entity):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: upper_bound
                                         
                                         	Upper bound (exclusive) of the bin, in milliseconds or single units of percent. This field is not used for LMM measurements
@@ -4046,12 +4664,16 @@ class Sla(Entity):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: lower_bound_tenths
                                         
                                         	Lower bound (inclusive) of the bin, in tenths of percent. This field is only used for LMM measurements
                                         	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: percentage
                                         
@@ -4062,6 +4684,8 @@ class Sla(Entity):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: percentage
                                         
                                         .. attribute:: sum
@@ -4071,12 +4695,16 @@ class Sla(Entity):
                                         
                                         	**range:** \-9223372036854775808..9223372036854775807
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: count
                                         
                                         	The total number of results in the bin
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4113,7 +4741,9 @@ class Sla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, ['lower_bound', 'upper_bound', 'lower_bound_tenths', 'upper_bound_tenths', 'sum', 'count'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins, [u'lower_bound', u'upper_bound', u'lower_bound_tenths', u'upper_bound_tenths', u'sum', u'count'], name, value)
+
+
 
 
                                 class Unaggregated(Entity):
@@ -4124,6 +4754,8 @@ class Sla(Entity):
                                     
                                     	The samples of an SLA metric bucket
                                     	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4163,6 +4795,8 @@ class Sla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: millisecond
                                         
                                         .. attribute:: sent
@@ -4170,25 +4804,35 @@ class Sla(Entity):
                                         	Whether the sample packet was sucessfully sent
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: timed_out
                                         
                                         	Whether the sample packet timed out
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: corrupt
                                         
                                         	Whether the sample packet was corrupt
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: out_of_order
                                         
                                         	Whether the sample packet was received out\-of\-order
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: no_data_packets
                                         
                                         	Whether a measurement could not be made because no data packets were sent in the sample period. Only applicable for LMM measurements
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: result
                                         
@@ -4197,6 +4841,8 @@ class Sla(Entity):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: frames_sent
                                         
                                         	For FLR measurements, the number of frames sent, if available
@@ -4204,12 +4850,16 @@ class Sla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: frames_lost
                                         
                                         	For FLR measurements, the number of frames lost, if available
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4252,7 +4902,14 @@ class Sla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, ['sent_at', 'sent', 'timed_out', 'corrupt', 'out_of_order', 'no_data_packets', 'result', 'frames_sent', 'frames_lost'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample, [u'sent_at', u'sent', u'timed_out', u'corrupt', u'out_of_order', u'no_data_packets', u'result', u'frames_sent', u'frames_lost'], name, value)
+
+
+
+
+
+
+
 
 
             class ConfigErrors(Entity):
@@ -4264,6 +4921,8 @@ class Sla(Entity):
                 
                 	SLA operation to get configuration errors data for
                 	**type**\: list of  		 :py:class:`ConfigError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.ConfigErrors.ConfigError>`
+                
+                	**config**\: False
                 
                 
 
@@ -4304,10 +4963,14 @@ class Sla(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_name
                     
                     	Domain name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_name
                     
@@ -4316,12 +4979,16 @@ class Sla(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: mep_id
                     
                     	MEP ID in the range 1 to 8191
                     	**type**\: int
                     
                     	**range:** 1..8191
+                    
+                    	**config**\: False
                     
                     .. attribute:: mac_address
                     
@@ -4330,100 +4997,140 @@ class Sla(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: profile_name_xr
                     
                     	The name of the operation profile
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: display_short
                     
                     	Short display name used by the operation
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: rt_delay_inconsistent
                     
                     	Is the profile configured to collect RT Delay but the packet type doesn't support it?
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ow_delay_sd_inconsistent
                     
                     	Is the profile configured to collect OW Delay (SD) but the packet type doesn't support it?
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: ow_delay_ds_inconsistent
                     
                     	Is the profile configured to collect OW Delay (DS) but the packet type doesn't support it?
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: rt_jitter_inconsistent
                     
                     	Is the profile configured to collect RT Jitter but the packet type doesn't support it?
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: ow_jitter_sd_inconsistent
                     
                     	Is the profile configured to collect OW Jitter (SD) but the packet type doesn't support it?
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ow_jitter_ds_inconsistent
                     
                     	Is the profile configured to collect OW Delay (DS) but the packet type doesn't support it?
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: ow_loss_sd_inconsistent
                     
                     	Is the profile configured to collect OW Frame Loss (SD) but the packet type doesn't support it ?
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ow_loss_ds_inconsistent
                     
                     	Is the profile configured to collect OW Frame Loss (DS) but the packet type doesn't support it ?
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: packet_pad_inconsistent
                     
                     	Is the profile configured to pad packets but the packet type doesn't support it?
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: packet_rand_pad_inconsistent
                     
                     	Is the profile configured to pad packets with a pseudo\-random string but the packet type doesn't support it?
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: min_packet_interval_inconsistent
                     
                     	Is the profile configured to send packets more frequently than the protocol allows?
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: priority_inconsistent
                     
                     	Is the profile configured to use a packet priority scheme that the protocol does not support?
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: packet_type_inconsistent
                     
                     	Is the profile configured to use a packet type that isn't supported by any protocols?
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: profile_doesnt_exist
                     
                     	Is the operation configured to use a profile that is not currently defined for the protocol?
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: synthetic_loss_not_supported
                     
                     	The profile is configured to use a packet type which doesn't support synthetic loss measurement and the number of packets per FLR calculation has been configured
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: probe_too_big
                     
                     	The profile is configured to use a packet type which does not allow more than 72000 packets per probe and greater than 72000 packets per probe have been configured
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: error_string
                     
                     	Displays other issues not indicated from the flags above, for example MIB incompatibility issues
                     	**type**\: list of str
+                    
+                    	**config**\: False
                     
                     
 
@@ -4496,7 +5203,9 @@ class Sla(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.ConfigErrors.ConfigError, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'profile_name_xr', 'display_short', 'rt_delay_inconsistent', 'ow_delay_sd_inconsistent', 'ow_delay_ds_inconsistent', 'rt_jitter_inconsistent', 'ow_jitter_sd_inconsistent', 'ow_jitter_ds_inconsistent', 'ow_loss_sd_inconsistent', 'ow_loss_ds_inconsistent', 'packet_pad_inconsistent', 'packet_rand_pad_inconsistent', 'min_packet_interval_inconsistent', 'priority_inconsistent', 'packet_type_inconsistent', 'profile_doesnt_exist', 'synthetic_loss_not_supported', 'probe_too_big', 'error_string'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.ConfigErrors.ConfigError, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'profile_name_xr', u'display_short', u'rt_delay_inconsistent', u'ow_delay_sd_inconsistent', u'ow_delay_ds_inconsistent', u'rt_jitter_inconsistent', u'ow_jitter_sd_inconsistent', u'ow_jitter_ds_inconsistent', u'ow_loss_sd_inconsistent', u'ow_loss_ds_inconsistent', u'packet_pad_inconsistent', u'packet_rand_pad_inconsistent', u'min_packet_interval_inconsistent', u'priority_inconsistent', u'packet_type_inconsistent', u'profile_doesnt_exist', u'synthetic_loss_not_supported', u'probe_too_big', u'error_string'], name, value)
+
+
 
 
             class OnDemandOperations(Entity):
@@ -4507,6 +5216,8 @@ class Sla(Entity):
                 
                 	SLA on\-demand operation to get operation data for
                 	**type**\: list of  		 :py:class:`OnDemandOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation>`
+                
+                	**config**\: False
                 
                 
 
@@ -4547,10 +5258,14 @@ class Sla(Entity):
                     
                     	**range:** 1..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_name
                     
                     	Domain name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_name
                     
@@ -4559,12 +5274,16 @@ class Sla(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: mep_id
                     
                     	MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be specified
                     	**type**\: int
                     
                     	**range:** 1..8191
+                    
+                    	**config**\: False
                     
                     .. attribute:: mac_address
                     
@@ -4573,25 +5292,35 @@ class Sla(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: profile_options
                     
                     	Options that are only valid if the operation has a profile
                     	**type**\:  :py:class:`ProfileOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: specific_options
                     
                     	Options specific to the type of operation
                     	**type**\:  :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: display_short
                     
                     	Short display name used by the operation
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: display_long
                     
                     	Long display name used by the operation
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: last_run
                     
@@ -4599,6 +5328,8 @@ class Sla(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -4647,7 +5378,7 @@ class Sla(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'display_short', 'display_long', 'last_run'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation, ['operation_id', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'display_short', u'display_long', u'last_run'], name, value)
 
 
                     class ProfileOptions(Entity):
@@ -4660,20 +5391,28 @@ class Sla(Entity):
                         	Configuration of the packet padding
                         	**type**\:  :py:class:`PacketPadding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: priority
                         
                         	Priority at which to send the packet, if configured
                         	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: operation_schedule
                         
                         	Operation schedule
                         	**type**\:  :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: probe_type
                         
                         	Type of probe used by the operation
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: packets_per_burst
                         
@@ -4682,12 +5421,16 @@ class Sla(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: inter_packet_interval
                         
                         	Interval between packets within a burst in milliseconds
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         	**units**\: millisecond
                         
@@ -4698,12 +5441,16 @@ class Sla(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: inter_burst_interval
                         
                         	Interval between bursts within a probe in milliseconds
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: millisecond
                         
@@ -4714,12 +5461,16 @@ class Sla(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: millisecond
                         
                         .. attribute:: operation_metric
                         
                         	Array of the metrics that are measured by the operation
                         	**type**\: list of  		 :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -4770,7 +5521,7 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions, ['probe_type', 'packets_per_burst', 'inter_packet_interval', 'bursts_per_probe', 'inter_burst_interval', 'flr_calculation_interval'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions, [u'probe_type', u'packets_per_burst', u'inter_packet_interval', u'bursts_per_probe', u'inter_burst_interval', u'flr_calculation_interval'], name, value)
 
 
                         class PacketPadding(Entity):
@@ -4784,10 +5535,14 @@ class Sla(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: test_pattern_pad_scheme
                             
                             	Test pattern scheme that is used in the packet padding
                             	**type**\:  :py:class:`SlaOperTestPatternScheme <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperTestPatternScheme>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: test_pattern_pad_hex_string
                             
@@ -4795,6 +5550,8 @@ class Sla(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -4825,7 +5582,8 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding, ['packet_pad_size', 'test_pattern_pad_scheme', 'test_pattern_pad_hex_string'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding, [u'packet_pad_size', u'test_pattern_pad_scheme', u'test_pattern_pad_hex_string'], name, value)
+
 
 
                         class Priority(Entity):
@@ -4838,12 +5596,16 @@ class Sla(Entity):
                             	PriorityType
                             	**type**\:  :py:class:`SlaOperPacketPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperPacketPriority>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: cos
                             
                             	3\-bit COS priority value applied to packets
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -4872,7 +5634,8 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority, ['priority_type', 'cos'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority, [u'priority_type', u'cos'], name, value)
+
 
 
                         class OperationSchedule(Entity):
@@ -4886,6 +5649,8 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             	**units**\: second
                             
                             .. attribute:: start_time_configured
@@ -4893,12 +5658,16 @@ class Sla(Entity):
                             	Whether or not the operation start time was explicitly configured
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: schedule_duration
                             
                             	Duration of a probe for the operation in seconds
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: second
                             
@@ -4908,6 +5677,8 @@ class Sla(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: second
                             
@@ -4942,7 +5713,8 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule, [u'start_time', u'start_time_configured', u'schedule_duration', u'schedule_interval'], name, value)
+
 
 
                         class OperationMetric(Entity):
@@ -4955,12 +5727,16 @@ class Sla(Entity):
                             	Configuration of the metric
                             	**type**\:  :py:class:`MetricConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: current_buckets_archive
                             
                             	Number of valid buckets currently in the buckets archive
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -4991,7 +5767,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric, ['current_buckets_archive'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric, [u'current_buckets_archive'], name, value)
 
 
                             class MetricConfig(Entity):
@@ -5003,12 +5779,16 @@ class Sla(Entity):
                                 	Type of metric to which this configuration applies
                                 	**type**\:  :py:class:`SlaRecordableMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetric>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bins_count
                                 
                                 	Total number of bins into which to aggregate. 0 if no aggregation
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: bins_width
                                 
@@ -5017,6 +5797,8 @@ class Sla(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bucket_size
                                 
                                 	Size of buckets into which measurements are collected
@@ -5024,10 +5806,14 @@ class Sla(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bucket_size_unit
                                 
                                 	Whether bucket size is 'per\-probe' or 'probes'
                                 	**type**\:  :py:class:`SlaBucketSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSize>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: buckets_archive
                                 
@@ -5035,6 +5821,8 @@ class Sla(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5071,7 +5859,10 @@ class Sla(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
+                                    self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig, [u'metric_type', u'bins_count', u'bins_width', u'bucket_size', u'bucket_size_unit', u'buckets_archive'], name, value)
+
+
+
 
 
                     class SpecificOptions(Entity):
@@ -5083,15 +5874,21 @@ class Sla(Entity):
                         	Parameters for a configured operation
                         	**type**\:  :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.ConfiguredOperationOptions>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ondemand_operation_options
                         
                         	Parameters for an ondemand operation
                         	**type**\:  :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.OndemandOperationOptions>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: oper_type
                         
                         	OperType
                         	**type**\:  :py:class:`SlaOperOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperation>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5126,7 +5923,7 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions, ['oper_type'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions, [u'oper_type'], name, value)
 
 
                         class ConfiguredOperationOptions(Entity):
@@ -5137,6 +5934,8 @@ class Sla(Entity):
                             
                             	Name of the profile used by the operation
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -5163,7 +5962,8 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.ConfiguredOperationOptions, [u'profile_name'], name, value)
+
 
 
                         class OndemandOperationOptions(Entity):
@@ -5177,12 +5977,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: probe_count
                             
                             	Total number of probes sent during the operation
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -5211,7 +6015,11 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.OndemandOperationOptions, [u'ondemand_operation_id', u'probe_count'], name, value)
+
+
+
+
 
 
             class StatisticsCurrents(Entity):
@@ -5222,6 +6030,8 @@ class Sla(Entity):
                 
                 	Current statistics data for an SLA configured operation
                 	**type**\: list of  		 :py:class:`StatisticsCurrent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent>`
+                
+                	**config**\: False
                 
                 
 
@@ -5262,10 +6072,14 @@ class Sla(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_name
                     
                     	Domain name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_name
                     
@@ -5274,12 +6088,16 @@ class Sla(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: mep_id
                     
                     	MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be specified
                     	**type**\: int
                     
                     	**range:** 1..8191
+                    
+                    	**config**\: False
                     
                     .. attribute:: mac_address
                     
@@ -5288,30 +6106,42 @@ class Sla(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: specific_options
                     
                     	Options specific to the type of operation
                     	**type**\:  :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: operation_schedule
                     
                     	Operation schedule
                     	**type**\:  :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: probe_type
                     
                     	Type of probe used by the operation
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: display_short
                     
                     	Short display name used by the operation
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: display_long
                     
                     	Long display name used by the operation
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: flr_calculation_interval
                     
@@ -5320,12 +6150,16 @@ class Sla(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: operation_metric
                     
                     	Metrics gathered for the operation
                     	**type**\: list of  		 :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5378,7 +6212,7 @@ class Sla(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', 'probe_type', 'display_short', 'display_long', 'flr_calculation_interval'], name, value)
+                        self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent, ['profile_name', 'domain_name', 'interface_name', 'mep_id', 'mac_address', u'probe_type', u'display_short', u'display_long', u'flr_calculation_interval'], name, value)
 
 
                     class SpecificOptions(Entity):
@@ -5390,15 +6224,21 @@ class Sla(Entity):
                         	Parameters for a configured operation
                         	**type**\:  :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.ConfiguredOperationOptions>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ondemand_operation_options
                         
                         	Parameters for an ondemand operation
                         	**type**\:  :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.OndemandOperationOptions>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: oper_type
                         
                         	OperType
                         	**type**\:  :py:class:`SlaOperOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperation>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5433,7 +6273,7 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions, ['oper_type'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions, [u'oper_type'], name, value)
 
 
                         class ConfiguredOperationOptions(Entity):
@@ -5444,6 +6284,8 @@ class Sla(Entity):
                             
                             	Name of the profile used by the operation
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -5470,7 +6312,8 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.ConfiguredOperationOptions, ['profile_name'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.ConfiguredOperationOptions, [u'profile_name'], name, value)
+
 
 
                         class OndemandOperationOptions(Entity):
@@ -5484,12 +6327,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: probe_count
                             
                             	Total number of probes sent during the operation
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -5518,7 +6365,9 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.OndemandOperationOptions, ['ondemand_operation_id', 'probe_count'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.OndemandOperationOptions, [u'ondemand_operation_id', u'probe_count'], name, value)
+
+
 
 
                     class OperationSchedule(Entity):
@@ -5532,6 +6381,8 @@ class Sla(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: second
                         
                         .. attribute:: start_time_configured
@@ -5539,12 +6390,16 @@ class Sla(Entity):
                         	Whether or not the operation start time was explicitly configured
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: schedule_duration
                         
                         	Duration of a probe for the operation in seconds
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -5554,6 +6409,8 @@ class Sla(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -5588,7 +6445,8 @@ class Sla(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule, ['start_time', 'start_time_configured', 'schedule_duration', 'schedule_interval'], name, value)
+                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule, [u'start_time', u'start_time_configured', u'schedule_duration', u'schedule_interval'], name, value)
+
 
 
                     class OperationMetric(Entity):
@@ -5600,10 +6458,14 @@ class Sla(Entity):
                         	Configuration of the metric
                         	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: bucket
                         
                         	Buckets stored for the metric
                         	**type**\: list of  		 :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5645,12 +6507,16 @@ class Sla(Entity):
                             	Type of metric to which this configuration applies
                             	**type**\:  :py:class:`SlaRecordableMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetric>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: bins_count
                             
                             	Total number of bins into which to aggregate. 0 if no aggregation
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             .. attribute:: bins_width
                             
@@ -5659,6 +6525,8 @@ class Sla(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: bucket_size
                             
                             	Size of buckets into which measurements are collected
@@ -5666,10 +6534,14 @@ class Sla(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: bucket_size_unit
                             
                             	Whether bucket size is 'per\-probe' or 'probes'
                             	**type**\:  :py:class:`SlaBucketSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSize>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: buckets_archive
                             
@@ -5677,6 +6549,8 @@ class Sla(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -5713,7 +6587,8 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config, ['metric_type', 'bins_count', 'bins_width', 'bucket_size', 'bucket_size_unit', 'buckets_archive'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config, [u'metric_type', u'bins_count', u'bins_width', u'bucket_size', u'bucket_size_unit', u'buckets_archive'], name, value)
+
 
 
                         class Bucket(Entity):
@@ -5725,6 +6600,8 @@ class Sla(Entity):
                             	The contents of the bucket; bins or samples
                             	**type**\:  :py:class:`Contents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: start_at
                             
                             	Absolute time that the bucket started being filled at
@@ -5732,12 +6609,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: duration
                             
                             	Length of time for which the bucket is being filled in seconds
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: second
                             
@@ -5748,12 +6629,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: lost
                             
                             	Number of lost packets in the probe
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: corrupt
                             
@@ -5762,12 +6647,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: out_of_order
                             
                             	Number of packets recieved out\-of\-order in the probe
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: duplicates
                             
@@ -5776,12 +6665,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: minimum
                             
                             	Overall minimum result in the probe, in microseconds or millionths of a percent
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: maximum
                             
@@ -5790,12 +6683,16 @@ class Sla(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: time_of_minimum
                             
                             	Absolute time that the minimum value was recorded
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: time_of_maximum
                             
@@ -5804,12 +6701,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: average
                             
                             	Mean of the results in the probe, in microseconds or millionths of a percent
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: standard_deviation
                             
@@ -5818,12 +6719,16 @@ class Sla(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: result_count
                             
                             	The count of samples collected in the bucket
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: data_sent_count
                             
@@ -5832,12 +6737,16 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: data_lost_count
                             
                             	The number of data packets lost across the bucket, used in the calculation of overall FLR
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: overall_flr
                             
@@ -5846,6 +6755,8 @@ class Sla(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             	**units**\: percentage
                             
                             .. attribute:: suspect_start_mid_bucket
@@ -5853,60 +6764,84 @@ class Sla(Entity):
                             	Results suspect due to a probe starting mid\-way through a bucket
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_schedule_latency
                             
                             	Results suspect due to scheduling latency causing one or more packets to not be sent
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: suspect_send_fail
                             
                             	Results suspect due to failure to send one or more packets
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_premature_end
                             
                             	Results suspect due to a probe ending prematurely
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: suspect_clock_drift
                             
                             	Results suspect as more than 10 seconds time drift detected
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_memory_allocation_failed
                             
                             	Results suspect due to a memory allocation failure
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: suspect_cleared_mid_bucket
                             
                             	Results suspect as bucket was cleared mid\-way through being filled
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_probe_restarted
                             
                             	Results suspect as probe restarted mid\-way through the bucket
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: suspect_management_latency
                             
                             	Results suspect as processing of results has been delayed
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_multiple_buckets
                             
                             	Results suspect as the probe has been configured across multiple buckets
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: suspect_misordering
                             
                             	Results suspect as misordering has been detected , affecting results
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: suspect_flr_low_packet_count
                             
                             	Results suspect as FLR calculated based on a low packet count
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: premature_reason
                             
@@ -5915,10 +6850,14 @@ class Sla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: premature_reason_string
                             
                             	Description of the error code that caused the probe to end prematurely. For informational purposes only
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -6009,7 +6948,7 @@ class Sla(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket, ['start_at', 'duration', 'sent', 'lost', 'corrupt', 'out_of_order', 'duplicates', 'minimum', 'maximum', 'time_of_minimum', 'time_of_maximum', 'average', 'standard_deviation', 'result_count', 'data_sent_count', 'data_lost_count', 'overall_flr', 'suspect_start_mid_bucket', 'suspect_schedule_latency', 'suspect_send_fail', 'suspect_premature_end', 'suspect_clock_drift', 'suspect_memory_allocation_failed', 'suspect_cleared_mid_bucket', 'suspect_probe_restarted', 'suspect_management_latency', 'suspect_multiple_buckets', 'suspect_misordering', 'suspect_flr_low_packet_count', 'premature_reason', 'premature_reason_string'], name, value)
+                                self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket, [u'start_at', u'duration', u'sent', u'lost', u'corrupt', u'out_of_order', u'duplicates', u'minimum', u'maximum', u'time_of_minimum', u'time_of_maximum', u'average', u'standard_deviation', u'result_count', u'data_sent_count', u'data_lost_count', u'overall_flr', u'suspect_start_mid_bucket', u'suspect_schedule_latency', u'suspect_send_fail', u'suspect_premature_end', u'suspect_clock_drift', u'suspect_memory_allocation_failed', u'suspect_cleared_mid_bucket', u'suspect_probe_restarted', u'suspect_management_latency', u'suspect_multiple_buckets', u'suspect_misordering', u'suspect_flr_low_packet_count', u'premature_reason', u'premature_reason_string'], name, value)
 
 
                             class Contents(Entity):
@@ -6021,15 +6960,21 @@ class Sla(Entity):
                                 	Result bins in an SLA metric bucket
                                 	**type**\:  :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: unaggregated
                                 
                                 	Result samples in an SLA metric bucket
                                 	**type**\:  :py:class:`Unaggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bucket_type
                                 
                                 	BucketType
                                 	**type**\:  :py:class:`SlaOperBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperBucket>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6064,7 +7009,7 @@ class Sla(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents, ['bucket_type'], name, value)
+                                    self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents, [u'bucket_type'], name, value)
 
 
                                 class Aggregated(Entity):
@@ -6075,6 +7020,8 @@ class Sla(Entity):
                                     
                                     	The bins of an SLA metric bucket
                                     	**type**\: list of  		 :py:class:`Bins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6114,6 +7061,8 @@ class Sla(Entity):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: upper_bound
                                         
                                         	Upper bound (exclusive) of the bin, in milliseconds or single units of percent. This field is not used for LMM measurements
@@ -6121,12 +7070,16 @@ class Sla(Entity):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: lower_bound_tenths
                                         
                                         	Lower bound (inclusive) of the bin, in tenths of percent. This field is only used for LMM measurements
                                         	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: percentage
                                         
@@ -6137,6 +7090,8 @@ class Sla(Entity):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: percentage
                                         
                                         .. attribute:: sum
@@ -6146,12 +7101,16 @@ class Sla(Entity):
                                         
                                         	**range:** \-9223372036854775808..9223372036854775807
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: count
                                         
                                         	The total number of results in the bin
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6188,7 +7147,9 @@ class Sla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, ['lower_bound', 'upper_bound', 'lower_bound_tenths', 'upper_bound_tenths', 'sum', 'count'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins, [u'lower_bound', u'upper_bound', u'lower_bound_tenths', u'upper_bound_tenths', u'sum', u'count'], name, value)
+
+
 
 
                                 class Unaggregated(Entity):
@@ -6199,6 +7160,8 @@ class Sla(Entity):
                                     
                                     	The samples of an SLA metric bucket
                                     	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6238,6 +7201,8 @@ class Sla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: millisecond
                                         
                                         .. attribute:: sent
@@ -6245,25 +7210,35 @@ class Sla(Entity):
                                         	Whether the sample packet was sucessfully sent
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: timed_out
                                         
                                         	Whether the sample packet timed out
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: corrupt
                                         
                                         	Whether the sample packet was corrupt
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: out_of_order
                                         
                                         	Whether the sample packet was received out\-of\-order
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: no_data_packets
                                         
                                         	Whether a measurement could not be made because no data packets were sent in the sample period. Only applicable for LMM measurements
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: result
                                         
@@ -6272,6 +7247,8 @@ class Sla(Entity):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: frames_sent
                                         
                                         	For FLR measurements, the number of frames sent, if available
@@ -6279,12 +7256,16 @@ class Sla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: frames_lost
                                         
                                         	For FLR measurements, the number of frames lost, if available
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6327,11 +7308,22 @@ class Sla(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, ['sent_at', 'sent', 'timed_out', 'corrupt', 'out_of_order', 'no_data_packets', 'result', 'frames_sent', 'frames_lost'], name, value)
+                                            self._perform_setattr(Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample, [u'sent_at', u'sent', u'timed_out', u'corrupt', u'out_of_order', u'no_data_packets', u'result', u'frames_sent', u'frames_lost'], name, value)
+
+
+
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Sla()
         return self._top_entity
+
+
 
 class SlaNodes(Entity):
     """
@@ -6361,4 +7353,6 @@ class SlaNodes(Entity):
     def clone_ptr(self):
         self._top_entity = SlaNodes()
         return self._top_entity
+
+
 

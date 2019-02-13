@@ -200,12 +200,16 @@ class StpDetails(Entity):
     	List of mst/rapid\-pvst spanning\-tree, keyed by instance name
     	**type**\: list of  		 :py:class:`StpDetail <ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper.StpDetails.StpDetail>`
     
+    	**config**\: False
+    
     .. attribute:: stp_global
     
     	Global state data
     	**type**\:  :py:class:`StpGlobal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper.StpDetails.StpGlobal>`
     
     	**presence node**\: True
+    
+    	**config**\: False
     
     
 
@@ -246,12 +250,16 @@ class StpDetails(Entity):
         	Spanning\-tree enabled mode and id
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: hello_time
         
         	The interval between periodic transmissions of configuration messages by designated ports
         	**type**\: int
         
         	**range:** \-2147483648..2147483647
+        
+        	**config**\: False
         
         .. attribute:: max_age
         
@@ -260,12 +268,16 @@ class StpDetails(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         .. attribute:: forwarding_delay
         
         	The delay used by STP bridges to transition root and designated ports to forwarding
         	**type**\: int
         
         	**range:** \-2147483648..2147483647
+        
+        	**config**\: False
         
         .. attribute:: hold_count
         
@@ -274,12 +286,16 @@ class StpDetails(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: bridge_priority
         
         	The manageable component of the Bridge Identifier
         	**type**\: int
         
         	**range:** 0..65535
+        
+        	**config**\: False
         
         .. attribute:: bridge_address
         
@@ -288,12 +304,16 @@ class StpDetails(Entity):
         
         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
         
+        	**config**\: False
+        
         .. attribute:: designated_root_priority
         
         	The bridge priority of the root of the spanning tree, as determined by the Spanning Tree Protocol, as executed by this node
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: designated_root_address
         
@@ -302,12 +322,16 @@ class StpDetails(Entity):
         
         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
         
+        	**config**\: False
+        
         .. attribute:: root_port
         
         	The port number of the port which offers the lowest cost path from this bridge to the root bridge
         	**type**\: int
         
         	**range:** 0..65535
+        
+        	**config**\: False
         
         .. attribute:: root_cost
         
@@ -316,12 +340,16 @@ class StpDetails(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: hold_time
         
         	This time value determines the interval length during which no more than two Configuration bridge PDUs shall be transmitted by this node
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: topology_changes
         
@@ -330,6 +358,8 @@ class StpDetails(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: time_of_last_topology_change
         
         	The time of the last topology change that was detected by the bridge entity.The time is POSIX time UTC
@@ -337,10 +367,14 @@ class StpDetails(Entity):
         
         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
+        	**config**\: False
+        
         .. attribute:: interfaces
         
         	List of interfaces on which STP is enable
         	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper.StpDetails.StpDetail.Interfaces>`
+        
+        	**config**\: False
         
         
 
@@ -409,6 +443,8 @@ class StpDetails(Entity):
             	List of interfaces on which STP is enable
             	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper.StpDetails.StpDetail.Interfaces.Interface>`
             
+            	**config**\: False
+            
             
 
             """
@@ -444,12 +480,16 @@ class StpDetails(Entity):
                 	Reference to the STP ethernet interface
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: cost
                 
                 	The port's contribution, when it is the Root Port, to the Root Path Cost for the Bridge
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: port_priority
                 
@@ -458,6 +498,8 @@ class StpDetails(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: port_num
                 
                 	The port number of the bridge port
@@ -465,15 +507,21 @@ class StpDetails(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: role
                 
                 	The current role of the bridge port
                 	**type**\:  :py:class:`StpPortRole <ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper.StpPortRole>`
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	The current state of the bridge port
                 	**type**\:  :py:class:`StpPortState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper.StpPortState>`
+                
+                	**config**\: False
                 
                 .. attribute:: designated_root_priority
                 
@@ -482,12 +530,16 @@ class StpDetails(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: designated_root_address
                 
                 	The bridge address of the bridge recorded as the root in the configuration BPDUs transmitted by the designated bridge for the segment to which the port is attached
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                	**config**\: False
                 
                 .. attribute:: designated_cost
                 
@@ -496,12 +548,16 @@ class StpDetails(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: designated_bridge_priority
                 
                 	The bridge priority of the bridge that this port considers to be the designated bridge for this port's segment
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: designated_bridge_address
                 
@@ -510,12 +566,16 @@ class StpDetails(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: designated_port_priority
                 
                 	The Port priority of the port on the Designated Bridge for this port's segment, two octet string
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 .. attribute:: designated_port_num
                 
@@ -524,6 +584,8 @@ class StpDetails(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: forward_transitions
                 
                 	The number of times this port has transitioned from the Learning state to the Forwarding state
@@ -531,25 +593,35 @@ class StpDetails(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: link_type
                 
                 	Interface's link type
                 	**type**\:  :py:class:`StpLinkRole <ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper.StpLinkRole>`
+                
+                	**config**\: False
                 
                 .. attribute:: guard
                 
                 	Interface's spanning tree guard mode
                 	**type**\:  :py:class:`StpPortGuard <ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper.StpPortGuard>`
                 
+                	**config**\: False
+                
                 .. attribute:: bpdu_guard
                 
                 	BPDU guard on this interface
                 	**type**\:  :py:class:`StpPortBpduguard <ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper.StpPortBpduguard>`
                 
+                	**config**\: False
+                
                 .. attribute:: bpdu_filter
                 
                 	BPDU filter on this interface
                 	**type**\:  :py:class:`StpPortBpdufilter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper.StpPortBpdufilter>`
+                
+                	**config**\: False
                 
                 .. attribute:: bpdu_sent
                 
@@ -558,12 +630,16 @@ class StpDetails(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bpdu_received
                 
                 	The number of BPDU packet received
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -630,6 +706,9 @@ class StpDetails(Entity):
                     self._perform_setattr(StpDetails.StpDetail.Interfaces.Interface, ['name', 'cost', 'port_priority', 'port_num', 'role', 'state', 'designated_root_priority', 'designated_root_address', 'designated_cost', 'designated_bridge_priority', 'designated_bridge_address', 'designated_port_priority', 'designated_port_num', 'forward_transitions', 'link_type', 'guard', 'bpdu_guard', 'bpdu_filter', 'bpdu_sent', 'bpdu_received'], name, value)
 
 
+
+
+
     class StpGlobal(Entity):
         """
         Global state data
@@ -639,35 +718,49 @@ class StpDetails(Entity):
         	Spanning tree mode enabled on the device
         	**type**\:  :py:class:`StpMode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper.StpMode>`
         
+        	**config**\: False
+        
         .. attribute:: bridge_assurance
         
         	Enable STP Bridge Assurance feature
         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+        
+        	**config**\: False
         
         .. attribute:: loop_guard
         
         	Enable loopguard by default
         	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
+        	**config**\: False
+        
         .. attribute:: bpdu_guard
         
         	Enable portfast bpdu guard
         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+        
+        	**config**\: False
         
         .. attribute:: bpdu_filter
         
         	Enable portfast bpdu filter
         	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
+        	**config**\: False
+        
         .. attribute:: etherchannel_misconfig_guard
         
         	Enable guard to protect against etherchannel misconfiguration
         	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
+        	**config**\: False
+        
         .. attribute:: mst_only
         
         	Global state for MST ONLY
         	**type**\:  :py:class:`MstOnly <ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper.StpDetails.StpGlobal.MstOnly>`
+        
+        	**config**\: False
         
         
 
@@ -725,10 +818,14 @@ class StpDetails(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: mst_config_name
             
             	Configuration name(used by MSTP only)
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: max_hops
             
@@ -736,6 +833,8 @@ class StpDetails(Entity):
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             
 
@@ -768,7 +867,11 @@ class StpDetails(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(StpDetails.StpGlobal.MstOnly, ['mst_config_revision', 'mst_config_name', 'max_hops'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = StpDetails()
         return self._top_entity
+
+
 

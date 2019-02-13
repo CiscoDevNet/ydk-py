@@ -30,6 +30,8 @@ class FileSystem(Entity):
     	Node ID
     	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_filesystem_oper.FileSystem.Node>`
     
+    	**config**\: False
+    
     
 
     """
@@ -68,10 +70,14 @@ class FileSystem(Entity):
         
         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
         
+        	**config**\: False
+        
         .. attribute:: file_system
         
         	Available file systems
         	**type**\: list of  		 :py:class:`FileSystem_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_filesystem_oper.FileSystem.Node.FileSystem_>`
+        
+        	**config**\: False
         
         
 
@@ -112,12 +118,16 @@ class FileSystem(Entity):
             	Size of the file system in bytes
             	**type**\: str
             
+            	**config**\: False
+            
             	**units**\: byte
             
             .. attribute:: free
             
             	Free space in the file system in bytes
             	**type**\: str
+            
+            	**config**\: False
             
             	**units**\: byte
             
@@ -126,15 +136,21 @@ class FileSystem(Entity):
             	Type of file system
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: flags
             
             	Flags of file system
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: prefixes
             
             	Prefixes of file system
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -168,9 +184,13 @@ class FileSystem(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(FileSystem.Node.FileSystem_, ['size', 'free', 'type', 'flags', 'prefixes'], name, value)
+                self._perform_setattr(FileSystem.Node.FileSystem_, [u'size', u'free', u'type', u'flags', u'prefixes'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = FileSystem()
         return self._top_entity
+
+
 

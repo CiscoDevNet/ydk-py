@@ -33,6 +33,7 @@ class OverlayEncapType(Identity):
         super(OverlayEncapType, self).__init__(ns, pref, tag)
 
 
+
 class NvoInstances(Entity):
     """
     vxlan instances
@@ -80,11 +81,6 @@ class NvoInstances(Entity):
         
         	**range:** 0..65535
         
-        .. attribute:: overlay_encapsulation
-        
-        	Encapsulation type
-        	**type**\:  :py:class:`OverlayEncapType <ydk.models.cisco_ios_xe.nvo.OverlayEncapType>`
-        
         .. attribute:: virtual_network
         
         	VNI member attributes
@@ -98,6 +94,11 @@ class NvoInstances(Entity):
         	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
         
         	**mandatory**\: True
+        
+        .. attribute:: overlay_encapsulation
+        
+        	Encapsulation type
+        	**type**\:  :py:class:`OverlayEncapType <ydk.models.cisco_ios_xe.nvo.OverlayEncapType>`
         
         
 
@@ -117,12 +118,12 @@ class NvoInstances(Entity):
             self._child_classes = OrderedDict([("virtual-network", ("virtual_network", NvoInstances.NvoInstance.VirtualNetwork))])
             self._leafs = OrderedDict([
                 ('nvo_id', (YLeaf(YType.uint16, 'nvo-id'), ['int'])),
-                ('overlay_encapsulation', (YLeaf(YType.identityref, 'overlay-encapsulation'), [('ydk.models.cisco_ios_xe.nvo', 'OverlayEncapType')])),
                 ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
+                ('overlay_encapsulation', (YLeaf(YType.identityref, 'overlay-encapsulation'), [('ydk.models.cisco_ios_xe.nvo', 'OverlayEncapType')])),
             ])
             self.nvo_id = None
-            self.overlay_encapsulation = None
             self.source_interface = None
+            self.overlay_encapsulation = None
 
             self.virtual_network = YList(self)
             self._segment_path = lambda: "nvo-instance" + "[nvo-id='" + str(self.nvo_id) + "']"
@@ -130,7 +131,7 @@ class NvoInstances(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NvoInstances.NvoInstance, ['nvo_id', 'overlay_encapsulation', 'source_interface'], name, value)
+            self._perform_setattr(NvoInstances.NvoInstance, [u'nvo_id', u'source_interface', u'overlay_encapsulation'], name, value)
 
 
         class VirtualNetwork(Entity):
@@ -155,19 +156,10 @@ class NvoInstances(Entity):
             
             	**mandatory**\: True
             
-            .. attribute:: routing_instance
+            .. attribute:: bgp
             
-            	VRF Name
-            	**type**\: str
-            
-            	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_routing.Routing.RoutingInstance>`
-            
-            .. attribute:: end_host_discovery
-            
-            	How to peform endpoint discovery
-            	**type**\:  :py:class:`EndHostDiscovery <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork.EndHostDiscovery>`
-            
-            	**default value**\: flood-and-learn
+            	Use control protocol BGP to discover  peers
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: multicast
             
@@ -179,15 +171,24 @@ class NvoInstances(Entity):
             	List of VTEP peers
             	**type**\: list of  		 :py:class:`Peers <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork.Peers>`
             
-            .. attribute:: bgp
-            
-            	Use control protocol BGP to discover  peers
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
             .. attribute:: suppress_arp
             
             	Enable ARP request suppression for this VNI
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: end_host_discovery
+            
+            	How to peform endpoint discovery
+            	**type**\:  :py:class:`EndHostDiscovery <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork.EndHostDiscovery>`
+            
+            	**default value**\: flood-and-learn
+            
+            .. attribute:: routing_instance
+            
+            	VRF Name
+            	**type**\: str
+            
+            	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_routing.Routing.RoutingInstance>`
             
             
 
@@ -208,17 +209,17 @@ class NvoInstances(Entity):
                 self._leafs = OrderedDict([
                     ('vni_start', (YLeaf(YType.uint32, 'vni-start'), ['int'])),
                     ('vni_end', (YLeaf(YType.uint32, 'vni-end'), ['int'])),
-                    ('routing_instance', (YLeaf(YType.str, 'routing-instance'), ['str'])),
-                    ('end_host_discovery', (YLeaf(YType.enumeration, 'end-host-discovery'), [('ydk.models.cisco_ios_xe.nvo', 'NvoInstances', 'NvoInstance.VirtualNetwork.EndHostDiscovery')])),
                     ('bgp', (YLeaf(YType.empty, 'bgp'), ['Empty'])),
                     ('suppress_arp', (YLeaf(YType.empty, 'suppress-arp'), ['Empty'])),
+                    ('end_host_discovery', (YLeaf(YType.enumeration, 'end-host-discovery'), [('ydk.models.cisco_ios_xe.nvo', 'NvoInstances', 'NvoInstance.VirtualNetwork.EndHostDiscovery')])),
+                    ('routing_instance', (YLeaf(YType.str, 'routing-instance'), ['str'])),
                 ])
                 self.vni_start = None
                 self.vni_end = None
-                self.routing_instance = None
-                self.end_host_discovery = None
                 self.bgp = None
                 self.suppress_arp = None
+                self.end_host_discovery = None
+                self.routing_instance = None
 
                 self.multicast = NvoInstances.NvoInstance.VirtualNetwork.Multicast()
                 self.multicast.parent = self
@@ -229,7 +230,7 @@ class NvoInstances(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvoInstances.NvoInstance.VirtualNetwork, ['vni_start', 'vni_end', 'routing_instance', 'end_host_discovery', 'bgp', 'suppress_arp'], name, value)
+                self._perform_setattr(NvoInstances.NvoInstance.VirtualNetwork, [u'vni_start', u'vni_end', u'bgp', u'suppress_arp', u'end_host_discovery', u'routing_instance'], name, value)
 
             class EndHostDiscovery(Enum):
                 """
@@ -300,7 +301,8 @@ class NvoInstances(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvoInstances.NvoInstance.VirtualNetwork.Multicast, ['multicast_group_min', 'multicast_group_max'], name, value)
+                    self._perform_setattr(NvoInstances.NvoInstance.VirtualNetwork.Multicast, [u'multicast_group_min', u'multicast_group_max'], name, value)
+
 
 
             class Peers(Entity):
@@ -344,11 +346,16 @@ class NvoInstances(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvoInstances.NvoInstance.VirtualNetwork.Peers, ['peer_ip'], name, value)
+                    self._perform_setattr(NvoInstances.NvoInstance.VirtualNetwork.Peers, [u'peer_ip'], name, value)
+
+
+
 
     def clone_ptr(self):
         self._top_entity = NvoInstances()
         return self._top_entity
+
+
 
 class NvgreType(OverlayEncapType):
     """
@@ -365,6 +372,7 @@ class NvgreType(OverlayEncapType):
         super(NvgreType, self).__init__(ns, pref, tag)
 
 
+
 class VxlanType(OverlayEncapType):
     """
     This identity represents vxlan encapsulation.
@@ -378,5 +386,6 @@ class VxlanType(OverlayEncapType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:nvo", pref="nvo", tag="nvo:vxlan-type"):
         super(VxlanType, self).__init__(ns, pref, tag)
+
 
 

@@ -422,6 +422,8 @@ class AddressPoolService(Entity):
                                     self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.AddressRanges.AddressRange, ['start_address', 'blocked', 'end_address'], name, value)
 
 
+
+
                         class Excludes(Entity):
                             """
                             Exclude IPv6 addresses / prefixes
@@ -518,6 +520,8 @@ class AddressPoolService(Entity):
                                     self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Excludes.Exclude, ['start_address', 'end_address'], name, value)
 
 
+
+
                         class UtilizationMark(Entity):
                             """
                             Specify utilization mark
@@ -574,6 +578,7 @@ class AddressPoolService(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.UtilizationMark, ['high_mark', 'low_mark'], name, value)
+
 
 
                         class PrefixRanges(Entity):
@@ -681,6 +686,8 @@ class AddressPoolService(Entity):
                                     self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.PrefixRanges.PrefixRange, ['start_prefix', 'blocked', 'end_prefix'], name, value)
 
 
+
+
                         class Networks(Entity):
                             """
                             Specify network for allocation
@@ -778,6 +785,11 @@ class AddressPoolService(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv6.Pools.Pool.Networks.Network, ['prefix', 'blocked', 'prefix_length'], name, value)
+
+
+
+
+
 
 
             class Ipv4(Entity):
@@ -1026,6 +1038,8 @@ class AddressPoolService(Entity):
                                     self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.AddressRanges.AddressRange, ['start_address', 'end_address', 'blocked'], name, value)
 
 
+
+
                         class Excludes(Entity):
                             """
                             Exclude addresses
@@ -1116,6 +1130,8 @@ class AddressPoolService(Entity):
                                     self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Excludes.Exclude, ['start_address', 'end_address'], name, value)
 
 
+
+
                         class UtilizationMark(Entity):
                             """
                             Specify utilization mark
@@ -1172,6 +1188,7 @@ class AddressPoolService(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.UtilizationMark, ['high', 'low'], name, value)
+
 
 
                         class Networks(Entity):
@@ -1281,7 +1298,16 @@ class AddressPoolService(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(AddressPoolService.Vrfs.Vrf.Ipv4.Pools.Pool.Networks.Network, ['ipv4_prefix', 'blocked', 'prefix_length', 'default_router'], name, value)
 
+
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = AddressPoolService()
         return self._top_entity
+
+
 

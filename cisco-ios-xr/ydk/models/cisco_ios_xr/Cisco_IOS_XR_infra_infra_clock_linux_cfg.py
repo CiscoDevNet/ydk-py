@@ -110,7 +110,10 @@ class Clock(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Clock.TimeZone, ['time_zone_name', 'area_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Clock()
         return self._top_entity
+
+
 

@@ -30,6 +30,8 @@ class Ltrace(Entity):
     	feature
     	**type**\:  :py:class:`Features <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ascii_ltrace_oper.Ltrace.Features>`
     
+    	**config**\: False
+    
     
 
     """
@@ -68,6 +70,8 @@ class Ltrace(Entity):
         	feature
         	**type**\: list of  		 :py:class:`Feature <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ascii_ltrace_oper.Ltrace.Features.Feature>`
         
+        	**config**\: False
+        
         
 
         """
@@ -104,6 +108,8 @@ class Ltrace(Entity):
             	trace
             	**type**\:  :py:class:`Traces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ascii_ltrace_oper.Ltrace.Features.Feature.Traces>`
             
+            	**config**\: False
+            
             .. attribute:: feature_name
             
             	feature name
@@ -111,12 +117,16 @@ class Ltrace(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: trace_buf
             
             	trace buffer name
             	**type**\: str
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            
+            	**config**\: False
             
             
 
@@ -161,6 +171,8 @@ class Ltrace(Entity):
                 	trace
                 	**type**\: list of  		 :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ascii_ltrace_oper.Ltrace.Features.Feature.Traces.Trace>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -199,15 +211,21 @@ class Ltrace(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: timestamp
                     
                     	timestamp
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: line
                     
                     	a single line of a trace point
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -240,7 +258,13 @@ class Ltrace(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ltrace.Features.Feature.Traces.Trace, ['ltrace_id', 'timestamp', 'line'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Ltrace()
         return self._top_entity
+
+
 

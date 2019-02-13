@@ -1567,6 +1567,8 @@ class Interfaces(Entity):
     	List of interfaces
     	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface>`
     
+    	**config**\: False
+    
     
 
     """
@@ -1603,20 +1605,28 @@ class Interfaces(Entity):
         	The name of the interface. A server implementation MAY map this leaf to the ifName MIB object.  Such an implementation needs to use some mechanism to handle the differences in size and characters allowed between this leaf and ifName.  The definition of such a mechanism is outside the scope of this document
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: interface_type
         
         	When an interface entry is created, a server MAY initialize the type leaf with a valid value, e.g., if it is possible to derive the type from the name of the interface. If a client tries to set the type of an interface to a value that can never be used by the system, e.g., if the type is not supported or if the type does not match the name of the interface, the server MUST reject the request. A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case
         	**type**\:  :py:class:`IetfIntfType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.IetfIntfType>`
+        
+        	**config**\: False
         
         .. attribute:: admin_status
         
         	The desired state of the interface. This leaf has the same read semantics as ifAdminStatus
         	**type**\:  :py:class:`IntfState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.IntfState>`
         
+        	**config**\: False
+        
         .. attribute:: oper_status
         
         	The current operational state of the interface. This leaf has the same semantics as ifOperStatus
         	**type**\:  :py:class:`OperState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.OperState>`
+        
+        	**config**\: False
         
         .. attribute:: last_change
         
@@ -1625,12 +1635,16 @@ class Interfaces(Entity):
         
         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
+        	**config**\: False
+        
         .. attribute:: if_index
         
         	The ifIndex value for the ifEntry represented by this interface
         	**type**\: int
         
         	**range:** \-2147483648..2147483647
+        
+        	**config**\: False
         
         .. attribute:: phys_address
         
@@ -1639,15 +1653,21 @@ class Interfaces(Entity):
         
         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
         
+        	**config**\: False
+        
         .. attribute:: higher_layer_if
         
         	A list of references to interfaces layered on top of this interface
         	**type**\: list of str
         
+        	**config**\: False
+        
         .. attribute:: lower_layer_if
         
         	A list of references to interfaces layered underneath this interface
         	**type**\: list of str
+        
+        	**config**\: False
         
         .. attribute:: speed
         
@@ -1656,20 +1676,28 @@ class Interfaces(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: statistics
         
         	A collection of interface\-related statistics objects
         	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.Statistics>`
+        
+        	**config**\: False
         
         .. attribute:: diffserv_info
         
         	diffserv related details
         	**type**\: list of  		 :py:class:`DiffservInfo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo>`
         
+        	**config**\: False
+        
         .. attribute:: vrf
         
         	VRF to which this interface belongs to. If the  interface is not in a VRF then it is 'Global'
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: ipv4
         
@@ -1684,6 +1712,8 @@ class Interfaces(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: ipv4_subnet_mask
         
         	IPv4 Subnet Mask
@@ -1697,10 +1727,14 @@ class Interfaces(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: description
         
         	Interface description
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: mtu
         
@@ -1709,25 +1743,35 @@ class Interfaces(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: input_security_acl
         
         	Input Security ACL
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: output_security_acl
         
         	Output Security ACL
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: v4_protocol_stats
         
         	IPv4 traffic statistics for this interface
         	**type**\:  :py:class:`V4ProtocolStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.V4ProtocolStats>`
         
+        	**config**\: False
+        
         .. attribute:: v6_protocol_stats
         
         	IPv6 traffic statistics for this interface
         	**type**\:  :py:class:`V6ProtocolStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.V6ProtocolStats>`
+        
+        	**config**\: False
         
         .. attribute:: bia_address
         
@@ -1735,6 +1779,8 @@ class Interfaces(Entity):
         	**type**\: str
         
         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+        
+        	**config**\: False
         
         .. attribute:: ipv6_addrs
         
@@ -1749,10 +1795,14 @@ class Interfaces(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: lag_aggregate_state
         
         	Operational state variables for logical aggregate / LAG interfaces
         	**type**\: list of  		 :py:class:`LagAggregateState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.LagAggregateState>`
+        
+        	**config**\: False
         
         .. attribute:: ipv4_tcp_adjust_mss
         
@@ -1761,6 +1811,8 @@ class Interfaces(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: ipv6_tcp_adjust_mss
         
         	When ipv6 tcp adjust\-mss is configured, this value shows the tcp mss, or the value is zero
@@ -1768,30 +1820,42 @@ class Interfaces(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: ether_state
         
         	The Ethernet state information
         	**type**\:  :py:class:`EtherState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.EtherState>`
+        
+        	**config**\: False
         
         .. attribute:: ether_stats
         
         	The Ethernet statistics
         	**type**\:  :py:class:`EtherStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.EtherStats>`
         
+        	**config**\: False
+        
         .. attribute:: serial_state
         
         	The T1E1 serial state information
         	**type**\:  :py:class:`SerialState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.SerialState>`
+        
+        	**config**\: False
         
         .. attribute:: serial_stats
         
         	The T1E1 statistics
         	**type**\:  :py:class:`SerialStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.SerialStats>`
         
+        	**config**\: False
+        
         .. attribute:: intf_class_unspecified
         
         	No specific interface class information
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -1905,12 +1969,16 @@ class Interfaces(Entity):
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
+            	**config**\: False
+            
             .. attribute:: in_octets
             
             	The total number of octets received on the interface, including framing characters. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of discontinuity\-time
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: in_unicast_pkts
             
@@ -1919,12 +1987,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: in_broadcast_pkts
             
             	The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were addressed to a broadcast address at this sub\-layer. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: in_multicast_pkts
             
@@ -1933,12 +2005,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: in_discards
             
             	The number of inbound packets that were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher\-layer protocol.  One possible reason for discarding such a packet could be to free up buffer space. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: in_errors
             
@@ -1947,12 +2023,16 @@ class Interfaces(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: in_unknown_protos
             
             	For packet\-oriented interfaces, the number of packets received via the interface that were discarded because of an unknown or unsupported protocol.  For character\-oriented or fixed\-length interfaces that support protocol multiplexing, the number of transmission units received via the interface that were discarded because of an unknown or unsupported protocol. For any interface that does not support protocol multiplexing, this counter is not present. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: out_octets
             
@@ -1961,12 +2041,16 @@ class Interfaces(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: out_unicast_pkts
             
             	The total number of packets that higher\-level protocols requested be transmitted, and that were not addressed to a multicast or broadcast address at this sub\-layer, including those that were discarded or not sent. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: out_broadcast_pkts
             
@@ -1975,12 +2059,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: out_multicast_pkts
             
             	The total number of packets that higher\-level protocols requested be transmitted, and that were addressed to a multicast address at this sub\-layer, including those that were discarded or not sent.  For a MAC\-layer protocol, this includes both Group and Functional addresses. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: out_discards
             
@@ -1989,12 +2077,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: out_errors
             
             	For packet\-oriented interfaces, the number of outbound packets that could not be transmitted because of errors. For character\-oriented or fixed\-length interfaces, the number of outbound transmission units that could not be transmitted because of errors. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: rx_pps
             
@@ -2003,12 +2095,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: rx_kbps
             
             	The receive kilobits per second rate on this interface
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: tx_pps
             
@@ -2017,12 +2113,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: tx_kbps
             
             	The transmit kilobits per second rate on this interface
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: num_flaps
             
@@ -2031,12 +2131,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: in_crc_errors
             
             	Number of receive error events due to FCS/CRC check failure
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -2103,6 +2207,7 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.Interface.Statistics, ['discontinuity_time', 'in_octets', 'in_unicast_pkts', 'in_broadcast_pkts', 'in_multicast_pkts', 'in_discards', 'in_errors', 'in_unknown_protos', 'out_octets', 'out_unicast_pkts', 'out_broadcast_pkts', 'out_multicast_pkts', 'out_discards', 'out_errors', 'rx_pps', 'rx_kbps', 'tx_pps', 'tx_kbps', 'num_flaps', 'in_crc_errors'], name, value)
 
 
+
         class DiffservInfo(Entity):
             """
             diffserv related details
@@ -2112,20 +2217,28 @@ class Interfaces(Entity):
             	Direction fo the traffic flow either inbound or outbound
             	**type**\:  :py:class:`QosDirection <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.QosDirection>`
             
+            	**config**\: False
+            
             .. attribute:: policy_name  (key)
             
             	Policy entry name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: diffserv_target_classifier_stats
             
             	Statistics for each Classifier Entry in a Policy
             	**type**\: list of  		 :py:class:`DiffservTargetClassifierStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats>`
             
+            	**config**\: False
+            
             .. attribute:: priority_oper_list
             
             	Statistics for aggregrate priority per policy instance
             	**type**\: list of  		 :py:class:`PriorityOperList <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.PriorityOperList>`
+            
+            	**config**\: False
             
             
 
@@ -2168,35 +2281,49 @@ class Interfaces(Entity):
                 	Classifier Entry Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: parent_path  (key)
                 
                 	Path of the Classifier Entry in a hierarchial policy
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: classifier_entry_stats
                 
                 	Classifier Counters
                 	**type**\:  :py:class:`ClassifierEntryStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.ClassifierEntryStats>`
                 
+                	**config**\: False
+                
                 .. attribute:: meter_stats
                 
                 	Meter statistics
                 	**type**\: list of  		 :py:class:`MeterStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MeterStats>`
+                
+                	**config**\: False
                 
                 .. attribute:: queuing_stats
                 
                 	Queuing Counters
                 	**type**\:  :py:class:`QueuingStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats>`
                 
+                	**config**\: False
+                
                 .. attribute:: subclass_list
                 
                 	List of statistics for random\-detect based on subclass type and value pair Technically these are a field in the queuing statistics \-> wred statisitcs, but GREEN EI does not allow that nesting structure
                 	**type**\: list of  		 :py:class:`SubclassList <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList>`
                 
+                	**config**\: False
+                
                 .. attribute:: marking_stats
                 
                 	Statistics for marking actions
                 	**type**\:  :py:class:`MarkingStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats>`
+                
+                	**config**\: False
                 
                 
 
@@ -2253,6 +2380,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: classified_bytes
                     
                     	Number of total bytes which filtered to the classifier\-entry
@@ -2260,12 +2389,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: classified_rate
                     
                     	Rate of average data flow through the classifier\-entry
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -2298,6 +2431,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.ClassifierEntryStats, ['classified_pkts', 'classified_bytes', 'classified_rate'], name, value)
 
 
+
                 class MeterStats(Entity):
                     """
                     Meter statistics
@@ -2309,12 +2443,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: meter_succeed_pkts
                     
                     	Number of packets which succeed the meter
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: meter_succeed_bytes
                     
@@ -2323,6 +2461,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: meter_failed_pkts
                     
                     	Number of packets which failed the meter
@@ -2330,12 +2470,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: meter_failed_bytes
                     
                     	Bytes of packets which failed the meter
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -2372,6 +2516,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MeterStats, ['meter_id', 'meter_succeed_pkts', 'meter_succeed_bytes', 'meter_failed_pkts', 'meter_failed_bytes'], name, value)
 
 
+
                 class QueuingStats(Entity):
                     """
                     Queuing Counters
@@ -2383,12 +2528,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_bytes
                     
                     	Number of bytes transmitted from queue
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: queue_size_pkts
                     
@@ -2397,12 +2546,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: queue_size_bytes
                     
                     	Number of bytes currently buffered
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: drop_pkts
                     
@@ -2411,6 +2564,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: drop_bytes
                     
                     	Total number of bytes dropped
@@ -2418,15 +2573,21 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: wred_stats
                     
                     	WRED Counters
                     	**type**\:  :py:class:`WredStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats.WredStats>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: cac_stats
                     
                     	CAC statistics
                     	**type**\:  :py:class:`CacStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats.CacStats>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2484,12 +2645,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: early_drop_bytes
                         
                         	Early drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: mean_queue_depth
                         
@@ -2498,12 +2663,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: transmitted_pkts
                         
                         	Transmitted packtes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: transmitted_bytes
                         
@@ -2512,12 +2681,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: tail_drop_pkts
                         
                         	Total number of packets dropped
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: tail_drop_bytes
                         
@@ -2526,12 +2699,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: drop_pkts_flow
                         
                         	Total number of packets dropped
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: drop_pkts_no_buffer
                         
@@ -2540,12 +2717,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: queue_peak_size_pkts
                         
                         	Queue max que depth Packets
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: queue_peak_size_bytes
                         
@@ -2554,12 +2735,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: bandwidth_exceed_drops
                         
                         	Priority stats. Bandwidth exceed drops
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -2610,6 +2795,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats.WredStats, ['early_drop_pkts', 'early_drop_bytes', 'mean_queue_depth', 'transmitted_pkts', 'transmitted_bytes', 'tail_drop_pkts', 'tail_drop_bytes', 'drop_pkts_flow', 'drop_pkts_no_buffer', 'queue_peak_size_pkts', 'queue_peak_size_bytes', 'bandwidth_exceed_drops'], name, value)
 
 
+
                     class CacStats(Entity):
                         """
                         CAC statistics
@@ -2621,12 +2807,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: num_non_admitted_flows
                         
                         	Number of non\-admitted flows
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2657,6 +2847,8 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats.CacStats, ['num_admitted_flows', 'num_non_admitted_flows'], name, value)
 
 
+
+
                 class SubclassList(Entity):
                     """
                     List of statistics for random\-detect
@@ -2670,75 +2862,105 @@ class Interfaces(Entity):
                     	Subclass match type
                     	**type**\:  :py:class:`QosMatchType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.QosMatchType>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: cos_counters
                     
                     	Counters for sub\-class matching a range of Class\-of\-Service (COS) value (and, optionally, additional COS range
                     	**type**\: list of  		 :py:class:`CosCounters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.CosCounters>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: cos_default
                     
                     	statistics for cos default
                     	**type**\:  :py:class:`CosDefault <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.CosDefault>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: dscp_counters
                     
                     	List for statistics based on dscp value range
                     	**type**\: list of  		 :py:class:`DscpCounters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DscpCounters>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: dscp_default
                     
                     	Statistics for dscp default
                     	**type**\:  :py:class:`DscpDefault <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DscpDefault>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: discard_class_counters
                     
                     	Composed multiple discard class ranges
                     	**type**\: list of  		 :py:class:`DiscardClassCounters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DiscardClassCounters>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: disc_class_default
                     
                     	Statistics for discard class default
                     	**type**\:  :py:class:`DiscClassDefault <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DiscClassDefault>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: precedence_counters
                     
                     	List for statistics based on precedence value range
                     	**type**\: list of  		 :py:class:`PrecedenceCounters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.PrecedenceCounters>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: prec_default
                     
                     	Precedence default
                     	**type**\:  :py:class:`PrecDefault <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.PrecDefault>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: mpls_exp_counters
                     
                     	List for statistics based on mpls exp value range
                     	**type**\: list of  		 :py:class:`MplsExpCounters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.MplsExpCounters>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: mpls_exp_default
                     
                     	Statistics for mpls\-exp default
                     	**type**\:  :py:class:`MplsExpDefault <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.MplsExpDefault>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: dei_counters
                     
                     	Composed by multiple dei ranges
                     	**type**\: list of  		 :py:class:`DeiCounters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DeiCounters>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: dei_counts_default
                     
                     	Statistics for dei default
                     	**type**\:  :py:class:`DeiCountsDefault <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DeiCountsDefault>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: clp_counters
                     
                     	Statistics for each value range for a specifc subclass type
                     	**type**\: list of  		 :py:class:`ClpCounters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.ClpCounters>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: clp_default
                     
                     	Statistic for atm clp default
                     	**type**\:  :py:class:`ClpDefault <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.ClpDefault>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2815,12 +3037,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: cos_max  (key)
                         
                         	Max COS value
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tx_pkts
                         
@@ -2829,12 +3055,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tx_bytes
                         
                         	Transmitted bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tail_drop_pkts
                         
@@ -2843,12 +3073,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tail_drop_bytes
                         
                         	Tail drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_early_drop_pkts
                         
@@ -2857,12 +3091,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_early_drop_bytes
                         
                         	Early drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -2905,6 +3143,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.CosCounters, ['cos_min', 'cos_max', 'wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
 
 
+
                     class CosDefault(Entity):
                         """
                         statistics for cos default
@@ -2916,12 +3155,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tx_bytes
                         
                         	Transmitted bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tail_drop_pkts
                         
@@ -2930,12 +3173,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tail_drop_bytes
                         
                         	Tail drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_early_drop_pkts
                         
@@ -2944,12 +3191,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_early_drop_bytes
                         
                         	Early drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -2988,6 +3239,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.CosDefault, ['wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
 
 
+
                     class DscpCounters(Entity):
                         """
                         List for statistics based on dscp value range
@@ -2999,12 +3251,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: dscp_max  (key)
                         
                         	Maximum of dscp range
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tx_pkts
                         
@@ -3013,12 +3269,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tx_bytes
                         
                         	Transmitted bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tail_drop_pkts
                         
@@ -3027,12 +3287,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tail_drop_bytes
                         
                         	Tail drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_early_drop_pkts
                         
@@ -3041,12 +3305,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_early_drop_bytes
                         
                         	Early drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -3089,6 +3357,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DscpCounters, ['dscp_min', 'dscp_max', 'wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
 
 
+
                     class DscpDefault(Entity):
                         """
                         Statistics for dscp default
@@ -3100,12 +3369,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tx_bytes
                         
                         	Transmitted bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tail_drop_pkts
                         
@@ -3114,12 +3387,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tail_drop_bytes
                         
                         	Tail drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_early_drop_pkts
                         
@@ -3128,12 +3405,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_early_drop_bytes
                         
                         	Early drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -3172,6 +3453,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DscpDefault, ['wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
 
 
+
                     class DiscardClassCounters(Entity):
                         """
                         Composed multiple discard class ranges
@@ -3183,12 +3465,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: disc_class_max  (key)
                         
                         	Maximum value for discard class in the range
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tx_pkts
                         
@@ -3197,12 +3483,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tx_bytes
                         
                         	Transmitted bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tail_drop_pkts
                         
@@ -3211,12 +3501,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tail_drop_bytes
                         
                         	Tail drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_early_drop_pkts
                         
@@ -3225,12 +3519,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_early_drop_bytes
                         
                         	Early drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -3273,6 +3571,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DiscardClassCounters, ['disc_class_min', 'disc_class_max', 'wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
 
 
+
                     class DiscClassDefault(Entity):
                         """
                         Statistics for discard class default
@@ -3284,12 +3583,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tx_bytes
                         
                         	Transmitted bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tail_drop_pkts
                         
@@ -3298,12 +3601,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tail_drop_bytes
                         
                         	Tail drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_early_drop_pkts
                         
@@ -3312,12 +3619,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_early_drop_bytes
                         
                         	Early drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -3356,6 +3667,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DiscClassDefault, ['wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
 
 
+
                     class PrecedenceCounters(Entity):
                         """
                         List for statistics based on precedence value range
@@ -3367,12 +3679,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: prec_max  (key)
                         
                         	Precedence max
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tx_pkts
                         
@@ -3381,12 +3697,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tx_bytes
                         
                         	Transmitted bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tail_drop_pkts
                         
@@ -3395,12 +3715,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tail_drop_bytes
                         
                         	Tail drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_early_drop_pkts
                         
@@ -3409,12 +3733,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_early_drop_bytes
                         
                         	Early drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -3457,6 +3785,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.PrecedenceCounters, ['prec_min', 'prec_max', 'wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
 
 
+
                     class PrecDefault(Entity):
                         """
                         Precedence default
@@ -3468,12 +3797,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tx_bytes
                         
                         	Transmitted bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tail_drop_pkts
                         
@@ -3482,12 +3815,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tail_drop_bytes
                         
                         	Tail drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_early_drop_pkts
                         
@@ -3496,12 +3833,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_early_drop_bytes
                         
                         	Early drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -3540,6 +3881,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.PrecDefault, ['wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
 
 
+
                     class MplsExpCounters(Entity):
                         """
                         List for statistics based on mpls exp value range
@@ -3551,12 +3893,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: exp_max  (key)
                         
                         	The maximum EXP field value to be used as match criteria. Any number from 0 to 7
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tx_pkts
                         
@@ -3565,12 +3911,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tx_bytes
                         
                         	Transmitted bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tail_drop_pkts
                         
@@ -3579,12 +3929,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tail_drop_bytes
                         
                         	Tail drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_early_drop_pkts
                         
@@ -3593,12 +3947,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_early_drop_bytes
                         
                         	Early drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -3641,6 +3999,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.MplsExpCounters, ['exp_min', 'exp_max', 'wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
 
 
+
                     class MplsExpDefault(Entity):
                         """
                         Statistics for mpls\-exp default
@@ -3652,12 +4011,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tx_bytes
                         
                         	Transmitted bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tail_drop_pkts
                         
@@ -3666,12 +4029,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tail_drop_bytes
                         
                         	Tail drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_early_drop_pkts
                         
@@ -3680,12 +4047,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_early_drop_bytes
                         
                         	Early drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -3724,6 +4095,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.MplsExpDefault, ['wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
 
 
+
                     class DeiCounters(Entity):
                         """
                         Composed by multiple dei ranges
@@ -3735,12 +4107,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: dei_max  (key)
                         
                         	Dei max
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tx_pkts
                         
@@ -3749,12 +4125,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tx_bytes
                         
                         	Transmitted bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tail_drop_pkts
                         
@@ -3763,12 +4143,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tail_drop_bytes
                         
                         	Tail drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_early_drop_pkts
                         
@@ -3777,12 +4161,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_early_drop_bytes
                         
                         	Early drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -3825,6 +4213,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DeiCounters, ['dei_min', 'dei_max', 'wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
 
 
+
                     class DeiCountsDefault(Entity):
                         """
                         Statistics for dei default
@@ -3836,12 +4225,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tx_bytes
                         
                         	Transmitted bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tail_drop_pkts
                         
@@ -3850,12 +4243,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tail_drop_bytes
                         
                         	Tail drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_early_drop_pkts
                         
@@ -3864,12 +4261,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_early_drop_bytes
                         
                         	Early drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -3908,6 +4309,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DeiCountsDefault, ['wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
 
 
+
                     class ClpCounters(Entity):
                         """
                         Statistics for each value range for a specifc subclass type
@@ -3919,12 +4321,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tx_pkts
                         
                         	Transmitted packtes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tx_bytes
                         
@@ -3933,12 +4339,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tail_drop_pkts
                         
                         	Tail drop packets
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tail_drop_bytes
                         
@@ -3947,6 +4357,8 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_early_drop_pkts
                         
                         	Early drop packets
@@ -3954,12 +4366,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_early_drop_bytes
                         
                         	Early drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -4000,6 +4416,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.ClpCounters, ['clp_val', 'wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
 
 
+
                     class ClpDefault(Entity):
                         """
                         Statistic for atm clp default
@@ -4011,12 +4428,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tx_bytes
                         
                         	Transmitted bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_tail_drop_pkts
                         
@@ -4025,12 +4446,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_tail_drop_bytes
                         
                         	Tail drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: wred_early_drop_pkts
                         
@@ -4039,12 +4464,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: wred_early_drop_bytes
                         
                         	Early drop bytes
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -4083,6 +4512,8 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.ClpDefault, ['wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
 
 
+
+
                 class MarkingStats(Entity):
                     """
                     Statistics for marking actions
@@ -4092,90 +4523,126 @@ class Interfaces(Entity):
                     	Statistics for set dscp
                     	**type**\:  :py:class:`MarkingDscpStatsVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDscpStatsVal>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: marking_dscp_tunnel_stats_val
                     
                     	Statistics for set dscp tunnel
                     	**type**\:  :py:class:`MarkingDscpTunnelStatsVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDscpTunnelStatsVal>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: marking_cos_stats_val
                     
                     	Statistics for set cos
                     	**type**\:  :py:class:`MarkingCosStatsVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingCosStatsVal>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: marking_cos_inner_stats_val
                     
                     	Statistics for set cos\-inner
                     	**type**\:  :py:class:`MarkingCosInnerStatsVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingCosInnerStatsVal>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: marking_discard_class_stats_val
                     
                     	Statistics for set discard\-class
                     	**type**\:  :py:class:`MarkingDiscardClassStatsVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDiscardClassStatsVal>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: marking_qos_grp_stats_val
                     
                     	Statistics for set qos\-group
                     	**type**\:  :py:class:`MarkingQosGrpStatsVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingQosGrpStatsVal>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: marking_prec_stats_val
                     
                     	Statistics for set precedence
                     	**type**\:  :py:class:`MarkingPrecStatsVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingPrecStatsVal>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: marking_prec_tunnel_stats_val
                     
                     	Statistics for set precedence tunnel
                     	**type**\:  :py:class:`MarkingPrecTunnelStatsVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingPrecTunnelStatsVal>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: marking_mpls_exp_imp_stats_val
                     
                     	Statistics for set mpls exp imposition
                     	**type**\:  :py:class:`MarkingMplsExpImpStatsVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingMplsExpImpStatsVal>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: marking_mpls_exp_top_stats_val
                     
                     	Statistics for set mpls exp topmost
                     	**type**\:  :py:class:`MarkingMplsExpTopStatsVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingMplsExpTopStatsVal>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: marking_fr_de_stats_val
                     
                     	Statistics for set fr\-de
                     	**type**\:  :py:class:`MarkingFrDeStatsVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingFrDeStatsVal>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: marking_fr_fecn_becn_stats_val
                     
                     	Statistics for set fr\-fecn\-becn
                     	**type**\:  :py:class:`MarkingFrFecnBecnStatsVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingFrFecnBecnStatsVal>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: marking_atm_clp_stats_val
                     
                     	Statistics for set atm\-clp
                     	**type**\:  :py:class:`MarkingAtmClpStatsVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingAtmClpStatsVal>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: marking_vlan_inner_stats_val
                     
                     	Statistics for set vlan\-inner
                     	**type**\:  :py:class:`MarkingVlanInnerStatsVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingVlanInnerStatsVal>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: marking_dei_stats_val
                     
                     	Statistics for set dei
                     	**type**\:  :py:class:`MarkingDeiStatsVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDeiStatsVal>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: marking_dei_imp_stats_val
                     
                     	Statistics for set dei\-imposition
                     	**type**\:  :py:class:`MarkingDeiImpStatsVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDeiImpStatsVal>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: marking_srp_priority_stats_val
                     
                     	Statistics for set srp\-priority
                     	**type**\:  :py:class:`MarkingSrpPriorityStatsVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingSrpPriorityStatsVal>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: marking_wlan_user_priority_stats_val
                     
                     	Statistics for set wlan\-user\-priority
                     	**type**\:  :py:class:`MarkingWlanUserPriorityStatsVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingWlanUserPriorityStatsVal>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4284,12 +4751,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_pkts
                         
                         	Number of packets been marked
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -4320,6 +4791,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDscpStatsVal, ['dscp', 'marked_pkts'], name, value)
 
 
+
                     class MarkingDscpTunnelStatsVal(Entity):
                         """
                         Statistics for set dscp tunnel
@@ -4331,12 +4803,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_pkts
                         
                         	Number of packets been marked
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -4367,6 +4843,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDscpTunnelStatsVal, ['dscp_val', 'marked_pkts'], name, value)
 
 
+
                     class MarkingCosStatsVal(Entity):
                         """
                         Statistics for set cos
@@ -4378,12 +4855,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_pkts
                         
                         	Number of packets been marked
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -4414,6 +4895,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingCosStatsVal, ['cos_val', 'marked_pkts'], name, value)
 
 
+
                     class MarkingCosInnerStatsVal(Entity):
                         """
                         Statistics for set cos\-inner
@@ -4425,12 +4907,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_pkts
                         
                         	Number of packets been marked
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -4461,6 +4947,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingCosInnerStatsVal, ['cos_inner_val', 'marked_pkts'], name, value)
 
 
+
                     class MarkingDiscardClassStatsVal(Entity):
                         """
                         Statistics for set discard\-class
@@ -4472,12 +4959,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_pkts
                         
                         	Number of packets been marked
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -4508,6 +4999,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDiscardClassStatsVal, ['disc_class_val', 'marked_pkts'], name, value)
 
 
+
                     class MarkingQosGrpStatsVal(Entity):
                         """
                         Statistics for set qos\-group
@@ -4519,12 +5011,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_pkts
                         
                         	Number of packets been marked
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -4555,6 +5051,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingQosGrpStatsVal, ['qos_grp_val', 'marked_pkts'], name, value)
 
 
+
                     class MarkingPrecStatsVal(Entity):
                         """
                         Statistics for set precedence
@@ -4566,12 +5063,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_pkts
                         
                         	Number of packets been marked
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -4602,6 +5103,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingPrecStatsVal, ['prec_val', 'marked_pkts'], name, value)
 
 
+
                     class MarkingPrecTunnelStatsVal(Entity):
                         """
                         Statistics for set precedence tunnel
@@ -4613,12 +5115,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_pkts
                         
                         	Number of packets been marked
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -4649,6 +5155,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingPrecTunnelStatsVal, ['prec_val', 'marked_pkts'], name, value)
 
 
+
                     class MarkingMplsExpImpStatsVal(Entity):
                         """
                         Statistics for set mpls exp imposition
@@ -4660,12 +5167,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_pkts
                         
                         	Number of packets been marked
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -4696,6 +5207,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingMplsExpImpStatsVal, ['mpls_exp_imp_val', 'marked_pkts'], name, value)
 
 
+
                     class MarkingMplsExpTopStatsVal(Entity):
                         """
                         Statistics for set mpls exp topmost
@@ -4707,12 +5219,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_pkts
                         
                         	Number of packets been marked
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -4743,6 +5259,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingMplsExpTopStatsVal, ['mpls_exp_top_val', 'marked_pkts'], name, value)
 
 
+
                     class MarkingFrDeStatsVal(Entity):
                         """
                         Statistics for set fr\-de
@@ -4752,12 +5269,16 @@ class Interfaces(Entity):
                         	fr de set or not
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_pkts
                         
                         	Number of packets been marked
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -4788,6 +5309,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingFrDeStatsVal, ['fr_de', 'marked_pkts'], name, value)
 
 
+
                     class MarkingFrFecnBecnStatsVal(Entity):
                         """
                         Statistics for set fr\-fecn\-becn
@@ -4799,12 +5321,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_pkts
                         
                         	Number of packets been marked
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -4835,6 +5361,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingFrFecnBecnStatsVal, ['fecn_becn_val', 'marked_pkts'], name, value)
 
 
+
                     class MarkingAtmClpStatsVal(Entity):
                         """
                         Statistics for set atm\-clp
@@ -4846,12 +5373,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_pkts
                         
                         	Number of packets been marked
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -4882,6 +5413,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingAtmClpStatsVal, ['atm_clp_val', 'marked_pkts'], name, value)
 
 
+
                     class MarkingVlanInnerStatsVal(Entity):
                         """
                         Statistics for set vlan\-inner
@@ -4893,12 +5425,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_pkts
                         
                         	Number of packets been marked
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -4929,6 +5465,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingVlanInnerStatsVal, ['vlan_inner_val', 'marked_pkts'], name, value)
 
 
+
                     class MarkingDeiStatsVal(Entity):
                         """
                         Statistics for set dei
@@ -4940,12 +5477,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_pkts
                         
                         	Number of packets been marked
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -4976,6 +5517,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDeiStatsVal, ['dei_imp_value', 'marked_pkts'], name, value)
 
 
+
                     class MarkingDeiImpStatsVal(Entity):
                         """
                         Statistics for set dei\-imposition
@@ -4987,12 +5529,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_pkts
                         
                         	Number of packets been marked
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -5023,6 +5569,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDeiImpStatsVal, ['dei_imp_value', 'marked_pkts'], name, value)
 
 
+
                     class MarkingSrpPriorityStatsVal(Entity):
                         """
                         Statistics for set srp\-priority
@@ -5034,12 +5581,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_pkts
                         
                         	Number of packets been marked
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -5070,6 +5621,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingSrpPriorityStatsVal, ['srp_priority_value', 'marked_pkts'], name, value)
 
 
+
                     class MarkingWlanUserPriorityStatsVal(Entity):
                         """
                         Statistics for set wlan\-user\-priority
@@ -5081,12 +5633,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_pkts
                         
                         	Number of packets been marked
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -5117,6 +5673,9 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingWlanUserPriorityStatsVal, ['wlan_user_priority_value', 'marked_pkts'], name, value)
 
 
+
+
+
             class PriorityOperList(Entity):
                 """
                 Statistics for aggregrate priority per policy instance
@@ -5128,40 +5687,56 @@ class Interfaces(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: agg_priority_stats
                 
                 	Counters in aggregate priority
                 	**type**\:  :py:class:`AggPriorityStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.PriorityOperList.AggPriorityStats>`
+                
+                	**config**\: False
                 
                 .. attribute:: qlimit_default_thresh
                 
                 	qlimit default threshold
                 	**type**\:  :py:class:`QlimitDefaultThresh <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDefaultThresh>`
                 
+                	**config**\: False
+                
                 .. attribute:: qlimit_cos_thresh_list
                 
                 	cos\-based queue limit data
                 	**type**\: list of  		 :py:class:`QlimitCosThreshList <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitCosThreshList>`
+                
+                	**config**\: False
                 
                 .. attribute:: qlimit_disc_class_thresh_list
                 
                 	discard\-class\-based queue limit data
                 	**type**\: list of  		 :py:class:`QlimitDiscClassThreshList <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDiscClassThreshList>`
                 
+                	**config**\: False
+                
                 .. attribute:: qlimit_qos_grp_thresh_list
                 
                 	qos\-group\-based queue limit data
                 	**type**\: list of  		 :py:class:`QlimitQosGrpThreshList <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitQosGrpThreshList>`
+                
+                	**config**\: False
                 
                 .. attribute:: qlimit_mpls_exp_thresh_list
                 
                 	mpls\-exp\-based queue limit data
                 	**type**\: list of  		 :py:class:`QlimitMplsExpThreshList <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitMplsExpThreshList>`
                 
+                	**config**\: False
+                
                 .. attribute:: qlimit_dscp_thresh_list
                 
                 	queue limit per dscp range
                 	**type**\: list of  		 :py:class:`QlimitDscpThreshList <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDscpThreshList>`
+                
+                	**config**\: False
                 
                 
 
@@ -5215,12 +5790,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_bytes
                     
                     	Number of bytes transmitted from queue
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: queue_size_pkts
                     
@@ -5229,12 +5808,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: queue_size_bytes
                     
                     	Number of bytes currently buffered
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: drop_pkts
                     
@@ -5243,12 +5826,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: drop_bytes
                     
                     	Total number of bytes dropped
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: drop_pkts_flow
                     
@@ -5257,12 +5844,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: drop_pkts_no_buffer
                     
                     	Number of packets dropped due to buffers being unavailable system\-wide or at the associated interface. This is a sub\-set of drop\-pkts
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -5305,6 +5896,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.PriorityOperList.AggPriorityStats, ['output_pkts', 'output_bytes', 'queue_size_pkts', 'queue_size_bytes', 'drop_pkts', 'drop_bytes', 'drop_pkts_flow', 'drop_pkts_no_buffer'], name, value)
 
 
+
                 class QlimitDefaultThresh(Entity):
                     """
                     qlimit default threshold
@@ -5316,6 +5908,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: thresh_size_metric
                     
                     	Threshold size unit
@@ -5323,10 +5917,14 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: unit_val
                     
                     	Threshold size basic units
                     	**type**\:  :py:class:`ThreshUnit <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.ThreshUnit>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: threshold_interval
                     
@@ -5335,6 +5933,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: thresh_interval_metric
                     
                     	Threshold units metric
@@ -5342,10 +5942,14 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interval_unit_val
                     
                     	Threshold intveral basic units
                     	**type**\:  :py:class:`ThreshUnit <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.ThreshUnit>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5384,6 +5988,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDefaultThresh, ['bytes', 'thresh_size_metric', 'unit_val', 'threshold_interval', 'thresh_interval_metric', 'interval_unit_val'], name, value)
 
 
+
                 class QlimitCosThreshList(Entity):
                     """
                     cos\-based queue limit data
@@ -5395,12 +6000,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: cos_max  (key)
                     
                     	Max COS value
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: bytes
                     
@@ -5409,6 +6018,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: thresh_size_metric
                     
                     	Threshold size unit
@@ -5416,10 +6027,14 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: unit_val
                     
                     	Threshold size basic units
                     	**type**\:  :py:class:`ThreshUnit <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.ThreshUnit>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: threshold_interval
                     
@@ -5428,6 +6043,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: thresh_interval_metric
                     
                     	Threshold units metric
@@ -5435,10 +6052,14 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interval_unit_val
                     
                     	Threshold intveral basic units
                     	**type**\:  :py:class:`ThreshUnit <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.ThreshUnit>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5481,6 +6102,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitCosThreshList, ['cos_min', 'cos_max', 'bytes', 'thresh_size_metric', 'unit_val', 'threshold_interval', 'thresh_interval_metric', 'interval_unit_val'], name, value)
 
 
+
                 class QlimitDiscClassThreshList(Entity):
                     """
                     discard\-class\-based queue limit data
@@ -5492,12 +6114,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: disc_class_max  (key)
                     
                     	Maximum value for discard class in the range
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: bytes
                     
@@ -5506,6 +6132,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: thresh_size_metric
                     
                     	Threshold size unit
@@ -5513,10 +6141,14 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: unit_val
                     
                     	Threshold size basic units
                     	**type**\:  :py:class:`ThreshUnit <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.ThreshUnit>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: threshold_interval
                     
@@ -5525,6 +6157,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: thresh_interval_metric
                     
                     	Threshold units metric
@@ -5532,10 +6166,14 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interval_unit_val
                     
                     	Threshold intveral basic units
                     	**type**\:  :py:class:`ThreshUnit <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.ThreshUnit>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5578,6 +6216,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDiscClassThreshList, ['disc_class_min', 'disc_class_max', 'bytes', 'thresh_size_metric', 'unit_val', 'threshold_interval', 'thresh_interval_metric', 'interval_unit_val'], name, value)
 
 
+
                 class QlimitQosGrpThreshList(Entity):
                     """
                     qos\-group\-based queue limit data
@@ -5589,12 +6228,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: qos_group_max  (key)
                     
                     	Specifies the maximum value range from 0 to used to identify a QoS group value
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: bytes
                     
@@ -5603,6 +6246,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: thresh_size_metric
                     
                     	Threshold size unit
@@ -5610,10 +6255,14 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: unit_val
                     
                     	Threshold size basic units
                     	**type**\:  :py:class:`ThreshUnit <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.ThreshUnit>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: threshold_interval
                     
@@ -5622,6 +6271,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: thresh_interval_metric
                     
                     	Threshold units metric
@@ -5629,10 +6280,14 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interval_unit_val
                     
                     	Threshold intveral basic units
                     	**type**\:  :py:class:`ThreshUnit <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.ThreshUnit>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5675,6 +6330,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitQosGrpThreshList, ['qos_group_min', 'qos_group_max', 'bytes', 'thresh_size_metric', 'unit_val', 'threshold_interval', 'thresh_interval_metric', 'interval_unit_val'], name, value)
 
 
+
                 class QlimitMplsExpThreshList(Entity):
                     """
                     mpls\-exp\-based queue limit data
@@ -5686,12 +6342,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: exp_max  (key)
                     
                     	The maximum EXP field value to be used as match criteria. Any number from 0 to 7
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: bytes
                     
@@ -5700,6 +6360,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: thresh_size_metric
                     
                     	Threshold size unit
@@ -5707,10 +6369,14 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: unit_val
                     
                     	Threshold size basic units
                     	**type**\:  :py:class:`ThreshUnit <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.ThreshUnit>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: threshold_interval
                     
@@ -5719,6 +6385,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: thresh_interval_metric
                     
                     	Threshold units metric
@@ -5726,10 +6394,14 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interval_unit_val
                     
                     	Threshold intveral basic units
                     	**type**\:  :py:class:`ThreshUnit <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.ThreshUnit>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5772,6 +6444,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitMplsExpThreshList, ['exp_min', 'exp_max', 'bytes', 'thresh_size_metric', 'unit_val', 'threshold_interval', 'thresh_interval_metric', 'interval_unit_val'], name, value)
 
 
+
                 class QlimitDscpThreshList(Entity):
                     """
                     queue limit per dscp range
@@ -5783,12 +6456,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: dscp_max  (key)
                     
                     	Maximum of dscp range
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: bytes
                     
@@ -5797,6 +6474,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: thresh_size_metric
                     
                     	Threshold size unit
@@ -5804,10 +6483,14 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: unit_val
                     
                     	Threshold size basic units
                     	**type**\:  :py:class:`ThreshUnit <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.ThreshUnit>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: threshold_interval
                     
@@ -5816,6 +6499,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: thresh_interval_metric
                     
                     	Threshold units metric
@@ -5823,10 +6508,14 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interval_unit_val
                     
                     	Threshold intveral basic units
                     	**type**\:  :py:class:`ThreshUnit <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.ThreshUnit>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5869,6 +6558,9 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDscpThreshList, ['dscp_min', 'dscp_max', 'bytes', 'thresh_size_metric', 'unit_val', 'threshold_interval', 'thresh_interval_metric', 'interval_unit_val'], name, value)
 
 
+
+
+
         class V4ProtocolStats(Entity):
             """
             IPv4 traffic statistics for this interface
@@ -5880,12 +6572,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: in_octets
             
             	The total number of octets received in input packets for the specified address family, including those received in error
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: in_error_pkts
             
@@ -5894,12 +6590,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: in_forwarded_pkts
             
             	The number of input packets for which the device was not their final destination and for which the device attempted to find a route to forward them to that final destination
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: in_forwarded_octets
             
@@ -5908,12 +6608,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: in_discarded_pkts
             
             	The number of input IP packets for the specified address family, for which no problems were encountered to prevent their continued processing, but were discarded (e.g., for lack of buffer space)
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: out_pkts
             
@@ -5922,12 +6626,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: out_octets
             
             	The total number of octets in IP packets for the specified address family that the device supplied to the lower layers for transmission.  This includes packets generated locally and those forwarded by the device
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: out_error_pkts
             
@@ -5936,12 +6644,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: out_forwarded_pkts
             
             	The number of packets for which this entity was not their final IP destination and for which it was successful in finding a path to their final destination.text
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: out_forwarded_octets
             
@@ -5950,12 +6662,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: out_discarded_pkts
             
             	The number of output IP packets for the specified address family for which no problem was encountered to prevent their transmission to their destination, but were discarded (e.g., for lack of buffer space)
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -6006,6 +6722,7 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.Interface.V4ProtocolStats, ['in_pkts', 'in_octets', 'in_error_pkts', 'in_forwarded_pkts', 'in_forwarded_octets', 'in_discarded_pkts', 'out_pkts', 'out_octets', 'out_error_pkts', 'out_forwarded_pkts', 'out_forwarded_octets', 'out_discarded_pkts'], name, value)
 
 
+
         class V6ProtocolStats(Entity):
             """
             IPv6 traffic statistics for this interface
@@ -6017,12 +6734,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: in_octets
             
             	The total number of octets received in input packets for the specified address family, including those received in error
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: in_error_pkts
             
@@ -6031,12 +6752,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: in_forwarded_pkts
             
             	The number of input packets for which the device was not their final destination and for which the device attempted to find a route to forward them to that final destination
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: in_forwarded_octets
             
@@ -6045,12 +6770,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: in_discarded_pkts
             
             	The number of input IP packets for the specified address family, for which no problems were encountered to prevent their continued processing, but were discarded (e.g., for lack of buffer space)
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: out_pkts
             
@@ -6059,12 +6788,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: out_octets
             
             	The total number of octets in IP packets for the specified address family that the device supplied to the lower layers for transmission.  This includes packets generated locally and those forwarded by the device
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: out_error_pkts
             
@@ -6073,12 +6806,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: out_forwarded_pkts
             
             	The number of packets for which this entity was not their final IP destination and for which it was successful in finding a path to their final destination.text
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: out_forwarded_octets
             
@@ -6087,12 +6824,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: out_discarded_pkts
             
             	The number of output IP packets for the specified address family for which no problem was encountered to prevent their transmission to their destination, but were discarded (e.g., for lack of buffer space)
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -6143,6 +6884,7 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.Interface.V6ProtocolStats, ['in_pkts', 'in_octets', 'in_error_pkts', 'in_forwarded_pkts', 'in_forwarded_octets', 'in_discarded_pkts', 'out_pkts', 'out_octets', 'out_error_pkts', 'out_forwarded_pkts', 'out_forwarded_octets', 'out_discarded_pkts'], name, value)
 
 
+
         class LagAggregateState(Entity):
             """
             Operational state variables for logical
@@ -6153,10 +6895,14 @@ class Interfaces(Entity):
             	Specify the logical aggregate interface to which this id belongs
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: lag_type
             
             	Type to define the lag\-type, i.e., how the LAG is defined and managed
             	**type**\:  :py:class:`AggregationType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.AggregationType>`
+            
+            	**config**\: False
             
             .. attribute:: min_links
             
@@ -6165,6 +6911,8 @@ class Interfaces(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: lag_speed
             
             	Reports effective speed of the aggregate interface, based on speed of active member interfaces
@@ -6172,10 +6920,14 @@ class Interfaces(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: members
             
             	List of current member interfaces for the aggregate, expressed as references to existing interfaces
             	**type**\: list of str
+            
+            	**config**\: False
             
             
 
@@ -6212,6 +6964,7 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.Interface.LagAggregateState, ['aggregate_id', 'lag_type', 'min_links', 'lag_speed', 'members'], name, value)
 
 
+
         class EtherState(Entity):
             """
             The Ethernet state information
@@ -6221,20 +6974,28 @@ class Interfaces(Entity):
             	When auto\-negotiate is set to TRUE, and the  interface has completed auto\-negotiation with the  remote peer, this value shows the duplex mode that  has been negotiated
             	**type**\:  :py:class:`EtherDuplex <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.EtherDuplex>`
             
+            	**config**\: False
+            
             .. attribute:: negotiated_port_speed
             
             	When auto\-negotiate is set to TRUE, and  the interface has completed auto\-negotiation with  the remote peer, this value shows the interface  speed that has been negotiated
             	**type**\:  :py:class:`EtherSpeed <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.EtherSpeed>`
+            
+            	**config**\: False
             
             .. attribute:: auto_negotiate
             
             	Set to TRUE to request the interface to  auto\-negotiate transmission parameters with its  peer interface. When set to FALSE, the transmission parameters are specified manually
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: enable_flow_control
             
             	Enable or disable flow control for this  interface. Ethernet flow control is a mechanism by  which a receiver may send PAUSE frames to a sender to stop transmission for a specified time.  This setting should override auto\-negotiated flow  control settings. If left unspecified, and  auto\-negotiate is TRUE, flow control mode is  negotiated with the peer interface
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -6269,6 +7030,7 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.Interface.EtherState, ['negotiated_duplex_mode', 'negotiated_port_speed', 'auto_negotiate', 'enable_flow_control'], name, value)
 
 
+
         class EtherStats(Entity):
             """
             The Ethernet statistics
@@ -6280,12 +7042,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: in_mac_pause_frames
             
             	MAC layer PAUSE frames received on the interface
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: in_oversize_frames
             
@@ -6294,12 +7060,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: in_jabber_frames
             
             	Number of jabber frames received on the interface.  Jabber frames are typically defined as oversize frames which also have a bad CRC.  Implementations may use slightly different definitions of what constitutes a jabber frame.  Often indicative of a NIC hardware problem
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: in_fragment_frames
             
@@ -6308,12 +7078,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: in_8021q_frames
             
             	Number of 802.1q tagged frames received on the interface
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: out_mac_control_frames
             
@@ -6322,6 +7096,8 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: out_mac_pause_frames
             
             	MAC layer PAUSE frames sent on the interface
@@ -6329,12 +7105,16 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: out_8021q_frames
             
             	Number of 802.1q tagged frames sent on the interface
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -6379,6 +7159,7 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.Interface.EtherStats, ['in_mac_control_frames', 'in_mac_pause_frames', 'in_oversize_frames', 'in_jabber_frames', 'in_fragment_frames', 'in_8021q_frames', 'out_mac_control_frames', 'out_mac_pause_frames', 'out_8021q_frames'], name, value)
 
 
+
         class SerialState(Entity):
             """
             The T1E1 serial state information
@@ -6388,10 +7169,14 @@ class Interfaces(Entity):
             	Cyclic Redundancy Code type configured on the interface
             	**type**\:  :py:class:`SerialCrc <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.SerialCrc>`
             
+            	**config**\: False
+            
             .. attribute:: loopback
             
             	Loopback mode the interface is operating in
             	**type**\:  :py:class:`T1e1LoopbackMode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.T1e1LoopbackMode>`
+            
+            	**config**\: False
             
             .. attribute:: keeplive
             
@@ -6400,6 +7185,8 @@ class Interfaces(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: timeslot
             
             	Time slots bitmap occupied by this serial interface
@@ -6407,10 +7194,14 @@ class Interfaces(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: subrate
             
             	Subrate operating per slot
             	**type**\:  :py:class:`SubrateSpeed <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.SubrateSpeed>`
+            
+            	**config**\: False
             
             
 
@@ -6447,6 +7238,7 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.Interface.SerialState, ['crc_type', 'loopback', 'keeplive', 'timeslot', 'subrate'], name, value)
 
 
+
         class SerialStats(Entity):
             """
             The T1E1 statistics
@@ -6457,6 +7249,8 @@ class Interfaces(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -6484,7 +7278,11 @@ class Interfaces(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.Interface.SerialStats, ['in_abort_clock_error'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Interfaces()
         return self._top_entity
+
+
 

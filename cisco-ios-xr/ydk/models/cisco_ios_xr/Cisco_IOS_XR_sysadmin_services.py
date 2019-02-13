@@ -140,7 +140,11 @@ class Service(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Service.Cli.Interactive, ['enabled'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Service()
         return self._top_entity
+
+
 

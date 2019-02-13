@@ -243,6 +243,7 @@ class Vpdn(Entity):
             self._perform_setattr(Vpdn.History, ['failure'], name, value)
 
 
+
     class Redundancy(Entity):
         """
         Enable VPDN redundancy
@@ -326,6 +327,8 @@ class Vpdn(Entity):
                 self._perform_setattr(Vpdn.Redundancy.ProcessFailures, ['switchover'], name, value)
 
 
+
+
     class Local(Entity):
         """
         VPDN Local radius process configuration
@@ -388,6 +391,7 @@ class Vpdn(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vpdn.Local, ['secret_text', 'path', 'cache_disabled', 'port'], name, value)
+
 
 
     class Templates(Entity):
@@ -580,6 +584,7 @@ class Vpdn(Entity):
                     self._perform_setattr(Vpdn.Templates.Template.CallerId, ['mask'], name, value)
 
 
+
             class Vpn(Entity):
                 """
                 VPN ID/VRF name
@@ -674,6 +679,8 @@ class Vpdn(Entity):
                         self._perform_setattr(Vpdn.Templates.Template.Vpn.Id, ['oui', 'index'], name, value)
 
 
+
+
             class Tunnel(Entity):
                 """
                 L2TP tunnel commands
@@ -714,6 +721,7 @@ class Vpdn(Entity):
                     self._perform_setattr(Vpdn.Templates.Template.Tunnel, ['busy_timeout'], name, value)
 
 
+
             class Ip(Entity):
                 """
                 Set IP TOS value
@@ -750,6 +758,7 @@ class Vpdn(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vpdn.Templates.Template.Ip, ['tos'], name, value)
+
 
 
             class Ipv4(Entity):
@@ -797,6 +806,9 @@ class Vpdn(Entity):
                     self._perform_setattr(Vpdn.Templates.Template.Ipv4, ['df_bit', 'source'], name, value)
 
 
+
+
+
     class CallerId(Entity):
         """
         Options to apply on calling station ID
@@ -834,6 +846,7 @@ class Vpdn(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vpdn.CallerId, ['mask'], name, value)
+
 
 
     class VpdNgroups(Entity):
@@ -1044,6 +1057,7 @@ class Vpdn(Entity):
                     self._perform_setattr(Vpdn.VpdNgroups.VpdNgroup.VpnId, ['vpn_id_oui', 'vpn_id_index'], name, value)
 
 
+
             class Ip(Entity):
                 """
                 set ip tos value
@@ -1080,6 +1094,9 @@ class Vpdn(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vpdn.VpdNgroups.VpdNgroup.Ip, ['tos'], name, value)
+
+
+
 
 
     class Loggings(Entity):
@@ -1153,6 +1170,8 @@ class Vpdn(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vpdn.Loggings.Logging, ['option'], name, value)
+
+
 
 
     class L2tp(Entity):
@@ -1284,7 +1303,12 @@ class Vpdn(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vpdn.L2tp.SessionId.Space, ['hierarchy'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Vpdn()
         return self._top_entity
+
+
 

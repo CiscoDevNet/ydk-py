@@ -78,6 +78,8 @@ class Sbfd(Entity):
     	Target\-identifier information
     	**type**\:  :py:class:`TargetIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier>`
     
+    	**config**\: False
+    
     
 
     """
@@ -116,10 +118,14 @@ class Sbfd(Entity):
         	SBFD remote discriminator data
         	**type**\:  :py:class:`RemoteVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs>`
         
+        	**config**\: False
+        
         .. attribute:: local_vrfs
         
         	SBFD local discriminator  data
         	**type**\:  :py:class:`LocalVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs>`
+        
+        	**config**\: False
         
         
 
@@ -163,6 +169,8 @@ class Sbfd(Entity):
             	Table of remote discriminator data per VRF
             	**type**\: list of  		 :py:class:`RemoteVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf>`
             
+            	**config**\: False
+            
             
 
             """
@@ -201,10 +209,14 @@ class Sbfd(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: remote_discriminator
                 
                 	SBFD remote discriminator 
                 	**type**\: list of  		 :py:class:`RemoteDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator>`
+                
+                	**config**\: False
                 
                 
 
@@ -247,12 +259,16 @@ class Sbfd(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_discriminator
                     
                     	Remote Discriminator
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: address
                     
@@ -267,15 +283,21 @@ class Sbfd(Entity):
                     
                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ip_address
                     
                     	IP address
                     	**type**\:  :py:class:`IpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: tid_type
                     
                     	Target identifier for sbfd
                     	**type**\:  :py:class:`SbfdAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.SbfdAddressFamily>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: discr
                     
@@ -284,20 +306,28 @@ class Sbfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: vrf_name_xr
                     
                     	VRF Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: status
                     
                     	Status
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: discr_src
                     
                     	Discriminator source name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -353,12 +383,16 @@ class Sbfd(Entity):
                         	AFI
                         	**type**\:  :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.BfdAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: dummy
                         
                         	No Address
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: ipv4
                         
@@ -367,12 +401,16 @@ class Sbfd(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -407,6 +445,10 @@ class Sbfd(Entity):
                             self._perform_setattr(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
 
 
+
+
+
+
         class LocalVrfs(Entity):
             """
             SBFD local discriminator  data
@@ -415,6 +457,8 @@ class Sbfd(Entity):
             
             	Table of local discriminator data per VRF
             	**type**\: list of  		 :py:class:`LocalVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs.LocalVrf>`
+            
+            	**config**\: False
             
             
 
@@ -454,10 +498,14 @@ class Sbfd(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: local_discriminator
                 
                 	SBFD local discriminator 
                 	**type**\: list of  		 :py:class:`LocalDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator>`
+                
+                	**config**\: False
                 
                 
 
@@ -500,12 +548,16 @@ class Sbfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: vrf_name
                     
                     	VRF Name 
                     	**type**\: str
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    
+                    	**config**\: False
                     
                     .. attribute:: discr
                     
@@ -514,25 +566,35 @@ class Sbfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: vrf_name_xr
                     
                     	VRF Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: flags
                     
                     	MODE name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: status
                     
                     	Status
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: discr_src
                     
                     	Discriminator source name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -572,7 +634,13 @@ class Sbfd(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator, ['local_discriminator', 'vrf_name', 'discr', 'vrf_name_xr', 'flags', 'status', 'discr_src'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Sbfd()
         return self._top_entity
+
+
 

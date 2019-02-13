@@ -590,6 +590,8 @@ class LogicalChannels(Entity):
                     self._perform_setattr(LogicalChannels.Channel.LogicalChannelAssignments.LogicalChannelAssignment, ['assignment_index', 'description', 'logical_channel_id', 'assignment_type', 'allocation', 'optical_channel_id'], name, value)
 
 
+
+
         class Otn(Entity):
             """
             Otn Related configs for Logical channel
@@ -643,9 +645,13 @@ class LogicalChannels(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(LogicalChannels.Channel.Otn, ['tti_msg_auto', 'tti_msg_expected', 'tti_msg_transmit'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = LogicalChannels()
         return self._top_entity
+
+
 
 class OpticalChannels(Entity):
     """
@@ -739,7 +745,10 @@ class OpticalChannels(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(OpticalChannels.OpticalChannel, ['ifname', 'operational_mode', 'line_port'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = OpticalChannels()
         return self._top_entity
+
+
 

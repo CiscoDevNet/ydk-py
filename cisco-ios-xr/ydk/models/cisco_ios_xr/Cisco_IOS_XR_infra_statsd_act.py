@@ -93,9 +93,12 @@ class ClearCountersController(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearCountersController.Input, ['controller_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearCountersController()
         return self._top_entity
+
+
 
 class ClearCountersAll(Entity):
     """
@@ -126,6 +129,8 @@ class ClearCountersAll(Entity):
     def clone_ptr(self):
         self._top_entity = ClearCountersAll()
         return self._top_entity
+
+
 
 class ClearCountersInterface(Entity):
     """
@@ -203,7 +208,10 @@ class ClearCountersInterface(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearCountersInterface.Input, ['interface_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearCountersInterface()
         return self._top_entity
+
+
 

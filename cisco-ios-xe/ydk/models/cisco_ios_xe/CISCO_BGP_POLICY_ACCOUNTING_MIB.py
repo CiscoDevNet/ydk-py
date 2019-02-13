@@ -22,6 +22,8 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
     	The cbpAcctTable provides statistics about ingress and egress  traffic on an interface. This data could be used for purposes  like billing
     	**type**\:  :py:class:`CbpAcctTable <ydk.models.cisco_ios_xe.CISCO_BGP_POLICY_ACCOUNTING_MIB.CISCOBGPPOLICYACCOUNTINGMIB.CbpAcctTable>`
     
+    	**config**\: False
+    
     
 
     """
@@ -61,6 +63,8 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
         
         	Each cbpAcctEntry provides statistics for traffic of interest on an ingress and/or egress interfaces. The traffic of interest  may be used for purposes like billing, and is referred to from  here on in the MIB by the term 'traffic\-type', which corresponds to cbpAcctTrafficIndex. Traffic\-types are configured by the user on a per interface basis.  The statistics include ingress packet counts, ingress octet counts, egress packet counts and egress octet counts. Entries  are created when traffic\-type is configured on an interface. Entries are deleted automatically when the user  removes the corresponding traffic\-type configuration from an interface
         	**type**\: list of  		 :py:class:`CbpAcctEntry <ydk.models.cisco_ios_xe.CISCO_BGP_POLICY_ACCOUNTING_MIB.CISCOBGPPOLICYACCOUNTINGMIB.CbpAcctTable.CbpAcctEntry>`
+        
+        	**config**\: False
         
         
 
@@ -114,12 +118,16 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cbpaccttrafficindex  (key)
             
             	An integer value greater than 0, that uniquely identifies a traffic\-type. The traffic\-type has no intrinsic meaning. It just means the traffic coming into an interface can be differentiated into different types. It is up to the user to give meaning to and configure the various traffic\-types on an  interface
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             .. attribute:: cbpacctinpacketcount
             
@@ -128,12 +136,16 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cbpacctinoctetcount
             
             	The total number of octets received for a particular traffic\-type on an interface
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: cbpacctoutpacketcount
             
@@ -142,12 +154,16 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cbpacctoutoctetcount
             
             	The total number of octets transmitted for a particular traffic\-type on an interface
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -186,7 +202,11 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOBGPPOLICYACCOUNTINGMIB.CbpAcctTable.CbpAcctEntry, ['ifindex', 'cbpaccttrafficindex', 'cbpacctinpacketcount', 'cbpacctinoctetcount', 'cbpacctoutpacketcount', 'cbpacctoutoctetcount'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOBGPPOLICYACCOUNTINGMIB()
         return self._top_entity
+
+
 

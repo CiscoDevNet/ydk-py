@@ -522,10 +522,14 @@ class Ipv4AclAndPrefixList(Entity):
     	Access list manager containing access lists and prefix lists
     	**type**\:  :py:class:`AccessListManager <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager>`
     
+    	**config**\: False
+    
     .. attribute:: oor
     
     	Out Of Resources, Limits to the resources allocatable
     	**type**\:  :py:class:`Oor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor>`
+    
+    	**config**\: False
     
     
 
@@ -570,15 +574,21 @@ class Ipv4AclAndPrefixList(Entity):
         	Table of prefix lists
         	**type**\:  :py:class:`Prefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Prefixes>`
         
+        	**config**\: False
+        
         .. attribute:: accesses
         
         	Access listL class displaying Usage and Entries
         	**type**\:  :py:class:`Accesses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses>`
         
+        	**config**\: False
+        
         .. attribute:: usages
         
         	Table of Usage statistics of access lists at different nodes
         	**type**\:  :py:class:`Usages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Usages>`
+        
+        	**config**\: False
         
         
 
@@ -626,6 +636,8 @@ class Ipv4AclAndPrefixList(Entity):
             	Name of the prefix list
             	**type**\: list of  		 :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Prefixes.Prefix>`
             
+            	**config**\: False
+            
             
 
             """
@@ -662,10 +674,14 @@ class Ipv4AclAndPrefixList(Entity):
                 	Name of the prefix list
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: prefix_list_sequences
                 
                 	Table of all the SequenceNumbers per prefix list
                 	**type**\:  :py:class:`PrefixListSequences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences>`
+                
+                	**config**\: False
                 
                 
 
@@ -709,6 +725,8 @@ class Ipv4AclAndPrefixList(Entity):
                     	Sequence Number of a prefix list entry
                     	**type**\: list of  		 :py:class:`PrefixListSequence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -746,10 +764,14 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 1..2147483646
                         
+                        	**config**\: False
+                        
                         .. attribute:: item_type
                         
                         	ACE type (prefix, remark)
                         	**type**\:  :py:class:`AclAce1_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclAce1_>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: sequence
                         
@@ -758,10 +780,14 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: grant
                         
                         	Grant value permit/deny 
                         	**type**\:  :py:class:`AclAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclAction>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: prefix
                         
@@ -770,6 +796,8 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix_length
                         
                         	Prefix length 
@@ -777,10 +805,14 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: operator
                         
                         	Port Operator
                         	**type**\:  :py:class:`AclPortOperator___ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperator___>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: minimum_length
                         
@@ -789,12 +821,16 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: maximum_length
                         
                         	Maximum length
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: hits
                         
@@ -803,15 +839,21 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: remark
                         
                         	Remark String
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: acl_name
                         
                         	ACL Name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -862,6 +904,10 @@ class Ipv4AclAndPrefixList(Entity):
                             self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence, ['sequence_number', u'item_type', u'sequence', u'grant', u'prefix', u'prefix_length', u'operator', u'minimum_length', u'maximum_length', u'hits', u'remark', u'acl_name'], name, value)
 
 
+
+
+
+
         class Accesses(Entity):
             """
             Access listL class displaying Usage and Entries
@@ -870,6 +916,8 @@ class Ipv4AclAndPrefixList(Entity):
             
             	Name of the Access List
             	**type**\: list of  		 :py:class:`Access <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access>`
+            
+            	**config**\: False
             
             
 
@@ -907,15 +955,21 @@ class Ipv4AclAndPrefixList(Entity):
                 	Name of the Access List
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: access_list_sequences
                 
                 	Table of all the SequenceNumbers per access list
                 	**type**\:  :py:class:`AccessListSequences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences>`
                 
+                	**config**\: False
+                
                 .. attribute:: object_group
                 
                 	Object Group in an Access list
                 	**type**\:  :py:class:`ObjectGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup>`
+                
+                	**config**\: False
                 
                 
 
@@ -963,6 +1017,8 @@ class Ipv4AclAndPrefixList(Entity):
                     	Sequence Number of an access list entry
                     	**type**\: list of  		 :py:class:`AccessListSequence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1000,15 +1056,21 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 1..2147483646
                         
+                        	**config**\: False
+                        
                         .. attribute:: hw_next_hop_info
                         
                         	HW Next hop info
                         	**type**\:  :py:class:`HwNextHopInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: item_type
                         
                         	ACE type (acl, remark)
                         	**type**\:  :py:class:`AclAce1_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclAce1_>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: sequence
                         
@@ -1017,10 +1079,14 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: grant
                         
                         	Permit/deny
                         	**type**\:  :py:class:`AclAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclAction>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: protocol_operator
                         
@@ -1029,12 +1095,16 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: protocol
                         
                         	IPv4 protocol type
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: protocol2
                         
@@ -1043,12 +1113,16 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: source_address
                         
                         	Source address
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: source_address_mask
                         
@@ -1057,12 +1131,16 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: destination_address
                         
                         	Destination address
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: destination_address_mask
                         
@@ -1071,10 +1149,14 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: source_operator
                         
                         	Source operator
                         	**type**\:  :py:class:`AclPortOperator___ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperator___>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: source_port1
                         
@@ -1083,6 +1165,8 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: source_port2
                         
                         	Source port 2
@@ -1090,10 +1174,14 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: sorce_operator
                         
                         	Deprecated by Source operator
                         	**type**\:  :py:class:`AclPortOperator___ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperator___>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: sorce_port1
                         
@@ -1102,6 +1190,8 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: sorce_port2
                         
                         	Deprecated by SourcePort2
@@ -1109,10 +1199,14 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: destination_operator
                         
                         	Destination operator
                         	**type**\:  :py:class:`AclPortOperator___ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperator___>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: destination_port1
                         
@@ -1121,6 +1215,8 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: destination_port2
                         
                         	Destination port 2
@@ -1128,25 +1224,35 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: log_option
                         
                         	Log option
                         	**type**\:  :py:class:`AclLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclLog>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: counter_name
                         
                         	Counter name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: capture
                         
                         	Capture option, TRUE if enabled
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: dscp_present
                         
                         	DSCP present
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: dscp
                         
@@ -1155,12 +1261,16 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: dscp2
                         
                         	DSCP Range End
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: dscp_operator
                         
@@ -1169,10 +1279,14 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: precedence_present
                         
                         	Precedence present
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: precedence
                         
@@ -1181,10 +1295,14 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: tcp_flags_operator
                         
                         	TCP flags operator
                         	**type**\:  :py:class:`AclTcpflagsOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclTcpflagsOperator>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: tcp_flags
                         
@@ -1193,12 +1311,16 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: tcp_flags_mask
                         
                         	TCP flags mask
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: fragments
                         
@@ -1207,10 +1329,14 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: packet_length_operator
                         
                         	Packet length operator
                         	**type**\:  :py:class:`AclPortOperator___ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperator___>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: packet_length1
                         
@@ -1219,6 +1345,8 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: packet_length2
                         
                         	Packet length 2
@@ -1226,10 +1354,14 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: ttl_operator
                         
                         	TTL operator
                         	**type**\:  :py:class:`AclPortOperator___ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperator___>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ttl1
                         
@@ -1238,6 +1370,8 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: ttl2
                         
                         	TTL 2
@@ -1245,10 +1379,14 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: no_stats
                         
                         	No stats
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: hits
                         
@@ -1257,10 +1395,14 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_icmp_off
                         
                         	True if ICMP off
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: qos_group
                         
@@ -1269,55 +1411,77 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: next_hop_type
                         
                         	Next hop type
                         	**type**\:  :py:class:`BagAclNh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.BagAclNh>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: remark
                         
                         	Remark String
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: dynamic
                         
                         	Is dynamic ACE
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: source_prefix_group
                         
                         	Source prefix object\-group
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: destination_prefix_group
                         
                         	Destination prefix object\-group
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: source_port_group
                         
                         	Source port object\-group
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: destination_port_group
                         
                         	Destination port object\-group
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: acl_name
                         
                         	ACL Name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: sequence_str
                         
                         	Sequence String
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: fragment_offset_operator
                         
                         	Fragment offset operator
                         	**type**\:  :py:class:`AclPortOperator___ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.AclPortOperator___>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: fragment_offset1
                         
@@ -1326,12 +1490,16 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: fragment_offset2
                         
                         	Fragment offset 2
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: set_ttl
                         
@@ -1340,6 +1508,8 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: fragment_flags
                         
                         	Fragment flags
@@ -1347,15 +1517,21 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: next_hop_info
                         
                         	Next hop info
                         	**type**\: list of  		 :py:class:`NextHopInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: udf
                         
                         	UDF BAG
                         	**type**\: list of  		 :py:class:`Udf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1514,10 +1690,14 @@ class Ipv4AclAndPrefixList(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	the next\-hop type
                             	**type**\:  :py:class:`BagAclNh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.BagAclNh>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: vrf_name
                             
@@ -1525,6 +1705,8 @@ class Ipv4AclAndPrefixList(Entity):
                             	**type**\: str
                             
                             	**length:** 0..32
+                            
+                            	**config**\: False
                             
                             
 
@@ -1557,6 +1739,7 @@ class Ipv4AclAndPrefixList(Entity):
                                 self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo, [u'next_hop', u'type', u'vrf_name'], name, value)
 
 
+
                         class NextHopInfo(Entity):
                             """
                             Next hop info
@@ -1568,25 +1751,35 @@ class Ipv4AclAndPrefixList(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: track_name
                             
                             	Track name
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: status
                             
                             	The next hop status
                             	**type**\:  :py:class:`BagAclNhStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.BagAclNhStatus>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: at_status
                             
                             	The next hop at status
                             	**type**\:  :py:class:`BagAclNhAtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.BagAclNhAtStatus>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_acl_next_hop_exist
                             
                             	The nexthop exist
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -1623,6 +1816,7 @@ class Ipv4AclAndPrefixList(Entity):
                                 self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo, [u'next_hop', u'track_name', u'status', u'at_status', u'is_acl_next_hop_exist'], name, value)
 
 
+
                         class Udf(Entity):
                             """
                             UDF BAG
@@ -1634,6 +1828,8 @@ class Ipv4AclAndPrefixList(Entity):
                             
                             	**length:** 0..17
                             
+                            	**config**\: False
+                            
                             .. attribute:: udf_value
                             
                             	UDF Value
@@ -1641,12 +1837,16 @@ class Ipv4AclAndPrefixList(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: udf_mask
                             
                             	UDF Mask
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1679,6 +1879,9 @@ class Ipv4AclAndPrefixList(Entity):
                                 self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf, [u'udf_name', u'udf_value', u'udf_mask'], name, value)
 
 
+
+
+
                 class ObjectGroup(Entity):
                     """
                     Object Group in an Access list
@@ -1687,6 +1890,8 @@ class Ipv4AclAndPrefixList(Entity):
                     
                     	Object\-group info
                     	**type**\: list of  		 :py:class:`ObjGrpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup.ObjGrpInfo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1725,12 +1930,16 @@ class Ipv4AclAndPrefixList(Entity):
                         
                         	**length:** 0..64
                         
+                        	**config**\: False
+                        
                         .. attribute:: obj_grp_type
                         
                         	Object\-group Type
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1761,6 +1970,10 @@ class Ipv4AclAndPrefixList(Entity):
                             self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup.ObjGrpInfo, [u'obj_grp_name', u'obj_grp_type'], name, value)
 
 
+
+
+
+
         class Usages(Entity):
             """
             Table of Usage statistics of access lists at
@@ -1770,6 +1983,8 @@ class Ipv4AclAndPrefixList(Entity):
             
             	Usage statistics of an access list at a node
             	**type**\: list of  		 :py:class:`Usage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.AccessListManager.Usages.Usage>`
+            
+            	**config**\: False
             
             
 
@@ -1809,15 +2024,21 @@ class Ipv4AclAndPrefixList(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: application_id
                 
                 	Application ID
                 	**type**\:  :py:class:`AclUsageAppIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_common_acl_datatypes.AclUsageAppIdEnum>`
                 
+                	**config**\: False
+                
                 .. attribute:: access_list_name
                 
                 	Name of the access list
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: usage_details
                 
@@ -1825,6 +2046,8 @@ class Ipv4AclAndPrefixList(Entity):
                 	**type**\: str
                 
                 	**mandatory**\: True
+                
+                	**config**\: False
                 
                 
 
@@ -1860,6 +2083,9 @@ class Ipv4AclAndPrefixList(Entity):
                     self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Usages.Usage, ['node_name', 'application_id', 'access_list_name', 'usage_details'], name, value)
 
 
+
+
+
     class Oor(Entity):
         """
         Out Of Resources, Limits to the resources
@@ -1870,25 +2096,35 @@ class Ipv4AclAndPrefixList(Entity):
         	Details of the Overall Out Of Resources Limits
         	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.Details>`
         
+        	**config**\: False
+        
         .. attribute:: oor_prefixes
         
         	Resource occupation details for prefix lists
         	**type**\:  :py:class:`OorPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.OorPrefixes>`
+        
+        	**config**\: False
         
         .. attribute:: oor_accesses
         
         	Resource occupation details for access lists
         	**type**\:  :py:class:`OorAccesses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.OorAccesses>`
         
+        	**config**\: False
+        
         .. attribute:: access_list_summary
         
         	Resource limits pertaining to access lists only
         	**type**\:  :py:class:`AccessListSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.AccessListSummary>`
         
+        	**config**\: False
+        
         .. attribute:: prefix_list_summary
         
         	Summary of the prefix Lists resource utilization
         	**type**\:  :py:class:`PrefixListSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.PrefixListSummary>`
+        
+        	**config**\: False
         
         
 
@@ -1946,12 +2182,16 @@ class Ipv4AclAndPrefixList(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: default_max_ac_es
             
             	default max configurable aces
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: current_configured_ac_ls
             
@@ -1960,12 +2200,16 @@ class Ipv4AclAndPrefixList(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: current_configured_ac_es
             
             	Current configured aces
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: current_max_configurable_ac_ls
             
@@ -1974,12 +2218,16 @@ class Ipv4AclAndPrefixList(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: current_max_configurable_ac_es
             
             	Current max configurable aces
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: max_configurable_ac_ls
             
@@ -1988,12 +2236,16 @@ class Ipv4AclAndPrefixList(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: max_configurable_ac_es
             
             	max configurable aces
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2037,6 +2289,7 @@ class Ipv4AclAndPrefixList(Entity):
                 self._perform_setattr(Ipv4AclAndPrefixList.Oor.Details, [u'default_max_ac_ls', u'default_max_ac_es', u'current_configured_ac_ls', u'current_configured_ac_es', u'current_max_configurable_ac_ls', u'current_max_configurable_ac_es', u'max_configurable_ac_ls', u'max_configurable_ac_es'], name, value)
 
 
+
         class OorPrefixes(Entity):
             """
             Resource occupation details for prefix lists
@@ -2045,6 +2298,8 @@ class Ipv4AclAndPrefixList(Entity):
             
             	Resource occupation details for a particular prefix list
             	**type**\: list of  		 :py:class:`OorPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.OorPrefixes.OorPrefix>`
+            
+            	**config**\: False
             
             
 
@@ -2083,12 +2338,16 @@ class Ipv4AclAndPrefixList(Entity):
                 	Name of a prefix list
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: default_max_ac_ls
                 
                 	default max configurable acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: default_max_ac_es
                 
@@ -2097,12 +2356,16 @@ class Ipv4AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: current_configured_ac_ls
                 
                 	Current configured acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: current_configured_ac_es
                 
@@ -2111,12 +2374,16 @@ class Ipv4AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: current_max_configurable_ac_ls
                 
                 	Current max configurable acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: current_max_configurable_ac_es
                 
@@ -2125,6 +2392,8 @@ class Ipv4AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: max_configurable_ac_ls
                 
                 	max configurable acls
@@ -2132,12 +2401,16 @@ class Ipv4AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: max_configurable_ac_es
                 
                 	max configurable aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -2183,6 +2456,8 @@ class Ipv4AclAndPrefixList(Entity):
                     self._perform_setattr(Ipv4AclAndPrefixList.Oor.OorPrefixes.OorPrefix, ['prefix_list_name', u'default_max_ac_ls', u'default_max_ac_es', u'current_configured_ac_ls', u'current_configured_ac_es', u'current_max_configurable_ac_ls', u'current_max_configurable_ac_es', u'max_configurable_ac_ls', u'max_configurable_ac_es'], name, value)
 
 
+
+
         class OorAccesses(Entity):
             """
             Resource occupation details for access lists
@@ -2191,6 +2466,8 @@ class Ipv4AclAndPrefixList(Entity):
             
             	Resource occupation details for a particular access list
             	**type**\: list of  		 :py:class:`OorAccess <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.OorAccesses.OorAccess>`
+            
+            	**config**\: False
             
             
 
@@ -2229,12 +2506,16 @@ class Ipv4AclAndPrefixList(Entity):
                 	Name of the Access List
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: default_max_ac_ls
                 
                 	default max configurable acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: default_max_ac_es
                 
@@ -2243,12 +2524,16 @@ class Ipv4AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: current_configured_ac_ls
                 
                 	Current configured acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: current_configured_ac_es
                 
@@ -2257,12 +2542,16 @@ class Ipv4AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: current_max_configurable_ac_ls
                 
                 	Current max configurable acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: current_max_configurable_ac_es
                 
@@ -2271,6 +2560,8 @@ class Ipv4AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: max_configurable_ac_ls
                 
                 	max configurable acls
@@ -2278,12 +2569,16 @@ class Ipv4AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: max_configurable_ac_es
                 
                 	max configurable aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -2329,6 +2624,8 @@ class Ipv4AclAndPrefixList(Entity):
                     self._perform_setattr(Ipv4AclAndPrefixList.Oor.OorAccesses.OorAccess, ['access_list_name', u'default_max_ac_ls', u'default_max_ac_es', u'current_configured_ac_ls', u'current_configured_ac_es', u'current_max_configurable_ac_ls', u'current_max_configurable_ac_es', u'max_configurable_ac_ls', u'max_configurable_ac_es'], name, value)
 
 
+
+
         class AccessListSummary(Entity):
             """
             Resource limits pertaining to access lists only
@@ -2337,6 +2634,8 @@ class Ipv4AclAndPrefixList(Entity):
             
             	Details containing the resource limits of the access lists
             	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.AccessListSummary.Details>`
+            
+            	**config**\: False
             
             
 
@@ -2379,12 +2678,16 @@ class Ipv4AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: default_max_ac_es
                 
                 	default max configurable aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: current_configured_ac_ls
                 
@@ -2393,12 +2696,16 @@ class Ipv4AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: current_configured_ac_es
                 
                 	Current configured aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: current_max_configurable_ac_ls
                 
@@ -2407,12 +2714,16 @@ class Ipv4AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: current_max_configurable_ac_es
                 
                 	Current max configurable aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: max_configurable_ac_ls
                 
@@ -2421,12 +2732,16 @@ class Ipv4AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: max_configurable_ac_es
                 
                 	max configurable aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -2470,6 +2785,8 @@ class Ipv4AclAndPrefixList(Entity):
                     self._perform_setattr(Ipv4AclAndPrefixList.Oor.AccessListSummary.Details, [u'default_max_ac_ls', u'default_max_ac_es', u'current_configured_ac_ls', u'current_configured_ac_es', u'current_max_configurable_ac_ls', u'current_max_configurable_ac_es', u'max_configurable_ac_ls', u'max_configurable_ac_es'], name, value)
 
 
+
+
         class PrefixListSummary(Entity):
             """
             Summary of the prefix Lists resource
@@ -2479,6 +2796,8 @@ class Ipv4AclAndPrefixList(Entity):
             
             	Summary Detail of the prefix list Resource Utilisation
             	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.Ipv4AclAndPrefixList.Oor.PrefixListSummary.Details>`
+            
+            	**config**\: False
             
             
 
@@ -2521,12 +2840,16 @@ class Ipv4AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: default_max_ac_es
                 
                 	default max configurable aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: current_configured_ac_ls
                 
@@ -2535,12 +2858,16 @@ class Ipv4AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: current_configured_ac_es
                 
                 	Current configured aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: current_max_configurable_ac_ls
                 
@@ -2549,12 +2876,16 @@ class Ipv4AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: current_max_configurable_ac_es
                 
                 	Current max configurable aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: max_configurable_ac_ls
                 
@@ -2563,12 +2894,16 @@ class Ipv4AclAndPrefixList(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: max_configurable_ac_es
                 
                 	max configurable aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -2611,7 +2946,12 @@ class Ipv4AclAndPrefixList(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4AclAndPrefixList.Oor.PrefixListSummary.Details, [u'default_max_ac_ls', u'default_max_ac_es', u'current_configured_ac_ls', u'current_configured_ac_es', u'current_max_configurable_ac_ls', u'current_max_configurable_ac_es', u'max_configurable_ac_ls', u'max_configurable_ac_es'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Ipv4AclAndPrefixList()
         return self._top_entity
+
+
 

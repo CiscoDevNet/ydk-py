@@ -21,10 +21,14 @@ class Location(Entity):
     	
     	**type**\: str
     
+    	**config**\: False
+    
     .. attribute:: fpd2
     
     	
     	**type**\: list of  		 :py:class:`Fpd2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fpd_infra_cli_fpd_service.Location.Fpd2>`
+    
+    	**config**\: False
     
     
 
@@ -65,6 +69,8 @@ class Location(Entity):
         	
         	**type**\: str
         
+        	**config**\: False
+        
         
 
         """
@@ -91,7 +97,10 @@ class Location(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Location.Fpd2, ['name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Location()
         return self._top_entity
+
+
 

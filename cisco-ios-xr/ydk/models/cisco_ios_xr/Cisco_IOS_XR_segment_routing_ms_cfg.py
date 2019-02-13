@@ -224,6 +224,7 @@ class Sr(Entity):
             self._perform_setattr(Sr.LocalBlock, ['lower_bound', 'upper_bound'], name, value)
 
 
+
     class Mappings(Entity):
         """
         Mapping Server
@@ -344,6 +345,8 @@ class Sr(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Sr.Mappings.Mapping, ['af', 'ip', 'mask', 'sid_start', 'sid_range', 'flag_attached'], name, value)
+
+
 
 
     class AdjacencySid(Entity):
@@ -707,6 +710,14 @@ class Sr(Entity):
                                         self._perform_setattr(Sr.AdjacencySid.Interfaces.Interface.AddressFamilies.AddressFamily.NextHops.NextHop.L2AdjacencySid, ['sid_type', 'absolute_sid', 'index_sid', 'srlb'], name, value)
 
 
+
+
+
+
+
+
+
+
     class GlobalBlock(Entity):
         """
         Global Block Segment Routing
@@ -760,6 +771,7 @@ class Sr(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(Sr.GlobalBlock, ['lower_bound', 'upper_bound'], name, value)
+
 
 
     class TrafficEngineering(Entity):
@@ -1121,6 +1133,7 @@ class Sr(Entity):
                             self._perform_setattr(Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.OnDemandColorDynMplsMetric, ['metric_type', 'enable'], name, value)
 
 
+
                     class OnDemandColorDynMplsPce(Entity):
                         """
                         Use Path Computation Element
@@ -1155,6 +1168,7 @@ class Sr(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.OnDemandColorDynMplsPce, ['enable'], name, value)
+
 
 
                     class DisjointPath(Entity):
@@ -1216,6 +1230,10 @@ class Sr(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Sr.TrafficEngineering.OnDemandColors.OnDemandColor.OnDemandColorDynMpls.DisjointPath, ['group_id', 'disjointness_type', 'sub_id'], name, value)
+
+
+
+
 
 
         class Segments(Entity):
@@ -1408,6 +1426,10 @@ class Sr(Entity):
                             self._perform_setattr(Sr.TrafficEngineering.Segments.Segment.Segments_.Segment_, ['segment_index', 'segment_type', 'address', 'mpls_label'], name, value)
 
 
+
+
+
+
         class Logging(Entity):
             """
             Logging configuration
@@ -1448,6 +1470,7 @@ class Sr(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Sr.TrafficEngineering.Logging, ['policy_status'], name, value)
+
 
 
         class BindingSidRules(Entity):
@@ -1529,6 +1552,8 @@ class Sr(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Sr.TrafficEngineering.BindingSidRules.Explicit, ['rule'], name, value)
+
+
 
 
         class Policies(Entity):
@@ -1808,6 +1833,9 @@ class Sr(Entity):
                                 self._perform_setattr(Sr.TrafficEngineering.Policies.Policy.Steering.Applications.Application, ['application', 'disable'], name, value)
 
 
+
+
+
                 class BindingSid(Entity):
                     """
                     Binding Segment ID
@@ -1851,6 +1879,7 @@ class Sr(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Sr.TrafficEngineering.Policies.Policy.BindingSid, ['binding_sid_type', 'mpls_label'], name, value)
+
 
 
                 class PolicyColorEndpoint(Entity):
@@ -1921,6 +1950,7 @@ class Sr(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Sr.TrafficEngineering.Policies.Policy.PolicyColorEndpoint, ['color', 'end_point_type', 'end_point_address'], name, value)
+
 
 
                 class AutoRoute(Entity):
@@ -2031,6 +2061,7 @@ class Sr(Entity):
                             self._perform_setattr(Sr.TrafficEngineering.Policies.Policy.AutoRoute.AutoRouteMetric, ['autoroute_metric_type', 'metric_relative_value', 'metric_constant_value'], name, value)
 
 
+
                     class IncludePrefixes(Entity):
                         """
                         Autoroute include prefix table configuration
@@ -2124,6 +2155,9 @@ class Sr(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sr.TrafficEngineering.Policies.Policy.AutoRoute.IncludePrefixes.IncludePrefix, ['af_type', 'prefix_address', 'prefix_length'], name, value)
+
+
+
 
 
                 class CandidatePaths(Entity):
@@ -2396,6 +2430,7 @@ class Sr(Entity):
                                         self._perform_setattr(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.Constraints.DisjointPath, ['group_id', 'disjointness_type', 'sub_id'], name, value)
 
 
+
                                 class SegmentRules(Entity):
                                     """
                                     SR path computation segment specific
@@ -2438,6 +2473,7 @@ class Sr(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.Constraints.SegmentRules, ['sid_algorithm'], name, value)
+
 
 
                                 class AffinityRules(Entity):
@@ -2520,6 +2556,9 @@ class Sr(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.Constraints.AffinityRules.AffinityRule, ['rule', 'color'], name, value)
+
+
+
 
 
                             class PathInfos(Entity):
@@ -2768,6 +2807,8 @@ class Sr(Entity):
                                                 self._perform_setattr(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Metric.Margin, ['value_type', 'absolute_value', 'relative_value'], name, value)
 
 
+
+
                                     class Pcep(Entity):
                                         """
                                         Path Computation Element Protocol
@@ -2802,6 +2843,14 @@ class Sr(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Sr.TrafficEngineering.Policies.Policy.CandidatePaths.Preferences.Preference.PathInfos.PathInfo.Pcep, ['enable'], name, value)
+
+
+
+
+
+
+
+
 
 
         class SrteInterfaces(Entity):
@@ -2975,6 +3024,10 @@ class Sr(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Sr.TrafficEngineering.SrteInterfaces.SrteInterface.InterfaceAffinities.InterfaceAffinity, ['color'], name, value)
+
+
+
+
 
 
         class Pcc(Entity):
@@ -3230,6 +3283,8 @@ class Sr(Entity):
                         self._perform_setattr(Sr.TrafficEngineering.Pcc.PcePeers.PcePeer, ['pce_address', 'password', 'keychain', 'enable', 'precedence'], name, value)
 
 
+
+
             class PceAddresses(Entity):
                 """
                 PCE peer configuration
@@ -3322,6 +3377,9 @@ class Sr(Entity):
                         self._perform_setattr(Sr.TrafficEngineering.Pcc.PceAddresses.PceAddress, ['pce_address', 'precedence'], name, value)
 
 
+
+
+
         class AffinityMaps(Entity):
             """
             Affinity\-map configuration
@@ -3407,7 +3465,12 @@ class Sr(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Sr.TrafficEngineering.AffinityMaps.AffinityMap, ['color', 'bit_position'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Sr()
         return self._top_entity
+
+
 

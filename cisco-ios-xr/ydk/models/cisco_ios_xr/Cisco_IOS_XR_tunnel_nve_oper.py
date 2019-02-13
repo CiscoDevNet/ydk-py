@@ -30,10 +30,14 @@ class Nve(Entity):
     	Table for VNIs
     	**type**\:  :py:class:`Vnis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_nve_oper.Nve.Vnis>`
     
+    	**config**\: False
+    
     .. attribute:: interfaces
     
     	Table for NVE interface attributes
     	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_nve_oper.Nve.Interfaces>`
+    
+    	**config**\: False
     
     
 
@@ -77,6 +81,8 @@ class Nve(Entity):
         	The attributes for a particular VNI
         	**type**\: list of  		 :py:class:`Vni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_nve_oper.Nve.Vnis.Vni>`
         
+        	**config**\: False
+        
         
 
         """
@@ -115,10 +121,14 @@ class Nve(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: interface_name
             
             	NVE Interface name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: vni_xr
             
@@ -127,12 +137,16 @@ class Nve(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	State
             	**type**\: int
             
             	**range:** \-128..127
+            
+            	**config**\: False
             
             .. attribute:: mcast_ipv4_address
             
@@ -141,12 +155,16 @@ class Nve(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: flags
             
             	Flags
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: vni_min
             
@@ -155,12 +173,16 @@ class Nve(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: vni_max
             
             	VNI Max in Range
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mcast_flags
             
@@ -169,12 +191,16 @@ class Nve(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: udp_port
             
             	UDP Port
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: bvi_ifh
             
@@ -183,12 +209,16 @@ class Nve(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: bvi_state
             
             	BVI Interface Oper State
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: bvi_mac
             
@@ -197,10 +227,14 @@ class Nve(Entity):
             
             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
             
+            	**config**\: False
+            
             .. attribute:: vrf_name
             
             	L3 VRF Name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: vrf_id
             
@@ -209,12 +243,16 @@ class Nve(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipv4_tbl_id
             
             	IPv4 Table ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipv6_tbl_id
             
@@ -223,6 +261,8 @@ class Nve(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: vrf_vni
             
             	VRF VNI
@@ -230,10 +270,14 @@ class Nve(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: topo_valid
             
             	TOPO ID valid flag
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: topo_id
             
@@ -242,12 +286,16 @@ class Nve(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: topo_name
             
             	L2RIB Topology Name
             	**type**\: str
             
             	**length:** 0..50
+            
+            	**config**\: False
             
             
 
@@ -317,6 +365,8 @@ class Nve(Entity):
                 self._perform_setattr(Nve.Vnis.Vni, ['vni', u'interface_name', u'vni_xr', u'state', u'mcast_ipv4_address', u'flags', u'vni_min', u'vni_max', u'mcast_flags', u'udp_port', u'bvi_ifh', u'bvi_state', u'bvi_mac', u'vrf_name', u'vrf_id', u'ipv4_tbl_id', u'ipv6_tbl_id', u'vrf_vni', u'topo_valid', u'topo_id', u'topo_name'], name, value)
 
 
+
+
     class Interfaces(Entity):
         """
         Table for NVE interface attributes
@@ -325,6 +375,8 @@ class Nve(Entity):
         
         	The attributes for a particular interface
         	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_nve_oper.Nve.Interfaces.Interface>`
+        
+        	**config**\: False
         
         
 
@@ -364,10 +416,14 @@ class Nve(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: interface_name_xr
             
             	Interface name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: state
             
@@ -376,12 +432,16 @@ class Nve(Entity):
             
             	**range:** \-128..127
             
+            	**config**\: False
+            
             .. attribute:: admin_state
             
             	Admin State
             	**type**\: int
             
             	**range:** \-128..127
+            
+            	**config**\: False
             
             .. attribute:: flags
             
@@ -390,6 +450,8 @@ class Nve(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: encap
             
             	Encap
@@ -397,10 +459,14 @@ class Nve(Entity):
             
             	**range:** \-128..127
             
+            	**config**\: False
+            
             .. attribute:: source_interface_name
             
             	Source Interface name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: source_ipv4_address
             
@@ -409,12 +475,16 @@ class Nve(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: if_handle
             
             	NVE IfHandle
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: source_state
             
@@ -423,6 +493,8 @@ class Nve(Entity):
             
             	**range:** \-128..127
             
+            	**config**\: False
+            
             .. attribute:: udp_port
             
             	UDP Port
@@ -430,10 +502,14 @@ class Nve(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: any_cast_source_interface_name
             
             	Anycast Source Interface name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: any_cast_source_ipv4_address
             
@@ -442,12 +518,16 @@ class Nve(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: any_cast_source_state
             
             	Anycast Source Interface State
             	**type**\: int
             
             	**range:** \-128..127
+            
+            	**config**\: False
             
             .. attribute:: sync_mcast_ipv4_address
             
@@ -456,12 +536,16 @@ class Nve(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: sync_mcast_flags
             
             	Sync McastFlags
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -520,7 +604,11 @@ class Nve(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Nve.Interfaces.Interface, ['interface_name', u'interface_name_xr', u'state', u'admin_state', u'flags', u'encap', u'source_interface_name', u'source_ipv4_address', u'if_handle', u'source_state', u'udp_port', u'any_cast_source_interface_name', u'any_cast_source_ipv4_address', u'any_cast_source_state', u'sync_mcast_ipv4_address', u'sync_mcast_flags'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Nve()
         return self._top_entity
+
+
 

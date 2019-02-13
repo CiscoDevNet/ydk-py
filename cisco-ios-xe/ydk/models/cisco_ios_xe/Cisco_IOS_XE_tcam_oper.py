@@ -25,6 +25,8 @@ class TcamDetails(Entity):
     	FED ASIC TCAM Utilization
     	**type**\: list of  		 :py:class:`TcamDetail <ydk.models.cisco_ios_xe.Cisco_IOS_XE_tcam_oper.TcamDetails.TcamDetail>`
     
+    	**config**\: False
+    
     
 
     """
@@ -63,10 +65,14 @@ class TcamDetails(Entity):
         
         	**range:** 0..8
         
+        	**config**\: False
+        
         .. attribute:: name  (key)
         
         	Protocol Name
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: hash_entries_max
         
@@ -75,12 +81,16 @@ class TcamDetails(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: tcam_entries_max
         
         	Maximum Tcam Entries
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: hash_entries_used
         
@@ -89,12 +99,16 @@ class TcamDetails(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: tcam_entries_used
         
         	Tcam Entries Used
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -133,7 +147,10 @@ class TcamDetails(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(TcamDetails.TcamDetail, ['asic_no', 'name', 'hash_entries_max', 'tcam_entries_max', 'hash_entries_used', 'tcam_entries_used'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = TcamDetails()
         return self._top_entity
+
+
 

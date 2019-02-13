@@ -22,10 +22,14 @@ class Led(Entity):
     	
     	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_led_mgr_ui.Led.Location>`
     
+    	**config**\: False
+    
     .. attribute:: trace
     
     	show traceable processes
     	**type**\: list of  		 :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_led_mgr_ui.Led.Trace>`
+    
+    	**config**\: False
     
     
 
@@ -64,10 +68,14 @@ class Led(Entity):
         	
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: led_attributes
         
         	
         	**type**\: list of  		 :py:class:`LedAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_led_mgr_ui.Led.Location.LedAttributes>`
+        
+        	**config**\: False
         
         
 
@@ -96,7 +104,7 @@ class Led(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Led.Location, ['location'], name, value)
+            self._perform_setattr(Led.Location, [u'location'], name, value)
 
 
         class LedAttributes(Entity):
@@ -108,15 +116,21 @@ class Led(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: led_mode
             
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: led_color
             
             	
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -146,7 +160,9 @@ class Led(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Led.Location.LedAttributes, ['led_name', 'led_mode', 'led_color'], name, value)
+                self._perform_setattr(Led.Location.LedAttributes, [u'led_name', u'led_mode', u'led_color'], name, value)
+
+
 
 
     class Trace(Entity):
@@ -158,10 +174,14 @@ class Led(Entity):
         	
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: location
         
         	
         	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_led_mgr_ui.Led.Trace.Location>`
+        
+        	**config**\: False
         
         
 
@@ -202,10 +222,14 @@ class Led(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: all_options
             
             	
             	**type**\: list of  		 :py:class:`AllOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_led_mgr_ui.Led.Trace.Location.AllOptions>`
+            
+            	**config**\: False
             
             
 
@@ -245,10 +269,14 @@ class Led(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: trace_blocks
                 
                 	
                 	**type**\: list of  		 :py:class:`TraceBlocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_led_mgr_ui.Led.Trace.Location.AllOptions.TraceBlocks>`
+                
+                	**config**\: False
                 
                 
 
@@ -288,6 +316,8 @@ class Led(Entity):
                     	Trace output block
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -314,7 +344,13 @@ class Led(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Led.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Led()
         return self._top_entity
+
+
 

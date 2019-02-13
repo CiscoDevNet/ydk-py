@@ -147,15 +147,21 @@ class MplsOam(Entity):
     	MPLS OAM interface operational data
     	**type**\:  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface>`
     
+    	**config**\: False
+    
     .. attribute:: packet
     
     	LSPV packet counters operational data
     	**type**\:  :py:class:`Packet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet>`
     
+    	**config**\: False
+    
     .. attribute:: global_
     
     	LSPV global counters operational data
     	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global>`
+    
+    	**config**\: False
     
     
 
@@ -203,10 +209,14 @@ class MplsOam(Entity):
         	MPLS OAM interface detail data
         	**type**\:  :py:class:`Briefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Briefs>`
         
+        	**config**\: False
+        
         .. attribute:: details
         
         	MPLS OAM interface detail data
         	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details>`
+        
+        	**config**\: False
         
         
 
@@ -250,6 +260,8 @@ class MplsOam(Entity):
             	MPLS OAM interface operational data
             	**type**\: list of  		 :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Briefs.Brief>`
             
+            	**config**\: False
+            
             
 
             """
@@ -288,6 +300,8 @@ class MplsOam(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: interface_name_xr
                 
                 	Interface name
@@ -295,10 +309,14 @@ class MplsOam(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	Interface state
                 	**type**\:  :py:class:`LspvBagInterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.LspvBagInterfaceState>`
+                
+                	**config**\: False
                 
                 .. attribute:: mtu
                 
@@ -307,12 +325,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: prefix_length
                 
                 	Prefix length (IPv4)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: prefix_length_v6
                 
@@ -321,6 +343,8 @@ class MplsOam(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: primary_address
                 
                 	Primary interface address (IPv4)
@@ -328,12 +352,16 @@ class MplsOam(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: primary_address_v6
                 
                 	Primary interface address (IPv6)
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 
 
@@ -374,7 +402,9 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Interface.Briefs.Brief, ['interface_name', u'interface_name_xr', u'state', u'mtu', u'prefix_length', u'prefix_length_v6', u'primary_address', u'primary_address_v6'], name, value)
+                    self._perform_setattr(MplsOam.Interface.Briefs.Brief, ['interface_name', 'interface_name_xr', 'state', 'mtu', 'prefix_length', 'prefix_length_v6', 'primary_address', 'primary_address_v6'], name, value)
+
+
 
 
         class Details(Entity):
@@ -385,6 +415,8 @@ class MplsOam(Entity):
             
             	MPLS OAM interface operational data
             	**type**\: list of  		 :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail>`
+            
+            	**config**\: False
             
             
 
@@ -424,15 +456,21 @@ class MplsOam(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: interface_brief
                 
                 	Interface brief
                 	**type**\:  :py:class:`InterfaceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.InterfaceBrief>`
                 
+                	**config**\: False
+                
                 .. attribute:: packet_statistics
                 
                 	Packet statistics
                 	**type**\:  :py:class:`PacketStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics>`
+                
+                	**config**\: False
                 
                 
 
@@ -481,10 +519,14 @@ class MplsOam(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Interface state
                     	**type**\:  :py:class:`LspvBagInterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.LspvBagInterfaceState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: mtu
                     
@@ -493,12 +535,16 @@ class MplsOam(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix_length
                     
                     	Prefix length (IPv4)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: prefix_length_v6
                     
@@ -507,6 +553,8 @@ class MplsOam(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: primary_address
                     
                     	Primary interface address (IPv4)
@@ -514,12 +562,16 @@ class MplsOam(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: primary_address_v6
                     
                     	Primary interface address (IPv6)
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -557,7 +609,8 @@ class MplsOam(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsOam.Interface.Details.Detail.InterfaceBrief, [u'interface_name_xr', u'state', u'mtu', u'prefix_length', u'prefix_length_v6', u'primary_address', u'primary_address_v6'], name, value)
+                        self._perform_setattr(MplsOam.Interface.Details.Detail.InterfaceBrief, ['interface_name_xr', 'state', 'mtu', 'prefix_length', 'prefix_length_v6', 'primary_address', 'primary_address_v6'], name, value)
+
 
 
                 class PacketStatistics(Entity):
@@ -569,30 +622,42 @@ class MplsOam(Entity):
                     	Packet reception counts
                     	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sent
                     
                     	Packet transmit counts
                     	**type**\:  :py:class:`Sent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Sent>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: working_req_sent
                     
                     	Working Request Packet transmit counts
                     	**type**\:  :py:class:`WorkingReqSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: working_rep_sent
                     
                     	Working Reply Packet transmit counts
                     	**type**\:  :py:class:`WorkingRepSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: protect_req_sent
                     
                     	Protect Request Packet transmit counts
                     	**type**\:  :py:class:`ProtectReqSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: protect_rep_sent
                     
                     	Protect Reply Packet transmit counts
                     	**type**\:  :py:class:`ProtectRepSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -651,70 +716,98 @@ class MplsOam(Entity):
                         	Received good request
                         	**type**\:  :py:class:`ReceivedGoodRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodRequest>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_good_reply
                         
                         	Received good reply
                         	**type**\:  :py:class:`ReceivedGoodReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodReply>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_unknown
                         
                         	Received unknown packets
                         	**type**\:  :py:class:`ReceivedUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedUnknown>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_error_ip_header
                         
                         	IP header error
                         	**type**\:  :py:class:`ReceivedErrorIpHeader <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorIpHeader>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_error_udp_header
                         
                         	UDP header error
                         	**type**\:  :py:class:`ReceivedErrorUdpHeader <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorUdpHeader>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_error_runt
                         
                         	RUNT error
                         	**type**\:  :py:class:`ReceivedErrorRunt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorRunt>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_error_queue_full
                         
                         	Dropped queue full
                         	**type**\:  :py:class:`ReceivedErrorQueueFull <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorQueueFull>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_error_general
                         
                         	General error
                         	**type**\:  :py:class:`ReceivedErrorGeneral <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorGeneral>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_error_no_interface
                         
                         	Error no Interfaces
                         	**type**\:  :py:class:`ReceivedErrorNoInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoInterface>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_error_no_memory
                         
                         	Error no memory
                         	**type**\:  :py:class:`ReceivedErrorNoMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoMemory>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: protect_protocol_received_good_request
                         
                         	Protect Protocol Received good request
                         	**type**\:  :py:class:`ProtectProtocolReceivedGoodRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodRequest>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: protect_protocol_received_good_reply
                         
                         	Protect Protocol Received good reply
                         	**type**\:  :py:class:`ProtectProtocolReceivedGoodReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodReply>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_good_bfd_request
                         
                         	Received Reqeust with BFD TLV
                         	**type**\:  :py:class:`ReceivedGoodBfdRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdRequest>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_good_bfd_reply
                         
                         	Received Reply with BFD TLV
                         	**type**\:  :py:class:`ReceivedGoodBfdReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdReply>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -807,12 +900,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -842,7 +939,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodRequest, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodRequest, ['packets', 'bytes'], name, value)
+
 
 
                         class ReceivedGoodReply(Entity):
@@ -856,12 +954,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -891,7 +993,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodReply, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodReply, ['packets', 'bytes'], name, value)
+
 
 
                         class ReceivedUnknown(Entity):
@@ -905,12 +1008,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -940,7 +1047,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedUnknown, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedUnknown, ['packets', 'bytes'], name, value)
+
 
 
                         class ReceivedErrorIpHeader(Entity):
@@ -954,12 +1062,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -989,7 +1101,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorIpHeader, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorIpHeader, ['packets', 'bytes'], name, value)
+
 
 
                         class ReceivedErrorUdpHeader(Entity):
@@ -1003,12 +1116,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -1038,7 +1155,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorUdpHeader, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorUdpHeader, ['packets', 'bytes'], name, value)
+
 
 
                         class ReceivedErrorRunt(Entity):
@@ -1052,12 +1170,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -1087,7 +1209,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorRunt, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorRunt, ['packets', 'bytes'], name, value)
+
 
 
                         class ReceivedErrorQueueFull(Entity):
@@ -1101,12 +1224,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -1136,7 +1263,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorQueueFull, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorQueueFull, ['packets', 'bytes'], name, value)
+
 
 
                         class ReceivedErrorGeneral(Entity):
@@ -1150,12 +1278,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -1185,7 +1317,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorGeneral, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorGeneral, ['packets', 'bytes'], name, value)
+
 
 
                         class ReceivedErrorNoInterface(Entity):
@@ -1199,12 +1332,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -1234,7 +1371,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoInterface, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoInterface, ['packets', 'bytes'], name, value)
+
 
 
                         class ReceivedErrorNoMemory(Entity):
@@ -1248,12 +1386,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -1283,7 +1425,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoMemory, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoMemory, ['packets', 'bytes'], name, value)
+
 
 
                         class ProtectProtocolReceivedGoodRequest(Entity):
@@ -1297,12 +1440,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -1332,7 +1479,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodRequest, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodRequest, ['packets', 'bytes'], name, value)
+
 
 
                         class ProtectProtocolReceivedGoodReply(Entity):
@@ -1346,12 +1494,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -1381,7 +1533,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodReply, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodReply, ['packets', 'bytes'], name, value)
+
 
 
                         class ReceivedGoodBfdRequest(Entity):
@@ -1395,12 +1548,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -1430,7 +1587,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdRequest, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdRequest, ['packets', 'bytes'], name, value)
+
 
 
                         class ReceivedGoodBfdReply(Entity):
@@ -1444,12 +1602,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -1479,7 +1641,9 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdReply, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdReply, ['packets', 'bytes'], name, value)
+
+
 
 
                     class Sent(Entity):
@@ -1491,20 +1655,28 @@ class MplsOam(Entity):
                         	Transmit good packets
                         	**type**\:  :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitGood>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: transmit_drop
                         
                         	Transmit drop packets
                         	**type**\:  :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitDrop>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: transmit_bfd_good
                         
                         	Transmit good BFD request packets
                         	**type**\:  :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitBfdGood>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: bfd_no_reply
                         
                         	No Reply action for echo reqeust of BFD bootstrap
                         	**type**\:  :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.Sent.BfdNoReply>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1557,12 +1729,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -1592,7 +1768,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitGood, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitGood, ['packets', 'bytes'], name, value)
+
 
 
                         class TransmitDrop(Entity):
@@ -1606,12 +1783,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -1641,7 +1822,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitDrop, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitDrop, ['packets', 'bytes'], name, value)
+
 
 
                         class TransmitBfdGood(Entity):
@@ -1655,12 +1837,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -1690,7 +1876,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitBfdGood, ['packets', 'bytes'], name, value)
+
 
 
                         class BfdNoReply(Entity):
@@ -1705,12 +1892,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -1740,7 +1931,9 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.BfdNoReply, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.BfdNoReply, ['packets', 'bytes'], name, value)
+
+
 
 
                     class WorkingReqSent(Entity):
@@ -1752,20 +1945,28 @@ class MplsOam(Entity):
                         	Transmit good packets
                         	**type**\:  :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitGood>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: transmit_drop
                         
                         	Transmit drop packets
                         	**type**\:  :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitDrop>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: transmit_bfd_good
                         
                         	Transmit good BFD request packets
                         	**type**\:  :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitBfdGood>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: bfd_no_reply
                         
                         	No Reply action for echo reqeust of BFD bootstrap
                         	**type**\:  :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.BfdNoReply>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1818,12 +2019,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -1853,7 +2058,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitGood, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitGood, ['packets', 'bytes'], name, value)
+
 
 
                         class TransmitDrop(Entity):
@@ -1867,12 +2073,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -1902,7 +2112,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitDrop, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitDrop, ['packets', 'bytes'], name, value)
+
 
 
                         class TransmitBfdGood(Entity):
@@ -1916,12 +2127,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -1951,7 +2166,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
+
 
 
                         class BfdNoReply(Entity):
@@ -1966,12 +2182,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2001,7 +2221,9 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.BfdNoReply, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.BfdNoReply, ['packets', 'bytes'], name, value)
+
+
 
 
                     class WorkingRepSent(Entity):
@@ -2013,20 +2235,28 @@ class MplsOam(Entity):
                         	Transmit good packets
                         	**type**\:  :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitGood>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: transmit_drop
                         
                         	Transmit drop packets
                         	**type**\:  :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitDrop>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: transmit_bfd_good
                         
                         	Transmit good BFD request packets
                         	**type**\:  :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitBfdGood>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: bfd_no_reply
                         
                         	No Reply action for echo reqeust of BFD bootstrap
                         	**type**\:  :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.BfdNoReply>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2079,12 +2309,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2114,7 +2348,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitGood, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitGood, ['packets', 'bytes'], name, value)
+
 
 
                         class TransmitDrop(Entity):
@@ -2128,12 +2363,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2163,7 +2402,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitDrop, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitDrop, ['packets', 'bytes'], name, value)
+
 
 
                         class TransmitBfdGood(Entity):
@@ -2177,12 +2417,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2212,7 +2456,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
+
 
 
                         class BfdNoReply(Entity):
@@ -2227,12 +2472,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2262,7 +2511,9 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.BfdNoReply, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.BfdNoReply, ['packets', 'bytes'], name, value)
+
+
 
 
                     class ProtectReqSent(Entity):
@@ -2274,20 +2525,28 @@ class MplsOam(Entity):
                         	Transmit good packets
                         	**type**\:  :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitGood>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: transmit_drop
                         
                         	Transmit drop packets
                         	**type**\:  :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitDrop>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: transmit_bfd_good
                         
                         	Transmit good BFD request packets
                         	**type**\:  :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitBfdGood>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: bfd_no_reply
                         
                         	No Reply action for echo reqeust of BFD bootstrap
                         	**type**\:  :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.BfdNoReply>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2340,12 +2599,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2375,7 +2638,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitGood, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitGood, ['packets', 'bytes'], name, value)
+
 
 
                         class TransmitDrop(Entity):
@@ -2389,12 +2653,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2424,7 +2692,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitDrop, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitDrop, ['packets', 'bytes'], name, value)
+
 
 
                         class TransmitBfdGood(Entity):
@@ -2438,12 +2707,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2473,7 +2746,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
+
 
 
                         class BfdNoReply(Entity):
@@ -2488,12 +2762,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2523,7 +2801,9 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.BfdNoReply, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.BfdNoReply, ['packets', 'bytes'], name, value)
+
+
 
 
                     class ProtectRepSent(Entity):
@@ -2535,20 +2815,28 @@ class MplsOam(Entity):
                         	Transmit good packets
                         	**type**\:  :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitGood>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: transmit_drop
                         
                         	Transmit drop packets
                         	**type**\:  :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitDrop>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: transmit_bfd_good
                         
                         	Transmit good BFD request packets
                         	**type**\:  :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitBfdGood>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: bfd_no_reply
                         
                         	No Reply action for echo reqeust of BFD bootstrap
                         	**type**\:  :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.BfdNoReply>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2601,12 +2889,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2636,7 +2928,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitGood, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitGood, ['packets', 'bytes'], name, value)
+
 
 
                         class TransmitDrop(Entity):
@@ -2650,12 +2943,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2685,7 +2982,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitDrop, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitDrop, ['packets', 'bytes'], name, value)
+
 
 
                         class TransmitBfdGood(Entity):
@@ -2699,12 +2997,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2734,7 +3036,8 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
+
 
 
                         class BfdNoReply(Entity):
@@ -2749,12 +3052,16 @@ class MplsOam(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: bytes
                             
                             	Byte counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2784,7 +3091,13 @@ class MplsOam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.BfdNoReply, [u'packets', u'bytes'], name, value)
+                                self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.BfdNoReply, ['packets', 'bytes'], name, value)
+
+
+
+
+
+
 
 
     class Packet(Entity):
@@ -2796,30 +3109,42 @@ class MplsOam(Entity):
         	Packet reception counts
         	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received>`
         
+        	**config**\: False
+        
         .. attribute:: sent
         
         	Packet transmit counts
         	**type**\:  :py:class:`Sent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Sent>`
+        
+        	**config**\: False
         
         .. attribute:: working_req_sent
         
         	Working Request Packet transmit counts
         	**type**\:  :py:class:`WorkingReqSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingReqSent>`
         
+        	**config**\: False
+        
         .. attribute:: working_rep_sent
         
         	Working Reply Packet transmit counts
         	**type**\:  :py:class:`WorkingRepSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingRepSent>`
+        
+        	**config**\: False
         
         .. attribute:: protect_req_sent
         
         	Protect Request Packet transmit counts
         	**type**\:  :py:class:`ProtectReqSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectReqSent>`
         
+        	**config**\: False
+        
         .. attribute:: protect_rep_sent
         
         	Protect Reply Packet transmit counts
         	**type**\:  :py:class:`ProtectRepSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectRepSent>`
+        
+        	**config**\: False
         
         
 
@@ -2879,70 +3204,98 @@ class MplsOam(Entity):
             	Received good request
             	**type**\:  :py:class:`ReceivedGoodRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedGoodRequest>`
             
+            	**config**\: False
+            
             .. attribute:: received_good_reply
             
             	Received good reply
             	**type**\:  :py:class:`ReceivedGoodReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedGoodReply>`
+            
+            	**config**\: False
             
             .. attribute:: received_unknown
             
             	Received unknown packets
             	**type**\:  :py:class:`ReceivedUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedUnknown>`
             
+            	**config**\: False
+            
             .. attribute:: received_error_ip_header
             
             	IP header error
             	**type**\:  :py:class:`ReceivedErrorIpHeader <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorIpHeader>`
+            
+            	**config**\: False
             
             .. attribute:: received_error_udp_header
             
             	UDP header error
             	**type**\:  :py:class:`ReceivedErrorUdpHeader <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorUdpHeader>`
             
+            	**config**\: False
+            
             .. attribute:: received_error_runt
             
             	RUNT error
             	**type**\:  :py:class:`ReceivedErrorRunt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorRunt>`
+            
+            	**config**\: False
             
             .. attribute:: received_error_queue_full
             
             	Dropped queue full
             	**type**\:  :py:class:`ReceivedErrorQueueFull <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorQueueFull>`
             
+            	**config**\: False
+            
             .. attribute:: received_error_general
             
             	General error
             	**type**\:  :py:class:`ReceivedErrorGeneral <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorGeneral>`
+            
+            	**config**\: False
             
             .. attribute:: received_error_no_interface
             
             	Error no Interfaces
             	**type**\:  :py:class:`ReceivedErrorNoInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorNoInterface>`
             
+            	**config**\: False
+            
             .. attribute:: received_error_no_memory
             
             	Error no memory
             	**type**\:  :py:class:`ReceivedErrorNoMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedErrorNoMemory>`
+            
+            	**config**\: False
             
             .. attribute:: protect_protocol_received_good_request
             
             	Protect Protocol Received good request
             	**type**\:  :py:class:`ProtectProtocolReceivedGoodRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ProtectProtocolReceivedGoodRequest>`
             
+            	**config**\: False
+            
             .. attribute:: protect_protocol_received_good_reply
             
             	Protect Protocol Received good reply
             	**type**\:  :py:class:`ProtectProtocolReceivedGoodReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ProtectProtocolReceivedGoodReply>`
+            
+            	**config**\: False
             
             .. attribute:: received_good_bfd_request
             
             	Received Reqeust with BFD TLV
             	**type**\:  :py:class:`ReceivedGoodBfdRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedGoodBfdRequest>`
             
+            	**config**\: False
+            
             .. attribute:: received_good_bfd_reply
             
             	Received Reply with BFD TLV
             	**type**\:  :py:class:`ReceivedGoodBfdReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Received.ReceivedGoodBfdReply>`
+            
+            	**config**\: False
             
             
 
@@ -3036,12 +3389,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -3072,7 +3429,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodRequest, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodRequest, ['packets', 'bytes'], name, value)
+
 
 
             class ReceivedGoodReply(Entity):
@@ -3086,12 +3444,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -3122,7 +3484,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodReply, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodReply, ['packets', 'bytes'], name, value)
+
 
 
             class ReceivedUnknown(Entity):
@@ -3136,12 +3499,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -3172,7 +3539,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedUnknown, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedUnknown, ['packets', 'bytes'], name, value)
+
 
 
             class ReceivedErrorIpHeader(Entity):
@@ -3186,12 +3554,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -3222,7 +3594,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorIpHeader, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorIpHeader, ['packets', 'bytes'], name, value)
+
 
 
             class ReceivedErrorUdpHeader(Entity):
@@ -3236,12 +3609,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -3272,7 +3649,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorUdpHeader, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorUdpHeader, ['packets', 'bytes'], name, value)
+
 
 
             class ReceivedErrorRunt(Entity):
@@ -3286,12 +3664,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -3322,7 +3704,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorRunt, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorRunt, ['packets', 'bytes'], name, value)
+
 
 
             class ReceivedErrorQueueFull(Entity):
@@ -3336,12 +3719,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -3372,7 +3759,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorQueueFull, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorQueueFull, ['packets', 'bytes'], name, value)
+
 
 
             class ReceivedErrorGeneral(Entity):
@@ -3386,12 +3774,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -3422,7 +3814,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorGeneral, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorGeneral, ['packets', 'bytes'], name, value)
+
 
 
             class ReceivedErrorNoInterface(Entity):
@@ -3436,12 +3829,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -3472,7 +3869,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorNoInterface, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorNoInterface, ['packets', 'bytes'], name, value)
+
 
 
             class ReceivedErrorNoMemory(Entity):
@@ -3486,12 +3884,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -3522,7 +3924,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorNoMemory, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorNoMemory, ['packets', 'bytes'], name, value)
+
 
 
             class ProtectProtocolReceivedGoodRequest(Entity):
@@ -3536,12 +3939,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -3572,7 +3979,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ProtectProtocolReceivedGoodRequest, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ProtectProtocolReceivedGoodRequest, ['packets', 'bytes'], name, value)
+
 
 
             class ProtectProtocolReceivedGoodReply(Entity):
@@ -3586,12 +3994,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -3622,7 +4034,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ProtectProtocolReceivedGoodReply, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ProtectProtocolReceivedGoodReply, ['packets', 'bytes'], name, value)
+
 
 
             class ReceivedGoodBfdRequest(Entity):
@@ -3636,12 +4049,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -3672,7 +4089,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodBfdRequest, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodBfdRequest, ['packets', 'bytes'], name, value)
+
 
 
             class ReceivedGoodBfdReply(Entity):
@@ -3686,12 +4104,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -3722,7 +4144,9 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodBfdReply, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodBfdReply, ['packets', 'bytes'], name, value)
+
+
 
 
         class Sent(Entity):
@@ -3734,20 +4158,28 @@ class MplsOam(Entity):
             	Transmit good packets
             	**type**\:  :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Sent.TransmitGood>`
             
+            	**config**\: False
+            
             .. attribute:: transmit_drop
             
             	Transmit drop packets
             	**type**\:  :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Sent.TransmitDrop>`
+            
+            	**config**\: False
             
             .. attribute:: transmit_bfd_good
             
             	Transmit good BFD request packets
             	**type**\:  :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Sent.TransmitBfdGood>`
             
+            	**config**\: False
+            
             .. attribute:: bfd_no_reply
             
             	No Reply action for echo reqeust of BFD bootstrap
             	**type**\:  :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.Sent.BfdNoReply>`
+            
+            	**config**\: False
             
             
 
@@ -3801,12 +4233,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -3837,7 +4273,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Sent.TransmitGood, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Sent.TransmitGood, ['packets', 'bytes'], name, value)
+
 
 
             class TransmitDrop(Entity):
@@ -3851,12 +4288,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -3887,7 +4328,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Sent.TransmitDrop, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Sent.TransmitDrop, ['packets', 'bytes'], name, value)
+
 
 
             class TransmitBfdGood(Entity):
@@ -3901,12 +4343,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -3937,7 +4383,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Sent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Sent.TransmitBfdGood, ['packets', 'bytes'], name, value)
+
 
 
             class BfdNoReply(Entity):
@@ -3952,12 +4399,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -3988,7 +4439,9 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.Sent.BfdNoReply, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.Sent.BfdNoReply, ['packets', 'bytes'], name, value)
+
+
 
 
         class WorkingReqSent(Entity):
@@ -4000,20 +4453,28 @@ class MplsOam(Entity):
             	Transmit good packets
             	**type**\:  :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingReqSent.TransmitGood>`
             
+            	**config**\: False
+            
             .. attribute:: transmit_drop
             
             	Transmit drop packets
             	**type**\:  :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingReqSent.TransmitDrop>`
+            
+            	**config**\: False
             
             .. attribute:: transmit_bfd_good
             
             	Transmit good BFD request packets
             	**type**\:  :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingReqSent.TransmitBfdGood>`
             
+            	**config**\: False
+            
             .. attribute:: bfd_no_reply
             
             	No Reply action for echo reqeust of BFD bootstrap
             	**type**\:  :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingReqSent.BfdNoReply>`
+            
+            	**config**\: False
             
             
 
@@ -4067,12 +4528,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -4103,7 +4568,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitGood, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitGood, ['packets', 'bytes'], name, value)
+
 
 
             class TransmitDrop(Entity):
@@ -4117,12 +4583,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -4153,7 +4623,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitDrop, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitDrop, ['packets', 'bytes'], name, value)
+
 
 
             class TransmitBfdGood(Entity):
@@ -4167,12 +4638,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -4203,7 +4678,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
+
 
 
             class BfdNoReply(Entity):
@@ -4218,12 +4694,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -4254,7 +4734,9 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.BfdNoReply, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingReqSent.BfdNoReply, ['packets', 'bytes'], name, value)
+
+
 
 
         class WorkingRepSent(Entity):
@@ -4266,20 +4748,28 @@ class MplsOam(Entity):
             	Transmit good packets
             	**type**\:  :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingRepSent.TransmitGood>`
             
+            	**config**\: False
+            
             .. attribute:: transmit_drop
             
             	Transmit drop packets
             	**type**\:  :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingRepSent.TransmitDrop>`
+            
+            	**config**\: False
             
             .. attribute:: transmit_bfd_good
             
             	Transmit good BFD request packets
             	**type**\:  :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingRepSent.TransmitBfdGood>`
             
+            	**config**\: False
+            
             .. attribute:: bfd_no_reply
             
             	No Reply action for echo reqeust of BFD bootstrap
             	**type**\:  :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.WorkingRepSent.BfdNoReply>`
+            
+            	**config**\: False
             
             
 
@@ -4333,12 +4823,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -4369,7 +4863,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitGood, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitGood, ['packets', 'bytes'], name, value)
+
 
 
             class TransmitDrop(Entity):
@@ -4383,12 +4878,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -4419,7 +4918,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitDrop, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitDrop, ['packets', 'bytes'], name, value)
+
 
 
             class TransmitBfdGood(Entity):
@@ -4433,12 +4933,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -4469,7 +4973,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
+
 
 
             class BfdNoReply(Entity):
@@ -4484,12 +4989,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -4520,7 +5029,9 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.BfdNoReply, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.WorkingRepSent.BfdNoReply, ['packets', 'bytes'], name, value)
+
+
 
 
         class ProtectReqSent(Entity):
@@ -4532,20 +5043,28 @@ class MplsOam(Entity):
             	Transmit good packets
             	**type**\:  :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectReqSent.TransmitGood>`
             
+            	**config**\: False
+            
             .. attribute:: transmit_drop
             
             	Transmit drop packets
             	**type**\:  :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectReqSent.TransmitDrop>`
+            
+            	**config**\: False
             
             .. attribute:: transmit_bfd_good
             
             	Transmit good BFD request packets
             	**type**\:  :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectReqSent.TransmitBfdGood>`
             
+            	**config**\: False
+            
             .. attribute:: bfd_no_reply
             
             	No Reply action for echo reqeust of BFD bootstrap
             	**type**\:  :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectReqSent.BfdNoReply>`
+            
+            	**config**\: False
             
             
 
@@ -4599,12 +5118,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -4635,7 +5158,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitGood, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitGood, ['packets', 'bytes'], name, value)
+
 
 
             class TransmitDrop(Entity):
@@ -4649,12 +5173,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -4685,7 +5213,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitDrop, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitDrop, ['packets', 'bytes'], name, value)
+
 
 
             class TransmitBfdGood(Entity):
@@ -4699,12 +5228,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -4735,7 +5268,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
+
 
 
             class BfdNoReply(Entity):
@@ -4750,12 +5284,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -4786,7 +5324,9 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.BfdNoReply, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectReqSent.BfdNoReply, ['packets', 'bytes'], name, value)
+
+
 
 
         class ProtectRepSent(Entity):
@@ -4798,20 +5338,28 @@ class MplsOam(Entity):
             	Transmit good packets
             	**type**\:  :py:class:`TransmitGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectRepSent.TransmitGood>`
             
+            	**config**\: False
+            
             .. attribute:: transmit_drop
             
             	Transmit drop packets
             	**type**\:  :py:class:`TransmitDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectRepSent.TransmitDrop>`
+            
+            	**config**\: False
             
             .. attribute:: transmit_bfd_good
             
             	Transmit good BFD request packets
             	**type**\:  :py:class:`TransmitBfdGood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectRepSent.TransmitBfdGood>`
             
+            	**config**\: False
+            
             .. attribute:: bfd_no_reply
             
             	No Reply action for echo reqeust of BFD bootstrap
             	**type**\:  :py:class:`BfdNoReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Packet.ProtectRepSent.BfdNoReply>`
+            
+            	**config**\: False
             
             
 
@@ -4865,12 +5413,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -4901,7 +5453,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitGood, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitGood, ['packets', 'bytes'], name, value)
+
 
 
             class TransmitDrop(Entity):
@@ -4915,12 +5468,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -4951,7 +5508,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitDrop, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitDrop, ['packets', 'bytes'], name, value)
+
 
 
             class TransmitBfdGood(Entity):
@@ -4965,12 +5523,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -5001,7 +5563,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitBfdGood, ['packets', 'bytes'], name, value)
+
 
 
             class BfdNoReply(Entity):
@@ -5016,12 +5579,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Byte counter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -5052,7 +5619,10 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.BfdNoReply, [u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MplsOam.Packet.ProtectRepSent.BfdNoReply, ['packets', 'bytes'], name, value)
+
+
+
 
 
     class Global(Entity):
@@ -5064,10 +5634,14 @@ class MplsOam(Entity):
         	Message statistics
         	**type**\:  :py:class:`MessageStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global.MessageStatistics>`
         
+        	**config**\: False
+        
         .. attribute:: collaborator_statistics
         
         	Collaborator statistics
         	**type**\:  :py:class:`CollaboratorStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global.CollaboratorStatistics>`
+        
+        	**config**\: False
         
         .. attribute:: total_clients
         
@@ -5075,6 +5649,8 @@ class MplsOam(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -5109,7 +5685,7 @@ class MplsOam(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MplsOam.Global, [u'total_clients'], name, value)
+            self._perform_setattr(MplsOam.Global, ['total_clients'], name, value)
 
 
         class MessageStatistics(Entity):
@@ -5123,12 +5699,16 @@ class MplsOam(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: unregister_messages
             
             	Message unregister count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: echo_submit_messages
             
@@ -5137,12 +5717,16 @@ class MplsOam(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: echo_cancel_messages
             
             	Message echo cancel count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: get_result_messages
             
@@ -5151,12 +5735,16 @@ class MplsOam(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: get_config_messages
             
             	Message get configiuration count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: get_response_messages
             
@@ -5165,12 +5753,16 @@ class MplsOam(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: property_response_messages
             
             	Message property response count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: property_request_messages
             
@@ -5179,6 +5771,8 @@ class MplsOam(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: property_block_messages
             
             	Message property block count
@@ -5186,12 +5780,16 @@ class MplsOam(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: thread_request_messages
             
             	Message thread request count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -5238,7 +5836,8 @@ class MplsOam(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MplsOam.Global.MessageStatistics, [u'register_messages', u'unregister_messages', u'echo_submit_messages', u'echo_cancel_messages', u'get_result_messages', u'get_config_messages', u'get_response_messages', u'property_response_messages', u'property_request_messages', u'property_block_messages', u'thread_request_messages'], name, value)
+                self._perform_setattr(MplsOam.Global.MessageStatistics, ['register_messages', 'unregister_messages', 'echo_submit_messages', 'echo_cancel_messages', 'get_result_messages', 'get_config_messages', 'get_response_messages', 'property_response_messages', 'property_request_messages', 'property_block_messages', 'thread_request_messages'], name, value)
+
 
 
         class CollaboratorStatistics(Entity):
@@ -5250,20 +5849,28 @@ class MplsOam(Entity):
             	Collaborator IPARM counts
             	**type**\:  :py:class:`CollaboratorIParm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global.CollaboratorStatistics.CollaboratorIParm>`
             
+            	**config**\: False
+            
             .. attribute:: collaborator_im
             
             	Collaborator IM counts
             	**type**\:  :py:class:`CollaboratorIm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global.CollaboratorStatistics.CollaboratorIm>`
+            
+            	**config**\: False
             
             .. attribute:: collaborator_net_io
             
             	Collaborator NetIO counts
             	**type**\:  :py:class:`CollaboratorNetIo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global.CollaboratorStatistics.CollaboratorNetIo>`
             
+            	**config**\: False
+            
             .. attribute:: collaborator_rib
             
             	Collaborator RIB counts
             	**type**\:  :py:class:`CollaboratorRib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper.MplsOam.Global.CollaboratorStatistics.CollaboratorRib>`
+            
+            	**config**\: False
             
             
 
@@ -5317,12 +5924,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: downs
                 
                 	Collaborator down counter
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -5351,7 +5962,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorIParm, [u'ups', u'downs'], name, value)
+                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorIParm, ['ups', 'downs'], name, value)
+
 
 
             class CollaboratorIm(Entity):
@@ -5365,12 +5977,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: downs
                 
                 	Collaborator down counter
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -5399,7 +6015,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorIm, [u'ups', u'downs'], name, value)
+                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorIm, ['ups', 'downs'], name, value)
+
 
 
             class CollaboratorNetIo(Entity):
@@ -5413,12 +6030,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: downs
                 
                 	Collaborator down counter
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -5447,7 +6068,8 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorNetIo, [u'ups', u'downs'], name, value)
+                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorNetIo, ['ups', 'downs'], name, value)
+
 
 
             class CollaboratorRib(Entity):
@@ -5461,12 +6083,16 @@ class MplsOam(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: downs
                 
                 	Collaborator down counter
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -5495,9 +6121,14 @@ class MplsOam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorRib, [u'ups', u'downs'], name, value)
+                    self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorRib, ['ups', 'downs'], name, value)
+
+
+
 
     def clone_ptr(self):
         self._top_entity = MplsOam()
         return self._top_entity
+
+
 

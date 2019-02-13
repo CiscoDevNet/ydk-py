@@ -77,25 +77,35 @@ class OSPFMIB(Entity):
     	
     	**type**\:  :py:class:`OspfGeneralGroup <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfGeneralGroup>`
     
+    	**config**\: False
+    
     .. attribute:: ospfareatable
     
     	Information describing the configured parameters and cumulative statistics of the router's attached areas. The interfaces and virtual links are configured as part of these areas.  Area 0.0.0.0, by definition, is the backbone area
     	**type**\:  :py:class:`OspfAreaTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaTable>`
+    
+    	**config**\: False
     
     .. attribute:: ospfstubareatable
     
     	The set of metrics that will be advertised by a default Area Border Router into a stub area
     	**type**\:  :py:class:`OspfStubAreaTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfStubAreaTable>`
     
+    	**config**\: False
+    
     .. attribute:: ospflsdbtable
     
     	The OSPF Process's link state database (LSDB). The LSDB contains the link state advertisements from throughout the areas that the device is attached to
     	**type**\:  :py:class:`OspfLsdbTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfLsdbTable>`
     
+    	**config**\: False
+    
     .. attribute:: ospfarearangetable
     
     	The Address Range Table acts as an adjunct to the Area Table.  It describes those Address Range Summaries that are configured to be propagated from an Area to reduce the amount of information about it that is known beyond its borders.  It contains a set of IP address ranges specified by an IP address/IP network mask pair. For example, class B address range of X.X.X.X with a network mask of 255.255.0.0 includes all IP addresses from X.X.0.0 to X.X.255.255.  Note that this table is obsoleted and is replaced by the Area Aggregate Table
     	**type**\:  :py:class:`OspfAreaRangeTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaRangeTable>`
+    
+    	**config**\: False
     
     	**status**\: obsolete
     
@@ -104,35 +114,49 @@ class OSPFMIB(Entity):
     	The Host/Metric Table indicates what hosts are directly  attached to the router, what metrics and types of service should be advertised for them, and what areas they are found within
     	**type**\:  :py:class:`OspfHostTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfHostTable>`
     
+    	**config**\: False
+    
     .. attribute:: ospfiftable
     
     	The OSPF Interface Table describes the interfaces from the viewpoint of OSPF. It augments the ipAddrTable with OSPF specific information
     	**type**\:  :py:class:`OspfIfTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfIfTable>`
+    
+    	**config**\: False
     
     .. attribute:: ospfifmetrictable
     
     	The Metric Table describes the metrics to be advertised for a specified interface at the various types of service. As such, this table is an adjunct of the OSPF Interface Table.  Types of service, as defined by RFC 791, have the ability to request low delay, high bandwidth, or reliable linkage.  For the purposes of this specification, the measure of bandwidth\:  Metric = referenceBandwidth / ifSpeed  is the default value. The default reference bandwidth is 10^8. For multiple link interfaces, note that ifSpeed is the sum of the individual link speeds.  This yields a number having the following typical values\:  Network Type/bit rate   Metric  >= 100 MBPS                 1 Ethernet/802.3             10 E1                         48 T1 (ESF)                   65 64 KBPS                    1562 56 KBPS                    1785 19.2 KBPS                  5208 9.6 KBPS                   10416  Routes that are not specified use the default (TOS 0) metric.  Note that the default reference bandwidth can be configured using the general group object ospfReferenceBandwidth
     	**type**\:  :py:class:`OspfIfMetricTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfIfMetricTable>`
     
+    	**config**\: False
+    
     .. attribute:: ospfvirtiftable
     
     	Information about this router's virtual interfaces that the OSPF Process is configured to carry on
     	**type**\:  :py:class:`OspfVirtIfTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtIfTable>`
+    
+    	**config**\: False
     
     .. attribute:: ospfnbrtable
     
     	A table describing all non\-virtual neighbors in the locality of the OSPF router
     	**type**\:  :py:class:`OspfNbrTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfNbrTable>`
     
+    	**config**\: False
+    
     .. attribute:: ospfvirtnbrtable
     
     	This table describes all virtual neighbors. Since virtual links are configured in the Virtual Interface Table, this table is read\-only
     	**type**\:  :py:class:`OspfVirtNbrTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtNbrTable>`
     
+    	**config**\: False
+    
     .. attribute:: ospfextlsdbtable
     
     	The OSPF Process's external LSA link state database.  This table is identical to the OSPF LSDB Table in format, but contains only external link state advertisements.  The purpose is to allow external  LSAs to be displayed once for the router rather than once in each non\-stub area.  Note that external LSAs are also in the AS\-scope link state database
     	**type**\:  :py:class:`OspfExtLsdbTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfExtLsdbTable>`
+    
+    	**config**\: False
     
     	**status**\: deprecated
     
@@ -141,25 +165,35 @@ class OSPFMIB(Entity):
     	The Area Aggregate Table acts as an adjunct to the Area Table.  It describes those address aggregates that are configured to be propagated from an area. Its purpose is to reduce the amount of information that is known beyond an Area's borders.  It contains a set of IP address ranges specified by an IP address/IP network mask pair. For example, a class B address range of X.X.X.X with a network mask of 255.255.0.0 includes all IP addresses from X.X.0.0 to X.X.255.255.  Note that if ranges are configured such that one range subsumes another range (e.g., 10.0.0.0 mask 255.0.0.0 and 10.1.0.0 mask 255.255.0.0), the most specific match is the preferred one
     	**type**\:  :py:class:`OspfAreaAggregateTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaAggregateTable>`
     
+    	**config**\: False
+    
     .. attribute:: ospflocallsdbtable
     
     	The OSPF Process's link\-local link state database for non\-virtual links. This table is identical to the OSPF LSDB Table in format, but contains only link\-local Link State Advertisements for non\-virtual links.  The purpose is to allow link\-local LSAs to be displayed for each non\-virtual interface.  This table is implemented to support type\-9 LSAs that are defined in 'The OSPF Opaque LSA Option'
     	**type**\:  :py:class:`OspfLocalLsdbTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfLocalLsdbTable>`
+    
+    	**config**\: False
     
     .. attribute:: ospfvirtlocallsdbtable
     
     	The OSPF Process's link\-local link state database for virtual links.  This table is identical to the OSPF LSDB Table in format, but contains only link\-local Link State Advertisements for virtual links.  The purpose is to allow link\-local LSAs to be displayed for each virtual interface.  This table is implemented to support type\-9 LSAs that are defined in 'The OSPF Opaque LSA Option'
     	**type**\:  :py:class:`OspfVirtLocalLsdbTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtLocalLsdbTable>`
     
+    	**config**\: False
+    
     .. attribute:: ospfaslsdbtable
     
     	The OSPF Process's AS\-scope LSA link state database. The database contains the AS\-scope Link State Advertisements from throughout the areas that the device is attached to.  This table is identical to the OSPF LSDB Table in format, but contains only AS\-scope Link State Advertisements.  The purpose is to allow AS\-scope LSAs to be displayed once for the router rather than once in each non\-stub area
     	**type**\:  :py:class:`OspfAsLsdbTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAsLsdbTable>`
     
+    	**config**\: False
+    
     .. attribute:: ospfarealsacounttable
     
     	This table maintains per\-area, per\-LSA\-type counters
     	**type**\:  :py:class:`OspfAreaLsaCountTable <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaLsaCountTable>`
+    
+    	**config**\: False
     
     
 
@@ -265,25 +299,35 @@ class OSPFMIB(Entity):
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: ospfadminstat
         
         	The administrative status of OSPF in the router.  The value 'enabled' denotes that the OSPF Process is active on at least one interface; 'disabled' disables it on all interfaces.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
         	**type**\:  :py:class:`Status <ydk.models.cisco_ios_xe.OSPF_MIB.Status>`
+        
+        	**config**\: False
         
         .. attribute:: ospfversionnumber
         
         	The current version number of the OSPF protocol is 2
         	**type**\:  :py:class:`OspfVersionNumber <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfGeneralGroup.OspfVersionNumber>`
         
+        	**config**\: False
+        
         .. attribute:: ospfareabdrrtrstatus
         
         	A flag to note whether this router is an Area Border Router
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: ospfasbdrrtrstatus
         
         	A flag to note whether this router is configured as an Autonomous System Border Router.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: ospfexternlsacount
         
@@ -292,6 +336,8 @@ class OSPFMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ospfexternlsacksumsum
         
         	The 32\-bit sum of the LS checksums of the external link state advertisements contained in the link state database.  This sum can be used to determine if there has been a change in a router's link state database and to compare the link state database of two routers.  The value should be treated as unsigned when comparing two sums of checksums
@@ -299,10 +345,14 @@ class OSPFMIB(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         .. attribute:: ospftossupport
         
         	The router's support for type\-of\-service routing.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: ospforiginatenewlsas
         
@@ -311,12 +361,16 @@ class OSPFMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ospfrxnewlsas
         
         	The number of link state advertisements received that are determined to be new instantiations. This number does not include newer instantiations of self\-originated link state advertisements.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ospfDiscontinuityTime
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ospfextlsdblimit
         
@@ -325,12 +379,16 @@ class OSPFMIB(Entity):
         
         	**range:** \-1..2147483647
         
+        	**config**\: False
+        
         .. attribute:: ospfmulticastextensions
         
         	A bit mask indicating whether the router is forwarding IP multicast (Class D) datagrams based on the algorithms defined in the multicast extensions to OSPF.  Bit 0, if set, indicates that the router can  forward IP multicast datagrams in the router's directly attached areas (called intra\-area multicast routing).  Bit 1, if set, indicates that the router can forward IP multicast datagrams between OSPF areas (called inter\-area multicast routing).  Bit 2, if set, indicates that the router can forward IP multicast datagrams between Autonomous Systems (called inter\-AS multicast routing).  Only certain combinations of bit settings are allowed, namely\: 0 (no multicast forwarding is enabled), 1 (intra\-area multicasting only), 3 (intra\-area and inter\-area multicasting), 5 (intra\-area and inter\-AS multicasting), and 7 (multicasting everywhere).  By default, no multicast forwarding is enabled.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
         	**type**\: int
         
         	**range:** \-2147483648..2147483647
+        
+        	**config**\: False
         
         .. attribute:: ospfexitoverflowinterval
         
@@ -339,20 +397,28 @@ class OSPFMIB(Entity):
         
         	**range:** 0..2147483647
         
+        	**config**\: False
+        
         .. attribute:: ospfdemandextensions
         
         	The router's support for demand routing. This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: ospfrfc1583compatibility
         
         	Indicates metrics used to choose among multiple AS\-external LSAs.  When RFC1583Compatibility is set to enabled, only cost will be used when choosing among multiple AS\-external LSAs advertising the same destination.  When RFC1583Compatibility is set to disabled, preference will be driven first by type of path using cost only to break ties.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: ospfopaquelsasupport
         
         	The router's support for Opaque LSA types
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: ospfreferencebandwidth
         
@@ -361,12 +427,16 @@ class OSPFMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: kilobits per second
         
         .. attribute:: ospfrestartsupport
         
         	The router's support for OSPF graceful restart. Options include\: no restart support, only planned restarts, or both planned and unplanned restarts.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
         	**type**\:  :py:class:`OspfRestartSupport <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfGeneralGroup.OspfRestartSupport>`
+        
+        	**config**\: False
         
         .. attribute:: ospfrestartinterval
         
@@ -375,6 +445,8 @@ class OSPFMIB(Entity):
         
         	**range:** 1..1800
         
+        	**config**\: False
+        
         	**units**\: seconds
         
         .. attribute:: ospfrestartstrictlsachecking
@@ -382,10 +454,14 @@ class OSPFMIB(Entity):
         	Indicates if strict LSA checking is enabled for graceful restart.  This object is persistent and when written the entity SHOULD save the change to non\-volatile  storage
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: ospfrestartstatus
         
         	Current status of OSPF graceful restart
         	**type**\:  :py:class:`OspfRestartStatus <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfGeneralGroup.OspfRestartStatus>`
+        
+        	**config**\: False
         
         .. attribute:: ospfrestartage
         
@@ -394,12 +470,16 @@ class OSPFMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: seconds
         
         .. attribute:: ospfrestartexitreason
         
         	Describes the outcome of the last attempt at a graceful restart.  If the value is 'none', no restart has yet been attempted.  If the value is 'inProgress', a restart attempt is currently underway
         	**type**\:  :py:class:`OspfRestartExitReason <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfGeneralGroup.OspfRestartExitReason>`
+        
+        	**config**\: False
         
         .. attribute:: ospfaslsacount
         
@@ -408,6 +488,8 @@ class OSPFMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ospfaslsacksumsum
         
         	The 32\-bit unsigned sum of the LS checksums of the AS link state advertisements contained in the AS\-scope link state database.  This sum can be used to determine if there has been a change in a router's AS\-scope link state database, and to compare the AS\-scope link state database of two routers
@@ -415,15 +497,21 @@ class OSPFMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ospfstubroutersupport
         
         	The router's support for stub router functionality
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: ospfstubrouteradvertisement
         
         	This object controls the advertisement of stub router LSAs by the router.  The value doNotAdvertise will result in the advertisement of a standard router LSA and is the default value.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
         	**type**\:  :py:class:`OspfStubRouterAdvertisement <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfGeneralGroup.OspfStubRouterAdvertisement>`
+        
+        	**config**\: False
         
         .. attribute:: ospfdiscontinuitytime
         
@@ -431,6 +519,8 @@ class OSPFMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -511,7 +601,7 @@ class OSPFMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFMIB.OspfGeneralGroup, [u'ospfrouterid', u'ospfadminstat', u'ospfversionnumber', u'ospfareabdrrtrstatus', u'ospfasbdrrtrstatus', u'ospfexternlsacount', u'ospfexternlsacksumsum', u'ospftossupport', u'ospforiginatenewlsas', u'ospfrxnewlsas', u'ospfextlsdblimit', u'ospfmulticastextensions', u'ospfexitoverflowinterval', u'ospfdemandextensions', u'ospfrfc1583compatibility', u'ospfopaquelsasupport', u'ospfreferencebandwidth', u'ospfrestartsupport', u'ospfrestartinterval', u'ospfrestartstrictlsachecking', u'ospfrestartstatus', u'ospfrestartage', u'ospfrestartexitreason', u'ospfaslsacount', u'ospfaslsacksumsum', u'ospfstubroutersupport', u'ospfstubrouteradvertisement', u'ospfdiscontinuitytime'], name, value)
+            self._perform_setattr(OSPFMIB.OspfGeneralGroup, ['ospfrouterid', 'ospfadminstat', 'ospfversionnumber', 'ospfareabdrrtrstatus', 'ospfasbdrrtrstatus', 'ospfexternlsacount', 'ospfexternlsacksumsum', 'ospftossupport', 'ospforiginatenewlsas', 'ospfrxnewlsas', 'ospfextlsdblimit', 'ospfmulticastextensions', 'ospfexitoverflowinterval', 'ospfdemandextensions', 'ospfrfc1583compatibility', 'ospfopaquelsasupport', 'ospfreferencebandwidth', 'ospfrestartsupport', 'ospfrestartinterval', 'ospfrestartstrictlsachecking', 'ospfrestartstatus', 'ospfrestartage', 'ospfrestartexitreason', 'ospfaslsacount', 'ospfaslsacksumsum', 'ospfstubroutersupport', 'ospfstubrouteradvertisement', 'ospfdiscontinuitytime'], name, value)
 
         class OspfRestartExitReason(Enum):
             """
@@ -643,6 +733,7 @@ class OSPFMIB(Entity):
 
 
 
+
     class OspfAreaTable(Entity):
         """
         Information describing the configured parameters and
@@ -655,6 +746,8 @@ class OSPFMIB(Entity):
         
         	Information describing the configured parameters and cumulative statistics of one of the router's attached areas. The interfaces and virtual links are configured as part of these areas.  Area 0.0.0.0, by definition, is the backbone area.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
         	**type**\: list of  		 :py:class:`OspfAreaEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaTable.OspfAreaEntry>`
+        
+        	**config**\: False
         
         
 
@@ -702,10 +795,14 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfauthtype
             
             	The authentication type specified for an area
             	**type**\:  :py:class:`OspfAuthenticationType <ydk.models.cisco_ios_xe.OSPF_MIB.OspfAuthenticationType>`
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -714,12 +811,16 @@ class OSPFMIB(Entity):
             	Indicates if an area is a stub area, NSSA, or standard area.  Type\-5 AS\-external LSAs and type\-11 Opaque LSAs are not imported into stub areas or NSSAs.  NSSAs import AS\-external data as type\-7 LSAs
             	**type**\:  :py:class:`OspfImportAsExtern <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaTable.OspfAreaEntry.OspfImportAsExtern>`
             
+            	**config**\: False
+            
             .. attribute:: ospfspfruns
             
             	The number of times that the intra\-area route table has been calculated using this area's link state database.  This is typically done using Dijkstra's algorithm.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ospfDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ospfareabdrrtrcount
             
@@ -728,12 +829,16 @@ class OSPFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ospfasbdrrtrcount
             
             	The total number of Autonomous System Border Routers reachable within this area.  This is initially zero and is calculated in each SPF pass
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ospfarealsacount
             
@@ -742,6 +847,8 @@ class OSPFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ospfarealsacksumsum
             
             	The 32\-bit sum of the link state advertisements' LS checksums contained in this area's link state database.  This sum excludes external (LS type\-5) link state advertisements. The sum can be used to determine if there has been a change in a router's link state database, and to compare the link state database of two routers.  The value should be treated as unsigned when comparing two sums of checksums
@@ -749,25 +856,35 @@ class OSPFMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ospfareasummary
             
             	The variable ospfAreaSummary controls the import of summary LSAs into stub and NSSA areas. It has no effect on other areas.  If it is noAreaSummary, the router will not originate summary LSAs into the stub or NSSA area. It will rely entirely on its default route.  If it is sendAreaSummary, the router will both summarize and propagate summary LSAs
             	**type**\:  :py:class:`OspfAreaSummary <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaTable.OspfAreaEntry.OspfAreaSummary>`
+            
+            	**config**\: False
             
             .. attribute:: ospfareastatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: ospfareanssatranslatorrole
             
             	Indicates an NSSA border router's ability to perform NSSA translation of type\-7 LSAs into type\-5 LSAs
             	**type**\:  :py:class:`OspfAreaNssaTranslatorRole <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaTable.OspfAreaEntry.OspfAreaNssaTranslatorRole>`
             
+            	**config**\: False
+            
             .. attribute:: ospfareanssatranslatorstate
             
             	Indicates if and how an NSSA border router is performing NSSA translation of type\-7 LSAs into type\-5  LSAs.  When this object is set to enabled, the NSSA Border router's OspfAreaNssaExtTranslatorRole has been set to always.  When this object is set to elected, a candidate NSSA Border router is Translating type\-7 LSAs into type\-5. When this object is set to disabled, a candidate NSSA border router is NOT translating type\-7 LSAs into type\-5
             	**type**\:  :py:class:`OspfAreaNssaTranslatorState <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaTable.OspfAreaEntry.OspfAreaNssaTranslatorState>`
+            
+            	**config**\: False
             
             .. attribute:: ospfareanssatranslatorstabilityinterval
             
@@ -775,6 +892,8 @@ class OSPFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -785,12 +904,16 @@ class OSPFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cospfopaquearealsacount
             
             	The total number of Opaque Area and AS link\-state  advertisements in the link state database of this area
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cospfopaquearealsacksumsum
             
@@ -799,15 +922,21 @@ class OSPFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cospfareanssatranslatorrole
             
             	Indicates an NSSA Border router's ability to perform NSSA translation of type\-7 LSAs into type\-5 LSAs
             	**type**\:  :py:class:`CospfAreaNssaTranslatorRole <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaTable.OspfAreaEntry.CospfAreaNssaTranslatorRole>`
             
+            	**config**\: False
+            
             .. attribute:: cospfareanssatranslatorstate
             
             	Indicates if and how an NSSA Border router is performing NSSA translation of type\-7 LSAs into type\-5 LSAs. When this object set to enabled, the NSSA Border router's cospfAreaNssaExtTranslatorRole has been set to always. When this object is set to elected, a candidate NSSA Border router is Translating type\-7 LSAs into type\-5. When this object is set to disabled, a candidate NSSA Border router is NOT translating type\-7 LSAs into type\-5
             	**type**\:  :py:class:`CospfAreaNssaTranslatorState <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaTable.OspfAreaEntry.CospfAreaNssaTranslatorState>`
+            
+            	**config**\: False
             
             .. attribute:: cospfareanssatranslatorevents
             
@@ -815,6 +944,8 @@ class OSPFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -877,7 +1008,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfAreaTable.OspfAreaEntry, [u'ospfareaid', u'ospfauthtype', u'ospfimportasextern', u'ospfspfruns', u'ospfareabdrrtrcount', u'ospfasbdrrtrcount', u'ospfarealsacount', u'ospfarealsacksumsum', u'ospfareasummary', u'ospfareastatus', u'ospfareanssatranslatorrole', u'ospfareanssatranslatorstate', u'ospfareanssatranslatorstabilityinterval', u'ospfareanssatranslatorevents', u'cospfopaquearealsacount', u'cospfopaquearealsacksumsum', u'cospfareanssatranslatorrole', u'cospfareanssatranslatorstate', u'cospfareanssatranslatorevents'], name, value)
+                self._perform_setattr(OSPFMIB.OspfAreaTable.OspfAreaEntry, ['ospfareaid', 'ospfauthtype', 'ospfimportasextern', 'ospfspfruns', 'ospfareabdrrtrcount', 'ospfasbdrrtrcount', 'ospfarealsacount', 'ospfarealsacksumsum', 'ospfareasummary', 'ospfareastatus', 'ospfareanssatranslatorrole', 'ospfareanssatranslatorstate', 'ospfareanssatranslatorstabilityinterval', 'ospfareanssatranslatorevents', u'cospfopaquearealsacount', u'cospfopaquearealsacksumsum', u'cospfareanssatranslatorrole', u'cospfareanssatranslatorstate', u'cospfareanssatranslatorevents'], name, value)
 
             class CospfAreaNssaTranslatorRole(Enum):
                 """
@@ -1050,6 +1181,8 @@ class OSPFMIB(Entity):
 
 
 
+
+
     class OspfStubAreaTable(Entity):
         """
         The set of metrics that will be advertised
@@ -1059,6 +1192,8 @@ class OSPFMIB(Entity):
         
         	The metric for a given Type of Service that will be advertised by a default Area Border Router into a stub area.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
         	**type**\: list of  		 :py:class:`OspfStubAreaEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfStubAreaTable.OspfStubAreaEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1104,12 +1239,16 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfstubtos  (key)
             
             	The Type of Service associated with the metric.  On creation, this can be derived from  the instance
             	**type**\: int
             
             	**range:** 0..30
+            
+            	**config**\: False
             
             .. attribute:: ospfstubmetric
             
@@ -1118,15 +1257,21 @@ class OSPFMIB(Entity):
             
             	**range:** 0..16777215
             
+            	**config**\: False
+            
             .. attribute:: ospfstubstatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: ospfstubmetrictype
             
             	This variable displays the type of metric advertised as a default route
             	**type**\:  :py:class:`OspfStubMetricType <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfStubAreaTable.OspfStubAreaEntry.OspfStubMetricType>`
+            
+            	**config**\: False
             
             
 
@@ -1161,7 +1306,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfStubAreaTable.OspfStubAreaEntry, [u'ospfstubareaid', u'ospfstubtos', u'ospfstubmetric', u'ospfstubstatus', u'ospfstubmetrictype'], name, value)
+                self._perform_setattr(OSPFMIB.OspfStubAreaTable.OspfStubAreaEntry, ['ospfstubareaid', 'ospfstubtos', 'ospfstubmetric', 'ospfstubstatus', 'ospfstubmetrictype'], name, value)
 
             class OspfStubMetricType(Enum):
                 """
@@ -1187,6 +1332,8 @@ class OSPFMIB(Entity):
 
 
 
+
+
     class OspfLsdbTable(Entity):
         """
         The OSPF Process's link state database (LSDB).
@@ -1197,6 +1344,8 @@ class OSPFMIB(Entity):
         
         	A single link state advertisement
         	**type**\: list of  		 :py:class:`OspfLsdbEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfLsdbTable.OspfLsdbEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1236,10 +1385,14 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospflsdbtype  (key)
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format.  Note\: External link state advertisements are permitted for backward compatibility, but should be displayed in the ospfAsLsdbTable rather than here
             	**type**\:  :py:class:`OspfLsdbType <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfLsdbTable.OspfLsdbEntry.OspfLsdbType>`
+            
+            	**config**\: False
             
             .. attribute:: ospflsdblsid  (key)
             
@@ -1248,12 +1401,16 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospflsdbrouterid  (key)
             
             	The 32\-bit number that uniquely identifies the originating router in the Autonomous System
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: ospflsdbsequence
             
@@ -1262,12 +1419,16 @@ class OSPFMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ospflsdbage
             
             	This field is the age of the link state advertisement in seconds
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1278,12 +1439,16 @@ class OSPFMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ospflsdbadvertisement
             
             	The entire link state advertisement, including its header.  Note that for variable length LSAs, SNMP agents may not be able to return the largest string size
             	**type**\: str
             
             	**length:** 1..65535
+            
+            	**config**\: False
             
             
 
@@ -1324,7 +1489,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfLsdbTable.OspfLsdbEntry, [u'ospflsdbareaid', u'ospflsdbtype', u'ospflsdblsid', u'ospflsdbrouterid', u'ospflsdbsequence', u'ospflsdbage', u'ospflsdbchecksum', u'ospflsdbadvertisement'], name, value)
+                self._perform_setattr(OSPFMIB.OspfLsdbTable.OspfLsdbEntry, ['ospflsdbareaid', 'ospflsdbtype', 'ospflsdblsid', 'ospflsdbrouterid', 'ospflsdbsequence', 'ospflsdbage', 'ospflsdbchecksum', 'ospflsdbadvertisement'], name, value)
 
             class OspfLsdbType(Enum):
                 """
@@ -1378,6 +1543,8 @@ class OSPFMIB(Entity):
 
 
 
+
+
     class OspfAreaRangeTable(Entity):
         """
         The Address Range Table acts as an adjunct to the Area
@@ -1397,6 +1564,8 @@ class OSPFMIB(Entity):
         
         	A single area address range.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
         	**type**\: list of  		 :py:class:`OspfAreaRangeEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaRangeTable.OspfAreaRangeEntry>`
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -1442,6 +1611,8 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: ospfarearangenet  (key)
@@ -1450,6 +1621,8 @@ class OSPFMIB(Entity):
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1460,6 +1633,8 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: ospfarearangestatus
@@ -1467,12 +1642,16 @@ class OSPFMIB(Entity):
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: ospfarearangeeffect
             
             	Subnets subsumed by ranges either trigger the advertisement of the indicated summary (advertiseMatching) or result in the subnet's not being advertised at all outside the area
             	**type**\:  :py:class:`OspfAreaRangeEffect <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaRangeTable.OspfAreaRangeEntry.OspfAreaRangeEffect>`
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1509,7 +1688,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfAreaRangeTable.OspfAreaRangeEntry, [u'ospfarearangeareaid', u'ospfarearangenet', u'ospfarearangemask', u'ospfarearangestatus', u'ospfarearangeeffect'], name, value)
+                self._perform_setattr(OSPFMIB.OspfAreaRangeTable.OspfAreaRangeEntry, ['ospfarearangeareaid', 'ospfarearangenet', 'ospfarearangemask', 'ospfarearangestatus', 'ospfarearangeeffect'], name, value)
 
             class OspfAreaRangeEffect(Enum):
                 """
@@ -1535,6 +1714,8 @@ class OSPFMIB(Entity):
 
 
 
+
+
     class OspfHostTable(Entity):
         """
         The Host/Metric Table indicates what hosts are directly
@@ -1547,6 +1728,8 @@ class OSPFMIB(Entity):
         
         	A metric to be advertised, for a given type of service, when a given host is reachable.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
         	**type**\: list of  		 :py:class:`OspfHostEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfHostTable.OspfHostEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1591,12 +1774,16 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfhosttos  (key)
             
             	The Type of Service of the route being configured
             	**type**\: int
             
             	**range:** 0..30
+            
+            	**config**\: False
             
             .. attribute:: ospfhostmetric
             
@@ -1605,10 +1792,14 @@ class OSPFMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: ospfhoststatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             .. attribute:: ospfhostareaid
             
@@ -1616,6 +1807,8 @@ class OSPFMIB(Entity):
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -1625,6 +1818,8 @@ class OSPFMIB(Entity):
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             
 
@@ -1661,7 +1856,9 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfHostTable.OspfHostEntry, [u'ospfhostipaddress', u'ospfhosttos', u'ospfhostmetric', u'ospfhoststatus', u'ospfhostareaid', u'ospfhostcfgareaid'], name, value)
+                self._perform_setattr(OSPFMIB.OspfHostTable.OspfHostEntry, ['ospfhostipaddress', 'ospfhosttos', 'ospfhostmetric', 'ospfhoststatus', 'ospfhostareaid', 'ospfhostcfgareaid'], name, value)
+
+
 
 
     class OspfIfTable(Entity):
@@ -1674,6 +1871,8 @@ class OSPFMIB(Entity):
         
         	The OSPF interface entry describes one interface from the viewpoint of OSPF.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
         	**type**\: list of  		 :py:class:`OspfIfEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfIfTable.OspfIfEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1718,12 +1917,16 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfaddresslessif  (key)
             
             	For the purpose of easing the instancing of addressed and addressless interfaces; this variable takes the value 0 on interfaces with IP addresses and the corresponding value of ifIndex for interfaces having no IP address
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: ospfifareaid
             
@@ -1732,15 +1935,21 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfiftype
             
             	The OSPF interface type. By way of a default, this field may be intuited from the corresponding value of ifType. Broadcast LANs, such as Ethernet and IEEE 802.5, take the value 'broadcast', X.25 and similar technologies take the value 'nbma', and links that are definitively point to point take the value 'pointToPoint'
             	**type**\:  :py:class:`OspfIfType <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfIfTable.OspfIfEntry.OspfIfType>`
             
+            	**config**\: False
+            
             .. attribute:: ospfifadminstat
             
             	The OSPF interface's administrative status. The value formed on the interface, and the interface will be advertised as an internal route to some area. The value 'disabled' denotes that the interface is external to OSPF
             	**type**\:  :py:class:`Status <ydk.models.cisco_ios_xe.OSPF_MIB.Status>`
+            
+            	**config**\: False
             
             .. attribute:: ospfifrtrpriority
             
@@ -1749,12 +1958,16 @@ class OSPFMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ospfiftransitdelay
             
             	The estimated number of seconds it takes to transmit a link state update packet over this interface.  Note that the minimal value SHOULD be 1 second
             	**type**\: int
             
             	**range:** 0..3600
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1765,6 +1978,8 @@ class OSPFMIB(Entity):
             
             	**range:** 0..3600
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: ospfifhellointerval
@@ -1773,6 +1988,8 @@ class OSPFMIB(Entity):
             	**type**\: int
             
             	**range:** 1..65535
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1783,6 +2000,8 @@ class OSPFMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: ospfifpollinterval
@@ -1792,12 +2011,16 @@ class OSPFMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: ospfifstate
             
             	The OSPF Interface State
             	**type**\:  :py:class:`OspfIfState <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfIfTable.OspfIfEntry.OspfIfState>`
+            
+            	**config**\: False
             
             .. attribute:: ospfifdesignatedrouter
             
@@ -1806,12 +2029,16 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfifbackupdesignatedrouter
             
             	The IP address of the backup designated router
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: ospfifevents
             
@@ -1820,6 +2047,8 @@ class OSPFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ospfifauthkey
             
             	The cleartext password used as an OSPF authentication key when simplePassword security is enabled.  This object does not access any OSPF cryptogaphic (e.g., MD5) authentication key under any circumstance.  If the key length is shorter than 8 octets, the agent will left adjust and zero fill to 8 octets.  Unauthenticated interfaces need no authentication key, and simple password authentication cannot use a key of more than 8 octets.  Note that the use of simplePassword authentication is NOT recommended when there is concern regarding attack upon the OSPF system.  SimplePassword authentication is only sufficient to protect against accidental misconfigurations because it re\-uses cleartext passwords [RFC1704].  When read, ospfIfAuthKey always returns an octet string of length zero
@@ -1827,25 +2056,35 @@ class OSPFMIB(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: ospfifstatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             .. attribute:: ospfifmulticastforwarding
             
             	The way multicasts should be forwarded on this interface\: not forwarded, forwarded as data link multicasts, or forwarded as data link unicasts.  Data link multicasting is not meaningful on point\-to\-point and NBMA interfaces, and setting ospfMulticastForwarding to 0 effectively disables all multicast forwarding
             	**type**\:  :py:class:`OspfIfMulticastForwarding <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfIfTable.OspfIfEntry.OspfIfMulticastForwarding>`
             
+            	**config**\: False
+            
             .. attribute:: ospfifdemand
             
             	Indicates whether Demand OSPF procedures (hello suppression to FULL neighbors and setting the DoNotAge flag on propagated LSAs) should be performed on this interface
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: ospfifauthtype
             
             	The authentication type specified for an interface.  Note that this object can be used to engage in significant attacks against an OSPF router
             	**type**\:  :py:class:`OspfAuthenticationType <ydk.models.cisco_ios_xe.OSPF_MIB.OspfAuthenticationType>`
+            
+            	**config**\: False
             
             .. attribute:: ospfiflsacount
             
@@ -1854,12 +2093,16 @@ class OSPFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ospfiflsacksumsum
             
             	The 32\-bit unsigned sum of the Link State Advertisements' LS checksums contained in this interface's link\-local link state database. The sum can be used to determine if there has been a change in the interface's link state database and to compare the interface link state database of routers attached to the same subnet
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ospfifdesignatedrouterid
             
@@ -1868,12 +2111,16 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfifbackupdesignatedrouterid
             
             	The Router ID of the backup designated router
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: cospfiflsacount
             
@@ -1882,12 +2129,16 @@ class OSPFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cospfiflsacksumsum
             
             	The 32\-bit unsigned sum of the link\-state advertisements' LS checksums contained in this interface's link\-local link  state database. The sum can be used to determine if there has been a change in the interface's link state database, and to compare the interface link\-state database of routers  attached to the same subnet
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1964,7 +2215,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfIfTable.OspfIfEntry, [u'ospfifipaddress', u'ospfaddresslessif', u'ospfifareaid', u'ospfiftype', u'ospfifadminstat', u'ospfifrtrpriority', u'ospfiftransitdelay', u'ospfifretransinterval', u'ospfifhellointerval', u'ospfifrtrdeadinterval', u'ospfifpollinterval', u'ospfifstate', u'ospfifdesignatedrouter', u'ospfifbackupdesignatedrouter', u'ospfifevents', u'ospfifauthkey', u'ospfifstatus', u'ospfifmulticastforwarding', u'ospfifdemand', u'ospfifauthtype', u'ospfiflsacount', u'ospfiflsacksumsum', u'ospfifdesignatedrouterid', u'ospfifbackupdesignatedrouterid', u'cospfiflsacount', u'cospfiflsacksumsum'], name, value)
+                self._perform_setattr(OSPFMIB.OspfIfTable.OspfIfEntry, ['ospfifipaddress', 'ospfaddresslessif', 'ospfifareaid', 'ospfiftype', 'ospfifadminstat', 'ospfifrtrpriority', 'ospfiftransitdelay', 'ospfifretransinterval', 'ospfifhellointerval', 'ospfifrtrdeadinterval', 'ospfifpollinterval', 'ospfifstate', 'ospfifdesignatedrouter', 'ospfifbackupdesignatedrouter', 'ospfifevents', 'ospfifauthkey', 'ospfifstatus', 'ospfifmulticastforwarding', 'ospfifdemand', 'ospfifauthtype', 'ospfiflsacount', 'ospfiflsacksumsum', 'ospfifdesignatedrouterid', 'ospfifbackupdesignatedrouterid', u'cospfiflsacount', u'cospfiflsacksumsum'], name, value)
 
             class OspfIfMulticastForwarding(Enum):
                 """
@@ -2076,6 +2327,8 @@ class OSPFMIB(Entity):
 
 
 
+
+
     class OspfIfMetricTable(Entity):
         """
         The Metric Table describes the metrics to be advertised
@@ -2118,6 +2371,8 @@ class OSPFMIB(Entity):
         
         	A particular TOS metric for a non\-virtual interface identified by the interface index.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
         	**type**\: list of  		 :py:class:`OspfIfMetricEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfIfMetricTable.OspfIfMetricEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2162,12 +2417,16 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfifmetricaddresslessif  (key)
             
             	For the purpose of easing the instancing of addressed and addressless interfaces; this variable takes the value 0 on interfaces with IP addresses and the value of ifIndex for interfaces having no IP address.  On row creation, this can be derived from the instance
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: ospfifmetrictos  (key)
             
@@ -2176,6 +2435,8 @@ class OSPFMIB(Entity):
             
             	**range:** 0..30
             
+            	**config**\: False
+            
             .. attribute:: ospfifmetricvalue
             
             	The metric of using this Type of Service on this interface.  The default value of the TOS 0 metric is 10^8 / ifSpeed
@@ -2183,10 +2444,14 @@ class OSPFMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: ospfifmetricstatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -2221,7 +2486,9 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfIfMetricTable.OspfIfMetricEntry, [u'ospfifmetricipaddress', u'ospfifmetricaddresslessif', u'ospfifmetrictos', u'ospfifmetricvalue', u'ospfifmetricstatus'], name, value)
+                self._perform_setattr(OSPFMIB.OspfIfMetricTable.OspfIfMetricEntry, ['ospfifmetricipaddress', 'ospfifmetricaddresslessif', 'ospfifmetrictos', 'ospfifmetricvalue', 'ospfifmetricstatus'], name, value)
+
+
 
 
     class OspfVirtIfTable(Entity):
@@ -2233,6 +2500,8 @@ class OSPFMIB(Entity):
         
         	Information about a single virtual interface.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
         	**type**\: list of  		 :py:class:`OspfVirtIfEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtIfTable.OspfVirtIfEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2276,6 +2545,8 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfvirtifneighbor  (key)
             
             	The Router ID of the virtual neighbor
@@ -2283,12 +2554,16 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfvirtiftransitdelay
             
             	The estimated number of seconds it takes to transmit a Link State update packet over this interface.  Note that the minimal value SHOULD be 1 second
             	**type**\: int
             
             	**range:** 0..3600
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -2299,6 +2574,8 @@ class OSPFMIB(Entity):
             
             	**range:** 0..3600
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: ospfvirtifhellointerval
@@ -2307,6 +2584,8 @@ class OSPFMIB(Entity):
             	**type**\: int
             
             	**range:** 1..65535
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -2317,12 +2596,16 @@ class OSPFMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: ospfvirtifstate
             
             	OSPF virtual interface states
             	**type**\:  :py:class:`OspfVirtIfState <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtIfTable.OspfVirtIfEntry.OspfVirtIfState>`
+            
+            	**config**\: False
             
             .. attribute:: ospfvirtifevents
             
@@ -2331,6 +2614,8 @@ class OSPFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ospfvirtifauthkey
             
             	The cleartext password used as an OSPF authentication key when simplePassword security is enabled.  This object does not access any OSPF cryptogaphic (e.g., MD5) authentication key under any circumstance.  If the key length is shorter than 8 octets, the agent will left adjust and zero fill to 8 octets.  Unauthenticated interfaces need no authentication key, and simple password authentication cannot use a key of more than 8 octets.  Note that the use of simplePassword authentication is NOT recommended when there is concern regarding attack upon the OSPF system.  SimplePassword authentication is only sufficient to protect against accidental misconfigurations because it re\-uses cleartext passwords.  [RFC1704]  When read, ospfIfAuthKey always returns an octet string of length zero
@@ -2338,15 +2623,21 @@ class OSPFMIB(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: ospfvirtifstatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: ospfvirtifauthtype
             
             	The authentication type specified for a virtual interface.  Note that this object can be used to engage in significant attacks against an OSPF router
             	**type**\:  :py:class:`OspfAuthenticationType <ydk.models.cisco_ios_xe.OSPF_MIB.OspfAuthenticationType>`
+            
+            	**config**\: False
             
             .. attribute:: ospfvirtiflsacount
             
@@ -2355,12 +2646,16 @@ class OSPFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ospfvirtiflsacksumsum
             
             	The 32\-bit unsigned sum of the link state advertisements' LS checksums contained in this virtual interface's link\-local link state database. The sum can be used to determine if there has been a change in the virtual interface's link state database, and to compare the virtual interface link state database of the virtual neighbors
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cospfvirtiflsacount
             
@@ -2369,12 +2664,16 @@ class OSPFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cospfvirtiflsacksumsum
             
             	The 32\-bit unsigned sum of the link\-state advertisements' LS checksums contained in this virtual interface's link\-local link state database. The sum can be used to determine if there has been a change in the virtual interface's link state database, and to compare the virtual interface link\-state database of the virtual neighbors
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2429,7 +2728,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfVirtIfTable.OspfVirtIfEntry, [u'ospfvirtifareaid', u'ospfvirtifneighbor', u'ospfvirtiftransitdelay', u'ospfvirtifretransinterval', u'ospfvirtifhellointerval', u'ospfvirtifrtrdeadinterval', u'ospfvirtifstate', u'ospfvirtifevents', u'ospfvirtifauthkey', u'ospfvirtifstatus', u'ospfvirtifauthtype', u'ospfvirtiflsacount', u'ospfvirtiflsacksumsum', u'cospfvirtiflsacount', u'cospfvirtiflsacksumsum'], name, value)
+                self._perform_setattr(OSPFMIB.OspfVirtIfTable.OspfVirtIfEntry, ['ospfvirtifareaid', 'ospfvirtifneighbor', 'ospfvirtiftransitdelay', 'ospfvirtifretransinterval', 'ospfvirtifhellointerval', 'ospfvirtifrtrdeadinterval', 'ospfvirtifstate', 'ospfvirtifevents', 'ospfvirtifauthkey', 'ospfvirtifstatus', 'ospfvirtifauthtype', 'ospfvirtiflsacount', 'ospfvirtiflsacksumsum', u'cospfvirtiflsacount', u'cospfvirtiflsacksumsum'], name, value)
 
             class OspfVirtIfState(Enum):
                 """
@@ -2449,6 +2748,8 @@ class OSPFMIB(Entity):
 
 
 
+
+
     class OspfNbrTable(Entity):
         """
         A table describing all non\-virtual neighbors
@@ -2458,6 +2759,8 @@ class OSPFMIB(Entity):
         
         	The information regarding a single neighbor.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile  storage
         	**type**\: list of  		 :py:class:`OspfNbrEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfNbrTable.OspfNbrEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2502,12 +2805,16 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfnbraddresslessindex  (key)
             
             	On an interface having an IP address, zero. On addressless interfaces, the corresponding value of ifIndex in the Internet Standard MIB. On row creation, this can be derived from the instance
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: ospfnbrrtrid
             
@@ -2516,12 +2823,16 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfnbroptions
             
             	A bit mask corresponding to the neighbor's options field.  Bit 0, if set, indicates that the system will operate on Type of Service metrics other than TOS 0.  If zero, the neighbor will ignore all metrics except the TOS 0 metric.  Bit 1, if set, indicates that the associated area accepts and operates on external information; if zero, it is a stub area.  Bit 2, if set, indicates that the system is capable of routing IP multicast datagrams, that is that it implements the multicast extensions to OSPF.  Bit 3, if set, indicates that the associated area is an NSSA.  These areas are capable of carrying type\-7 external advertisements, which are translated into type\-5 external advertisements at NSSA borders
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: ospfnbrpriority
             
@@ -2530,10 +2841,14 @@ class OSPFMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ospfnbrstate
             
             	The state of the relationship with this neighbor
             	**type**\:  :py:class:`OspfNbrState <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfNbrTable.OspfNbrEntry.OspfNbrState>`
+            
+            	**config**\: False
             
             .. attribute:: ospfnbrevents
             
@@ -2542,6 +2857,8 @@ class OSPFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ospfnbrlsretransqlen
             
             	The current length of the retransmission queue
@@ -2549,25 +2866,35 @@ class OSPFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ospfnbmanbrstatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             .. attribute:: ospfnbmanbrpermanence
             
             	This variable displays the status of the entry; 'dynamic' and 'permanent' refer to how the neighbor became known
             	**type**\:  :py:class:`OspfNbmaNbrPermanence <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfNbrTable.OspfNbrEntry.OspfNbmaNbrPermanence>`
             
+            	**config**\: False
+            
             .. attribute:: ospfnbrhellosuppressed
             
             	Indicates whether Hellos are being suppressed to the neighbor
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: ospfnbrrestarthelperstatus
             
             	Indicates whether the router is acting as a graceful restart helper for the neighbor
             	**type**\:  :py:class:`OspfNbrRestartHelperStatus <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfNbrTable.OspfNbrEntry.OspfNbrRestartHelperStatus>`
+            
+            	**config**\: False
             
             .. attribute:: ospfnbrrestarthelperage
             
@@ -2576,12 +2903,16 @@ class OSPFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: ospfnbrrestarthelperexitreason
             
             	Describes the outcome of the last attempt at acting as a graceful restart helper for the neighbor
             	**type**\:  :py:class:`OspfNbrRestartHelperExitReason <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfNbrTable.OspfNbrEntry.OspfNbrRestartHelperExitReason>`
+            
+            	**config**\: False
             
             
 
@@ -2634,7 +2965,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfNbrTable.OspfNbrEntry, [u'ospfnbripaddr', u'ospfnbraddresslessindex', u'ospfnbrrtrid', u'ospfnbroptions', u'ospfnbrpriority', u'ospfnbrstate', u'ospfnbrevents', u'ospfnbrlsretransqlen', u'ospfnbmanbrstatus', u'ospfnbmanbrpermanence', u'ospfnbrhellosuppressed', u'ospfnbrrestarthelperstatus', u'ospfnbrrestarthelperage', u'ospfnbrrestarthelperexitreason'], name, value)
+                self._perform_setattr(OSPFMIB.OspfNbrTable.OspfNbrEntry, ['ospfnbripaddr', 'ospfnbraddresslessindex', 'ospfnbrrtrid', 'ospfnbroptions', 'ospfnbrpriority', 'ospfnbrstate', 'ospfnbrevents', 'ospfnbrlsretransqlen', 'ospfnbmanbrstatus', 'ospfnbmanbrpermanence', 'ospfnbrhellosuppressed', 'ospfnbrrestarthelperstatus', 'ospfnbrrestarthelperage', 'ospfnbrrestarthelperexitreason'], name, value)
 
             class OspfNbmaNbrPermanence(Enum):
                 """
@@ -2749,6 +3080,8 @@ class OSPFMIB(Entity):
 
 
 
+
+
     class OspfVirtNbrTable(Entity):
         """
         This table describes all virtual neighbors.
@@ -2759,6 +3092,8 @@ class OSPFMIB(Entity):
         
         	Virtual neighbor information
         	**type**\: list of  		 :py:class:`OspfVirtNbrEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtNbrTable.OspfVirtNbrEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2798,12 +3133,16 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfvirtnbrrtrid  (key)
             
             	A 32\-bit integer uniquely identifying the neighboring router in the Autonomous System
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: ospfvirtnbripaddr
             
@@ -2812,6 +3151,8 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfvirtnbroptions
             
             	A bit mask corresponding to the neighbor's options field.  Bit 1, if set, indicates that the system will operate on Type of Service metrics other than TOS 0.  If zero, the neighbor will ignore all metrics except the TOS 0 metric.  Bit 2, if set, indicates that the system is network multicast capable, i.e., that it implements OSPF multicast routing
@@ -2819,10 +3160,14 @@ class OSPFMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ospfvirtnbrstate
             
             	The state of the virtual neighbor relationship
             	**type**\:  :py:class:`OspfVirtNbrState <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtNbrTable.OspfVirtNbrEntry.OspfVirtNbrState>`
+            
+            	**config**\: False
             
             .. attribute:: ospfvirtnbrevents
             
@@ -2831,6 +3176,8 @@ class OSPFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ospfvirtnbrlsretransqlen
             
             	The current length of the retransmission queue
@@ -2838,15 +3185,21 @@ class OSPFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ospfvirtnbrhellosuppressed
             
             	Indicates whether Hellos are being suppressed to the neighbor
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: ospfvirtnbrrestarthelperstatus
             
             	Indicates whether the router is acting as a graceful restart helper for the neighbor
             	**type**\:  :py:class:`OspfVirtNbrRestartHelperStatus <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtNbrTable.OspfVirtNbrEntry.OspfVirtNbrRestartHelperStatus>`
+            
+            	**config**\: False
             
             .. attribute:: ospfvirtnbrrestarthelperage
             
@@ -2855,12 +3208,16 @@ class OSPFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: ospfvirtnbrrestarthelperexitreason
             
             	Describes the outcome of the last attempt at acting as a graceful restart helper for the neighbor
             	**type**\:  :py:class:`OspfVirtNbrRestartHelperExitReason <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtNbrTable.OspfVirtNbrEntry.OspfVirtNbrRestartHelperExitReason>`
+            
+            	**config**\: False
             
             
 
@@ -2907,7 +3264,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfVirtNbrTable.OspfVirtNbrEntry, [u'ospfvirtnbrarea', u'ospfvirtnbrrtrid', u'ospfvirtnbripaddr', u'ospfvirtnbroptions', u'ospfvirtnbrstate', u'ospfvirtnbrevents', u'ospfvirtnbrlsretransqlen', u'ospfvirtnbrhellosuppressed', u'ospfvirtnbrrestarthelperstatus', u'ospfvirtnbrrestarthelperage', u'ospfvirtnbrrestarthelperexitreason'], name, value)
+                self._perform_setattr(OSPFMIB.OspfVirtNbrTable.OspfVirtNbrEntry, ['ospfvirtnbrarea', 'ospfvirtnbrrtrid', 'ospfvirtnbripaddr', 'ospfvirtnbroptions', 'ospfvirtnbrstate', 'ospfvirtnbrevents', 'ospfvirtnbrlsretransqlen', 'ospfvirtnbrhellosuppressed', 'ospfvirtnbrrestarthelperstatus', 'ospfvirtnbrrestarthelperage', 'ospfvirtnbrrestarthelperexitreason'], name, value)
 
             class OspfVirtNbrRestartHelperExitReason(Enum):
                 """
@@ -3001,6 +3358,8 @@ class OSPFMIB(Entity):
 
 
 
+
+
     class OspfExtLsdbTable(Entity):
         """
         The OSPF Process's external LSA link state database.
@@ -3019,6 +3378,8 @@ class OSPFMIB(Entity):
         
         	A single link state advertisement
         	**type**\: list of  		 :py:class:`OspfExtLsdbEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfExtLsdbTable.OspfExtLsdbEntry>`
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -3058,6 +3419,8 @@ class OSPFMIB(Entity):
             	The type of the link state advertisement. Each link state type has a separate advertisement format
             	**type**\:  :py:class:`OspfExtLsdbType <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfExtLsdbTable.OspfExtLsdbEntry.OspfExtLsdbType>`
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ospfextlsdblsid  (key)
@@ -3066,6 +3429,8 @@ class OSPFMIB(Entity):
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -3076,6 +3441,8 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ospfextlsdbsequence
@@ -3085,6 +3452,8 @@ class OSPFMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ospfextlsdbage
@@ -3093,6 +3462,8 @@ class OSPFMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -3105,6 +3476,8 @@ class OSPFMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ospfextlsdbadvertisement
@@ -3113,6 +3486,8 @@ class OSPFMIB(Entity):
             	**type**\: str
             
             	**length:** 36
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -3153,7 +3528,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfExtLsdbTable.OspfExtLsdbEntry, [u'ospfextlsdbtype', u'ospfextlsdblsid', u'ospfextlsdbrouterid', u'ospfextlsdbsequence', u'ospfextlsdbage', u'ospfextlsdbchecksum', u'ospfextlsdbadvertisement'], name, value)
+                self._perform_setattr(OSPFMIB.OspfExtLsdbTable.OspfExtLsdbEntry, ['ospfextlsdbtype', 'ospfextlsdblsid', 'ospfextlsdbrouterid', 'ospfextlsdbsequence', 'ospfextlsdbage', 'ospfextlsdbchecksum', 'ospfextlsdbadvertisement'], name, value)
 
             class OspfExtLsdbType(Enum):
                 """
@@ -3170,6 +3545,8 @@ class OSPFMIB(Entity):
                 """
 
                 asExternalLink = Enum.YLeaf(5, "asExternalLink")
+
+
 
 
 
@@ -3196,6 +3573,8 @@ class OSPFMIB(Entity):
         
         	A single area aggregate entry.  Information in this table is persistent and when this object is written the entity SHOULD save the change to non\-volatile storage
         	**type**\: list of  		 :py:class:`OspfAreaAggregateEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaAggregateTable.OspfAreaAggregateEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3239,10 +3618,14 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfareaaggregatelsdbtype  (key)
             
             	The type of the address aggregate.  This field specifies the Lsdb type that this address aggregate applies to
             	**type**\:  :py:class:`OspfAreaAggregateLsdbType <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaAggregateTable.OspfAreaAggregateEntry.OspfAreaAggregateLsdbType>`
+            
+            	**config**\: False
             
             .. attribute:: ospfareaaggregatenet  (key)
             
@@ -3251,6 +3634,8 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfareaaggregatemask  (key)
             
             	The subnet mask that pertains to the net or subnet
@@ -3258,15 +3643,21 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfareaaggregatestatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: ospfareaaggregateeffect
             
             	Subnets subsumed by ranges either trigger the advertisement of the indicated aggregate (advertiseMatching) or result in the subnet's not being advertised at all outside the area
             	**type**\:  :py:class:`OspfAreaAggregateEffect <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaAggregateTable.OspfAreaAggregateEntry.OspfAreaAggregateEffect>`
+            
+            	**config**\: False
             
             .. attribute:: ospfareaaggregateextroutetag
             
@@ -3274,6 +3665,8 @@ class OSPFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -3312,7 +3705,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfAreaAggregateTable.OspfAreaAggregateEntry, [u'ospfareaaggregateareaid', u'ospfareaaggregatelsdbtype', u'ospfareaaggregatenet', u'ospfareaaggregatemask', u'ospfareaaggregatestatus', u'ospfareaaggregateeffect', u'ospfareaaggregateextroutetag'], name, value)
+                self._perform_setattr(OSPFMIB.OspfAreaAggregateTable.OspfAreaAggregateEntry, ['ospfareaaggregateareaid', 'ospfareaaggregatelsdbtype', 'ospfareaaggregatenet', 'ospfareaaggregatemask', 'ospfareaaggregatestatus', 'ospfareaaggregateeffect', 'ospfareaaggregateextroutetag'], name, value)
 
             class OspfAreaAggregateEffect(Enum):
                 """
@@ -3359,6 +3752,8 @@ class OSPFMIB(Entity):
 
 
 
+
+
     class OspfLocalLsdbTable(Entity):
         """
         The OSPF Process's link\-local link state database
@@ -3375,6 +3770,8 @@ class OSPFMIB(Entity):
         
         	A single link state advertisement
         	**type**\: list of  		 :py:class:`OspfLocalLsdbEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfLocalLsdbTable.OspfLocalLsdbEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3414,6 +3811,8 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospflocallsdbaddresslessif  (key)
             
             	The interface index of the interface from which the LSA was received if the interface is unnumbered
@@ -3421,10 +3820,14 @@ class OSPFMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ospflocallsdbtype  (key)
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format
             	**type**\:  :py:class:`OspfLocalLsdbType <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfLocalLsdbTable.OspfLocalLsdbEntry.OspfLocalLsdbType>`
+            
+            	**config**\: False
             
             .. attribute:: ospflocallsdblsid  (key)
             
@@ -3433,12 +3836,16 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospflocallsdbrouterid  (key)
             
             	The 32\-bit number that uniquely identifies the originating router in the Autonomous System
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: ospflocallsdbsequence
             
@@ -3447,12 +3854,16 @@ class OSPFMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ospflocallsdbage
             
             	This field is the age of the link state advertisement in seconds
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -3463,12 +3874,16 @@ class OSPFMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ospflocallsdbadvertisement
             
             	The entire link state advertisement, including its header.  Note that for variable length LSAs, SNMP agents may not be able to return the largest string size
             	**type**\: str
             
             	**length:** 1..65535
+            
+            	**config**\: False
             
             
 
@@ -3511,7 +3926,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfLocalLsdbTable.OspfLocalLsdbEntry, [u'ospflocallsdbipaddress', u'ospflocallsdbaddresslessif', u'ospflocallsdbtype', u'ospflocallsdblsid', u'ospflocallsdbrouterid', u'ospflocallsdbsequence', u'ospflocallsdbage', u'ospflocallsdbchecksum', u'ospflocallsdbadvertisement'], name, value)
+                self._perform_setattr(OSPFMIB.OspfLocalLsdbTable.OspfLocalLsdbEntry, ['ospflocallsdbipaddress', 'ospflocallsdbaddresslessif', 'ospflocallsdbtype', 'ospflocallsdblsid', 'ospflocallsdbrouterid', 'ospflocallsdbsequence', 'ospflocallsdbage', 'ospflocallsdbchecksum', 'ospflocallsdbadvertisement'], name, value)
 
             class OspfLocalLsdbType(Enum):
                 """
@@ -3531,6 +3946,8 @@ class OSPFMIB(Entity):
 
 
 
+
+
     class OspfVirtLocalLsdbTable(Entity):
         """
         The OSPF Process's link\-local link state database
@@ -3547,6 +3964,8 @@ class OSPFMIB(Entity):
         
         	A single link state advertisement
         	**type**\: list of  		 :py:class:`OspfVirtLocalLsdbEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtLocalLsdbTable.OspfVirtLocalLsdbEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3586,6 +4005,8 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfvirtlocallsdbneighbor  (key)
             
             	The Router ID of the virtual neighbor
@@ -3593,10 +4014,14 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfvirtlocallsdbtype  (key)
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format
             	**type**\:  :py:class:`OspfVirtLocalLsdbType <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfVirtLocalLsdbTable.OspfVirtLocalLsdbEntry.OspfVirtLocalLsdbType>`
+            
+            	**config**\: False
             
             .. attribute:: ospfvirtlocallsdblsid  (key)
             
@@ -3605,12 +4030,16 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfvirtlocallsdbrouterid  (key)
             
             	The 32\-bit number that uniquely identifies the originating router in the Autonomous System
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: ospfvirtlocallsdbsequence
             
@@ -3619,12 +4048,16 @@ class OSPFMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ospfvirtlocallsdbage
             
             	This field is the age of the link state advertisement in seconds
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -3635,12 +4068,16 @@ class OSPFMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ospfvirtlocallsdbadvertisement
             
             	The entire link state advertisement, including its header
             	**type**\: str
             
             	**length:** 1..65535
+            
+            	**config**\: False
             
             
 
@@ -3683,7 +4120,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfVirtLocalLsdbTable.OspfVirtLocalLsdbEntry, [u'ospfvirtlocallsdbtransitarea', u'ospfvirtlocallsdbneighbor', u'ospfvirtlocallsdbtype', u'ospfvirtlocallsdblsid', u'ospfvirtlocallsdbrouterid', u'ospfvirtlocallsdbsequence', u'ospfvirtlocallsdbage', u'ospfvirtlocallsdbchecksum', u'ospfvirtlocallsdbadvertisement'], name, value)
+                self._perform_setattr(OSPFMIB.OspfVirtLocalLsdbTable.OspfVirtLocalLsdbEntry, ['ospfvirtlocallsdbtransitarea', 'ospfvirtlocallsdbneighbor', 'ospfvirtlocallsdbtype', 'ospfvirtlocallsdblsid', 'ospfvirtlocallsdbrouterid', 'ospfvirtlocallsdbsequence', 'ospfvirtlocallsdbage', 'ospfvirtlocallsdbchecksum', 'ospfvirtlocallsdbadvertisement'], name, value)
 
             class OspfVirtLocalLsdbType(Enum):
                 """
@@ -3700,6 +4137,8 @@ class OSPFMIB(Entity):
                 """
 
                 localOpaqueLink = Enum.YLeaf(9, "localOpaqueLink")
+
+
 
 
 
@@ -3720,6 +4159,8 @@ class OSPFMIB(Entity):
         
         	A single link state advertisement
         	**type**\: list of  		 :py:class:`OspfAsLsdbEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAsLsdbTable.OspfAsLsdbEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3757,12 +4198,16 @@ class OSPFMIB(Entity):
             	The type of the link state advertisement. Each link state type has a separate advertisement format
             	**type**\:  :py:class:`OspfAsLsdbType <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAsLsdbTable.OspfAsLsdbEntry.OspfAsLsdbType>`
             
+            	**config**\: False
+            
             .. attribute:: ospfaslsdblsid  (key)
             
             	The Link State ID is an LS Type Specific field containing either a Router ID or an IP address;  it identifies the piece of the routing domain that is being described by the advertisement
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: ospfaslsdbrouterid  (key)
             
@@ -3771,6 +4216,8 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfaslsdbsequence
             
             	The sequence number field is a signed 32\-bit integer.  It starts with the value '80000001'h, or \-'7FFFFFFF'h, and increments until '7FFFFFFF'h. Thus, a typical sequence number will be very negative. It is used to detect old and duplicate link state advertisements.  The space of sequence numbers is linearly ordered.  The larger the sequence number, the more recent the advertisement
@@ -3778,12 +4225,16 @@ class OSPFMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ospfaslsdbage
             
             	This field is the age of the link state advertisement in seconds
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -3794,12 +4245,16 @@ class OSPFMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ospfaslsdbadvertisement
             
             	The entire link state advertisement, including its header
             	**type**\: str
             
             	**length:** 1..65535
+            
+            	**config**\: False
             
             
 
@@ -3838,7 +4293,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfAsLsdbTable.OspfAsLsdbEntry, [u'ospfaslsdbtype', u'ospfaslsdblsid', u'ospfaslsdbrouterid', u'ospfaslsdbsequence', u'ospfaslsdbage', u'ospfaslsdbchecksum', u'ospfaslsdbadvertisement'], name, value)
+                self._perform_setattr(OSPFMIB.OspfAsLsdbTable.OspfAsLsdbEntry, ['ospfaslsdbtype', 'ospfaslsdblsid', 'ospfaslsdbrouterid', 'ospfaslsdbsequence', 'ospfaslsdbage', 'ospfaslsdbchecksum', 'ospfaslsdbadvertisement'], name, value)
 
             class OspfAsLsdbType(Enum):
                 """
@@ -3862,6 +4317,8 @@ class OSPFMIB(Entity):
 
 
 
+
+
     class OspfAreaLsaCountTable(Entity):
         """
         This table maintains per\-area, per\-LSA\-type counters
@@ -3870,6 +4327,8 @@ class OSPFMIB(Entity):
         
         	An entry with a number of link advertisements  of a given type for a given area
         	**type**\: list of  		 :py:class:`OspfAreaLsaCountEntry <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaLsaCountTable.OspfAreaLsaCountEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3911,10 +4370,14 @@ class OSPFMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ospfarealsacountlsatype  (key)
             
             	This entry LSA type
             	**type**\:  :py:class:`OspfAreaLsaCountLsaType <ydk.models.cisco_ios_xe.OSPF_MIB.OSPFMIB.OspfAreaLsaCountTable.OspfAreaLsaCountEntry.OspfAreaLsaCountLsaType>`
+            
+            	**config**\: False
             
             .. attribute:: ospfarealsacountnumber
             
@@ -3922,6 +4385,8 @@ class OSPFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -3952,7 +4417,7 @@ class OSPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(OSPFMIB.OspfAreaLsaCountTable.OspfAreaLsaCountEntry, [u'ospfarealsacountareaid', u'ospfarealsacountlsatype', u'ospfarealsacountnumber'], name, value)
+                self._perform_setattr(OSPFMIB.OspfAreaLsaCountTable.OspfAreaLsaCountEntry, ['ospfarealsacountareaid', 'ospfarealsacountlsatype', 'ospfarealsacountnumber'], name, value)
 
             class OspfAreaLsaCountLsaType(Enum):
                 """
@@ -3991,7 +4456,11 @@ class OSPFMIB(Entity):
                 areaOpaqueLink = Enum.YLeaf(10, "areaOpaqueLink")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = OSPFMIB()
         return self._top_entity
+
+
 

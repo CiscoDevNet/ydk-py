@@ -26,10 +26,14 @@ class TCPMIB(Entity):
     	
     	**type**\:  :py:class:`Tcp <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.Tcp>`
     
+    	**config**\: False
+    
     .. attribute:: tcpconntable
     
     	A table containing information about existing IPv4\-specific TCP connections or listeners.  This table has been deprecated in favor of the version neutral tcpConnectionTable
     	**type**\:  :py:class:`TcpConnTable <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.TcpConnTable>`
+    
+    	**config**\: False
     
     	**status**\: deprecated
     
@@ -38,10 +42,14 @@ class TCPMIB(Entity):
     	A table containing information about existing TCP connections.  Note that unlike earlier TCP MIBs, there is a separate table for connections in the LISTEN state
     	**type**\:  :py:class:`TcpConnectionTable <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.TcpConnectionTable>`
     
+    	**config**\: False
+    
     .. attribute:: tcplistenertable
     
     	A table containing information about TCP listeners.  A listening application can be represented in three possible ways\:  1. An application that is willing to accept both IPv4 and    IPv6 datagrams is represented by     a tcpListenerLocalAddressType of unknown (0) and    a tcpListenerLocalAddress of ''h (a zero\-length    octet\-string).  2. An application that is willing to accept only IPv4 or    IPv6 datagrams is represented by a    tcpListenerLocalAddressType of the appropriate address    type and a tcpListenerLocalAddress of '0.0.0.0' or '\:\:'    respectively.  3. An application that is listening for data destined    only to a specific IP address, but from any remote    system, is represented by a tcpListenerLocalAddressType    of an appropriate address type, with    tcpListenerLocalAddress as the specific local address.  NOTE\: The address type in this table represents the address type used for the communication, irrespective of the higher\-layer abstraction.  For example, an application using IPv6 'sockets' to communicate via IPv4 between \:\:ffff\:10.0.0.1 and \:\:ffff\:10.0.0.2 would use InetAddressType ipv4(1))
     	**type**\:  :py:class:`TcpListenerTable <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.TcpListenerTable>`
+    
+    	**config**\: False
     
     
 
@@ -93,12 +101,16 @@ class TCPMIB(Entity):
         	The algorithm used to determine the timeout value used for retransmitting unacknowledged octets
         	**type**\:  :py:class:`TcpRtoAlgorithm <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.Tcp.TcpRtoAlgorithm>`
         
+        	**config**\: False
+        
         .. attribute:: tcprtomin
         
         	The minimum value permitted by a TCP implementation for the retransmission timeout, measured in milliseconds. More refined semantics for objects of this type depend on the algorithm used to determine the retransmission timeout; in particular, the IETF standard algorithm rfc2988(5) provides a minimum value
         	**type**\: int
         
         	**range:** 0..2147483647
+        
+        	**config**\: False
         
         	**units**\: milliseconds
         
@@ -109,6 +121,8 @@ class TCPMIB(Entity):
         
         	**range:** 0..2147483647
         
+        	**config**\: False
+        
         	**units**\: milliseconds
         
         .. attribute:: tcpmaxconn
@@ -118,12 +132,16 @@ class TCPMIB(Entity):
         
         	**range:** \-1..2147483647
         
+        	**config**\: False
+        
         .. attribute:: tcpactiveopens
         
         	The number of times that TCP connections have made a direct transition to the SYN\-SENT state from the CLOSED state.  Discontinuities in the value of this counter are indicated via discontinuities in the value of sysUpTime
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: tcppassiveopens
         
@@ -132,12 +150,16 @@ class TCPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: tcpattemptfails
         
         	The number of times that TCP connections have made a direct transition to the CLOSED state from either the SYN\-SENT state or the SYN\-RCVD state, plus the number of times that TCP connections have made a direct transition to the LISTEN state from the SYN\-RCVD state.  Discontinuities in the value of this counter are indicated via discontinuities in the value of sysUpTime
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: tcpestabresets
         
@@ -146,12 +168,16 @@ class TCPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: tcpcurrestab
         
         	The number of TCP connections for which the current state is either ESTABLISHED or CLOSE\-WAIT
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: tcpinsegs
         
@@ -160,12 +186,16 @@ class TCPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: tcpoutsegs
         
         	The total number of segments sent, including those on current connections but excluding those containing only retransmitted octets.  Discontinuities in the value of this counter are indicated via discontinuities in the value of sysUpTime
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: tcpretranssegs
         
@@ -174,12 +204,16 @@ class TCPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: tcpinerrs
         
         	The total number of segments received in error (e.g., bad TCP checksums).  Discontinuities in the value of this counter are indicated via discontinuities in the value of sysUpTime
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: tcpoutrsts
         
@@ -188,6 +222,8 @@ class TCPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: tcphcinsegs
         
         	The total number of segments received, including those received in error.  This count includes segments received  on currently established connections.  This object is the 64\-bit equivalent of tcpInSegs.  Discontinuities in the value of this counter are indicated via discontinuities in the value of sysUpTime
@@ -195,12 +231,16 @@ class TCPMIB(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: tcphcoutsegs
         
         	The total number of segments sent, including those on current connections but excluding those containing only retransmitted octets.  This object is the 64\-bit equivalent of tcpOutSegs.  Discontinuities in the value of this counter are indicated via discontinuities in the value of sysUpTime
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         
 
@@ -291,6 +331,7 @@ class TCPMIB(Entity):
 
 
 
+
     class TcpConnTable(Entity):
         """
         A table containing information about existing IPv4\-specific
@@ -302,6 +343,8 @@ class TCPMIB(Entity):
         
         	A conceptual row of the tcpConnTable containing information about a particular current IPv4 TCP connection.  Each row of this table is transient in that it ceases to exist when (or soon after) the connection makes the transition to the CLOSED state
         	**type**\: list of  		 :py:class:`TcpConnEntry <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.TcpConnTable.TcpConnEntry>`
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -347,6 +390,8 @@ class TCPMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: tcpconnlocalport  (key)
@@ -355,6 +400,8 @@ class TCPMIB(Entity):
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -365,6 +412,8 @@ class TCPMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: tcpconnremport  (key)
@@ -374,12 +423,16 @@ class TCPMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: tcpconnstate
             
             	The state of this TCP connection.  The only value that may be set by a management station is deleteTCB(12).  Accordingly, it is appropriate for an agent to return a `badValue' response if a management station attempts to set this object to any other value.  If a management station sets this object to the value deleteTCB(12), then the TCB (as defined in [RFC793]) of the corresponding connection on the managed node is deleted, resulting in immediate termination of the connection.  As an implementation\-specific option, a RST segment may be sent from the managed node to the other TCP endpoint (note, however, that RST segments are not sent reliably)
             	**type**\:  :py:class:`TcpConnState <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.TcpConnTable.TcpConnEntry.TcpConnState>`
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -500,6 +553,8 @@ class TCPMIB(Entity):
 
 
 
+
+
     class TcpConnectionTable(Entity):
         """
         A table containing information about existing TCP
@@ -510,6 +565,8 @@ class TCPMIB(Entity):
         
         	A conceptual row of the tcpConnectionTable containing information about a particular current TCP connection. Each row of this table is transient in that it ceases to exist when (or soon after) the connection makes the transition to the CLOSED state
         	**type**\: list of  		 :py:class:`TcpConnectionEntry <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.TcpConnectionTable.TcpConnectionEntry>`
+        
+        	**config**\: False
         
         
 
@@ -551,12 +608,16 @@ class TCPMIB(Entity):
             	The address type of tcpConnectionLocalAddress
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
+            	**config**\: False
+            
             .. attribute:: tcpconnectionlocaladdress  (key)
             
             	The local IP address for this TCP connection.  The type of this address is determined by the value of tcpConnectionLocalAddressType.  As this object is used in the index for the tcpConnectionTable, implementors should be careful not to create entries that would result in OIDs with more than 128 subidentifiers; otherwise the information cannot be accessed by using SNMPv1, SNMPv2c, or SNMPv3
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: tcpconnectionlocalport  (key)
             
@@ -565,10 +626,14 @@ class TCPMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: tcpconnectionremaddresstype  (key)
             
             	The address type of tcpConnectionRemAddress
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: tcpconnectionremaddress  (key)
             
@@ -577,6 +642,8 @@ class TCPMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: tcpconnectionremport  (key)
             
             	The remote port number for this TCP connection
@@ -584,10 +651,14 @@ class TCPMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: tcpconnectionstate
             
             	The state of this TCP connection.  The value listen(2) is included only for parallelism to the old tcpConnTable and should not be used.  A connection in LISTEN state should be present in the tcpListenerTable.  The only value that may be set by a management station is deleteTCB(12).  Accordingly, it is appropriate for an agent to return a `badValue' response if a management station attempts to set this object to any other value.  If a management station sets this object to the value deleteTCB(12), then the TCB (as defined in [RFC793]) of the corresponding connection on the managed node is deleted, resulting in immediate termination of the connection.  As an implementation\-specific option, a RST segment may be sent from the managed node to the other TCP endpoint (note, however, that RST segments are not sent reliably)
             	**type**\:  :py:class:`TcpConnectionState <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.TcpConnectionTable.TcpConnectionEntry.TcpConnectionState>`
+            
+            	**config**\: False
             
             .. attribute:: tcpconnectionprocess
             
@@ -595,6 +666,8 @@ class TCPMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -725,6 +798,8 @@ class TCPMIB(Entity):
 
 
 
+
+
     class TcpListenerTable(Entity):
         """
         A table containing information about TCP listeners.  A
@@ -761,6 +836,8 @@ class TCPMIB(Entity):
         
         	A conceptual row of the tcpListenerTable containing information about a particular TCP listener
         	**type**\: list of  		 :py:class:`TcpListenerEntry <ydk.models.cisco_ios_xe.TCP_MIB.TCPMIB.TcpListenerTable.TcpListenerEntry>`
+        
+        	**config**\: False
         
         
 
@@ -799,12 +876,16 @@ class TCPMIB(Entity):
             	The address type of tcpListenerLocalAddress.  The value should be unknown (0) if connection initiations to all local IP addresses are accepted
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
+            	**config**\: False
+            
             .. attribute:: tcplistenerlocaladdress  (key)
             
             	The local IP address for this TCP connection.  The value of this object can be represented in three possible ways, depending on the characteristics of the listening application\:  1. For an application willing to accept both IPv4 and    IPv6 datagrams, the value of this object must be    ''h (a zero\-length octet\-string), with the value    of the corresponding tcpListenerLocalAddressType    object being unknown (0).  2. For an application willing to accept only IPv4 or    IPv6 datagrams, the value of this object must be    '0.0.0.0' or '\:\:' respectively, with    tcpListenerLocalAddressType representing the    appropriate address type.  3. For an application which is listening for data    destined only to a specific IP address, the value    of this object is the specific local address, with    tcpListenerLocalAddressType representing the    appropriate address type.  As this object is used in the index for the tcpListenerTable, implementors should be careful not to create entries that would result in OIDs with more than 128 subidentifiers; otherwise the information cannot be accessed, using SNMPv1, SNMPv2c, or SNMPv3
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: tcplistenerlocalport  (key)
             
@@ -813,12 +894,16 @@ class TCPMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: tcplistenerprocess
             
             	The system's process ID for the process associated with this listener, or zero if there is no such process.  This value is expected to be the same as HOST\-RESOURCES\-MIB\:\: hrSWRunIndex or SYSAPPL\-MIB\:\:sysApplElmtRunIndex for some row in the appropriate tables
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -853,7 +938,11 @@ class TCPMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(TCPMIB.TcpListenerTable.TcpListenerEntry, ['tcplistenerlocaladdresstype', 'tcplistenerlocaladdress', 'tcplistenerlocalport', 'tcplistenerprocess'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = TCPMIB()
         return self._top_entity
+
+
 

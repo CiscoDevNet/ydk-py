@@ -378,6 +378,8 @@ class TimingController(Entity):
     	List of nodes applicable to timing controller
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -415,6 +417,8 @@ class TimingController(Entity):
         
         	Syncc operational data for a single node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -454,20 +458,28 @@ class TimingController(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	Syncc state for a node
             	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.State>`
+            
+            	**config**\: False
             
             .. attribute:: clock
             
             	Syncc clock information for a node
             	**type**\:  :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.Clock>`
             
+            	**config**\: False
+            
             .. attribute:: timing_source
             
             	Syncc timing information for a node
             	**type**\:  :py:class:`TimingSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.TimingSource>`
+            
+            	**config**\: False
             
             
 
@@ -518,6 +530,8 @@ class TimingController(Entity):
                 	List of syncc states
                 	**type**\: list of  		 :py:class:`SynccInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.State.SynccInstance>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -553,10 +567,14 @@ class TimingController(Entity):
                     	Syncc controller state
                     	**type**\:  :py:class:`SynccStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.SynccStates>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: syncc_node_state
                     
                     	Status of syncc node mode
                     	**type**\:  :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.NodeState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: verbose_level
                     
@@ -565,12 +583,16 @@ class TimingController(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: initial_count
                     
                     	Initial count number
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: shutdown_count
                     
@@ -579,12 +601,16 @@ class TimingController(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: set_input_count
                     
                     	Set the value of input count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: set_capability_count
                     
@@ -593,12 +619,16 @@ class TimingController(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: get_clock_count
                     
                     	Clock count number
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: set_clock_out_count
                     
@@ -607,12 +637,16 @@ class TimingController(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: sync_enable_count
                     
                     	Sync enable count number
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: sync_disable_count
                     
@@ -621,12 +655,16 @@ class TimingController(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: capability_count
                     
                     	Interface capability count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: set_quality_level_count
                     
@@ -635,12 +673,16 @@ class TimingController(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_notification
                     
                     	Selects proper input result notification
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: capability_notification
                     
@@ -649,6 +691,8 @@ class TimingController(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: status_notification
                     
                     	Notification of source status
@@ -656,12 +700,16 @@ class TimingController(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: resync_notification
                     
                     	Value of resync notification
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -719,7 +767,9 @@ class TimingController(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TimingController.Nodes.Node.State.SynccInstance, [u'controller_state', u'syncc_node_state', u'verbose_level', u'initial_count', u'shutdown_count', u'set_input_count', u'set_capability_count', u'get_clock_count', u'set_clock_out_count', u'sync_enable_count', u'sync_disable_count', u'capability_count', u'set_quality_level_count', u'input_notification', u'capability_notification', u'status_notification', u'resync_notification'], name, value)
+                        self._perform_setattr(TimingController.Nodes.Node.State.SynccInstance, ['controller_state', 'syncc_node_state', 'verbose_level', 'initial_count', 'shutdown_count', 'set_input_count', 'set_capability_count', 'get_clock_count', 'set_clock_out_count', 'sync_enable_count', 'sync_disable_count', 'capability_count', 'set_quality_level_count', 'input_notification', 'capability_notification', 'status_notification', 'resync_notification'], name, value)
+
+
 
 
             class Clock(Entity):
@@ -730,6 +780,8 @@ class TimingController(Entity):
                 
                 	List of syncc clock information 
                 	**type**\: list of  		 :py:class:`SynccInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.Clock.SynccInstance>`
+                
+                	**config**\: False
                 
                 
 
@@ -766,6 +818,8 @@ class TimingController(Entity):
                     	Clock table for an RP
                     	**type**\: list of  		 :py:class:`Clock_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.Clock.SynccInstance.Clock_>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -801,80 +855,112 @@ class TimingController(Entity):
                         	True if clock is configured for port 0
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_configured_port1
                         
                         	True if clock is configured for port 1
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_configured_port2
                         
                         	True if clock is configured for port 2
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_configured_port3
                         
                         	True if clock is configured for port 3
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: mode_port0
                         
                         	Clock setting mode for port 0
                         	**type**\:  :py:class:`ClockModes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.ClockModes>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: mode_port1
                         
                         	Clock setting mode for port 1
                         	**type**\:  :py:class:`ClockModes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.ClockModes>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: mode_port2
                         
                         	Clock setting mode for port 2
                         	**type**\:  :py:class:`ClockModes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.ClockModes>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: mode_port3
                         
                         	Clock setting mode for port 3
                         	**type**\:  :py:class:`ClockModes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.ClockModes>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: submode1_port0
                         
                         	First submode for port 0
                         	**type**\:  :py:class:`Smode1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode1>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: submode1_port1
                         
                         	First submode for port 1
                         	**type**\:  :py:class:`Smode1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode1>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: submode1_port2
                         
                         	First submode for port 2
                         	**type**\:  :py:class:`Smode1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode1>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: submode1_port3
                         
                         	First submode for port 3
                         	**type**\:  :py:class:`Smode1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode1>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: submode2_port0
                         
                         	Second submode for port 0
                         	**type**\:  :py:class:`Smode2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode2>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: submode2_port1
                         
                         	Second submode for port 1
                         	**type**\:  :py:class:`Smode2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode2>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: submode2_port2
                         
                         	Second submode for port 2
                         	**type**\:  :py:class:`Smode2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode2>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: submode2_port3
                         
                         	Second submode for port 3
                         	**type**\:  :py:class:`Smode2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Smode2>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: submode3_port0
                         
@@ -883,12 +969,16 @@ class TimingController(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: submode3_port1
                         
                         	Third submode for port 1
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: submode3_port2
                         
@@ -897,12 +987,16 @@ class TimingController(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: submode3_port3
                         
                         	Third submode for port 3
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: shutdown_port0
                         
@@ -911,12 +1005,16 @@ class TimingController(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: shutdown_port1
                         
                         	Configure disable value for port 1
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: shutdown_port2
                         
@@ -925,6 +1023,8 @@ class TimingController(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: shutdown_port3
                         
                         	Configure disable value for port 3
@@ -932,25 +1032,35 @@ class TimingController(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: direction_port0
                         
                         	Direction of interface for port 0
                         	**type**\:  :py:class:`Direct <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Direct>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: direction_port1
                         
                         	Direction of interface for port 1
                         	**type**\:  :py:class:`Direct <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Direct>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: direction_port2
                         
                         	Direction of interface for port 2
                         	**type**\:  :py:class:`Direct <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Direct>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: direction_port3
                         
                         	Direction of interface for port 3
                         	**type**\:  :py:class:`Direct <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Direct>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: baudrate_port0
                         
@@ -959,12 +1069,16 @@ class TimingController(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: baudrate_port1
                         
                         	Baudrate for port 1
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: baudrate_port2
                         
@@ -973,6 +1087,8 @@ class TimingController(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: baudrate_port3
                         
                         	Baudrate for port 3
@@ -980,25 +1096,35 @@ class TimingController(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: quality_option_port0
                         
                         	Quality Level option of port 0
                         	**type**\:  :py:class:`QlOption1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.QlOption1>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: quality_option_port1
                         
                         	Quality Level option of the port 1
                         	**type**\:  :py:class:`QlOption1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.QlOption1>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: quality_option_port2
                         
                         	Quality Level option of the port 2
                         	**type**\:  :py:class:`QlOption1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.QlOption1>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: quality_option_port3
                         
                         	Quality Level option of the port 3
                         	**type**\:  :py:class:`QlOption1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.QlOption1>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: transmit_ssm_port0
                         
@@ -1007,12 +1133,16 @@ class TimingController(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: transmit_ssm_port1
                         
                         	Transmit SSM for port 1
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: transmit_ssm_port2
                         
@@ -1021,12 +1151,16 @@ class TimingController(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: transmit_ssm_port3
                         
                         	Transmit SSM for port 3
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: recieve_ssm_port0
                         
@@ -1035,12 +1169,16 @@ class TimingController(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: recieve_ssm_port1
                         
                         	Receive SSM for port 1
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: recieve_ssm_port2
                         
@@ -1049,6 +1187,8 @@ class TimingController(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: recieve_ssm_port3
                         
                         	Receive SSM for port 3
@@ -1056,25 +1196,35 @@ class TimingController(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: interface_state_port0
                         
                         	Interface state for port 0
                         	**type**\:  :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.InterfaceState>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: interface_state_port1
                         
                         	Interface state for port 1
                         	**type**\:  :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.InterfaceState>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: interface_state_port2
                         
                         	Interface state for port 2
                         	**type**\:  :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.InterfaceState>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: interface_state_port3
                         
                         	Interface state for port 3
                         	**type**\:  :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.InterfaceState>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1194,7 +1344,10 @@ class TimingController(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TimingController.Nodes.Node.Clock.SynccInstance.Clock_, [u'is_configured_port0', u'is_configured_port1', u'is_configured_port2', u'is_configured_port3', u'mode_port0', u'mode_port1', u'mode_port2', u'mode_port3', u'submode1_port0', u'submode1_port1', u'submode1_port2', u'submode1_port3', u'submode2_port0', u'submode2_port1', u'submode2_port2', u'submode2_port3', u'submode3_port0', u'submode3_port1', u'submode3_port2', u'submode3_port3', u'shutdown_port0', u'shutdown_port1', u'shutdown_port2', u'shutdown_port3', u'direction_port0', u'direction_port1', u'direction_port2', u'direction_port3', u'baudrate_port0', u'baudrate_port1', u'baudrate_port2', u'baudrate_port3', u'quality_option_port0', u'quality_option_port1', u'quality_option_port2', u'quality_option_port3', u'transmit_ssm_port0', u'transmit_ssm_port1', u'transmit_ssm_port2', u'transmit_ssm_port3', u'recieve_ssm_port0', u'recieve_ssm_port1', u'recieve_ssm_port2', u'recieve_ssm_port3', u'interface_state_port0', u'interface_state_port1', u'interface_state_port2', u'interface_state_port3'], name, value)
+                            self._perform_setattr(TimingController.Nodes.Node.Clock.SynccInstance.Clock_, ['is_configured_port0', 'is_configured_port1', 'is_configured_port2', 'is_configured_port3', 'mode_port0', 'mode_port1', 'mode_port2', 'mode_port3', 'submode1_port0', 'submode1_port1', 'submode1_port2', 'submode1_port3', 'submode2_port0', 'submode2_port1', 'submode2_port2', 'submode2_port3', 'submode3_port0', 'submode3_port1', 'submode3_port2', 'submode3_port3', 'shutdown_port0', 'shutdown_port1', 'shutdown_port2', 'shutdown_port3', 'direction_port0', 'direction_port1', 'direction_port2', 'direction_port3', 'baudrate_port0', 'baudrate_port1', 'baudrate_port2', 'baudrate_port3', 'quality_option_port0', 'quality_option_port1', 'quality_option_port2', 'quality_option_port3', 'transmit_ssm_port0', 'transmit_ssm_port1', 'transmit_ssm_port2', 'transmit_ssm_port3', 'recieve_ssm_port0', 'recieve_ssm_port1', 'recieve_ssm_port2', 'recieve_ssm_port3', 'interface_state_port0', 'interface_state_port1', 'interface_state_port2', 'interface_state_port3'], name, value)
+
+
+
 
 
             class TimingSource(Entity):
@@ -1205,6 +1358,8 @@ class TimingController(Entity):
                 
                 	List of syncc timing table information
                 	**type**\: list of  		 :py:class:`SynccInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.TimingSource.SynccInstance>`
+                
+                	**config**\: False
                 
                 
 
@@ -1241,15 +1396,21 @@ class TimingController(Entity):
                     	Scheduling PLL T0 
                     	**type**\: list of  		 :py:class:`TimingStatusT0 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatusT0>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: timing_status_t4
                     
                     	Scheduling PLL T4 
                     	**type**\: list of  		 :py:class:`TimingStatusT4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatusT4>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: timing_status1588
                     
                     	Scheduling PLL 1588 
                     	**type**\: list of  		 :py:class:`TimingStatus1588 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatus1588>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1290,12 +1451,16 @@ class TimingController(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: slot
                         
                         	Slot number
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: port
                         
@@ -1304,10 +1469,14 @@ class TimingController(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: clock_source
                         
                         	Status of syncc source type
                         	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Source>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: rank
                         
@@ -1316,12 +1485,16 @@ class TimingController(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: quality_level_option
                         
                         	Quality level option
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: quality_level_value
                         
@@ -1330,6 +1503,8 @@ class TimingController(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: user_priority
                         
                         	User priority of sync timing source table
@@ -1337,15 +1512,21 @@ class TimingController(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: clock_state
                         
                         	Status of clock state
                         	**type**\:  :py:class:`SourceStateName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.SourceStateName>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_select
                         
                         	True if selected
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -1389,7 +1570,8 @@ class TimingController(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatusT0, [u'input', u'slot', u'port', u'clock_source', u'rank', u'quality_level_option', u'quality_level_value', u'user_priority', u'clock_state', u'is_select'], name, value)
+                            self._perform_setattr(TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatusT0, ['input', 'slot', 'port', 'clock_source', 'rank', 'quality_level_option', 'quality_level_value', 'user_priority', 'clock_state', 'is_select'], name, value)
+
 
 
                     class TimingStatusT4(Entity):
@@ -1403,12 +1585,16 @@ class TimingController(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: slot
                         
                         	Slot number
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: port
                         
@@ -1417,10 +1603,14 @@ class TimingController(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: clock_source
                         
                         	Status of syncc source type
                         	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Source>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: rank
                         
@@ -1429,12 +1619,16 @@ class TimingController(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: quality_level_option
                         
                         	Quality level option
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: quality_level_value
                         
@@ -1443,6 +1637,8 @@ class TimingController(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: user_priority
                         
                         	User priority of sync timing source table
@@ -1450,15 +1646,21 @@ class TimingController(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: clock_state
                         
                         	Status of clock state
                         	**type**\:  :py:class:`SourceStateName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.SourceStateName>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_select
                         
                         	True if selected
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -1502,7 +1704,8 @@ class TimingController(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatusT4, [u'input', u'slot', u'port', u'clock_source', u'rank', u'quality_level_option', u'quality_level_value', u'user_priority', u'clock_state', u'is_select'], name, value)
+                            self._perform_setattr(TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatusT4, ['input', 'slot', 'port', 'clock_source', 'rank', 'quality_level_option', 'quality_level_value', 'user_priority', 'clock_state', 'is_select'], name, value)
+
 
 
                     class TimingStatus1588(Entity):
@@ -1516,12 +1719,16 @@ class TimingController(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: slot
                         
                         	Slot number
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: port
                         
@@ -1530,10 +1737,14 @@ class TimingController(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: clock_source
                         
                         	Status of syncc source type
                         	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.Source>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: rank
                         
@@ -1542,12 +1753,16 @@ class TimingController(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: quality_level_option
                         
                         	Quality level option
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: quality_level_value
                         
@@ -1556,6 +1771,8 @@ class TimingController(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: user_priority
                         
                         	User priority of sync timing source table
@@ -1563,15 +1780,21 @@ class TimingController(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: clock_state
                         
                         	Status of clock state
                         	**type**\:  :py:class:`SourceStateName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper.SourceStateName>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_select
                         
                         	True if selected
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -1615,9 +1838,16 @@ class TimingController(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatus1588, [u'input', u'slot', u'port', u'clock_source', u'rank', u'quality_level_option', u'quality_level_value', u'user_priority', u'clock_state', u'is_select'], name, value)
+                            self._perform_setattr(TimingController.Nodes.Node.TimingSource.SynccInstance.TimingStatus1588, ['input', 'slot', 'port', 'clock_source', 'rank', 'quality_level_option', 'quality_level_value', 'user_priority', 'clock_state', 'is_select'], name, value)
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = TimingController()
         return self._top_entity
+
+
 

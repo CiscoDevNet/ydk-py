@@ -62,6 +62,7 @@ class CustomStream(Stream):
         super(CustomStream, self).__init__(ns, pref, tag)
 
 
+
 class YangPush(Stream):
     """
     A conceptual datastream consisting of all datastore
@@ -76,6 +77,7 @@ class YangPush(Stream):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-yang-push", pref="ietf-yang-push", tag="ietf-yang-push:yang-push"):
         super(YangPush, self).__init__(ns, pref, tag)
+
 
 
 class ErrorDataNotAuthorized(Error):
@@ -93,6 +95,7 @@ class ErrorDataNotAuthorized(Error):
         super(ErrorDataNotAuthorized, self).__init__(ns, pref, tag)
 
 
+
 class Http2(Transport):
     """
     HTTP2 notifications as a transport
@@ -106,5 +109,6 @@ class Http2(Transport):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-yang-push", pref="ietf-yang-push", tag="ietf-yang-push:http2"):
         super(Http2, self).__init__(ns, pref, tag)
+
 
 

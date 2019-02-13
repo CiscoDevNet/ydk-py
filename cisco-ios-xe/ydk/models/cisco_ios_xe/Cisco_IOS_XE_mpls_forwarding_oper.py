@@ -172,10 +172,14 @@ class MplsForwardingOperData(Entity):
     	Local label information
     	**type**\: list of  		 :py:class:`MplsLocalLabel <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_forwarding_oper.MplsForwardingOperData.MplsLocalLabel>`
     
+    	**config**\: False
+    
     .. attribute:: mpls_local_label_statistics
     
     	Statistics for forwarding paths of the local labels
     	**type**\: list of  		 :py:class:`MplsLocalLabelStatistics <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_forwarding_oper.MplsForwardingOperData.MplsLocalLabelStatistics>`
+    
+    	**config**\: False
     
     
 
@@ -216,15 +220,21 @@ class MplsForwardingOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: connection_information
         
         	Connection information for the local label
         	**type**\:  :py:class:`ConnectionInformation <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_forwarding_oper.MplsForwardingOperData.MplsLocalLabel.ConnectionInformation>`
         
+        	**config**\: False
+        
         .. attribute:: forwarding_paths
         
         	ECMP paths for the local label
         	**type**\: list of  		 :py:class:`ForwardingPaths <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_forwarding_oper.MplsForwardingOperData.MplsLocalLabel.ForwardingPaths>`
+        
+        	**config**\: False
         
         
 
@@ -269,6 +279,8 @@ class MplsForwardingOperData(Entity):
             	Connection information string
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: ip_prefix
             
             	IP prefix for the connection
@@ -281,6 +293,8 @@ class MplsForwardingOperData(Entity):
             		**type**\: str
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+            
+            	**config**\: False
             
             
 
@@ -311,6 +325,7 @@ class MplsForwardingOperData(Entity):
                 self._perform_setattr(MplsForwardingOperData.MplsLocalLabel.ConnectionInformation, ['info_str', 'ip_prefix'], name, value)
 
 
+
         class ForwardingPaths(Entity):
             """
             ECMP paths for the local label
@@ -320,15 +335,21 @@ class MplsForwardingOperData(Entity):
             	Outgoing interface information
             	**type**\:  :py:class:`OutgoingInterface <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_forwarding_oper.MplsForwardingOperData.MplsLocalLabel.ForwardingPaths.OutgoingInterface>`
             
+            	**config**\: False
+            
             .. attribute:: outgoing_label
             
             	Outgoing label information
             	**type**\:  :py:class:`OutgoingLabel <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_forwarding_oper.MplsForwardingOperData.MplsLocalLabel.ForwardingPaths.OutgoingLabel>`
             
+            	**config**\: False
+            
             .. attribute:: next_hop
             
             	Next hop information
             	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_forwarding_oper.MplsForwardingOperData.MplsLocalLabel.ForwardingPaths.NextHop>`
+            
+            	**config**\: False
             
             
 
@@ -375,10 +396,14 @@ class MplsForwardingOperData(Entity):
                 	Outgoing interface type
                 	**type**\:  :py:class:`OutgoingInterfaceType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_forwarding_oper.OutgoingInterfaceType>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_value
                 
                 	Outgoing interface value
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -409,6 +434,7 @@ class MplsForwardingOperData(Entity):
                     self._perform_setattr(MplsForwardingOperData.MplsLocalLabel.ForwardingPaths.OutgoingInterface, ['interface_type', 'interface_value'], name, value)
 
 
+
             class OutgoingLabel(Entity):
                 """
                 Outgoing label information
@@ -418,12 +444,16 @@ class MplsForwardingOperData(Entity):
                 	True if a label is not present
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: pop_label
                 
                 	Pop label value
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: ipv4_explicit_null
                 
@@ -432,12 +462,16 @@ class MplsForwardingOperData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ipv6_explicit_null
                 
                 	IPv6 explicit null label value
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: regular_label
                 
@@ -446,10 +480,14 @@ class MplsForwardingOperData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: invalid_label
                 
                 	True if a label with a value that is outside IETF acceptable label range is present
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -488,6 +526,7 @@ class MplsForwardingOperData(Entity):
                     self._perform_setattr(MplsForwardingOperData.MplsLocalLabel.ForwardingPaths.OutgoingLabel, ['no_label', 'pop_label', 'ipv4_explicit_null', 'ipv6_explicit_null', 'regular_label', 'invalid_label'], name, value)
 
 
+
             class NextHop(Entity):
                 """
                 Next hop information
@@ -496,6 +535,8 @@ class MplsForwardingOperData(Entity):
                 
                 	True if next hop is via a p2p link
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ip_address
                 
@@ -509,6 +550,8 @@ class MplsForwardingOperData(Entity):
                 		**type**\: str
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 
 
@@ -539,6 +582,9 @@ class MplsForwardingOperData(Entity):
                     self._perform_setattr(MplsForwardingOperData.MplsLocalLabel.ForwardingPaths.NextHop, ['p2p', 'ip_address'], name, value)
 
 
+
+
+
     class MplsLocalLabelStatistics(Entity):
         """
         Statistics for forwarding paths of the local labels
@@ -550,12 +596,16 @@ class MplsForwardingOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: forwarding_path_index  (key)
         
         	Path index among ECMP paths for the same local label
         	**type**\: int
         
         	**range:** 0..255
+        
+        	**config**\: False
         
         .. attribute:: label_switched_bytes
         
@@ -564,12 +614,16 @@ class MplsForwardingOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: label_switched_packets
         
         	Number of packets switched to a particular ECMP path
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         
 
@@ -604,7 +658,10 @@ class MplsForwardingOperData(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(MplsForwardingOperData.MplsLocalLabelStatistics, ['local_label', 'forwarding_path_index', 'label_switched_bytes', 'label_switched_packets'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = MplsForwardingOperData()
         return self._top_entity
+
+
 

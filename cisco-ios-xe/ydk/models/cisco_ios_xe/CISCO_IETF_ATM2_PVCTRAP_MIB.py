@@ -23,6 +23,8 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
     	A table indicating all VCLs for which there is an active row in the atmVclTable having an atmVclConnKind value of `pvc' and an atmVclOperStatus with a value other than `up'
     	**type**\:  :py:class:`AtmCurrentlyFailingPVclTable <ydk.models.cisco_ios_xe.CISCO_IETF_ATM2_PVCTRAP_MIB.CISCOIETFATM2PVCTRAPMIB.AtmCurrentlyFailingPVclTable>`
     
+    	**config**\: False
+    
     
 
     """
@@ -63,6 +65,8 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
         
         	Each entry in this table represents a VCL for which the atmVclRowStatus is `active', the atmVclConnKind is `pvc', and the atmVclOperStatus is other than `up'
         	**type**\: list of  		 :py:class:`AtmCurrentlyFailingPVclEntry <ydk.models.cisco_ios_xe.CISCO_IETF_ATM2_PVCTRAP_MIB.CISCOIETFATM2PVCTRAPMIB.AtmCurrentlyFailingPVclTable.AtmCurrentlyFailingPVclEntry>`
+        
+        	**config**\: False
         
         
 
@@ -106,6 +110,8 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: atmvclvpi  (key)
             
             	
@@ -114,6 +120,8 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
             	**range:** 0..4095
             
             	**refers to**\:  :py:class:`atmvclvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
+            
+            	**config**\: False
             
             .. attribute:: atmvclvci  (key)
             
@@ -124,6 +132,8 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
             
             	**refers to**\:  :py:class:`atmvclvci <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
             
+            	**config**\: False
+            
             .. attribute:: atmcurrentlyfailingpvcltimestamp
             
             	The time at which this PVCL began to fail
@@ -131,12 +141,16 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: atmpreviouslyfailedpvcltimestamp
             
             	The time at which this PVCL began to fail during the PVC Notification interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -173,7 +187,11 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFATM2PVCTRAPMIB.AtmCurrentlyFailingPVclTable.AtmCurrentlyFailingPVclEntry, [u'ifindex', u'atmvclvpi', u'atmvclvci', u'atmcurrentlyfailingpvcltimestamp', u'atmpreviouslyfailedpvcltimestamp'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOIETFATM2PVCTRAPMIB()
         return self._top_entity
+
+
 

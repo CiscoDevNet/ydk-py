@@ -29,15 +29,21 @@ class CISCOAAASESSIONMIB(Entity):
     	
     	**type**\:  :py:class:`CasnActive <ydk.models.cisco_ios_xe.CISCO_AAA_SESSION_MIB.CISCOAAASESSIONMIB.CasnActive>`
     
+    	**config**\: False
+    
     .. attribute:: casngeneral
     
     	
     	**type**\:  :py:class:`CasnGeneral <ydk.models.cisco_ios_xe.CISCO_AAA_SESSION_MIB.CISCOAAASESSIONMIB.CasnGeneral>`
     
+    	**config**\: False
+    
     .. attribute:: casnactivetable
     
     	This table contains entries for active AAA accounting sessions in the system
     	**type**\:  :py:class:`CasnActiveTable <ydk.models.cisco_ios_xe.CISCO_AAA_SESSION_MIB.CISCOAAASESSIONMIB.CasnActiveTable>`
+    
+    	**config**\: False
     
     
 
@@ -87,12 +93,16 @@ class CISCOAAASESSIONMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: casnactivetablehighwatermark
         
         	Maximum number of entries present in casnActiveTable since last system re\-initialization.  This corresponds to the maximum value reported by casnActiveTableEntries
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -124,6 +134,7 @@ class CISCOAAASESSIONMIB(Entity):
             self._perform_setattr(CISCOAAASESSIONMIB.CasnActive, ['casnactivetableentries', 'casnactivetablehighwatermark'], name, value)
 
 
+
     class CasnGeneral(Entity):
         """
         
@@ -135,12 +146,16 @@ class CISCOAAASESSIONMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: casndisconnectedsessions
         
         	Total number of sessions which have been disconnected using casnDisconnect since last system re\-initialization.  This value includes any sessions still in the casnActiveTable with a casnDisconnect value of true(1) and all previous sessions which terminated as a result of setting casnDisconnect
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -172,6 +187,7 @@ class CISCOAAASESSIONMIB(Entity):
             self._perform_setattr(CISCOAAASESSIONMIB.CasnGeneral, ['casntotalsessions', 'casndisconnectedsessions'], name, value)
 
 
+
     class CasnActiveTable(Entity):
         """
         This table contains entries for active AAA accounting
@@ -181,6 +197,8 @@ class CISCOAAASESSIONMIB(Entity):
         
         	The information regarding a single accounting session.  Entries are created when a new accounting session is begun.  Entries are removed when the accounting session is ended.  Initiating termination of a session with the object casnDisconnect will cause removal of the entry when the session completes termination
         	**type**\: list of  		 :py:class:`CasnActiveEntry <ydk.models.cisco_ios_xe.CISCO_AAA_SESSION_MIB.CISCOAAASESSIONMIB.CasnActiveTable.CasnActiveEntry>`
+        
+        	**config**\: False
         
         
 
@@ -230,12 +248,16 @@ class CISCOAAASESSIONMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: casnuserid
             
             	The User login ID or zero length string if unavailable.  The value of this object corresponds to these accounting protocol attributes.    RADIUS\:  attribute 1, User\-Name    TACACS+\: attribute 'user'
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: casnipaddr
             
@@ -244,12 +266,16 @@ class CISCOAAASESSIONMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: casnidletime
             
             	The elapsed time that this session has been idle.  This is the time since the last user\-level data has been received or transmitted. Protocol level handshaking associated with the call is considered to be idle for this object
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -258,12 +284,16 @@ class CISCOAAASESSIONMIB(Entity):
             	This object is used to terminate this session.  Setting the value to true(1) will initiate termination of this session.  The entry will be removed once the session has completed termination.  Once this object has been set to true(1), the session termination process can not be cancelled by setting the value false(2)
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: casncalltrackerid
             
             	The value of this object is the entry index in the CISCO\-CALL\-TRACKER\-MIB cctActiveTable of the call corresponding to this accounting session.  Using the value of this object to query the cctActiveTable will provide more detailed data regarding the session represented by this casnActiveEntry
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: casnnasport
             
@@ -272,12 +302,16 @@ class CISCOAAASESSIONMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: casnvaiifindex
             
             	The ifIndex of the Virtual Access Interface (VAI) that is associated with the PPP session.  This interface may not be represented in the IF\-MIB in which case the value of this object will be zero
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             
 
@@ -320,7 +354,11 @@ class CISCOAAASESSIONMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOAAASESSIONMIB.CasnActiveTable.CasnActiveEntry, ['casnsessionid', 'casnuserid', 'casnipaddr', 'casnidletime', 'casndisconnect', 'casncalltrackerid', 'casnnasport', 'casnvaiifindex'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOAAASESSIONMIB()
         return self._top_entity
+
+
 

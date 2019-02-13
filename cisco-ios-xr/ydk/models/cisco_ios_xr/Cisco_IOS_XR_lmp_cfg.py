@@ -351,6 +351,10 @@ class Lmp(Entity):
                             self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.Routed, ['enable'], name, value)
 
 
+
+
+
+
         class RouterId(Entity):
             """
             Local GMPLS UNI router ID
@@ -400,6 +404,7 @@ class Lmp(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lmp.GmplsUni.RouterId, ['interface_name', 'address'], name, value)
+
 
 
         class Controllers(Entity):
@@ -554,6 +559,7 @@ class Lmp(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Lmp.GmplsUni.Controllers.Controller.LocalLinkId, ['address_type', 'unnumbered', 'address'], name, value)
+
 
 
                 class Adjacency(Entity):
@@ -721,6 +727,7 @@ class Lmp(Entity):
                                 self._perform_setattr(Lmp.GmplsUni.Controllers.Controller.Adjacency.RemoteNeighbor.InterfaceId, ['address_type', 'unnumbered', 'address'], name, value)
 
 
+
                         class LinkId(Entity):
                             """
                             Neighbor Link ID configuration
@@ -774,7 +781,15 @@ class Lmp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Lmp.GmplsUni.Controllers.Controller.Adjacency.RemoteNeighbor.LinkId, ['address_type', 'unnumbered', 'address'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Lmp()
         return self._top_entity
+
+
 

@@ -91,55 +91,77 @@ class DOCSQOSMIB(Entity):
     	This table describes the packet classification configured on the CM or CMTS.   The model is that a packet either received as input from an interface or transmitted  for output on an interface may be compared  against an ordered list of rules pertaining to the packet contents. Each rule is a row of this table. A matching rule provides a service flow id to to which the packet is classified.  All rules need to match for a packet to match  a classifier.   The objects in this row correspond to a set of Classifier Encoding parameters in a DOCSIS MAC management message. The docsQosPktClassBitMap indicates which particular parameters were present in the classifier as signalled in the DOCSIS message. If the referenced parameter was not present in the signalled DOCSIS 1.1 Classifier, the corresponding object in this row reports a  value as specified in the DESCRIPTION section
     	**type**\:  :py:class:`DocsQosPktClassTable <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosPktClassTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsqosparamsettable
     
     	This table describes the set of DOCSIS 1.1 QOS  parameters defined in a managed device.  The ifIndex index specifies a DOCSIS MAC Domain. The docsQosServiceFlowId index specifies a particular Service Flow.  The docsQosParamSetType index indicates whether the active, admitted, or provisioned QOS Parameter  Set is being described by the row.  Only the QOS Parameter Sets of Docsis 1.1 service flows are represented in this table.  Docsis 1.0 QOS service profiles are not represented in this table.  Each row corresponds to a DOCSIS QOS Parameter Set as signaled via DOCSIS MAC management messages. Each object in the row corresponds to one or  part of one DOCSIS 1.1 Service Flow Encoding. The docsQosParamSetBitMap object in the row indicates which particular parameters were signalled in  the original registration or dynamic service request message that created the QOS Parameter Set.  In many cases, even if a QOS Parameter Set parameter was not signalled, the DOCSIS specification calls for a default value to be used. That default value is reported as the value of the corresponding object in this row.  Many objects are not applicable depending on the service flow direction or upstream scheduling type.  The object value reported in this case is specified in the DESCRIPTION clause
     	**type**\:  :py:class:`DocsQosParamSetTable <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosParamSetTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsqosserviceflowtable
     
     	This table describes the set of Docsis\-QOS  Service Flows in a managed device. 
     	**type**\:  :py:class:`DocsQosServiceFlowTable <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosServiceFlowTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsqosserviceflowstatstable
     
     	This table describes statistics associated with the   Service Flows in a managed device. 
     	**type**\:  :py:class:`DocsQosServiceFlowStatsTable <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosServiceFlowStatsTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsqosupstreamstatstable
     
     	This table describes statistics associated with   upstream service flows. All counted frames must  be received without an FCS error
     	**type**\:  :py:class:`DocsQosUpstreamStatsTable <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosUpstreamStatsTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsqosdynamicservicestatstable
     
     	This table describes statistics associated with the   Dynamic Service Flows in a managed device. 
     	**type**\:  :py:class:`DocsQosDynamicServiceStatsTable <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosDynamicServiceStatsTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsqosserviceflowlogtable
     
     	This table contains a log of the disconnected Service Flows in a managed device
     	**type**\:  :py:class:`DocsQosServiceFlowLogTable <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosServiceFlowLogTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsqosserviceclasstable
     
     	This table describes the set of Docsis\-QOS  Service Classes in a CMTS. 
     	**type**\:  :py:class:`DocsQosServiceClassTable <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosServiceClassTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsqosserviceclasspolicytable
     
     	This table describes the set of Docsis\-QOS  Service Class Policies.    This table is an adjunct to the docsDevFilterPolicy table.  Entries in  docsDevFilterPolicy table can  point to  specific rows in this table.  This table permits mapping a packet to a service class name of an active service flow so long as  a classifier does not exist at a higher priority
     	**type**\:  :py:class:`DocsQosServiceClassPolicyTable <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosServiceClassPolicyTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsqosphstable
     
     	This table describes set of payload header suppression entries
     	**type**\:  :py:class:`DocsQosPHSTable <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosPHSTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsqoscmtsmactosrvflowtable
     
     	This table provide for referencing the service flows  associated with a particular cable modem. This allows  for indexing into other docsQos tables that are  indexed by docsQosServiceFlowId and ifIndex
     	**type**\:  :py:class:`DocsQosCmtsMacToSrvFlowTable <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosCmtsMacToSrvFlowTable>`
+    
+    	**config**\: False
     
     
 
@@ -239,6 +261,8 @@ class DOCSQOSMIB(Entity):
         	An entry in this table provides a single packet classifier rule. The index ifIndex is an ifType of docsCableMaclayer(127)
         	**type**\: list of  		 :py:class:`DocsQosPktClassEntry <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosPktClassTable.DocsQosPktClassEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -281,6 +305,8 @@ class DOCSQOSMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowid  (key)
             
             	
@@ -290,6 +316,8 @@ class DOCSQOSMIB(Entity):
             
             	**refers to**\:  :py:class:`docsqosserviceflowid <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosServiceFlowTable.DocsQosServiceFlowEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsqospktclassid  (key)
             
             	Index assigned to packet classifier entry by  the CMTS which is unique per service flow
@@ -297,10 +325,14 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: docsqospktclassdirection
             
             	Indicates the direction to which the classifier  is applied
             	**type**\:  :py:class:`IfDirection <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.IfDirection>`
+            
+            	**config**\: False
             
             .. attribute:: docsqospktclasspriority
             
@@ -309,12 +341,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: docsqospktclassiptoslow
             
             	The low value of a range of TOS byte values. If the referenced parameter is not present in a classifier, this object reports the value of 0
             	**type**\: str
             
             	**length:** 1
+            
+            	**config**\: False
             
             .. attribute:: docsqospktclassiptoshigh
             
@@ -323,12 +359,16 @@ class DOCSQOSMIB(Entity):
             
             	**length:** 1
             
+            	**config**\: False
+            
             .. attribute:: docsqospktclassiptosmask
             
             	The mask value is bitwise ANDed with TOS byte  in an IP packet and this value is used check  range checking of TosLow and TosHigh.  If the referenced parameter is not present in a classifier, this object reports the value of 0
             	**type**\: str
             
             	**length:** 1
+            
+            	**config**\: False
             
             .. attribute:: docsqospktclassipprotocol
             
@@ -337,12 +377,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..258
             
+            	**config**\: False
+            
             .. attribute:: docsqospktclassipsourceaddr
             
             	This object is deprecated in favor of the object pair docsQosPktClassInetSourceAddrType and docsQosPktClassInetSourceAddr. Agents that choose to implement this object MUST report an address that matches docsQosPktClassInetSourceAddr object as long as docsQosPktClassInetSourceAddrType is ipv4(1). Otherwise, the value of this object shall be 0.0.0.0
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -353,6 +397,8 @@ class DOCSQOSMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsqospktclassipdestaddr
@@ -361,6 +407,8 @@ class DOCSQOSMIB(Entity):
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -371,6 +419,8 @@ class DOCSQOSMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsqospktclasssourceportstart
@@ -380,12 +430,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: docsqospktclasssourceportend
             
             	This object specifies the high end inclusive range of TCP/UDP source port numbers to which a packet is compared. This object is irrelevant for non\-TCP/UDP IP packets.  If the referenced parameter is not present in a classifier, this object reports the value of  65535
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: docsqospktclassdestportstart
             
@@ -394,12 +448,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: docsqospktclassdestportend
             
             	This object specifies the high end inclusive range of TCP/UDP destination port numbers to which a packet is compared.  If the referenced parameter is not present in a classifier, this object reports the value of  65535
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: docsqospktclassdestmacaddr
             
@@ -408,12 +466,16 @@ class DOCSQOSMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: docsqospktclassdestmacmask
             
             	An Ethernet packet matches an entry when its  destination MAC address bitwise ANDed with  docsQosPktClassDestMacMask equals the value of  docsQosPktClassDestMacAddr.  If the referenced parameter is not present in a classifier, this object reports the value of  '000000000000'H
             	**type**\: str
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+            
+            	**config**\: False
             
             .. attribute:: docsqospktclasssourcemacaddr
             
@@ -422,10 +484,14 @@ class DOCSQOSMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: docsqospktclassenetprotocoltype
             
             	This object indicates the format of the layer 3  protocol id in the Ethernet packet. A value of  none(0) means that the rule does not use the  layer 3 protocol type as a matching criteria.  A value of ethertype(1) means that the rule applies only to frames which contains an  EtherType value. Ethertype values are contained in packets using the Dec\-Intel\-Xerox (DIX) encapsulation or the RFC1042 Sub\-Network Access Protocol (SNAP) encapsulation formats.  A value of dsap(2) means that the rule applies only to frames using the IEEE802.3 encapsulation format with a Destination Service Access Point (DSAP) other  than 0xAA (which is reserved for SNAP).  A value of mac(3) means that the rule applies  only to MAC management messages for MAC management messages.  A value of all(4) means that the rule matches all Ethernet packets.   If the Ethernet frame contains an 802.1P/Q Tag  header (i.e. EtherType 0x8100), this object applies to the embedded EtherType field within  the 802.1P/Q header.  If the referenced parameter is not present in a classifier, this object reports the value of 0
             	**type**\:  :py:class:`DocsQosPktClassEnetProtocolType <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosPktClassTable.DocsQosPktClassEntry.DocsQosPktClassEnetProtocolType>`
+            
+            	**config**\: False
             
             .. attribute:: docsqospktclassenetprotocol
             
@@ -434,12 +500,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: docsqospktclassuserpriapplies
             
             	This object is obsolete
             	**type**\: int
             
             	**range:** 0..1
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -450,12 +520,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..7
             
+            	**config**\: False
+            
             .. attribute:: docsqospktclassuserprihigh
             
             	This object applies only to Ethernet frames  using the 802.1P/Qtag header (indicated with  EtherType 0x8100). Such frames include a 16\-bit  Tag that contains a 3 bit Priority field and a 12 bit VLAN number.  Tagged Ethernet packets must have a 3\-bit Priority field within the range of  docsQosPktClassPriLow and  docsQosPktClassPriHigh in order to match this rule.  If the referenced parameter is not present in the classifier, the value of this object is reported  as 7
             	**type**\: int
             
             	**range:** 0..7
+            
+            	**config**\: False
             
             .. attribute:: docsqospktclassvlanid
             
@@ -464,10 +538,14 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4095
             
+            	**config**\: False
+            
             .. attribute:: docsqospktclassstate
             
             	This object indicates whether or not the classifier is enabled to classify packets to a Service Flow.  If the referenced parameter is not present in the classifier, the value of this object is reported  as active(1)
             	**type**\:  :py:class:`DocsQosPktClassState <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosPktClassTable.DocsQosPktClassEntry.DocsQosPktClassState>`
+            
+            	**config**\: False
             
             .. attribute:: docsqospktclasspkts
             
@@ -476,15 +554,21 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqospktclassbitmap
             
             	This object indicates which parameter encodings were actually present in the DOCSIS packet classifier encoding signaled in the DOCSIS message that created or modified the classifier. Note that Dynamic Service Change messages have replace semantics, so that all non\-default parameters must be present whether the classifier is being created or changed.  A bit of of this object is set to 1 if the parameter indicated by the comment was present in the classifier  encoding, and 0 otherwise.  Note that BITS are encoded most significant bit first, so that if e.g. bits 6 and 7 are set, this object is encoded as the octet string '030000'H
             	**type**\:  :py:class:`DocsQosPktClassBitMap <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosPktClassTable.DocsQosPktClassEntry.DocsQosPktClassBitMap>`
             
+            	**config**\: False
+            
             .. attribute:: docsqospktclassinetsourceaddrtype
             
             	The type of the internet address for docsQosPktClassInetSourceAddr. This type must be the same as the docsQosPktClassInetSourceMaskType.  If the referenced parameter is not present in a classifier, this object reports the value of ipv4(1)
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: docsqospktclassinetsourceaddr
             
@@ -493,10 +577,14 @@ class DOCSQOSMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: docsqospktclassinetsourcemasktype
             
             	The type of the internet address for docsQosPktClassInetSourceMask. This type must be the same as the docsQosPktClassInetSourceAddrType.  If the referenced parameter is not present in a classifier, this object reports the value of ipv4(1)
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: docsqospktclassinetsourcemask
             
@@ -505,10 +593,14 @@ class DOCSQOSMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: docsqospktclassinetdestaddrtype
             
             	The type of the internet address for docsQosPktClassInetDestAddr. This type must be the same as the docsQosPktClassInetDestMaskType.  If the referenced parameter is not present in a classifier, this object reports the value of ipv4(1)
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: docsqospktclassinetdestaddr
             
@@ -517,10 +609,14 @@ class DOCSQOSMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: docsqospktclassinetdestmasktype
             
             	The type of the internet address for docsQosPktClassInetDestMask. This type must be the same as the docsQosPktClassInetDestAddrType.  If the referenced parameter is not present in a classifier, this object reports the value of ipv4(1)
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: docsqospktclassinetdestmask
             
@@ -528,6 +624,8 @@ class DOCSQOSMIB(Entity):
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             
 
@@ -733,6 +831,8 @@ class DOCSQOSMIB(Entity):
 
 
 
+
+
     class DocsQosParamSetTable(Entity):
         """
         This table describes the set of DOCSIS 1.1 QOS 
@@ -775,6 +875,8 @@ class DOCSQOSMIB(Entity):
         	A unique set of QOS parameters
         	**type**\: list of  		 :py:class:`DocsQosParamSetEntry <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosParamSetTable.DocsQosParamSetEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -815,6 +917,8 @@ class DOCSQOSMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowid  (key)
             
             	
@@ -824,15 +928,21 @@ class DOCSQOSMIB(Entity):
             
             	**refers to**\:  :py:class:`docsqosserviceflowid <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosServiceFlowTable.DocsQosServiceFlowEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsqosparamsettype  (key)
             
             	Defines the type of the QOS parameter set defined by this row. active(1) indicates the Active QOS parameter set, describing the service currently being provided by the Docsis MAC domain to the  service flow. admitted(2) indicates the Admitted QOS Parameter Set, describing services reserved by by the Docsis MAC domain for use by the service flow. provisioned (3) describes the QOS Parameter Set defined in the DOCSIS CM Configuration file for the service flow
             	**type**\:  :py:class:`DocsQosParamSetType <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosParamSetTable.DocsQosParamSetEntry.DocsQosParamSetType>`
             
+            	**config**\: False
+            
             .. attribute:: docsqosparamsetserviceclassname
             
             	Refers to the Service Class Name that the  parameter set values were derived.  If the referenced parameter is not present in the corresponding DOCSIS QOS Parameter Set, the default  value of this object is a zero length string
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: docsqosparamsetpriority
             
@@ -841,12 +951,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..7
             
+            	**config**\: False
+            
             .. attribute:: docsqosparamsetmaxtrafficrate
             
             	Maximum sustained traffic rate allowed for this  service flow in bits/sec. Must count all MAC frame  data PDU from the bytes following the MAC header HCS to the end of the CRC. The number of bytes  forwarded is limited during any time interval. The value 0 means no maximum traffic rate is  enforced. This object applies to both upstream and downstream service flows.  If the referenced parameter is not present in the corresponding DOCSIS QOS Parameter Set, the default value of this object is 0. If the parameter is not applicable, it is reported as 0
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsqosparamsetmaxtrafficburst
             
@@ -855,12 +969,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosparamsetminreservedrate
             
             	Specifies the guaranteed minimum rate in bits/sec for this parameter set. The value is  calculated from the byte following the MAC  header HCS to the end of the CRC. The default value of 0 has the meaning that no bandwidth  is reserved. If the referenced parameter is not present in the corresponding DOCSIS QOS Parameter Set, the default value of this object is 0. If the parameter is not applicable, it is reported as 0
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsqosparamsetminreservedpkt
             
@@ -869,12 +987,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: docsqosparamsetactivetimeout
             
             	Specifies the maximum duration in seconds that  resources remain unused on an active service flow before CMTS signals that both active and admitted parameters set are null. The default value of 0 signifies an infinite amount of time.  If the referenced parameter is not present in the corresponding DOCSIS QOS Parameter Set, the default value of this object is 0
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -885,6 +1007,8 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: docsqosparamsetmaxconcatburst
@@ -894,10 +1018,14 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: docsqosparamsetschedulingtype
             
             	Specifies the upstream scheduling service used for  upstream service flow.   If the referenced parameter is not present in the corresponding DOCSIS QOS Parameter Set of an upstream service flow, the default value of this object is bestEffort(2). For QOS parameter sets of downstream service flows, this object's value is reported as undefined(1)
             	**type**\:  :py:class:`SchedulingType <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.SchedulingType>`
+            
+            	**config**\: False
             
             .. attribute:: docsqosparamsetnompollinterval
             
@@ -905,6 +1033,8 @@ class DOCSQOSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: microseconds
             
@@ -915,6 +1045,8 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: microseconds
             
             .. attribute:: docsqosparamsetunsolicitgrantsize
@@ -924,12 +1056,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: docsqosparamsetnomgrantinterval
             
             	Specifies the nominal interval in microseconds  between successive data grant opportunities  on an upstream service flow.  The referenced parameter is applicable only  for upstream flows with a SchedulingType of of unsolicitedGrantServicewithAD(5) or unsolicitedGrantService(6), and is mandatory when applicable. Both CMTS and CM report the signaled value of the parameter in this case.  If the referenced parameter is not applicable to the direction or scheduling type of the corresponding DOCSIS QOS Parameter Set, both CMTS and CM report this object's value as 0
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: microseconds
             
@@ -940,6 +1076,8 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: microseconds
             
             .. attribute:: docsqosparamsetgrantsperinterval
@@ -949,12 +1087,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..127
             
+            	**config**\: False
+            
             .. attribute:: docsqosparamsettosandmask
             
             	Specifies the AND mask for IP TOS byte for overwriting IP packets TOS value.  The IP packets TOS byte is  bitwise ANDed with docsQosParamSetTosAndMask and  result is bitwise ORed with docsQosParamSetTosORMask and result is written to IP packet TOS byte.  A value of 'FF'H for docsQosParamSetTosAndMask and a value of '00'H for docsQosParamSetTosOrMask means  that IP Packet TOS byte is not overwritten.  Even though the this object is only enforced by the Cable Modem Termination System (CMTS), Cable Modems must report the value as signaled in the referenced parameter.  This combination is reported if the referenced parameter is not present in a QOS Parameter Set
             	**type**\: str
             
             	**length:** 1
+            
+            	**config**\: False
             
             .. attribute:: docsqosparamsettosormask
             
@@ -963,12 +1105,16 @@ class DOCSQOSMIB(Entity):
             
             	**length:** 1
             
+            	**config**\: False
+            
             .. attribute:: docsqosparamsetmaxlatency
             
             	Specifies the maximum latency between the reception of a packet by the CMTS on its NSI  and the forwarding of the packet to the RF interface. A value of 0 signifies no maximum latency enforced. This object only applies to downstream service flows.  If the referenced parameter is not present in the corresponding downstream DOCSIS QOS Parameter Set,  the default value is 0. This parameter is not applicable to upstream DOCSIS QOS Parameter Sets, and its value is reported as 0 in this case
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: microseconds
             
@@ -979,10 +1125,14 @@ class DOCSQOSMIB(Entity):
             
             	**length:** 4
             
+            	**config**\: False
+            
             .. attribute:: docsqosparamsetbitmap
             
             	This object indicates the set of QOS Parameter Set parameters actually signaled in the  DOCSIS registration or dynamic service request message that created or modified the QOS Parameter Set.  A bit is set to 1 when the parameter described by the indicated reference section is present in the original request.    Note that when Service Class names are expanded, the registration or dynamic response message may contain parameters as expanded by the CMTS based on a stored service class. These expanded parameters are \*not\* indicated by a 1 bit in this object.  Note that even though some QOS Parameter Set  parameters may not be signalled in a message (so that the paramater's bit in this object is 0) the DOCSIS specification calls for default values to be used. These default values are reported as the corresponding object's value in the row.   Note that BITS objects are encoded most significant bit first. For example, if bits 1 and 16 are set, the value of this object  is the octet string '400080'H
             	**type**\:  :py:class:`DocsQosParamSetBitMap <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosParamSetTable.DocsQosParamSetEntry.DocsQosParamSetBitMap>`
+            
+            	**config**\: False
             
             
 
@@ -1097,6 +1247,8 @@ class DOCSQOSMIB(Entity):
 
 
 
+
+
     class DocsQosServiceFlowTable(Entity):
         """
         This table describes the set of Docsis\-QOS 
@@ -1106,6 +1258,8 @@ class DOCSQOSMIB(Entity):
         
         	Describes a service flow. An entry in the table exists for each  Service Flow ID. The ifIndex is an   ifType of docsCableMaclayer(127)
         	**type**\: list of  		 :py:class:`DocsQosServiceFlowEntry <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosServiceFlowTable.DocsQosServiceFlowEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1150,6 +1304,8 @@ class DOCSQOSMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowid  (key)
             
             	An index assigned to a service flow by CMTS
@@ -1157,12 +1313,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowprovisionedparamsetindex
             
             	This object is obsolete
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1173,6 +1333,8 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: docsqosserviceflowactiveparamsetindex
@@ -1181,6 +1343,8 @@ class DOCSQOSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1191,15 +1355,21 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..16383
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowdirection
             
             	The direction of the service flow
             	**type**\:  :py:class:`IfDirection <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.IfDirection>`
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowprimary
             
             	Object reflects whether service flow is the primary  or a secondary service flow.  A primary service flow is the default service flow for otherwise unclassified traffic and all MAC  messages
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsqosserviceflowactivetimeout
             
@@ -1207,6 +1377,8 @@ class DOCSQOSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1219,6 +1391,8 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             	**status**\: obsolete
@@ -1227,6 +1401,8 @@ class DOCSQOSMIB(Entity):
             
             	This object is obsolete
             	**type**\:  :py:class:`SchedulingType <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.SchedulingType>`
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1237,6 +1413,8 @@ class DOCSQOSMIB(Entity):
             
             	**length:** 4
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: docsqosserviceflowtosandmask
@@ -1246,6 +1424,8 @@ class DOCSQOSMIB(Entity):
             
             	**length:** 1
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: docsqosserviceflowtosormask
@@ -1254,6 +1434,8 @@ class DOCSQOSMIB(Entity):
             	**type**\: str
             
             	**length:** 1
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1311,6 +1493,8 @@ class DOCSQOSMIB(Entity):
                 self._perform_setattr(DOCSQOSMIB.DocsQosServiceFlowTable.DocsQosServiceFlowEntry, [u'ifindex', u'docsqosserviceflowid', u'docsqosserviceflowprovisionedparamsetindex', u'docsqosserviceflowadmittedparamsetindex', u'docsqosserviceflowactiveparamsetindex', u'docsqosserviceflowsid', u'docsqosserviceflowdirection', u'docsqosserviceflowprimary', u'docsqosserviceflowactivetimeout', u'docsqosserviceflowadmittedtimeout', u'docsqosserviceflowschedulingtype', u'docsqosserviceflowrequestpolicy', u'docsqosserviceflowtosandmask', u'docsqosserviceflowtosormask'], name, value)
 
 
+
+
     class DocsQosServiceFlowStatsTable(Entity):
         """
         This table describes statistics associated with the  
@@ -1320,6 +1504,8 @@ class DOCSQOSMIB(Entity):
         
         	Describes a set of service flow statistics. An entry in the table exists for each  Service Flow ID. The ifIndex is an   ifType of docsCableMaclayer(127)
         	**type**\: list of  		 :py:class:`DocsQosServiceFlowStatsEntry <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosServiceFlowStatsTable.DocsQosServiceFlowStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1364,6 +1550,8 @@ class DOCSQOSMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowid  (key)
             
             	
@@ -1373,12 +1561,16 @@ class DOCSQOSMIB(Entity):
             
             	**refers to**\:  :py:class:`docsqosserviceflowid <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosServiceFlowTable.DocsQosServiceFlowEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowpkts
             
             	The number of Packet Data PDUs classified to this service flow. This object does not count MAC\-specific management messages. CMs not classifying downstream packets may report this object's value as 0. 
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsqosserviceflowoctets
             
@@ -1387,6 +1579,8 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowtimecreated
             
             	The value of sysUpTime when the service flow  was created
@@ -1394,12 +1588,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowtimeactive
             
             	The total time that service flow has been active
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1410,6 +1608,8 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowpoliceddroppkts
             
             	The number of packets dropped due to policing of  the service flow, especially to limit the maximum  rate of the flow
@@ -1417,12 +1617,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowpoliceddelaypkts
             
             	The number of packet delayed due to policing of  the service flow, especially to limit the maximum rate of the flow
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1468,6 +1672,8 @@ class DOCSQOSMIB(Entity):
                 self._perform_setattr(DOCSQOSMIB.DocsQosServiceFlowStatsTable.DocsQosServiceFlowStatsEntry, [u'ifindex', u'docsqosserviceflowid', u'docsqosserviceflowpkts', u'docsqosserviceflowoctets', u'docsqosserviceflowtimecreated', u'docsqosserviceflowtimeactive', u'docsqosserviceflowphsunknowns', u'docsqosserviceflowpoliceddroppkts', u'docsqosserviceflowpoliceddelaypkts'], name, value)
 
 
+
+
     class DocsQosUpstreamStatsTable(Entity):
         """
         This table describes statistics associated with  
@@ -1478,6 +1684,8 @@ class DOCSQOSMIB(Entity):
         
         	Describes a set of upstream service flow statistics. An entry in the table exists for each  upstream Service Flow in a managed device.  The ifIndex is an ifType of docsCableMaclayer(127)
         	**type**\: list of  		 :py:class:`DocsQosUpstreamStatsEntry <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosUpstreamStatsTable.DocsQosUpstreamStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1522,12 +1730,16 @@ class DOCSQOSMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsqossid  (key)
             
             	Identifies a service id for an admitted or active  upstream service flow
             	**type**\: int
             
             	**range:** 1..16383
+            
+            	**config**\: False
             
             .. attribute:: docsqosupstreamfragments
             
@@ -1536,6 +1748,8 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosupstreamfragdiscards
             
             	The number of upstream fragments discarded and not  assembled into a valid upstream packet
@@ -1543,12 +1757,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosupstreamconcatbursts
             
             	The number of concatenation headers received on an  upstream service flow
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1586,6 +1804,8 @@ class DOCSQOSMIB(Entity):
                 self._perform_setattr(DOCSQOSMIB.DocsQosUpstreamStatsTable.DocsQosUpstreamStatsEntry, [u'ifindex', u'docsqossid', u'docsqosupstreamfragments', u'docsqosupstreamfragdiscards', u'docsqosupstreamconcatbursts'], name, value)
 
 
+
+
     class DocsQosDynamicServiceStatsTable(Entity):
         """
         This table describes statistics associated with the  
@@ -1595,6 +1815,8 @@ class DOCSQOSMIB(Entity):
         
         	Describes a set of dynamic service flow statistics. Two entries exist for each Docsis mac layer  interface for the upstream and downstream direction. On the CMTS, the downstream direction row indicates messages transmitted or transactions originated by the CMTS. The upstream direction row indicates messages received or transaction originated by the CM. On the CM, the downstream direction row  indicates messages received or transactions originated by the CMTS. The upstream direction  row indicates messages transmitted by the CM or transactions originated by the CM. The ifIndex is an ifType of docsCableMaclayer(127)
         	**type**\: list of  		 :py:class:`DocsQosDynamicServiceStatsEntry <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosDynamicServiceStatsTable.DocsQosDynamicServiceStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1648,10 +1870,14 @@ class DOCSQOSMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsqosifdirection  (key)
             
             	The direction of interface
             	**type**\:  :py:class:`IfDirection <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.IfDirection>`
+            
+            	**config**\: False
             
             .. attribute:: docsqosdsareqs
             
@@ -1660,12 +1886,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosdsarsps
             
             	The number of Dynamic Service Addition Responses, including retries
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsqosdsaacks
             
@@ -1674,12 +1904,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosdscreqs
             
             	The number of Dynamic Service Change Requests, including retries
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsqosdscrsps
             
@@ -1688,12 +1922,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosdscacks
             
             	The number of Dynamic Service Change Acknowledgements, including retries
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsqosdsdreqs
             
@@ -1702,12 +1940,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosdsdrsps
             
             	The number of Dynamic Service Delete Responses, including retries
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsqosdynamicadds
             
@@ -1716,12 +1958,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosdynamicaddfails
             
             	The number of failed Dynamic Service Addition transactions
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsqosdynamicchanges
             
@@ -1730,12 +1976,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosdynamicchangefails
             
             	The number of failed Dynamic Service Change transactions
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsqosdynamicdeletes
             
@@ -1744,12 +1994,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosdynamicdeletefails
             
             	The number of failed Dynamic Service Delete transactions
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsqosdccreqs
             
@@ -1758,12 +2012,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosdccrsps
             
             	The number of Dynamic Channel Change Response messages traversing an interface. This count is nonzero only on upstream direction rows. This count should include number of retries
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsqosdccacks
             
@@ -1772,12 +2030,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosdccs
             
             	The number of successful Dynamic Channel Change transactions. This count is nonzero only on downstream direction rows
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsqosdccfails
             
@@ -1786,6 +2048,8 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosdccrspdeparts
             
             	The number of Dynamic Channel Change Response (depart) messages traversing an interface. This count is only counted  on upstream direction rows
@@ -1793,12 +2057,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosdccrsparrives
             
             	The number of Dynamic Channel Change Response (arrive) messages traversing an interface. This count is only counted on upstream direction rows. This count should include number of retries
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1872,6 +2140,8 @@ class DOCSQOSMIB(Entity):
                 self._perform_setattr(DOCSQOSMIB.DocsQosDynamicServiceStatsTable.DocsQosDynamicServiceStatsEntry, [u'ifindex', u'docsqosifdirection', u'docsqosdsareqs', u'docsqosdsarsps', u'docsqosdsaacks', u'docsqosdscreqs', u'docsqosdscrsps', u'docsqosdscacks', u'docsqosdsdreqs', u'docsqosdsdrsps', u'docsqosdynamicadds', u'docsqosdynamicaddfails', u'docsqosdynamicchanges', u'docsqosdynamicchangefails', u'docsqosdynamicdeletes', u'docsqosdynamicdeletefails', u'docsqosdccreqs', u'docsqosdccrsps', u'docsqosdccacks', u'docsqosdccs', u'docsqosdccfails', u'docsqosdccrspdeparts', u'docsqosdccrsparrives'], name, value)
 
 
+
+
     class DocsQosServiceFlowLogTable(Entity):
         """
         This table contains a log of the disconnected
@@ -1881,6 +2151,8 @@ class DOCSQOSMIB(Entity):
         
         	The information regarding a single disconnected  service flow
         	**type**\: list of  		 :py:class:`DocsQosServiceFlowLogEntry <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosServiceFlowLogTable.DocsQosServiceFlowLogEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1921,12 +2193,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowlogifindex
             
             	The ifIndex of ifType docsCableMaclayer(127)  on the CMTS where the service flow was present
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             .. attribute:: docsqosserviceflowlogsfid
             
@@ -1935,12 +2211,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowlogcmmac
             
             	The MAC address for the cable modem associated with  the service flow
             	**type**\: str
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+            
+            	**config**\: False
             
             .. attribute:: docsqosserviceflowlogpkts
             
@@ -1949,12 +2229,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowlogoctets
             
             	The number of octets counted on this service flow  after payload header suppression
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsqosserviceflowlogtimedeleted
             
@@ -1963,12 +2247,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowlogtimecreated
             
             	The value of sysUpTime when the service flow  was created
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsqosserviceflowlogtimeactive
             
@@ -1977,6 +2265,8 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: docsqosserviceflowlogdirection
@@ -1984,15 +2274,21 @@ class DOCSQOSMIB(Entity):
             	The value of docsQosServiceFlowDirection  for the service flow
             	**type**\:  :py:class:`IfDirection <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.IfDirection>`
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowlogprimary
             
             	The value of docsQosServiceFlowPrimary for the  service flow
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowlogserviceclassname
             
             	The value of docsQosParamSetServiceClassName for the provisioned QOS Parameter Set of the  service flow
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: docsqosserviceflowlogpoliceddroppkts
             
@@ -2001,6 +2297,8 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowlogpoliceddelaypkts
             
             	The final value of docsQosServiceFlowPolicedDelayPkts for the service flow
@@ -2008,10 +2306,14 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowlogcontrol
             
             	Setting this object to the value destroy(6) removes this entry from the table.  Reading this object return the value active(1)
             	**type**\:  :py:class:`DocsQosServiceFlowLogControl <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosServiceFlowLogTable.DocsQosServiceFlowLogEntry.DocsQosServiceFlowLogControl>`
+            
+            	**config**\: False
             
             
 
@@ -2090,6 +2392,8 @@ class DOCSQOSMIB(Entity):
 
 
 
+
+
     class DocsQosServiceClassTable(Entity):
         """
         This table describes the set of Docsis\-QOS 
@@ -2099,6 +2403,8 @@ class DOCSQOSMIB(Entity):
         
         	A provisioned service class on a CMTS.  Each entry defines a template for certain  DOCSIS QOS Parameter Set values. When a CM  creates or modifies an Admitted QOS Parameter Set for a Service Flow, it may reference a Service Class Name instead of providing explicit QOS Parameter Set values. In this case, the CMTS populates the QOS Parameter Set with the applicable  corresponding values from the named Service Class. Subsequent changes to a Service Class row do \*not\*  affect the QOS Parameter Set values of any service flows already admitted.  A service class template applies to only a single direction, as indicated in the  docsQosServiceClassDirection object
         	**type**\: list of  		 :py:class:`DocsQosServiceClassEntry <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosServiceClassTable.DocsQosServiceClassEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2153,12 +2459,16 @@ class DOCSQOSMIB(Entity):
             
             	**length:** 1..15
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceclassparamsetindex
             
             	This object is obsolete
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -2167,12 +2477,16 @@ class DOCSQOSMIB(Entity):
             	Used to create or delete rows in this table
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceclasspriority
             
             	Template for docsQosParamSetPriority
             	**type**\: int
             
             	**range:** 0..7
+            
+            	**config**\: False
             
             .. attribute:: docsqosserviceclassmaxtrafficrate
             
@@ -2181,12 +2495,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceclassmaxtrafficburst
             
             	Template for docsQosParamSetMaxTrafficBurst
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsqosserviceclassminreservedrate
             
@@ -2195,12 +2513,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceclassminreservedpkt
             
             	Template for docsQosParamSetMinReservedPkt
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: docsqosserviceclassmaxconcatburst
             
@@ -2209,12 +2531,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceclassnompollinterval
             
             	Template for docsQosParamSetNomPollInterval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: microseconds
             
@@ -2225,6 +2551,8 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: microseconds
             
             .. attribute:: docsqosserviceclassunsolicitgrantsize
@@ -2234,12 +2562,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceclassnomgrantinterval
             
             	Template for docsQosParamSetNomGrantInterval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: microseconds
             
@@ -2250,6 +2582,8 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: microseconds
             
             .. attribute:: docsqosserviceclassgrantsperinterval
@@ -2259,12 +2593,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..127
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceclassmaxlatency
             
             	Template for docsQosParamSetClassMaxLatency
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: microseconds
             
@@ -2275,6 +2613,8 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: docsqosserviceclassadmittedtimeout
@@ -2284,12 +2624,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: docsqosserviceclassschedulingtype
             
             	Template for docsQosParamSetSchedulingType
             	**type**\:  :py:class:`SchedulingType <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.SchedulingType>`
+            
+            	**config**\: False
             
             .. attribute:: docsqosserviceclassrequestpolicy
             
@@ -2298,12 +2642,16 @@ class DOCSQOSMIB(Entity):
             
             	**length:** 4
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceclasstosandmask
             
             	Template for docsQosParamSetTosAndMask
             	**type**\: str
             
             	**length:** 1
+            
+            	**config**\: False
             
             .. attribute:: docsqosserviceclasstosormask
             
@@ -2312,10 +2660,14 @@ class DOCSQOSMIB(Entity):
             
             	**length:** 1
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceclassdirection
             
             	Specifies whether the service class template applies to upstream or downstream service flows
             	**type**\:  :py:class:`IfDirection <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.IfDirection>`
+            
+            	**config**\: False
             
             
 
@@ -2389,6 +2741,8 @@ class DOCSQOSMIB(Entity):
                 self._perform_setattr(DOCSQOSMIB.DocsQosServiceClassTable.DocsQosServiceClassEntry, [u'docsqosserviceclassname', u'docsqosserviceclassparamsetindex', u'docsqosserviceclassstatus', u'docsqosserviceclasspriority', u'docsqosserviceclassmaxtrafficrate', u'docsqosserviceclassmaxtrafficburst', u'docsqosserviceclassminreservedrate', u'docsqosserviceclassminreservedpkt', u'docsqosserviceclassmaxconcatburst', u'docsqosserviceclassnompollinterval', u'docsqosserviceclasstolpolljitter', u'docsqosserviceclassunsolicitgrantsize', u'docsqosserviceclassnomgrantinterval', u'docsqosserviceclasstolgrantjitter', u'docsqosserviceclassgrantsperinterval', u'docsqosserviceclassmaxlatency', u'docsqosserviceclassactivetimeout', u'docsqosserviceclassadmittedtimeout', u'docsqosserviceclassschedulingtype', u'docsqosserviceclassrequestpolicy', u'docsqosserviceclasstosandmask', u'docsqosserviceclasstosormask', u'docsqosserviceclassdirection'], name, value)
 
 
+
+
     class DocsQosServiceClassPolicyTable(Entity):
         """
         This table describes the set of Docsis\-QOS 
@@ -2408,6 +2762,8 @@ class DOCSQOSMIB(Entity):
         
         	A service class name policy entry
         	**type**\: list of  		 :py:class:`DocsQosServiceClassPolicyEntry <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosServiceClassPolicyTable.DocsQosServiceClassPolicyEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2447,10 +2803,14 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceclasspolicyname
             
             	Service Class Name to identify the name of the  service class flow to which the packet should be directed
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: docsqosserviceclasspolicyrulepriority
             
@@ -2459,10 +2819,14 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceclasspolicystatus
             
             	Used to create or delete rows in this table. This object should not be deleted if it is reference by an entry in docsDevFilterPolicy. The reference should be deleted first
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -2498,6 +2862,8 @@ class DOCSQOSMIB(Entity):
                 self._perform_setattr(DOCSQOSMIB.DocsQosServiceClassPolicyTable.DocsQosServiceClassPolicyEntry, [u'docsqosserviceclasspolicyindex', u'docsqosserviceclasspolicyname', u'docsqosserviceclasspolicyrulepriority', u'docsqosserviceclasspolicystatus'], name, value)
 
 
+
+
     class DocsQosPHSTable(Entity):
         """
         This table describes set of payload header
@@ -2507,6 +2873,8 @@ class DOCSQOSMIB(Entity):
         
         	A payload header suppression entry.  The ifIndex is an ifType of docsCableMaclayer(127). The index docsQosServiceFlowId selects one service flow from the cable MAC layer interface. The docsQosPktClassId index matches an index of the docsQosPktClassTable
         	**type**\: list of  		 :py:class:`DocsQosPHSEntry <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosPHSTable.DocsQosPHSEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2553,6 +2921,8 @@ class DOCSQOSMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowid  (key)
             
             	
@@ -2561,6 +2931,8 @@ class DOCSQOSMIB(Entity):
             	**range:** 1..4294967295
             
             	**refers to**\:  :py:class:`docsqosserviceflowid <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosServiceFlowTable.DocsQosServiceFlowEntry>`
+            
+            	**config**\: False
             
             .. attribute:: docsqospktclassid  (key)
             
@@ -2571,12 +2943,16 @@ class DOCSQOSMIB(Entity):
             
             	**refers to**\:  :py:class:`docsqospktclassid <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosPktClassTable.DocsQosPktClassEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsqosphsfield
             
             	Payload header suppression field defines the  bytes of the header which must be  suppressed/restored by the sending/receiving  device.  The number of octets in this object should be the same as the value of docsQosPHSSize
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: docsqosphsmask
             
@@ -2585,6 +2961,8 @@ class DOCSQOSMIB(Entity):
             
             	**length:** 0..32
             
+            	**config**\: False
+            
             .. attribute:: docsqosphssize
             
             	Payload header suppression size specifies the  number of bytes in the header to be suppressed and restored.  The value of this object must match the number of bytes in the docsQosPHSField
@@ -2592,10 +2970,14 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: docsqosphsverify
             
             	Payload header suppression verification value of 'true' the sender must verify docsQosPHSField  is the same as what is contained in the packet to be suppressed
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsqosphsclassifierindex
             
@@ -2603,6 +2985,8 @@ class DOCSQOSMIB(Entity):
             	**type**\: int
             
             	**range:** 1..65535
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -2612,6 +2996,8 @@ class DOCSQOSMIB(Entity):
             	**type**\: int
             
             	**range:** 1..255
+            
+            	**config**\: False
             
             
 
@@ -2657,6 +3043,8 @@ class DOCSQOSMIB(Entity):
                 self._perform_setattr(DOCSQOSMIB.DocsQosPHSTable.DocsQosPHSEntry, [u'ifindex', u'docsqosserviceflowid', u'docsqospktclassid', u'docsqosphsfield', u'docsqosphsmask', u'docsqosphssize', u'docsqosphsverify', u'docsqosphsclassifierindex', u'docsqosphsindex'], name, value)
 
 
+
+
     class DocsQosCmtsMacToSrvFlowTable(Entity):
         """
         This table provide for referencing the service flows 
@@ -2668,6 +3056,8 @@ class DOCSQOSMIB(Entity):
         
         	An entry is created by CMTS for each service flow  connected to this CMTS
         	**type**\: list of  		 :py:class:`DocsQosCmtsMacToSrvFlowEntry <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosCmtsMacToSrvFlowTable.DocsQosCmtsMacToSrvFlowEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2708,6 +3098,8 @@ class DOCSQOSMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: docsqoscmtsserviceflowid  (key)
             
             	An index assigned to a service flow by CMTS
@@ -2715,12 +3107,16 @@ class DOCSQOSMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsqoscmtsifindex
             
             	The ifIndex of ifType docsCableMacLayter(127)  on the CMTS that is connected to the Cable Modem
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             
 
@@ -2753,7 +3149,11 @@ class DOCSQOSMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(DOCSQOSMIB.DocsQosCmtsMacToSrvFlowTable.DocsQosCmtsMacToSrvFlowEntry, [u'docsqoscmtscmmac', u'docsqoscmtsserviceflowid', u'docsqoscmtsifindex'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = DOCSQOSMIB()
         return self._top_entity
+
+
 

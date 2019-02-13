@@ -285,20 +285,28 @@ class Vrrp(Entity):
     	VRRP summary statistics
     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Summary>`
     
+    	**config**\: False
+    
     .. attribute:: ipv6
     
     	IPv6 VRRP configuration
     	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6>`
+    
+    	**config**\: False
     
     .. attribute:: ipv4
     
     	IPv4 VRRP configuration
     	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4>`
     
+    	**config**\: False
+    
     .. attribute:: mgo_sessions
     
     	VRRP MGO Session information
     	**type**\:  :py:class:`MgoSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.MgoSessions>`
+    
+    	**config**\: False
     
     
 
@@ -352,12 +360,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv4_sessions_master
         
         	Number of IPv4 sessions in MASTER state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv4_sessions_backup
         
@@ -366,12 +378,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv4_sessions_init
         
         	Number of IPv4 sessions in INIT state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv4_slaves_master
         
@@ -380,12 +396,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv4_slaves_backup
         
         	Number of IPv4 slaves in BACKUP state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv4_slaves_init
         
@@ -394,12 +414,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv4_virtual_ip_addresses_master_owner_up
         
         	Number of UP IPv4 Virtual IP Addresses on virtual routers in MASTER (owner) state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv4_virtual_ip_addresses_master_owner_down
         
@@ -408,12 +432,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv4_virtual_ip_addresses_master_up
         
         	Number of UP IPv4 Virtual IP Addresses on virtual routers in MASTER state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv4_virtual_ip_addresses_master_down
         
@@ -422,12 +450,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv4_virtual_ip_addresses_backup_up
         
         	Number of UP IPv4 Virtual IP Addresses on virtual routers in BACKUP state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv4_virtual_ip_addresses_backup_down
         
@@ -436,12 +468,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv4_virtual_ip_addresses_init_up
         
         	Number of UP IPv4 Virtual IP Addresses on virtual routers in INIT state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv4_virtual_ip_addresses_init_down
         
@@ -450,12 +486,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6_sessions_master_owner
         
         	Number of IPv6 sessions in MASTER (owner) state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6_sessions_master
         
@@ -464,12 +504,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6_sessions_backup
         
         	Number of IPv6 sessions in BACKUP state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6_sessions_init
         
@@ -478,12 +522,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6_slaves_master
         
         	Number of IPv6 slaves in MASTER state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6_slaves_backup
         
@@ -492,12 +540,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6_slaves_init
         
         	Number of IPv6 slaves in INIT state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6_virtual_ip_addresses_master_owner_up
         
@@ -506,12 +558,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6_virtual_ip_addresses_master_owner_down
         
         	Number of DOWN IPv6 Virtual IP Addresses on virtual routers in MASTER (owner) state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6_virtual_ip_addresses_master_up
         
@@ -520,12 +576,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6_virtual_ip_addresses_master_down
         
         	Number of DOWN IPv6 Virtual IP Addresses on virtual routers in MASTER state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6_virtual_ip_addresses_backup_up
         
@@ -534,12 +594,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6_virtual_ip_addresses_backup_down
         
         	Number of DOWN IPv6 Virtual IP Addresses on virtual routers in BACKUP state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6_virtual_ip_addresses_init_up
         
@@ -548,12 +612,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6_virtual_ip_addresses_init_down
         
         	Number of DOWN IPv6 Virtual IP Addresses on virtual routers in INIT state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: interfaces_ipv4_state_up
         
@@ -562,12 +630,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: interfaces_ipv4_state_down
         
         	Number of VRRP interfaces with IPv4 caps in DOWN state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: tracked_interfaces_ipv4_state_up
         
@@ -576,12 +648,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: tracked_interfaces_ipv4_state_down
         
         	Number of tracked interfaces with IPv4 caps in DOWN state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: interfaces_ipv6_state_up
         
@@ -590,12 +666,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: interfaces_ipv6_state_down
         
         	Number of VRRP interfaces with IPv6 caps in DOWN state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: tracked_interfaces_ipv6_state_up
         
@@ -604,12 +684,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: tracked_interfaces_ipv6_state_down
         
         	Number of tracked interfaces with IPv6 caps in DOWN state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: tracked_objects_state_up
         
@@ -618,12 +702,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: tracked_objects_state_down
         
         	Number of tracked objects in DOWN state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: bfd_sessions_up
         
@@ -632,12 +720,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: bfd_sessions_down
         
         	Number of VRRP IPv4 BFD sessions in DOWN state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: bfd_session_inactive
         
@@ -646,12 +738,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6bfd_sessions_up
         
         	Number of VRRP IPv6 BFD sessions in UP state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6bfd_sessions_down
         
@@ -660,12 +756,16 @@ class Vrrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6bfd_session_inactive
         
         	Number of VRRP IPv6 BFD sessions in INACTIVE state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -785,6 +885,7 @@ class Vrrp(Entity):
             self._perform_setattr(Vrrp.Summary, [u'ipv4_sessions_master_owner', u'ipv4_sessions_master', u'ipv4_sessions_backup', u'ipv4_sessions_init', u'ipv4_slaves_master', u'ipv4_slaves_backup', u'ipv4_slaves_init', u'ipv4_virtual_ip_addresses_master_owner_up', u'ipv4_virtual_ip_addresses_master_owner_down', u'ipv4_virtual_ip_addresses_master_up', u'ipv4_virtual_ip_addresses_master_down', u'ipv4_virtual_ip_addresses_backup_up', u'ipv4_virtual_ip_addresses_backup_down', u'ipv4_virtual_ip_addresses_init_up', u'ipv4_virtual_ip_addresses_init_down', u'ipv6_sessions_master_owner', u'ipv6_sessions_master', u'ipv6_sessions_backup', u'ipv6_sessions_init', u'ipv6_slaves_master', u'ipv6_slaves_backup', u'ipv6_slaves_init', u'ipv6_virtual_ip_addresses_master_owner_up', u'ipv6_virtual_ip_addresses_master_owner_down', u'ipv6_virtual_ip_addresses_master_up', u'ipv6_virtual_ip_addresses_master_down', u'ipv6_virtual_ip_addresses_backup_up', u'ipv6_virtual_ip_addresses_backup_down', u'ipv6_virtual_ip_addresses_init_up', u'ipv6_virtual_ip_addresses_init_down', u'interfaces_ipv4_state_up', u'interfaces_ipv4_state_down', u'tracked_interfaces_ipv4_state_up', u'tracked_interfaces_ipv4_state_down', u'interfaces_ipv6_state_up', u'interfaces_ipv6_state_down', u'tracked_interfaces_ipv6_state_up', u'tracked_interfaces_ipv6_state_down', u'tracked_objects_state_up', u'tracked_objects_state_down', u'bfd_sessions_up', u'bfd_sessions_down', u'bfd_session_inactive', u'ipv6bfd_sessions_up', u'ipv6bfd_sessions_down', u'ipv6bfd_session_inactive'], name, value)
 
 
+
     class Ipv6(Entity):
         """
         IPv6 VRRP configuration
@@ -794,15 +895,21 @@ class Vrrp(Entity):
         	The VRRP tracked item table
         	**type**\:  :py:class:`TrackItems <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.TrackItems>`
         
+        	**config**\: False
+        
         .. attribute:: virtual_routers
         
         	The VRRP virtual router table
         	**type**\:  :py:class:`VirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters>`
         
+        	**config**\: False
+        
         .. attribute:: interfaces
         
         	The VRRP interface table
         	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.Interfaces>`
+        
+        	**config**\: False
         
         
 
@@ -850,6 +957,8 @@ class Vrrp(Entity):
             	A configured VRRP IP address entry
             	**type**\: list of  		 :py:class:`TrackItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.TrackItems.TrackItem>`
             
+            	**config**\: False
+            
             
 
             """
@@ -888,12 +997,16 @@ class Vrrp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: virtual_router_id  (key)
                 
                 	The VRRP virtual router id
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tracked_interface_name  (key)
                 
@@ -902,12 +1015,16 @@ class Vrrp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: interface
                 
                 	IM Interface
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                	**config**\: False
                 
                 .. attribute:: virtual_router_id_xr
                 
@@ -916,12 +1033,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tracked_item_type
                 
                 	Type of tracked item
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 .. attribute:: tracked_item_index
                 
@@ -930,6 +1051,8 @@ class Vrrp(Entity):
                 
                 	**length:** 0..32
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	State of the tracked item
@@ -937,12 +1060,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: priority
                 
                 	Priority weight of item
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 
 
@@ -988,6 +1115,8 @@ class Vrrp(Entity):
                     self._perform_setattr(Vrrp.Ipv6.TrackItems.TrackItem, ['interface_name', 'virtual_router_id', 'tracked_interface_name', u'interface', u'virtual_router_id_xr', u'tracked_item_type', u'tracked_item_index', u'state', u'priority'], name, value)
 
 
+
+
         class VirtualRouters(Entity):
             """
             The VRRP virtual router table
@@ -996,6 +1125,8 @@ class Vrrp(Entity):
             
             	A VRRP virtual router
             	**type**\: list of  		 :py:class:`VirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter>`
+            
+            	**config**\: False
             
             
 
@@ -1035,6 +1166,8 @@ class Vrrp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: virtual_router_id  (key)
                 
                 	The VRRP virtual router id
@@ -1042,15 +1175,21 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: resign_sent_time
                 
                 	Time last resign was sent
                 	**type**\:  :py:class:`ResignSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: resign_received_time
                 
                 	Time last resign was received
                 	**type**\:  :py:class:`ResignReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime>`
+                
+                	**config**\: False
                 
                 .. attribute:: interface_name_xr
                 
@@ -1059,12 +1198,16 @@ class Vrrp(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: virtual_router_id_xr
                 
                 	Virtual Router ID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: version
                 
@@ -1073,10 +1216,14 @@ class Vrrp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: address_family
                 
                 	Address family
                 	**type**\:  :py:class:`VrrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBAf>`
+                
+                	**config**\: False
                 
                 .. attribute:: session_name
                 
@@ -1085,6 +1232,8 @@ class Vrrp(Entity):
                 
                 	**length:** 0..16
                 
+                	**config**\: False
+                
                 .. attribute:: slaves
                 
                 	Number of slaves following state
@@ -1092,10 +1241,14 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: is_slave
                 
                 	Group is a slave group
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: followed_session_name
                 
@@ -1104,12 +1257,16 @@ class Vrrp(Entity):
                 
                 	**length:** 0..16
                 
+                	**config**\: False
+                
                 .. attribute:: secondary_address_count
                 
                 	Configured VRRP secondary address count
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: operational_address_count
                 
@@ -1118,12 +1275,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: primary_virtual_ip
                 
                 	Configured IPv4 Primary address
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: configured_down_address_count
                 
@@ -1132,6 +1293,8 @@ class Vrrp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: virtual_linklocal_ipv6_address
                 
                 	Virtual linklocal IPv6 address
@@ -1139,10 +1302,14 @@ class Vrrp(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: primary_state
                 
                 	State of primary IP address
                 	**type**\:  :py:class:`VrrpVipState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpVipState>`
+                
+                	**config**\: False
                 
                 .. attribute:: master_ip_address
                 
@@ -1151,12 +1318,16 @@ class Vrrp(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: master_ipv6_address
                 
                 	Master router real IPv6 address
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: master_priority
                 
@@ -1165,20 +1336,28 @@ class Vrrp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: vrrp_state
                 
                 	VRRP state
                 	**type**\:  :py:class:`VrrpBagProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolState>`
+                
+                	**config**\: False
                 
                 .. attribute:: authentication_type
                 
                 	Authentication type
                 	**type**\:  :py:class:`VrrpProtAuth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpProtAuth>`
                 
+                	**config**\: False
+                
                 .. attribute:: authentication_string
                 
                 	Authentication data
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: configured_advertize_time
                 
@@ -1187,6 +1366,8 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: oper_advertize_time
                 
                 	Operational advertize time
@@ -1194,12 +1375,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: min_delay_time
                 
                 	Minimum delay time in msecs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -1210,6 +1395,8 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: delay_timer_flag
@@ -1217,12 +1404,16 @@ class Vrrp(Entity):
                 	Delay timer running flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: delay_timer_secs
                 
                 	Delay timer running time secs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -1233,6 +1424,8 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: authentication_flag
@@ -1240,25 +1433,35 @@ class Vrrp(Entity):
                 	Text authentication configured flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: force_timer_flag
                 
                 	Configured timers forced flag
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: preempt_flag
                 
                 	Preempt configured flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: ip_address_owner_flag
                 
                 	IP address owner flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: is_accept_mode
                 
                 	Is accept mode
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: preempt_delay_time
                 
@@ -1267,12 +1470,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: configured_priority
                 
                 	Configured priority
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: operational_priority
                 
@@ -1281,12 +1488,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: priority_decrement
                 
                 	Priority decrement
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tracked_interface_count
                 
@@ -1295,12 +1506,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tracked_interface_up_count
                 
                 	Number of tracked items up
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tracked_item_count
                 
@@ -1309,6 +1524,8 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tracked_item_up_count
                 
                 	Number of tracked items in UP state
@@ -1316,12 +1533,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: time_in_current_state
                 
                 	Time in current state secs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -1332,12 +1553,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: time_vrouter_up
                 
                 	Time vrouter is up in centiseconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: centisecond
                 
@@ -1348,12 +1573,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: adverts_received_count
                 
                 	No. of advertisements received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: advert_interval_error_count
                 
@@ -1362,12 +1591,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: adverts_sent_count
                 
                 	No. of advertisements sent
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: authentication_fail_count
                 
@@ -1376,12 +1609,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ttl_error_count
                 
                 	TTL errors
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: priority_zero_received_count
                 
@@ -1390,12 +1627,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: priority_zero_sent_count
                 
                 	No. priority 0 sent
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: invalid_packet_count
                 
@@ -1404,12 +1645,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: address_list_error_count
                 
                 	Address list errors
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: invalid_auth_type_count
                 
@@ -1418,12 +1663,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: auth_type_mismatch_count
                 
                 	Authentication type mismatches
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: pkt_length_errors_count
                 
@@ -1432,6 +1681,8 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: time_stats_discontinuity
                 
                 	Time since a statistics discontinuity in ticks (10ns units)
@@ -1439,10 +1690,14 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: bfd_session_state
                 
                 	BFD session state
                 	**type**\:  :py:class:`VrrpBfdSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBfdSessionState>`
+                
+                	**config**\: False
                 
                 .. attribute:: bfd_interval
                 
@@ -1451,12 +1706,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: bfd_multiplier
                 
                 	BFD multiplier
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: bfd_cfg_remote_ip
                 
@@ -1465,6 +1724,8 @@ class Vrrp(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: bfd_configured_remote_ipv6_address
                 
                 	BFD configured remote IPv6
@@ -1472,10 +1733,14 @@ class Vrrp(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: state_from_checkpoint
                 
                 	Whether state recovered from checkpoint
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: interface_ipv4_address
                 
@@ -1484,12 +1749,16 @@ class Vrrp(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: interface_ipv6_address
                 
                 	The Interface linklocal IPv6 address
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: virtual_mac_address
                 
@@ -1498,10 +1767,14 @@ class Vrrp(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: virtual_mac_address_state
                 
                 	Virtual mac address state
                 	**type**\:  :py:class:`VrrpVmacState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpVmacState>`
+                
+                	**config**\: False
                 
                 .. attribute:: operational_address
                 
@@ -1510,6 +1783,8 @@ class Vrrp(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4_configured_down_address
                 
                 	IPv4 Configured but Down VRRP addresses
@@ -1517,25 +1792,35 @@ class Vrrp(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv6_operational_address
                 
                 	IPv6 Operational VRRP addresses
                 	**type**\: list of  		 :py:class:`Ipv6OperationalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress>`
+                
+                	**config**\: False
                 
                 .. attribute:: ipv6_configured_down_address
                 
                 	IPv6 Configured but Down VRRP addresses
                 	**type**\: list of  		 :py:class:`Ipv6ConfiguredDownAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: track_item_info
                 
                 	Track Item Info
                 	**type**\: list of  		 :py:class:`TrackItemInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.TrackItemInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: state_change_history
                 
                 	State change history
                 	**type**\: list of  		 :py:class:`StateChangeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory>`
+                
+                	**config**\: False
                 
                 
 
@@ -1729,6 +2014,8 @@ class Vrrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -1737,6 +2024,8 @@ class Vrrp(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -1769,6 +2058,7 @@ class Vrrp(Entity):
                         self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class ResignReceivedTime(Entity):
                     """
                     Time last resign was received
@@ -1780,6 +2070,8 @@ class Vrrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -1788,6 +2080,8 @@ class Vrrp(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -1820,6 +2114,7 @@ class Vrrp(Entity):
                         self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class Ipv6OperationalAddress(Entity):
                     """
                     IPv6 Operational VRRP addresses
@@ -1830,6 +2125,8 @@ class Vrrp(Entity):
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -1858,6 +2155,7 @@ class Vrrp(Entity):
                         self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, [u'ipv6_address'], name, value)
 
 
+
                 class Ipv6ConfiguredDownAddress(Entity):
                     """
                     IPv6 Configured but Down VRRP addresses
@@ -1868,6 +2166,8 @@ class Vrrp(Entity):
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -1896,6 +2196,7 @@ class Vrrp(Entity):
                         self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, [u'ipv6_address'], name, value)
 
 
+
                 class TrackItemInfo(Entity):
                     """
                     Track Item Info
@@ -1907,12 +2208,16 @@ class Vrrp(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: virtual_router_id_xr
                     
                     	Virtual Router ID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tracked_item_type
                     
@@ -1921,12 +2226,16 @@ class Vrrp(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: tracked_item_index
                     
                     	Tracked item index
                     	**type**\: str
                     
                     	**length:** 0..32
+                    
+                    	**config**\: False
                     
                     .. attribute:: state
                     
@@ -1935,12 +2244,16 @@ class Vrrp(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: priority
                     
                     	Priority weight of item
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -1979,6 +2292,7 @@ class Vrrp(Entity):
                         self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.TrackItemInfo, [u'interface', u'virtual_router_id_xr', u'tracked_item_type', u'tracked_item_index', u'state', u'priority'], name, value)
 
 
+
                 class StateChangeHistory(Entity):
                     """
                     State change history
@@ -1988,20 +2302,28 @@ class Vrrp(Entity):
                     	Time of state change
                     	**type**\:  :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: old_state
                     
                     	Old State
                     	**type**\:  :py:class:`VrrpBagProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: new_state
                     
                     	New State
                     	**type**\:  :py:class:`VrrpBagProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: reason
                     
                     	Reason for state change
                     	**type**\:  :py:class:`VrrpStateChangeReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpStateChangeReason>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2049,6 +2371,8 @@ class Vrrp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: second
                         
                         .. attribute:: nanoseconds
@@ -2057,6 +2381,8 @@ class Vrrp(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: nanosecond
                         
@@ -2089,6 +2415,10 @@ class Vrrp(Entity):
                             self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time, [u'seconds', u'nanoseconds'], name, value)
 
 
+
+
+
+
         class Interfaces(Entity):
             """
             The VRRP interface table
@@ -2097,6 +2427,8 @@ class Vrrp(Entity):
             
             	A VRRP interface entry
             	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.Interfaces.Interface>`
+            
+            	**config**\: False
             
             
 
@@ -2136,12 +2468,16 @@ class Vrrp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: interface
                 
                 	IM Interface
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                	**config**\: False
                 
                 .. attribute:: invalid_checksum_count
                 
@@ -2150,12 +2486,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: invalid_version_count
                 
                 	Unknown/unsupported version
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: invalid_vrid_count
                 
@@ -2164,12 +2504,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: invalid_packet_length_count
                 
                 	Bad packet lengths
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -2209,6 +2553,9 @@ class Vrrp(Entity):
                     self._perform_setattr(Vrrp.Ipv6.Interfaces.Interface, ['interface_name', u'interface', u'invalid_checksum_count', u'invalid_version_count', u'invalid_vrid_count', u'invalid_packet_length_count'], name, value)
 
 
+
+
+
     class Ipv4(Entity):
         """
         IPv4 VRRP configuration
@@ -2218,15 +2565,21 @@ class Vrrp(Entity):
         	The VRRP interface table
         	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.Interfaces>`
         
+        	**config**\: False
+        
         .. attribute:: track_items
         
         	The VRRP tracked item table
         	**type**\:  :py:class:`TrackItems <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.TrackItems>`
         
+        	**config**\: False
+        
         .. attribute:: virtual_routers
         
         	The VRRP virtual router table
         	**type**\:  :py:class:`VirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters>`
+        
+        	**config**\: False
         
         
 
@@ -2274,6 +2627,8 @@ class Vrrp(Entity):
             	A VRRP interface entry
             	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.Interfaces.Interface>`
             
+            	**config**\: False
+            
             
 
             """
@@ -2312,12 +2667,16 @@ class Vrrp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: interface
                 
                 	IM Interface
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                	**config**\: False
                 
                 .. attribute:: invalid_checksum_count
                 
@@ -2326,12 +2685,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: invalid_version_count
                 
                 	Unknown/unsupported version
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: invalid_vrid_count
                 
@@ -2340,12 +2703,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: invalid_packet_length_count
                 
                 	Bad packet lengths
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -2385,6 +2752,8 @@ class Vrrp(Entity):
                     self._perform_setattr(Vrrp.Ipv4.Interfaces.Interface, ['interface_name', u'interface', u'invalid_checksum_count', u'invalid_version_count', u'invalid_vrid_count', u'invalid_packet_length_count'], name, value)
 
 
+
+
         class TrackItems(Entity):
             """
             The VRRP tracked item table
@@ -2393,6 +2762,8 @@ class Vrrp(Entity):
             
             	A configured VRRP IP address entry
             	**type**\: list of  		 :py:class:`TrackItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.TrackItems.TrackItem>`
+            
+            	**config**\: False
             
             
 
@@ -2432,12 +2803,16 @@ class Vrrp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: virtual_router_id  (key)
                 
                 	The VRRP virtual router id
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tracked_interface_name  (key)
                 
@@ -2446,12 +2821,16 @@ class Vrrp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: interface
                 
                 	IM Interface
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                	**config**\: False
                 
                 .. attribute:: virtual_router_id_xr
                 
@@ -2460,12 +2839,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tracked_item_type
                 
                 	Type of tracked item
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 .. attribute:: tracked_item_index
                 
@@ -2474,6 +2857,8 @@ class Vrrp(Entity):
                 
                 	**length:** 0..32
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	State of the tracked item
@@ -2481,12 +2866,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: priority
                 
                 	Priority weight of item
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 
 
@@ -2532,6 +2921,8 @@ class Vrrp(Entity):
                     self._perform_setattr(Vrrp.Ipv4.TrackItems.TrackItem, ['interface_name', 'virtual_router_id', 'tracked_interface_name', u'interface', u'virtual_router_id_xr', u'tracked_item_type', u'tracked_item_index', u'state', u'priority'], name, value)
 
 
+
+
         class VirtualRouters(Entity):
             """
             The VRRP virtual router table
@@ -2540,6 +2931,8 @@ class Vrrp(Entity):
             
             	A VRRP virtual router
             	**type**\: list of  		 :py:class:`VirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter>`
+            
+            	**config**\: False
             
             
 
@@ -2579,6 +2972,8 @@ class Vrrp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: virtual_router_id  (key)
                 
                 	The VRRP virtual router id
@@ -2586,15 +2981,21 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: resign_sent_time
                 
                 	Time last resign was sent
                 	**type**\:  :py:class:`ResignSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: resign_received_time
                 
                 	Time last resign was received
                 	**type**\:  :py:class:`ResignReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime>`
+                
+                	**config**\: False
                 
                 .. attribute:: interface_name_xr
                 
@@ -2603,12 +3004,16 @@ class Vrrp(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: virtual_router_id_xr
                 
                 	Virtual Router ID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: version
                 
@@ -2617,10 +3022,14 @@ class Vrrp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: address_family
                 
                 	Address family
                 	**type**\:  :py:class:`VrrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBAf>`
+                
+                	**config**\: False
                 
                 .. attribute:: session_name
                 
@@ -2629,6 +3038,8 @@ class Vrrp(Entity):
                 
                 	**length:** 0..16
                 
+                	**config**\: False
+                
                 .. attribute:: slaves
                 
                 	Number of slaves following state
@@ -2636,10 +3047,14 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: is_slave
                 
                 	Group is a slave group
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: followed_session_name
                 
@@ -2648,12 +3063,16 @@ class Vrrp(Entity):
                 
                 	**length:** 0..16
                 
+                	**config**\: False
+                
                 .. attribute:: secondary_address_count
                 
                 	Configured VRRP secondary address count
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: operational_address_count
                 
@@ -2662,12 +3081,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: primary_virtual_ip
                 
                 	Configured IPv4 Primary address
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: configured_down_address_count
                 
@@ -2676,6 +3099,8 @@ class Vrrp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: virtual_linklocal_ipv6_address
                 
                 	Virtual linklocal IPv6 address
@@ -2683,10 +3108,14 @@ class Vrrp(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: primary_state
                 
                 	State of primary IP address
                 	**type**\:  :py:class:`VrrpVipState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpVipState>`
+                
+                	**config**\: False
                 
                 .. attribute:: master_ip_address
                 
@@ -2695,12 +3124,16 @@ class Vrrp(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: master_ipv6_address
                 
                 	Master router real IPv6 address
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: master_priority
                 
@@ -2709,20 +3142,28 @@ class Vrrp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: vrrp_state
                 
                 	VRRP state
                 	**type**\:  :py:class:`VrrpBagProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolState>`
+                
+                	**config**\: False
                 
                 .. attribute:: authentication_type
                 
                 	Authentication type
                 	**type**\:  :py:class:`VrrpProtAuth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpProtAuth>`
                 
+                	**config**\: False
+                
                 .. attribute:: authentication_string
                 
                 	Authentication data
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: configured_advertize_time
                 
@@ -2731,6 +3172,8 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: oper_advertize_time
                 
                 	Operational advertize time
@@ -2738,12 +3181,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: min_delay_time
                 
                 	Minimum delay time in msecs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -2754,6 +3201,8 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: delay_timer_flag
@@ -2761,12 +3210,16 @@ class Vrrp(Entity):
                 	Delay timer running flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: delay_timer_secs
                 
                 	Delay timer running time secs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -2777,6 +3230,8 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: authentication_flag
@@ -2784,25 +3239,35 @@ class Vrrp(Entity):
                 	Text authentication configured flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: force_timer_flag
                 
                 	Configured timers forced flag
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: preempt_flag
                 
                 	Preempt configured flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: ip_address_owner_flag
                 
                 	IP address owner flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: is_accept_mode
                 
                 	Is accept mode
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: preempt_delay_time
                 
@@ -2811,12 +3276,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: configured_priority
                 
                 	Configured priority
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: operational_priority
                 
@@ -2825,12 +3294,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: priority_decrement
                 
                 	Priority decrement
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tracked_interface_count
                 
@@ -2839,12 +3312,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tracked_interface_up_count
                 
                 	Number of tracked items up
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tracked_item_count
                 
@@ -2853,6 +3330,8 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tracked_item_up_count
                 
                 	Number of tracked items in UP state
@@ -2860,12 +3339,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: time_in_current_state
                 
                 	Time in current state secs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -2876,12 +3359,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: time_vrouter_up
                 
                 	Time vrouter is up in centiseconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: centisecond
                 
@@ -2892,12 +3379,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: adverts_received_count
                 
                 	No. of advertisements received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: advert_interval_error_count
                 
@@ -2906,12 +3397,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: adverts_sent_count
                 
                 	No. of advertisements sent
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: authentication_fail_count
                 
@@ -2920,12 +3415,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ttl_error_count
                 
                 	TTL errors
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: priority_zero_received_count
                 
@@ -2934,12 +3433,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: priority_zero_sent_count
                 
                 	No. priority 0 sent
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: invalid_packet_count
                 
@@ -2948,12 +3451,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: address_list_error_count
                 
                 	Address list errors
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: invalid_auth_type_count
                 
@@ -2962,12 +3469,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: auth_type_mismatch_count
                 
                 	Authentication type mismatches
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: pkt_length_errors_count
                 
@@ -2976,6 +3487,8 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: time_stats_discontinuity
                 
                 	Time since a statistics discontinuity in ticks (10ns units)
@@ -2983,10 +3496,14 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: bfd_session_state
                 
                 	BFD session state
                 	**type**\:  :py:class:`VrrpBfdSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBfdSessionState>`
+                
+                	**config**\: False
                 
                 .. attribute:: bfd_interval
                 
@@ -2995,12 +3512,16 @@ class Vrrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: bfd_multiplier
                 
                 	BFD multiplier
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: bfd_cfg_remote_ip
                 
@@ -3009,6 +3530,8 @@ class Vrrp(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: bfd_configured_remote_ipv6_address
                 
                 	BFD configured remote IPv6
@@ -3016,10 +3539,14 @@ class Vrrp(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: state_from_checkpoint
                 
                 	Whether state recovered from checkpoint
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: interface_ipv4_address
                 
@@ -3028,12 +3555,16 @@ class Vrrp(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: interface_ipv6_address
                 
                 	The Interface linklocal IPv6 address
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: virtual_mac_address
                 
@@ -3042,10 +3573,14 @@ class Vrrp(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: virtual_mac_address_state
                 
                 	Virtual mac address state
                 	**type**\:  :py:class:`VrrpVmacState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpVmacState>`
+                
+                	**config**\: False
                 
                 .. attribute:: operational_address
                 
@@ -3054,6 +3589,8 @@ class Vrrp(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4_configured_down_address
                 
                 	IPv4 Configured but Down VRRP addresses
@@ -3061,25 +3598,35 @@ class Vrrp(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv6_operational_address
                 
                 	IPv6 Operational VRRP addresses
                 	**type**\: list of  		 :py:class:`Ipv6OperationalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress>`
+                
+                	**config**\: False
                 
                 .. attribute:: ipv6_configured_down_address
                 
                 	IPv6 Configured but Down VRRP addresses
                 	**type**\: list of  		 :py:class:`Ipv6ConfiguredDownAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: track_item_info
                 
                 	Track Item Info
                 	**type**\: list of  		 :py:class:`TrackItemInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.TrackItemInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: state_change_history
                 
                 	State change history
                 	**type**\: list of  		 :py:class:`StateChangeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory>`
+                
+                	**config**\: False
                 
                 
 
@@ -3273,6 +3820,8 @@ class Vrrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -3281,6 +3830,8 @@ class Vrrp(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -3313,6 +3864,7 @@ class Vrrp(Entity):
                         self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class ResignReceivedTime(Entity):
                     """
                     Time last resign was received
@@ -3324,6 +3876,8 @@ class Vrrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -3332,6 +3886,8 @@ class Vrrp(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -3364,6 +3920,7 @@ class Vrrp(Entity):
                         self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class Ipv6OperationalAddress(Entity):
                     """
                     IPv6 Operational VRRP addresses
@@ -3374,6 +3931,8 @@ class Vrrp(Entity):
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -3402,6 +3961,7 @@ class Vrrp(Entity):
                         self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, [u'ipv6_address'], name, value)
 
 
+
                 class Ipv6ConfiguredDownAddress(Entity):
                     """
                     IPv6 Configured but Down VRRP addresses
@@ -3412,6 +3972,8 @@ class Vrrp(Entity):
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -3440,6 +4002,7 @@ class Vrrp(Entity):
                         self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, [u'ipv6_address'], name, value)
 
 
+
                 class TrackItemInfo(Entity):
                     """
                     Track Item Info
@@ -3451,12 +4014,16 @@ class Vrrp(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: virtual_router_id_xr
                     
                     	Virtual Router ID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tracked_item_type
                     
@@ -3465,12 +4032,16 @@ class Vrrp(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: tracked_item_index
                     
                     	Tracked item index
                     	**type**\: str
                     
                     	**length:** 0..32
+                    
+                    	**config**\: False
                     
                     .. attribute:: state
                     
@@ -3479,12 +4050,16 @@ class Vrrp(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: priority
                     
                     	Priority weight of item
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -3523,6 +4098,7 @@ class Vrrp(Entity):
                         self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.TrackItemInfo, [u'interface', u'virtual_router_id_xr', u'tracked_item_type', u'tracked_item_index', u'state', u'priority'], name, value)
 
 
+
                 class StateChangeHistory(Entity):
                     """
                     State change history
@@ -3532,20 +4108,28 @@ class Vrrp(Entity):
                     	Time of state change
                     	**type**\:  :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: old_state
                     
                     	Old State
                     	**type**\:  :py:class:`VrrpBagProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: new_state
                     
                     	New State
                     	**type**\:  :py:class:`VrrpBagProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: reason
                     
                     	Reason for state change
                     	**type**\:  :py:class:`VrrpStateChangeReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpStateChangeReason>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3593,6 +4177,8 @@ class Vrrp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: second
                         
                         .. attribute:: nanoseconds
@@ -3601,6 +4187,8 @@ class Vrrp(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: nanosecond
                         
@@ -3633,6 +4221,11 @@ class Vrrp(Entity):
                             self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time, [u'seconds', u'nanoseconds'], name, value)
 
 
+
+
+
+
+
     class MgoSessions(Entity):
         """
         VRRP MGO Session information
@@ -3641,6 +4234,8 @@ class Vrrp(Entity):
         
         	A VRRP MGO Session
         	**type**\: list of  		 :py:class:`MgoSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.MgoSessions.MgoSession>`
+        
+        	**config**\: False
         
         
 
@@ -3680,12 +4275,16 @@ class Vrrp(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: primary_session_name
             
             	Session Name
             	**type**\: str
             
             	**length:** 0..16
+            
+            	**config**\: False
             
             .. attribute:: primary_session_interface
             
@@ -3694,10 +4293,14 @@ class Vrrp(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: primary_af_name
             
             	Address family of primary session
             	**type**\:  :py:class:`VrrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBAf>`
+            
+            	**config**\: False
             
             .. attribute:: primary_session_number
             
@@ -3706,15 +4309,21 @@ class Vrrp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: primary_session_state
             
             	State of primary session
             	**type**\:  :py:class:`VrrpBagProtocolState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolState>`
             
+            	**config**\: False
+            
             .. attribute:: slave
             
             	List of slaves following this primary session
             	**type**\: list of  		 :py:class:`Slave <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.MgoSessions.MgoSession.Slave>`
+            
+            	**config**\: False
             
             
 
@@ -3767,12 +4376,16 @@ class Vrrp(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: slave_virtual_router_id
                 
                 	VRID of slave
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -3802,7 +4415,12 @@ class Vrrp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrrp.MgoSessions.MgoSession.Slave, [u'slave_interface', u'slave_virtual_router_id'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Vrrp()
         return self._top_entity
+
+
 

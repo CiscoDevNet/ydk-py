@@ -28,6 +28,8 @@ class CISCOIETFPWATMMIB(Entity):
     	This table specifies the information for an ATM interface, VC, VP to be carried over PSN
     	**type**\:  :py:class:`CpwVcAtmTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ATM_MIB.CISCOIETFPWATMMIB.CpwVcAtmTable>`
     
+    	**config**\: False
+    
     
 
     """
@@ -66,6 +68,8 @@ class CISCOIETFPWATMMIB(Entity):
         
         	A row in this table represents an ATM interface, VC, VP that needs to be adapted and carried over PSN. This table is indexed by CpwVcIndex in CISCO\-IETF\-PW\-MIB
         	**type**\: list of  		 :py:class:`CpwVcAtmEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ATM_MIB.CISCOIETFPWATMMIB.CpwVcAtmTable.CpwVcAtmEntry>`
+        
+        	**config**\: False
         
         
 
@@ -109,12 +113,16 @@ class CISCOIETFPWATMMIB(Entity):
             
             	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cpwatmif
             
             	The ATM Interface that receives cells from the ATM network
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             .. attribute:: cpwatmvpi
             
@@ -123,6 +131,8 @@ class CISCOIETFPWATMMIB(Entity):
             
             	**range:** 0..4095
             
+            	**config**\: False
+            
             .. attribute:: cpwatmvci
             
             	VCI value of this ATM VC
@@ -130,20 +140,28 @@ class CISCOIETFPWATMMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: cpwatmclpqosmapping
             
             	This Object indicates whether the CLP bits are considered when determining the value placed in the Quality of Service fields (e.g. EXP fields of the MPLS Label Stack) of the encapsulating protocol
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cpwatmrowstatus
             
             	This Object is used to create, modify or delete a row in this table
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: cpwatmoamcellsupported
             
             	This Object indicates whether OAM Cells are transported on this VC
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cpwatmqosscalingfactor
             
@@ -152,10 +170,14 @@ class CISCOIETFPWATMMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cpwatmcellpacking
             
             	This object is used to identify if the VC is configured to do Cell Packing
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cpwatmmncp
             
@@ -164,6 +186,8 @@ class CISCOIETFPWATMMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cpwatmpeermncp
             
             	This Object represents the maximum number of cell that can be packed in one packet for peer interface
@@ -171,10 +195,14 @@ class CISCOIETFPWATMMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cpwatmencap
             
             	This object indicates if the packet going on the pseudowire is mpls or l2tpv3 encapsulated
             	**type**\:  :py:class:`CpwAtmEncap <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ATM_MIB.CISCOIETFPWATMMIB.CpwVcAtmTable.CpwVcAtmEntry.CpwAtmEncap>`
+            
+            	**config**\: False
             
             .. attribute:: cpwatmmcpttimeout
             
@@ -183,12 +211,16 @@ class CISCOIETFPWATMMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cpwatmcellsreceived
             
             	This object can be used to obtain the information on the number of cells that were received and sent to the PSN
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cpwatmcellssent
             
@@ -197,12 +229,16 @@ class CISCOIETFPWATMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwatmcellsrejected
             
             	This Object indicates the number of cells that were rejected by this VC because of policing
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cpwatmcellstagged
             
@@ -211,12 +247,16 @@ class CISCOIETFPWATMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwatmhccellsreceived
             
             	High Capacity counter for the number of cells that were received by this VC
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: cpwatmhccellsrejected
             
@@ -225,12 +265,16 @@ class CISCOIETFPWATMMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cpwatmhccellstagged
             
             	High Capacity counter for the number of cells that were tagged
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: cpwatmavgcellspacked
             
@@ -239,12 +283,16 @@ class CISCOIETFPWATMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwatmpktsreceived
             
             	This object can be used to obtain the information on the number of packets that were received and sent to the PSN
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cpwatmpktssent
             
@@ -253,12 +301,16 @@ class CISCOIETFPWATMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwatmpktsrejected
             
             	This object indicates the number of packets that were rejected because of Policing
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -356,7 +408,11 @@ class CISCOIETFPWATMMIB(Entity):
                 unknown = Enum.YLeaf(3, "unknown")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOIETFPWATMMIB()
         return self._top_entity
+
+
 

@@ -160,6 +160,7 @@ class Ipv6Configuration(Entity):
             self._perform_setattr(Ipv6Configuration.Ipv6Assembler, ['timeout', 'max_packets'], name, value)
 
 
+
     class Ipv6icmp(Entity):
         """
         Configure IPv6 ICMP parameters
@@ -216,7 +217,10 @@ class Ipv6Configuration(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv6Configuration.Ipv6icmp, ['error_interval', 'bucket_size'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Ipv6Configuration()
         return self._top_entity
+
+
 

@@ -30,7 +30,7 @@ class Hostname(Entity):
     	
     	**type**\: str
     
-    	**pattern:** [a\-zA\-Z0\-9\_.{}+\-]+
+    	**length:** 1..255
     
     
 
@@ -62,4 +62,6 @@ class Hostname(Entity):
     def clone_ptr(self):
         self._top_entity = Hostname()
         return self._top_entity
+
+
 

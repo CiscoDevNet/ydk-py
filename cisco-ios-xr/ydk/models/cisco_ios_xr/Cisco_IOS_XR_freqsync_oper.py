@@ -830,25 +830,35 @@ class FrequencySynchronization(Entity):
     	Table for global node\-specific operational data
     	**type**\:  :py:class:`GlobalNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes>`
     
+    	**config**\: False
+    
     .. attribute:: global_interfaces
     
     	Table for global interface operational data
     	**type**\:  :py:class:`GlobalInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalInterfaces>`
+    
+    	**config**\: False
     
     .. attribute:: summary
     
     	Summary operational data
     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Summary>`
     
+    	**config**\: False
+    
     .. attribute:: interface_datas
     
     	Table for interface operational data
     	**type**\:  :py:class:`InterfaceDatas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas>`
     
+    	**config**\: False
+    
     .. attribute:: nodes
     
     	Table for node\-specific operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes>`
+    
+    	**config**\: False
     
     
 
@@ -904,6 +914,8 @@ class FrequencySynchronization(Entity):
         	Global node\-specific data for a particular node
         	**type**\: list of  		 :py:class:`GlobalNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode>`
         
+        	**config**\: False
+        
         
 
         """
@@ -942,30 +954,42 @@ class FrequencySynchronization(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: clock_interface_selection_back_traces
             
             	Selection backtrace operational data for clock\-interfaces
             	**type**\:  :py:class:`ClockInterfaceSelectionBackTraces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces>`
+            
+            	**config**\: False
             
             .. attribute:: clock_interface_selection_forward_traces
             
             	Selection forwardtrace operational data for clock\-interfaces
             	**type**\:  :py:class:`ClockInterfaceSelectionForwardTraces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces>`
             
+            	**config**\: False
+            
             .. attribute:: time_of_day_back_trace
             
             	Selection backtrace operational data for time\-of\-day on a particular node
             	**type**\:  :py:class:`TimeOfDayBackTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace>`
+            
+            	**config**\: False
             
             .. attribute:: ntp_selection_forward_trace
             
             	Selection forwardtrace operational data for a NTP clock
             	**type**\:  :py:class:`NtpSelectionForwardTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace>`
             
+            	**config**\: False
+            
             .. attribute:: ptp_selection_forward_trace
             
             	Selection forwardtrace operational data for a PTP clock
             	**type**\:  :py:class:`PtpSelectionForwardTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace>`
+            
+            	**config**\: False
             
             
 
@@ -1025,6 +1049,8 @@ class FrequencySynchronization(Entity):
                 	Selection backtrace operational data for a particular clock\-interface or GNSS receiver
                 	**type**\: list of  		 :py:class:`ClockInterfaceSelectionBackTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1061,6 +1087,8 @@ class FrequencySynchronization(Entity):
                     	Clock type
                     	**type**\:  :py:class:`FsyncClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncClock>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: id  (key)
                     
                     	Clock ID (port number for clock interfaces, receiver number for GNSS receivers
@@ -1068,15 +1096,21 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: selected_source
                     
                     	Source which has been selected for output
                     	**type**\:  :py:class:`SelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: selection_point
                     
                     	List of selection points in the backtrace
                     	**type**\: list of  		 :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectionPoint>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1122,15 +1156,21 @@ class FrequencySynchronization(Entity):
                         	Clock ID
                         	**type**\:  :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: gnss_receiver_id
                         
                         	GNSS Receiver ID
                         	**type**\:  :py:class:`GnssReceiverId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.GnssReceiverId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: source_class
                         
                         	SourceClass
                         	**type**\:  :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceClass>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ethernet_interface
                         
@@ -1139,12 +1179,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: sonet_interface
                         
                         	SONET interfaces
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        	**config**\: False
                         
                         .. attribute:: node
                         
@@ -1153,12 +1197,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
+                        	**config**\: False
+                        
                         .. attribute:: ptp_node
                         
                         	PTP Clock Node
                         	**type**\: str
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        	**config**\: False
                         
                         .. attribute:: satellite_access_interface
                         
@@ -1167,12 +1215,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: ntp_node
                         
                         	NTP Clock Node
                         	**type**\: str
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        	**config**\: False
                         
                         
 
@@ -1232,6 +1284,8 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
+                            	**config**\: False
+                            
                             .. attribute:: id
                             
                             	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -1239,12 +1293,16 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: clock_name
                             
                             	Name
                             	**type**\: str
                             
                             	**length:** 0..144
+                            
+                            	**config**\: False
                             
                             
 
@@ -1277,6 +1335,7 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
                         class GnssReceiverId(Entity):
                             """
                             GNSS Receiver ID
@@ -1288,6 +1347,8 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
+                            	**config**\: False
+                            
                             .. attribute:: id
                             
                             	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -1295,12 +1356,16 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: clock_name
                             
                             	Name
                             	**type**\: str
                             
                             	**length:** 0..144
+                            
+                            	**config**\: False
                             
                             
 
@@ -1333,6 +1398,8 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
+
                     class SelectionPoint(Entity):
                         """
                         List of selection points in the backtrace
@@ -1344,10 +1411,14 @@ class FrequencySynchronization(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: selection_point_description
                         
                         	Selection point descrption
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: node
                         
@@ -1355,6 +1426,8 @@ class FrequencySynchronization(Entity):
                         	**type**\: str
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        	**config**\: False
                         
                         
 
@@ -1387,6 +1460,9 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectionPoint, [u'selection_point_type', u'selection_point_description', u'node'], name, value)
 
 
+
+
+
             class ClockInterfaceSelectionForwardTraces(Entity):
                 """
                 Selection forwardtrace operational data for
@@ -1396,6 +1472,8 @@ class FrequencySynchronization(Entity):
                 
                 	Selection forwardtrace operational data for a particular clock\-interface
                 	**type**\: list of  		 :py:class:`ClockInterfaceSelectionForwardTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace>`
+                
+                	**config**\: False
                 
                 
 
@@ -1433,6 +1511,8 @@ class FrequencySynchronization(Entity):
                     	Clock type
                     	**type**\:  :py:class:`FsyncClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncClock>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: port  (key)
                     
                     	Clock port
@@ -1440,10 +1520,14 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: forward_trace
                     
                     	Selection ForwardTrace
                     	**type**\: list of  		 :py:class:`ForwardTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1485,6 +1569,8 @@ class FrequencySynchronization(Entity):
                         	The source or selection point at this point in the forwardtrace
                         	**type**\:  :py:class:`ForwardTraceNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -1523,15 +1609,21 @@ class FrequencySynchronization(Entity):
                             	Selection Point
                             	**type**\:  :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: source
                             
                             	Timing Source
                             	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: node_type
                             
                             	NodeType
                             	**type**\:  :py:class:`FsyncBagForwardtraceNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagForwardtraceNode>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1579,10 +1671,14 @@ class FrequencySynchronization(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: selection_point_description
                                 
                                 	Selection point descrption
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: node
                                 
@@ -1590,6 +1686,8 @@ class FrequencySynchronization(Entity):
                                 	**type**\: str
                                 
                                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1622,6 +1720,7 @@ class FrequencySynchronization(Entity):
                                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, [u'selection_point_type', u'selection_point_description', u'node'], name, value)
 
 
+
                             class Source(Entity):
                                 """
                                 Timing Source
@@ -1631,15 +1730,21 @@ class FrequencySynchronization(Entity):
                                 	Clock ID
                                 	**type**\:  :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: gnss_receiver_id
                                 
                                 	GNSS Receiver ID
                                 	**type**\:  :py:class:`GnssReceiverId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: source_class
                                 
                                 	SourceClass
                                 	**type**\:  :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceClass>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ethernet_interface
                                 
@@ -1648,12 +1753,16 @@ class FrequencySynchronization(Entity):
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sonet_interface
                                 
                                 	SONET interfaces
                                 	**type**\: str
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: node
                                 
@@ -1662,12 +1771,16 @@ class FrequencySynchronization(Entity):
                                 
                                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ptp_node
                                 
                                 	PTP Clock Node
                                 	**type**\: str
                                 
                                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: satellite_access_interface
                                 
@@ -1676,12 +1789,16 @@ class FrequencySynchronization(Entity):
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ntp_node
                                 
                                 	NTP Clock Node
                                 	**type**\: str
                                 
                                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1741,6 +1858,8 @@ class FrequencySynchronization(Entity):
                                     
                                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: id
                                     
                                     	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -1748,12 +1867,16 @@ class FrequencySynchronization(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: clock_name
                                     
                                     	Name
                                     	**type**\: str
                                     
                                     	**length:** 0..144
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1786,6 +1909,7 @@ class FrequencySynchronization(Entity):
                                         self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
                                 class GnssReceiverId(Entity):
                                     """
                                     GNSS Receiver ID
@@ -1797,6 +1921,8 @@ class FrequencySynchronization(Entity):
                                     
                                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: id
                                     
                                     	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -1804,12 +1930,16 @@ class FrequencySynchronization(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: clock_name
                                     
                                     	Name
                                     	**type**\: str
                                     
                                     	**length:** 0..144
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1842,6 +1972,12 @@ class FrequencySynchronization(Entity):
                                         self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
+
+
+
+
+
             class TimeOfDayBackTrace(Entity):
                 """
                 Selection backtrace operational data for
@@ -1852,10 +1988,14 @@ class FrequencySynchronization(Entity):
                 	Source which has been selected for output
                 	**type**\:  :py:class:`SelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource>`
                 
+                	**config**\: False
+                
                 .. attribute:: selection_point
                 
                 	List of selection points in the backtrace
                 	**type**\: list of  		 :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectionPoint>`
+                
+                	**config**\: False
                 
                 
 
@@ -1896,15 +2036,21 @@ class FrequencySynchronization(Entity):
                     	Clock ID
                     	**type**\:  :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: gnss_receiver_id
                     
                     	GNSS Receiver ID
                     	**type**\:  :py:class:`GnssReceiverId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.GnssReceiverId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: source_class
                     
                     	SourceClass
                     	**type**\:  :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceClass>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ethernet_interface
                     
@@ -1913,12 +2059,16 @@ class FrequencySynchronization(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: sonet_interface
                     
                     	SONET interfaces
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                    
+                    	**config**\: False
                     
                     .. attribute:: node
                     
@@ -1927,12 +2077,16 @@ class FrequencySynchronization(Entity):
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
+                    	**config**\: False
+                    
                     .. attribute:: ptp_node
                     
                     	PTP Clock Node
                     	**type**\: str
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                    
+                    	**config**\: False
                     
                     .. attribute:: satellite_access_interface
                     
@@ -1941,12 +2095,16 @@ class FrequencySynchronization(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: ntp_node
                     
                     	NTP Clock Node
                     	**type**\: str
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                    
+                    	**config**\: False
                     
                     
 
@@ -2006,6 +2164,8 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
+                        	**config**\: False
+                        
                         .. attribute:: id
                         
                         	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -2013,12 +2173,16 @@ class FrequencySynchronization(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: clock_name
                         
                         	Name
                         	**type**\: str
                         
                         	**length:** 0..144
+                        
+                        	**config**\: False
                         
                         
 
@@ -2051,6 +2215,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
                     class GnssReceiverId(Entity):
                         """
                         GNSS Receiver ID
@@ -2062,6 +2227,8 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
+                        	**config**\: False
+                        
                         .. attribute:: id
                         
                         	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -2069,12 +2236,16 @@ class FrequencySynchronization(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: clock_name
                         
                         	Name
                         	**type**\: str
                         
                         	**length:** 0..144
+                        
+                        	**config**\: False
                         
                         
 
@@ -2107,6 +2278,8 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
+
                 class SelectionPoint(Entity):
                     """
                     List of selection points in the backtrace
@@ -2118,10 +2291,14 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: selection_point_description
                     
                     	Selection point descrption
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: node
                     
@@ -2129,6 +2306,8 @@ class FrequencySynchronization(Entity):
                     	**type**\: str
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                    
+                    	**config**\: False
                     
                     
 
@@ -2161,6 +2340,8 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectionPoint, [u'selection_point_type', u'selection_point_description', u'node'], name, value)
 
 
+
+
             class NtpSelectionForwardTrace(Entity):
                 """
                 Selection forwardtrace operational data for a
@@ -2170,6 +2351,8 @@ class FrequencySynchronization(Entity):
                 
                 	Selection ForwardTrace
                 	**type**\: list of  		 :py:class:`ForwardTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace>`
+                
+                	**config**\: False
                 
                 
 
@@ -2205,6 +2388,8 @@ class FrequencySynchronization(Entity):
                     
                     	The source or selection point at this point in the forwardtrace
                     	**type**\:  :py:class:`ForwardTraceNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2244,15 +2429,21 @@ class FrequencySynchronization(Entity):
                         	Selection Point
                         	**type**\:  :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: source
                         
                         	Timing Source
                         	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: node_type
                         
                         	NodeType
                         	**type**\:  :py:class:`FsyncBagForwardtraceNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagForwardtraceNode>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2300,10 +2491,14 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: selection_point_description
                             
                             	Selection point descrption
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: node
                             
@@ -2311,6 +2506,8 @@ class FrequencySynchronization(Entity):
                             	**type**\: str
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            	**config**\: False
                             
                             
 
@@ -2343,6 +2540,7 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, [u'selection_point_type', u'selection_point_description', u'node'], name, value)
 
 
+
                         class Source(Entity):
                             """
                             Timing Source
@@ -2352,15 +2550,21 @@ class FrequencySynchronization(Entity):
                             	Clock ID
                             	**type**\:  :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: gnss_receiver_id
                             
                             	GNSS Receiver ID
                             	**type**\:  :py:class:`GnssReceiverId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: source_class
                             
                             	SourceClass
                             	**type**\:  :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceClass>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ethernet_interface
                             
@@ -2369,12 +2573,16 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: sonet_interface
                             
                             	SONET interfaces
                             	**type**\: str
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            	**config**\: False
                             
                             .. attribute:: node
                             
@@ -2383,12 +2591,16 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
+                            	**config**\: False
+                            
                             .. attribute:: ptp_node
                             
                             	PTP Clock Node
                             	**type**\: str
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            	**config**\: False
                             
                             .. attribute:: satellite_access_interface
                             
@@ -2397,12 +2609,16 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: ntp_node
                             
                             	NTP Clock Node
                             	**type**\: str
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            	**config**\: False
                             
                             
 
@@ -2462,6 +2678,8 @@ class FrequencySynchronization(Entity):
                                 
                                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: id
                                 
                                 	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -2469,12 +2687,16 @@ class FrequencySynchronization(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: clock_name
                                 
                                 	Name
                                 	**type**\: str
                                 
                                 	**length:** 0..144
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2507,6 +2729,7 @@ class FrequencySynchronization(Entity):
                                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
                             class GnssReceiverId(Entity):
                                 """
                                 GNSS Receiver ID
@@ -2518,6 +2741,8 @@ class FrequencySynchronization(Entity):
                                 
                                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: id
                                 
                                 	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -2525,12 +2750,16 @@ class FrequencySynchronization(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: clock_name
                                 
                                 	Name
                                 	**type**\: str
                                 
                                 	**length:** 0..144
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2563,6 +2792,11 @@ class FrequencySynchronization(Entity):
                                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
+
+
+
+
             class PtpSelectionForwardTrace(Entity):
                 """
                 Selection forwardtrace operational data for a
@@ -2572,6 +2806,8 @@ class FrequencySynchronization(Entity):
                 
                 	Selection ForwardTrace
                 	**type**\: list of  		 :py:class:`ForwardTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace>`
+                
+                	**config**\: False
                 
                 
 
@@ -2607,6 +2843,8 @@ class FrequencySynchronization(Entity):
                     
                     	The source or selection point at this point in the forwardtrace
                     	**type**\:  :py:class:`ForwardTraceNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2646,15 +2884,21 @@ class FrequencySynchronization(Entity):
                         	Selection Point
                         	**type**\:  :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: source
                         
                         	Timing Source
                         	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: node_type
                         
                         	NodeType
                         	**type**\:  :py:class:`FsyncBagForwardtraceNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagForwardtraceNode>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2702,10 +2946,14 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: selection_point_description
                             
                             	Selection point descrption
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: node
                             
@@ -2713,6 +2961,8 @@ class FrequencySynchronization(Entity):
                             	**type**\: str
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            	**config**\: False
                             
                             
 
@@ -2745,6 +2995,7 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, [u'selection_point_type', u'selection_point_description', u'node'], name, value)
 
 
+
                         class Source(Entity):
                             """
                             Timing Source
@@ -2754,15 +3005,21 @@ class FrequencySynchronization(Entity):
                             	Clock ID
                             	**type**\:  :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: gnss_receiver_id
                             
                             	GNSS Receiver ID
                             	**type**\:  :py:class:`GnssReceiverId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: source_class
                             
                             	SourceClass
                             	**type**\:  :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceClass>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ethernet_interface
                             
@@ -2771,12 +3028,16 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: sonet_interface
                             
                             	SONET interfaces
                             	**type**\: str
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            	**config**\: False
                             
                             .. attribute:: node
                             
@@ -2785,12 +3046,16 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
+                            	**config**\: False
+                            
                             .. attribute:: ptp_node
                             
                             	PTP Clock Node
                             	**type**\: str
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            	**config**\: False
                             
                             .. attribute:: satellite_access_interface
                             
@@ -2799,12 +3064,16 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: ntp_node
                             
                             	NTP Clock Node
                             	**type**\: str
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            	**config**\: False
                             
                             
 
@@ -2864,6 +3133,8 @@ class FrequencySynchronization(Entity):
                                 
                                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: id
                                 
                                 	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -2871,12 +3142,16 @@ class FrequencySynchronization(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: clock_name
                                 
                                 	Name
                                 	**type**\: str
                                 
                                 	**length:** 0..144
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2909,6 +3184,7 @@ class FrequencySynchronization(Entity):
                                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
                             class GnssReceiverId(Entity):
                                 """
                                 GNSS Receiver ID
@@ -2920,6 +3196,8 @@ class FrequencySynchronization(Entity):
                                 
                                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: id
                                 
                                 	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -2927,12 +3205,16 @@ class FrequencySynchronization(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: clock_name
                                 
                                 	Name
                                 	**type**\: str
                                 
                                 	**length:** 0..144
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2965,6 +3247,13 @@ class FrequencySynchronization(Entity):
                                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
+
+
+
+
+
+
     class GlobalInterfaces(Entity):
         """
         Table for global interface operational data
@@ -2973,6 +3262,8 @@ class FrequencySynchronization(Entity):
         
         	Global interface information for a particular interface
         	**type**\: list of  		 :py:class:`GlobalInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface>`
+        
+        	**config**\: False
         
         
 
@@ -3013,15 +3304,21 @@ class FrequencySynchronization(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: interface_selection_forward_trace
             
             	Selection forwardtrace operational data for a particular interface
             	**type**\:  :py:class:`InterfaceSelectionForwardTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace>`
             
+            	**config**\: False
+            
             .. attribute:: interface_selection_back_trace
             
             	Selection backtrace operational data for a particular interface
             	**type**\:  :py:class:`InterfaceSelectionBackTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace>`
+            
+            	**config**\: False
             
             
 
@@ -3069,6 +3366,8 @@ class FrequencySynchronization(Entity):
                 	Selection ForwardTrace
                 	**type**\: list of  		 :py:class:`ForwardTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -3103,6 +3402,8 @@ class FrequencySynchronization(Entity):
                     
                     	The source or selection point at this point in the forwardtrace
                     	**type**\:  :py:class:`ForwardTraceNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3142,15 +3443,21 @@ class FrequencySynchronization(Entity):
                         	Selection Point
                         	**type**\:  :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: source
                         
                         	Timing Source
                         	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: node_type
                         
                         	NodeType
                         	**type**\:  :py:class:`FsyncBagForwardtraceNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagForwardtraceNode>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3198,10 +3505,14 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: selection_point_description
                             
                             	Selection point descrption
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: node
                             
@@ -3209,6 +3520,8 @@ class FrequencySynchronization(Entity):
                             	**type**\: str
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            	**config**\: False
                             
                             
 
@@ -3241,6 +3554,7 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, [u'selection_point_type', u'selection_point_description', u'node'], name, value)
 
 
+
                         class Source(Entity):
                             """
                             Timing Source
@@ -3250,15 +3564,21 @@ class FrequencySynchronization(Entity):
                             	Clock ID
                             	**type**\:  :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: gnss_receiver_id
                             
                             	GNSS Receiver ID
                             	**type**\:  :py:class:`GnssReceiverId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: source_class
                             
                             	SourceClass
                             	**type**\:  :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceClass>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ethernet_interface
                             
@@ -3267,12 +3587,16 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: sonet_interface
                             
                             	SONET interfaces
                             	**type**\: str
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            	**config**\: False
                             
                             .. attribute:: node
                             
@@ -3281,12 +3605,16 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
+                            	**config**\: False
+                            
                             .. attribute:: ptp_node
                             
                             	PTP Clock Node
                             	**type**\: str
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            	**config**\: False
                             
                             .. attribute:: satellite_access_interface
                             
@@ -3295,12 +3623,16 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: ntp_node
                             
                             	NTP Clock Node
                             	**type**\: str
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            	**config**\: False
                             
                             
 
@@ -3360,6 +3692,8 @@ class FrequencySynchronization(Entity):
                                 
                                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: id
                                 
                                 	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -3367,12 +3701,16 @@ class FrequencySynchronization(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: clock_name
                                 
                                 	Name
                                 	**type**\: str
                                 
                                 	**length:** 0..144
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3405,6 +3743,7 @@ class FrequencySynchronization(Entity):
                                     self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
                             class GnssReceiverId(Entity):
                                 """
                                 GNSS Receiver ID
@@ -3416,6 +3755,8 @@ class FrequencySynchronization(Entity):
                                 
                                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: id
                                 
                                 	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -3423,12 +3764,16 @@ class FrequencySynchronization(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: clock_name
                                 
                                 	Name
                                 	**type**\: str
                                 
                                 	**length:** 0..144
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3461,6 +3806,11 @@ class FrequencySynchronization(Entity):
                                     self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
+
+
+
+
             class InterfaceSelectionBackTrace(Entity):
                 """
                 Selection backtrace operational data for a
@@ -3471,10 +3821,14 @@ class FrequencySynchronization(Entity):
                 	Source which has been selected for output
                 	**type**\:  :py:class:`SelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource>`
                 
+                	**config**\: False
+                
                 .. attribute:: selection_point
                 
                 	List of selection points in the backtrace
                 	**type**\: list of  		 :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectionPoint>`
+                
+                	**config**\: False
                 
                 
 
@@ -3515,15 +3869,21 @@ class FrequencySynchronization(Entity):
                     	Clock ID
                     	**type**\:  :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: gnss_receiver_id
                     
                     	GNSS Receiver ID
                     	**type**\:  :py:class:`GnssReceiverId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.GnssReceiverId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: source_class
                     
                     	SourceClass
                     	**type**\:  :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceClass>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ethernet_interface
                     
@@ -3532,12 +3892,16 @@ class FrequencySynchronization(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: sonet_interface
                     
                     	SONET interfaces
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                    
+                    	**config**\: False
                     
                     .. attribute:: node
                     
@@ -3546,12 +3910,16 @@ class FrequencySynchronization(Entity):
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
+                    	**config**\: False
+                    
                     .. attribute:: ptp_node
                     
                     	PTP Clock Node
                     	**type**\: str
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                    
+                    	**config**\: False
                     
                     .. attribute:: satellite_access_interface
                     
@@ -3560,12 +3928,16 @@ class FrequencySynchronization(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: ntp_node
                     
                     	NTP Clock Node
                     	**type**\: str
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                    
+                    	**config**\: False
                     
                     
 
@@ -3625,6 +3997,8 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
+                        	**config**\: False
+                        
                         .. attribute:: id
                         
                         	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -3632,12 +4006,16 @@ class FrequencySynchronization(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: clock_name
                         
                         	Name
                         	**type**\: str
                         
                         	**length:** 0..144
+                        
+                        	**config**\: False
                         
                         
 
@@ -3670,6 +4048,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
                     class GnssReceiverId(Entity):
                         """
                         GNSS Receiver ID
@@ -3681,6 +4060,8 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
+                        	**config**\: False
+                        
                         .. attribute:: id
                         
                         	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -3688,12 +4069,16 @@ class FrequencySynchronization(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: clock_name
                         
                         	Name
                         	**type**\: str
                         
                         	**length:** 0..144
+                        
+                        	**config**\: False
                         
                         
 
@@ -3726,6 +4111,8 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
+
                 class SelectionPoint(Entity):
                     """
                     List of selection points in the backtrace
@@ -3737,10 +4124,14 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: selection_point_description
                     
                     	Selection point descrption
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: node
                     
@@ -3748,6 +4139,8 @@ class FrequencySynchronization(Entity):
                     	**type**\: str
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                    
+                    	**config**\: False
                     
                     
 
@@ -3780,6 +4173,10 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectionPoint, [u'selection_point_type', u'selection_point_description', u'node'], name, value)
 
 
+
+
+
+
     class Summary(Entity):
         """
         Summary operational data
@@ -3789,10 +4186,14 @@ class FrequencySynchronization(Entity):
         	Summary of sources selected for frequency
         	**type**\: list of  		 :py:class:`FrequencySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Summary.FrequencySummary>`
         
+        	**config**\: False
+        
         .. attribute:: time_of_day_summary
         
         	Summary of sources selected for time\-of\-day
         	**type**\: list of  		 :py:class:`TimeOfDaySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Summary.TimeOfDaySummary>`
+        
+        	**config**\: False
         
         
 
@@ -3831,12 +4232,16 @@ class FrequencySynchronization(Entity):
             	The source associated with this summary information
             	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Summary.FrequencySummary.Source>`
             
+            	**config**\: False
+            
             .. attribute:: clock_count
             
             	The number of clock\-interfaces being driven by the source
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ethernet_count
             
@@ -3845,12 +4250,16 @@ class FrequencySynchronization(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonet_count
             
             	The number of SONET/SDH interfaces being driven by the source
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -3898,15 +4307,21 @@ class FrequencySynchronization(Entity):
                 	Clock ID
                 	**type**\:  :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Summary.FrequencySummary.Source.ClockId>`
                 
+                	**config**\: False
+                
                 .. attribute:: gnss_receiver_id
                 
                 	GNSS Receiver ID
                 	**type**\:  :py:class:`GnssReceiverId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Summary.FrequencySummary.Source.GnssReceiverId>`
                 
+                	**config**\: False
+                
                 .. attribute:: source_class
                 
                 	SourceClass
                 	**type**\:  :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceClass>`
+                
+                	**config**\: False
                 
                 .. attribute:: ethernet_interface
                 
@@ -3915,12 +4330,16 @@ class FrequencySynchronization(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: sonet_interface
                 
                 	SONET interfaces
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                	**config**\: False
                 
                 .. attribute:: node
                 
@@ -3929,12 +4348,16 @@ class FrequencySynchronization(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: ptp_node
                 
                 	PTP Clock Node
                 	**type**\: str
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                
+                	**config**\: False
                 
                 .. attribute:: satellite_access_interface
                 
@@ -3943,12 +4366,16 @@ class FrequencySynchronization(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: ntp_node
                 
                 	NTP Clock Node
                 	**type**\: str
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                
+                	**config**\: False
                 
                 
 
@@ -4009,6 +4436,8 @@ class FrequencySynchronization(Entity):
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
+                    	**config**\: False
+                    
                     .. attribute:: id
                     
                     	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -4016,12 +4445,16 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: clock_name
                     
                     	Name
                     	**type**\: str
                     
                     	**length:** 0..144
+                    
+                    	**config**\: False
                     
                     
 
@@ -4055,6 +4488,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
                 class GnssReceiverId(Entity):
                     """
                     GNSS Receiver ID
@@ -4066,6 +4500,8 @@ class FrequencySynchronization(Entity):
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
+                    	**config**\: False
+                    
                     .. attribute:: id
                     
                     	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -4073,12 +4509,16 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: clock_name
                     
                     	Name
                     	**type**\: str
                     
                     	**length:** 0..144
+                    
+                    	**config**\: False
                     
                     
 
@@ -4112,6 +4552,9 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
+
+
         class TimeOfDaySummary(Entity):
             """
             Summary of sources selected for time\-of\-day
@@ -4121,12 +4564,16 @@ class FrequencySynchronization(Entity):
             	The source associated with this summary information
             	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Summary.TimeOfDaySummary.Source>`
             
+            	**config**\: False
+            
             .. attribute:: node_count
             
             	The number of cards having their time\-of\-day set by the source
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -4170,15 +4617,21 @@ class FrequencySynchronization(Entity):
                 	Clock ID
                 	**type**\:  :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId>`
                 
+                	**config**\: False
+                
                 .. attribute:: gnss_receiver_id
                 
                 	GNSS Receiver ID
                 	**type**\:  :py:class:`GnssReceiverId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Summary.TimeOfDaySummary.Source.GnssReceiverId>`
                 
+                	**config**\: False
+                
                 .. attribute:: source_class
                 
                 	SourceClass
                 	**type**\:  :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceClass>`
+                
+                	**config**\: False
                 
                 .. attribute:: ethernet_interface
                 
@@ -4187,12 +4640,16 @@ class FrequencySynchronization(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: sonet_interface
                 
                 	SONET interfaces
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                	**config**\: False
                 
                 .. attribute:: node
                 
@@ -4201,12 +4658,16 @@ class FrequencySynchronization(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: ptp_node
                 
                 	PTP Clock Node
                 	**type**\: str
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                
+                	**config**\: False
                 
                 .. attribute:: satellite_access_interface
                 
@@ -4215,12 +4676,16 @@ class FrequencySynchronization(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: ntp_node
                 
                 	NTP Clock Node
                 	**type**\: str
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                
+                	**config**\: False
                 
                 
 
@@ -4281,6 +4746,8 @@ class FrequencySynchronization(Entity):
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
+                    	**config**\: False
+                    
                     .. attribute:: id
                     
                     	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -4288,12 +4755,16 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: clock_name
                     
                     	Name
                     	**type**\: str
                     
                     	**length:** 0..144
+                    
+                    	**config**\: False
                     
                     
 
@@ -4327,6 +4798,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
                 class GnssReceiverId(Entity):
                     """
                     GNSS Receiver ID
@@ -4338,6 +4810,8 @@ class FrequencySynchronization(Entity):
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
+                    	**config**\: False
+                    
                     .. attribute:: id
                     
                     	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -4345,12 +4819,16 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: clock_name
                     
                     	Name
                     	**type**\: str
                     
                     	**length:** 0..144
+                    
+                    	**config**\: False
                     
                     
 
@@ -4384,6 +4862,10 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
+
+
+
     class InterfaceDatas(Entity):
         """
         Table for interface operational data
@@ -4392,6 +4874,8 @@ class FrequencySynchronization(Entity):
         
         	Operational data for a particular interface
         	**type**\: list of  		 :py:class:`InterfaceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas.InterfaceData>`
+        
+        	**config**\: False
         
         
 
@@ -4431,75 +4915,105 @@ class FrequencySynchronization(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: source
             
             	The source ID for the interface
             	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas.InterfaceData.Source>`
+            
+            	**config**\: False
             
             .. attribute:: selected_source
             
             	Timing source selected for interface output
             	**type**\:  :py:class:`SelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource>`
             
+            	**config**\: False
+            
             .. attribute:: quality_level_received
             
             	Received quality level
             	**type**\:  :py:class:`QualityLevelReceived <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelReceived>`
+            
+            	**config**\: False
             
             .. attribute:: quality_level_damped
             
             	Quality level after damping has been applied
             	**type**\:  :py:class:`QualityLevelDamped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelDamped>`
             
+            	**config**\: False
+            
             .. attribute:: quality_level_effective_input
             
             	The effective input quality level
             	**type**\:  :py:class:`QualityLevelEffectiveInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelEffectiveInput>`
+            
+            	**config**\: False
             
             .. attribute:: quality_level_effective_output
             
             	The effective output quality level
             	**type**\:  :py:class:`QualityLevelEffectiveOutput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelEffectiveOutput>`
             
+            	**config**\: False
+            
             .. attribute:: quality_level_selected_source
             
             	The quality level of the source driving this interface
             	**type**\:  :py:class:`QualityLevelSelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelSelectedSource>`
+            
+            	**config**\: False
             
             .. attribute:: ethernet_peer_information
             
             	Ethernet peer information
             	**type**\:  :py:class:`EthernetPeerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation>`
             
+            	**config**\: False
+            
             .. attribute:: esmc_statistics
             
             	ESMC Statistics
             	**type**\:  :py:class:`EsmcStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas.InterfaceData.EsmcStatistics>`
+            
+            	**config**\: False
             
             .. attribute:: name
             
             	Interface name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	Interface state
             	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.ImStateEnum>`
+            
+            	**config**\: False
             
             .. attribute:: ssm_enabled
             
             	SSM is enabled on the interface
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: squelched
             
             	The interface output is squelched
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: selection_input
             
             	The interface is an input for selection
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: priority
             
@@ -4508,6 +5022,8 @@ class FrequencySynchronization(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: time_of_day_priority
             
             	Time\-of\-day priority
@@ -4515,10 +5031,14 @@ class FrequencySynchronization(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: damping_state
             
             	Damping state
             	**type**\:  :py:class:`FsyncBagDampingState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagDampingState>`
+            
+            	**config**\: False
             
             .. attribute:: damping_time
             
@@ -4527,6 +5047,8 @@ class FrequencySynchronization(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: wait_to_restore_time
             
             	Wait\-to\-restore time for the interface
@@ -4534,25 +5056,35 @@ class FrequencySynchronization(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: supports_frequency
             
             	The PTP clock supports frequency
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: supports_time_of_day
             
             	The PTP clock supports time
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: spa_selection_point
             
             	Spa selection points
             	**type**\: list of  		 :py:class:`SpaSelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas.InterfaceData.SpaSelectionPoint>`
             
+            	**config**\: False
+            
             .. attribute:: node_selection_point
             
             	Node selection points
             	**type**\: list of  		 :py:class:`NodeSelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas.InterfaceData.NodeSelectionPoint>`
+            
+            	**config**\: False
             
             
 
@@ -4654,15 +5186,21 @@ class FrequencySynchronization(Entity):
                 	Clock ID
                 	**type**\:  :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas.InterfaceData.Source.ClockId>`
                 
+                	**config**\: False
+                
                 .. attribute:: gnss_receiver_id
                 
                 	GNSS Receiver ID
                 	**type**\:  :py:class:`GnssReceiverId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas.InterfaceData.Source.GnssReceiverId>`
                 
+                	**config**\: False
+                
                 .. attribute:: source_class
                 
                 	SourceClass
                 	**type**\:  :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceClass>`
+                
+                	**config**\: False
                 
                 .. attribute:: ethernet_interface
                 
@@ -4671,12 +5209,16 @@ class FrequencySynchronization(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: sonet_interface
                 
                 	SONET interfaces
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                	**config**\: False
                 
                 .. attribute:: node
                 
@@ -4685,12 +5227,16 @@ class FrequencySynchronization(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: ptp_node
                 
                 	PTP Clock Node
                 	**type**\: str
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                
+                	**config**\: False
                 
                 .. attribute:: satellite_access_interface
                 
@@ -4699,12 +5245,16 @@ class FrequencySynchronization(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: ntp_node
                 
                 	NTP Clock Node
                 	**type**\: str
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                
+                	**config**\: False
                 
                 
 
@@ -4764,6 +5314,8 @@ class FrequencySynchronization(Entity):
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
+                    	**config**\: False
+                    
                     .. attribute:: id
                     
                     	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -4771,12 +5323,16 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: clock_name
                     
                     	Name
                     	**type**\: str
                     
                     	**length:** 0..144
+                    
+                    	**config**\: False
                     
                     
 
@@ -4809,6 +5365,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
                 class GnssReceiverId(Entity):
                     """
                     GNSS Receiver ID
@@ -4820,6 +5377,8 @@ class FrequencySynchronization(Entity):
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
+                    	**config**\: False
+                    
                     .. attribute:: id
                     
                     	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -4827,12 +5386,16 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: clock_name
                     
                     	Name
                     	**type**\: str
                     
                     	**length:** 0..144
+                    
+                    	**config**\: False
                     
                     
 
@@ -4865,6 +5428,8 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.Source.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
+
             class SelectedSource(Entity):
                 """
                 Timing source selected for interface output
@@ -4874,15 +5439,21 @@ class FrequencySynchronization(Entity):
                 	Clock ID
                 	**type**\:  :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.ClockId>`
                 
+                	**config**\: False
+                
                 .. attribute:: gnss_receiver_id
                 
                 	GNSS Receiver ID
                 	**type**\:  :py:class:`GnssReceiverId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.GnssReceiverId>`
                 
+                	**config**\: False
+                
                 .. attribute:: source_class
                 
                 	SourceClass
                 	**type**\:  :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceClass>`
+                
+                	**config**\: False
                 
                 .. attribute:: ethernet_interface
                 
@@ -4891,12 +5462,16 @@ class FrequencySynchronization(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: sonet_interface
                 
                 	SONET interfaces
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                	**config**\: False
                 
                 .. attribute:: node
                 
@@ -4905,12 +5480,16 @@ class FrequencySynchronization(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: ptp_node
                 
                 	PTP Clock Node
                 	**type**\: str
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                
+                	**config**\: False
                 
                 .. attribute:: satellite_access_interface
                 
@@ -4919,12 +5498,16 @@ class FrequencySynchronization(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: ntp_node
                 
                 	NTP Clock Node
                 	**type**\: str
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                
+                	**config**\: False
                 
                 
 
@@ -4984,6 +5567,8 @@ class FrequencySynchronization(Entity):
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
+                    	**config**\: False
+                    
                     .. attribute:: id
                     
                     	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -4991,12 +5576,16 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: clock_name
                     
                     	Name
                     	**type**\: str
                     
                     	**length:** 0..144
+                    
+                    	**config**\: False
                     
                     
 
@@ -5029,6 +5618,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
                 class GnssReceiverId(Entity):
                     """
                     GNSS Receiver ID
@@ -5040,6 +5630,8 @@ class FrequencySynchronization(Entity):
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
+                    	**config**\: False
+                    
                     .. attribute:: id
                     
                     	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -5047,12 +5639,16 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: clock_name
                     
                     	Name
                     	**type**\: str
                     
                     	**length:** 0..144
+                    
+                    	**config**\: False
                     
                     
 
@@ -5085,6 +5681,8 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SelectedSource.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
+
             class QualityLevelReceived(Entity):
                 """
                 Received quality level
@@ -5094,20 +5692,28 @@ class FrequencySynchronization(Entity):
                 	QualityLevelOption
                 	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                 
+                	**config**\: False
+                
                 .. attribute:: option1_value
                 
                 	ITU\-T Option 1 QL value
                 	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                
+                	**config**\: False
                 
                 .. attribute:: option2_generation1_value
                 
                 	ITU\-T Option 2, generation 1 value
                 	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                 
+                	**config**\: False
+                
                 .. attribute:: option2_generation2_value
                 
                 	ITU\-T Option 2, generation 2 value
                 	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                
+                	**config**\: False
                 
                 
 
@@ -5142,6 +5748,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelReceived, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
             class QualityLevelDamped(Entity):
                 """
                 Quality level after damping has been applied
@@ -5151,20 +5758,28 @@ class FrequencySynchronization(Entity):
                 	QualityLevelOption
                 	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                 
+                	**config**\: False
+                
                 .. attribute:: option1_value
                 
                 	ITU\-T Option 1 QL value
                 	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                
+                	**config**\: False
                 
                 .. attribute:: option2_generation1_value
                 
                 	ITU\-T Option 2, generation 1 value
                 	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                 
+                	**config**\: False
+                
                 .. attribute:: option2_generation2_value
                 
                 	ITU\-T Option 2, generation 2 value
                 	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                
+                	**config**\: False
                 
                 
 
@@ -5199,6 +5814,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelDamped, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
             class QualityLevelEffectiveInput(Entity):
                 """
                 The effective input quality level
@@ -5208,20 +5824,28 @@ class FrequencySynchronization(Entity):
                 	QualityLevelOption
                 	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                 
+                	**config**\: False
+                
                 .. attribute:: option1_value
                 
                 	ITU\-T Option 1 QL value
                 	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                
+                	**config**\: False
                 
                 .. attribute:: option2_generation1_value
                 
                 	ITU\-T Option 2, generation 1 value
                 	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                 
+                	**config**\: False
+                
                 .. attribute:: option2_generation2_value
                 
                 	ITU\-T Option 2, generation 2 value
                 	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                
+                	**config**\: False
                 
                 
 
@@ -5256,6 +5880,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelEffectiveInput, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
             class QualityLevelEffectiveOutput(Entity):
                 """
                 The effective output quality level
@@ -5265,20 +5890,28 @@ class FrequencySynchronization(Entity):
                 	QualityLevelOption
                 	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                 
+                	**config**\: False
+                
                 .. attribute:: option1_value
                 
                 	ITU\-T Option 1 QL value
                 	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                
+                	**config**\: False
                 
                 .. attribute:: option2_generation1_value
                 
                 	ITU\-T Option 2, generation 1 value
                 	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                 
+                	**config**\: False
+                
                 .. attribute:: option2_generation2_value
                 
                 	ITU\-T Option 2, generation 2 value
                 	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                
+                	**config**\: False
                 
                 
 
@@ -5313,6 +5946,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelEffectiveOutput, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
             class QualityLevelSelectedSource(Entity):
                 """
                 The quality level of the source driving this
@@ -5323,20 +5957,28 @@ class FrequencySynchronization(Entity):
                 	QualityLevelOption
                 	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                 
+                	**config**\: False
+                
                 .. attribute:: option1_value
                 
                 	ITU\-T Option 1 QL value
                 	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                
+                	**config**\: False
                 
                 .. attribute:: option2_generation1_value
                 
                 	ITU\-T Option 2, generation 1 value
                 	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                 
+                	**config**\: False
+                
                 .. attribute:: option2_generation2_value
                 
                 	ITU\-T Option 2, generation 2 value
                 	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                
+                	**config**\: False
                 
                 
 
@@ -5371,6 +6013,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.QualityLevelSelectedSource, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
             class EthernetPeerInformation(Entity):
                 """
                 Ethernet peer information
@@ -5380,15 +6023,21 @@ class FrequencySynchronization(Entity):
                 	Time of last peer state transition
                 	**type**\:  :py:class:`PeerStateTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation.PeerStateTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: last_ssm
                 
                 	Time of last SSM received
                 	**type**\:  :py:class:`LastSsm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation.LastSsm>`
                 
+                	**config**\: False
+                
                 .. attribute:: peer_state
                 
                 	Peer state
                 	**type**\:  :py:class:`FsyncBagEsmcPeerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagEsmcPeerState>`
+                
+                	**config**\: False
                 
                 .. attribute:: peer_up_count
                 
@@ -5397,12 +6046,16 @@ class FrequencySynchronization(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: peer_timeout_count
                 
                 	Number of times the peer has timed out
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -5454,6 +6107,8 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -5462,6 +6117,8 @@ class FrequencySynchronization(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -5494,6 +6151,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation.PeerStateTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class LastSsm(Entity):
                     """
                     Time of last SSM received
@@ -5505,6 +6163,8 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -5513,6 +6173,8 @@ class FrequencySynchronization(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -5545,6 +6207,8 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.EthernetPeerInformation.LastSsm, [u'seconds', u'nanoseconds'], name, value)
 
 
+
+
             class EsmcStatistics(Entity):
                 """
                 ESMC Statistics
@@ -5556,12 +6220,16 @@ class FrequencySynchronization(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: esmc_events_received
                 
                 	Number of event SSMs received
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 .. attribute:: esmc_infos_sent
                 
@@ -5570,12 +6238,16 @@ class FrequencySynchronization(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: esmc_infos_received
                 
                 	Number of info SSms received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: esmc_dn_us_sent
                 
@@ -5584,12 +6256,16 @@ class FrequencySynchronization(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: esmc_dn_us_received
                 
                 	Number of SSMs with DNU QL received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: esmc_malformed_received
                 
@@ -5598,12 +6274,16 @@ class FrequencySynchronization(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: esmc_received_error
                 
                 	Number of received packets that failed to be handled
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -5646,6 +6326,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.EsmcStatistics, [u'esmc_events_sent', u'esmc_events_received', u'esmc_infos_sent', u'esmc_infos_received', u'esmc_dn_us_sent', u'esmc_dn_us_received', u'esmc_malformed_received', u'esmc_received_error'], name, value)
 
 
+
             class SpaSelectionPoint(Entity):
                 """
                 Spa selection points
@@ -5657,10 +6338,14 @@ class FrequencySynchronization(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: selection_point_description
                 
                 	Selection point description
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -5691,6 +6376,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.SpaSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
 
 
+
             class NodeSelectionPoint(Entity):
                 """
                 Node selection points
@@ -5702,10 +6388,14 @@ class FrequencySynchronization(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: selection_point_description
                 
                 	Selection point description
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -5736,6 +6426,9 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.InterfaceDatas.InterfaceData.NodeSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
 
 
+
+
+
     class Nodes(Entity):
         """
         Table for node\-specific operational data
@@ -5744,6 +6437,8 @@ class FrequencySynchronization(Entity):
         
         	Node\-specific data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -5783,45 +6478,63 @@ class FrequencySynchronization(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: ntp_data
             
             	NTP operational data
             	**type**\:  :py:class:`NtpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.NtpData>`
+            
+            	**config**\: False
             
             .. attribute:: selection_point_datas
             
             	Selection point data table
             	**type**\:  :py:class:`SelectionPointDatas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointDatas>`
             
+            	**config**\: False
+            
             .. attribute:: configuration_errors
             
             	Configuration error operational data
             	**type**\:  :py:class:`ConfigurationErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors>`
+            
+            	**config**\: False
             
             .. attribute:: ptp_data
             
             	PTP operational data
             	**type**\:  :py:class:`PtpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.PtpData>`
             
+            	**config**\: False
+            
             .. attribute:: ssm_summary
             
             	SSM operational data
             	**type**\:  :py:class:`SsmSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SsmSummary>`
+            
+            	**config**\: False
             
             .. attribute:: detailed_clock_datas
             
             	Table for detailed clock operational data
             	**type**\:  :py:class:`DetailedClockDatas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.DetailedClockDatas>`
             
+            	**config**\: False
+            
             .. attribute:: clock_datas
             
             	Table for clock operational data
             	**type**\:  :py:class:`ClockDatas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ClockDatas>`
             
+            	**config**\: False
+            
             .. attribute:: selection_point_inputs
             
             	Table for selection point input operational data
             	**type**\:  :py:class:`SelectionPointInputs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs>`
+            
+            	**config**\: False
             
             
 
@@ -5892,20 +6605,28 @@ class FrequencySynchronization(Entity):
                 	The effective input quality level
                 	**type**\:  :py:class:`QualityLevelEffectiveInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.NtpData.QualityLevelEffectiveInput>`
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	NTP state
                 	**type**\:  :py:class:`FsyncBagSourceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceState>`
+                
+                	**config**\: False
                 
                 .. attribute:: supports_frequency
                 
                 	The NTP clock supports frequency
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: supports_time_of_day
                 
                 	The NTP clock supports time
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: frequency_priority
                 
@@ -5914,6 +6635,8 @@ class FrequencySynchronization(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: time_of_day_priority
                 
                 	The priority of the NTP clock when selecting between time\-of\-day sources
@@ -5921,15 +6644,21 @@ class FrequencySynchronization(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: spa_selection_point
                 
                 	Spa selection points
                 	**type**\: list of  		 :py:class:`SpaSelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.NtpData.SpaSelectionPoint>`
                 
+                	**config**\: False
+                
                 .. attribute:: node_selection_point
                 
                 	Node selection points
                 	**type**\: list of  		 :py:class:`NodeSelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.NtpData.NodeSelectionPoint>`
+                
+                	**config**\: False
                 
                 
 
@@ -5982,20 +6711,28 @@ class FrequencySynchronization(Entity):
                     	QualityLevelOption
                     	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: option1_value
                     
                     	ITU\-T Option 1 QL value
                     	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: option2_generation1_value
                     
                     	ITU\-T Option 2, generation 1 value
                     	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: option2_generation2_value
                     
                     	ITU\-T Option 2, generation 2 value
                     	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -6030,6 +6767,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.Nodes.Node.NtpData.QualityLevelEffectiveInput, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
                 class SpaSelectionPoint(Entity):
                     """
                     Spa selection points
@@ -6041,10 +6779,14 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: selection_point_description
                     
                     	Selection point description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -6075,6 +6817,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.Nodes.Node.NtpData.SpaSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
 
 
+
                 class NodeSelectionPoint(Entity):
                     """
                     Node selection points
@@ -6086,10 +6829,14 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: selection_point_description
                     
                     	Selection point description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -6120,6 +6867,8 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.Nodes.Node.NtpData.NodeSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
 
 
+
+
             class SelectionPointDatas(Entity):
                 """
                 Selection point data table
@@ -6128,6 +6877,8 @@ class FrequencySynchronization(Entity):
                 
                 	Operational data for a given selection point
                 	**type**\: list of  		 :py:class:`SelectionPointData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData>`
+                
+                	**config**\: False
                 
                 
 
@@ -6166,20 +6917,28 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output
                     
                     	Information about the output of the selection point
                     	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: last_programmed
                     
                     	Time the SP was last programmed
                     	**type**\:  :py:class:`LastProgrammed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.LastProgrammed>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_selection
                     
                     	Time the last selection was made
                     	**type**\:  :py:class:`LastSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.LastSelection>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: selection_point_type
                     
@@ -6188,10 +6947,14 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	Description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: inputs
                     
@@ -6200,6 +6963,8 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: inputs_selected
                     
                     	Number of inputs that are selected
@@ -6207,10 +6972,14 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: time_of_day_selection
                     
                     	The selection point is a time\-of\-day selection point
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -6271,35 +7040,49 @@ class FrequencySynchronization(Entity):
                         	Used for local clock output
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: local_line_output
                         
                         	Used for local line interface output
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: local_time_of_day_output
                         
                         	Used for local time\-of\-day output
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: spa_selection_point
                         
                         	SPA selection points
                         	**type**\: list of  		 :py:class:`SpaSelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.SpaSelectionPoint>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: node_selection_point
                         
                         	Node selection points
                         	**type**\: list of  		 :py:class:`NodeSelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.NodeSelectionPoint>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: chassis_selection_point
                         
                         	Chassis selection points
                         	**type**\: list of  		 :py:class:`ChassisSelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.ChassisSelectionPoint>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: router_selection_point
                         
                         	Router selection points
                         	**type**\: list of  		 :py:class:`RouterSelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.RouterSelectionPoint>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -6348,10 +7131,14 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: selection_point_description
                             
                             	Selection point description
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -6382,6 +7169,7 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.SpaSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
 
 
+
                         class NodeSelectionPoint(Entity):
                             """
                             Node selection points
@@ -6393,10 +7181,14 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: selection_point_description
                             
                             	Selection point description
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -6427,6 +7219,7 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.NodeSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
 
 
+
                         class ChassisSelectionPoint(Entity):
                             """
                             Chassis selection points
@@ -6438,10 +7231,14 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: selection_point_description
                             
                             	Selection point description
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -6472,6 +7269,7 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.ChassisSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
 
 
+
                         class RouterSelectionPoint(Entity):
                             """
                             Router selection points
@@ -6483,10 +7281,14 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: selection_point_description
                             
                             	Selection point description
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -6517,6 +7319,8 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.Output.RouterSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
 
 
+
+
                     class LastProgrammed(Entity):
                         """
                         Time the SP was last programmed
@@ -6528,6 +7332,8 @@ class FrequencySynchronization(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: second
                         
                         .. attribute:: nanoseconds
@@ -6536,6 +7342,8 @@ class FrequencySynchronization(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: nanosecond
                         
@@ -6568,6 +7376,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.LastProgrammed, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                     class LastSelection(Entity):
                         """
                         Time the last selection was made
@@ -6579,6 +7388,8 @@ class FrequencySynchronization(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: second
                         
                         .. attribute:: nanoseconds
@@ -6587,6 +7398,8 @@ class FrequencySynchronization(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: nanosecond
                         
@@ -6619,6 +7432,9 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointDatas.SelectionPointData.LastSelection, [u'seconds', u'nanoseconds'], name, value)
 
 
+
+
+
             class ConfigurationErrors(Entity):
                 """
                 Configuration error operational data
@@ -6627,6 +7443,8 @@ class FrequencySynchronization(Entity):
                 
                 	Configuration errors
                 	**type**\: list of  		 :py:class:`ErrorSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource>`
+                
+                	**config**\: False
                 
                 
 
@@ -6663,75 +7481,105 @@ class FrequencySynchronization(Entity):
                     	Source
                     	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_min_ql
                     
                     	Configured minimum input QL
                     	**type**\:  :py:class:`InputMinQl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMinQl>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_exact_ql
                     
                     	Configured exact input QL
                     	**type**\:  :py:class:`InputExactQl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputExactQl>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_max_ql
                     
                     	Configured maximum input QL
                     	**type**\:  :py:class:`InputMaxQl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMaxQl>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_min_ql
                     
                     	Configured mininum output QL
                     	**type**\:  :py:class:`OutputMinQl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMinQl>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_exact_ql
                     
                     	Configured exact output QL
                     	**type**\:  :py:class:`OutputExactQl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputExactQl>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_max_ql
                     
                     	Configured exact maximum QL
                     	**type**\:  :py:class:`OutputMaxQl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMaxQl>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: enable_error
                     
                     	Frequency Synchronization enable error
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_min_error
                     
                     	Minimum input QL config error
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_exact_error
                     
                     	Exact input QL config error
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_max_error
                     
                     	Maximum input Ql config error
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: ouput_min_error
                     
                     	Minimum output QL config error
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_exact_error
                     
                     	Exact output QL config error
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_max_error
                     
                     	Maximum output QL config error
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_output_mismatch
                     
                     	Input/Output mismatch error
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -6811,15 +7659,21 @@ class FrequencySynchronization(Entity):
                         	Clock ID
                         	**type**\:  :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: gnss_receiver_id
                         
                         	GNSS Receiver ID
                         	**type**\:  :py:class:`GnssReceiverId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.GnssReceiverId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: source_class
                         
                         	SourceClass
                         	**type**\:  :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceClass>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ethernet_interface
                         
@@ -6828,12 +7682,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: sonet_interface
                         
                         	SONET interfaces
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        	**config**\: False
                         
                         .. attribute:: node
                         
@@ -6842,12 +7700,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
+                        	**config**\: False
+                        
                         .. attribute:: ptp_node
                         
                         	PTP Clock Node
                         	**type**\: str
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        	**config**\: False
                         
                         .. attribute:: satellite_access_interface
                         
@@ -6856,12 +7718,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: ntp_node
                         
                         	NTP Clock Node
                         	**type**\: str
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        	**config**\: False
                         
                         
 
@@ -6921,6 +7787,8 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
+                            	**config**\: False
+                            
                             .. attribute:: id
                             
                             	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -6928,12 +7796,16 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: clock_name
                             
                             	Name
                             	**type**\: str
                             
                             	**length:** 0..144
+                            
+                            	**config**\: False
                             
                             
 
@@ -6966,6 +7838,7 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
                         class GnssReceiverId(Entity):
                             """
                             GNSS Receiver ID
@@ -6977,6 +7850,8 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
+                            	**config**\: False
+                            
                             .. attribute:: id
                             
                             	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -6984,12 +7859,16 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: clock_name
                             
                             	Name
                             	**type**\: str
                             
                             	**length:** 0..144
+                            
+                            	**config**\: False
                             
                             
 
@@ -7022,6 +7901,8 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
+
                     class InputMinQl(Entity):
                         """
                         Configured minimum input QL
@@ -7031,20 +7912,28 @@ class FrequencySynchronization(Entity):
                         	QualityLevelOption
                         	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option1_value
                         
                         	ITU\-T Option 1 QL value
                         	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: option2_generation1_value
                         
                         	ITU\-T Option 2, generation 1 value
                         	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option2_generation2_value
                         
                         	ITU\-T Option 2, generation 2 value
                         	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -7079,6 +7968,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMinQl, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
                     class InputExactQl(Entity):
                         """
                         Configured exact input QL
@@ -7088,20 +7978,28 @@ class FrequencySynchronization(Entity):
                         	QualityLevelOption
                         	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option1_value
                         
                         	ITU\-T Option 1 QL value
                         	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: option2_generation1_value
                         
                         	ITU\-T Option 2, generation 1 value
                         	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option2_generation2_value
                         
                         	ITU\-T Option 2, generation 2 value
                         	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -7136,6 +8034,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputExactQl, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
                     class InputMaxQl(Entity):
                         """
                         Configured maximum input QL
@@ -7145,20 +8044,28 @@ class FrequencySynchronization(Entity):
                         	QualityLevelOption
                         	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option1_value
                         
                         	ITU\-T Option 1 QL value
                         	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: option2_generation1_value
                         
                         	ITU\-T Option 2, generation 1 value
                         	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option2_generation2_value
                         
                         	ITU\-T Option 2, generation 2 value
                         	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -7193,6 +8100,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMaxQl, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
                     class OutputMinQl(Entity):
                         """
                         Configured mininum output QL
@@ -7202,20 +8110,28 @@ class FrequencySynchronization(Entity):
                         	QualityLevelOption
                         	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option1_value
                         
                         	ITU\-T Option 1 QL value
                         	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: option2_generation1_value
                         
                         	ITU\-T Option 2, generation 1 value
                         	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option2_generation2_value
                         
                         	ITU\-T Option 2, generation 2 value
                         	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -7250,6 +8166,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMinQl, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
                     class OutputExactQl(Entity):
                         """
                         Configured exact output QL
@@ -7259,20 +8176,28 @@ class FrequencySynchronization(Entity):
                         	QualityLevelOption
                         	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option1_value
                         
                         	ITU\-T Option 1 QL value
                         	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: option2_generation1_value
                         
                         	ITU\-T Option 2, generation 1 value
                         	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option2_generation2_value
                         
                         	ITU\-T Option 2, generation 2 value
                         	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -7307,6 +8232,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputExactQl, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
                     class OutputMaxQl(Entity):
                         """
                         Configured exact maximum QL
@@ -7316,20 +8242,28 @@ class FrequencySynchronization(Entity):
                         	QualityLevelOption
                         	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option1_value
                         
                         	ITU\-T Option 1 QL value
                         	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: option2_generation1_value
                         
                         	ITU\-T Option 2, generation 1 value
                         	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option2_generation2_value
                         
                         	ITU\-T Option 2, generation 2 value
                         	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -7364,6 +8298,9 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMaxQl, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
+
+
             class PtpData(Entity):
                 """
                 PTP operational data
@@ -7373,20 +8310,28 @@ class FrequencySynchronization(Entity):
                 	The effective input quality level
                 	**type**\:  :py:class:`QualityLevelEffectiveInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.PtpData.QualityLevelEffectiveInput>`
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	PTP state
                 	**type**\:  :py:class:`FsyncBagSourceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceState>`
+                
+                	**config**\: False
                 
                 .. attribute:: supports_frequency
                 
                 	The PTP clock supports frequency
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: supports_time_of_day
                 
                 	The PTP clock supports time
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: frequency_priority
                 
@@ -7395,6 +8340,8 @@ class FrequencySynchronization(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: time_of_day_priority
                 
                 	The priority of the PTP clock when selecting between time\-of\-day sources
@@ -7402,15 +8349,21 @@ class FrequencySynchronization(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: spa_selection_point
                 
                 	Spa selection points
                 	**type**\: list of  		 :py:class:`SpaSelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.PtpData.SpaSelectionPoint>`
                 
+                	**config**\: False
+                
                 .. attribute:: node_selection_point
                 
                 	Node selection points
                 	**type**\: list of  		 :py:class:`NodeSelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.PtpData.NodeSelectionPoint>`
+                
+                	**config**\: False
                 
                 
 
@@ -7463,20 +8416,28 @@ class FrequencySynchronization(Entity):
                     	QualityLevelOption
                     	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: option1_value
                     
                     	ITU\-T Option 1 QL value
                     	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: option2_generation1_value
                     
                     	ITU\-T Option 2, generation 1 value
                     	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: option2_generation2_value
                     
                     	ITU\-T Option 2, generation 2 value
                     	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -7511,6 +8472,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.Nodes.Node.PtpData.QualityLevelEffectiveInput, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
                 class SpaSelectionPoint(Entity):
                     """
                     Spa selection points
@@ -7522,10 +8484,14 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: selection_point_description
                     
                     	Selection point description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -7556,6 +8522,7 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.Nodes.Node.PtpData.SpaSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
 
 
+
                 class NodeSelectionPoint(Entity):
                     """
                     Node selection points
@@ -7567,10 +8534,14 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: selection_point_description
                     
                     	Selection point description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -7601,6 +8572,8 @@ class FrequencySynchronization(Entity):
                         self._perform_setattr(FrequencySynchronization.Nodes.Node.PtpData.NodeSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
 
 
+
+
             class SsmSummary(Entity):
                 """
                 SSM operational data
@@ -7612,12 +8585,16 @@ class FrequencySynchronization(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ethernet_sources_select
                 
                 	Number of ethernet interfaces assigned for selection
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: ethernet_sources_enabled
                 
@@ -7626,12 +8603,16 @@ class FrequencySynchronization(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: sonet_sources
                 
                 	Number of SONET interfaces in synchronous mode
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: sonet_sources_select
                 
@@ -7640,12 +8621,16 @@ class FrequencySynchronization(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: sonet_sources_enabled
                 
                 	Number of SONET interfaces with SSM enabled
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: events_sent
                 
@@ -7654,12 +8639,16 @@ class FrequencySynchronization(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: events_received
                 
                 	Total event SSMs received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: infos_sent
                 
@@ -7668,12 +8657,16 @@ class FrequencySynchronization(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: infos_received
                 
                 	Total information SSMs received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: dn_us_sent
                 
@@ -7682,12 +8675,16 @@ class FrequencySynchronization(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: dn_us_received
                 
                 	Total DNU SSMs received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -7738,6 +8735,7 @@ class FrequencySynchronization(Entity):
                     self._perform_setattr(FrequencySynchronization.Nodes.Node.SsmSummary, [u'ethernet_sources', u'ethernet_sources_select', u'ethernet_sources_enabled', u'sonet_sources', u'sonet_sources_select', u'sonet_sources_enabled', u'events_sent', u'events_received', u'infos_sent', u'infos_received', u'dn_us_sent', u'dn_us_received'], name, value)
 
 
+
             class DetailedClockDatas(Entity):
                 """
                 Table for detailed clock operational data
@@ -7746,6 +8744,8 @@ class FrequencySynchronization(Entity):
                 
                 	Detailed operational data for a particular clock
                 	**type**\: list of  		 :py:class:`DetailedClockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData>`
+                
+                	**config**\: False
                 
                 
 
@@ -7783,6 +8783,8 @@ class FrequencySynchronization(Entity):
                     	Clock type
                     	**type**\:  :py:class:`FsyncClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncClock>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: id  (key)
                     
                     	Clock ID (port number for clock interfaces, receiver number for GNSS receivers
@@ -7790,55 +8792,77 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: source
                     
                     	The source ID for the clock
                     	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: selected_source
                     
                     	Timing source selected for clock output
                     	**type**\:  :py:class:`SelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: quality_level_received
                     
                     	Received quality level
                     	**type**\:  :py:class:`QualityLevelReceived <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelReceived>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: quality_level_damped
                     
                     	Quality level after damping has been applied
                     	**type**\:  :py:class:`QualityLevelDamped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelDamped>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: quality_level_effective_input
                     
                     	The effective input quality level
                     	**type**\:  :py:class:`QualityLevelEffectiveInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelEffectiveInput>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: quality_level_effective_output
                     
                     	The effective output quality level
                     	**type**\:  :py:class:`QualityLevelEffectiveOutput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelEffectiveOutput>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: quality_level_selected_source
                     
                     	The quality level of the source driving this interface
                     	**type**\:  :py:class:`QualityLevelSelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelSelectedSource>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: state
                     
                     	Clock state
                     	**type**\:  :py:class:`FsyncBagSourceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: down_reason
                     
                     	Why the clock is down
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	Clock description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: priority
                     
@@ -7847,6 +8871,8 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: time_of_day_priority
                     
                     	Time\-of\-day priority
@@ -7854,35 +8880,49 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: ssm_support
                     
                     	The clock supports SSMs
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ssm_enabled
                     
                     	The clock output is squelched
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: loopback
                     
                     	The clock is looped back
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: selection_input
                     
                     	The clock is an input for selection
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: squelched
                     
                     	The clock output is squelched
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: damping_state
                     
                     	Damping state
                     	**type**\:  :py:class:`FsyncBagDampingState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagDampingState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: damping_time
                     
@@ -7891,15 +8931,21 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_disabled
                     
                     	Timing input is disabled
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_disabled
                     
                     	Timing output is disabled
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: wait_to_restore_time
                     
@@ -7908,30 +8954,42 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: clock_type_xr
                     
                     	The type of clock
                     	**type**\:  :py:class:`FsyncBagClockIntfClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagClockIntfClass>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: supports_frequency
                     
                     	The PTP clock supports frequency
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: supports_time_of_day
                     
                     	The PTP clock supports time
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: spa_selection_point
                     
                     	Spa selection points
                     	**type**\: list of  		 :py:class:`SpaSelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SpaSelectionPoint>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: node_selection_point
                     
                     	Node selection points
                     	**type**\: list of  		 :py:class:`NodeSelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.NodeSelectionPoint>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -8038,15 +9096,21 @@ class FrequencySynchronization(Entity):
                         	Clock ID
                         	**type**\:  :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.ClockId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: gnss_receiver_id
                         
                         	GNSS Receiver ID
                         	**type**\:  :py:class:`GnssReceiverId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.GnssReceiverId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: source_class
                         
                         	SourceClass
                         	**type**\:  :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceClass>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ethernet_interface
                         
@@ -8055,12 +9119,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: sonet_interface
                         
                         	SONET interfaces
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        	**config**\: False
                         
                         .. attribute:: node
                         
@@ -8069,12 +9137,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
+                        	**config**\: False
+                        
                         .. attribute:: ptp_node
                         
                         	PTP Clock Node
                         	**type**\: str
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        	**config**\: False
                         
                         .. attribute:: satellite_access_interface
                         
@@ -8083,12 +9155,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: ntp_node
                         
                         	NTP Clock Node
                         	**type**\: str
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        	**config**\: False
                         
                         
 
@@ -8148,6 +9224,8 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
+                            	**config**\: False
+                            
                             .. attribute:: id
                             
                             	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -8155,12 +9233,16 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: clock_name
                             
                             	Name
                             	**type**\: str
                             
                             	**length:** 0..144
+                            
+                            	**config**\: False
                             
                             
 
@@ -8193,6 +9275,7 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
                         class GnssReceiverId(Entity):
                             """
                             GNSS Receiver ID
@@ -8204,6 +9287,8 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
+                            	**config**\: False
+                            
                             .. attribute:: id
                             
                             	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -8211,12 +9296,16 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: clock_name
                             
                             	Name
                             	**type**\: str
                             
                             	**length:** 0..144
+                            
+                            	**config**\: False
                             
                             
 
@@ -8249,6 +9338,8 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.Source.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
+
                     class SelectedSource(Entity):
                         """
                         Timing source selected for clock output
@@ -8258,15 +9349,21 @@ class FrequencySynchronization(Entity):
                         	Clock ID
                         	**type**\:  :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.ClockId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: gnss_receiver_id
                         
                         	GNSS Receiver ID
                         	**type**\:  :py:class:`GnssReceiverId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.GnssReceiverId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: source_class
                         
                         	SourceClass
                         	**type**\:  :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceClass>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ethernet_interface
                         
@@ -8275,12 +9372,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: sonet_interface
                         
                         	SONET interfaces
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        	**config**\: False
                         
                         .. attribute:: node
                         
@@ -8289,12 +9390,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
+                        	**config**\: False
+                        
                         .. attribute:: ptp_node
                         
                         	PTP Clock Node
                         	**type**\: str
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        	**config**\: False
                         
                         .. attribute:: satellite_access_interface
                         
@@ -8303,12 +9408,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: ntp_node
                         
                         	NTP Clock Node
                         	**type**\: str
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        	**config**\: False
                         
                         
 
@@ -8368,6 +9477,8 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
+                            	**config**\: False
+                            
                             .. attribute:: id
                             
                             	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -8375,12 +9486,16 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: clock_name
                             
                             	Name
                             	**type**\: str
                             
                             	**length:** 0..144
+                            
+                            	**config**\: False
                             
                             
 
@@ -8413,6 +9528,7 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
                         class GnssReceiverId(Entity):
                             """
                             GNSS Receiver ID
@@ -8424,6 +9540,8 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
+                            	**config**\: False
+                            
                             .. attribute:: id
                             
                             	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -8431,12 +9549,16 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: clock_name
                             
                             	Name
                             	**type**\: str
                             
                             	**length:** 0..144
+                            
+                            	**config**\: False
                             
                             
 
@@ -8469,6 +9591,8 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SelectedSource.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
+
                     class QualityLevelReceived(Entity):
                         """
                         Received quality level
@@ -8478,20 +9602,28 @@ class FrequencySynchronization(Entity):
                         	QualityLevelOption
                         	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option1_value
                         
                         	ITU\-T Option 1 QL value
                         	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: option2_generation1_value
                         
                         	ITU\-T Option 2, generation 1 value
                         	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option2_generation2_value
                         
                         	ITU\-T Option 2, generation 2 value
                         	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -8526,6 +9658,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelReceived, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
                     class QualityLevelDamped(Entity):
                         """
                         Quality level after damping has been applied
@@ -8535,20 +9668,28 @@ class FrequencySynchronization(Entity):
                         	QualityLevelOption
                         	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option1_value
                         
                         	ITU\-T Option 1 QL value
                         	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: option2_generation1_value
                         
                         	ITU\-T Option 2, generation 1 value
                         	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option2_generation2_value
                         
                         	ITU\-T Option 2, generation 2 value
                         	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -8583,6 +9724,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelDamped, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
                     class QualityLevelEffectiveInput(Entity):
                         """
                         The effective input quality level
@@ -8592,20 +9734,28 @@ class FrequencySynchronization(Entity):
                         	QualityLevelOption
                         	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option1_value
                         
                         	ITU\-T Option 1 QL value
                         	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: option2_generation1_value
                         
                         	ITU\-T Option 2, generation 1 value
                         	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option2_generation2_value
                         
                         	ITU\-T Option 2, generation 2 value
                         	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -8640,6 +9790,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelEffectiveInput, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
                     class QualityLevelEffectiveOutput(Entity):
                         """
                         The effective output quality level
@@ -8649,20 +9800,28 @@ class FrequencySynchronization(Entity):
                         	QualityLevelOption
                         	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option1_value
                         
                         	ITU\-T Option 1 QL value
                         	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: option2_generation1_value
                         
                         	ITU\-T Option 2, generation 1 value
                         	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option2_generation2_value
                         
                         	ITU\-T Option 2, generation 2 value
                         	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -8697,6 +9856,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelEffectiveOutput, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
                     class QualityLevelSelectedSource(Entity):
                         """
                         The quality level of the source driving this
@@ -8707,20 +9867,28 @@ class FrequencySynchronization(Entity):
                         	QualityLevelOption
                         	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option1_value
                         
                         	ITU\-T Option 1 QL value
                         	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: option2_generation1_value
                         
                         	ITU\-T Option 2, generation 1 value
                         	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option2_generation2_value
                         
                         	ITU\-T Option 2, generation 2 value
                         	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -8755,6 +9923,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.QualityLevelSelectedSource, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
                     class SpaSelectionPoint(Entity):
                         """
                         Spa selection points
@@ -8766,10 +9935,14 @@ class FrequencySynchronization(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: selection_point_description
                         
                         	Selection point description
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -8800,6 +9973,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.SpaSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
 
 
+
                     class NodeSelectionPoint(Entity):
                         """
                         Node selection points
@@ -8811,10 +9985,14 @@ class FrequencySynchronization(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: selection_point_description
                         
                         	Selection point description
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -8845,6 +10023,9 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.DetailedClockDatas.DetailedClockData.NodeSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
 
 
+
+
+
             class ClockDatas(Entity):
                 """
                 Table for clock operational data
@@ -8853,6 +10034,8 @@ class FrequencySynchronization(Entity):
                 
                 	Operational data for a particular clock
                 	**type**\: list of  		 :py:class:`ClockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ClockDatas.ClockData>`
+                
+                	**config**\: False
                 
                 
 
@@ -8889,6 +10072,8 @@ class FrequencySynchronization(Entity):
                     	Clock type
                     	**type**\:  :py:class:`FsyncClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncClock>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: id  (key)
                     
                     	Clock ID (port number for clock interfaces, receiver number for GNSS receivers
@@ -8896,55 +10081,77 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: source
                     
                     	The source ID for the clock
                     	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: selected_source
                     
                     	Timing source selected for clock output
                     	**type**\:  :py:class:`SelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: quality_level_received
                     
                     	Received quality level
                     	**type**\:  :py:class:`QualityLevelReceived <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelReceived>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: quality_level_damped
                     
                     	Quality level after damping has been applied
                     	**type**\:  :py:class:`QualityLevelDamped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelDamped>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: quality_level_effective_input
                     
                     	The effective input quality level
                     	**type**\:  :py:class:`QualityLevelEffectiveInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelEffectiveInput>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: quality_level_effective_output
                     
                     	The effective output quality level
                     	**type**\:  :py:class:`QualityLevelEffectiveOutput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelEffectiveOutput>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: quality_level_selected_source
                     
                     	The quality level of the source driving this interface
                     	**type**\:  :py:class:`QualityLevelSelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelSelectedSource>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: state
                     
                     	Clock state
                     	**type**\:  :py:class:`FsyncBagSourceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: down_reason
                     
                     	Why the clock is down
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	Clock description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: priority
                     
@@ -8953,6 +10160,8 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: time_of_day_priority
                     
                     	Time\-of\-day priority
@@ -8960,35 +10169,49 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: ssm_support
                     
                     	The clock supports SSMs
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ssm_enabled
                     
                     	The clock output is squelched
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: loopback
                     
                     	The clock is looped back
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: selection_input
                     
                     	The clock is an input for selection
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: squelched
                     
                     	The clock output is squelched
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: damping_state
                     
                     	Damping state
                     	**type**\:  :py:class:`FsyncBagDampingState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagDampingState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: damping_time
                     
@@ -8997,15 +10220,21 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_disabled
                     
                     	Timing input is disabled
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_disabled
                     
                     	Timing output is disabled
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: wait_to_restore_time
                     
@@ -9014,30 +10243,42 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: clock_type_xr
                     
                     	The type of clock
                     	**type**\:  :py:class:`FsyncBagClockIntfClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagClockIntfClass>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: supports_frequency
                     
                     	The PTP clock supports frequency
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: supports_time_of_day
                     
                     	The PTP clock supports time
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: spa_selection_point
                     
                     	Spa selection points
                     	**type**\: list of  		 :py:class:`SpaSelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SpaSelectionPoint>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: node_selection_point
                     
                     	Node selection points
                     	**type**\: list of  		 :py:class:`NodeSelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.NodeSelectionPoint>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -9144,15 +10385,21 @@ class FrequencySynchronization(Entity):
                         	Clock ID
                         	**type**\:  :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.ClockId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: gnss_receiver_id
                         
                         	GNSS Receiver ID
                         	**type**\:  :py:class:`GnssReceiverId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.GnssReceiverId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: source_class
                         
                         	SourceClass
                         	**type**\:  :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceClass>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ethernet_interface
                         
@@ -9161,12 +10408,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: sonet_interface
                         
                         	SONET interfaces
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        	**config**\: False
                         
                         .. attribute:: node
                         
@@ -9175,12 +10426,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
+                        	**config**\: False
+                        
                         .. attribute:: ptp_node
                         
                         	PTP Clock Node
                         	**type**\: str
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        	**config**\: False
                         
                         .. attribute:: satellite_access_interface
                         
@@ -9189,12 +10444,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: ntp_node
                         
                         	NTP Clock Node
                         	**type**\: str
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        	**config**\: False
                         
                         
 
@@ -9254,6 +10513,8 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
+                            	**config**\: False
+                            
                             .. attribute:: id
                             
                             	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -9261,12 +10522,16 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: clock_name
                             
                             	Name
                             	**type**\: str
                             
                             	**length:** 0..144
+                            
+                            	**config**\: False
                             
                             
 
@@ -9299,6 +10564,7 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.ClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
                         class GnssReceiverId(Entity):
                             """
                             GNSS Receiver ID
@@ -9310,6 +10576,8 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
+                            	**config**\: False
+                            
                             .. attribute:: id
                             
                             	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -9317,12 +10585,16 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: clock_name
                             
                             	Name
                             	**type**\: str
                             
                             	**length:** 0..144
+                            
+                            	**config**\: False
                             
                             
 
@@ -9355,6 +10627,8 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.Source.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
+
                     class SelectedSource(Entity):
                         """
                         Timing source selected for clock output
@@ -9364,15 +10638,21 @@ class FrequencySynchronization(Entity):
                         	Clock ID
                         	**type**\:  :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.ClockId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: gnss_receiver_id
                         
                         	GNSS Receiver ID
                         	**type**\:  :py:class:`GnssReceiverId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.GnssReceiverId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: source_class
                         
                         	SourceClass
                         	**type**\:  :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceClass>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ethernet_interface
                         
@@ -9381,12 +10661,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: sonet_interface
                         
                         	SONET interfaces
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        	**config**\: False
                         
                         .. attribute:: node
                         
@@ -9395,12 +10679,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
+                        	**config**\: False
+                        
                         .. attribute:: ptp_node
                         
                         	PTP Clock Node
                         	**type**\: str
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        	**config**\: False
                         
                         .. attribute:: satellite_access_interface
                         
@@ -9409,12 +10697,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: ntp_node
                         
                         	NTP Clock Node
                         	**type**\: str
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        	**config**\: False
                         
                         
 
@@ -9474,6 +10766,8 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
+                            	**config**\: False
+                            
                             .. attribute:: id
                             
                             	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -9481,12 +10775,16 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: clock_name
                             
                             	Name
                             	**type**\: str
                             
                             	**length:** 0..144
+                            
+                            	**config**\: False
                             
                             
 
@@ -9519,6 +10817,7 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
                         class GnssReceiverId(Entity):
                             """
                             GNSS Receiver ID
@@ -9530,6 +10829,8 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
+                            	**config**\: False
+                            
                             .. attribute:: id
                             
                             	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -9537,12 +10838,16 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: clock_name
                             
                             	Name
                             	**type**\: str
                             
                             	**length:** 0..144
+                            
+                            	**config**\: False
                             
                             
 
@@ -9575,6 +10880,8 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SelectedSource.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
+
                     class QualityLevelReceived(Entity):
                         """
                         Received quality level
@@ -9584,20 +10891,28 @@ class FrequencySynchronization(Entity):
                         	QualityLevelOption
                         	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option1_value
                         
                         	ITU\-T Option 1 QL value
                         	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: option2_generation1_value
                         
                         	ITU\-T Option 2, generation 1 value
                         	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option2_generation2_value
                         
                         	ITU\-T Option 2, generation 2 value
                         	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -9632,6 +10947,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelReceived, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
                     class QualityLevelDamped(Entity):
                         """
                         Quality level after damping has been applied
@@ -9641,20 +10957,28 @@ class FrequencySynchronization(Entity):
                         	QualityLevelOption
                         	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option1_value
                         
                         	ITU\-T Option 1 QL value
                         	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: option2_generation1_value
                         
                         	ITU\-T Option 2, generation 1 value
                         	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option2_generation2_value
                         
                         	ITU\-T Option 2, generation 2 value
                         	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -9689,6 +11013,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelDamped, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
                     class QualityLevelEffectiveInput(Entity):
                         """
                         The effective input quality level
@@ -9698,20 +11023,28 @@ class FrequencySynchronization(Entity):
                         	QualityLevelOption
                         	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option1_value
                         
                         	ITU\-T Option 1 QL value
                         	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: option2_generation1_value
                         
                         	ITU\-T Option 2, generation 1 value
                         	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option2_generation2_value
                         
                         	ITU\-T Option 2, generation 2 value
                         	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -9746,6 +11079,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelEffectiveInput, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
                     class QualityLevelEffectiveOutput(Entity):
                         """
                         The effective output quality level
@@ -9755,20 +11089,28 @@ class FrequencySynchronization(Entity):
                         	QualityLevelOption
                         	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option1_value
                         
                         	ITU\-T Option 1 QL value
                         	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: option2_generation1_value
                         
                         	ITU\-T Option 2, generation 1 value
                         	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option2_generation2_value
                         
                         	ITU\-T Option 2, generation 2 value
                         	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -9803,6 +11145,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelEffectiveOutput, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
                     class QualityLevelSelectedSource(Entity):
                         """
                         The quality level of the source driving this
@@ -9813,20 +11156,28 @@ class FrequencySynchronization(Entity):
                         	QualityLevelOption
                         	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option1_value
                         
                         	ITU\-T Option 1 QL value
                         	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: option2_generation1_value
                         
                         	ITU\-T Option 2, generation 1 value
                         	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option2_generation2_value
                         
                         	ITU\-T Option 2, generation 2 value
                         	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -9861,6 +11212,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.QualityLevelSelectedSource, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
 
+
                     class SpaSelectionPoint(Entity):
                         """
                         Spa selection points
@@ -9872,10 +11224,14 @@ class FrequencySynchronization(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: selection_point_description
                         
                         	Selection point description
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -9906,6 +11262,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.SpaSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
 
 
+
                     class NodeSelectionPoint(Entity):
                         """
                         Node selection points
@@ -9917,10 +11274,14 @@ class FrequencySynchronization(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: selection_point_description
                         
                         	Selection point description
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -9951,6 +11312,9 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.ClockDatas.ClockData.NodeSelectionPoint, [u'selection_point', u'selection_point_description'], name, value)
 
 
+
+
+
             class SelectionPointInputs(Entity):
                 """
                 Table for selection point input operational
@@ -9960,6 +11324,8 @@ class FrequencySynchronization(Entity):
                 
                 	Operational data for a particular selection point input
                 	**type**\: list of  		 :py:class:`SelectionPointInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput>`
+                
+                	**config**\: False
                 
                 
 
@@ -9999,15 +11365,21 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: stream_type
                     
                     	Type of stream
                     	**type**\:  :py:class:`FsyncStream <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncStream>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: source_type
                     
                     	Type of source
                     	**type**\:  :py:class:`FsyncSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncSource>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface
                     
@@ -10016,12 +11388,16 @@ class FrequencySynchronization(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: clock_port
                     
                     	Clock port
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: last_node
                     
@@ -10030,12 +11406,16 @@ class FrequencySynchronization(Entity):
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_selection_point
                     
                     	Last selection point for a selection point stream
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_id
                     
@@ -10044,35 +11424,49 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_selection_point
                     
                     	The selection point the input is for
                     	**type**\:  :py:class:`InputSelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.InputSelectionPoint>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: stream
                     
                     	Stream
                     	**type**\:  :py:class:`Stream <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: original_source
                     
                     	Original source
                     	**type**\:  :py:class:`OriginalSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: quality_level
                     
                     	Quality Level
                     	**type**\:  :py:class:`QualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.QualityLevel>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: supports_frequency
                     
                     	The selection point input supports frequency
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: supports_time_of_day
                     
                     	The selection point input supports time\-of\-day
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: priority
                     
@@ -10081,6 +11475,8 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: time_of_day_priority
                     
                     	Time\-of\-day priority
@@ -10088,10 +11484,14 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: selected
                     
                     	The selection point input is selected
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_id_xr
                     
@@ -10100,15 +11500,21 @@ class FrequencySynchronization(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: platform_status
                     
                     	Platform status
                     	**type**\:  :py:class:`FsyncBagStreamState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagStreamState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: platform_failed_reason
                     
                     	Why the stream has failed
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -10194,10 +11600,14 @@ class FrequencySynchronization(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: selection_point_description
                         
                         	Selection point descrption
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: node
                         
@@ -10205,6 +11615,8 @@ class FrequencySynchronization(Entity):
                         	**type**\: str
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        	**config**\: False
                         
                         
 
@@ -10237,6 +11649,7 @@ class FrequencySynchronization(Entity):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.InputSelectionPoint, [u'selection_point_type', u'selection_point_description', u'node'], name, value)
 
 
+
                     class Stream(Entity):
                         """
                         Stream
@@ -10246,15 +11659,21 @@ class FrequencySynchronization(Entity):
                         	Source ID
                         	**type**\:  :py:class:`SourceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: selection_point_id
                         
                         	Selection point ID
                         	**type**\:  :py:class:`SelectionPointId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: stream_input
                         
                         	StreamInput
                         	**type**\:  :py:class:`FsyncBagStreamInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagStreamInput>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -10300,15 +11719,21 @@ class FrequencySynchronization(Entity):
                             	Clock ID
                             	**type**\:  :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: gnss_receiver_id
                             
                             	GNSS Receiver ID
                             	**type**\:  :py:class:`GnssReceiverId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.GnssReceiverId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: source_class
                             
                             	SourceClass
                             	**type**\:  :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceClass>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ethernet_interface
                             
@@ -10317,12 +11742,16 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: sonet_interface
                             
                             	SONET interfaces
                             	**type**\: str
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            	**config**\: False
                             
                             .. attribute:: node
                             
@@ -10331,12 +11760,16 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
+                            	**config**\: False
+                            
                             .. attribute:: ptp_node
                             
                             	PTP Clock Node
                             	**type**\: str
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            	**config**\: False
                             
                             .. attribute:: satellite_access_interface
                             
@@ -10345,12 +11778,16 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: ntp_node
                             
                             	NTP Clock Node
                             	**type**\: str
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                            
+                            	**config**\: False
                             
                             
 
@@ -10410,6 +11847,8 @@ class FrequencySynchronization(Entity):
                                 
                                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: id
                                 
                                 	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -10417,12 +11856,16 @@ class FrequencySynchronization(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: clock_name
                                 
                                 	Name
                                 	**type**\: str
                                 
                                 	**length:** 0..144
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10455,6 +11898,7 @@ class FrequencySynchronization(Entity):
                                     self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
                             class GnssReceiverId(Entity):
                                 """
                                 GNSS Receiver ID
@@ -10466,6 +11910,8 @@ class FrequencySynchronization(Entity):
                                 
                                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: id
                                 
                                 	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -10473,12 +11919,16 @@ class FrequencySynchronization(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: clock_name
                                 
                                 	Name
                                 	**type**\: str
                                 
                                 	**length:** 0..144
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10511,6 +11961,8 @@ class FrequencySynchronization(Entity):
                                     self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
+
                         class SelectionPointId(Entity):
                             """
                             Selection point ID
@@ -10520,12 +11972,16 @@ class FrequencySynchronization(Entity):
                             	Last selection point
                             	**type**\:  :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId.SelectionPoint>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: output_id
                             
                             	Output ID
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -10569,10 +12025,14 @@ class FrequencySynchronization(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: selection_point_description
                                 
                                 	Selection point descrption
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: node
                                 
@@ -10580,6 +12040,8 @@ class FrequencySynchronization(Entity):
                                 	**type**\: str
                                 
                                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10612,6 +12074,9 @@ class FrequencySynchronization(Entity):
                                     self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId.SelectionPoint, [u'selection_point_type', u'selection_point_description', u'node'], name, value)
 
 
+
+
+
                     class OriginalSource(Entity):
                         """
                         Original source
@@ -10621,15 +12086,21 @@ class FrequencySynchronization(Entity):
                         	Clock ID
                         	**type**\:  :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: gnss_receiver_id
                         
                         	GNSS Receiver ID
                         	**type**\:  :py:class:`GnssReceiverId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.GnssReceiverId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: source_class
                         
                         	SourceClass
                         	**type**\:  :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagSourceClass>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ethernet_interface
                         
@@ -10638,12 +12109,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: sonet_interface
                         
                         	SONET interfaces
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        	**config**\: False
                         
                         .. attribute:: node
                         
@@ -10652,12 +12127,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
+                        	**config**\: False
+                        
                         .. attribute:: ptp_node
                         
                         	PTP Clock Node
                         	**type**\: str
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        	**config**\: False
                         
                         .. attribute:: satellite_access_interface
                         
@@ -10666,12 +12145,16 @@ class FrequencySynchronization(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: ntp_node
                         
                         	NTP Clock Node
                         	**type**\: str
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        
+                        	**config**\: False
                         
                         
 
@@ -10731,6 +12214,8 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
+                            	**config**\: False
+                            
                             .. attribute:: id
                             
                             	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -10738,12 +12223,16 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: clock_name
                             
                             	Name
                             	**type**\: str
                             
                             	**length:** 0..144
+                            
+                            	**config**\: False
                             
                             
 
@@ -10776,6 +12265,7 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
                         class GnssReceiverId(Entity):
                             """
                             GNSS Receiver ID
@@ -10787,6 +12277,8 @@ class FrequencySynchronization(Entity):
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
+                            	**config**\: False
+                            
                             .. attribute:: id
                             
                             	ID (port number for clock interface, receiver number for GNSS receiver)
@@ -10794,12 +12286,16 @@ class FrequencySynchronization(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: clock_name
                             
                             	Name
                             	**type**\: str
                             
                             	**length:** 0..144
+                            
+                            	**config**\: False
                             
                             
 
@@ -10832,6 +12328,8 @@ class FrequencySynchronization(Entity):
                                 self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.GnssReceiverId, [u'node', u'id', u'clock_name'], name, value)
 
 
+
+
                     class QualityLevel(Entity):
                         """
                         Quality Level
@@ -10841,20 +12339,28 @@ class FrequencySynchronization(Entity):
                         	QualityLevelOption
                         	**type**\:  :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlOption>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option1_value
                         
                         	ITU\-T Option 1 QL value
                         	**type**\:  :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: option2_generation1_value
                         
                         	ITU\-T Option 2, generation 1 value
                         	**type**\:  :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G1Value>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: option2_generation2_value
                         
                         	ITU\-T Option 2, generation 2 value
                         	**type**\:  :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -10888,7 +12394,14 @@ class FrequencySynchronization(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.QualityLevel, [u'quality_level_option', u'option1_value', u'option2_generation1_value', u'option2_generation2_value'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = FrequencySynchronization()
         return self._top_entity
+
+
 

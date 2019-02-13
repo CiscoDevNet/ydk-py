@@ -30,6 +30,8 @@ class NetFlow(Entity):
     	Node\-specific NetFlow statistics information
     	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class NetFlow(Entity):
         
         	NetFlow statistics information for a particular node
         	**type**\: list of  		 :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic>`
+        
+        	**config**\: False
         
         
 
@@ -107,15 +111,21 @@ class NetFlow(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: producer
             
             	NetFlow producer statistics
             	**type**\:  :py:class:`Producer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Producer>`
             
+            	**config**\: False
+            
             .. attribute:: server
             
             	NetFlow server statistics
             	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Server>`
+            
+            	**config**\: False
             
             
 
@@ -162,6 +172,8 @@ class NetFlow(Entity):
                 	Statistics information
                 	**type**\:  :py:class:`Statistics_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Producer.Statistics_>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -201,12 +213,16 @@ class NetFlow(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4_egress_flows
                     
                     	IPv4 egress flows
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv6_ingress_flows
                     
@@ -215,12 +231,16 @@ class NetFlow(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6_egress_flows
                     
                     	IPv6 egress flows
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: mpls_ingress_flows
                     
@@ -229,12 +249,16 @@ class NetFlow(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: mpls_egress_flows
                     
                     	MPLS egress flows
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipfix315_ingress_flows
                     
@@ -243,12 +267,16 @@ class NetFlow(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipfix315_egress_flows
                     
                     	IPFIX315 egress flows
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: drops_no_space
                     
@@ -257,12 +285,16 @@ class NetFlow(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: drops_others
                     
                     	Drops (others)
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: unknown_ingress_flows
                     
@@ -271,12 +303,16 @@ class NetFlow(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: unknown_egress_flows
                     
                     	Unknown egress flows
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: waiting_servers
                     
@@ -285,10 +321,14 @@ class NetFlow(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_cleared
                     
                     	Last time Statistics cleared in 'Mon Jan 1 12\:00 \:00 2xxx' format
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -340,7 +380,9 @@ class NetFlow(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NetFlow.Statistics.Statistic.Producer.Statistics_, ['ipv4_ingress_flows', 'ipv4_egress_flows', 'ipv6_ingress_flows', 'ipv6_egress_flows', 'mpls_ingress_flows', 'mpls_egress_flows', 'ipfix315_ingress_flows', 'ipfix315_egress_flows', 'drops_no_space', 'drops_others', 'unknown_ingress_flows', 'unknown_egress_flows', 'waiting_servers', 'last_cleared'], name, value)
+                        self._perform_setattr(NetFlow.Statistics.Statistic.Producer.Statistics_, [u'ipv4_ingress_flows', u'ipv4_egress_flows', u'ipv6_ingress_flows', u'ipv6_egress_flows', u'mpls_ingress_flows', u'mpls_egress_flows', u'ipfix315_ingress_flows', u'ipfix315_egress_flows', u'drops_no_space', u'drops_others', u'unknown_ingress_flows', u'unknown_egress_flows', u'waiting_servers', u'last_cleared'], name, value)
+
+
 
 
             class Server(Entity):
@@ -351,6 +393,8 @@ class NetFlow(Entity):
                 
                 	Flow exporter information
                 	**type**\:  :py:class:`FlowExporters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters>`
+                
+                	**config**\: False
                 
                 
 
@@ -389,6 +433,8 @@ class NetFlow(Entity):
                     	Exporter information
                     	**type**\: list of  		 :py:class:`FlowExporter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -426,10 +472,14 @@ class NetFlow(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: exporter
                         
                         	Statistics information for the exporter
                         	**type**\:  :py:class:`Exporter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -471,6 +521,8 @@ class NetFlow(Entity):
                             	Array of flow exporters
                             	**type**\: list of  		 :py:class:`Statistic_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -506,6 +558,8 @@ class NetFlow(Entity):
                                 	Exporter name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: memory_usage
                                 
                                 	Memory usage
@@ -513,15 +567,21 @@ class NetFlow(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: used_by_flow_monitor
                                 
                                 	List of flow monitors that use the exporter
                                 	**type**\: list of str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: collector
                                 
                                 	Statistics of all collectors
                                 	**type**\: list of  		 :py:class:`Collector <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_.Collector>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -553,7 +613,7 @@ class NetFlow(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_, [u'name', u'memory_usage', u'used_by_flow_monitor'], name, value)
+                                    self._perform_setattr(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_, ['name', 'memory_usage', 'used_by_flow_monitor'], name, value)
 
 
                                 class Collector(Entity):
@@ -565,20 +625,28 @@ class NetFlow(Entity):
                                     	Exporter state
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: destination_address
                                     
                                     	Destination IPv4 address in AAA.BBB.CCC.DDD format
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: source_address
                                     
                                     	Source IPv4 address in AAA.BBB.CCC.DDD format
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: vrf_name
                                     
                                     	VRF Name
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: destination_port
                                     
@@ -587,6 +655,8 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: souce_port
                                     
                                     	Source port number
@@ -594,10 +664,14 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: transport_protocol
                                     
                                     	Transport protocol
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: packets_sent
                                     
@@ -606,12 +680,16 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: flows_sent
                                     
                                     	Flows sent
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: templates_sent
                                     
@@ -620,12 +698,16 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: option_templates_sent
                                     
                                     	Option templates sent
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: option_data_sent
                                     
@@ -634,12 +716,16 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: bytes_sent
                                     
                                     	Bytes sent
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -650,6 +736,8 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: byte
                                     
                                     .. attribute:: template_bytes_sent
@@ -658,6 +746,8 @@ class NetFlow(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -668,6 +758,8 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: byte
                                     
                                     .. attribute:: option_data_bytes_sent
@@ -676,6 +768,8 @@ class NetFlow(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -686,12 +780,16 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: flows_dropped
                                     
                                     	Flows dropped
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: templates_dropped
                                     
@@ -700,12 +798,16 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: option_templates_dropped
                                     
                                     	Option templates dropped
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: option_data_dropped
                                     
@@ -714,12 +816,16 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: bytes_dropped
                                     
                                     	Bytes dropped
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -730,6 +836,8 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: byte
                                     
                                     .. attribute:: template_bytes_dropped
@@ -738,6 +846,8 @@ class NetFlow(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -748,6 +858,8 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: byte
                                     
                                     .. attribute:: option_data_bytes_dropped
@@ -757,6 +869,8 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_hour_packest_sent
                                     
                                     	Total packets exported over the last one hour
@@ -764,12 +878,16 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_hour_bytes_sent
                                     
                                     	Total bytes exported over the last one hour
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -780,6 +898,8 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_minute_packets
                                     
                                     	Total packets exported over the last one minute
@@ -787,12 +907,16 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_minute_bytes_sent
                                     
                                     	Total bytes exported over the last one minute
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -803,6 +927,8 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_second_packets_sent
                                     
                                     	Total packets exported over the last one second
@@ -810,12 +936,16 @@ class NetFlow(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_second_bytes_sent
                                     
                                     	Total bytes exported over the last one second
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -825,6 +955,8 @@ class NetFlow(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -920,9 +1052,19 @@ class NetFlow(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_.Collector, [u'exporter_state', u'destination_address', u'source_address', u'vrf_name', u'destination_port', u'souce_port', u'transport_protocol', u'packets_sent', u'flows_sent', u'templates_sent', u'option_templates_sent', u'option_data_sent', u'bytes_sent', u'flow_bytes_sent', u'template_bytes_sent', u'option_template_bytes_sent', u'option_data_bytes_sent', u'packets_dropped', u'flows_dropped', u'templates_dropped', u'option_templates_dropped', u'option_data_dropped', u'bytes_dropped', u'flow_bytes_dropped', u'template_bytes_dropped', u'option_template_bytes_dropped', u'option_data_bytes_dropped', u'last_hour_packest_sent', u'last_hour_bytes_sent', u'last_hour_flows_sent', u'last_minute_packets', u'last_minute_bytes_sent', u'last_minute_flows_sent', u'last_second_packets_sent', u'last_second_bytes_sent', u'last_second_flows_sent'], name, value)
+                                        self._perform_setattr(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_.Collector, ['exporter_state', 'destination_address', 'source_address', 'vrf_name', 'destination_port', 'souce_port', 'transport_protocol', 'packets_sent', 'flows_sent', 'templates_sent', 'option_templates_sent', 'option_data_sent', 'bytes_sent', 'flow_bytes_sent', 'template_bytes_sent', 'option_template_bytes_sent', 'option_data_bytes_sent', 'packets_dropped', 'flows_dropped', 'templates_dropped', 'option_templates_dropped', 'option_data_dropped', 'bytes_dropped', 'flow_bytes_dropped', 'template_bytes_dropped', 'option_template_bytes_dropped', 'option_data_bytes_dropped', 'last_hour_packest_sent', 'last_hour_bytes_sent', 'last_hour_flows_sent', 'last_minute_packets', 'last_minute_bytes_sent', 'last_minute_flows_sent', 'last_second_packets_sent', 'last_second_bytes_sent', 'last_second_flows_sent'], name, value)
+
+
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = NetFlow()
         return self._top_entity
+
+
 

@@ -359,15 +359,21 @@ class SessionRedundancyManager(Entity):
     	Subscriber Redundancy Manager interface table
     	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyManager.Interfaces>`
     
+    	**config**\: False
+    
     .. attribute:: groups
     
     	Session Redundancy Manager group table
     	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyManager.Groups>`
     
+    	**config**\: False
+    
     .. attribute:: summary
     
     	Session redundancy manager summary
     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyManager.Summary>`
+    
+    	**config**\: False
     
     
 
@@ -415,6 +421,8 @@ class SessionRedundancyManager(Entity):
         	interface redundancy manager interface
         	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyManager.Interfaces.Interface>`
         
+        	**config**\: False
+        
         
 
         """
@@ -453,10 +461,14 @@ class SessionRedundancyManager(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: interface_name
             
             	Interface Name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: interface_mapping_id
             
@@ -465,10 +477,14 @@ class SessionRedundancyManager(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: forward_referenced
             
             	Forward Referenced
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: group_id
             
@@ -477,10 +493,14 @@ class SessionRedundancyManager(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: role
             
             	SERG Role
             	**type**\:  :py:class:`SergShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRole>`
+            
+            	**config**\: False
             
             
 
@@ -520,6 +540,8 @@ class SessionRedundancyManager(Entity):
                 self._perform_setattr(SessionRedundancyManager.Interfaces.Interface, ['interface', u'interface_name', u'interface_mapping_id', u'forward_referenced', u'group_id', u'role'], name, value)
 
 
+
+
     class Groups(Entity):
         """
         Session Redundancy Manager group table
@@ -528,6 +550,8 @@ class SessionRedundancyManager(Entity):
         
         	Session redundancy manager group
         	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyManager.Groups.Group>`
+        
+        	**config**\: False
         
         
 
@@ -567,6 +591,8 @@ class SessionRedundancyManager(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: group_id
             
             	Group ID
@@ -574,20 +600,28 @@ class SessionRedundancyManager(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: description
             
             	Group Description
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: disabled
             
             	Disabled by Config
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: role
             
             	SERG Role
             	**type**\:  :py:class:`SergShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRole>`
+            
+            	**config**\: False
             
             .. attribute:: peer_ipv4_address
             
@@ -596,12 +630,16 @@ class SessionRedundancyManager(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: peer_ipv6_address
             
             	Peer IPv6 Address
             	**type**\: str
             
             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: interface_count
             
@@ -610,25 +648,35 @@ class SessionRedundancyManager(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: preferred_role
             
             	Preferred Role
             	**type**\:  :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
+            
+            	**config**\: False
             
             .. attribute:: slave_mode
             
             	Slave Mode
             	**type**\:  :py:class:`SergShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveMode>`
             
+            	**config**\: False
+            
             .. attribute:: object_tracking_status
             
             	Object Tracking Status (Enabled/Disabled)
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: node_name
             
             	Node Information
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -680,6 +728,8 @@ class SessionRedundancyManager(Entity):
                 self._perform_setattr(SessionRedundancyManager.Groups.Group, ['group', u'group_id', u'description', u'disabled', u'role', u'peer_ipv4_address', u'peer_ipv6_address', u'interface_count', u'preferred_role', u'slave_mode', u'object_tracking_status', u'node_name'], name, value)
 
 
+
+
     class Summary(Entity):
         """
         Session redundancy manager summary
@@ -689,20 +739,28 @@ class SessionRedundancyManager(Entity):
         	Disabled by Config
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: active_state
         
         	Process Active State
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: preferred_role
         
         	Preferred Role
         	**type**\:  :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
         
+        	**config**\: False
+        
         .. attribute:: slave_mode
         
         	Slave Mode
         	**type**\:  :py:class:`SergShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveMode>`
+        
+        	**config**\: False
         
         .. attribute:: hold_timer
         
@@ -711,15 +769,21 @@ class SessionRedundancyManager(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: source_interface_name
         
         	Source Interface Name
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: vrf_name
         
         	VRF Name
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: source_interface_ipv4_address
         
@@ -728,12 +792,16 @@ class SessionRedundancyManager(Entity):
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: source_interface_ipv6_address
         
         	Source Interface IPv6 Address
         	**type**\: str
         
         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+        
+        	**config**\: False
         
         .. attribute:: group_count
         
@@ -742,12 +810,16 @@ class SessionRedundancyManager(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: disabled_group_count
         
         	No. of Disabled Groups by Config
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: master_group_count
         
@@ -756,12 +828,16 @@ class SessionRedundancyManager(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: slave_group_count
         
         	No. of Slave Groups
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: interface_count
         
@@ -770,12 +846,16 @@ class SessionRedundancyManager(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: master_interface_count
         
         	No. of Master/Active Interfaces
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: slave_interface_count
         
@@ -784,12 +864,16 @@ class SessionRedundancyManager(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: pool_count
         
         	No. of Configured Pools
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -850,9 +934,12 @@ class SessionRedundancyManager(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SessionRedundancyManager.Summary, [u'disabled', u'active_state', u'preferred_role', u'slave_mode', u'hold_timer', u'source_interface_name', u'vrf_name', u'source_interface_ipv4_address', u'source_interface_ipv6_address', u'group_count', u'disabled_group_count', u'master_group_count', u'slave_group_count', u'interface_count', u'master_interface_count', u'slave_interface_count', u'pool_count'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = SessionRedundancyManager()
         return self._top_entity
+
+
 
 class SessionRedundancyAgent(Entity):
     """
@@ -862,6 +949,8 @@ class SessionRedundancyAgent(Entity):
     
     	List of nodes for which session data is collected
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes>`
+    
+    	**config**\: False
     
     
 
@@ -902,6 +991,8 @@ class SessionRedundancyAgent(Entity):
         	Session data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node>`
         
+        	**config**\: False
+        
         
 
         """
@@ -940,40 +1031,56 @@ class SessionRedundancyAgent(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: group_id_xr
             
             	Data for particular subscriber group session
             	**type**\:  :py:class:`GroupIdXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIdXr>`
+            
+            	**config**\: False
             
             .. attribute:: client_ids
             
             	Stats Client
             	**type**\:  :py:class:`ClientIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.ClientIds>`
             
+            	**config**\: False
+            
             .. attribute:: memory
             
             	Show Memory
             	**type**\:  :py:class:`Memory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Memory>`
+            
+            	**config**\: False
             
             .. attribute:: group_ids
             
             	Data for particular subscriber group 
             	**type**\:  :py:class:`GroupIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIds>`
             
+            	**config**\: False
+            
             .. attribute:: interfaces
             
             	List of interfaces
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Interfaces>`
+            
+            	**config**\: False
             
             .. attribute:: stats_global
             
             	Stats Global
             	**type**\:  :py:class:`StatsGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.StatsGlobal>`
             
+            	**config**\: False
+            
             .. attribute:: group_summaries
             
             	Session data for a particular node
             	**type**\:  :py:class:`GroupSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupSummaries>`
+            
+            	**config**\: False
             
             
 
@@ -1040,6 +1147,8 @@ class SessionRedundancyAgent(Entity):
                 	Group id for subscriber group session
                 	**type**\: list of  		 :py:class:`GroupId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1077,6 +1186,8 @@ class SessionRedundancyAgent(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: group_id_xr
                     
                     	Group ID
@@ -1084,35 +1195,49 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_name
                     
                     	Interface Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: key_index
                     
                     	Key index
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: role_master
                     
                     	Master Role is Set
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: negative_acknowledgement_update_all
                     
                     	Negative Acknowledgement Update Flag is Set
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_detailed_information
                     
                     	More Session Information
                     	**type**\: list of  		 :py:class:`SessionDetailedInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_sync_error_information
                     
                     	Session Synchroniation Error Information
                     	**type**\: list of  		 :py:class:`SessionSyncErrorInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1163,25 +1288,35 @@ class SessionRedundancyAgent(Entity):
                         	Component
                         	**type**\:  :py:class:`SergShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowComp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: operation_
                         
                         	Operation Code
                         	**type**\:  :py:class:`SergShowSessionOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSessionOperation>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: tx_list_queue_fail
                         
                         	Tx List Queue Failed
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_for_sweeping
                         
                         	Marked For Sweeping
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: marked_for_cleanup
                         
                         	Marked For Cleanup
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -1218,6 +1353,7 @@ class SessionRedundancyAgent(Entity):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, [u'component', u'operation_', u'tx_list_queue_fail', u'marked_for_sweeping', u'marked_for_cleanup'], name, value)
 
 
+
                     class SessionSyncErrorInformation(Entity):
                         """
                         Session Synchroniation Error Information
@@ -1229,6 +1365,8 @@ class SessionRedundancyAgent(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_error_code
                         
                         	Last Error Code
@@ -1236,10 +1374,14 @@ class SessionRedundancyAgent(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_error_type
                         
                         	Last Error Type
                         	**type**\:  :py:class:`SergShowSessionError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSessionError>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1272,6 +1414,9 @@ class SessionRedundancyAgent(Entity):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, [u'sync_error_count', u'last_error_code', u'last_error_type'], name, value)
 
 
+
+
+
             class ClientIds(Entity):
                 """
                 Stats Client
@@ -1280,6 +1425,8 @@ class SessionRedundancyAgent(Entity):
                 
                 	Specify stats client
                 	**type**\: list of  		 :py:class:`ClientId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId>`
+                
+                	**config**\: False
                 
                 
 
@@ -1318,12 +1465,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_start_of_download_add_ok
                     
                     	TxListStartOfDownloadAddOk
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_start_of_download_add_not_ok
                     
@@ -1332,12 +1483,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_end_of_download_add_ok
                     
                     	TxListEndOfDownloadAddOk
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_end_of_download_add_not_ok
                     
@@ -1346,12 +1501,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_end_of_message_add_ok
                     
                     	TxListEndOfMessageAddOk
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_end_of_message_add_not_ok
                     
@@ -1360,12 +1519,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_clear_all_add_ok
                     
                     	TxListClearAllAddOk
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_clear_all_add_not_ok
                     
@@ -1374,12 +1537,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_clear_selected_add_ok
                     
                     	TxListClearSelectedAddOk
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_clear_selected_add_not_ok
                     
@@ -1388,12 +1555,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_replay_all_add_ok
                     
                     	TxListReplayAllAddOk
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_replay_all_add_not_ok
                     
@@ -1402,12 +1573,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_replay_selected_add_ok
                     
                     	TxListReplaySelectedAddOk
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_replay_selected_add_not_ok
                     
@@ -1416,12 +1591,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_session_session_add_ok
                     
                     	TxListSessionSessionAddOk
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_session_session_add_not_ok
                     
@@ -1430,12 +1609,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_session_session_update_ok
                     
                     	TxListSessionSessionUpdateOk
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_session_session_update_not_ok
                     
@@ -1444,12 +1627,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_session_session_delete
                     
                     	TxListSessionSessionDelete
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: clean_call_back
                     
@@ -1458,12 +1645,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_encode_session_session_ok
                     
                     	TxListEncodeSessionSessionOk
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_encode_session_session_partial_write
                     
@@ -1472,12 +1663,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_replay_all_count
                     
                     	LastReplayAllCount
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_receive_command_replay_all
                     
@@ -1486,12 +1681,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_receive_command_replay_selected
                     
                     	TxListReceiveCommandReplaySelected
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_receive_session_session_delete_valid
                     
@@ -1500,12 +1699,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_receive_session_session_delete_invalid
                     
                     	TxListReceiveSessionSessionDeleteInValid
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_receive_session_session_update_valid
                     
@@ -1514,12 +1717,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_receive_session_session_update_invalid
                     
                     	TxListReceiveSessionSessionUpdateInValid
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_receive_session_session_sod_all
                     
@@ -1528,12 +1735,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_receive_session_session_sod_selected
                     
                     	TxListReceiveSessionSessionSODSelected
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_receive_session_session_eod_all
                     
@@ -1542,12 +1753,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_receive_session_session_eod_selected
                     
                     	TxListReceiveSessionSessionEODSelected
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_receive_session_session_eoms
                     
@@ -1556,12 +1771,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_receive_session_session_clear_all
                     
                     	TxListReceiveSessionSessionClearAll
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_receive_session_session_clear_selected
                     
@@ -1570,12 +1789,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_receive_session_session_neg_ack
                     
                     	TxListReceiveSessionSessionNegAck
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_receive_session_session_neg_ack_not_ok
                     
@@ -1584,12 +1807,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_client_registration_ok
                     
                     	TxListClientRegistrationOk
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_client_registration_not_ok
                     
@@ -1598,12 +1825,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_client_de_registration
                     
                     	TxListClientDeRegistration
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_client_connection_down
                     
@@ -1612,12 +1843,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_client_cleanup
                     
                     	TxListClientCleanup
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_active_ok
                     
@@ -1626,12 +1861,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_active_not_ok
                     
                     	TxListActiveNotOk
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_de_active_ok
                     
@@ -1640,12 +1879,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_de_active_not_ok
                     
                     	TxListDeActiveNotOk
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_send_pool_role_ok
                     
@@ -1654,12 +1897,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_send_pool_role_not_ok
                     
                     	TxListSendPoolRoleNotOk
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_send_pool_update_ok
                     
@@ -1668,6 +1915,8 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_send_pool_update_not_ok
                     
                     	TxListSendPoolUpdateNotOk
@@ -1675,12 +1924,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_recv_pool_update_ok
                     
                     	TxListRecvPoolUpdateOk
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1813,6 +2066,8 @@ class SessionRedundancyAgent(Entity):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId, ['stats_client_id', u'tx_list_start_of_download_add_ok', u'tx_list_start_of_download_add_not_ok', u'tx_list_end_of_download_add_ok', u'tx_list_end_of_download_add_not_ok', u'tx_list_end_of_message_add_ok', u'tx_list_end_of_message_add_not_ok', u'tx_list_clear_all_add_ok', u'tx_list_clear_all_add_not_ok', u'tx_list_clear_selected_add_ok', u'tx_list_clear_selected_add_not_ok', u'tx_list_replay_all_add_ok', u'tx_list_replay_all_add_not_ok', u'tx_list_replay_selected_add_ok', u'tx_list_replay_selected_add_not_ok', u'tx_list_session_session_add_ok', u'tx_list_session_session_add_not_ok', u'tx_list_session_session_update_ok', u'tx_list_session_session_update_not_ok', u'tx_list_session_session_delete', u'clean_call_back', u'tx_list_encode_session_session_ok', u'tx_list_encode_session_session_partial_write', u'last_replay_all_count', u'tx_list_receive_command_replay_all', u'tx_list_receive_command_replay_selected', u'tx_list_receive_session_session_delete_valid', u'tx_list_receive_session_session_delete_invalid', u'tx_list_receive_session_session_update_valid', u'tx_list_receive_session_session_update_invalid', u'tx_list_receive_session_session_sod_all', u'tx_list_receive_session_session_sod_selected', u'tx_list_receive_session_session_eod_all', u'tx_list_receive_session_session_eod_selected', u'tx_list_receive_session_session_eoms', u'tx_list_receive_session_session_clear_all', u'tx_list_receive_session_session_clear_selected', u'tx_list_receive_session_session_neg_ack', u'tx_list_receive_session_session_neg_ack_not_ok', u'tx_list_client_registration_ok', u'tx_list_client_registration_not_ok', u'tx_list_client_de_registration', u'tx_list_client_connection_down', u'tx_list_client_cleanup', u'tx_list_active_ok', u'tx_list_active_not_ok', u'tx_list_de_active_ok', u'tx_list_de_active_not_ok', u'tx_list_send_pool_role_ok', u'tx_list_send_pool_role_not_ok', u'tx_list_send_pool_update_ok', u'tx_list_send_pool_update_not_ok', u'tx_list_recv_pool_update_ok'], name, value)
 
 
+
+
             class Memory(Entity):
                 """
                 Show Memory
@@ -1822,15 +2077,21 @@ class SessionRedundancyAgent(Entity):
                 	Memory Info
                 	**type**\: list of  		 :py:class:`MemoryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: edm_memory_info
                 
                 	EDM Memory Info
                 	**type**\: list of  		 :py:class:`EdmMemoryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: string_memory_info
                 
                 	String Memory Info
                 	**type**\: list of  		 :py:class:`StringMemoryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -1869,12 +2130,16 @@ class SessionRedundancyAgent(Entity):
                     	Structure Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: size
                     
                     	Size of the datastructure
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: current_count
                     
@@ -1883,12 +2148,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: alloc_fails
                     
                     	Allocation Fails
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: alloc_count
                     
@@ -1897,6 +2166,8 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: freed_count
                     
                     	Freed Count
@@ -1904,10 +2175,14 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: memory_type
                     
                     	Memory Type
                     	**type**\:  :py:class:`SergShowMem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowMem>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1948,6 +2223,7 @@ class SessionRedundancyAgent(Entity):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo, [u'structure_name', u'size', u'current_count', u'alloc_fails', u'alloc_count', u'freed_count', u'memory_type'], name, value)
 
 
+
                 class EdmMemoryInfo(Entity):
                     """
                     EDM Memory Info
@@ -1959,12 +2235,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: total
                     
                     	Total request
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: success
                     
@@ -1973,12 +2253,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: failure
                     
                     	Cache\-hit failure
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -2013,6 +2297,7 @@ class SessionRedundancyAgent(Entity):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo, [u'size', u'total', u'success', u'failure'], name, value)
 
 
+
                 class StringMemoryInfo(Entity):
                     """
                     String Memory Info
@@ -2024,12 +2309,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: total
                     
                     	Total request
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: success
                     
@@ -2038,12 +2327,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: failure
                     
                     	Cache\-hit failure
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -2078,6 +2371,8 @@ class SessionRedundancyAgent(Entity):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo, [u'size', u'total', u'success', u'failure'], name, value)
 
 
+
+
             class GroupIds(Entity):
                 """
                 Data for particular subscriber group 
@@ -2086,6 +2381,8 @@ class SessionRedundancyAgent(Entity):
                 
                 	Group id for subscriber group
                 	**type**\: list of  		 :py:class:`GroupId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId>`
+                
+                	**config**\: False
                 
                 
 
@@ -2124,6 +2421,8 @@ class SessionRedundancyAgent(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: group_id_xr
                     
                     	Group ID
@@ -2131,35 +2430,49 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	Group Description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: disabled
                     
                     	Disabled by Config
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: init_role
                     
                     	Preferred Init Role
                     	**type**\:  :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: negotiating_role
                     
                     	Negotiating Role
                     	**type**\:  :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: current_role
                     
                     	Current Role
                     	**type**\:  :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: slave_mode
                     
                     	Slave Mode
                     	**type**\:  :py:class:`SergShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveMode>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: hold_timer
                     
@@ -2168,30 +2481,42 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: core_tracking_object_name
                     
                     	Core Object Tracking Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: core_tracking_object_status
                     
                     	Core Object Tracking Status
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: access_tracking_object_name
                     
                     	Access Object Tracking Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: access_tracking_object_status
                     
                     	Access Object Tracking Status
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: object_tracking_status
                     
                     	Object Tracking Status (Enabled/Disabled)
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: peer_ipv4_address
                     
@@ -2200,6 +2525,8 @@ class SessionRedundancyAgent(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_ipv6_address
                     
                     	Peer IPv6 Address
@@ -2207,50 +2534,70 @@ class SessionRedundancyAgent(Entity):
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_status
                     
                     	Peer Status
                     	**type**\:  :py:class:`SergPeerStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergPeerStatus>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: peer_last_negotiation_time
                     
                     	Last Negotiation time of Peer
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_last_up_time
                     
                     	Last UP time of Peer
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: peer_last_down_time
                     
                     	Last Down time of Peer
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_init_role
                     
                     	Peer Preferred Init Role
                     	**type**\:  :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: peer_negotiating_role
                     
                     	Peer Negotiating Role
                     	**type**\:  :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_current_role
                     
                     	Peer Current Role
                     	**type**\:  :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: peer_object_tracking_status
                     
                     	Peer Object Tracking Status
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_switchover_time
                     
                     	Last Switchover time
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: switchover_count
                     
@@ -2259,10 +2606,14 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_switchover_reason
                     
                     	Last Switchover Reason
                     	**type**\:  :py:class:`SergShowSoReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSoReason>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: switchover_hold_time
                     
@@ -2270,6 +2621,8 @@ class SessionRedundancyAgent(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -2280,12 +2633,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: slave_update_failure_count
                     
                     	Slave Session update fail count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: pending_session_update_count
                     
@@ -2294,12 +2651,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: pending_session_delete_count
                     
                     	Pending Session Delete Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_count
                     
@@ -2308,6 +2669,8 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: revertive_timer
                     
                     	Revertive timer for SWO back
@@ -2315,12 +2678,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: switchover_revert_time
                     
                     	Switchover Revert Time in seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -2331,20 +2698,28 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: client_session_count
                     
                     	Client Session Count
                     	**type**\: list of  		 :py:class:`ClientSessionCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface
                     
                     	Interface List
                     	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: pool
                     
                     	Pool List
                     	**type**\: list of  		 :py:class:`Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Pool>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2456,12 +2831,16 @@ class SessionRedundancyAgent(Entity):
                         	Component
                         	**type**\:  :py:class:`SergShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowComp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: session_count
                         
                         	Session count
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2492,6 +2871,7 @@ class SessionRedundancyAgent(Entity):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount, [u'component', u'session_count'], name, value)
 
 
+
                     class Interface(Entity):
                         """
                         Interface List
@@ -2501,6 +2881,8 @@ class SessionRedundancyAgent(Entity):
                         	Interface Name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: interface_synchronization_id
                         
                         	Interface Synchronization ID
@@ -2508,10 +2890,14 @@ class SessionRedundancyAgent(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: forward_referenced
                         
                         	Forward Referenced
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: session_count
                         
@@ -2519,6 +2905,8 @@ class SessionRedundancyAgent(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2553,6 +2941,7 @@ class SessionRedundancyAgent(Entity):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, [u'interface_name', u'interface_synchronization_id', u'forward_referenced', u'session_count'], name, value)
 
 
+
                     class Pool(Entity):
                         """
                         Pool List
@@ -2561,6 +2950,8 @@ class SessionRedundancyAgent(Entity):
                         
                         	Pool Name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -2589,6 +2980,9 @@ class SessionRedundancyAgent(Entity):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Pool, [u'pool_name'], name, value)
 
 
+
+
+
             class Interfaces(Entity):
                 """
                 List of interfaces
@@ -2597,6 +2991,8 @@ class SessionRedundancyAgent(Entity):
                 
                 	Specify interface name
                 	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Interfaces.Interface>`
+                
+                	**config**\: False
                 
                 
 
@@ -2635,20 +3031,28 @@ class SessionRedundancyAgent(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_oper
                     
                     	Interface Batch Operation
                     	**type**\:  :py:class:`InterfaceOper <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_status
                     
                     	Interface Status
                     	**type**\:  :py:class:`InterfaceStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_name
                     
                     	Interface Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_synchronization_id
                     
@@ -2657,6 +3061,8 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: group_id
                     
                     	Group ID
@@ -2664,15 +3070,21 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: role
                     
                     	SERG Role
                     	**type**\:  :py:class:`SergShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRole>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: forward_referenced
                     
                     	Forward Referenced
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: session_count
                     
@@ -2681,12 +3093,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_enable_error_count
                     
                     	Interface Enable Error Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_disable_error_count
                     
@@ -2695,12 +3111,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_caps_add_error_count
                     
                     	Interface Caps Add Error Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_caps_remove_error_count
                     
@@ -2709,6 +3129,8 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_attribute_update_error_count
                     
                     	Interface Attribute Update Error Count
@@ -2716,10 +3138,14 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: client_status
                     
                     	Interface status for each client
                     	**type**\: list of  		 :py:class:`ClientStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2789,25 +3215,35 @@ class SessionRedundancyAgent(Entity):
                         	Operational Registration Enabled
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: idb_oper_reg_disable
                         
                         	Operational Registration Disabled
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: idb_oper_caps_add
                         
                         	Operational Caps Add
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: idb_oper_caps_remove
                         
                         	Operational Caps Remove
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: idb_oper_attr_update
                         
                         	Operational Attribute Update
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -2844,6 +3280,7 @@ class SessionRedundancyAgent(Entity):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, [u'idb_oper_reg_enable', u'idb_oper_reg_disable', u'idb_oper_caps_add', u'idb_oper_caps_remove', u'idb_oper_attr_update'], name, value)
 
 
+
                     class InterfaceStatus(Entity):
                         """
                         Interface Status
@@ -2853,40 +3290,56 @@ class SessionRedundancyAgent(Entity):
                         	Interface Forward Referenced
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: idb_state_stale
                         
                         	Interface State Stale
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: idb_state_registered
                         
                         	Interface State Registered
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: idb_state_caps_added
                         
                         	Interface State Caps Added
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: idb_state_owned_re_source
                         
                         	Interface State Owned Resource
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: idb_client_eoms_pending
                         
                         	Interface Client EOMS Pending
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: idb_state_p_end_caps_rem
                         
                         	Interface Caps Remove Pending
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: idb_state_p_end_reg_disable
                         
                         	Interface Registration Disable Pending
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -2929,6 +3382,7 @@ class SessionRedundancyAgent(Entity):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, [u'idb_state_fwd_ref', u'idb_state_stale', u'idb_state_registered', u'idb_state_caps_added', u'idb_state_owned_re_source', u'idb_client_eoms_pending', u'idb_state_p_end_caps_rem', u'idb_state_p_end_reg_disable'], name, value)
 
 
+
                     class ClientStatus(Entity):
                         """
                         Interface status for each client
@@ -2938,15 +3392,21 @@ class SessionRedundancyAgent(Entity):
                         	Component
                         	**type**\:  :py:class:`SergShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowComp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: serg_show_idb_client_eoms_pending
                         
                         	SERG SHOW IDB CLIENT EOMS PENDING
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: serg_show_idb_client_sync_eod_pending
                         
                         	SERG SHOW IDB CLIENT SYNC EOD PENDING
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: session_count
                         
@@ -2954,6 +3414,8 @@ class SessionRedundancyAgent(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2988,6 +3450,9 @@ class SessionRedundancyAgent(Entity):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, [u'component', u'serg_show_idb_client_eoms_pending', u'serg_show_idb_client_sync_eod_pending', u'session_count'], name, value)
 
 
+
+
+
             class StatsGlobal(Entity):
                 """
                 Stats Global
@@ -2997,20 +3462,28 @@ class SessionRedundancyAgent(Entity):
                 	intf status statistics
                 	**type**\:  :py:class:`IntfStatusStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: tx_list_statistics
                 
                 	tx list statistics
                 	**type**\:  :py:class:`TxListStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: source_interface_name
                 
                 	Source Interface Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: vrf_name
                 
                 	VRF Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: source_interface_ipv4_address
                 
@@ -3019,6 +3492,8 @@ class SessionRedundancyAgent(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: source_interface_ipv6_address
                 
                 	Source Interface IPv6 Address
@@ -3026,35 +3501,49 @@ class SessionRedundancyAgent(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: redundancy_role
                 
                 	Redundancy Role
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: restart_client_sync_in_progress
                 
                 	Restart Client Sync In Progress Flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: client_init_sync_time_stamp
                 
                 	Synchronization TimeStamp
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: restart_peer_sync_in_progress
                 
                 	Restart Peer Sync In Progress Flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: peer_init_sync_time_stamp
                 
                 	Synchronization TimeStamp
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: sync_in_progress
                 
                 	Sync In Progress Flag
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: peer_action_timer
                 
@@ -3062,6 +3551,8 @@ class SessionRedundancyAgent(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -3072,6 +3563,8 @@ class SessionRedundancyAgent(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: tx_list_client_registration_invalid
@@ -3081,12 +3574,16 @@ class SessionRedundancyAgent(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tx_list_client_de_registration_invalid
                 
                 	TxListClientDeRegistrationInvalid
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tx_list_client_connection_up
                 
@@ -3095,12 +3592,16 @@ class SessionRedundancyAgent(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tx_list_client_connection_down
                 
                 	TxListClientConnectionDown
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tx_list_client_peer_done
                 
@@ -3109,12 +3610,16 @@ class SessionRedundancyAgent(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tx_list_client_message_call_back
                 
                 	TxListClientMessageCallBack
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tx_list_client_receive_valid
                 
@@ -3123,12 +3628,16 @@ class SessionRedundancyAgent(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tx_list_client_receive_invalid
                 
                 	TxListClientReceiveInValid
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tx_list_client_receive_command_valid
                 
@@ -3137,12 +3646,16 @@ class SessionRedundancyAgent(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tx_list_client_receive_command_invalid
                 
                 	TxListClientReceiveCommandInValid
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tx_list_client_receive_session_sessionvalid
                 
@@ -3151,12 +3664,16 @@ class SessionRedundancyAgent(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tx_list_client_receive_session_session_invalid
                 
                 	TxListClientReceiveSessionSessionInValid
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tx_list_peer_timer_handler
                 
@@ -3165,12 +3682,16 @@ class SessionRedundancyAgent(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tx_list_peer_registration_invalid
                 
                 	TxListPeerRegistrationInValid
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tx_list_peer_de_registration_invalid
                 
@@ -3179,12 +3700,16 @@ class SessionRedundancyAgent(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tx_list_peer_message_call_back_valid
                 
                 	TxListPeerMessageCallBackValid
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tx_list_peer_message_call_back_invalid
                 
@@ -3193,12 +3718,16 @@ class SessionRedundancyAgent(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tx_list_peer_done
                 
                 	TxListPeerDone
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tx_list_peer_cmd_connection_up_not_ok
                 
@@ -3207,12 +3736,16 @@ class SessionRedundancyAgent(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tx_list_peer_cmd_connection_down_not_ok
                 
                 	TxListPeerCmdConnectionDownNotOk
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tx_list_peer_session_connection_up_not_ok
                 
@@ -3221,12 +3754,16 @@ class SessionRedundancyAgent(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tx_list_peer_session_connection_down_not_ok
                 
                 	TxListPeerSessionConnectionDownNotOk
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tx_list_send_pool_update_not_ok
                 
@@ -3235,20 +3772,28 @@ class SessionRedundancyAgent(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: client_status
                 
                 	Client Status
                 	**type**\: list of  		 :py:class:`ClientStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus>`
+                
+                	**config**\: False
                 
                 .. attribute:: opaque_memory_status
                 
                 	Opaque memory Stats
                 	**type**\: list of  		 :py:class:`OpaqueMemoryStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus>`
                 
+                	**config**\: False
+                
                 .. attribute:: tx_list_over_tcp_status
                 
                 	TCP TxList Statistics
                 	**type**\: list of  		 :py:class:`TxListOverTcpStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus>`
+                
+                	**config**\: False
                 
                 
 
@@ -3368,12 +3913,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: pend_reg_disable_cnt
                     
                     	No. of interfaces pending red disable
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: pend_other_batch_oper_cnt
                     
@@ -3382,6 +3931,8 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: non_stale_cnt
                     
                     	No. of non stale interfaces
@@ -3389,12 +3940,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: grp_bound_cnt
                     
                     	No. of interface bound to a group
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -3431,6 +3986,7 @@ class SessionRedundancyAgent(Entity):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics, [u'pend_caps_rem_cnt', u'pend_reg_disable_cnt', u'pend_other_batch_oper_cnt', u'non_stale_cnt', u'grp_bound_cnt'], name, value)
 
 
+
                 class TxListStatistics(Entity):
                     """
                     tx list statistics
@@ -3442,12 +3998,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_encode_marker_partial_write
                     
                     	TxListEncodeMarkerPartialWrite
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_clean_marker
                     
@@ -3456,12 +4016,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_encode_command_ok
                     
                     	TxListEncodeCommandOk
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_encode_command_partial_write
                     
@@ -3470,12 +4034,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_clean_command
                     
                     	TxListCleanCommand
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_list_encode_negotiation_ok
                     
@@ -3484,6 +4052,8 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_encode_negotiation_partial_write
                     
                     	TxListEncodeNegotiationPartialWrite
@@ -3491,12 +4061,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_list_clean_negotiation
                     
                     	TxListCleanNegotiation
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -3541,6 +4115,7 @@ class SessionRedundancyAgent(Entity):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics, [u'tx_list_encode_marker_ok', u'tx_list_encode_marker_partial_write', u'tx_list_clean_marker', u'tx_list_encode_command_ok', u'tx_list_encode_command_partial_write', u'tx_list_clean_command', u'tx_list_encode_negotiation_ok', u'tx_list_encode_negotiation_partial_write', u'tx_list_clean_negotiation'], name, value)
 
 
+
                 class ClientStatus(Entity):
                     """
                     Client Status
@@ -3550,30 +4125,42 @@ class SessionRedundancyAgent(Entity):
                     	Component
                     	**type**\:  :py:class:`SergShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowComp>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: client_connection_status
                     
                     	ClientConnectionStatus
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: client_initialization_synchronization_pending
                     
                     	ClientInitializationSynchronizationPending
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: client_synchronization_end_of_download_pending
                     
                     	ClientSynchronizationEndOfDownloadPending
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: up_time_stamp
                     
                     	UpTimeStamp
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: down_time_stamp
                     
                     	DownTimeStamp
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: clean_up_timer_remaining
                     
@@ -3581,6 +4168,8 @@ class SessionRedundancyAgent(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -3623,6 +4212,7 @@ class SessionRedundancyAgent(Entity):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus, [u'component', u'client_connection_status', u'client_initialization_synchronization_pending', u'client_synchronization_end_of_download_pending', u'up_time_stamp', u'down_time_stamp', u'clean_up_timer_remaining'], name, value)
 
 
+
                 class OpaqueMemoryStatus(Entity):
                     """
                     Opaque memory Stats
@@ -3632,12 +4222,16 @@ class SessionRedundancyAgent(Entity):
                     	Component
                     	**type**\:  :py:class:`SergShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowComp>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_count
                     
                     	Session count for each component
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: opaque_size
                     
@@ -3646,6 +4240,8 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: opaque_high_size
                     
                     	High Watermark of Opaque Data Size for each component
@@ -3653,12 +4249,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: opaque_data_size
                     
                     	Current Opaque Data Size for each component
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -3695,6 +4295,7 @@ class SessionRedundancyAgent(Entity):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus, [u'component', u'session_count', u'opaque_size', u'opaque_high_size', u'opaque_data_size'], name, value)
 
 
+
                 class TxListOverTcpStatus(Entity):
                     """
                     TCP TxList Statistics
@@ -3706,12 +4307,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: bytes_sent
                     
                     	Bytes Sent Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -3722,12 +4327,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: bytes_received
                     
                     	Bytes Received Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -3738,12 +4347,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: blocked_connect_count
                     
                     	Blocked Socket Connect Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: connect_retry_count
                     
@@ -3752,12 +4365,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_node_down_count
                     
                     	Remote Peer DisConnect Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: accept_count
                     
@@ -3766,12 +4383,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: maximum_sent_message_size
                     
                     	Maximum Size of Sent Message
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: maximum_received_message_size
                     
@@ -3780,12 +4401,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_pause_count
                     
                     	Peer Pause Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: buffer_full_occurence_count
                     
@@ -3794,12 +4419,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: mem_move_message_count
                     
                     	Partial Message Memory Move Occurence Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: mem_move_bytes_count
                     
@@ -3808,12 +4437,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: socket_read_count
                     
                     	Socket Read Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: socket_write_count
                     
@@ -3822,12 +4455,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: active_socket_count
                     
                     	Active Socket Count
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: maximum_requested_buffer_size
                     
@@ -3836,12 +4473,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: buffer_freed_count
                     
                     	Buffer Free Count
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: buffer_cache_hit
                     
@@ -3850,12 +4491,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: buffer_cache_miss
                     
                     	Buffer Cache Miss Count
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -3926,6 +4571,8 @@ class SessionRedundancyAgent(Entity):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus, [u'messages_sent', u'bytes_sent', u'messages_received', u'bytes_received', u'connect_count', u'blocked_connect_count', u'connect_retry_count', u'remote_node_down_count', u'accept_count', u'maximum_sent_message_size', u'maximum_received_message_size', u'peer_pause_count', u'buffer_full_occurence_count', u'mem_move_message_count', u'mem_move_bytes_count', u'socket_read_count', u'socket_write_count', u'active_socket_count', u'maximum_requested_buffer_size', u'buffer_freed_count', u'buffer_cache_hit', u'buffer_cache_miss'], name, value)
 
 
+
+
             class GroupSummaries(Entity):
                 """
                 Session data for a particular node
@@ -3934,6 +4581,8 @@ class SessionRedundancyAgent(Entity):
                 
                 	Session redundancy agent group summary
                 	**type**\: list of  		 :py:class:`GroupSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary>`
+                
+                	**config**\: False
                 
                 
 
@@ -3972,6 +4621,8 @@ class SessionRedundancyAgent(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: group_id_xr
                     
                     	Group ID
@@ -3979,15 +4630,21 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: role
                     
                     	SERG Role
                     	**type**\:  :py:class:`SergShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRole>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: disabled
                     
                     	Disabled by Config
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: peer_ipv4_address
                     
@@ -3996,6 +4653,8 @@ class SessionRedundancyAgent(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_ipv6_address
                     
                     	Peer IPv6 Address
@@ -4003,25 +4662,35 @@ class SessionRedundancyAgent(Entity):
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_status
                     
                     	Peer Status
                     	**type**\:  :py:class:`SergPeerStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergPeerStatus>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: preferred_role
                     
                     	Preferred Role
                     	**type**\:  :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: slave_mode
                     
                     	Slave Mode
                     	**type**\:  :py:class:`SergShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveMode>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: object_tracking_status
                     
                     	Object Tracking Status (Enabled/Disabled)
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_count
                     
@@ -4030,6 +4699,8 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_count
                     
                     	Session Count
@@ -4037,12 +4708,16 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: pending_add_session_count
                     
                     	Pending Session Count for Synchornization
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -4094,7 +4769,13 @@ class SessionRedundancyAgent(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, ['group_id', u'group_id_xr', u'role', u'disabled', u'peer_ipv4_address', u'peer_ipv6_address', u'peer_status', u'preferred_role', u'slave_mode', u'object_tracking_status', u'interface_count', u'session_count', u'pending_add_session_count'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = SessionRedundancyAgent()
         return self._top_entity
+
+
 

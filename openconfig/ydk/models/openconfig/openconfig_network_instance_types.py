@@ -29,6 +29,7 @@ class SIGNALLINGPROTOCOL(Identity):
         super(SIGNALLINGPROTOCOL, self).__init__(ns, pref, tag)
 
 
+
 class LABELALLOCATIONMODE(Identity):
     """
     Base identity to be used to express types of label allocation
@@ -43,6 +44,7 @@ class LABELALLOCATIONMODE(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:LABEL_ALLOCATION_MODE"):
         super(LABELALLOCATIONMODE, self).__init__(ns, pref, tag)
+
 
 
 class ENDPOINTTYPE(Identity):
@@ -61,6 +63,7 @@ class ENDPOINTTYPE(Identity):
         super(ENDPOINTTYPE, self).__init__(ns, pref, tag)
 
 
+
 class ENCAPSULATION(Identity):
     """
     On the wire encapsulations that can be used when
@@ -75,6 +78,7 @@ class ENCAPSULATION(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:ENCAPSULATION"):
         super(ENCAPSULATION, self).__init__(ns, pref, tag)
+
 
 
 class NETWORKINSTANCETYPE(Identity):
@@ -93,6 +97,7 @@ class NETWORKINSTANCETYPE(Identity):
         super(NETWORKINSTANCETYPE, self).__init__(ns, pref, tag)
 
 
+
 class INSTANCELABEL(LABELALLOCATIONMODE):
     """
     A single label is to be used for the instance
@@ -106,6 +111,7 @@ class INSTANCELABEL(LABELALLOCATIONMODE):
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:INSTANCE_LABEL"):
         super(INSTANCELABEL, self).__init__(ns, pref, tag)
+
 
 
 class L2VSI(NETWORKINSTANCETYPE):
@@ -124,6 +130,7 @@ class L2VSI(NETWORKINSTANCETYPE):
         super(L2VSI, self).__init__(ns, pref, tag)
 
 
+
 class L3VRF(NETWORKINSTANCETYPE):
     """
     A private Layer 3 only routing instance which is formed of
@@ -140,6 +147,7 @@ class L3VRF(NETWORKINSTANCETYPE):
         super(L3VRF, self).__init__(ns, pref, tag)
 
 
+
 class REMOTE(ENDPOINTTYPE):
     """
     A remote interface which is being associated with the
@@ -154,6 +162,7 @@ class REMOTE(ENDPOINTTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:REMOTE"):
         super(REMOTE, self).__init__(ns, pref, tag)
+
 
 
 class LDP(SIGNALLINGPROTOCOL):
@@ -174,6 +183,7 @@ class LDP(SIGNALLINGPROTOCOL):
         super(LDP, self).__init__(ns, pref, tag)
 
 
+
 class PERPREFIX(LABELALLOCATIONMODE):
     """
     A label is to be allocated per prefix entry in the RIB for the
@@ -190,6 +200,7 @@ class PERPREFIX(LABELALLOCATIONMODE):
         super(PERPREFIX, self).__init__(ns, pref, tag)
 
 
+
 class MPLS(ENCAPSULATION):
     """
     Use MPLS labels to distinguish network instances on the wire
@@ -203,6 +214,7 @@ class MPLS(ENCAPSULATION):
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:MPLS"):
         super(MPLS, self).__init__(ns, pref, tag)
+
 
 
 class BGPVPLS(SIGNALLINGPROTOCOL):
@@ -221,6 +233,7 @@ class BGPVPLS(SIGNALLINGPROTOCOL):
         super(BGPVPLS, self).__init__(ns, pref, tag)
 
 
+
 class BGPEVPN(SIGNALLINGPROTOCOL):
     """
     Use BGP\-based Ethernet VPN (RFC7432) based signalling for
@@ -235,6 +248,7 @@ class BGPEVPN(SIGNALLINGPROTOCOL):
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:BGP_EVPN"):
         super(BGPEVPN, self).__init__(ns, pref, tag)
+
 
 
 class L2P2P(NETWORKINSTANCETYPE):
@@ -253,6 +267,7 @@ class L2P2P(NETWORKINSTANCETYPE):
         super(L2P2P, self).__init__(ns, pref, tag)
 
 
+
 class DEFAULTINSTANCE(NETWORKINSTANCETYPE):
     """
     A special routing instance which acts as the 'default' or
@@ -267,6 +282,7 @@ class DEFAULTINSTANCE(NETWORKINSTANCETYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:DEFAULT_INSTANCE"):
         super(DEFAULTINSTANCE, self).__init__(ns, pref, tag)
+
 
 
 class LOCAL(ENDPOINTTYPE):
@@ -284,6 +300,7 @@ class LOCAL(ENDPOINTTYPE):
         super(LOCAL, self).__init__(ns, pref, tag)
 
 
+
 class L2L3(NETWORKINSTANCETYPE):
     """
     A private Layer 2 and Layer 2 forwarding instance
@@ -297,6 +314,7 @@ class L2L3(NETWORKINSTANCETYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:L2L3"):
         super(L2L3, self).__init__(ns, pref, tag)
+
 
 
 class VXLAN(ENCAPSULATION):
@@ -315,6 +333,7 @@ class VXLAN(ENCAPSULATION):
         super(VXLAN, self).__init__(ns, pref, tag)
 
 
+
 class PERNEXTHOP(LABELALLOCATIONMODE):
     """
     A label is to be allocated per nexthop entry in the RIB for
@@ -329,5 +348,6 @@ class PERNEXTHOP(LABELALLOCATIONMODE):
 
     def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:PER_NEXTHOP"):
         super(PERNEXTHOP, self).__init__(ns, pref, tag)
+
 
 

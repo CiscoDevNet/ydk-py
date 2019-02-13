@@ -30,6 +30,8 @@ class LptsIfib(Entity):
     	Node ifib database
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_ifib_oper.LptsIfib.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class LptsIfib(Entity):
         
         	Per node slice 
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_ifib_oper.LptsIfib.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -106,10 +110,14 @@ class LptsIfib(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: slice_ids
             
             	Slice specific
             	**type**\:  :py:class:`SliceIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_ifib_oper.LptsIfib.Nodes.Node.SliceIds>`
+            
+            	**config**\: False
             
             
 
@@ -152,6 +160,8 @@ class LptsIfib(Entity):
                 	slice types
                 	**type**\: list of  		 :py:class:`SliceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_ifib_oper.LptsIfib.Nodes.Node.SliceIds.SliceId>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -189,10 +199,14 @@ class LptsIfib(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: entry
                     
                     	Data for single pre\-ifib entry
                     	**type**\: list of  		 :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_ifib_oper.LptsIfib.Nodes.Node.SliceIds.SliceId.Entry>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -234,35 +248,49 @@ class LptsIfib(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: destination_type
                         
                         	Destination Key Type
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: destination_value
                         
                         	Destination Port/ICMP Type/IGMP Type
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: source_port
                         
                         	Source port
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: destination_addr
                         
                         	Destination IP Address
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: source_addr
                         
                         	Source IP Address
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrf_name
                         
                         	VRF Name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: vid
                         
@@ -271,12 +299,16 @@ class LptsIfib(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: l3protocol
                         
                         	Layer 3 Protocol
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: l4protocol
                         
@@ -285,10 +317,14 @@ class LptsIfib(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: intf_name
                         
                         	Interface Name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: intf_handle
                         
@@ -297,6 +333,8 @@ class LptsIfib(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_syn
                         
                         	Is SYN
@@ -304,10 +342,14 @@ class LptsIfib(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: opcode
                         
                         	Opcode
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: accepts
                         
@@ -316,6 +358,8 @@ class LptsIfib(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: drops
                         
                         	Packets matched to drop
@@ -323,15 +367,21 @@ class LptsIfib(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: flow_type
                         
                         	Flow type
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: listener_tag
                         
                         	Listener Tag
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: local_flag
                         
@@ -340,6 +390,8 @@ class LptsIfib(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_fgid
                         
                         	Is FGID or not
@@ -347,15 +399,21 @@ class LptsIfib(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: deliver_list_short
                         
                         	Deliver List Short Format
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: deliver_list_long
                         
                         	Deliver List Long Format
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: min_ttl
                         
@@ -364,12 +422,16 @@ class LptsIfib(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: pending_ifibq_delay
                         
                         	pending ifib queue delay
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: sl_ifibq_delay
                         
@@ -378,10 +440,14 @@ class LptsIfib(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ifib_program_time
                         
                         	ifib program time in netio
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -459,7 +525,14 @@ class LptsIfib(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(LptsIfib.Nodes.Node.SliceIds.SliceId.Entry, ['entry', 'destination_type', 'destination_value', 'source_port', 'destination_addr', 'source_addr', 'vrf_name', 'vid', 'l3protocol', 'l4protocol', 'intf_name', 'intf_handle', 'is_syn', 'opcode', 'accepts', 'drops', 'flow_type', 'listener_tag', 'local_flag', 'is_fgid', 'deliver_list_short', 'deliver_list_long', 'min_ttl', 'pending_ifibq_delay', 'sl_ifibq_delay', 'ifib_program_time'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = LptsIfib()
         return self._top_entity
+
+
 

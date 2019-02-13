@@ -31,6 +31,8 @@ class DtiController(Entity):
     	List of nodes applicable to DTI controller
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rptiming_dti_oper.DtiController.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -68,6 +70,8 @@ class DtiController(Entity):
         
         	DTI operational data for a single node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rptiming_dti_oper.DtiController.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -107,20 +111,28 @@ class DtiController(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: client
             
             	Display DTI client status
             	**type**\:  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rptiming_dti_oper.DtiController.Nodes.Node.Client>`
+            
+            	**config**\: False
             
             .. attribute:: port
             
             	Display DTI input port status
             	**type**\:  :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rptiming_dti_oper.DtiController.Nodes.Node.Port>`
             
+            	**config**\: False
+            
             .. attribute:: time_of_day
             
             	Display DTI time\-of\-day status
             	**type**\:  :py:class:`TimeOfDay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rptiming_dti_oper.DtiController.Nodes.Node.TimeOfDay>`
+            
+            	**config**\: False
             
             
 
@@ -173,12 +185,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: register_write_enable
                 
                 	register write enable
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: revertive_mode_enable
                 
@@ -187,12 +203,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: port_mode_select
                 
                 	port mode select
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: force_freerun
                 
@@ -201,12 +221,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: reference_select_port
                 
                 	reference select port
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: timestamp_sync_detected
                 
@@ -215,12 +239,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: reference10mhz_detected
                 
                 	10Mhz reference detected
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: active_input_port
                 
@@ -229,12 +257,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: client_state
                 
                 	client state
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 
 
@@ -281,6 +313,7 @@ class DtiController(Entity):
                     self._perform_setattr(DtiController.Nodes.Node.Client, [u'timestamp_comparator_enable', u'register_write_enable', u'revertive_mode_enable', u'port_mode_select', u'force_freerun', u'reference_select_port', u'timestamp_sync_detected', u'reference10mhz_detected', u'active_input_port', u'client_state'], name, value)
 
 
+
             class Port(Entity):
                 """
                 Display DTI input port status
@@ -292,6 +325,8 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 	**units**\: percentage
                 
                 .. attribute:: port1_fr_err_rate_greater2_per
@@ -300,6 +335,8 @@ class DtiController(Entity):
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 	**units**\: percentage
                 
@@ -310,12 +347,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: port1_server_timing_source
                 
                 	port1 server timing source
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: port1_server_type
                 
@@ -324,12 +365,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: port1_server_clock_type
                 
                 	port1 server clock type
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: port1_server_state
                 
@@ -338,12 +383,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: port1_client_perf_stable
                 
                 	port1 client performance stable
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: port1_cable_advance_valid
                 
@@ -352,12 +401,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: port2_fr_err_rate_greater5_per
                 
                 	port2 frame error rate greater than 5 percent
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 	**units**\: percentage
                 
@@ -368,6 +421,8 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 	**units**\: percentage
                 
                 .. attribute:: port2_dti_signal_detected
@@ -377,12 +432,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: port2_server_timing_source
                 
                 	port2 server timing source
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: port2_server_type
                 
@@ -391,12 +450,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: port2_server_clock_type
                 
                 	port2 server clock type
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: port2_server_state
                 
@@ -405,6 +468,8 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: port2_client_perf_stable
                 
                 	port2 client performance stable
@@ -412,12 +477,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: port2_cable_advance_valid
                 
                 	port2 cable advance valid
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 
 
@@ -480,6 +549,7 @@ class DtiController(Entity):
                     self._perform_setattr(DtiController.Nodes.Node.Port, [u'port1_fr_err_rate_greater5_per', u'port1_fr_err_rate_greater2_per', u'port1_dti_signal_detected', u'port1_server_timing_source', u'port1_server_type', u'port1_server_clock_type', u'port1_server_state', u'port1_client_perf_stable', u'port1_cable_advance_valid', u'port2_fr_err_rate_greater5_per', u'port2_fr_err_rate_greater2_per', u'port2_dti_signal_detected', u'port2_server_timing_source', u'port2_server_type', u'port2_server_clock_type', u'port2_server_state', u'port2_client_perf_stable', u'port2_cable_advance_valid'], name, value)
 
 
+
             class TimeOfDay(Entity):
                 """
                 Display DTI time\-of\-day status
@@ -491,12 +561,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: port1_tod_state
                 
                 	port1 tod state
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: port1_tod_time_setting_mode
                 
@@ -505,12 +579,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: port1_gps_seconds
                 
                 	port1 gps seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -521,6 +599,8 @@ class DtiController(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: port1_calendar_time_valid
@@ -530,12 +610,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: port1_modified_julian_date
                 
                 	port1 modified julian date
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: port1_date
                 
@@ -544,12 +628,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: port1_time
                 
                 	port1 time
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: port1_time_zone_offset
                 
@@ -558,12 +646,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: port1_leap_second_indicator
                 
                 	port1 leap second indicator
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: port2_tod_message_mode
                 
@@ -572,12 +664,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: port2_tod_state
                 
                 	port2 tod state
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: port2_tod_time_setting_mode
                 
@@ -586,12 +682,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: port2_gps_seconds
                 
                 	port2 gps seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -602,6 +702,8 @@ class DtiController(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: port2_calendar_time_valid
@@ -611,12 +713,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: port2_modified_julian_date
                 
                 	port2 modified julian date
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: port2_date
                 
@@ -625,12 +731,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: port2_time
                 
                 	port2 time
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: port2_time_zone_offset
                 
@@ -639,12 +749,16 @@ class DtiController(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: port2_leap_second_indicator
                 
                 	port2 leap second indicator
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 
 
@@ -714,7 +828,12 @@ class DtiController(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(DtiController.Nodes.Node.TimeOfDay, [u'port1_tod_message_mode', u'port1_tod_state', u'port1_tod_time_setting_mode', u'port1_gps_seconds', u'port1_leap_seconds', u'port1_calendar_time_valid', u'port1_modified_julian_date', u'port1_date', u'port1_time', u'port1_time_zone_offset', u'port1_leap_second_indicator', u'port2_tod_message_mode', u'port2_tod_state', u'port2_tod_time_setting_mode', u'port2_gps_seconds', u'port2_leap_seconds', u'port2_calendar_time_valid', u'port2_modified_julian_date', u'port2_date', u'port2_time', u'port2_time_zone_offset', u'port2_leap_second_indicator'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = DtiController()
         return self._top_entity
+
+
 

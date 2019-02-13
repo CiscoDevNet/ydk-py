@@ -27,10 +27,14 @@ class FwOperData(Entity):
     
     	**presence node**\: True
     
+    	**config**\: False
+    
     .. attribute:: fw_zonepair_entries
     
     	Firewall Zonepair list entries
     	**type**\: list of  		 :py:class:`FwZonepairEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_fw_oper.FwOperData.FwZonepairEntries>`
+    
+    	**config**\: False
     
     
 
@@ -73,12 +77,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_max_halfsession
         
         	Packet drops due to maximum L4 half\-open sessions reached
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_too_many_pkts
         
@@ -87,12 +95,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_session_limit
         
         	Packet drops for session initiators after exceeding maximum session limit
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_invalid_hdr
         
@@ -101,12 +113,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_internal_err_undefined_dir
         
         	Packet drops due to a failure in determining direction
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_scb_close
         
@@ -115,12 +131,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_tcp_invalid_ack_flag
         
         	Packet drops due to invalid TCP ACK flags
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_tcp_invalid_ack_num
         
@@ -129,12 +149,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_tcp_invalid_tcp_initiator
         
         	Packet drops due to non\-SYN packets received without valid session
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_tcp_syn_with_data
         
@@ -143,12 +167,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_tcp_invalid_win_scale_option
         
         	Packet drops due to invalid TCP window scale option
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_tcp_invalid_seg_synsent_state
         
@@ -157,12 +185,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_tcp_invalid_seg_synrcvd_state
         
         	Packet drops due to invalid packets received in SYNRCVD state
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_tcp_invalid_seg_pkt_too_old
         
@@ -171,12 +203,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_tcp_invalid_seg_pkt_win_overflow
         
         	Packet drops due to receiver window overflow (except when vTCP is enabled)
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_tcp_invalid_seg_pyld_after_fin_send
         
@@ -185,12 +221,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_tcp_invalid_flags
         
         	Packet drops due to invalid/unexpected TCP flags
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_tcp_invalid_seq
         
@@ -199,12 +239,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_tcp_retrans_invalid_flags
         
         	Packet drops due to invalid flags in TCP retransmitted packet
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_tcp_l7_ooo_seg
         
@@ -213,12 +257,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_tcp_syn_flood_drop
         
         	Packet drops during SYN flood attack
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_tcp_internal_err_synflood_alloc_hostdb_fail
         
@@ -227,12 +275,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_tcp_synflood_blackout_drop
         
         	Packet drops due to blackout drop time when exceeding configured half\-open connections
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_tcp_unexpect_tcp_payload
         
@@ -241,12 +293,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_tcp_syn_in_win
         
         	Packet drops due to receiving SYN in an established connection
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_tcp_rst_in_win
         
@@ -255,12 +311,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_tcp_stray_seg
         
         	Packet drops due to unexpected/stray TCP segments
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_tcp_rst_to_resp
         
@@ -269,12 +329,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: insp_pam_lookup_fail
         
         	Packet drops when policy exists in zone\-pair but PAM lookup fails
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: insp_internal_err_get_stat_blk_fail
         
@@ -283,12 +347,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: insp_dstaddr_lookup_fail
         
         	Packet drops due to destination address lookup failure
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: insp_policy_not_present
         
@@ -297,12 +365,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: insp_sess_miss_policy_not_present
         
         	Packet drops due to session lookup failure and no matching policy present
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: insp_classification_fail
         
@@ -311,12 +383,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: insp_class_action_drop
         
         	Packet drops due to a drop classification action
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: insp_policy_misconfigure
         
@@ -325,12 +401,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_icmp_too_many_err_pkts
         
         	Packet drops after exceeding the maximum number of ICMP error packets allowed per flow
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_icmp_internal_err_no_nat
         
@@ -339,12 +419,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_icmp_internal_err_alloc_fail
         
         	Packet drops when ICMP failed to get error packets
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_icmp_internal_err_get_stat_blk_fail
         
@@ -353,12 +437,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_icmp_internal_err_dir_not_identified
         
         	Packet drops due to unidentified ICMP packet direction
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_icmp_scb_close
         
@@ -367,12 +455,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_icmp_pkt_no_ip_hdr
         
         	Packet drops due to missing IP header in ICMP packets
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_icmp_pkt_too_short
         
@@ -381,12 +473,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_icmp_err_no_ip_no_icmp
         
         	Packet drops due to packets not identified as IP or ICMP
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_icmp_err_pkts_burst
         
@@ -395,12 +491,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_icmp_err_multiple_unreach
         
         	Packet drops due to receiving multiple unreachable packets; only 1 is allowed
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_icmp_err_l4_invalid_seq
         
@@ -409,12 +509,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_icmp_err_l4_invalid_ack
         
         	Packet drops due to inner TCP header invalid ACK
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l4_icmp_err_policy_not_present
         
@@ -423,12 +527,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l4_icmp_err_classification_fail
         
         	Packet drops due to a miss when doing reverse path flow check
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: syncookie_max_dst
         
@@ -437,12 +545,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: syncookie_internal_err_alloc_fail
         
         	SYNcookie Packet drops due to a failure in allocating memory in the destination table
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: syncookie_trigger
         
@@ -451,12 +563,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: policy_fragment_drop
         
         	Packet drops due to dropping fragmented packet when first fragment drops
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: policy_action_drop
         
@@ -465,12 +581,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: policy_icmp_action_drop
         
         	Packet drops when policy action for the ICMP packet is to drop
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l7_type_drop
         
@@ -479,12 +599,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l7_no_seg
         
         	Packet drops due to receiving segmented packets when ALG doesn't honor them
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l7_no_frag
         
@@ -493,12 +617,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l7_unknown_proto
         
         	Packet drops due to unrecognized L7 protocol type
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l7_alg_ret_drop
         
@@ -507,12 +635,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: l7_promote_fail_no_zone_pair
         
         	Packet drops due to L7 sub\-channel promotion failure due to no zone pair configured for the sub\-channel
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: l7_promote_fail_no_policy
         
@@ -521,12 +653,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: no_session
         
         	Packet drops due to session creation failure
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: no_new_session
         
@@ -535,12 +671,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: not_initiator
         
         	Packet drops due to receiving a non\-initiator packet for a session
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: invalid_zone
         
@@ -549,12 +689,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: ha_ar_standby
         
         	Packet drops due to asymmetric routing not configured and box not in active state
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: no_forwarding_zone
         
@@ -563,12 +707,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: backpressure
         
         	Packet drops due to backpressure by log mechanism
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: zone_mismatch
         
@@ -577,12 +725,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: fdb_err
         
         	Packet drops due to a failure to register flow with flow database
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: lisp_header_restore_fail
         
@@ -591,12 +743,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: lisp_inner_pkt_insane
         
         	Packet drops due to LISP inner packet sanity check failure
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: lisp_inner_ipv4_insane
         
@@ -605,12 +761,16 @@ class FwOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: lisp_inner_ipv6_insane
         
         	Packet drops due to LISP inner packet IPV6 sanity check failure
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         
 
@@ -797,6 +957,7 @@ class FwOperData(Entity):
             self._perform_setattr(FwOperData.FwDropStats, ['catch_all', 'l4_max_halfsession', 'l4_too_many_pkts', 'l4_session_limit', 'l4_invalid_hdr', 'l4_internal_err_undefined_dir', 'l4_scb_close', 'l4_tcp_invalid_ack_flag', 'l4_tcp_invalid_ack_num', 'l4_tcp_invalid_tcp_initiator', 'l4_tcp_syn_with_data', 'l4_tcp_invalid_win_scale_option', 'l4_tcp_invalid_seg_synsent_state', 'l4_tcp_invalid_seg_synrcvd_state', 'l4_tcp_invalid_seg_pkt_too_old', 'l4_tcp_invalid_seg_pkt_win_overflow', 'l4_tcp_invalid_seg_pyld_after_fin_send', 'l4_tcp_invalid_flags', 'l4_tcp_invalid_seq', 'l4_tcp_retrans_invalid_flags', 'l4_tcp_l7_ooo_seg', 'l4_tcp_syn_flood_drop', 'l4_tcp_internal_err_synflood_alloc_hostdb_fail', 'l4_tcp_synflood_blackout_drop', 'l4_tcp_unexpect_tcp_payload', 'l4_tcp_syn_in_win', 'l4_tcp_rst_in_win', 'l4_tcp_stray_seg', 'l4_tcp_rst_to_resp', 'insp_pam_lookup_fail', 'insp_internal_err_get_stat_blk_fail', 'insp_dstaddr_lookup_fail', 'insp_policy_not_present', 'insp_sess_miss_policy_not_present', 'insp_classification_fail', 'insp_class_action_drop', 'insp_policy_misconfigure', 'l4_icmp_too_many_err_pkts', 'l4_icmp_internal_err_no_nat', 'l4_icmp_internal_err_alloc_fail', 'l4_icmp_internal_err_get_stat_blk_fail', 'l4_icmp_internal_err_dir_not_identified', 'l4_icmp_scb_close', 'l4_icmp_pkt_no_ip_hdr', 'l4_icmp_pkt_too_short', 'l4_icmp_err_no_ip_no_icmp', 'l4_icmp_err_pkts_burst', 'l4_icmp_err_multiple_unreach', 'l4_icmp_err_l4_invalid_seq', 'l4_icmp_err_l4_invalid_ack', 'l4_icmp_err_policy_not_present', 'l4_icmp_err_classification_fail', 'syncookie_max_dst', 'syncookie_internal_err_alloc_fail', 'syncookie_trigger', 'policy_fragment_drop', 'policy_action_drop', 'policy_icmp_action_drop', 'l7_type_drop', 'l7_no_seg', 'l7_no_frag', 'l7_unknown_proto', 'l7_alg_ret_drop', 'l7_promote_fail_no_zone_pair', 'l7_promote_fail_no_policy', 'no_session', 'no_new_session', 'not_initiator', 'invalid_zone', 'ha_ar_standby', 'no_forwarding_zone', 'backpressure', 'zone_mismatch', 'fdb_err', 'lisp_header_restore_fail', 'lisp_inner_pkt_insane', 'lisp_inner_ipv4_insane', 'lisp_inner_ipv6_insane'], name, value)
 
 
+
     class FwZonepairEntries(Entity):
         """
         Firewall Zonepair list entries
@@ -806,25 +967,35 @@ class FwOperData(Entity):
         	Name of the zone pair
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: src_zone_name
         
         	Name of the source zone
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: dst_zone_name
         
         	Name of the destination zone
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: policy_name
         
         	Name of the policy applied for this zone pair
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: fw_traffic_class_entry
         
         	Firewall Traffic class list entries
         	**type**\: list of  		 :py:class:`FwTrafficClassEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_fw_oper.FwOperData.FwZonepairEntries.FwTrafficClassEntry>`
+        
+        	**config**\: False
         
         
 
@@ -871,15 +1042,21 @@ class FwOperData(Entity):
             	Name of the traffic class
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: zonepair_name
             
             	Zonepair name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: class_action
             
             	Action for the traffic class
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: pkts_counter
             
@@ -888,12 +1065,16 @@ class FwOperData(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: bytes_counter
             
             	Total bytes
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: attempted_conn
             
@@ -902,12 +1083,16 @@ class FwOperData(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: current_active_conn
             
             	Current number of active connections matching this traffic class
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: max_active_conn
             
@@ -916,12 +1101,16 @@ class FwOperData(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: current_halfopen_conn
             
             	Current number of half\-open connections seen for this traffic class
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: max_halfopen_conn
             
@@ -930,12 +1119,16 @@ class FwOperData(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: current_terminating_conn
             
             	Current number of terminating connections seen for this traffic class
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: max_terminating_conn
             
@@ -944,6 +1137,8 @@ class FwOperData(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: time_since_last_session_create
             
             	Seconds since last session creation
@@ -951,15 +1146,21 @@ class FwOperData(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: fw_tc_match_entry
             
             	List of match conditions
             	**type**\: list of  		 :py:class:`FwTcMatchEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_fw_oper.FwOperData.FwZonepairEntries.FwTrafficClassEntry.FwTcMatchEntry>`
             
+            	**config**\: False
+            
             .. attribute:: fw_tc_proto_entry
             
             	Firewall Traffic class protocol list entries
             	**type**\: list of  		 :py:class:`FwTcProtoEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_fw_oper.FwOperData.FwZonepairEntries.FwTrafficClassEntry.FwTcProtoEntry>`
+            
+            	**config**\: False
             
             
 
@@ -1024,6 +1225,8 @@ class FwOperData(Entity):
                 	Match Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: match_type_id  (key)
                 
                 	Match Type Identifier
@@ -1031,10 +1234,14 @@ class FwOperData(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: match_type
                 
                 	Match Type
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1067,6 +1274,7 @@ class FwOperData(Entity):
                     self._perform_setattr(FwOperData.FwZonepairEntries.FwTrafficClassEntry.FwTcMatchEntry, ['match_name', 'match_type_id', 'match_type'], name, value)
 
 
+
             class FwTcProtoEntry(Entity):
                 """
                 Firewall Traffic class protocol list entries
@@ -1078,10 +1286,14 @@ class FwOperData(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: protocol_name
                 
                 	Protocol Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: byte_counters
                 
@@ -1090,12 +1302,16 @@ class FwOperData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: pkt_counters
                 
                 	Number of packets matching this protocol
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -1129,7 +1345,12 @@ class FwOperData(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(FwOperData.FwZonepairEntries.FwTrafficClassEntry.FwTcProtoEntry, ['proto_id', 'protocol_name', 'byte_counters', 'pkt_counters'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = FwOperData()
         return self._top_entity
+
+
 

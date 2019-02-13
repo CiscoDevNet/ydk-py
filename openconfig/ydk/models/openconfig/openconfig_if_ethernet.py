@@ -30,6 +30,7 @@ class ETHERNETSPEED(Identity):
         super(ETHERNETSPEED, self).__init__(ns, pref, tag)
 
 
+
 class SPEED100GB(ETHERNETSPEED):
     """
     100 GBps Ethernet
@@ -43,6 +44,7 @@ class SPEED100GB(ETHERNETSPEED):
 
     def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_100GB"):
         super(SPEED100GB, self).__init__(ns, pref, tag)
+
 
 
 class SPEED1GB(ETHERNETSPEED):
@@ -60,6 +62,7 @@ class SPEED1GB(ETHERNETSPEED):
         super(SPEED1GB, self).__init__(ns, pref, tag)
 
 
+
 class SPEED25GB(ETHERNETSPEED):
     """
     25 GBps Ethernet
@@ -73,6 +76,7 @@ class SPEED25GB(ETHERNETSPEED):
 
     def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_25GB"):
         super(SPEED25GB, self).__init__(ns, pref, tag)
+
 
 
 class SPEED10GB(ETHERNETSPEED):
@@ -90,6 +94,7 @@ class SPEED10GB(ETHERNETSPEED):
         super(SPEED10GB, self).__init__(ns, pref, tag)
 
 
+
 class SPEED10MB(ETHERNETSPEED):
     """
     10 Mbps Ethernet
@@ -105,6 +110,7 @@ class SPEED10MB(ETHERNETSPEED):
         super(SPEED10MB, self).__init__(ns, pref, tag)
 
 
+
 class SPEED40GB(ETHERNETSPEED):
     """
     40 GBps Ethernet
@@ -118,6 +124,7 @@ class SPEED40GB(ETHERNETSPEED):
 
     def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_40GB"):
         super(SPEED40GB, self).__init__(ns, pref, tag)
+
 
 
 class SPEEDUNKNOWN(ETHERNETSPEED):
@@ -137,6 +144,7 @@ class SPEEDUNKNOWN(ETHERNETSPEED):
         super(SPEEDUNKNOWN, self).__init__(ns, pref, tag)
 
 
+
 class SPEED50GB(ETHERNETSPEED):
     """
     50 GBps Ethernet
@@ -152,6 +160,7 @@ class SPEED50GB(ETHERNETSPEED):
         super(SPEED50GB, self).__init__(ns, pref, tag)
 
 
+
 class SPEED100MB(ETHERNETSPEED):
     """
     100 Mbps Ethernet
@@ -165,5 +174,6 @@ class SPEED100MB(ETHERNETSPEED):
 
     def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_100MB"):
         super(SPEED100MB, self).__init__(ns, pref, tag)
+
 
 

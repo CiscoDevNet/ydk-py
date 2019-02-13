@@ -303,15 +303,21 @@ class MplsStatic(Entity):
     	VRF table
     	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs>`
     
+    	**config**\: False
+    
     .. attribute:: summary
     
     	MPLS STATIC summary data
     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Summary>`
     
+    	**config**\: False
+    
     .. attribute:: local_labels
     
     	data for static local\-label table
     	**type**\:  :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels>`
+    
+    	**config**\: False
     
     
 
@@ -359,6 +365,8 @@ class MplsStatic(Entity):
         	VRF Name
         	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf>`
         
+        	**config**\: False
+        
         
 
         """
@@ -397,15 +405,21 @@ class MplsStatic(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: lsps
             
             	data for static lsp table
             	**type**\:  :py:class:`Lsps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps>`
             
+            	**config**\: False
+            
             .. attribute:: local_labels
             
             	data for static local\-label table
             	**type**\:  :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels>`
+            
+            	**config**\: False
             
             
 
@@ -452,6 +466,8 @@ class MplsStatic(Entity):
                 	Data for static lsp
                 	**type**\: list of  		 :py:class:`Lsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -489,15 +505,21 @@ class MplsStatic(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: label
                     
                     	Label Information
                     	**type**\:  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: lsp_name_xr
                     
                     	LSP Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -529,7 +551,7 @@ class MplsStatic(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp, ['lsp_name', 'lsp_name_xr'], name, value)
+                        self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp, ['lsp_name', u'lsp_name_xr'], name, value)
 
 
                     class Label(Entity):
@@ -541,15 +563,21 @@ class MplsStatic(Entity):
                         	Prefix Information
                         	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: pathset_resolve_nh
                         
                         	Primary pathset resolve\-nexthop IP Address
                         	**type**\:  :py:class:`PathsetResolveNh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathsetResolveNh>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: backup_pathset_resolve_nh
                         
                         	Backup pathset resolve\-nexthop IP Address
                         	**type**\:  :py:class:`BackupPathsetResolveNh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathsetResolveNh>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: label
                         
@@ -558,45 +586,63 @@ class MplsStatic(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: label_mode
                         
                         	Label Mode
                         	**type**\:  :py:class:`MgmtMplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelMode>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: label_status
                         
                         	Label Status
                         	**type**\:  :py:class:`MgmtMplsStaticLabelStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelStatus>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrf_name
                         
                         	VRF name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: pathset_via_resolve
                         
                         	Primary Pathset as a result of resolve
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: backup_pathset_via_resolve
                         
                         	Backup Pathset as a result of resolve
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: address_family
                         
                         	Address Family
                         	**type**\:  :py:class:`MgmtStaticAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: path_info
                         
                         	Path Information
                         	**type**\: list of  		 :py:class:`PathInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: backup_path_info
                         
                         	Backup Path Information
                         	**type**\: list of  		 :py:class:`BackupPathInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -649,7 +695,7 @@ class MplsStatic(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label, ['label', 'label_mode', 'label_status', 'vrf_name', 'pathset_via_resolve', 'backup_pathset_via_resolve', 'address_family'], name, value)
+                            self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label, [u'label', u'label_mode', u'label_status', u'vrf_name', u'pathset_via_resolve', u'backup_pathset_via_resolve', u'address_family'], name, value)
 
 
                         class Prefix(Entity):
@@ -661,12 +707,16 @@ class MplsStatic(Entity):
                             	Prefix
                             	**type**\:  :py:class:`Prefix_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix_>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: prefix_length
                             
                             	Prefix length
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -696,7 +746,7 @@ class MplsStatic(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix, ['prefix_length'], name, value)
+                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix, [u'prefix_length'], name, value)
 
 
                             class Prefix_(Entity):
@@ -708,6 +758,8 @@ class MplsStatic(Entity):
                                 	AFName
                                 	**type**\:  :py:class:`MgmtStaticAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddr>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_prefix
                                 
                                 	IPv4 context
@@ -715,12 +767,16 @@ class MplsStatic(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv6_prefix
                                 
                                 	IPv6 context
                                 	**type**\: str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -750,7 +806,9 @@ class MplsStatic(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix_, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
+                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix_, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+
+
 
 
                         class PathsetResolveNh(Entity):
@@ -762,6 +820,8 @@ class MplsStatic(Entity):
                             	AFName
                             	**type**\:  :py:class:`MgmtStaticAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddr>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4_prefix
                             
                             	IPv4 context
@@ -769,12 +829,16 @@ class MplsStatic(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv6_prefix
                             
                             	IPv6 context
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -804,7 +868,8 @@ class MplsStatic(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathsetResolveNh, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
+                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathsetResolveNh, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+
 
 
                         class BackupPathsetResolveNh(Entity):
@@ -816,6 +881,8 @@ class MplsStatic(Entity):
                             	AFName
                             	**type**\:  :py:class:`MgmtStaticAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddr>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4_prefix
                             
                             	IPv4 context
@@ -823,12 +890,16 @@ class MplsStatic(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv6_prefix
                             
                             	IPv6 context
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -858,7 +929,8 @@ class MplsStatic(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathsetResolveNh, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
+                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathsetResolveNh, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+
 
 
                         class PathInfo(Entity):
@@ -870,6 +942,8 @@ class MplsStatic(Entity):
                             	Nexthop information
                             	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo.Nexthop>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: path_number
                             
                             	Path Number
@@ -877,15 +951,21 @@ class MplsStatic(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Path Type
                             	**type**\:  :py:class:`MgmtStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticPath>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: path_role
                             
                             	Path Role
                             	**type**\:  :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStaticPathRole>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: path_id
                             
@@ -894,6 +974,8 @@ class MplsStatic(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: backup_id
                             
                             	Path Backup Id
@@ -901,10 +983,14 @@ class MplsStatic(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: status
                             
                             	Path Status
                             	**type**\:  :py:class:`MgmtMplsStaticPathStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticPathStatus>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -944,7 +1030,7 @@ class MplsStatic(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo, ['path_number', 'type', 'path_role', 'path_id', 'backup_id', 'status'], name, value)
+                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo, [u'path_number', u'type', u'path_role', u'path_id', u'backup_id', u'status'], name, value)
 
 
                             class Nexthop(Entity):
@@ -956,6 +1042,8 @@ class MplsStatic(Entity):
                                 	Next\-Hop IP Address
                                 	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo.Nexthop.Address>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: label
                                 
                                 	Next\-Hop Label
@@ -963,15 +1051,21 @@ class MplsStatic(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: interface_name
                                 
                                 	Next\-Hop Interface Name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: afi
                                 
                                 	Next\-Hop AFI
                                 	**type**\:  :py:class:`MgmtStaticLspAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticLspAfi>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1005,7 +1099,7 @@ class MplsStatic(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo.Nexthop, ['label', 'interface_name', 'afi'], name, value)
+                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo.Nexthop, [u'label', u'interface_name', u'afi'], name, value)
 
 
                                 class Address(Entity):
@@ -1017,6 +1111,8 @@ class MplsStatic(Entity):
                                     	AFName
                                     	**type**\:  :py:class:`MgmtStaticAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddr>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv4_prefix
                                     
                                     	IPv4 context
@@ -1024,12 +1120,16 @@ class MplsStatic(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv6_prefix
                                     
                                     	IPv6 context
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1059,7 +1159,10 @@ class MplsStatic(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo.Nexthop.Address, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
+                                        self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo.Nexthop.Address, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+
+
+
 
 
                         class BackupPathInfo(Entity):
@@ -1071,6 +1174,8 @@ class MplsStatic(Entity):
                             	Nexthop information
                             	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo.Nexthop>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: path_number
                             
                             	Path Number
@@ -1078,15 +1183,21 @@ class MplsStatic(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Path Type
                             	**type**\:  :py:class:`MgmtStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticPath>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: path_role
                             
                             	Path Role
                             	**type**\:  :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStaticPathRole>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: path_id
                             
@@ -1095,6 +1206,8 @@ class MplsStatic(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: backup_id
                             
                             	Path Backup Id
@@ -1102,10 +1215,14 @@ class MplsStatic(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: status
                             
                             	Path Status
                             	**type**\:  :py:class:`MgmtMplsStaticPathStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticPathStatus>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1145,7 +1262,7 @@ class MplsStatic(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo, ['path_number', 'type', 'path_role', 'path_id', 'backup_id', 'status'], name, value)
+                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo, [u'path_number', u'type', u'path_role', u'path_id', u'backup_id', u'status'], name, value)
 
 
                             class Nexthop(Entity):
@@ -1157,6 +1274,8 @@ class MplsStatic(Entity):
                                 	Next\-Hop IP Address
                                 	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo.Nexthop.Address>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: label
                                 
                                 	Next\-Hop Label
@@ -1164,15 +1283,21 @@ class MplsStatic(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: interface_name
                                 
                                 	Next\-Hop Interface Name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: afi
                                 
                                 	Next\-Hop AFI
                                 	**type**\:  :py:class:`MgmtStaticLspAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticLspAfi>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1206,7 +1331,7 @@ class MplsStatic(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo.Nexthop, ['label', 'interface_name', 'afi'], name, value)
+                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo.Nexthop, [u'label', u'interface_name', u'afi'], name, value)
 
 
                                 class Address(Entity):
@@ -1218,6 +1343,8 @@ class MplsStatic(Entity):
                                     	AFName
                                     	**type**\:  :py:class:`MgmtStaticAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddr>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv4_prefix
                                     
                                     	IPv4 context
@@ -1225,12 +1352,16 @@ class MplsStatic(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv6_prefix
                                     
                                     	IPv6 context
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1260,7 +1391,13 @@ class MplsStatic(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo.Nexthop.Address, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
+                                        self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo.Nexthop.Address, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+
+
+
+
+
+
 
 
             class LocalLabels(Entity):
@@ -1271,6 +1408,8 @@ class MplsStatic(Entity):
                 
                 	Data for static label
                 	**type**\: list of  		 :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel>`
+                
+                	**config**\: False
                 
                 
 
@@ -1309,20 +1448,28 @@ class MplsStatic(Entity):
                     
                     	**range:** 16..1048575
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix
                     
                     	Prefix Information
                     	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: pathset_resolve_nh
                     
                     	Primary pathset resolve\-nexthop IP Address
                     	**type**\:  :py:class:`PathsetResolveNh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathsetResolveNh>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: backup_pathset_resolve_nh
                     
                     	Backup pathset resolve\-nexthop IP Address
                     	**type**\:  :py:class:`BackupPathsetResolveNh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathsetResolveNh>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: label
                     
@@ -1331,45 +1478,63 @@ class MplsStatic(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: label_mode
                     
                     	Label Mode
                     	**type**\:  :py:class:`MgmtMplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelMode>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: label_status
                     
                     	Label Status
                     	**type**\:  :py:class:`MgmtMplsStaticLabelStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelStatus>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: vrf_name
                     
                     	VRF name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: pathset_via_resolve
                     
                     	Primary Pathset as a result of resolve
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: backup_pathset_via_resolve
                     
                     	Backup Pathset as a result of resolve
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: address_family
                     
                     	Address Family
                     	**type**\:  :py:class:`MgmtStaticAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddr>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: path_info
                     
                     	Path Information
                     	**type**\: list of  		 :py:class:`PathInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: backup_path_info
                     
                     	Backup Path Information
                     	**type**\: list of  		 :py:class:`BackupPathInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1424,7 +1589,7 @@ class MplsStatic(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel, ['local_label_id', 'label', 'label_mode', 'label_status', 'vrf_name', 'pathset_via_resolve', 'backup_pathset_via_resolve', 'address_family'], name, value)
+                        self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel, ['local_label_id', u'label', u'label_mode', u'label_status', u'vrf_name', u'pathset_via_resolve', u'backup_pathset_via_resolve', u'address_family'], name, value)
 
 
                     class Prefix(Entity):
@@ -1436,12 +1601,16 @@ class MplsStatic(Entity):
                         	Prefix
                         	**type**\:  :py:class:`Prefix_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix_>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix_length
                         
                         	Prefix length
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -1471,7 +1640,7 @@ class MplsStatic(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix, ['prefix_length'], name, value)
+                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix, [u'prefix_length'], name, value)
 
 
                         class Prefix_(Entity):
@@ -1483,6 +1652,8 @@ class MplsStatic(Entity):
                             	AFName
                             	**type**\:  :py:class:`MgmtStaticAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddr>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4_prefix
                             
                             	IPv4 context
@@ -1490,12 +1661,16 @@ class MplsStatic(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv6_prefix
                             
                             	IPv6 context
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -1525,7 +1700,9 @@ class MplsStatic(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix_, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
+                                self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix_, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+
+
 
 
                     class PathsetResolveNh(Entity):
@@ -1537,6 +1714,8 @@ class MplsStatic(Entity):
                         	AFName
                         	**type**\:  :py:class:`MgmtStaticAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_prefix
                         
                         	IPv4 context
@@ -1544,12 +1723,16 @@ class MplsStatic(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6_prefix
                         
                         	IPv6 context
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -1579,7 +1762,8 @@ class MplsStatic(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathsetResolveNh, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
+                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathsetResolveNh, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+
 
 
                     class BackupPathsetResolveNh(Entity):
@@ -1591,6 +1775,8 @@ class MplsStatic(Entity):
                         	AFName
                         	**type**\:  :py:class:`MgmtStaticAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_prefix
                         
                         	IPv4 context
@@ -1598,12 +1784,16 @@ class MplsStatic(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6_prefix
                         
                         	IPv6 context
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -1633,7 +1823,8 @@ class MplsStatic(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathsetResolveNh, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
+                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathsetResolveNh, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+
 
 
                     class PathInfo(Entity):
@@ -1645,6 +1836,8 @@ class MplsStatic(Entity):
                         	Nexthop information
                         	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo.Nexthop>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: path_number
                         
                         	Path Number
@@ -1652,15 +1845,21 @@ class MplsStatic(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	Path Type
                         	**type**\:  :py:class:`MgmtStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticPath>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: path_role
                         
                         	Path Role
                         	**type**\:  :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStaticPathRole>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: path_id
                         
@@ -1669,6 +1868,8 @@ class MplsStatic(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: backup_id
                         
                         	Path Backup Id
@@ -1676,10 +1877,14 @@ class MplsStatic(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: status
                         
                         	Path Status
                         	**type**\:  :py:class:`MgmtMplsStaticPathStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticPathStatus>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1719,7 +1924,7 @@ class MplsStatic(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo, ['path_number', 'type', 'path_role', 'path_id', 'backup_id', 'status'], name, value)
+                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo, [u'path_number', u'type', u'path_role', u'path_id', u'backup_id', u'status'], name, value)
 
 
                         class Nexthop(Entity):
@@ -1731,6 +1936,8 @@ class MplsStatic(Entity):
                             	Next\-Hop IP Address
                             	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo.Nexthop.Address>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: label
                             
                             	Next\-Hop Label
@@ -1738,15 +1945,21 @@ class MplsStatic(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_name
                             
                             	Next\-Hop Interface Name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: afi
                             
                             	Next\-Hop AFI
                             	**type**\:  :py:class:`MgmtStaticLspAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticLspAfi>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1780,7 +1993,7 @@ class MplsStatic(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo.Nexthop, ['label', 'interface_name', 'afi'], name, value)
+                                self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo.Nexthop, [u'label', u'interface_name', u'afi'], name, value)
 
 
                             class Address(Entity):
@@ -1792,6 +2005,8 @@ class MplsStatic(Entity):
                                 	AFName
                                 	**type**\:  :py:class:`MgmtStaticAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddr>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_prefix
                                 
                                 	IPv4 context
@@ -1799,12 +2014,16 @@ class MplsStatic(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv6_prefix
                                 
                                 	IPv6 context
                                 	**type**\: str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1834,7 +2053,10 @@ class MplsStatic(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo.Nexthop.Address, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
+                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo.Nexthop.Address, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+
+
+
 
 
                     class BackupPathInfo(Entity):
@@ -1846,6 +2068,8 @@ class MplsStatic(Entity):
                         	Nexthop information
                         	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo.Nexthop>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: path_number
                         
                         	Path Number
@@ -1853,15 +2077,21 @@ class MplsStatic(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	Path Type
                         	**type**\:  :py:class:`MgmtStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticPath>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: path_role
                         
                         	Path Role
                         	**type**\:  :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStaticPathRole>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: path_id
                         
@@ -1870,6 +2100,8 @@ class MplsStatic(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: backup_id
                         
                         	Path Backup Id
@@ -1877,10 +2109,14 @@ class MplsStatic(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: status
                         
                         	Path Status
                         	**type**\:  :py:class:`MgmtMplsStaticPathStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticPathStatus>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1920,7 +2156,7 @@ class MplsStatic(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo, ['path_number', 'type', 'path_role', 'path_id', 'backup_id', 'status'], name, value)
+                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo, [u'path_number', u'type', u'path_role', u'path_id', u'backup_id', u'status'], name, value)
 
 
                         class Nexthop(Entity):
@@ -1932,6 +2168,8 @@ class MplsStatic(Entity):
                             	Next\-Hop IP Address
                             	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo.Nexthop.Address>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: label
                             
                             	Next\-Hop Label
@@ -1939,15 +2177,21 @@ class MplsStatic(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_name
                             
                             	Next\-Hop Interface Name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: afi
                             
                             	Next\-Hop AFI
                             	**type**\:  :py:class:`MgmtStaticLspAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticLspAfi>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1981,7 +2225,7 @@ class MplsStatic(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo.Nexthop, ['label', 'interface_name', 'afi'], name, value)
+                                self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo.Nexthop, [u'label', u'interface_name', u'afi'], name, value)
 
 
                             class Address(Entity):
@@ -1993,6 +2237,8 @@ class MplsStatic(Entity):
                                 	AFName
                                 	**type**\:  :py:class:`MgmtStaticAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddr>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_prefix
                                 
                                 	IPv4 context
@@ -2000,12 +2246,16 @@ class MplsStatic(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv6_prefix
                                 
                                 	IPv6 context
                                 	**type**\: str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2035,7 +2285,14 @@ class MplsStatic(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo.Nexthop.Address, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
+                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo.Nexthop.Address, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+
+
+
+
+
+
+
 
 
     class Summary(Entity):
@@ -2049,12 +2306,16 @@ class MplsStatic(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: label_count
         
         	Total Number of Labels
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: label_error_count
         
@@ -2063,12 +2324,16 @@ class MplsStatic(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: label_discrepancy_count
         
         	Total Number of Labels with Discrepancies
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: vrf_count
         
@@ -2077,12 +2342,16 @@ class MplsStatic(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: active_vrf_count
         
         	Total Number of Active VRF Active
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: interface_count
         
@@ -2091,12 +2360,16 @@ class MplsStatic(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: interface_foward_reference_count
         
         	Total Number of Active Interface
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: mpls_enabled_interface_count
         
@@ -2105,12 +2378,16 @@ class MplsStatic(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv4_res_nh_count
         
         	Total Number of IPv4 ResolveNextHops
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6_res_nh_count
         
@@ -2119,30 +2396,42 @@ class MplsStatic(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: lsd_connected
         
         	LSD connection is up
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: im_connected
         
         	IM is connected
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: rsi_connected
         
         	RSI is connected
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: ribv4_connected
         
         	RIBv4 is connected
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: ribv6_connected
         
         	RIBv6 is connected
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -2199,7 +2488,8 @@ class MplsStatic(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MplsStatic.Summary, ['lsp_count', 'label_count', 'label_error_count', 'label_discrepancy_count', 'vrf_count', 'active_vrf_count', 'interface_count', 'interface_foward_reference_count', 'mpls_enabled_interface_count', 'ipv4_res_nh_count', 'ipv6_res_nh_count', 'lsd_connected', 'im_connected', 'rsi_connected', 'ribv4_connected', 'ribv6_connected'], name, value)
+            self._perform_setattr(MplsStatic.Summary, [u'lsp_count', u'label_count', u'label_error_count', u'label_discrepancy_count', u'vrf_count', u'active_vrf_count', u'interface_count', u'interface_foward_reference_count', u'mpls_enabled_interface_count', u'ipv4_res_nh_count', u'ipv6_res_nh_count', u'lsd_connected', u'im_connected', u'rsi_connected', u'ribv4_connected', u'ribv6_connected'], name, value)
+
 
 
     class LocalLabels(Entity):
@@ -2210,6 +2500,8 @@ class MplsStatic(Entity):
         
         	Data for static label
         	**type**\: list of  		 :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels.LocalLabel>`
+        
+        	**config**\: False
         
         
 
@@ -2249,20 +2541,28 @@ class MplsStatic(Entity):
             
             	**range:** 16..1048575
             
+            	**config**\: False
+            
             .. attribute:: prefix
             
             	Prefix Information
             	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels.LocalLabel.Prefix>`
+            
+            	**config**\: False
             
             .. attribute:: pathset_resolve_nh
             
             	Primary pathset resolve\-nexthop IP Address
             	**type**\:  :py:class:`PathsetResolveNh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels.LocalLabel.PathsetResolveNh>`
             
+            	**config**\: False
+            
             .. attribute:: backup_pathset_resolve_nh
             
             	Backup pathset resolve\-nexthop IP Address
             	**type**\:  :py:class:`BackupPathsetResolveNh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels.LocalLabel.BackupPathsetResolveNh>`
+            
+            	**config**\: False
             
             .. attribute:: label
             
@@ -2271,45 +2571,63 @@ class MplsStatic(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: label_mode
             
             	Label Mode
             	**type**\:  :py:class:`MgmtMplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelMode>`
+            
+            	**config**\: False
             
             .. attribute:: label_status
             
             	Label Status
             	**type**\:  :py:class:`MgmtMplsStaticLabelStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelStatus>`
             
+            	**config**\: False
+            
             .. attribute:: vrf_name
             
             	VRF name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: pathset_via_resolve
             
             	Primary Pathset as a result of resolve
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: backup_pathset_via_resolve
             
             	Backup Pathset as a result of resolve
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: address_family
             
             	Address Family
             	**type**\:  :py:class:`MgmtStaticAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddr>`
             
+            	**config**\: False
+            
             .. attribute:: path_info
             
             	Path Information
             	**type**\: list of  		 :py:class:`PathInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels.LocalLabel.PathInfo>`
             
+            	**config**\: False
+            
             .. attribute:: backup_path_info
             
             	Backup Path Information
             	**type**\: list of  		 :py:class:`BackupPathInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels.LocalLabel.BackupPathInfo>`
+            
+            	**config**\: False
             
             
 
@@ -2365,7 +2683,7 @@ class MplsStatic(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MplsStatic.LocalLabels.LocalLabel, ['local_label_id', 'label', 'label_mode', 'label_status', 'vrf_name', 'pathset_via_resolve', 'backup_pathset_via_resolve', 'address_family'], name, value)
+                self._perform_setattr(MplsStatic.LocalLabels.LocalLabel, ['local_label_id', u'label', u'label_mode', u'label_status', u'vrf_name', u'pathset_via_resolve', u'backup_pathset_via_resolve', u'address_family'], name, value)
 
 
             class Prefix(Entity):
@@ -2377,12 +2695,16 @@ class MplsStatic(Entity):
                 	Prefix
                 	**type**\:  :py:class:`Prefix_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix_>`
                 
+                	**config**\: False
+                
                 .. attribute:: prefix_length
                 
                 	Prefix length
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 
 
@@ -2412,7 +2734,7 @@ class MplsStatic(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.Prefix, ['prefix_length'], name, value)
+                    self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.Prefix, [u'prefix_length'], name, value)
 
 
                 class Prefix_(Entity):
@@ -2424,6 +2746,8 @@ class MplsStatic(Entity):
                     	AFName
                     	**type**\:  :py:class:`MgmtStaticAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddr>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4_prefix
                     
                     	IPv4 context
@@ -2431,12 +2755,16 @@ class MplsStatic(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6_prefix
                     
                     	IPv6 context
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -2466,7 +2794,9 @@ class MplsStatic(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix_, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
+                        self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix_, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+
+
 
 
             class PathsetResolveNh(Entity):
@@ -2478,6 +2808,8 @@ class MplsStatic(Entity):
                 	AFName
                 	**type**\:  :py:class:`MgmtStaticAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddr>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4_prefix
                 
                 	IPv4 context
@@ -2485,12 +2817,16 @@ class MplsStatic(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv6_prefix
                 
                 	IPv6 context
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 
 
@@ -2520,7 +2856,8 @@ class MplsStatic(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.PathsetResolveNh, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
+                    self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.PathsetResolveNh, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+
 
 
             class BackupPathsetResolveNh(Entity):
@@ -2532,6 +2869,8 @@ class MplsStatic(Entity):
                 	AFName
                 	**type**\:  :py:class:`MgmtStaticAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddr>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4_prefix
                 
                 	IPv4 context
@@ -2539,12 +2878,16 @@ class MplsStatic(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv6_prefix
                 
                 	IPv6 context
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 
 
@@ -2574,7 +2917,8 @@ class MplsStatic(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.BackupPathsetResolveNh, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
+                    self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.BackupPathsetResolveNh, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+
 
 
             class PathInfo(Entity):
@@ -2586,6 +2930,8 @@ class MplsStatic(Entity):
                 	Nexthop information
                 	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels.LocalLabel.PathInfo.Nexthop>`
                 
+                	**config**\: False
+                
                 .. attribute:: path_number
                 
                 	Path Number
@@ -2593,15 +2939,21 @@ class MplsStatic(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: type
                 
                 	Path Type
                 	**type**\:  :py:class:`MgmtStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticPath>`
                 
+                	**config**\: False
+                
                 .. attribute:: path_role
                 
                 	Path Role
                 	**type**\:  :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStaticPathRole>`
+                
+                	**config**\: False
                 
                 .. attribute:: path_id
                 
@@ -2610,6 +2962,8 @@ class MplsStatic(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: backup_id
                 
                 	Path Backup Id
@@ -2617,10 +2971,14 @@ class MplsStatic(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: status
                 
                 	Path Status
                 	**type**\:  :py:class:`MgmtMplsStaticPathStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticPathStatus>`
+                
+                	**config**\: False
                 
                 
 
@@ -2660,7 +3018,7 @@ class MplsStatic(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.PathInfo, ['path_number', 'type', 'path_role', 'path_id', 'backup_id', 'status'], name, value)
+                    self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.PathInfo, [u'path_number', u'type', u'path_role', u'path_id', u'backup_id', u'status'], name, value)
 
 
                 class Nexthop(Entity):
@@ -2672,6 +3030,8 @@ class MplsStatic(Entity):
                     	Next\-Hop IP Address
                     	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels.LocalLabel.PathInfo.Nexthop.Address>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: label
                     
                     	Next\-Hop Label
@@ -2679,15 +3039,21 @@ class MplsStatic(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_name
                     
                     	Next\-Hop Interface Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: afi
                     
                     	Next\-Hop AFI
                     	**type**\:  :py:class:`MgmtStaticLspAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticLspAfi>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2721,7 +3087,7 @@ class MplsStatic(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.PathInfo.Nexthop, ['label', 'interface_name', 'afi'], name, value)
+                        self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.PathInfo.Nexthop, [u'label', u'interface_name', u'afi'], name, value)
 
 
                     class Address(Entity):
@@ -2733,6 +3099,8 @@ class MplsStatic(Entity):
                         	AFName
                         	**type**\:  :py:class:`MgmtStaticAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_prefix
                         
                         	IPv4 context
@@ -2740,12 +3108,16 @@ class MplsStatic(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6_prefix
                         
                         	IPv6 context
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -2775,7 +3147,10 @@ class MplsStatic(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.PathInfo.Nexthop.Address, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
+                            self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.PathInfo.Nexthop.Address, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+
+
+
 
 
             class BackupPathInfo(Entity):
@@ -2787,6 +3162,8 @@ class MplsStatic(Entity):
                 	Nexthop information
                 	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels.LocalLabel.BackupPathInfo.Nexthop>`
                 
+                	**config**\: False
+                
                 .. attribute:: path_number
                 
                 	Path Number
@@ -2794,15 +3171,21 @@ class MplsStatic(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: type
                 
                 	Path Type
                 	**type**\:  :py:class:`MgmtStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticPath>`
                 
+                	**config**\: False
+                
                 .. attribute:: path_role
                 
                 	Path Role
                 	**type**\:  :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStaticPathRole>`
+                
+                	**config**\: False
                 
                 .. attribute:: path_id
                 
@@ -2811,6 +3194,8 @@ class MplsStatic(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: backup_id
                 
                 	Path Backup Id
@@ -2818,10 +3203,14 @@ class MplsStatic(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: status
                 
                 	Path Status
                 	**type**\:  :py:class:`MgmtMplsStaticPathStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticPathStatus>`
+                
+                	**config**\: False
                 
                 
 
@@ -2861,7 +3250,7 @@ class MplsStatic(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.BackupPathInfo, ['path_number', 'type', 'path_role', 'path_id', 'backup_id', 'status'], name, value)
+                    self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.BackupPathInfo, [u'path_number', u'type', u'path_role', u'path_id', u'backup_id', u'status'], name, value)
 
 
                 class Nexthop(Entity):
@@ -2873,6 +3262,8 @@ class MplsStatic(Entity):
                     	Next\-Hop IP Address
                     	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels.LocalLabel.BackupPathInfo.Nexthop.Address>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: label
                     
                     	Next\-Hop Label
@@ -2880,15 +3271,21 @@ class MplsStatic(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_name
                     
                     	Next\-Hop Interface Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: afi
                     
                     	Next\-Hop AFI
                     	**type**\:  :py:class:`MgmtStaticLspAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticLspAfi>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2922,7 +3319,7 @@ class MplsStatic(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.BackupPathInfo.Nexthop, ['label', 'interface_name', 'afi'], name, value)
+                        self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.BackupPathInfo.Nexthop, [u'label', u'interface_name', u'afi'], name, value)
 
 
                     class Address(Entity):
@@ -2934,6 +3331,8 @@ class MplsStatic(Entity):
                         	AFName
                         	**type**\:  :py:class:`MgmtStaticAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_prefix
                         
                         	IPv4 context
@@ -2941,12 +3340,16 @@ class MplsStatic(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6_prefix
                         
                         	IPv6 context
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -2976,9 +3379,16 @@ class MplsStatic(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.BackupPathInfo.Nexthop.Address, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
+                            self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.BackupPathInfo.Nexthop.Address, [u'af_name', u'ipv4_prefix', u'ipv6_prefix'], name, value)
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = MplsStatic()
         return self._top_entity
+
+
 

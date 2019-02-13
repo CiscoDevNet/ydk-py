@@ -30,10 +30,14 @@ class LptsPa(Entity):
     	lpts pa bindings
     	**type**\:  :py:class:`EntryXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pa_oper.LptsPa.EntryXr>`
     
+    	**config**\: False
+    
     .. attribute:: entries
     
     	lpts pa clients
     	**type**\:  :py:class:`Entries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pa_oper.LptsPa.Entries>`
+    
+    	**config**\: False
     
     
 
@@ -77,6 +81,8 @@ class LptsPa(Entity):
         	Data for single PA Binding
         	**type**\: list of  		 :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pa_oper.LptsPa.EntryXr.Entry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -115,15 +121,21 @@ class LptsPa(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: ctime
             
             	Creation Time
             	**type**\:  :py:class:`Ctime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pa_oper.LptsPa.EntryXr.Entry.Ctime>`
             
+            	**config**\: False
+            
             .. attribute:: utime
             
             	Update Time
             	**type**\:  :py:class:`Utime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pa_oper.LptsPa.EntryXr.Entry.Utime>`
+            
+            	**config**\: False
             
             .. attribute:: location
             
@@ -132,12 +144,16 @@ class LptsPa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: client_id
             
             	Client ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: vid
             
@@ -146,12 +162,16 @@ class LptsPa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cookie
             
             	Cookie
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: l3protocol
             
@@ -160,12 +180,16 @@ class LptsPa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: l4protocol
             
             	Layer 4 protocol
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: smask
             
@@ -174,12 +198,16 @@ class LptsPa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ifs
             
             	Ifhandle
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ptype
             
@@ -188,12 +216,16 @@ class LptsPa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: local_ip
             
             	Local address
             	**type**\: str
             
             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+            
+            	**config**\: False
             
             .. attribute:: remote_ip
             
@@ -202,12 +234,16 @@ class LptsPa(Entity):
             
             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
             
+            	**config**\: False
+            
             .. attribute:: local_len
             
             	Local address length
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: remote_len
             
@@ -216,12 +252,16 @@ class LptsPa(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: local_port
             
             	Local port
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: remote_port
             
@@ -230,12 +270,16 @@ class LptsPa(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: packet_misc
             
             	L5 info
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: scope
             
@@ -244,12 +288,16 @@ class LptsPa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: client_flags
             
             	Client flags
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: min_ttl
             
@@ -258,6 +306,8 @@ class LptsPa(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: lazy_bindq_delay
             
             	 lazy binding queue delay
@@ -265,12 +315,16 @@ class LptsPa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ptq_delay
             
             	 pending transactions queue delay
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -347,7 +401,7 @@ class LptsPa(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(LptsPa.EntryXr.Entry, ['entry', u'location', u'client_id', u'vid', u'cookie', u'l3protocol', u'l4protocol', u'smask', u'ifs', u'ptype', u'local_ip', u'remote_ip', u'local_len', u'remote_len', u'local_port', u'remote_port', u'packet_misc', u'scope', u'client_flags', u'min_ttl', u'lazy_bindq_delay', u'ptq_delay'], name, value)
+                self._perform_setattr(LptsPa.EntryXr.Entry, ['entry', 'location', 'client_id', 'vid', 'cookie', 'l3protocol', 'l4protocol', 'smask', 'ifs', 'ptype', 'local_ip', 'remote_ip', 'local_len', 'remote_len', 'local_port', 'remote_port', 'packet_misc', 'scope', 'client_flags', 'min_ttl', 'lazy_bindq_delay', 'ptq_delay'], name, value)
 
 
             class Ctime(Entity):
@@ -361,12 +415,16 @@ class LptsPa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tv_nsec
                 
                 	Time Nanosec
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -394,7 +452,8 @@ class LptsPa(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(LptsPa.EntryXr.Entry.Ctime, [u'tv_sec', u'tv_nsec'], name, value)
+                    self._perform_setattr(LptsPa.EntryXr.Entry.Ctime, ['tv_sec', 'tv_nsec'], name, value)
+
 
 
             class Utime(Entity):
@@ -408,12 +467,16 @@ class LptsPa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tv_nsec
                 
                 	Time Nanosec
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -441,7 +504,10 @@ class LptsPa(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(LptsPa.EntryXr.Entry.Utime, [u'tv_sec', u'tv_nsec'], name, value)
+                    self._perform_setattr(LptsPa.EntryXr.Entry.Utime, ['tv_sec', 'tv_nsec'], name, value)
+
+
+
 
 
     class Entries(Entity):
@@ -452,6 +518,8 @@ class LptsPa(Entity):
         
         	Data for single PA Client
         	**type**\: list of  		 :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pa_oper.LptsPa.Entries.Entry>`
+        
+        	**config**\: False
         
         
 
@@ -491,12 +559,16 @@ class LptsPa(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: flags
             
             	Client flags
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: open_flags
             
@@ -505,12 +577,16 @@ class LptsPa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	Rack/slot/instance
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: client_id
             
@@ -519,12 +595,16 @@ class LptsPa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: times
             
             	Transaction statisitics
             	**type**\: str
             
             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+            
+            	**config**\: False
             
             
 
@@ -561,9 +641,13 @@ class LptsPa(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(LptsPa.Entries.Entry, ['entry', u'flags', u'open_flags', u'location', u'client_id', u'times'], name, value)
+                self._perform_setattr(LptsPa.Entries.Entry, ['entry', 'flags', 'open_flags', 'location', 'client_id', 'times'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = LptsPa()
         return self._top_entity
+
+
 

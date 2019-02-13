@@ -34,6 +34,8 @@ class Radius(Entity):
     	Contains all the nodes
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -71,6 +73,8 @@ class Radius(Entity):
         
         	RADIUS operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -110,40 +114,56 @@ class Radius(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: client
             
             	RADIUS client data
             	**type**\:  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Client>`
+            
+            	**config**\: False
             
             .. attribute:: dead_criteria
             
             	RADIUS dead criteria information
             	**type**\:  :py:class:`DeadCriteria <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria>`
             
+            	**config**\: False
+            
             .. attribute:: authentication
             
             	RADIUS authentication data
             	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication>`
+            
+            	**config**\: False
             
             .. attribute:: accounting
             
             	RADIUS accounting data
             	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting>`
             
+            	**config**\: False
+            
             .. attribute:: dynamic_authorization_clients
             
             	Dynamic authorization client data
             	**type**\:  :py:class:`DynamicAuthorizationClients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DynamicAuthorizationClients>`
+            
+            	**config**\: False
             
             .. attribute:: server_groups
             
             	RADIUS server group table
             	**type**\:  :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups>`
             
+            	**config**\: False
+            
             .. attribute:: dynamic_authorization
             
             	Dynamic authorization data
             	**type**\:  :py:class:`DynamicAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DynamicAuthorization>`
+            
+            	**config**\: False
             
             
 
@@ -212,10 +232,14 @@ class Radius(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: authentication_nas_id
                 
                 	NAS\-Identifier of the RADIUS authentication client
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: unknown_accounting_responses
                 
@@ -223,6 +247,8 @@ class Radius(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -255,6 +281,7 @@ class Radius(Entity):
                     self._perform_setattr(Radius.Nodes.Node.Client, [u'unknown_authentication_responses', u'authentication_nas_id', u'unknown_accounting_responses'], name, value)
 
 
+
             class DeadCriteria(Entity):
                 """
                 RADIUS dead criteria information
@@ -263,6 +290,8 @@ class Radius(Entity):
                 
                 	RADIUS server dead criteria host table
                 	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria.Hosts>`
+                
+                	**config**\: False
                 
                 
 
@@ -300,6 +329,8 @@ class Radius(Entity):
                     
                     	RADIUS Server
                     	**type**\: list of  		 :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria.Hosts.Host>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -344,12 +375,16 @@ class Radius(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: auth_port_number
                         
                         	Authentication Port number (standard port 1645)
                         	**type**\: int
                         
                         	**range:** 1..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: acct_port_number
                         
@@ -358,15 +393,21 @@ class Radius(Entity):
                         
                         	**range:** 1..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: time
                         
                         	Time in seconds
                         	**type**\:  :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: tries
                         
                         	Number of tries
                         	**type**\:  :py:class:`Tries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -418,10 +459,14 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_computed
                             
                             	True if computed; false if not
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -452,6 +497,7 @@ class Radius(Entity):
                                 self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time, [u'value', u'is_computed'], name, value)
 
 
+
                         class Tries(Entity):
                             """
                             Number of tries
@@ -463,10 +509,14 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_computed
                             
                             	True if computed; false if not
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -497,6 +547,10 @@ class Radius(Entity):
                                 self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries, [u'value', u'is_computed'], name, value)
 
 
+
+
+
+
             class Authentication(Entity):
                 """
                 RADIUS authentication data
@@ -505,6 +559,8 @@ class Radius(Entity):
                 
                 	List of authentication groups
                 	**type**\: list of  		 :py:class:`AuthenticationGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication.AuthenticationGroup>`
+                
+                	**config**\: False
                 
                 
 
@@ -541,12 +597,16 @@ class Radius(Entity):
                     	Authentication data
                     	**type**\:  :py:class:`Authentication_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: server_address
                     
                     	IP address of RADIUS server
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: port
                     
@@ -555,15 +615,21 @@ class Radius(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: ip_address
                     
                     	IP address buffer
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: family
                     
                     	IP address Family
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -613,12 +679,16 @@ class Radius(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: pending_access_requests
                         
                         	Number of pending access requests
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: access_request_retransmits
                         
@@ -627,12 +697,16 @@ class Radius(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: access_accepts
                         
                         	Number of access accepts
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: access_rejects
                         
@@ -641,12 +715,16 @@ class Radius(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: access_challenges
                         
                         	Number of access challenges
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: access_timeouts
                         
@@ -655,12 +733,16 @@ class Radius(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_access_responses
                         
                         	Number of bad access responses
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_access_authenticators
                         
@@ -669,12 +751,16 @@ class Radius(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unknown_access_types
                         
                         	Number of packets received with unknown type from authentication server
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: dropped_access_responses
                         
@@ -683,12 +769,16 @@ class Radius(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: rtt
                         
                         	Round trip time for authentication in milliseconds
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: millisecond
                         
@@ -699,12 +789,16 @@ class Radius(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: authen_transaction_successess
                         
                         	Number of succeeded authentication transactions
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: authen_transaction_failure
                         
@@ -713,12 +807,16 @@ class Radius(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: authen_unexpected_responses
                         
                         	Number of unexpected authentication responses
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: authen_server_error_responses
                         
@@ -727,12 +825,16 @@ class Radius(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: authen_incorrect_responses
                         
                         	Number of incorrect authentication responses
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -795,6 +897,9 @@ class Radius(Entity):
                             self._perform_setattr(Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_, [u'access_requests', u'pending_access_requests', u'access_request_retransmits', u'access_accepts', u'access_rejects', u'access_challenges', u'access_timeouts', u'bad_access_responses', u'bad_access_authenticators', u'unknown_access_types', u'dropped_access_responses', u'rtt', u'authen_response_time', u'authen_transaction_successess', u'authen_transaction_failure', u'authen_unexpected_responses', u'authen_server_error_responses', u'authen_incorrect_responses'], name, value)
 
 
+
+
+
             class Accounting(Entity):
                 """
                 RADIUS accounting data
@@ -803,6 +908,8 @@ class Radius(Entity):
                 
                 	List of accounting groups
                 	**type**\: list of  		 :py:class:`AccountingGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting.AccountingGroup>`
+                
+                	**config**\: False
                 
                 
 
@@ -839,12 +946,16 @@ class Radius(Entity):
                     	Accounting data
                     	**type**\:  :py:class:`Accounting_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: server_address
                     
                     	IP address of RADIUS server
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: port
                     
@@ -853,15 +964,21 @@ class Radius(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: ip_address
                     
                     	IP address buffer
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: family
                     
                     	IP address Family
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -911,12 +1028,16 @@ class Radius(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: pending_requests
                         
                         	Number of pending accounting requests
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: retransmits
                         
@@ -925,12 +1046,16 @@ class Radius(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: responses
                         
                         	Number of accounting responses
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: timeouts
                         
@@ -939,12 +1064,16 @@ class Radius(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_responses
                         
                         	Number of bad accounting responses
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_authenticators
                         
@@ -953,12 +1082,16 @@ class Radius(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unknown_packet_types
                         
                         	Number of packets received with unknown type from accounting server
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: dropped_responses
                         
@@ -967,12 +1100,16 @@ class Radius(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: rtt
                         
                         	Round trip time for accounting in milliseconds
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: millisecond
                         
@@ -983,12 +1120,16 @@ class Radius(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: acct_server_error_responses
                         
                         	Number of server error accounting responses
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: acct_incorrect_responses
                         
@@ -997,12 +1138,16 @@ class Radius(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: acct_response_time
                         
                         	Average response time for authentication requests
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: acct_transaction_successess
                         
@@ -1011,12 +1156,16 @@ class Radius(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: acct_transaction_failure
                         
                         	Number of failed authentication transactions
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1075,6 +1224,9 @@ class Radius(Entity):
                             self._perform_setattr(Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_, [u'requests', u'pending_requests', u'retransmits', u'responses', u'timeouts', u'bad_responses', u'bad_authenticators', u'unknown_packet_types', u'dropped_responses', u'rtt', u'acct_unexpected_responses', u'acct_server_error_responses', u'acct_incorrect_responses', u'acct_response_time', u'acct_transaction_successess', u'acct_transaction_failure'], name, value)
 
 
+
+
+
             class DynamicAuthorizationClients(Entity):
                 """
                 Dynamic authorization client data
@@ -1083,6 +1235,8 @@ class Radius(Entity):
                 
                 	List of dynamic author clients
                 	**type**\: list of  		 :py:class:`DynamicAuthorClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DynamicAuthorizationClients.DynamicAuthorClient>`
+                
+                	**config**\: False
                 
                 
 
@@ -1121,12 +1275,16 @@ class Radius(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: disc_reqs
                     
                     	Number of RADIUS Disconnect\-Requestsreceived from the client
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: disc_acks
                     
@@ -1135,12 +1293,16 @@ class Radius(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: disc_naks
                     
                     	Number of RADIUS Disconnect\-NAKs sent to the client
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: disc_bad_auth
                     
@@ -1149,12 +1311,16 @@ class Radius(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: drop_disc_reqs
                     
                     	Number of RADIUS Disconnect\-Requests received from the client that were silently discarded
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: coa_reqs
                     
@@ -1163,12 +1329,16 @@ class Radius(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: coa_acks
                     
                     	Number of RADIUS CoA\-ACKs sent to the client
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: coa_naks
                     
@@ -1177,12 +1347,16 @@ class Radius(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: coa_bad_auth
                     
                     	Number of RADIUS CoA\-Requests received from the client containing an invalid Authenticator
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: drop_coa_reqs
                     
@@ -1191,12 +1365,16 @@ class Radius(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: unknown_types
                     
                     	Number of incoming packets of unknown types that were received from the client
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: internal_error
                     
@@ -1205,12 +1383,16 @@ class Radius(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: pak_decode_fail
                     
                     	Number of packets dropped due to failure in radius packet decoding
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: vrf_parse_fail_err
                     
@@ -1219,12 +1401,16 @@ class Radius(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: unknown_vsa_error
                     
                     	Number of requests which encountered unknown vsa error
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: send_msg_failed
                     
@@ -1233,12 +1419,16 @@ class Radius(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: radius_to_ch
                     
                     	Number of requests sent to command handler
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: ch_to_radius
                     
@@ -1247,12 +1437,16 @@ class Radius(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: service_parse_fail
                     
                     	Number of requests which encountered service parse fail error
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: multi_subs_error
                     
@@ -1261,12 +1455,16 @@ class Radius(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: service_not_present
                     
                     	Number of requests which has missing service name attribute
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: send_to_ch_fail
                     
@@ -1275,10 +1473,14 @@ class Radius(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: vrf_name
                     
                     	VRF of RADIUS dynamic authorization client
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: addr_buf
                     
@@ -1286,6 +1488,8 @@ class Radius(Entity):
                     	**type**\: str
                     
                     	**length:** 0..46
+                    
+                    	**config**\: False
                     
                     
 
@@ -1362,6 +1566,8 @@ class Radius(Entity):
                         self._perform_setattr(Radius.Nodes.Node.DynamicAuthorizationClients.DynamicAuthorClient, [u'client_address', u'disc_reqs', u'disc_acks', u'disc_naks', u'disc_bad_auth', u'drop_disc_reqs', u'coa_reqs', u'coa_acks', u'coa_naks', u'coa_bad_auth', u'drop_coa_reqs', u'unknown_types', u'internal_error', u'pak_decode_fail', u'vrf_parse_fail_err', u'unknown_vsa_error', u'send_msg_failed', u'radius_to_ch', u'ch_to_radius', u'service_parse_fail', u'multi_subs_error', u'service_not_present', u'send_to_ch_fail', u'vrf_name', u'addr_buf'], name, value)
 
 
+
+
             class ServerGroups(Entity):
                 """
                 RADIUS server group table
@@ -1370,6 +1576,8 @@ class Radius(Entity):
                 
                 	RADIUS server group data
                 	**type**\: list of  		 :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup>`
+                
+                	**config**\: False
                 
                 
 
@@ -1408,6 +1616,8 @@ class Radius(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: groups
                     
                     	Number of groups
@@ -1415,10 +1625,14 @@ class Radius(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: vrf_name
                     
                     	VRF name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: dead_time
                     
@@ -1426,6 +1640,8 @@ class Radius(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: minute
                     
@@ -1436,10 +1652,14 @@ class Radius(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: server_group
                     
                     	Server groups
                     	**type**\: list of  		 :py:class:`ServerGroup_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1487,15 +1707,21 @@ class Radius(Entity):
                         	Accounting data
                         	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: authentication
                         
                         	Authentication data
                         	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: authorization
                         
                         	Authorization data
                         	**type**\:  :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: server_address
                         
@@ -1504,12 +1730,16 @@ class Radius(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: authentication_port
                         
                         	Authentication port
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: accounting_port
                         
@@ -1518,20 +1748,28 @@ class Radius(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_private
                         
                         	True if private
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: ip_address
                         
                         	IP address buffer
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: family
                         
                         	IP address Family
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: redirected_requests
                         
@@ -1539,6 +1777,8 @@ class Radius(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1602,12 +1842,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: pending_requests
                             
                             	Number of pending accounting requests
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: retransmits
                             
@@ -1616,12 +1860,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: responses
                             
                             	Number of accounting responses
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: timeouts
                             
@@ -1630,12 +1878,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: bad_responses
                             
                             	Number of bad accounting responses
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: bad_authenticators
                             
@@ -1644,12 +1896,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: unknown_packet_types
                             
                             	Number of packets received with unknown type from accounting server
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: dropped_responses
                             
@@ -1658,12 +1914,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: rtt
                             
                             	Round trip time for accounting in milliseconds
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: millisecond
                             
@@ -1674,12 +1934,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: acct_server_error_responses
                             
                             	Number of server error accounting responses
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: acct_incorrect_responses
                             
@@ -1688,12 +1952,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: acct_response_time
                             
                             	Average response time for authentication requests
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: acct_transaction_successess
                             
@@ -1702,12 +1970,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: acct_transaction_failure
                             
                             	Number of failed authentication transactions
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1766,6 +2038,7 @@ class Radius(Entity):
                                 self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting, [u'requests', u'pending_requests', u'retransmits', u'responses', u'timeouts', u'bad_responses', u'bad_authenticators', u'unknown_packet_types', u'dropped_responses', u'rtt', u'acct_unexpected_responses', u'acct_server_error_responses', u'acct_incorrect_responses', u'acct_response_time', u'acct_transaction_successess', u'acct_transaction_failure'], name, value)
 
 
+
                         class Authentication(Entity):
                             """
                             Authentication data
@@ -1777,12 +2050,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: pending_access_requests
                             
                             	Number of pending access requests
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: access_request_retransmits
                             
@@ -1791,12 +2068,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: access_accepts
                             
                             	Number of access accepts
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: access_rejects
                             
@@ -1805,12 +2086,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: access_challenges
                             
                             	Number of access challenges
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: access_timeouts
                             
@@ -1819,12 +2104,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: bad_access_responses
                             
                             	Number of bad access responses
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: bad_access_authenticators
                             
@@ -1833,12 +2122,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: unknown_access_types
                             
                             	Number of packets received with unknown type from authentication server
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: dropped_access_responses
                             
@@ -1847,12 +2140,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: rtt
                             
                             	Round trip time for authentication in milliseconds
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: millisecond
                             
@@ -1863,12 +2160,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: authen_transaction_successess
                             
                             	Number of succeeded authentication transactions
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: authen_transaction_failure
                             
@@ -1877,12 +2178,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: authen_unexpected_responses
                             
                             	Number of unexpected authentication responses
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: authen_server_error_responses
                             
@@ -1891,12 +2196,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: authen_incorrect_responses
                             
                             	Number of incorrect authentication responses
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1959,6 +2268,7 @@ class Radius(Entity):
                                 self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication, [u'access_requests', u'pending_access_requests', u'access_request_retransmits', u'access_accepts', u'access_rejects', u'access_challenges', u'access_timeouts', u'bad_access_responses', u'bad_access_authenticators', u'unknown_access_types', u'dropped_access_responses', u'rtt', u'authen_response_time', u'authen_transaction_successess', u'authen_transaction_failure', u'authen_unexpected_responses', u'authen_server_error_responses', u'authen_incorrect_responses'], name, value)
 
 
+
                         class Authorization(Entity):
                             """
                             Authorization data
@@ -1970,12 +2280,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: author_request_timeouts
                             
                             	Number of access packets timed out
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: author_unexpected_responses
                             
@@ -1984,12 +2298,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: author_server_error_responses
                             
                             	Number of server error authorization responses
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: author_incorrect_responses
                             
@@ -1998,12 +2316,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: author_response_time
                             
                             	Average response time for authorization requests
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: author_transaction_successess
                             
@@ -2012,12 +2334,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: author_transaction_failure
                             
                             	Number of failed authorization transactions
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2060,6 +2386,10 @@ class Radius(Entity):
                                 self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization, [u'author_requests', u'author_request_timeouts', u'author_unexpected_responses', u'author_server_error_responses', u'author_incorrect_responses', u'author_response_time', u'author_transaction_successess', u'author_transaction_failure'], name, value)
 
 
+
+
+
+
             class DynamicAuthorization(Entity):
                 """
                 Dynamic authorization data
@@ -2071,12 +2401,16 @@ class Radius(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: invalid_coa_requests
                 
                 	Invalid change of authorization requests
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: radius_context_not_found
                 
@@ -2085,12 +2419,16 @@ class Radius(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: client_context_not_found
                 
                 	Client context not found
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -2124,7 +2462,12 @@ class Radius(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Radius.Nodes.Node.DynamicAuthorization, [u'disconnected_invalid_requests', u'invalid_coa_requests', u'radius_context_not_found', u'client_context_not_found'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Radius()
         return self._top_entity
+
+
 

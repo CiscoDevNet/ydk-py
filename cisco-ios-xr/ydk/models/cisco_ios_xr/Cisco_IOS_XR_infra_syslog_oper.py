@@ -215,6 +215,8 @@ class GetSyslog(Entity):
                 self._perform_setattr(GetSyslog.Input.Filters, ['start_time', 'end_time'], name, value)
 
 
+
+
     class Output(Entity):
         """
         
@@ -484,11 +486,18 @@ class GetSyslog(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GetSyslog.Output.Data.Syslog.Messages.Message, ['message_id', u'card_type', u'node_name', u'time_stamp', u'time_of_day', u'time_zone', u'process_name', u'category', u'group', u'message_name', u'severity', u'text'], name, value)
+                            self._perform_setattr(GetSyslog.Output.Data.Syslog.Messages.Message, ['message_id', 'card_type', 'node_name', 'time_stamp', 'time_of_day', 'time_zone', 'process_name', 'category', 'group', 'message_name', 'severity', 'text'], name, value)
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = GetSyslog()
         return self._top_entity
+
+
 
 class Logging(Entity):
     """
@@ -498,6 +507,8 @@ class Logging(Entity):
     
     	Syslog Info 
     	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Logging.History>`
+    
+    	**config**\: False
     
     
 
@@ -537,10 +548,14 @@ class Logging(Entity):
         	Syslog Properties
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: message
         
         	Syslog Message
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -571,9 +586,12 @@ class Logging(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Logging.History, ['properties', 'message'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Logging()
         return self._top_entity
+
+
 
 class Syslog(Entity):
     """
@@ -584,20 +602,28 @@ class Syslog(Entity):
     	Logging Files information
     	**type**\:  :py:class:`LoggingFiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingFiles>`
     
+    	**config**\: False
+    
     .. attribute:: an_remote_servers
     
     	Logging AN remote servers information
     	**type**\:  :py:class:`AnRemoteServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.AnRemoteServers>`
+    
+    	**config**\: False
     
     .. attribute:: messages
     
     	Message table information
     	**type**\:  :py:class:`Messages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.Messages>`
     
+    	**config**\: False
+    
     .. attribute:: logging_statistics
     
     	Logging statistics information
     	**type**\:  :py:class:`LoggingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics>`
+    
+    	**config**\: False
     
     
 
@@ -649,6 +675,8 @@ class Syslog(Entity):
         	Logging Files
         	**type**\: list of  		 :py:class:`FileLogDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingFiles.FileLogDetail>`
         
+        	**config**\: False
+        
         
 
         """
@@ -685,10 +713,14 @@ class Syslog(Entity):
             	File path for logging messages
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: file_name
             
             	File name for logging messages
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -717,7 +749,9 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingFiles.FileLogDetail, [u'file_path', u'file_name'], name, value)
+                self._perform_setattr(Syslog.LoggingFiles.FileLogDetail, ['file_path', 'file_name'], name, value)
+
+
 
 
     class AnRemoteServers(Entity):
@@ -728,6 +762,8 @@ class Syslog(Entity):
         
         	AN Remote Log Servers
         	**type**\: list of  		 :py:class:`AnRemoteLogServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.AnRemoteServers.AnRemoteLogServer>`
+        
+        	**config**\: False
         
         
 
@@ -765,20 +801,28 @@ class Syslog(Entity):
             	IP Address
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: vrf_name
             
             	VRF Name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: vrf_severity
             
             	VRF Severity
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: rh_discriminator
             
             	Remote\-Host Discriminator
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -811,7 +855,9 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.AnRemoteServers.AnRemoteLogServer, [u'ip_address', u'vrf_name', u'vrf_severity', u'rh_discriminator'], name, value)
+                self._perform_setattr(Syslog.AnRemoteServers.AnRemoteLogServer, ['ip_address', 'vrf_name', 'vrf_severity', 'rh_discriminator'], name, value)
+
+
 
 
     class Messages(Entity):
@@ -822,6 +868,8 @@ class Syslog(Entity):
         
         	A system message
         	**type**\: list of  		 :py:class:`Message <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.Messages.Message>`
+        
+        	**config**\: False
         
         
 
@@ -861,10 +909,14 @@ class Syslog(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: card_type
             
             	Message card location\: 'RP', 'DRP', 'LC', 'SC', 'SP' or 'UNK' 
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: node_name
             
@@ -873,12 +925,16 @@ class Syslog(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: time_stamp
             
             	Time in milliseconds since 00\:00\:00 UTC, January 11970 of when message was generated
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: millisecond
             
@@ -887,40 +943,56 @@ class Syslog(Entity):
             	Time of day of event in DDD MMM DD  YYYY HH\:MM \:SS format, e.g Wed Apr 01 2009  15\:50\:26
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: time_zone
             
             	Time Zone in UTC+/\-HH\:MM format,  e.g UTC+5\:30, UTC\-6
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: process_name
             
             	Process name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: category
             
             	Message category
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: group
             
             	Message group
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: message_name
             
             	Message name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: severity
             
             	Message severity
             	**type**\:  :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
             
+            	**config**\: False
+            
             .. attribute:: text
             
             	Additional message text
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -969,7 +1041,9 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.Messages.Message, ['message_id', u'card_type', u'node_name', u'time_stamp', u'time_of_day', u'time_zone', u'process_name', u'category', u'group', u'message_name', u'severity', u'text'], name, value)
+                self._perform_setattr(Syslog.Messages.Message, ['message_id', 'card_type', 'node_name', 'time_stamp', 'time_of_day', 'time_zone', 'process_name', 'category', 'group', 'message_name', 'severity', 'text'], name, value)
+
+
 
 
     class LoggingStatistics(Entity):
@@ -981,40 +1055,56 @@ class Syslog(Entity):
         	Logging statistics
         	**type**\:  :py:class:`LoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.LoggingStats>`
         
+        	**config**\: False
+        
         .. attribute:: console_logging_stats
         
         	Console logging statistics
         	**type**\:  :py:class:`ConsoleLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.ConsoleLoggingStats>`
+        
+        	**config**\: False
         
         .. attribute:: monitor_logging_stats
         
         	Monitor loggingstatistics
         	**type**\:  :py:class:`MonitorLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.MonitorLoggingStats>`
         
+        	**config**\: False
+        
         .. attribute:: trap_logging_stats
         
         	Trap logging statistics
         	**type**\:  :py:class:`TrapLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.TrapLoggingStats>`
+        
+        	**config**\: False
         
         .. attribute:: buffer_logging_stats
         
         	Buffer logging statistics
         	**type**\:  :py:class:`BufferLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.BufferLoggingStats>`
         
+        	**config**\: False
+        
         .. attribute:: remote_logging_stat
         
         	Remote logging statistics
         	**type**\: list of  		 :py:class:`RemoteLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.RemoteLoggingStat>`
+        
+        	**config**\: False
         
         .. attribute:: tls_remote_logging_stat
         
         	TLS Remote logging statistics
         	**type**\: list of  		 :py:class:`TlsRemoteLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.TlsRemoteLoggingStat>`
         
+        	**config**\: False
+        
         .. attribute:: file_logging_stat
         
         	File logging statistics
         	**type**\: list of  		 :py:class:`FileLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.FileLoggingStat>`
+        
+        	**config**\: False
         
         
 
@@ -1074,12 +1164,16 @@ class Syslog(Entity):
             	Is log enabled
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: drop_count
             
             	Number of messages dropped
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: flush_count
             
@@ -1088,12 +1182,16 @@ class Syslog(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: overrun_count
             
             	Number of messages overrun
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1126,7 +1224,8 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.LoggingStats, [u'is_log_enabled', u'drop_count', u'flush_count', u'overrun_count'], name, value)
+                self._perform_setattr(Syslog.LoggingStatistics.LoggingStats, ['is_log_enabled', 'drop_count', 'flush_count', 'overrun_count'], name, value)
+
 
 
         class ConsoleLoggingStats(Entity):
@@ -1138,10 +1237,14 @@ class Syslog(Entity):
             	Is log enabled
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: severity
             
             	Configured severity
             	**type**\:  :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
+            
+            	**config**\: False
             
             .. attribute:: message_count
             
@@ -1150,12 +1253,16 @@ class Syslog(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: buffer_size
             
             	Buffer size in bytes if logging buffer isenabled
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: byte
             
@@ -1190,7 +1297,8 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.ConsoleLoggingStats, [u'is_log_enabled', u'severity', u'message_count', u'buffer_size'], name, value)
+                self._perform_setattr(Syslog.LoggingStatistics.ConsoleLoggingStats, ['is_log_enabled', 'severity', 'message_count', 'buffer_size'], name, value)
+
 
 
         class MonitorLoggingStats(Entity):
@@ -1202,10 +1310,14 @@ class Syslog(Entity):
             	Is log enabled
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: severity
             
             	Configured severity
             	**type**\:  :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
+            
+            	**config**\: False
             
             .. attribute:: message_count
             
@@ -1214,12 +1326,16 @@ class Syslog(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: buffer_size
             
             	Buffer size in bytes if logging buffer isenabled
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: byte
             
@@ -1254,7 +1370,8 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.MonitorLoggingStats, [u'is_log_enabled', u'severity', u'message_count', u'buffer_size'], name, value)
+                self._perform_setattr(Syslog.LoggingStatistics.MonitorLoggingStats, ['is_log_enabled', 'severity', 'message_count', 'buffer_size'], name, value)
+
 
 
         class TrapLoggingStats(Entity):
@@ -1266,10 +1383,14 @@ class Syslog(Entity):
             	Is log enabled
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: severity
             
             	Configured severity
             	**type**\:  :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
+            
+            	**config**\: False
             
             .. attribute:: message_count
             
@@ -1278,12 +1399,16 @@ class Syslog(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: buffer_size
             
             	Buffer size in bytes if logging buffer isenabled
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: byte
             
@@ -1318,7 +1443,8 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.TrapLoggingStats, [u'is_log_enabled', u'severity', u'message_count', u'buffer_size'], name, value)
+                self._perform_setattr(Syslog.LoggingStatistics.TrapLoggingStats, ['is_log_enabled', 'severity', 'message_count', 'buffer_size'], name, value)
+
 
 
         class BufferLoggingStats(Entity):
@@ -1330,10 +1456,14 @@ class Syslog(Entity):
             	Is log enabled
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: severity
             
             	Configured severity
             	**type**\:  :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
+            
+            	**config**\: False
             
             .. attribute:: message_count
             
@@ -1342,12 +1472,16 @@ class Syslog(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: buffer_size
             
             	Buffer size in bytes if logging buffer isenabled
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: byte
             
@@ -1382,7 +1516,8 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.BufferLoggingStats, [u'is_log_enabled', u'severity', u'message_count', u'buffer_size'], name, value)
+                self._perform_setattr(Syslog.LoggingStatistics.BufferLoggingStats, ['is_log_enabled', 'severity', 'message_count', 'buffer_size'], name, value)
+
 
 
         class RemoteLoggingStat(Entity):
@@ -1394,12 +1529,16 @@ class Syslog(Entity):
             	Remote hostname
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: message_count
             
             	Message count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1428,7 +1567,8 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.RemoteLoggingStat, [u'remote_host_name', u'message_count'], name, value)
+                self._perform_setattr(Syslog.LoggingStatistics.RemoteLoggingStat, ['remote_host_name', 'message_count'], name, value)
+
 
 
         class TlsRemoteLoggingStat(Entity):
@@ -1440,12 +1580,16 @@ class Syslog(Entity):
             	TLS Remote hostname
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: message_count
             
             	Message count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1474,7 +1618,8 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.TlsRemoteLoggingStat, [u'remote_host_name', u'message_count'], name, value)
+                self._perform_setattr(Syslog.LoggingStatistics.TlsRemoteLoggingStat, ['remote_host_name', 'message_count'], name, value)
+
 
 
         class FileLoggingStat(Entity):
@@ -1486,12 +1631,16 @@ class Syslog(Entity):
             	File name for logging messages
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: message_count
             
             	Message count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1520,9 +1669,13 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.FileLoggingStat, [u'file_name', u'message_count'], name, value)
+                self._perform_setattr(Syslog.LoggingStatistics.FileLoggingStat, ['file_name', 'message_count'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = Syslog()
         return self._top_entity
+
+
 

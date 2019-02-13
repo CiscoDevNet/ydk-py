@@ -134,6 +134,8 @@ class VrfGroup(Entity):
     	Node operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.VrfGroup.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -171,6 +173,8 @@ class VrfGroup(Entity):
         
         	Node details
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.VrfGroup.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -210,10 +214,14 @@ class VrfGroup(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: groups
             
             	Group operational data
             	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.VrfGroup.Nodes.Node.Groups>`
+            
+            	**config**\: False
             
             
 
@@ -256,6 +264,8 @@ class VrfGroup(Entity):
                 	Group details
                 	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.VrfGroup.Nodes.Node.Groups.Group>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -293,6 +303,8 @@ class VrfGroup(Entity):
                     
                     	**length:** 1..32
                     
+                    	**config**\: False
+                    
                     .. attribute:: vr_fs
                     
                     	Number of VRFs in this VRF group
@@ -300,15 +312,21 @@ class VrfGroup(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: forward_reference
                     
                     	VRF group not present but used
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: vrf
                     
                     	VRF group's VRF
                     	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.VrfGroup.Nodes.Node.Groups.Group.Vrf>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -340,7 +358,7 @@ class VrfGroup(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(VrfGroup.Nodes.Node.Groups.Group, ['group_name', u'vr_fs', u'forward_reference'], name, value)
+                        self._perform_setattr(VrfGroup.Nodes.Node.Groups.Group, ['group_name', 'vr_fs', 'forward_reference'], name, value)
 
 
                     class Vrf(Entity):
@@ -351,6 +369,8 @@ class VrfGroup(Entity):
                         
                         	VRF name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -376,11 +396,18 @@ class VrfGroup(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(VrfGroup.Nodes.Node.Groups.Group.Vrf, [u'vrf_name'], name, value)
+                            self._perform_setattr(VrfGroup.Nodes.Node.Groups.Group.Vrf, ['vrf_name'], name, value)
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = VrfGroup()
         return self._top_entity
+
+
 
 class Srlg(Entity):
     """
@@ -391,45 +418,63 @@ class Srlg(Entity):
     	Set of Groups configured for SRLG
     	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Groups>`
     
+    	**config**\: False
+    
     .. attribute:: interfaces
     
     	Set of interfaces configured for SRLG
     	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Interfaces>`
+    
+    	**config**\: False
     
     .. attribute:: rsips
     
     	Set of rsip configured for SRLG
     	**type**\:  :py:class:`Rsips <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Rsips>`
     
+    	**config**\: False
+    
     .. attribute:: srlg_maps
     
     	Set of SRLG name, value maps configured
     	**type**\:  :py:class:`SrlgMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.SrlgMaps>`
+    
+    	**config**\: False
     
     .. attribute:: nodes
     
     	RSI SRLG operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes>`
     
+    	**config**\: False
+    
     .. attribute:: interface_srlg_names
     
     	Set of SRLG names configured
     	**type**\:  :py:class:`InterfaceSrlgNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.InterfaceSrlgNames>`
+    
+    	**config**\: False
     
     .. attribute:: inherit_nodes
     
     	Set of inherit locations configured for SRLG
     	**type**\:  :py:class:`InheritNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.InheritNodes>`
     
+    	**config**\: False
+    
     .. attribute:: srlg_values
     
     	Set of SRLG values configured
     	**type**\:  :py:class:`SrlgValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.SrlgValues>`
     
+    	**config**\: False
+    
     .. attribute:: interface_details
     
     	Set of interfaces configured for SRLG
     	**type**\:  :py:class:`InterfaceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.InterfaceDetails>`
+    
+    	**config**\: False
     
     
 
@@ -501,6 +546,8 @@ class Srlg(Entity):
         	SRLG group details
         	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Groups.Group>`
         
+        	**config**\: False
+        
         
 
         """
@@ -539,10 +586,14 @@ class Srlg(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: group_name_xr
             
             	Group name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: group_values
             
@@ -551,10 +602,14 @@ class Srlg(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: srlg_attribute
             
             	SRLG attribute
             	**type**\: list of  		 :py:class:`SrlgAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Groups.Group.SrlgAttribute>`
+            
+            	**config**\: False
             
             
 
@@ -587,7 +642,7 @@ class Srlg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.Groups.Group, ['group_name', u'group_name_xr', u'group_values'], name, value)
+                self._perform_setattr(Srlg.Groups.Group, ['group_name', 'group_name_xr', 'group_values'], name, value)
 
 
             class SrlgAttribute(Entity):
@@ -601,10 +656,14 @@ class Srlg(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: priority
                 
                 	Priority
                 	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Priority>`
+                
+                	**config**\: False
                 
                 .. attribute:: srlg_index
                 
@@ -612,6 +671,8 @@ class Srlg(Entity):
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -641,7 +702,10 @@ class Srlg(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srlg.Groups.Group.SrlgAttribute, [u'srlg_value', u'priority', u'srlg_index'], name, value)
+                    self._perform_setattr(Srlg.Groups.Group.SrlgAttribute, ['srlg_value', 'priority', 'srlg_index'], name, value)
+
+
+
 
 
     class Interfaces(Entity):
@@ -652,6 +716,8 @@ class Srlg(Entity):
         
         	SRLG interface summary
         	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Interfaces.Interface>`
+        
+        	**config**\: False
         
         
 
@@ -691,10 +757,14 @@ class Srlg(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: interface_name_xr
             
             	Interface name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: value_count
             
@@ -703,6 +773,8 @@ class Srlg(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: registrations
             
             	Registrations
@@ -710,12 +782,16 @@ class Srlg(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: srlg_value
             
             	SRLG values
             	**type**\: list of int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -750,7 +826,9 @@ class Srlg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.Interfaces.Interface, ['interface_name', u'interface_name_xr', u'value_count', u'registrations', u'srlg_value'], name, value)
+                self._perform_setattr(Srlg.Interfaces.Interface, ['interface_name', 'interface_name_xr', 'value_count', 'registrations', 'srlg_value'], name, value)
+
+
 
 
     class Rsips(Entity):
@@ -761,6 +839,8 @@ class Srlg(Entity):
         
         	SRLG rsip details
         	**type**\: list of  		 :py:class:`Rsip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Rsips.Rsip>`
+        
+        	**config**\: False
         
         
 
@@ -800,10 +880,14 @@ class Srlg(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: optical_layer_interface_name
             
             	Optical layer interface name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: registrations
             
@@ -812,6 +896,8 @@ class Srlg(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: interface_values
             
             	Interface values
@@ -819,10 +905,14 @@ class Srlg(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: srlg_attribute
             
             	SRLG attribute
             	**type**\: list of  		 :py:class:`SrlgAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Rsips.Rsip.SrlgAttribute>`
+            
+            	**config**\: False
             
             
 
@@ -857,7 +947,7 @@ class Srlg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.Rsips.Rsip, ['rsip_name', u'optical_layer_interface_name', u'registrations', u'interface_values'], name, value)
+                self._perform_setattr(Srlg.Rsips.Rsip, ['rsip_name', 'optical_layer_interface_name', 'registrations', 'interface_values'], name, value)
 
 
             class SrlgAttribute(Entity):
@@ -871,10 +961,14 @@ class Srlg(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: priority
                 
                 	Priority
                 	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Priority>`
+                
+                	**config**\: False
                 
                 .. attribute:: srlg_index
                 
@@ -882,6 +976,8 @@ class Srlg(Entity):
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -911,7 +1007,10 @@ class Srlg(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srlg.Rsips.Rsip.SrlgAttribute, [u'srlg_value', u'priority', u'srlg_index'], name, value)
+                    self._perform_setattr(Srlg.Rsips.Rsip.SrlgAttribute, ['srlg_value', 'priority', 'srlg_index'], name, value)
+
+
+
 
 
     class SrlgMaps(Entity):
@@ -922,6 +1021,8 @@ class Srlg(Entity):
         
         	Configured SRLG name details 
         	**type**\: list of  		 :py:class:`SrlgMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.SrlgMaps.SrlgMap>`
+        
+        	**config**\: False
         
         
 
@@ -961,6 +1062,8 @@ class Srlg(Entity):
             
             	**length:** 1..64
             
+            	**config**\: False
+            
             .. attribute:: srlg_value
             
             	SRLG value
@@ -968,10 +1071,14 @@ class Srlg(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: srlg_name_xr
             
             	SRLG name
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1002,7 +1109,9 @@ class Srlg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.SrlgMaps.SrlgMap, ['srlg_name', u'srlg_value', u'srlg_name_xr'], name, value)
+                self._perform_setattr(Srlg.SrlgMaps.SrlgMap, ['srlg_name', 'srlg_value', 'srlg_name_xr'], name, value)
+
+
 
 
     class Nodes(Entity):
@@ -1013,6 +1122,8 @@ class Srlg(Entity):
         
         	RSI SRLG operational data
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -1052,40 +1163,56 @@ class Srlg(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: srlg_maps
             
             	Set of SRLG name, value maps configured
             	**type**\:  :py:class:`SrlgMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.SrlgMaps>`
+            
+            	**config**\: False
             
             .. attribute:: groups
             
             	Set of Groups configured for SRLG
             	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.Groups>`
             
+            	**config**\: False
+            
             .. attribute:: inherit_nodes
             
             	Set of inherit locations configured for SRLG
             	**type**\:  :py:class:`InheritNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InheritNodes>`
+            
+            	**config**\: False
             
             .. attribute:: interfaces
             
             	Set of interfaces configured for SRLG
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.Interfaces>`
             
+            	**config**\: False
+            
             .. attribute:: interface_details
             
             	Set of interfaces configured for SRLG
             	**type**\:  :py:class:`InterfaceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceDetails>`
+            
+            	**config**\: False
             
             .. attribute:: srlg_values
             
             	Set of SRLG values configured
             	**type**\:  :py:class:`SrlgValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.SrlgValues>`
             
+            	**config**\: False
+            
             .. attribute:: interface_srlg_names
             
             	Set of SRLG names configured
             	**type**\:  :py:class:`InterfaceSrlgNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceSrlgNames>`
+            
+            	**config**\: False
             
             
 
@@ -1152,6 +1279,8 @@ class Srlg(Entity):
                 	Configured SRLG name details 
                 	**type**\: list of  		 :py:class:`SrlgMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.SrlgMaps.SrlgMap>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1189,6 +1318,8 @@ class Srlg(Entity):
                     
                     	**length:** 1..64
                     
+                    	**config**\: False
+                    
                     .. attribute:: srlg_value
                     
                     	SRLG value
@@ -1196,10 +1327,14 @@ class Srlg(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: srlg_name_xr
                     
                     	SRLG name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1229,7 +1364,9 @@ class Srlg(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.Nodes.Node.SrlgMaps.SrlgMap, ['srlg_name', u'srlg_value', u'srlg_name_xr'], name, value)
+                        self._perform_setattr(Srlg.Nodes.Node.SrlgMaps.SrlgMap, ['srlg_name', 'srlg_value', 'srlg_name_xr'], name, value)
+
+
 
 
             class Groups(Entity):
@@ -1240,6 +1377,8 @@ class Srlg(Entity):
                 
                 	SRLG group details
                 	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.Groups.Group>`
+                
+                	**config**\: False
                 
                 
 
@@ -1278,10 +1417,14 @@ class Srlg(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: group_name_xr
                     
                     	Group name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: group_values
                     
@@ -1290,10 +1433,14 @@ class Srlg(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: srlg_attribute
                     
                     	SRLG attribute
                     	**type**\: list of  		 :py:class:`SrlgAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.Groups.Group.SrlgAttribute>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1325,7 +1472,7 @@ class Srlg(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.Nodes.Node.Groups.Group, ['group_name', u'group_name_xr', u'group_values'], name, value)
+                        self._perform_setattr(Srlg.Nodes.Node.Groups.Group, ['group_name', 'group_name_xr', 'group_values'], name, value)
 
 
                     class SrlgAttribute(Entity):
@@ -1339,10 +1486,14 @@ class Srlg(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: priority
                         
                         	Priority
                         	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Priority>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: srlg_index
                         
@@ -1350,6 +1501,8 @@ class Srlg(Entity):
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -1379,7 +1532,10 @@ class Srlg(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Srlg.Nodes.Node.Groups.Group.SrlgAttribute, [u'srlg_value', u'priority', u'srlg_index'], name, value)
+                            self._perform_setattr(Srlg.Nodes.Node.Groups.Group.SrlgAttribute, ['srlg_value', 'priority', 'srlg_index'], name, value)
+
+
+
 
 
             class InheritNodes(Entity):
@@ -1390,6 +1546,8 @@ class Srlg(Entity):
                 
                 	SRLG inherit location details
                 	**type**\: list of  		 :py:class:`InheritNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InheritNodes.InheritNode>`
+                
+                	**config**\: False
                 
                 
 
@@ -1428,10 +1586,14 @@ class Srlg(Entity):
                     
                     	**pattern:** ((([a\-zA\-Z0\-9\_]\*\\d+)\|(\\\*))/){2}(([a\-zA\-Z0\-9\_]\*\\d+)\|(\\\*))
                     
+                    	**config**\: False
+                    
                     .. attribute:: node_name
                     
                     	Inherit node name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: node_values
                     
@@ -1440,10 +1602,14 @@ class Srlg(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: srlg_attribute
                     
                     	SRLG attribute
                     	**type**\: list of  		 :py:class:`SrlgAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InheritNodes.InheritNode.SrlgAttribute>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1475,7 +1641,7 @@ class Srlg(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.Nodes.Node.InheritNodes.InheritNode, ['inherit_node_name', u'node_name', u'node_values'], name, value)
+                        self._perform_setattr(Srlg.Nodes.Node.InheritNodes.InheritNode, ['inherit_node_name', 'node_name', 'node_values'], name, value)
 
 
                     class SrlgAttribute(Entity):
@@ -1489,10 +1655,14 @@ class Srlg(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: priority
                         
                         	Priority
                         	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Priority>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: srlg_index
                         
@@ -1500,6 +1670,8 @@ class Srlg(Entity):
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -1529,7 +1701,10 @@ class Srlg(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Srlg.Nodes.Node.InheritNodes.InheritNode.SrlgAttribute, [u'srlg_value', u'priority', u'srlg_index'], name, value)
+                            self._perform_setattr(Srlg.Nodes.Node.InheritNodes.InheritNode.SrlgAttribute, ['srlg_value', 'priority', 'srlg_index'], name, value)
+
+
+
 
 
             class Interfaces(Entity):
@@ -1540,6 +1715,8 @@ class Srlg(Entity):
                 
                 	SRLG interface summary
                 	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.Interfaces.Interface>`
+                
+                	**config**\: False
                 
                 
 
@@ -1578,10 +1755,14 @@ class Srlg(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_name_xr
                     
                     	Interface name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: value_count
                     
@@ -1590,6 +1771,8 @@ class Srlg(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: registrations
                     
                     	Registrations
@@ -1597,12 +1780,16 @@ class Srlg(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: srlg_value
                     
                     	SRLG values
                     	**type**\: list of int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1636,7 +1823,9 @@ class Srlg(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.Nodes.Node.Interfaces.Interface, ['interface_name', u'interface_name_xr', u'value_count', u'registrations', u'srlg_value'], name, value)
+                        self._perform_setattr(Srlg.Nodes.Node.Interfaces.Interface, ['interface_name', 'interface_name_xr', 'value_count', 'registrations', 'srlg_value'], name, value)
+
+
 
 
             class InterfaceDetails(Entity):
@@ -1647,6 +1836,8 @@ class Srlg(Entity):
                 
                 	SRLG interface details
                 	**type**\: list of  		 :py:class:`InterfaceDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail>`
+                
+                	**config**\: False
                 
                 
 
@@ -1685,12 +1876,16 @@ class Srlg(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: groups
                     
                     	Groups
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: nodes
                     
@@ -1699,15 +1894,21 @@ class Srlg(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: srlg_attribute
                     
                     	SRLG attributes
                     	**type**\: list of  		 :py:class:`SrlgAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.SrlgAttribute>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: rsip
                     
                     	rsip list
                     	**type**\: list of  		 :py:class:`Rsip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.Rsip>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1740,7 +1941,7 @@ class Srlg(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail, ['interface_name', u'groups', u'nodes'], name, value)
+                        self._perform_setattr(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail, ['interface_name', 'groups', 'nodes'], name, value)
 
 
                     class SrlgAttribute(Entity):
@@ -1754,20 +1955,28 @@ class Srlg(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: priority
                         
                         	Priority
                         	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Priority>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: source
                         
                         	Source
                         	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Source>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: source_name
                         
                         	Source name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: srlg_index
                         
@@ -1775,6 +1984,8 @@ class Srlg(Entity):
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -1808,7 +2019,8 @@ class Srlg(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.SrlgAttribute, [u'srlg_value', u'priority', u'source', u'source_name', u'srlg_index'], name, value)
+                            self._perform_setattr(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.SrlgAttribute, ['srlg_value', 'priority', 'source', 'source_name', 'srlg_index'], name, value)
+
 
 
                     class Rsip(Entity):
@@ -1819,6 +2031,8 @@ class Srlg(Entity):
                         
                         	list of names matching rsip
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -1844,7 +2058,10 @@ class Srlg(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.Rsip, [u'rsip_name'], name, value)
+                            self._perform_setattr(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.Rsip, ['rsip_name'], name, value)
+
+
+
 
 
             class SrlgValues(Entity):
@@ -1855,6 +2072,8 @@ class Srlg(Entity):
                 
                 	Configured SRLG value details 
                 	**type**\: list of  		 :py:class:`SrlgValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.SrlgValues.SrlgValue>`
+                
+                	**config**\: False
                 
                 
 
@@ -1893,10 +2112,14 @@ class Srlg(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_name
                     
                     	Interface name
                     	**type**\: list of str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1924,7 +2147,9 @@ class Srlg(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.Nodes.Node.SrlgValues.SrlgValue, ['value', u'interface_name'], name, value)
+                        self._perform_setattr(Srlg.Nodes.Node.SrlgValues.SrlgValue, ['value', 'interface_name'], name, value)
+
+
 
 
             class InterfaceSrlgNames(Entity):
@@ -1935,6 +2160,8 @@ class Srlg(Entity):
                 
                 	Configured SRLG name details 
                 	**type**\: list of  		 :py:class:`InterfaceSrlgName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName>`
+                
+                	**config**\: False
                 
                 
 
@@ -1973,15 +2200,21 @@ class Srlg(Entity):
                     
                     	**length:** 1..64
                     
+                    	**config**\: False
+                    
                     .. attribute:: interfaces
                     
                     	Interfaces information
                     	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName.Interfaces>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: srlg_name_xr
                     
                     	SRLG name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: srlg_value
                     
@@ -1989,6 +2222,8 @@ class Srlg(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -2022,7 +2257,7 @@ class Srlg(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName, ['srlg_name', u'srlg_name_xr', u'srlg_value'], name, value)
+                        self._perform_setattr(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName, ['srlg_name', 'srlg_name_xr', 'srlg_value'], name, value)
 
 
                     class Interfaces(Entity):
@@ -2033,6 +2268,8 @@ class Srlg(Entity):
                         
                         	Interface name
                         	**type**\: list of str
+                        
+                        	**config**\: False
                         
                         
 
@@ -2058,7 +2295,12 @@ class Srlg(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName.Interfaces, [u'interface_name'], name, value)
+                            self._perform_setattr(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName.Interfaces, ['interface_name'], name, value)
+
+
+
+
+
 
 
     class InterfaceSrlgNames(Entity):
@@ -2069,6 +2311,8 @@ class Srlg(Entity):
         
         	Configured SRLG name details 
         	**type**\: list of  		 :py:class:`InterfaceSrlgName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.InterfaceSrlgNames.InterfaceSrlgName>`
+        
+        	**config**\: False
         
         
 
@@ -2108,15 +2352,21 @@ class Srlg(Entity):
             
             	**length:** 1..64
             
+            	**config**\: False
+            
             .. attribute:: interfaces
             
             	Interfaces information
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.InterfaceSrlgNames.InterfaceSrlgName.Interfaces>`
             
+            	**config**\: False
+            
             .. attribute:: srlg_name_xr
             
             	SRLG name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: srlg_value
             
@@ -2124,6 +2374,8 @@ class Srlg(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2158,7 +2410,7 @@ class Srlg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.InterfaceSrlgNames.InterfaceSrlgName, ['srlg_name', u'srlg_name_xr', u'srlg_value'], name, value)
+                self._perform_setattr(Srlg.InterfaceSrlgNames.InterfaceSrlgName, ['srlg_name', 'srlg_name_xr', 'srlg_value'], name, value)
 
 
             class Interfaces(Entity):
@@ -2169,6 +2421,8 @@ class Srlg(Entity):
                 
                 	Interface name
                 	**type**\: list of str
+                
+                	**config**\: False
                 
                 
 
@@ -2194,7 +2448,10 @@ class Srlg(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srlg.InterfaceSrlgNames.InterfaceSrlgName.Interfaces, [u'interface_name'], name, value)
+                    self._perform_setattr(Srlg.InterfaceSrlgNames.InterfaceSrlgName.Interfaces, ['interface_name'], name, value)
+
+
+
 
 
     class InheritNodes(Entity):
@@ -2205,6 +2462,8 @@ class Srlg(Entity):
         
         	SRLG inherit location details
         	**type**\: list of  		 :py:class:`InheritNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.InheritNodes.InheritNode>`
+        
+        	**config**\: False
         
         
 
@@ -2244,10 +2503,14 @@ class Srlg(Entity):
             
             	**pattern:** ((([a\-zA\-Z0\-9\_]\*\\d+)\|(\\\*))/){2}(([a\-zA\-Z0\-9\_]\*\\d+)\|(\\\*))
             
+            	**config**\: False
+            
             .. attribute:: node_name
             
             	Inherit node name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: node_values
             
@@ -2256,10 +2519,14 @@ class Srlg(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: srlg_attribute
             
             	SRLG attribute
             	**type**\: list of  		 :py:class:`SrlgAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.InheritNodes.InheritNode.SrlgAttribute>`
+            
+            	**config**\: False
             
             
 
@@ -2292,7 +2559,7 @@ class Srlg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.InheritNodes.InheritNode, ['inherit_node_name', u'node_name', u'node_values'], name, value)
+                self._perform_setattr(Srlg.InheritNodes.InheritNode, ['inherit_node_name', 'node_name', 'node_values'], name, value)
 
 
             class SrlgAttribute(Entity):
@@ -2306,10 +2573,14 @@ class Srlg(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: priority
                 
                 	Priority
                 	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Priority>`
+                
+                	**config**\: False
                 
                 .. attribute:: srlg_index
                 
@@ -2317,6 +2588,8 @@ class Srlg(Entity):
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -2346,7 +2619,10 @@ class Srlg(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srlg.InheritNodes.InheritNode.SrlgAttribute, [u'srlg_value', u'priority', u'srlg_index'], name, value)
+                    self._perform_setattr(Srlg.InheritNodes.InheritNode.SrlgAttribute, ['srlg_value', 'priority', 'srlg_index'], name, value)
+
+
+
 
 
     class SrlgValues(Entity):
@@ -2357,6 +2633,8 @@ class Srlg(Entity):
         
         	Configured SRLG value details 
         	**type**\: list of  		 :py:class:`SrlgValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.SrlgValues.SrlgValue>`
+        
+        	**config**\: False
         
         
 
@@ -2396,10 +2674,14 @@ class Srlg(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: interface_name
             
             	Interface name
             	**type**\: list of str
+            
+            	**config**\: False
             
             
 
@@ -2428,7 +2710,9 @@ class Srlg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.SrlgValues.SrlgValue, ['value', u'interface_name'], name, value)
+                self._perform_setattr(Srlg.SrlgValues.SrlgValue, ['value', 'interface_name'], name, value)
+
+
 
 
     class InterfaceDetails(Entity):
@@ -2439,6 +2723,8 @@ class Srlg(Entity):
         
         	SRLG interface details
         	**type**\: list of  		 :py:class:`InterfaceDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.InterfaceDetails.InterfaceDetail>`
+        
+        	**config**\: False
         
         
 
@@ -2478,12 +2764,16 @@ class Srlg(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: groups
             
             	Groups
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: nodes
             
@@ -2492,15 +2782,21 @@ class Srlg(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: srlg_attribute
             
             	SRLG attributes
             	**type**\: list of  		 :py:class:`SrlgAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.InterfaceDetails.InterfaceDetail.SrlgAttribute>`
             
+            	**config**\: False
+            
             .. attribute:: rsip
             
             	rsip list
             	**type**\: list of  		 :py:class:`Rsip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Srlg.InterfaceDetails.InterfaceDetail.Rsip>`
+            
+            	**config**\: False
             
             
 
@@ -2534,7 +2830,7 @@ class Srlg(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Srlg.InterfaceDetails.InterfaceDetail, ['interface_name', u'groups', u'nodes'], name, value)
+                self._perform_setattr(Srlg.InterfaceDetails.InterfaceDetail, ['interface_name', 'groups', 'nodes'], name, value)
 
 
             class SrlgAttribute(Entity):
@@ -2548,20 +2844,28 @@ class Srlg(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: priority
                 
                 	Priority
                 	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Priority>`
+                
+                	**config**\: False
                 
                 .. attribute:: source
                 
                 	Source
                 	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Source>`
                 
+                	**config**\: False
+                
                 .. attribute:: source_name
                 
                 	Source name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: srlg_index
                 
@@ -2569,6 +2873,8 @@ class Srlg(Entity):
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -2602,7 +2908,8 @@ class Srlg(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srlg.InterfaceDetails.InterfaceDetail.SrlgAttribute, [u'srlg_value', u'priority', u'source', u'source_name', u'srlg_index'], name, value)
+                    self._perform_setattr(Srlg.InterfaceDetails.InterfaceDetail.SrlgAttribute, ['srlg_value', 'priority', 'source', 'source_name', 'srlg_index'], name, value)
+
 
 
             class Rsip(Entity):
@@ -2613,6 +2920,8 @@ class Srlg(Entity):
                 
                 	list of names matching rsip
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -2638,11 +2947,16 @@ class Srlg(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srlg.InterfaceDetails.InterfaceDetail.Rsip, [u'rsip_name'], name, value)
+                    self._perform_setattr(Srlg.InterfaceDetails.InterfaceDetail.Rsip, ['rsip_name'], name, value)
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Srlg()
         return self._top_entity
+
+
 
 class SelectiveVrfDownload(Entity):
     """
@@ -2652,6 +2966,8 @@ class SelectiveVrfDownload(Entity):
     
     	Selective VRF Download feature state details
     	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.SelectiveVrfDownload.State>`
+    
+    	**config**\: False
     
     
 
@@ -2691,10 +3007,14 @@ class SelectiveVrfDownload(Entity):
         	Is SVD Enabled Operational
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: is_svd_enabled_cfg
         
         	Is SVD Enabled Config
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -2723,9 +3043,12 @@ class SelectiveVrfDownload(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SelectiveVrfDownload.State, [u'is_svd_enabled', u'is_svd_enabled_cfg'], name, value)
+            self._perform_setattr(SelectiveVrfDownload.State, ['is_svd_enabled', 'is_svd_enabled_cfg'], name, value)
+
 
     def clone_ptr(self):
         self._top_entity = SelectiveVrfDownload()
         return self._top_entity
+
+
 

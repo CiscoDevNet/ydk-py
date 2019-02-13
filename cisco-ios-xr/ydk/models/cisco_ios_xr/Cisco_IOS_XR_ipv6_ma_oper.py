@@ -135,6 +135,8 @@ class Ipv6Network(Entity):
     	Node\-specific IPv6 network operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -172,6 +174,8 @@ class Ipv6Network(Entity):
         
         	IPv6 network operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -212,10 +216,14 @@ class Ipv6Network(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: interface_data
             
             	IPv6 network operational interface data
             	**type**\:  :py:class:`InterfaceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData>`
+            
+            	**config**\: False
             
             
 
@@ -258,10 +266,14 @@ class Ipv6Network(Entity):
                 	VRF specific IPv6 network operational interface data
                 	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs>`
                 
+                	**config**\: False
+                
                 .. attribute:: summary
                 
                 	Summary of IPv6 network operational interface data on a node
                 	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary>`
+                
+                	**config**\: False
                 
                 
 
@@ -305,6 +317,8 @@ class Ipv6Network(Entity):
                     	VRF ID of an interface belong to
                     	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -342,25 +356,35 @@ class Ipv6Network(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: briefs
                         
                         	Brief interface IPv6 network operational data for a node
                         	**type**\:  :py:class:`Briefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: global_details
                         
                         	Detail interface IPv4 network operational data for global data
                         	**type**\:  :py:class:`GlobalDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: global_briefs
                         
                         	Brief interface IPv6 network operational data from global data
                         	**type**\:  :py:class:`GlobalBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: details
                         
                         	Detail interface IPv4 network operational data for a node
                         	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -415,6 +439,8 @@ class Ipv6Network(Entity):
                             	Brief interface IPv6 network operational data for an interface
                             	**type**\: list of  		 :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -453,15 +479,21 @@ class Ipv6Network(Entity):
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: link_local_address
                                 
                                 	Link Local Address
                                 	**type**\:  :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
                                 	**type**\:  :py:class:`Ipv6MaIfLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: vrf_name
                                 
@@ -470,10 +502,14 @@ class Ipv6Network(Entity):
                                 
                                 	**length:** 0..32
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: address
                                 
                                 	Address List
                                 	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -509,7 +545,7 @@ class Ipv6Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, ['interface_name', u'line_state', u'vrf_name'], name, value)
+                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, ['interface_name', 'line_state', 'vrf_name'], name, value)
 
 
                                 class LinkLocalAddress(Entity):
@@ -523,6 +559,8 @@ class Ipv6Network(Entity):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: prefix_length
                                     
                                     	Prefix Length of IPv6 Address
@@ -530,15 +568,21 @@ class Ipv6Network(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: address_state
                                     
                                     	State of Address
                                     	**type**\:  :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: is_anycast
                                     
                                     	Anycast address
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: route_tag
                                     
@@ -546,6 +590,8 @@ class Ipv6Network(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -579,7 +625,8 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+
 
 
                                 class Address(Entity):
@@ -593,6 +640,8 @@ class Ipv6Network(Entity):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: prefix_length
                                     
                                     	Prefix Length of IPv6 Address
@@ -600,15 +649,21 @@ class Ipv6Network(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: address_state
                                     
                                     	State of Address
                                     	**type**\:  :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: is_anycast
                                     
                                     	Anycast address
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: route_tag
                                     
@@ -616,6 +671,8 @@ class Ipv6Network(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -649,7 +706,10 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+
+
+
 
 
                         class GlobalDetails(Entity):
@@ -661,6 +721,8 @@ class Ipv6Network(Entity):
                             
                             	Detail interface IPv6 network operational data for an interface
                             	**type**\: list of  		 :py:class:`GlobalDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -700,60 +762,84 @@ class Ipv6Network(Entity):
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: link_local_address
                                 
                                 	Link Local Address
                                 	**type**\:  :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: access_control_list
                                 
                                 	IPv6 Access Control List
                                 	**type**\:  :py:class:`AccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: multi_access_control_list
                                 
                                 	Multi IPv6 Access Control List
                                 	**type**\:  :py:class:`MultiAccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: rpf
                                 
                                 	RPF config on the interface
                                 	**type**\:  :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bgp_pa
                                 
                                 	BGP PA config on the interface
                                 	**type**\:  :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: utime
                                 
                                 	Address Publish Time
                                 	**type**\:  :py:class:`Utime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: idb_utime
                                 
                                 	IDB Create Time
                                 	**type**\:  :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: caps_utime
                                 
                                 	CAPS Add Time
                                 	**type**\:  :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fwd_en_utime
                                 
                                 	FWD ENABLE Time
                                 	**type**\:  :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: fwd_dis_utime
                                 
                                 	FWD DISABLE Time
                                 	**type**\:  :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
                                 	**type**\:  :py:class:`Ipv6MaIfLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mtu
                                 
@@ -762,10 +848,14 @@ class Ipv6Network(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: operation_state
                                 
                                 	IPv6 Operation State
                                 	**type**\:  :py:class:`Ipv6MaOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperState>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: vrf_name
                                 
@@ -774,45 +864,63 @@ class Ipv6Network(Entity):
                                 
                                 	**length:** 0..32
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: is_icmp_unreach_enabled
                                 
                                 	ICMP unreach Enable
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: rg_id_exists
                                 
                                 	Does ICCP RG ID exist on the interface?
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: mlacp_active
                                 
                                 	Is mLACP state Active (valid if RG ID exists)
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: flow_tag_src
                                 
                                 	Is BGP Flow Tag Source is enable
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: flow_tag_dst
                                 
                                 	Is BGP Flow Tag Destination is enable
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: multicast_group
                                 
                                 	IPv6 Multicast Group
                                 	**type**\: list of  		 :py:class:`MulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: address
                                 
                                 	Address List
                                 	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: client_multicast_group
                                 
                                 	IPv6 Client Multicast Group
                                 	**type**\: list of  		 :py:class:`ClientMulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -900,7 +1008,7 @@ class Ipv6Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail, ['interface_name', u'line_state', u'mtu', u'operation_state', u'vrf_name', u'is_icmp_unreach_enabled', u'rg_id_exists', u'mlacp_active', u'flow_tag_src', u'flow_tag_dst'], name, value)
+                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail, ['interface_name', 'line_state', 'mtu', 'operation_state', 'vrf_name', 'is_icmp_unreach_enabled', 'rg_id_exists', 'mlacp_active', 'flow_tag_src', 'flow_tag_dst'], name, value)
 
 
                                 class LinkLocalAddress(Entity):
@@ -914,6 +1022,8 @@ class Ipv6Network(Entity):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: prefix_length
                                     
                                     	Prefix Length of IPv6 Address
@@ -921,15 +1031,21 @@ class Ipv6Network(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: address_state
                                     
                                     	State of Address
                                     	**type**\:  :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: is_anycast
                                     
                                     	Anycast address
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: route_tag
                                     
@@ -937,6 +1053,8 @@ class Ipv6Network(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -970,7 +1088,8 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+
 
 
                                 class AccessControlList(Entity):
@@ -982,20 +1101,28 @@ class Ipv6Network(Entity):
                                     	ACL applied to incoming packets
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_bound
                                     
                                     	ACL applied to outgoing packets
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: common_in_bound
                                     
                                     	Common ACL applied to incoming packets
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: common_out_bound
                                     
                                     	Common ACL applied to outgoing packets
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1027,7 +1154,8 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList, [u'in_bound', u'out_bound', u'common_in_bound', u'common_out_bound'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList, ['in_bound', 'out_bound', 'common_in_bound', 'common_out_bound'], name, value)
+
 
 
                                 class MultiAccessControlList(Entity):
@@ -1039,15 +1167,21 @@ class Ipv6Network(Entity):
                                     	Inbound ACLs
                                     	**type**\: list of  		 :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Inbound>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: outbound
                                     
                                     	Outbound ACLs
                                     	**type**\: list of  		 :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Outbound>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: common
                                     
                                     	Common ACLs
                                     	**type**\: list of  		 :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Common>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1086,6 +1220,8 @@ class Ipv6Network(Entity):
                                         	
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -1110,7 +1246,8 @@ class Ipv6Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Inbound, [u'entry'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Inbound, ['entry'], name, value)
+
 
 
                                     class Outbound(Entity):
@@ -1121,6 +1258,8 @@ class Ipv6Network(Entity):
                                         
                                         	
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1146,7 +1285,8 @@ class Ipv6Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Outbound, [u'entry'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Outbound, ['entry'], name, value)
+
 
 
                                     class Common(Entity):
@@ -1157,6 +1297,8 @@ class Ipv6Network(Entity):
                                         
                                         	
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1182,7 +1324,9 @@ class Ipv6Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Common, [u'entry'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Common, ['entry'], name, value)
+
+
 
 
                                 class Rpf(Entity):
@@ -1194,15 +1338,21 @@ class Ipv6Network(Entity):
                                     	Enable RPF config
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: allow_default_route
                                     
                                     	Allow Default Route
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: allow_self_ping
                                     
                                     	Allow Self Ping
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: mode
                                     
@@ -1210,6 +1360,8 @@ class Ipv6Network(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1241,7 +1393,8 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf, [u'enable', u'allow_default_route', u'allow_self_ping', u'mode'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf, ['enable', 'allow_default_route', 'allow_self_ping', 'mode'], name, value)
+
 
 
                                 class BgpPa(Entity):
@@ -1253,10 +1406,14 @@ class Ipv6Network(Entity):
                                     	BGP PA input config
                                     	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: output
                                     
                                     	BGP PA output config
                                     	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1301,15 +1458,21 @@ class Ipv6Network(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: source
                                         
                                         	Enable source accouting
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: destination
                                         
                                         	Enable destination accouting
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1339,7 +1502,8 @@ class Ipv6Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input, [u'enable', u'source', u'destination'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input, ['enable', 'source', 'destination'], name, value)
+
 
 
                                     class Output(Entity):
@@ -1353,15 +1517,21 @@ class Ipv6Network(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: source
                                         
                                         	Enable source accouting
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: destination
                                         
                                         	Enable destination accouting
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1391,7 +1561,9 @@ class Ipv6Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output, [u'enable', u'source', u'destination'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output, ['enable', 'source', 'destination'], name, value)
+
+
 
 
                                 class Utime(Entity):
@@ -1419,6 +1591,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
 
+
                                 class IdbUtime(Entity):
                                     """
                                     IDB Create Time
@@ -1442,6 +1615,7 @@ class Ipv6Network(Entity):
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "idb-utime"
                                         self._is_frozen = True
+
 
 
                                 class CapsUtime(Entity):
@@ -1469,6 +1643,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
 
+
                                 class FwdEnUtime(Entity):
                                     """
                                     FWD ENABLE Time
@@ -1492,6 +1667,7 @@ class Ipv6Network(Entity):
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "fwd-en-utime"
                                         self._is_frozen = True
+
 
 
                                 class FwdDisUtime(Entity):
@@ -1519,6 +1695,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
 
+
                                 class MulticastGroup(Entity):
                                     """
                                     IPv6 Multicast Group
@@ -1529,6 +1706,8 @@ class Ipv6Network(Entity):
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1554,7 +1733,8 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup, [u'address'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup, ['address'], name, value)
+
 
 
                                 class Address(Entity):
@@ -1568,6 +1748,8 @@ class Ipv6Network(Entity):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: prefix_length
                                     
                                     	Prefix Length of IPv6 Address
@@ -1575,15 +1757,21 @@ class Ipv6Network(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: address_state
                                     
                                     	State of Address
                                     	**type**\:  :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: is_anycast
                                     
                                     	Anycast address
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: route_tag
                                     
@@ -1591,6 +1779,8 @@ class Ipv6Network(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1624,7 +1814,8 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+
 
 
                                 class ClientMulticastGroup(Entity):
@@ -1637,6 +1828,8 @@ class Ipv6Network(Entity):
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1662,7 +1855,10 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup, [u'address'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup, ['address'], name, value)
+
+
+
 
 
                         class GlobalBriefs(Entity):
@@ -1674,6 +1870,8 @@ class Ipv6Network(Entity):
                             
                             	Brief interface IPv6 network operational data for an interface
                             	**type**\: list of  		 :py:class:`GlobalBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1713,15 +1911,21 @@ class Ipv6Network(Entity):
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: link_local_address
                                 
                                 	Link Local Address
                                 	**type**\:  :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
                                 	**type**\:  :py:class:`Ipv6MaIfLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: vrf_name
                                 
@@ -1730,10 +1934,14 @@ class Ipv6Network(Entity):
                                 
                                 	**length:** 0..32
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: address
                                 
                                 	Address List
                                 	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1769,7 +1977,7 @@ class Ipv6Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief, ['interface_name', u'line_state', u'vrf_name'], name, value)
+                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief, ['interface_name', 'line_state', 'vrf_name'], name, value)
 
 
                                 class LinkLocalAddress(Entity):
@@ -1783,6 +1991,8 @@ class Ipv6Network(Entity):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: prefix_length
                                     
                                     	Prefix Length of IPv6 Address
@@ -1790,15 +2000,21 @@ class Ipv6Network(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: address_state
                                     
                                     	State of Address
                                     	**type**\:  :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: is_anycast
                                     
                                     	Anycast address
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: route_tag
                                     
@@ -1806,6 +2022,8 @@ class Ipv6Network(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1839,7 +2057,8 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+
 
 
                                 class Address(Entity):
@@ -1853,6 +2072,8 @@ class Ipv6Network(Entity):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: prefix_length
                                     
                                     	Prefix Length of IPv6 Address
@@ -1860,15 +2081,21 @@ class Ipv6Network(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: address_state
                                     
                                     	State of Address
                                     	**type**\:  :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: is_anycast
                                     
                                     	Anycast address
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: route_tag
                                     
@@ -1876,6 +2103,8 @@ class Ipv6Network(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1909,7 +2138,10 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+
+
+
 
 
                         class Details(Entity):
@@ -1921,6 +2153,8 @@ class Ipv6Network(Entity):
                             
                             	Detail interface IPv6 network operational data for an interface
                             	**type**\: list of  		 :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1960,60 +2194,84 @@ class Ipv6Network(Entity):
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: link_local_address
                                 
                                 	Link Local Address
                                 	**type**\:  :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: access_control_list
                                 
                                 	IPv6 Access Control List
                                 	**type**\:  :py:class:`AccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: multi_access_control_list
                                 
                                 	Multi IPv6 Access Control List
                                 	**type**\:  :py:class:`MultiAccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: rpf
                                 
                                 	RPF config on the interface
                                 	**type**\:  :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bgp_pa
                                 
                                 	BGP PA config on the interface
                                 	**type**\:  :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: utime
                                 
                                 	Address Publish Time
                                 	**type**\:  :py:class:`Utime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: idb_utime
                                 
                                 	IDB Create Time
                                 	**type**\:  :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: caps_utime
                                 
                                 	CAPS Add Time
                                 	**type**\:  :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fwd_en_utime
                                 
                                 	FWD ENABLE Time
                                 	**type**\:  :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: fwd_dis_utime
                                 
                                 	FWD DISABLE Time
                                 	**type**\:  :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
                                 	**type**\:  :py:class:`Ipv6MaIfLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineState>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mtu
                                 
@@ -2022,10 +2280,14 @@ class Ipv6Network(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: operation_state
                                 
                                 	IPv6 Operation State
                                 	**type**\:  :py:class:`Ipv6MaOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperState>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: vrf_name
                                 
@@ -2034,45 +2296,63 @@ class Ipv6Network(Entity):
                                 
                                 	**length:** 0..32
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: is_icmp_unreach_enabled
                                 
                                 	ICMP unreach Enable
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: rg_id_exists
                                 
                                 	Does ICCP RG ID exist on the interface?
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: mlacp_active
                                 
                                 	Is mLACP state Active (valid if RG ID exists)
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: flow_tag_src
                                 
                                 	Is BGP Flow Tag Source is enable
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: flow_tag_dst
                                 
                                 	Is BGP Flow Tag Destination is enable
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: multicast_group
                                 
                                 	IPv6 Multicast Group
                                 	**type**\: list of  		 :py:class:`MulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: address
                                 
                                 	Address List
                                 	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: client_multicast_group
                                 
                                 	IPv6 Client Multicast Group
                                 	**type**\: list of  		 :py:class:`ClientMulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2160,7 +2440,7 @@ class Ipv6Network(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, ['interface_name', u'line_state', u'mtu', u'operation_state', u'vrf_name', u'is_icmp_unreach_enabled', u'rg_id_exists', u'mlacp_active', u'flow_tag_src', u'flow_tag_dst'], name, value)
+                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, ['interface_name', 'line_state', 'mtu', 'operation_state', 'vrf_name', 'is_icmp_unreach_enabled', 'rg_id_exists', 'mlacp_active', 'flow_tag_src', 'flow_tag_dst'], name, value)
 
 
                                 class LinkLocalAddress(Entity):
@@ -2174,6 +2454,8 @@ class Ipv6Network(Entity):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: prefix_length
                                     
                                     	Prefix Length of IPv6 Address
@@ -2181,15 +2463,21 @@ class Ipv6Network(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: address_state
                                     
                                     	State of Address
                                     	**type**\:  :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: is_anycast
                                     
                                     	Anycast address
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: route_tag
                                     
@@ -2197,6 +2485,8 @@ class Ipv6Network(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2230,7 +2520,8 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+
 
 
                                 class AccessControlList(Entity):
@@ -2242,20 +2533,28 @@ class Ipv6Network(Entity):
                                     	ACL applied to incoming packets
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: out_bound
                                     
                                     	ACL applied to outgoing packets
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: common_in_bound
                                     
                                     	Common ACL applied to incoming packets
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: common_out_bound
                                     
                                     	Common ACL applied to outgoing packets
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2287,7 +2586,8 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList, [u'in_bound', u'out_bound', u'common_in_bound', u'common_out_bound'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList, ['in_bound', 'out_bound', 'common_in_bound', 'common_out_bound'], name, value)
+
 
 
                                 class MultiAccessControlList(Entity):
@@ -2299,15 +2599,21 @@ class Ipv6Network(Entity):
                                     	Inbound ACLs
                                     	**type**\: list of  		 :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Inbound>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: outbound
                                     
                                     	Outbound ACLs
                                     	**type**\: list of  		 :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Outbound>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: common
                                     
                                     	Common ACLs
                                     	**type**\: list of  		 :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Common>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2346,6 +2652,8 @@ class Ipv6Network(Entity):
                                         	
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -2370,7 +2678,8 @@ class Ipv6Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Inbound, [u'entry'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Inbound, ['entry'], name, value)
+
 
 
                                     class Outbound(Entity):
@@ -2381,6 +2690,8 @@ class Ipv6Network(Entity):
                                         
                                         	
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2406,7 +2717,8 @@ class Ipv6Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Outbound, [u'entry'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Outbound, ['entry'], name, value)
+
 
 
                                     class Common(Entity):
@@ -2417,6 +2729,8 @@ class Ipv6Network(Entity):
                                         
                                         	
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2442,7 +2756,9 @@ class Ipv6Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Common, [u'entry'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Common, ['entry'], name, value)
+
+
 
 
                                 class Rpf(Entity):
@@ -2454,15 +2770,21 @@ class Ipv6Network(Entity):
                                     	Enable RPF config
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: allow_default_route
                                     
                                     	Allow Default Route
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: allow_self_ping
                                     
                                     	Allow Self Ping
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: mode
                                     
@@ -2470,6 +2792,8 @@ class Ipv6Network(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2501,7 +2825,8 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, [u'enable', u'allow_default_route', u'allow_self_ping', u'mode'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, ['enable', 'allow_default_route', 'allow_self_ping', 'mode'], name, value)
+
 
 
                                 class BgpPa(Entity):
@@ -2513,10 +2838,14 @@ class Ipv6Network(Entity):
                                     	BGP PA input config
                                     	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: output
                                     
                                     	BGP PA output config
                                     	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2561,15 +2890,21 @@ class Ipv6Network(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: source
                                         
                                         	Enable source accouting
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: destination
                                         
                                         	Enable destination accouting
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2599,7 +2934,8 @@ class Ipv6Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, [u'enable', u'source', u'destination'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, ['enable', 'source', 'destination'], name, value)
+
 
 
                                     class Output(Entity):
@@ -2613,15 +2949,21 @@ class Ipv6Network(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: source
                                         
                                         	Enable source accouting
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: destination
                                         
                                         	Enable destination accouting
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2651,7 +2993,9 @@ class Ipv6Network(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, [u'enable', u'source', u'destination'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, ['enable', 'source', 'destination'], name, value)
+
+
 
 
                                 class Utime(Entity):
@@ -2679,6 +3023,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
 
+
                                 class IdbUtime(Entity):
                                     """
                                     IDB Create Time
@@ -2702,6 +3047,7 @@ class Ipv6Network(Entity):
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "idb-utime"
                                         self._is_frozen = True
+
 
 
                                 class CapsUtime(Entity):
@@ -2729,6 +3075,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
 
+
                                 class FwdEnUtime(Entity):
                                     """
                                     FWD ENABLE Time
@@ -2752,6 +3099,7 @@ class Ipv6Network(Entity):
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "fwd-en-utime"
                                         self._is_frozen = True
+
 
 
                                 class FwdDisUtime(Entity):
@@ -2779,6 +3127,7 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
 
+
                                 class MulticastGroup(Entity):
                                     """
                                     IPv6 Multicast Group
@@ -2789,6 +3138,8 @@ class Ipv6Network(Entity):
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2814,7 +3165,8 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, [u'address'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, ['address'], name, value)
+
 
 
                                 class Address(Entity):
@@ -2828,6 +3180,8 @@ class Ipv6Network(Entity):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: prefix_length
                                     
                                     	Prefix Length of IPv6 Address
@@ -2835,15 +3189,21 @@ class Ipv6Network(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: address_state
                                     
                                     	State of Address
                                     	**type**\:  :py:class:`Ipv6MaIfAddrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrState>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: is_anycast
                                     
                                     	Anycast address
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: route_tag
                                     
@@ -2851,6 +3211,8 @@ class Ipv6Network(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2884,7 +3246,8 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+
 
 
                                 class ClientMulticastGroup(Entity):
@@ -2897,6 +3260,8 @@ class Ipv6Network(Entity):
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2922,7 +3287,12 @@ class Ipv6Network(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup, [u'address'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup, ['address'], name, value)
+
+
+
+
+
 
 
                 class Summary(Entity):
@@ -2935,20 +3305,28 @@ class Ipv6Network(Entity):
                     	Number of interfaces (up,up)
                     	**type**\:  :py:class:`IfUpUp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: if_up_down
                     
                     	Number of interfaces (up,down)
                     	**type**\:  :py:class:`IfUpDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: if_down_down
                     
                     	Number of interfaces (down,down)
                     	**type**\:  :py:class:`IfDownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: if_shutdown_down
                     
                     	Number of interfaces (shutdown,down)
                     	**type**\:  :py:class:`IfShutdownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: if_up_down_basecaps_up
                     
@@ -2956,6 +3334,8 @@ class Ipv6Network(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -2997,7 +3377,7 @@ class Ipv6Network(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary, [u'if_up_down_basecaps_up'], name, value)
+                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary, ['if_up_down_basecaps_up'], name, value)
 
 
                     class IfUpUp(Entity):
@@ -3011,6 +3391,8 @@ class Ipv6Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
@@ -3018,12 +3400,16 @@ class Ipv6Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_unassigned
                         
                         	Number of unassigned interfaces without explicit address
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3053,7 +3439,8 @@ class Ipv6Network(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
+                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
+
 
 
                     class IfUpDown(Entity):
@@ -3067,6 +3454,8 @@ class Ipv6Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
@@ -3074,12 +3463,16 @@ class Ipv6Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_unassigned
                         
                         	Number of unassigned interfaces without explicit address
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3109,7 +3502,8 @@ class Ipv6Network(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
+                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
+
 
 
                     class IfDownDown(Entity):
@@ -3123,6 +3517,8 @@ class Ipv6Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
@@ -3130,12 +3526,16 @@ class Ipv6Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_unassigned
                         
                         	Number of unassigned interfaces without explicit address
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3165,7 +3565,8 @@ class Ipv6Network(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
+                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
+
 
 
                     class IfShutdownDown(Entity):
@@ -3179,6 +3580,8 @@ class Ipv6Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
@@ -3186,12 +3589,16 @@ class Ipv6Network(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_unassigned
                         
                         	Number of unassigned interfaces without explicit address
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3221,9 +3628,16 @@ class Ipv6Network(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
+                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Ipv6Network()
         return self._top_entity
+
+
 

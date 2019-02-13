@@ -42,6 +42,7 @@ class FilterType(Identity):
         super(FilterType, self).__init__(ns, pref, tag)
 
 
+
 class ClassifierEntryFilterOperationType(Identity):
     """
     Classifier entry filter logical operation
@@ -55,6 +56,7 @@ class ClassifierEntryFilterOperationType(Identity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:classifier-entry-filter-operation-type"):
         super(ClassifierEntryFilterOperationType, self).__init__(ns, pref, tag)
+
 
 
 class Classifiers(Entity):
@@ -280,6 +282,7 @@ class Classifiers(Entity):
                     self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.DscpCfg, [u'dscp_min', u'dscp_max'], name, value)
 
 
+
             class SourceIpAddressCfg(Entity):
                 """
                 list of source ip address
@@ -324,6 +327,7 @@ class Classifiers(Entity):
                     self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.SourceIpAddressCfg, [u'source_ip_addr'], name, value)
 
 
+
             class DestinationIpAddressCfg(Entity):
                 """
                 list of destination ip address
@@ -366,6 +370,7 @@ class Classifiers(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.DestinationIpAddressCfg, [u'destination_ip_addr'], name, value)
+
 
 
             class SourcePortCfg(Entity):
@@ -415,6 +420,7 @@ class Classifiers(Entity):
                     self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.SourcePortCfg, [u'source_port_min', u'source_port_max'], name, value)
 
 
+
             class DestinationPortCfg(Entity):
                 """
                 list of ranges of destination port
@@ -460,6 +466,7 @@ class Classifiers(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.DestinationPortCfg, [u'destination_port_min', u'destination_port_max'], name, value)
+
 
 
             class ProtocolCfg(Entity):
@@ -508,9 +515,14 @@ class Classifiers(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Classifiers.ClassifierEntry.FilterEntry.ProtocolCfg, [u'protocol_min', u'protocol_max'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Classifiers()
         return self._top_entity
+
+
 
 class DestinationPort(FilterType):
     """
@@ -525,6 +537,7 @@ class DestinationPort(FilterType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:destination-port"):
         super(DestinationPort, self).__init__(ns, pref, tag)
+
 
 
 class Protocol(FilterType):
@@ -542,6 +555,7 @@ class Protocol(FilterType):
         super(Protocol, self).__init__(ns, pref, tag)
 
 
+
 class DestinationIpAddress(FilterType):
     """
     destination\-ip\-address filter\-type
@@ -555,6 +569,7 @@ class DestinationIpAddress(FilterType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:destination-ip-address"):
         super(DestinationIpAddress, self).__init__(ns, pref, tag)
+
 
 
 class Dscp(FilterType):
@@ -572,6 +587,7 @@ class Dscp(FilterType):
         super(Dscp, self).__init__(ns, pref, tag)
 
 
+
 class MatchAllFilter(ClassifierEntryFilterOperationType):
     """
     Classifier entry filter logical AND operation
@@ -585,6 +601,7 @@ class MatchAllFilter(ClassifierEntryFilterOperationType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:match-all-filter"):
         super(MatchAllFilter, self).__init__(ns, pref, tag)
+
 
 
 class SourceIpAddress(FilterType):
@@ -602,6 +619,7 @@ class SourceIpAddress(FilterType):
         super(SourceIpAddress, self).__init__(ns, pref, tag)
 
 
+
 class MatchAnyFilter(ClassifierEntryFilterOperationType):
     """
     Classifier entry filter logical OR operation
@@ -617,6 +635,7 @@ class MatchAnyFilter(ClassifierEntryFilterOperationType):
         super(MatchAnyFilter, self).__init__(ns, pref, tag)
 
 
+
 class SourcePort(FilterType):
     """
     source\-port filter\-type
@@ -630,5 +649,6 @@ class SourcePort(FilterType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", pref="ietf-diffserv-classifier", tag="ietf-diffserv-classifier:source-port"):
         super(SourcePort, self).__init__(ns, pref, tag)
+
 
 

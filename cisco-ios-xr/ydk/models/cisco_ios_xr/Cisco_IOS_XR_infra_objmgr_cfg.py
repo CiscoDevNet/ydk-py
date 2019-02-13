@@ -981,6 +981,8 @@ class ObjectGroup(Entity):
                             self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.Operators.Operator, ['operator_type', 'port'], name, value)
 
 
+
+
                 class NestedGroups(Entity):
                     """
                     Table of nested port object groups
@@ -1052,6 +1054,8 @@ class ObjectGroup(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup, ['nested_group_name'], name, value)
+
+
 
 
                 class PortRanges(Entity):
@@ -1142,6 +1146,11 @@ class ObjectGroup(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.PortRanges.PortRange, ['start_port', 'end_port'], name, value)
+
+
+
+
+
 
 
     class Network(Entity):
@@ -1422,6 +1431,8 @@ class ObjectGroup(Entity):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup, ['nested_group_name'], name, value)
 
 
+
+
                     class AddressRanges(Entity):
                         """
                         Table of ipv6 address ranges
@@ -1502,6 +1513,8 @@ class ObjectGroup(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange, ['start_address', 'end_address'], name, value)
+
+
 
 
                     class Addresses(Entity):
@@ -1586,6 +1599,8 @@ class ObjectGroup(Entity):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address, ['prefix', 'prefix_length'], name, value)
 
 
+
+
                     class Hosts(Entity):
                         """
                         Table of ipv6 host addresses
@@ -1657,6 +1672,11 @@ class ObjectGroup(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host, ['host_address'], name, value)
+
+
+
+
+
 
 
         class Ipv4(Entity):
@@ -1890,6 +1910,8 @@ class ObjectGroup(Entity):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup, ['nested_group_name'], name, value)
 
 
+
+
                     class AddressRanges(Entity):
                         """
                         Table of ipv4 host address ranges
@@ -1970,6 +1992,8 @@ class ObjectGroup(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange, ['start_address', 'end_address'], name, value)
+
+
 
 
                     class Addresses(Entity):
@@ -2054,6 +2078,8 @@ class ObjectGroup(Entity):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address, ['prefix', 'prefix_length'], name, value)
 
 
+
+
                     class Hosts(Entity):
                         """
                         Table of host addresses
@@ -2126,7 +2152,15 @@ class ObjectGroup(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host, ['host_address'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = ObjectGroup()
         return self._top_entity
+
+
 

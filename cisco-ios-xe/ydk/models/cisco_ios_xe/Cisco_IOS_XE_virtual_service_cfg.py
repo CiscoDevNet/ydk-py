@@ -109,7 +109,7 @@ class VirtualServiceCfgData(Entity):
             	Application name
             	**type**\: str
             
-            	**pattern:** [0\-9a\-zA\-Z]\*
+            	**length:** 1..128
             
             .. attribute:: application_network_resource
             
@@ -175,14 +175,14 @@ class VirtualServiceCfgData(Entity):
                 	Vnic gateway
                 	**type**\: str
                 
-                	**pattern:** [0\-9]\*
+                	**length:** 1..2
                 
                 .. attribute:: virtualportgroup_guest_interface_name_1
                 
                 	VirtualPortGroup guest interface name as number in range of 0 .. 3
                 	**type**\: str
                 
-                	**pattern:** [0\-3]\*
+                	**length:** 1
                 
                 .. attribute:: virtualportgroup_guest_ip_address_1
                 
@@ -248,14 +248,14 @@ class VirtualServiceCfgData(Entity):
                 	Vnic gateway
                 	**type**\: str
                 
-                	**pattern:** [0\-9]\*
+                	**length:** 1..2
                 
                 .. attribute:: virtualportgroup_guest_interface_name_2
                 
                 	VirtualPortGroup guest interface name as number in range of 0 .. 3
                 	**type**\: str
                 
-                	**pattern:** [0\-3]\*
+                	**length:** 1
                 
                 .. attribute:: virtualportgroup_guest_ip_address_2
                 
@@ -321,14 +321,14 @@ class VirtualServiceCfgData(Entity):
                 	Vnic gateway
                 	**type**\: str
                 
-                	**pattern:** [0\-9]\*
+                	**length:** 1..2
                 
                 .. attribute:: virtualportgroup_guest_interface_name_3
                 
                 	VirtualPortGroup guest interface name as number in range of 0 .. 3
                 	**type**\: str
                 
-                	**pattern:** [0\-3]\*
+                	**length:** 1
                 
                 .. attribute:: virtualportgroup_guest_ip_address_3
                 
@@ -394,14 +394,14 @@ class VirtualServiceCfgData(Entity):
                 	Vnic gateway
                 	**type**\: str
                 
-                	**pattern:** [0\-9]\*
+                	**length:** 1..2
                 
                 .. attribute:: virtualportgroup_guest_interface_name_4
                 
                 	VirtualPortGroup guest interface name as number in range of 0 .. 3
                 	**type**\: str
                 
-                	**pattern:** [0\-3]\*
+                	**length:** 1
                 
                 .. attribute:: virtualportgroup_guest_ip_address_4
                 
@@ -467,7 +467,7 @@ class VirtualServiceCfgData(Entity):
                 	Management port guest interface name as number in range of 0 .. 3
                 	**type**\: str
                 
-                	**pattern:** [0\-3]\*
+                	**length:** 1
                 
                 .. attribute:: management_guest_ip_address
                 
@@ -646,7 +646,7 @@ class VirtualServiceCfgData(Entity):
                     	MAC interface name
                     	**type**\: str
                     
-                    	**pattern:** [0\-9a\-zA\-Z]\*
+                    	**length:** 0..32
                     
                     
 
@@ -677,6 +677,8 @@ class VirtualServiceCfgData(Entity):
                         self._perform_setattr(VirtualServiceCfgData.Apps.App.ApplicationNetworkResource.ApplicationMacAddress, ['mac_address', 'mac_interface_name'], name, value)
 
 
+
+
             class ApplicationResourceProfile(Entity):
                 """
                 Application Resource profile
@@ -686,7 +688,7 @@ class VirtualServiceCfgData(Entity):
                 	Resource profile name
                 	**type**\: str
                 
-                	**pattern:** [0\-9a\-zA\-Z]\*
+                	**length:** 0..64
                 
                 .. attribute:: vcpu
                 
@@ -727,7 +729,7 @@ class VirtualServiceCfgData(Entity):
                 	Resource package profile name
                 	**type**\: str
                 
-                	**pattern:** [0\-9a\-zA\-Z]\*
+                	**length:** 0..64
                 
                 
 
@@ -766,6 +768,7 @@ class VirtualServiceCfgData(Entity):
                     self._perform_setattr(VirtualServiceCfgData.Apps.App.ApplicationResourceProfile, ['profile_name', 'vcpu', 'cpu_units', 'memory_capacity_mb', 'disk_size_mb', 'pkg_profile_name'], name, value)
 
 
+
             class ApplicationAttachedDevice(Entity):
                 """
                 Application attached device
@@ -775,7 +778,7 @@ class VirtualServiceCfgData(Entity):
                 	device name
                 	**type**\: str
                 
-                	**pattern:** [0\-9a\-zA\-Z]\*
+                	**length:** 0..32
                 
                 
 
@@ -802,6 +805,9 @@ class VirtualServiceCfgData(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualServiceCfgData.Apps.App.ApplicationAttachedDevice, ['device_name'], name, value)
+
+
+
 
 
     class Controls(Entity):
@@ -847,7 +853,10 @@ class VirtualServiceCfgData(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(VirtualServiceCfgData.Controls, ['application_hosting_infra_enable_statue'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = VirtualServiceCfgData()
         return self._top_entity
+
+
 

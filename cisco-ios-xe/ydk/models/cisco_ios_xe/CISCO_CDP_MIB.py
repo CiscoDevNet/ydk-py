@@ -23,25 +23,35 @@ class CISCOCDPMIB(Entity):
     	
     	**type**\:  :py:class:`CdpGlobal <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CISCOCDPMIB.CdpGlobal>`
     
+    	**config**\: False
+    
     .. attribute:: cdpinterfacetable
     
     	The (conceptual) table containing the status of CDP on the device's interfaces
     	**type**\:  :py:class:`CdpInterfaceTable <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CISCOCDPMIB.CdpInterfaceTable>`
+    
+    	**config**\: False
     
     .. attribute:: cdpinterfaceexttable
     
     	This table contains the additional CDP configuration on the device's interfaces
     	**type**\:  :py:class:`CdpInterfaceExtTable <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CISCOCDPMIB.CdpInterfaceExtTable>`
     
+    	**config**\: False
+    
     .. attribute:: cdpcachetable
     
     	The (conceptual) table containing the cached information obtained via receiving CDP messages
     	**type**\:  :py:class:`CdpCacheTable <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CISCOCDPMIB.CdpCacheTable>`
     
+    	**config**\: False
+    
     .. attribute:: cdpctaddresstable
     
     	The (conceptual) table containing the list of  network\-layer addresses of a neighbor interface, as reported in the Address TLV of the most recently received CDP message. The first address included in the Address TLV is saved in cdpCacheAddress.  This table contains the remainder of the addresses in the Address TLV
     	**type**\:  :py:class:`CdpCtAddressTable <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CISCOCDPMIB.CdpCtAddressTable>`
+    
+    	**config**\: False
     
     
 
@@ -97,12 +107,16 @@ class CISCOCDPMIB(Entity):
         	An indication of whether the Cisco Discovery Protocol is currently running.  Entries in cdpCacheTable are deleted when CDP is disabled
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: cdpglobalmessageinterval
         
         	The interval at which CDP messages are to be generated. The default value is 60 seconds
         	**type**\: int
         
         	**range:** 5..254
+        
+        	**config**\: False
         
         	**units**\: seconds
         
@@ -113,12 +127,16 @@ class CISCOCDPMIB(Entity):
         
         	**range:** 10..255
         
+        	**config**\: False
+        
         	**units**\: seconds
         
         .. attribute:: cdpglobaldeviceid
         
         	The device ID advertised by this device. The format of this device id is characterized by the value of  cdpGlobalDeviceIdFormat object
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: cdpgloballastchange
         
@@ -127,15 +145,21 @@ class CISCOCDPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: cdpglobaldeviceidformatcpb
         
         	Indicate the Device\-Id format capability of the device.  serialNumber(0) indicates that the device supports using serial number as the format for its DeviceId.  macAddress(1) indicates that the device supports using layer 2 MAC address as the format for its DeviceId.  other(2) indicates that the device supports using its platform specific format as the format for its DeviceId
         	**type**\:  :py:class:`CdpGlobalDeviceIdFormatCpb <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CISCOCDPMIB.CdpGlobal.CdpGlobalDeviceIdFormatCpb>`
         
+        	**config**\: False
+        
         .. attribute:: cdpglobaldeviceidformat
         
         	An indication of the format of Device\-Id contained in the corresponding instance of cdpGlobalDeviceId. User can only specify the formats that the device is capable of as denoted in cdpGlobalDeviceIdFormatCpb object.  serialNumber(1) indicates that the value of cdpGlobalDeviceId  object is in the form of an ASCII string contain the device serial number.   macAddress(2) indicates that the value of cdpGlobalDeviceId  object is in the form of Layer 2 MAC address.  other(3) indicates that the value of cdpGlobalDeviceId object is in the form of a platform specific ASCII string contain info that identifies the device. For example\: ASCII string contains serialNumber appended/prepened with system name
         	**type**\:  :py:class:`CdpGlobalDeviceIdFormat <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CISCOCDPMIB.CdpGlobal.CdpGlobalDeviceIdFormat>`
+        
+        	**config**\: False
         
         
 
@@ -222,6 +246,7 @@ class CISCOCDPMIB(Entity):
 
 
 
+
     class CdpInterfaceTable(Entity):
         """
         The (conceptual) table containing the status of CDP on
@@ -231,6 +256,8 @@ class CISCOCDPMIB(Entity):
         
         	An entry (conceptual row) in the cdpInterfaceTable, containing the status of CDP on an interface
         	**type**\: list of  		 :py:class:`CdpInterfaceEntry <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CISCOCDPMIB.CdpInterfaceTable.CdpInterfaceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -271,10 +298,14 @@ class CISCOCDPMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cdpinterfaceenable
             
             	An indication of whether the Cisco Discovery Protocol is currently running on this interface.  This variable has no effect when CDP is disabled (cdpGlobalRun = FALSE)
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cdpinterfacemessageinterval
             
@@ -282,6 +313,8 @@ class CISCOCDPMIB(Entity):
             	**type**\: int
             
             	**range:** 0..254
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -294,6 +327,8 @@ class CISCOCDPMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cdpinterfaceport
             
             	This object is only relevant to interfaces which are repeater ports on 802.3 repeaters.  In this situation, it indicates the RFC1516 port number of the repeater port which corresponds to this interface
@@ -301,10 +336,14 @@ class CISCOCDPMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cdpinterfacename
             
             	The name of the local interface as advertised by CDP in the Port\-ID TLV
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -344,6 +383,8 @@ class CISCOCDPMIB(Entity):
                 self._perform_setattr(CISCOCDPMIB.CdpInterfaceTable.CdpInterfaceEntry, ['cdpinterfaceifindex', 'cdpinterfaceenable', 'cdpinterfacemessageinterval', 'cdpinterfacegroup', 'cdpinterfaceport', 'cdpinterfacename'], name, value)
 
 
+
+
     class CdpInterfaceExtTable(Entity):
         """
         This table contains the additional CDP configuration on
@@ -353,6 +394,8 @@ class CISCOCDPMIB(Entity):
         
         	An entry in the cdpInterfaceExtTable contains the values configured for Extented Trust TLV and COS (Class of Service) for Untrusted Ports TLV on an interface which supports the sending of these TLVs
         	**type**\: list of  		 :py:class:`CdpInterfaceExtEntry <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CISCOCDPMIB.CdpInterfaceExtTable.CdpInterfaceExtEntry>`
+        
+        	**config**\: False
         
         
 
@@ -397,10 +440,14 @@ class CISCOCDPMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdpinterfaceextendedtrust
             
             	Indicates the value to be sent by Extended Trust TLV.  If trusted(1) is configured, the value of Extended Trust TLV is one byte in length with its least significant bit equal to 1 to indicate extended trust. All other bits are 0.  If noTrust(2) is configured, the value of Extended Trust TLV is one byte in length with its least significant bit equal to 0 to indicate no extended trust. All other bits are 0
             	**type**\:  :py:class:`CdpInterfaceExtendedTrust <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CISCOCDPMIB.CdpInterfaceExtTable.CdpInterfaceExtEntry.CdpInterfaceExtendedTrust>`
+            
+            	**config**\: False
             
             .. attribute:: cdpinterfacecosforuntrustedport
             
@@ -408,6 +455,8 @@ class CISCOCDPMIB(Entity):
             	**type**\: int
             
             	**range:** 0..7
+            
+            	**config**\: False
             
             
 
@@ -470,6 +519,8 @@ class CISCOCDPMIB(Entity):
 
 
 
+
+
     class CdpCacheTable(Entity):
         """
         The (conceptual) table containing the cached
@@ -479,6 +530,8 @@ class CISCOCDPMIB(Entity):
         
         	An entry (conceptual row) in the cdpCacheTable, containing the information received via CDP on one interface from one device.  Entries appear when a CDP advertisement is received from a neighbor device.  Entries disappear when CDP is disabled on the interface, or globally
         	**type**\: list of  		 :py:class:`CdpCacheEntry <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CISCOCDPMIB.CdpCacheTable.CdpCacheEntry>`
+        
+        	**config**\: False
         
         
 
@@ -523,6 +576,8 @@ class CISCOCDPMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cdpcachedeviceindex  (key)
             
             	A unique value for each device from which CDP messages are being received
@@ -530,35 +585,49 @@ class CISCOCDPMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cdpcacheaddresstype
             
             	An indication of the type of address contained in the corresponding instance of cdpCacheAddress
             	**type**\:  :py:class:`CiscoNetworkProtocol <ydk.models.cisco_ios_xe.CISCO_TC.CiscoNetworkProtocol>`
+            
+            	**config**\: False
             
             .. attribute:: cdpcacheaddress
             
             	The (first) network\-layer address of the device as reported in the Address TLV of the most recently received CDP message.  For example, if the corresponding instance of cacheAddressType had the value 'ip(1)', then this object  would be an IPv4\-address.  If the neighbor device is  SNMP\-manageable, it is supposed to generate its CDP messages such that this address is one at which it will receive SNMP messages. Use cdpCtAddressTable to extract the remaining addresses from the Address TLV received most recently
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: cdpcacheversion
             
             	The Version string as reported in the most recent CDP message.  The zero\-length string indicates no Version field (TLV) was reported in the most recent CDP message
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: cdpcachedeviceid
             
             	The Device\-ID string as reported in the most recent CDP message.  The zero\-length string indicates no Device\-ID field (TLV) was reported in the most recent CDP message
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: cdpcachedeviceport
             
             	The Port\-ID string as reported in the most recent CDP message.  This will typically be the value of the ifName object (e.g., 'Ethernet0').  The zero\-length string indicates no Port\-ID field (TLV) was reported in the most recent CDP message
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: cdpcacheplatform
             
             	The Device's Hardware Platform as reported in the most recent CDP message.  The zero\-length string indicates that no Platform field (TLV) was reported in the most recent CDP message
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: cdpcachecapabilities
             
@@ -567,12 +636,16 @@ class CISCOCDPMIB(Entity):
             
             	**length:** 0..4
             
+            	**config**\: False
+            
             .. attribute:: cdpcachevtpmgmtdomain
             
             	The VTP Management Domain for the remote device's interface,  as reported in the most recently received CDP message. This object is not instantiated if no VTP Management Domain field (TLV) was reported in the most recently received CDP message
             	**type**\: str
             
             	**length:** 0..32
+            
+            	**config**\: False
             
             .. attribute:: cdpcachenativevlan
             
@@ -581,10 +654,14 @@ class CISCOCDPMIB(Entity):
             
             	**range:** 0..4095
             
+            	**config**\: False
+            
             .. attribute:: cdpcacheduplex
             
             	The remote device's interface's duplex mode, as reported in the  most recent CDP message.  The value unknown(1) indicates no duplex mode field (TLV) was reported in the most recent CDP message
             	**type**\:  :py:class:`CdpCacheDuplex <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CISCOCDPMIB.CdpCacheTable.CdpCacheEntry.CdpCacheDuplex>`
+            
+            	**config**\: False
             
             .. attribute:: cdpcacheapplianceid
             
@@ -593,6 +670,8 @@ class CISCOCDPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cdpcachevlanid
             
             	The remote device's VoIP VLAN ID, as reported in the  most recent CDP message. This object is not instantiated if no Appliance VLAN\-ID field (TLV) was reported in the most recently received CDP message
@@ -600,12 +679,16 @@ class CISCOCDPMIB(Entity):
             
             	**range:** 0..4095
             
+            	**config**\: False
+            
             .. attribute:: cdpcachepowerconsumption
             
             	The amount of power consumed by remote device, as reported in the most recent CDP message. This object is not instantiated if no Power Consumption field (TLV) was reported in the most recently received CDP message
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliwatts
             
@@ -616,12 +699,16 @@ class CISCOCDPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdpcachesysname
             
             	Indicates the value of the remote device's sysName MIB object. By convention, it is the device's fully qualified domain name. This object is not instantiated if no sysName field (TLV) was reported in the most recently received CDP message
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: cdpcachesysobjectid
             
@@ -630,30 +717,42 @@ class CISCOCDPMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: cdpcacheprimarymgmtaddrtype
             
             	An indication of the type of address contained in the corresponding instance of cdpCachePrimaryMgmtAddress
             	**type**\:  :py:class:`CiscoNetworkProtocol <ydk.models.cisco_ios_xe.CISCO_TC.CiscoNetworkProtocol>`
+            
+            	**config**\: False
             
             .. attribute:: cdpcacheprimarymgmtaddr
             
             	This object indicates the (first) network layer address at which the device will accept SNMP messages as reported in the first address in the  Management\-Address TLV of the most recently received CDP message.  If the corresponding instance of  cdpCachePrimaryMgmtAddrType has the value 'ip(1)', then this object would be an IP\-address. If the  remote device is not currently manageable via any  network protocol, then it reports the special value  of the IPv4 address 0.0.0.0, and that address is  recorded in this object.  If the most recently received CDP message did not contain the Management\-Address TLV, then this object is not instanstiated
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: cdpcachesecondarymgmtaddrtype
             
             	An indication of the type of address contained in the corresponding instance of cdpCacheSecondaryMgmtAddress
             	**type**\:  :py:class:`CiscoNetworkProtocol <ydk.models.cisco_ios_xe.CISCO_TC.CiscoNetworkProtocol>`
+            
+            	**config**\: False
             
             .. attribute:: cdpcachesecondarymgmtaddr
             
             	This object indicates the alternate network layer address at which the device will accept SNMP messages as reported in the second address in the  Management\-Address TLV of the most recently received CDP message.  If the corresponding instance of cdpCacheSecondaryMgmtAddrType has the value 'ip(1)', then this object would be an IP\-address. If the  remote device reports the special value of the  IPv4 address 0.0.0.0, that address is recorded in  this object.  If the most recently received CDP message did not contain the Management\-Address TLV, or if that TLV contained only one address, then this object is not instanstiated
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: cdpcachephyslocation
             
             	Indicates the physical location, as reported by the most recent CDP message, of a connector which is on, or physically connected to, the remote device's interface over which the CDP packet is sent. This object is not instantiated if no Physical Location field (TLV) was reported by the most recently received CDP message
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: cdpcachelastchange
             
@@ -661,6 +760,8 @@ class CISCOCDPMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -763,6 +864,8 @@ class CISCOCDPMIB(Entity):
 
 
 
+
+
     class CdpCtAddressTable(Entity):
         """
         The (conceptual) table containing the list of 
@@ -777,6 +880,8 @@ class CISCOCDPMIB(Entity):
         
         	An entry (conceptual row) in the cdpCtAddressTable, containing the information on one address received via CDP  on one interface from one device.  Entries appear  when a CDP advertisement is received from a neighbor device, with an Address TLV.  Entries disappear when CDP is disabled on the interface, or globally. An entry  or entries would also disappear if the most recently received CDP packet contain fewer address entries in the Address TLV, than are currently present in the CDP cache
         	**type**\: list of  		 :py:class:`CdpCtAddressEntry <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CISCOCDPMIB.CdpCtAddressTable.CdpCtAddressEntry>`
+        
+        	**config**\: False
         
         
 
@@ -826,6 +931,8 @@ class CISCOCDPMIB(Entity):
             
             	**refers to**\:  :py:class:`cdpcacheifindex <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CISCOCDPMIB.CdpCacheTable.CdpCacheEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdpcachedeviceindex  (key)
             
             	
@@ -835,6 +942,8 @@ class CISCOCDPMIB(Entity):
             
             	**refers to**\:  :py:class:`cdpcachedeviceindex <ydk.models.cisco_ios_xe.CISCO_CDP_MIB.CISCOCDPMIB.CdpCacheTable.CdpCacheEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdpctaddressindex  (key)
             
             	The index of the address entry for a given  cdpCacheIfIndex,cdpCacheDeviceIndex pair. It has the value N\-1 for the N\-th address in the Address TLV
@@ -842,15 +951,21 @@ class CISCOCDPMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cdpctaddresstype
             
             	An indication of the type of address contained in the corresponding instance of cdpCtAddress
             	**type**\:  :py:class:`CiscoNetworkProtocol <ydk.models.cisco_ios_xe.CISCO_TC.CiscoNetworkProtocol>`
             
+            	**config**\: False
+            
             .. attribute:: cdpctaddress
             
             	The N\-th network\-layer address of the device as reported in the most recent CDP message's Address TLV, where N\-1 is given by the value of cdpCtAddressIndex. For example, if the the corresponding instance of cdpCtAddressType had the value 'ip(1)', then this object would be an IPv4\-address. NOTE \- The 1st address received in the Address TLV is        available using cdpCacheAddress
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -887,7 +1002,11 @@ class CISCOCDPMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCDPMIB.CdpCtAddressTable.CdpCtAddressEntry, ['cdpcacheifindex', 'cdpcachedeviceindex', 'cdpctaddressindex', 'cdpctaddresstype', 'cdpctaddress'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOCDPMIB()
         return self._top_entity
+
+
 

@@ -26,6 +26,8 @@ class ENTITYSTATEMIB(Entity):
     	
     	**type**\:  :py:class:`EntStateTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_state_mib.ENTITYSTATEMIB.EntStateTable>`
     
+    	**config**\: False
+    
     
 
     """
@@ -63,6 +65,8 @@ class ENTITYSTATEMIB(Entity):
         
         	
         	**type**\: list of  		 :py:class:`EntStateEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_state_mib.ENTITYSTATEMIB.EntStateTable.EntStateEntry>`
+        
+        	**config**\: False
         
         
 
@@ -102,6 +106,8 @@ class ENTITYSTATEMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: entstatelastchanged
             
             	
@@ -109,30 +115,42 @@ class ENTITYSTATEMIB(Entity):
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
+            	**config**\: False
+            
             .. attribute:: entstateadmin
             
             	
             	**type**\:  :py:class:`EntityAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_state_tc_mib.EntityAdminState>`
+            
+            	**config**\: False
             
             .. attribute:: entstateoper
             
             	
             	**type**\:  :py:class:`EntityOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_state_tc_mib.EntityOperState>`
             
+            	**config**\: False
+            
             .. attribute:: entstateusage
             
             	
             	**type**\:  :py:class:`EntityUsageState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_state_tc_mib.EntityUsageState>`
+            
+            	**config**\: False
             
             .. attribute:: entstatealarm
             
             	
             	**type**\:  :py:class:`EntityAlarmStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_state_tc_mib.EntityAlarmStatus>`
             
+            	**config**\: False
+            
             .. attribute:: entstatestandby
             
             	
             	**type**\:  :py:class:`EntityStandbyStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_state_tc_mib.EntityStandbyStatus>`
+            
+            	**config**\: False
             
             
 
@@ -173,7 +191,11 @@ class ENTITYSTATEMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ENTITYSTATEMIB.EntStateTable.EntStateEntry, ['entphysicalindex', 'entstatelastchanged', 'entstateadmin', 'entstateoper', 'entstateusage', 'entstatealarm', 'entstatestandby'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ENTITYSTATEMIB()
         return self._top_entity
+
+
 

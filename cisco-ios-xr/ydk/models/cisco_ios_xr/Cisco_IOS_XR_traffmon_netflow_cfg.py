@@ -299,6 +299,7 @@ class NetFlow(Entity):
                     self._perform_setattr(NetFlow.FlowExporterMaps.FlowExporterMap.Udp, ['destination_port'], name, value)
 
 
+
             class Destination(Entity):
                 """
                 Configure export destination (collector)
@@ -349,6 +350,7 @@ class NetFlow(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(NetFlow.FlowExporterMaps.FlowExporterMap.Destination, ['ip_address', 'ipv6_address', 'vrf_name'], name, value)
+
 
 
             class Version(Entity):
@@ -497,6 +499,10 @@ class NetFlow(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(NetFlow.FlowExporterMaps.FlowExporterMap.Version.Options, ['interface_table_export_timeout', 'sampler_table_export_timeout', 'vrf_table_export_timeout'], name, value)
+
+
+
+
 
 
     class FlowSamplerMaps(Entity):
@@ -674,6 +680,10 @@ class NetFlow(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(NetFlow.FlowSamplerMaps.FlowSamplerMap.SamplingModes.SamplingMode, ['mode', 'sample_number', 'interval'], name, value)
+
+
+
+
 
 
     class FlowMonitorMapTable(Entity):
@@ -906,6 +916,7 @@ class NetFlow(Entity):
                     self._perform_setattr(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option, ['filtered', 'out_bundle_member', 'out_phys_int', 'bgp_attr'], name, value)
 
 
+
             class Exporters(Entity):
                 """
                 Configure exporters to be used by the
@@ -981,6 +992,8 @@ class NetFlow(Entity):
                         self._perform_setattr(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Exporters.Exporter, ['exporter_name'], name, value)
 
 
+
+
             class Record(Entity):
                 """
                 Specify a flow record format
@@ -1031,6 +1044,9 @@ class NetFlow(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(NetFlow.FlowMonitorMapTable.FlowMonitorMap.Record, ['record_name', 'label'], name, value)
+
+
+
 
 
     class FlowMonitorMapPerformanceTable(Entity):
@@ -1263,6 +1279,7 @@ class NetFlow(Entity):
                     self._perform_setattr(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option, ['filtered', 'out_bundle_member', 'out_phys_int', 'bgp_attr'], name, value)
 
 
+
             class Exporters(Entity):
                 """
                 Configure exporters to be used by the
@@ -1338,6 +1355,8 @@ class NetFlow(Entity):
                         self._perform_setattr(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Exporters.Exporter, ['exporter_name'], name, value)
 
 
+
+
             class Record(Entity):
                 """
                 Specify a flow record format
@@ -1389,7 +1408,12 @@ class NetFlow(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Record, ['record_name', 'label'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = NetFlow()
         return self._top_entity
+
+
 

@@ -181,15 +181,21 @@ class MdtOperData(Entity):
     	MDT streams table. The list of supported streams
     	**type**\:  :py:class:`MdtStreams <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_oper.MdtOperData.MdtStreams>`
     
+    	**config**\: False
+    
     .. attribute:: mdt_subscriptions
     
     	MDT subscription operational data
     	**type**\: list of  		 :py:class:`MdtSubscriptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_oper.MdtOperData.MdtSubscriptions>`
     
+    	**config**\: False
+    
     .. attribute:: mdt_connections
     
     	MDT subscription connection operational data
     	**type**\: list of  		 :py:class:`MdtConnections <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_oper.MdtOperData.MdtConnections>`
+    
+    	**config**\: False
     
     
 
@@ -232,6 +238,8 @@ class MdtOperData(Entity):
         	Name of a supported stream
         	**type**\: list of str
         
+        	**config**\: False
+        
         
 
         """
@@ -260,6 +268,7 @@ class MdtOperData(Entity):
             self._perform_setattr(MdtOperData.MdtStreams, ['stream'], name, value)
 
 
+
     class MdtSubscriptions(Entity):
         """
         MDT subscription operational data.
@@ -271,25 +280,35 @@ class MdtOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: base
         
         	Common subscription information
         	**type**\:  :py:class:`Base <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_oper.MdtOperData.MdtSubscriptions.Base>`
+        
+        	**config**\: False
         
         .. attribute:: type
         
         	Subscription type
         	**type**\:  :py:class:`MdtSubType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_oper.MdtSubType>`
         
+        	**config**\: False
+        
         .. attribute:: state
         
         	Subscription state
         	**type**\:  :py:class:`MdtSubState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_oper.MdtSubState>`
         
+        	**config**\: False
+        
         .. attribute:: comments
         
         	Comments related to subcription state
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: updates_in
         
@@ -298,12 +317,16 @@ class MdtOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: updates_dampened
         
         	Number of updates dropped due to dampening
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: updates_dropped
         
@@ -312,10 +335,14 @@ class MdtOperData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: mdt_receivers
         
         	List of MDT receivers
         	**type**\: list of  		 :py:class:`MdtReceivers <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_oper.MdtOperData.MdtSubscriptions.MdtReceivers>`
+        
+        	**config**\: False
         
         
 
@@ -372,6 +399,8 @@ class MdtOperData(Entity):
             	The name of the event stream being subscribed to
             	**type**\: str
             
+            	**config**\: False
+            
             	**default value**\: NETCONF
             
             .. attribute:: encoding
@@ -379,12 +408,16 @@ class MdtOperData(Entity):
             	Update notification encoding
             	**type**\: str
             
+            	**config**\: False
+            
             	**default value**\: encode-xml
             
             .. attribute:: source_vrf
             
             	Network instance name for the VRF
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: source_address
             
@@ -399,12 +432,16 @@ class MdtOperData(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: no_trigger
             
             	Placeholder for unset value
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**default value**\: 0
             
@@ -417,12 +454,16 @@ class MdtOperData(Entity):
             
             	**mandatory**\: True
             
+            	**config**\: False
+            
             	**units**\: centiseconds
             
             .. attribute:: no_synch_on_start
             
             	If true, there is no initial update notification with the current value of all the data. NOT CURRENTLY SUPPORTED. If specified, must be false
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: no_filter
             
@@ -431,6 +472,8 @@ class MdtOperData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**default value**\: 0
             
             .. attribute:: xpath
@@ -438,15 +481,21 @@ class MdtOperData(Entity):
             	XPath expression describing the set of objects wanted as part of the subscription
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: tdl_uri
             
             	TDL\-URI expression describing the set of objects wanted as part of the subscription
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: transform_name
             
             	Transform name is the reference to  tdl transform scheme
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -495,6 +544,7 @@ class MdtOperData(Entity):
                 self._perform_setattr(MdtOperData.MdtSubscriptions.Base, [u'stream', u'encoding', u'source_vrf', u'source_address', u'no_trigger', u'period', u'no_synch_on_start', u'no_filter', u'xpath', u'tdl_uri', u'transform_name'], name, value)
 
 
+
         class MdtReceivers(Entity):
             """
             List of MDT receivers.
@@ -514,6 +564,8 @@ class MdtOperData(Entity):
             
             	**mandatory**\: True
             
+            	**config**\: False
+            
             .. attribute:: port  (key)
             
             	Network port of the receiver
@@ -523,25 +575,35 @@ class MdtOperData(Entity):
             
             	**mandatory**\: True
             
+            	**config**\: False
+            
             .. attribute:: protocol
             
             	Receiver transport protocol
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: state
             
             	Receiver state
             	**type**\:  :py:class:`MdtReceiverState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_oper.MdtReceiverState>`
             
+            	**config**\: False
+            
             .. attribute:: comments
             
             	Comments related to receiver state
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: profile
             
             	Receiver's protocol profile name
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -580,6 +642,8 @@ class MdtOperData(Entity):
                 self._perform_setattr(MdtOperData.MdtSubscriptions.MdtReceivers, [u'address', u'port', 'protocol', 'state', 'comments', 'profile'], name, value)
 
 
+
+
     class MdtConnections(Entity):
         """
         MDT subscription connection operational data.
@@ -597,6 +661,8 @@ class MdtOperData(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: port  (key)
         
         	Network port
@@ -604,10 +670,14 @@ class MdtOperData(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: source_vrf  (key)
         
         	Network instance name for the VRF that the connection originates from
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: source_address  (key)
         
@@ -622,30 +692,42 @@ class MdtOperData(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: transport
         
         	Transport protocol on this connection See transport\-protocol from subscribed\-notifications for possible values
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: peer_id
         
         	Identity of the peer at the other end of the connection. May be empty, depending on connection state
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: state
         
         	Connection state
         	**type**\:  :py:class:`MdtConState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_oper.MdtConState>`
+        
+        	**config**\: False
         
         .. attribute:: mdt_sub_con_stats
         
         	List of subscription specific statistics for this connection
         	**type**\: list of  		 :py:class:`MdtSubConStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_oper.MdtOperData.MdtConnections.MdtSubConStats>`
         
+        	**config**\: False
+        
         .. attribute:: profile
         
         	Protocol profile used with this connection
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -703,6 +785,8 @@ class MdtOperData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: updates_sent
             
             	Number of update notifications sent to the receiver using this subscription
@@ -710,12 +794,16 @@ class MdtOperData(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: updates_dropped
             
             	Number of dropped update notifications due to error or events not in other counters using this subscription
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -747,7 +835,11 @@ class MdtOperData(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(MdtOperData.MdtConnections.MdtSubConStats, ['sub_id', 'updates_sent', 'updates_dropped'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = MdtOperData()
         return self._top_entity
+
+
 

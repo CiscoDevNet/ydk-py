@@ -130,90 +130,126 @@ class DOCSIFMIB(Entity):
     	
     	**type**\:  :py:class:`DocsIfBaseObjects <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfBaseObjects>`
     
+    	**config**\: False
+    
     .. attribute:: docsifcmtsobjects
     
     	
     	**type**\:  :py:class:`DocsIfCmtsObjects <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsObjects>`
+    
+    	**config**\: False
     
     .. attribute:: docsifdownstreamchanneltable
     
     	This table describes the attributes of downstream channels (frequency bands)
     	**type**\:  :py:class:`DocsIfDownstreamChannelTable <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfDownstreamChannelTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsifupstreamchanneltable
     
     	This table describes the attributes of attached upstream channels
     	**type**\:  :py:class:`DocsIfUpstreamChannelTable <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfUpstreamChannelTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsifqosprofiletable
     
     	Describes the attributes for each class of service
     	**type**\:  :py:class:`DocsIfQosProfileTable <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfQosProfileTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsifsignalqualitytable
     
     	At the CM, describes the PHY signal quality of downstream channels. At the CMTS, describes the PHY signal quality of upstream channels. At the CMTS, this table may exclude contention intervals
     	**type**\:  :py:class:`DocsIfSignalQualityTable <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfSignalQualityTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsifcmmactable
     
     	Describes the attributes of each CM MAC interface, extending the information available from ifEntry
     	**type**\:  :py:class:`DocsIfCmMacTable <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmMacTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsifcmstatustable
     
     	This table maintains a number of status objects and counters for Cable Modems
     	**type**\:  :py:class:`DocsIfCmStatusTable <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmStatusTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsifcmservicetable
     
     	Describes the attributes of each upstream service queue on a CM
     	**type**\:  :py:class:`DocsIfCmServiceTable <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmServiceTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsifcmtsmactable
     
     	Describes the attributes of each CMTS MAC interface, extending the information available from ifEntry. Mandatory for all CMTS devices
     	**type**\:  :py:class:`DocsIfCmtsMacTable <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsMacTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsifcmtsstatustable
     
     	For the MAC layer, this group maintains a number of status objects and counters
     	**type**\:  :py:class:`DocsIfCmtsStatusTable <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsStatusTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsifcmtscmstatustable
     
     	A set of objects in the CMTS, maintained for each Cable Modem connected to this CMTS
     	**type**\:  :py:class:`DocsIfCmtsCmStatusTable <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsCmStatusTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsifcmtsservicetable
     
     	Describes the attributes of upstream service queues in a Cable Modem Termination System
     	**type**\:  :py:class:`DocsIfCmtsServiceTable <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsServiceTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsifcmtsmodulationtable
     
     	Describes a modulation profile associated with one or more upstream channels
     	**type**\:  :py:class:`DocsIfCmtsModulationTable <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsModulationTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsifcmtsmactocmtable
     
     	This is a table to provide a quick access index into the docsIfCmtsCmStatusTable. There is exactly one row in this table for each row in the docsIfCmtsCmStatusTable. In general, the management station should use this table only to get a pointer into the docsIfCmtsCmStatusTable (which corresponds to the CM's RF interface MAC address), and should not iterate (e.g. GetNext through) this table
     	**type**\:  :py:class:`DocsIfCmtsMacToCmTable <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsMacToCmTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsifcmtschannelutilizationtable
     
     	Reports utilization statistics for attached upstream and downstream physical channels
     	**type**\:  :py:class:`DocsIfCmtsChannelUtilizationTable <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsChannelUtilizationTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsifcmtsdownchannelcountertable
     
     	This table is implemented at the CMTS to collect downstream channel statistics for utilization calculations
     	**type**\:  :py:class:`DocsIfCmtsDownChannelCounterTable <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsDownChannelCounterTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsifcmtsupchannelcountertable
     
     	This table is implemented at the CMTS to provide upstream channel statistics appropriate for channel utilization calculations
     	**type**\:  :py:class:`DocsIfCmtsUpChannelCounterTable <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsUpChannelCounterTable>`
+    
+    	**config**\: False
     
     
 
@@ -321,6 +357,8 @@ class DOCSIFMIB(Entity):
         	Indication of the DOCSIS capability of the device
         	**type**\:  :py:class:`DocsisVersion <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DocsisVersion>`
         
+        	**config**\: False
+        
         
 
         """
@@ -349,6 +387,7 @@ class DOCSIFMIB(Entity):
             self._perform_setattr(DOCSIFMIB.DocsIfBaseObjects, [u'docsifdocsisbasecapability'], name, value)
 
 
+
     class DocsIfCmtsObjects(Entity):
         """
         
@@ -358,12 +397,16 @@ class DOCSIFMIB(Entity):
         	This object specifies permitted methods of creating entries in docsIfQosProfileTable. CreateByManagement(0) is set if entries can be created using SNMP. UpdateByManagement(1) is set if updating entries using SNMP is permitted. CreateByModems(2) is set if entries can be created based on information in REG\-REQ MAC messages received from Cable Modems. Information in this object is only applicable if docsIfQosProfileTable is implemented as read\-create. Otherwise, this object is implemented as read\-only and returns CreateByModems(2). Either CreateByManagement(0) or CreateByModems(1) must be set when writing to this object. Note that BITS objects are encoded most significant bit first. For example, if bit 2 is set, the value of this object is the octet string '20'H
         	**type**\:  :py:class:`DocsIfCmtsQosProfilePermissions <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsObjects.DocsIfCmtsQosProfilePermissions>`
         
+        	**config**\: False
+        
         .. attribute:: docsifcmtschannelutilizationinterval
         
         	The time interval in seconds over which the channel utilization index is calculated. All upstream/downstream channels use the same docsIfCmtsChannelUtilizationInterval.  Setting a value of zero disables utilization reporting. A channel utilization index is calculated over a fixed window applying to the most recent docsIfCmtsChannelUtilizationInterval. It would therefore be prudent to use a relatively short docsIfCmtsChannelUtilizationInterval
         	**type**\: int
         
         	**range:** 0..86400
+        
+        	**config**\: False
         
         	**units**\: seconds
         
@@ -397,6 +440,7 @@ class DOCSIFMIB(Entity):
             self._perform_setattr(DOCSIFMIB.DocsIfCmtsObjects, [u'docsifcmtsqosprofilepermissions', u'docsifcmtschannelutilizationinterval'], name, value)
 
 
+
     class DocsIfDownstreamChannelTable(Entity):
         """
         This table describes the attributes of downstream
@@ -406,6 +450,8 @@ class DOCSIFMIB(Entity):
         
         	An entry provides a list of attributes for a single Downstream channel. An entry in this table exists for each ifEntry with an ifType of docsCableDownstream(128)
         	**type**\: list of  		 :py:class:`DocsIfDownstreamChannelEntry <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfDownstreamChannelTable.DocsIfDownstreamChannelEntry>`
+        
+        	**config**\: False
         
         
 
@@ -450,6 +496,8 @@ class DOCSIFMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsifdownchannelid
             
             	The Cable Modem Termination System (CMTS) identification of the downstream channel within this particular MAC interface. If the interface is down, the object returns the most current value. If the downstream channel ID is unknown, this object returns a value of 0
@@ -457,12 +505,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: docsifdownchannelfrequency
             
             	The center of the downstream frequency associated with this channel. This object will return the current tuner frequency. If a CMTS provides IF output, this object will return 0, unless this CMTS is in control of the final downstream RF frequency.  See the associated compliance object for a description of valid frequencies that may be written to this object
             	**type**\: int
             
             	**range:** 0..1000000000
+            
+            	**config**\: False
             
             	**units**\: hertz
             
@@ -473,6 +525,8 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..16000000
             
+            	**config**\: False
+            
             	**units**\: hertz
             
             .. attribute:: docsifdownchannelmodulation
@@ -480,10 +534,14 @@ class DOCSIFMIB(Entity):
             	The modulation type associated with this downstream channel. If the interface is down, this object either returns the configured value (CMTS), the most current value (CM), or the value of unknown(1).  See the associated conformance object for write conditions and limitations. See the reference for specifics on the modulation profiles implied by qam64 and qam256
             	**type**\:  :py:class:`DocsIfDownChannelModulation <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfDownstreamChannelTable.DocsIfDownstreamChannelEntry.DocsIfDownChannelModulation>`
             
+            	**config**\: False
+            
             .. attribute:: docsifdownchannelinterleave
             
             	The Forward Error Correction (FEC) interleaving used for this downstream channel. Values are defined as follows\: taps8Increment16(3)\:   protection 5.9/4.1 usec,                        latency .22/.15 msec taps16Increment8(4)\:   protection 12/8.2 usec,                        latency .48/.33 msec taps32Increment4(5)\:   protection 24/16 usec,                        latency .98/.68 msec taps64Increment2(6)\:   protection 47/33 usec,                        latency 2/1.4 msec taps128Increment1(7)\:  protection 95/66 usec,                        latency 4/2.8 msec taps12increment17(8)\:  protection 18/14 usec,                        latency 0.43/0.32 msec                        taps12increment17 is implemented in                         conformance with EuroDOCSIS document                        'Adapted MIB\-definitions \- and a                         clarification for MPEG\-related issues \- for                         EuroDOCSIS cable modem systems' by tComLabs                        and should only be used for a EuroDOCSIS MAC                         interface.     If the interface is down, this object either returns the configured value (CMTS), the most current value (CM), or the value of unknown(1). The value of other(2) is returned if the interleave is known but not defined in the above list. See the associated conformance object for write conditions and limitations. See the reference for the FEC configuration described by the setting of this object
             	**type**\:  :py:class:`DocsIfDownChannelInterleave <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfDownstreamChannelTable.DocsIfDownstreamChannelEntry.DocsIfDownChannelInterleave>`
+            
+            	**config**\: False
             
             .. attribute:: docsifdownchannelpower
             
@@ -492,6 +550,8 @@ class DOCSIFMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**units**\: dBmV
             
             .. attribute:: docsifdownchannelannex
@@ -499,10 +559,14 @@ class DOCSIFMIB(Entity):
             	The value of this object indicates the conformance of the implementation to important regional cable standards. annexA \: Annex A from ITU\-J83 is used. annexB \: Annex B from ITU\-J83 is used. annexC \: Annex C from ITU\-J83 is used.  AnnexB is used for DOCSIS implementations
             	**type**\:  :py:class:`DocsIfDownChannelAnnex <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfDownstreamChannelTable.DocsIfDownstreamChannelEntry.DocsIfDownChannelAnnex>`
             
+            	**config**\: False
+            
             .. attribute:: docsifdownchannelstoragetype
             
             	The storage type for this conceptual row. Entries with this object set to permanent(4) do not require write operations for read\-write objects
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            	**config**\: False
             
             
 
@@ -723,6 +787,8 @@ class DOCSIFMIB(Entity):
 
 
 
+
+
     class DocsIfUpstreamChannelTable(Entity):
         """
         This table describes the attributes of attached upstream
@@ -732,6 +798,8 @@ class DOCSIFMIB(Entity):
         
         	List of attributes for a single upstream channel. For Docsis 2.0 CMTSs, an entry in this table exists for  each ifEntry with an ifType of docsCableUpstreamChannel (205). For Docsis 1.x CM/CMTSs and Docsis 2.0 CMs, an entry in this table exists  for each ifEntry with an ifType of docsCableUpstreamInterface (129)
         	**type**\: list of  		 :py:class:`DocsIfUpstreamChannelEntry <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfUpstreamChannelTable.DocsIfUpstreamChannelEntry>`
+        
+        	**config**\: False
         
         
 
@@ -777,6 +845,8 @@ class DOCSIFMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsifupchannelid
             
             	The CMTS identification of the upstream channel
@@ -784,12 +854,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: docsifupchannelfrequency
             
             	The center of the frequency band associated with this upstream interface. This object returns 0 if the frequency is undefined or unknown. Minimum permitted upstream frequency is 5,000,000 Hz for current technology.  See the associated conformance object for write conditions and limitations
             	**type**\: int
             
             	**range:** 0..1000000000
+            
+            	**config**\: False
             
             	**units**\: hertz
             
@@ -800,6 +874,8 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..64000000
             
+            	**config**\: False
+            
             	**units**\: hertz
             
             .. attribute:: docsifupchannelmodulationprofile
@@ -809,12 +885,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifupchannelslotsize
             
             	Applicable to TDMA and ATDMA channel types only. The number of 6.25 microsecond ticks in each upstream mini\- slot. Returns zero if the value is undefined, unknown or in case of an SCDMA channel. See the associated conformance object for write conditions and limitations. 
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifupchanneltxtimingoffset
             
@@ -823,12 +903,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifupchannelrangingbackoffstart
             
             	The initial random backoff window to use when retrying Ranging Requests. Expressed as a power of 2. A value of 16 at the CMTS indicates that a proprietary adaptive retry mechanism is to be used. See the associated conformance object for write conditions and limitations
             	**type**\: int
             
             	**range:** 0..16
+            
+            	**config**\: False
             
             .. attribute:: docsifupchannelrangingbackoffend
             
@@ -837,12 +921,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..16
             
+            	**config**\: False
+            
             .. attribute:: docsifupchanneltxbackoffstart
             
             	The initial random backoff window to use when retrying transmissions. Expressed as a power of 2. A value of 16 at the CMTS indicates that a proprietary adaptive retry mechanism is to be used. See the associated conformance object for write conditions and limitations
             	**type**\: int
             
             	**range:** 0..16
+            
+            	**config**\: False
             
             .. attribute:: docsifupchanneltxbackoffend
             
@@ -851,12 +939,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..16
             
+            	**config**\: False
+            
             .. attribute:: docsifupchannelscdmaactivecodes
             
             	Applicable for SCDMA channel types only. Number of active codes. Returns zero for Non\-SCDMA channel types. Note that legal  values from 64..128 MUST be non\-prime
             	**type**\: int
             
             	**range:** 0..None \| 64..128
+            
+            	**config**\: False
             
             .. attribute:: docsifupchannelscdmacodesperslot
             
@@ -865,12 +957,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..None \| 2..32
             
+            	**config**\: False
+            
             .. attribute:: docsifupchannelscdmaframesize
             
             	Applicable for SCDMA channel types only. SCDMA Frame size in units of spreading intervals.  This value returns zero for non SCDMA Profiles
             	**type**\: int
             
             	**range:** 0..32
+            
+            	**config**\: False
             
             .. attribute:: docsifupchannelscdmahoppingseed
             
@@ -879,10 +975,14 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..32767
             
+            	**config**\: False
+            
             .. attribute:: docsifupchanneltype
             
             	Defines the Upstream channel type. Given the channel type, other channel attributes can be checked for value validity at the time of entry creation and update
             	**type**\:  :py:class:`DocsisUpstreamType <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DocsisUpstreamType>`
+            
+            	**config**\: False
             
             .. attribute:: docsifupchannelclonefrom
             
@@ -891,20 +991,28 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: docsifupchannelupdate
             
             	Used to perform the transfer of adjusted SCDMA parameters from the temporary upstream row to the active upstream row indicated by the docsIfUpChannelCloneFrom object. The transfer is initiated through  an SNMP SET of TRUE to this object. The SNMP SET will fail with a GEN\_ERROR (snmpv1) or COMMIT\_FAILED\_ERROR (snmpv2c/v3) if the adjusted SCDMA parameter values are not compatible with each other. Although this object was created to facilitate SCDMA parameter adjustment, it may also be used at the vendor's discretion for non\-SCDMA parameter adjustment. An SNMP GET of this object always returns FALSE
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsifupchannelstatus
             
             	This object is generally intended to be used for the creation of a temporary inactive upstream row for the purpose of adjusting the SCDMA channel parameters of an active upstream row.  The recommended procedure is\: 1) Create an inactive row through an SNMP SET using createAndWait(5).    Use an ifIndex value outside the operational range of the system. 2) Set the docsIfUpChannelCloneFrom field to the ifIndex value of    the active row whose SCDMA parameters require adjustment. 3) Adjust the SCDMA parameter values using the new temporary inactive    row. 4) Update the active row by setting object docsIfUpChannelUpdate to    TRUE. This SET will fail if the adjusted SCDMA parameters are not    compatible with each other. 5) Delete the temporary row through an SNMP SET using DELETE.  The following restrictions apply to this object\: 1) This object must contain a value of active(1) for active rows. 2) Temporary inactive rows must be created using createAndWait(5). 3) The only possible status change of a row created using     createAndWait(5) (ie notInService(2)) is to destroy(6).    These temporary rows must never become active. 4) A status transition from active (1) to destroy (6) is not    permitted. Entries with docsIfUpChannelStatus set to active(1)     are logically linked to a physical interface, not temporarily     created to clone parameters. The Interface MIB (RFC 2863)    ifAdminStatus should be used to take an Upstream Channel offline.  Although this object was created to facilitate SCDMA parameter adjustment, it may also be used at the vendor's discretion for non\-SCDMA parameter adjustment
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: docsifupchannelpreeqenable
             
             	At the CMTS, used to enable or disable pre\-equalization on the upstream channel represented by this table instance.  At the CM, this object is read\-only and reflects the status of  pre\-equalization as represented in the RNG\-RSP
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -972,6 +1080,8 @@ class DOCSIFMIB(Entity):
                 self._perform_setattr(DOCSIFMIB.DocsIfUpstreamChannelTable.DocsIfUpstreamChannelEntry, [u'ifindex', u'docsifupchannelid', u'docsifupchannelfrequency', u'docsifupchannelwidth', u'docsifupchannelmodulationprofile', u'docsifupchannelslotsize', u'docsifupchanneltxtimingoffset', u'docsifupchannelrangingbackoffstart', u'docsifupchannelrangingbackoffend', u'docsifupchanneltxbackoffstart', u'docsifupchanneltxbackoffend', u'docsifupchannelscdmaactivecodes', u'docsifupchannelscdmacodesperslot', u'docsifupchannelscdmaframesize', u'docsifupchannelscdmahoppingseed', u'docsifupchanneltype', u'docsifupchannelclonefrom', u'docsifupchannelupdate', u'docsifupchannelstatus', u'docsifupchannelpreeqenable'], name, value)
 
 
+
+
     class DocsIfQosProfileTable(Entity):
         """
         Describes the attributes for each class of service.
@@ -980,6 +1090,8 @@ class DOCSIFMIB(Entity):
         
         	Describes the attributes for a single class of service.  If implemented as read\-create in the Cable Modem Termination System, creation of entries in this table is controlled by the value of docsIfCmtsQosProfilePermissions.  If implemented as read\-only, entries are created based on information in REG\-REQ MAC messages received from Cable Modems (Cable Modem Termination System implementation), or based on information extracted from the TFTP option file (Cable Modem implementation). In the Cable Modem Termination system, read\-only entries are removed if no longer referenced by docsIfCmtsServiceTable.  An entry in this table must not be removed while it is referenced by an entry in docsIfCmServiceTable (Cable Modem) or docsIfCmtsServiceTable (Cable Modem Termination System).  An entry in this table should not be changeable while it is referenced by an entry in docsIfCmtsServiceTable.  If this table is created automatically, there should only be a single entry for each Class of Service. Multiple entries with the same Class of Service parameters are not recommended
         	**type**\: list of  		 :py:class:`DocsIfQosProfileEntry <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfQosProfileTable.DocsIfQosProfileEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1044,12 +1156,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 1..16383
             
+            	**config**\: False
+            
             .. attribute:: docsifqosprofpriority
             
             	A relative priority assigned to this service when allocating bandwidth. Zero indicates lowest priority and seven indicates highest priority. Interpretation of priority is device\-specific. MUST NOT be changed while this row is active
             	**type**\: int
             
             	**range:** 0..7
+            
+            	**config**\: False
             
             .. attribute:: docsifqosprofmaxupbandwidth
             
@@ -1058,12 +1174,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..100000000
             
+            	**config**\: False
+            
             .. attribute:: docsifqosprofguarupbandwidth
             
             	Minimum guaranteed upstream bandwidth, in bits per second, allowed for a service with this service class. MUST NOT be changed while this row is active
             	**type**\: int
             
             	**range:** 0..100000000
+            
+            	**config**\: False
             
             .. attribute:: docsifqosprofmaxdownbandwidth
             
@@ -1072,12 +1192,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..100000000
             
+            	**config**\: False
+            
             .. attribute:: docsifqosprofmaxtxburst
             
             	The maximum number of mini\-slots that may be requested for a single upstream transmission. A value of zero means there is no limit. MUST NOT be changed while this row is active. This object has been deprecated and replaced by  docsIfQosProfMaxTransmitBurst, to fix a mismatch of the units and value range with respect to the DOCSIS Maximum Upstream Channel Transmit Burst Configuration Setting
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -1086,10 +1210,14 @@ class DOCSIFMIB(Entity):
             	Indicates whether Baseline Privacy is enabled for this service class. MUST NOT be changed while this row is active
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: docsifqosprofstatus
             
             	This is object is to used to create or delete rows in this table.  This object MUST NOT be changed from active while the row is referenced by the any entry in either docsIfCmServiceTable (on the CM), or the docsIfCmtsServiceTable (on the CMTS)
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             .. attribute:: docsifqosprofmaxtransmitburst
             
@@ -1097,6 +1225,8 @@ class DOCSIFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             
 
@@ -1142,6 +1272,8 @@ class DOCSIFMIB(Entity):
                 self._perform_setattr(DOCSIFMIB.DocsIfQosProfileTable.DocsIfQosProfileEntry, [u'docsifqosprofindex', u'docsifqosprofpriority', u'docsifqosprofmaxupbandwidth', u'docsifqosprofguarupbandwidth', u'docsifqosprofmaxdownbandwidth', u'docsifqosprofmaxtxburst', u'docsifqosprofbaselineprivacy', u'docsifqosprofstatus', u'docsifqosprofmaxtransmitburst'], name, value)
 
 
+
+
     class DocsIfSignalQualityTable(Entity):
         """
         At the CM, describes the PHY signal quality of downstream
@@ -1153,6 +1285,8 @@ class DOCSIFMIB(Entity):
         
         	At the CM, describes the PHY characteristics of a downstream channel. At the CMTS, describes the PHY signal quality of an upstream channel. An entry in this table exists for each ifEntry with an ifType of docsCableUpstreamChannel(205) for Cable Modem Termination Systems and docsCableDownstream(128) for Cable Modems
         	**type**\: list of  		 :py:class:`DocsIfSignalQualityEntry <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfSignalQualityTable.DocsIfSignalQualityEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1199,10 +1333,14 @@ class DOCSIFMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsifsigqincludescontention
             
             	true(1) if this CMTS includes contention intervals in the counters in this table. Always false(2) for CMs
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsifsigqunerroreds
             
@@ -1211,12 +1349,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifsigqcorrecteds
             
             	Codewords received on this channel with correctable errors. This includes all codewords, whether or not they were part of frames destined for this device
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifsigquncorrectables
             
@@ -1225,12 +1367,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifsigqsignalnoise
             
             	Signal/Noise ratio as perceived for this channel. At the CM, describes the Signal/Noise of the downstream channel.  At the CMTS, describes the average Signal/Noise of the upstream channel
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: dB
             
@@ -1241,12 +1387,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             	**units**\: dBc
             
             .. attribute:: docsifsigqequalizationdata
             
             	At the CM, returns the equalization data for the downstream channel. At the CMTS, returns the average equalization data for the upstream channel. Returns an empty string if the value is unknown or if there is no equalization data available or defined
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: docsifsigqextunerroreds
             
@@ -1255,6 +1405,8 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: docsifsigqextcorrecteds
             
             	Codewords received on this channel with correctable errors. This includes all codewords, whether or not they were part of frames destined for this device. This is the 64 bit version of docsIfSigQCorrecteds
@@ -1262,12 +1414,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: docsifsigqextuncorrectables
             
             	Codewords received on this channel with uncorrectable errors. This includes all codewords, whether or not they were part of frames destined for this device. This is the 64 bit version of docsIfSigQUncorrectables
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -1317,6 +1473,8 @@ class DOCSIFMIB(Entity):
                 self._perform_setattr(DOCSIFMIB.DocsIfSignalQualityTable.DocsIfSignalQualityEntry, [u'ifindex', u'docsifsigqincludescontention', u'docsifsigqunerroreds', u'docsifsigqcorrecteds', u'docsifsigquncorrectables', u'docsifsigqsignalnoise', u'docsifsigqmicroreflections', u'docsifsigqequalizationdata', u'docsifsigqextunerroreds', u'docsifsigqextcorrecteds', u'docsifsigqextuncorrectables'], name, value)
 
 
+
+
     class DocsIfCmMacTable(Entity):
         """
         Describes the attributes of each CM MAC interface,
@@ -1326,6 +1484,8 @@ class DOCSIFMIB(Entity):
         
         	An entry containing objects describing attributes of each MAC entry, extending the information in ifEntry. An entry in this table exists for each ifEntry with an ifType of docsCableMaclayer(127)
         	**type**\: list of  		 :py:class:`DocsIfCmMacEntry <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmMacTable.DocsIfCmMacEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1370,6 +1530,8 @@ class DOCSIFMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsifcmcmtsaddress
             
             	Identifies the CMTS that is believed to control this MAC domain. At the CM, this will be the source address from SYNC, MAP, and other MAC\-layer messages. If the CMTS is unknown, returns 00\-00\-00\-00\-00\-00
@@ -1377,10 +1539,14 @@ class DOCSIFMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: docsifcmcapabilities
             
             	Identifies the capabilities of the MAC implementation at this interface. Note that packet transmission is always supported. Therefore, there is no specific bit required to explicitly indicate this capability. Note that BITS objects are encoded most significant bit first. For example, if bit 1 is set, the value of this object is the octet string '40'H
             	**type**\:  :py:class:`DocsIfCmCapabilities <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmMacTable.DocsIfCmMacEntry.DocsIfCmCapabilities>`
+            
+            	**config**\: False
             
             .. attribute:: docsifcmrangingresptimeout
             
@@ -1388,6 +1554,8 @@ class DOCSIFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1397,6 +1565,8 @@ class DOCSIFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             
 
@@ -1434,6 +1604,8 @@ class DOCSIFMIB(Entity):
                 self._perform_setattr(DOCSIFMIB.DocsIfCmMacTable.DocsIfCmMacEntry, [u'ifindex', u'docsifcmcmtsaddress', u'docsifcmcapabilities', u'docsifcmrangingresptimeout', u'docsifcmrangingtimeout'], name, value)
 
 
+
+
     class DocsIfCmStatusTable(Entity):
         """
         This table maintains a number of status objects
@@ -1443,6 +1615,8 @@ class DOCSIFMIB(Entity):
         
         	A set of status objects and counters for a single MAC layer instance in a Cable Modem. An entry in this table exists for each ifEntry with an ifType of docsCableMaclayer(127)
         	**type**\: list of  		 :py:class:`DocsIfCmStatusEntry <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmStatusTable.DocsIfCmStatusEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1487,15 +1661,21 @@ class DOCSIFMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsifcmstatusvalue
             
             	Current Cable Modem connectivity state, as specified in the RF Interface Specification. Interpretations for state values 1\-12 are clearly outlined in the Document [25] reference given below. As stated in the description for object docsIfCmtsCmStatusValue, accessDenied(13)indicates the CMTS has sent a Registration Aborted message to the CM
             	**type**\:  :py:class:`DocsIfCmStatusValue <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmStatusTable.DocsIfCmStatusEntry.DocsIfCmStatusValue>`
             
+            	**config**\: False
+            
             .. attribute:: docsifcmstatuscode
             
             	Status code for this Cable Modem as defined in the RF Interface Specification. The status code consists of a single character indicating error groups, followed by a two\- or three\-digit number indicating the status condition
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: docsifcmstatustxpower
             
@@ -1503,6 +1683,8 @@ class DOCSIFMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: dBmV
             
@@ -1513,12 +1695,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmstatuslostsyncs
             
             	Number of times the CM lost synchronization with the downstream channel
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifcmstatusinvalidmaps
             
@@ -1527,12 +1713,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmstatusinvaliducds
             
             	Number of times the CM received invalid UCD messages
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifcmstatusinvalidrangingresponses
             
@@ -1541,12 +1731,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmstatusinvalidregistrationresponses
             
             	Number of times the CM received invalid registration response messages
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifcmstatust1timeouts
             
@@ -1555,12 +1749,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmstatust2timeouts
             
             	Number of times counter T2 expired in the CM
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifcmstatust3timeouts
             
@@ -1569,12 +1767,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmstatust4timeouts
             
             	Number of times counter T4 expired in the CM
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifcmstatusrangingaborteds
             
@@ -1583,20 +1785,28 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmstatusdocsisopermode
             
             	Indication whether the device has registered using 1.0 Class of Service or 1.1 Quality of Service. An unregistered CM should indicate 1.1 QOS for a  docsIfDocsisBaseCapability value of Docsis 1.1/2.0. An unregistered 	  CM should indicate 1.0 COS for a docsIfDocsisBaseCapability value  of Docsis 1.0. This object mirrors docsIfCmDocsisOperMode from the docsIfExt mib
             	**type**\:  :py:class:`DocsisQosVersion <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DocsisQosVersion>`
+            
+            	**config**\: False
             
             .. attribute:: docsifcmstatusmodulationtype
             
             	Indicates modulation type status currently used by the CM. Since this object specifically identifies PHY mode, the shared upstream channel type is not permitted
             	**type**\:  :py:class:`DocsisUpstreamTypeStatus <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DocsisUpstreamTypeStatus>`
             
+            	**config**\: False
+            
             .. attribute:: docsifcmstatusequalizationdata
             
             	Pre\-equalization data for this CM after convolution with  data indicated in the RNG\-RSP. Returns an empty string if the value is unknown or if there  is no equalization data available or defined. The value should  be formatted as defined in the following REFERENCE
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1733,6 +1943,8 @@ class DOCSIFMIB(Entity):
 
 
 
+
+
     class DocsIfCmServiceTable(Entity):
         """
         Describes the attributes of each upstream service queue
@@ -1742,6 +1954,8 @@ class DOCSIFMIB(Entity):
         
         	Describes the attributes of an upstream bandwidth service queue. An entry in this table exists for each Service ID. The primary index is an ifIndex with an ifType of docsCableMaclayer(127)
         	**type**\: list of  		 :py:class:`DocsIfCmServiceEntry <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmServiceTable.DocsIfCmServiceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1787,12 +2001,16 @@ class DOCSIFMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsifcmserviceid  (key)
             
             	Identifies a service queue for upstream bandwidth. The attributes of this service queue are shared between the CM and the CMTS. The CMTS allocates upstream bandwidth to this service queue based on requests from the CM and on the class of service associated with this queue
             	**type**\: int
             
             	**range:** 1..16383
+            
+            	**config**\: False
             
             .. attribute:: docsifcmserviceqosprofile
             
@@ -1801,12 +2019,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..16383
             
+            	**config**\: False
+            
             .. attribute:: docsifcmservicetxslotsimmed
             
             	The number of upstream mini\-slots which have been used to transmit data PDUs in immediate (contention) mode. This includes only those PDUs that are presumed to have arrived at the headend (i.e., those which were explicitly acknowledged.) It does not include retransmission attempts or mini\-slots used by Requests
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifcmservicetxslotsded
             
@@ -1815,12 +2037,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmservicetxretries
             
             	The number of attempts to transmit data PDUs containing requests for acknowledgment that did not result in acknowledgment
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifcmservicetxexceededs
             
@@ -1829,12 +2055,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmservicerqretries
             
             	The number of attempts to transmit bandwidth requests which did not result in acknowledgment
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifcmservicerqexceededs
             
@@ -1843,6 +2073,8 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmserviceexttxslotsimmed
             
             	The number of upstream mini\-slots which have been used to transmit data PDUs in immediate (contention) mode. This includes only those PDUs that are presumed to have arrived at the headend (i.e., those which were explicitly acknowledged.) It does not include retransmission attempts or mini\-slots used by Requests
@@ -1850,12 +2082,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: docsifcmserviceexttxslotsded
             
             	The number of upstream mini\-slots which have been used to transmit data PDUs in dedicated mode (i.e., as a result of a unicast Data Grant)
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -1905,6 +2141,8 @@ class DOCSIFMIB(Entity):
                 self._perform_setattr(DOCSIFMIB.DocsIfCmServiceTable.DocsIfCmServiceEntry, [u'ifindex', u'docsifcmserviceid', u'docsifcmserviceqosprofile', u'docsifcmservicetxslotsimmed', u'docsifcmservicetxslotsded', u'docsifcmservicetxretries', u'docsifcmservicetxexceededs', u'docsifcmservicerqretries', u'docsifcmservicerqexceededs', u'docsifcmserviceexttxslotsimmed', u'docsifcmserviceexttxslotsded'], name, value)
 
 
+
+
     class DocsIfCmtsMacTable(Entity):
         """
         Describes the attributes of each CMTS MAC interface,
@@ -1915,6 +2153,8 @@ class DOCSIFMIB(Entity):
         
         	An entry containing objects describing attributes of each MAC entry, extending the information in ifEntry. An entry in this table exists for each ifEntry with an ifType of docsCableMaclayer(127)
         	**type**\: list of  		 :py:class:`DocsIfCmtsMacEntry <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsMacTable.DocsIfCmtsMacEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1959,10 +2199,14 @@ class DOCSIFMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtscapabilities
             
             	Identifies the capabilities of the CMTS MAC implementation at this interface. Note that packet transmission is always supported. Therefore, there is no specific bit required to explicitly indicate this capability. Note that BITS objects are encoded most significant bit first. For example, if bit 1 is set, the value of this object is the octet string '40'H
             	**type**\:  :py:class:`DocsIfCmtsCapabilities <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsMacTable.DocsIfCmtsMacEntry.DocsIfCmtsCapabilities>`
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtssyncinterval
             
@@ -1970,6 +2214,8 @@ class DOCSIFMIB(Entity):
             	**type**\: int
             
             	**range:** 1..200
+            
+            	**config**\: False
             
             	**units**\: Milliseconds
             
@@ -1980,6 +2226,8 @@ class DOCSIFMIB(Entity):
             
             	**range:** 1..2000
             
+            	**config**\: False
+            
             	**units**\: Milliseconds
             
             .. attribute:: docsifcmtsmaxserviceids
@@ -1989,12 +2237,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 1..16383
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsinsertioninterval
             
             	The amount of time to elapse between each broadcast station maintenance grant. Broadcast station maintenance grants are used to allow new cable modems to join the network. Zero indicates that a vendor\-specific algorithm is used instead of a fixed time. Maximum amount of time permitted by the specification is 2 seconds
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -2005,6 +2257,8 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..1024
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsinsertinterval
             
             	The amount of time to elapse between each broadcast station maintenance grant. Broadcast station maintenance grants are used to allow new cable modems to join the network. Zero indicates that a vendor\-specific algorithm is used instead of a fixed time. Maximum amount of time permitted by the specification is 2 seconds
@@ -2012,10 +2266,14 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsmacstoragetype
             
             	The storage type for this conceptual row. Entries with this object set to permanent(4) do not require write operations for read\-write objects
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            	**config**\: False
             
             
 
@@ -2061,6 +2319,8 @@ class DOCSIFMIB(Entity):
                 self._perform_setattr(DOCSIFMIB.DocsIfCmtsMacTable.DocsIfCmtsMacEntry, [u'ifindex', u'docsifcmtscapabilities', u'docsifcmtssyncinterval', u'docsifcmtsucdinterval', u'docsifcmtsmaxserviceids', u'docsifcmtsinsertioninterval', u'docsifcmtsinvitedrangingattempts', u'docsifcmtsinsertinterval', u'docsifcmtsmacstoragetype'], name, value)
 
 
+
+
     class DocsIfCmtsStatusTable(Entity):
         """
         For the MAC layer, this group maintains a number of
@@ -2070,6 +2330,8 @@ class DOCSIFMIB(Entity):
         
         	Status entry for a single MAC layer. An entry in this table exists for each ifEntry with an ifType of docsCableMaclayer(127)
         	**type**\: list of  		 :py:class:`DocsIfCmtsStatusEntry <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsStatusTable.DocsIfCmtsStatusEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2113,12 +2375,16 @@ class DOCSIFMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsstatusinvalidrangereqs
             
             	This object counts invalid RNG\-REQ messages received on this interface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsstatusrangingaborteds
             
@@ -2127,12 +2393,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsstatusinvalidregreqs
             
             	This object counts invalid REG\-REQ messages received on this interface. That is, syntax, out of range parameters, or erroneous requests
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsstatusfailedregreqs
             
@@ -2141,6 +2411,8 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsstatusinvaliddatareqs
             
             	This object counts invalid data request messages received on this interface
@@ -2148,12 +2420,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsstatust5timeouts
             
             	This object counts the number of times counter T5 expired on this interface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2195,6 +2471,8 @@ class DOCSIFMIB(Entity):
                 self._perform_setattr(DOCSIFMIB.DocsIfCmtsStatusTable.DocsIfCmtsStatusEntry, [u'ifindex', u'docsifcmtsstatusinvalidrangereqs', u'docsifcmtsstatusrangingaborteds', u'docsifcmtsstatusinvalidregreqs', u'docsifcmtsstatusfailedregreqs', u'docsifcmtsstatusinvaliddatareqs', u'docsifcmtsstatust5timeouts'], name, value)
 
 
+
+
     class DocsIfCmtsCmStatusTable(Entity):
         """
         A set of objects in the CMTS, maintained for each
@@ -2204,6 +2482,8 @@ class DOCSIFMIB(Entity):
         
         	Status information for a single Cable Modem. An entry in this table exists for each Cable Modem that is connected to the CMTS implementing this table
         	**type**\: list of  		 :py:class:`DocsIfCmtsCmStatusEntry <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsCmStatusTable.DocsIfCmtsCmStatusEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2245,6 +2525,8 @@ class DOCSIFMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtscmstatusmacaddress
             
             	MAC address of this Cable Modem. If the Cable Modem has multiple MAC addresses, this is the MAC address associated with the Cable interface
@@ -2252,12 +2534,16 @@ class DOCSIFMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtscmstatusipaddress
             
             	IP address of this Cable Modem. If the Cable Modem has no IP address assigned, or the IP address is unknown, this object returns a value of 0.0.0.0. If the Cable Modem has multiple IP addresses, this object returns the IP address associated with the Cable interface. This object has been deprecated and replaced by docsIfCmtsCmStatusInetAddressType and docsIfCmtsCmStatusInetAddress, to enable IPv6 addressing in the future
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2268,6 +2554,8 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtscmstatusupchannelifindex
             
             	IfIndex of the upstream channel this CM is connected to. If the upstream channel is unknown, this object returns a value of zero
@@ -2275,12 +2563,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtscmstatusrxpower
             
             	The receive power as perceived for upstream data from this Cable Modem. If the receive power is unknown, this object returns a value of zero
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: dBmV
             
@@ -2291,15 +2583,21 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtscmstatusequalizationdata
             
             	Equalization data for this CM. Returns an empty string if the value is unknown or if there is no equalization data available or defined
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtscmstatusvalue
             
             	Current Cable Modem connectivity state, as specified in the RF Interface Specification. Returned status information is the CM status as assumed by the CMTS, and indicates the following events\: other(1)    Any state other than below. ranging(2)    The CMTS has received an Initial Ranging Request    message from the CM, and the ranging process is not  yet     complete. rangingAborted(3)    The CMTS has sent a Ranging Abort message to the CM. rangingComplete(4)    The CMTS has sent a Ranging Complete message to the CM. ipComplete(5)    The CMTS has received a DHCP reply message and forwarded    it to the CM. registrationComplete(6)    The CMTS has sent a Registration Response message to the CM. accessDenied(7)    The CMTS has sent a Registration Aborted message    to the CM. \-\-           deprecated value \-\-           operational(8) \-\-              If Baseline Privacy is enabled for the CM, the CMTS \-\-              has completed Baseline Privacy initialization. If Baseline \-\-              Privacy is not enabled, equivalent to registrationComplete. registeredBPIInitializing(9)    Baseline Privacy is enabled, CMTS is in the process of     completing the Baseline Privacy initialization. This state     can last for a significant time in the case of failures     during The process. After Baseline Privacy initialization     Complete, the CMTS will report back the value    registrationComplete(6).     The CMTS only needs to report states it is able to detect
             	**type**\:  :py:class:`DocsIfCmtsCmStatusValue <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsCmStatusTable.DocsIfCmtsCmStatusEntry.DocsIfCmtsCmStatusValue>`
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtscmstatusunerroreds
             
@@ -2308,12 +2606,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtscmstatuscorrecteds
             
             	Codewords received with correctable errors from this Cable Modem
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtscmstatusuncorrectables
             
@@ -2322,12 +2624,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtscmstatussignalnoise
             
             	Signal/Noise ratio as perceived for upstream data from this Cable Modem. If the Signal/Noise is unknown, this object returns a value of zero
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: dB
             
@@ -2338,6 +2644,8 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             	**units**\: dBc
             
             .. attribute:: docsifcmtscmstatusextunerroreds
@@ -2347,12 +2655,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtscmstatusextcorrecteds
             
             	Codewords received with correctable errors from this Cable Modem
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtscmstatusextuncorrectables
             
@@ -2361,20 +2673,28 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtscmstatusdocsisregmode
             
             	 Indication whether the CM has registered using 1.0 Class of Service or 1.1 Quality of Service. This object mirrors docsIfCmtsCmStatusDocsisMode from the  docsIfExt mib
             	**type**\:  :py:class:`DocsisQosVersion <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DocsisQosVersion>`
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtscmstatusmodulationtype
             
             	Indicates modulation type currently used by the CM. Since this object specifically identifies PHY mode, the shared type is not permitted. If the upstream channel is unknown,  this object returns a value of zero
             	**type**\:  :py:class:`DocsisUpstreamTypeStatus <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DocsisUpstreamTypeStatus>`
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtscmstatusinetaddresstype
             
             	The type of internet address of docsIfCmtsCmStatusInetAddress. If the cable modem Internet address is unassigned or unknown, then the value of this object is unknown(0)
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtscmstatusinetaddress
             
@@ -2383,12 +2703,16 @@ class DOCSIFMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtscmstatusvaluelastupdate
             
             	The value of sysUpTime when docsIfCmtsCmStatusValue was last updated
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2573,6 +2897,8 @@ class DOCSIFMIB(Entity):
 
 
 
+
+
     class DocsIfCmtsServiceTable(Entity):
         """
         Describes the attributes of upstream service queues
@@ -2582,6 +2908,8 @@ class DOCSIFMIB(Entity):
         
         	Describes the attributes of a single upstream bandwidth service queue. Entries in this table exist for each ifEntry with an ifType of docsCableMaclayer(127), and for each service queue (Service ID) within this MAC layer. Entries in this table are created with the creation of individual Service IDs by the MAC layer and removed when a Service ID is removed
         	**type**\: list of  		 :py:class:`DocsIfCmtsServiceEntry <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsServiceTable.DocsIfCmtsServiceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2630,12 +2958,16 @@ class DOCSIFMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsserviceid  (key)
             
             	Identifies a service queue for upstream bandwidth. The attributes of this service queue are shared between the Cable Modem and the Cable Modem Termination System. The CMTS allocates upstream bandwidth to this service queue based on requests from the CM and on the class of service associated with this queue
             	**type**\: int
             
             	**range:** 1..16383
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsservicecmstatusindex
             
@@ -2644,12 +2976,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: docsifcmtsserviceadminstatus
             
             	Allows a service class for a particular modem to be suppressed, (re\-)enabled, or deleted altogether
             	**type**\:  :py:class:`DocsIfCmtsServiceAdminStatus <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsServiceTable.DocsIfCmtsServiceEntry.DocsIfCmtsServiceAdminStatus>`
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsserviceqosprofile
             
@@ -2658,12 +2994,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..16383
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsservicecreatetime
             
             	The value of sysUpTime when this entry was created
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsserviceinoctets
             
@@ -2672,6 +3012,8 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsserviceinpackets
             
             	The cumulative number of Packet Data packets received on this Service ID
@@ -2679,12 +3021,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsservicenewcmstatusindex
             
             	Pointer (via docsIfCmtsCmStatusIndex) to an entry in docsIfCmtsCmStatusTable identifying the Cable Modem using this Service Queue. If multiple Cable Modems are using this Service Queue, the value of this object is zero
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             
 
@@ -2753,6 +3099,8 @@ class DOCSIFMIB(Entity):
 
 
 
+
+
     class DocsIfCmtsModulationTable(Entity):
         """
         Describes a modulation profile associated with one or more
@@ -2762,6 +3110,8 @@ class DOCSIFMIB(Entity):
         
         	Describes a modulation profile for an Interval Usage Code for one or more upstream channels. Entries in this table are created by the operator. Initial default entries may be created at system initialization time. No individual objects have to be specified in order to create an entry in this table. Note that some objects do not have DEFVALs, but do have calculated defaults and need not be specified during row creation. There is no restriction on the changing of values in this table while their associated rows are active
         	**type**\: list of  		 :py:class:`DocsIfCmtsModulationEntry <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsModulationTable.DocsIfCmtsModulationEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2811,20 +3161,28 @@ class DOCSIFMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsmodintervalusagecode  (key)
             
             	An index into the Channel Modulation table which, when grouped with other Interval Usage Codes, fully instantiate all modulation sets for a given upstream channel
             	**type**\:  :py:class:`DocsIfCmtsModIntervalUsageCode <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsModulationTable.DocsIfCmtsModulationEntry.DocsIfCmtsModIntervalUsageCode>`
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsmodcontrol
             
             	Controls and reflects the status of rows in this table
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsmodtype
             
             	The modulation type used on this channel. Returns other(1) if the modulation type is neither  qpsk, qam16, qam8, qam32, qam64 or qam128. Type qam128 is used for SCDMA channels only. See the reference for the modulation profiles implied by different modulation types
             	**type**\:  :py:class:`DocsIfCmtsModType <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsModulationTable.DocsIfCmtsModulationEntry.DocsIfCmtsModType>`
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsmodpreamblelen
             
@@ -2833,10 +3191,14 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..1536
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsmoddifferentialencoding
             
             	Specifies whether or not differential encoding is used on this channel
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsmodfecerrorcorrection
             
@@ -2845,12 +3207,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..16
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsmodfeccodewordlength
             
             	The number of data bytes (k) in the forward error correction codeword. This object is not used if docsIfCmtsModFECErrorCorrection is zero
             	**type**\: int
             
             	**range:** 1..255
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsmodscramblerseed
             
@@ -2859,12 +3225,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..32767
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsmodmaxburstsize
             
             	The maximum number of mini\-slots that can be transmitted during this channel's burst time. Returns zero if the burst length is bounded by the allocation MAP rather than this profile. Default value is 0 except for shortData, where it is 8
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsmodguardtimesize
             
@@ -2873,15 +3243,21 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsmodlastcodewordshortened
             
             	Indicates if the last FEC codeword is truncated
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsmodscrambler
             
             	Indicates if the scrambler is employed
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsmodbyteinterleaverdepth
             
@@ -2890,6 +3266,8 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsmodbyteinterleaverblocksize
             
             	 ATDMA Byte Interleaver Block size (Br). This object returns  zero for non ATDMA profiles 
@@ -2897,15 +3275,21 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsmodpreambletype
             
             	Preamble type for DOCSIS 2.0 bursts. The value 'unknown(0)'  represents a row entry consisting only of DOCSIS 1.x bursts
             	**type**\:  :py:class:`DocsIfCmtsModPreambleType <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsModulationTable.DocsIfCmtsModulationEntry.DocsIfCmtsModPreambleType>`
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsmodtcmerrorcorrectionon
             
             	 Trellis Code Modulation (TCM) On/Off. This value returns false for  non S\-CDMA profiles
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsmodscdmainterleaverstepsize
             
@@ -2914,10 +3298,14 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..32
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsmodscdmaspreaderenable
             
             	 S\-CDMA spreader. This value returns false for non S\-CDMA profiles. Default value for IUC 3 and 4 is OFF, for  all other IUCs it is ON
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsmodscdmasubframecodes
             
@@ -2926,10 +3314,14 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..128
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsmodchanneltype
             
             	Describes the modulation channel type for this modulation entry
             	**type**\:  :py:class:`DocsisUpstreamType <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DocsisUpstreamType>`
+            
+            	**config**\: False
             
             
 
@@ -3120,6 +3512,8 @@ class DOCSIFMIB(Entity):
 
 
 
+
+
     class DocsIfCmtsMacToCmTable(Entity):
         """
         This is a table to provide a quick access index into the
@@ -3134,6 +3528,8 @@ class DOCSIFMIB(Entity):
         
         	A row in the docsIfCmtsMacToCmTable. An entry in this table exists for each Cable Modem that is connected to the CMTS implementing this table
         	**type**\: list of  		 :py:class:`DocsIfCmtsMacToCmEntry <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsMacToCmTable.DocsIfCmtsMacToCmEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3175,12 +3571,16 @@ class DOCSIFMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtscmptr
             
             	An row index into docsIfCmtsCmStatusTable. When queried with the correct instance value (e.g. a CM's MAC address), returns the index in docsIfCmtsCmStatusTable which represents that CM
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             
 
@@ -3212,6 +3612,8 @@ class DOCSIFMIB(Entity):
                 self._perform_setattr(DOCSIFMIB.DocsIfCmtsMacToCmTable.DocsIfCmtsMacToCmEntry, [u'docsifcmtscmmac', u'docsifcmtscmptr'], name, value)
 
 
+
+
     class DocsIfCmtsChannelUtilizationTable(Entity):
         """
         Reports utilization statistics for attached upstream and
@@ -3221,6 +3623,8 @@ class DOCSIFMIB(Entity):
         
         	Utilization statistics for a single upstream or downstream physical channel. An entry exists in this table for each ifEntry with an ifType equal to docsCableDownstreamInterface (128) or docsCableUpstreamInterface (129)
         	**type**\: list of  		 :py:class:`DocsIfCmtsChannelUtilizationEntry <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsChannelUtilizationTable.DocsIfCmtsChannelUtilizationEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3265,10 +3669,14 @@ class DOCSIFMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtschannelutiftype  (key)
             
             	The secondary index into this table. Indicates the IANA interface type associated with this physical channel. Only docsCableDownstreamInterface (128) and docsCableUpstreamInterface (129) are valid
             	**type**\:  :py:class:`IANAifType <ydk.models.cisco_ios_xe.IANAifType_MIB.IANAifType>`
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtschannelutid  (key)
             
@@ -3277,12 +3685,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtschannelututilization
             
             	The calculated and truncated utilization index for this physical upstream or downstream channel, accurate as of  the most recent docsIfCmtsChannelUtilizationInterval.  Upstream Channel Utilization Index\: The upstream channel utilization index is expressed as a  percentage of minislots utilized on the physical channel, regardless  of burst type. For an Initial Maintenance region, the minislots  for the complete region are considered utilized if the CMTS  received an upstream burst within the region from any CM on the  physical channel.  For contention REQ and REQ/DATA regions, the     minislots for a transmission opportunity within the region are  considered utilized if the CMTS received an upstream burst within  the opportunity from any CM on the physical channel. For all other  regions, utilized minislots are those in which the CMTS granted bandwidth to any unicast SID on the physical channel.  For an upstream interface that has multiple logical upstream  channels enabled, the utilization index is a weighted sum of  utilization indices for the logical channels. The weight for  each utilization index is the percentage of upstream minislots  allocated for the corresponding logical channel. Example\:  If 75% of bandwidth is allocated to the first logical channel  and 25% to the second, and the utilization indices for each are  60 and 40 respectively, the utilization index for the upstream  physical channel is (60 \* 0.75) + (40 \* 0.25) = 55. This figure  applies to the most recent utilization interval.   Downstream Channel Utilization Index\: The downstream channel utilization index is a percentage expressing  the ratio between bytes used to transmit data versus the total number  of bytes transmitted in the raw bandwidth of the MPEG channel. As with the upstream utilization index, the calculated value represents  the most recent utilization interval. Formula\: Downstream utilization index =  (100 \* (data bytes / raw bytes)) =  (100 \* ((raw bytes \- stuffed bytes) / raw bytes))  Definitions\: Data bytes\: Number of bytes transmitted as data in the                                         docsIfCmtsChannelUtilizationInterval.  Stuffed bytes\: Number of filler bytes transmitted as non\-data in the                 DocsIfCmtsChannelUtilizationInterval. Raw bandwidth\: Total number of bytes available for transmitting data,                not including bytes used for headers and other overhead. Raw bytes\: (raw bandwidth \* docsIfCmtsChannelUtilizationInterval)
             	**type**\: int
             
             	**range:** 0..100
+            
+            	**config**\: False
             
             	**units**\: percent
             
@@ -3320,6 +3732,8 @@ class DOCSIFMIB(Entity):
                 self._perform_setattr(DOCSIFMIB.DocsIfCmtsChannelUtilizationTable.DocsIfCmtsChannelUtilizationEntry, [u'ifindex', u'docsifcmtschannelutiftype', u'docsifcmtschannelutid', u'docsifcmtschannelututilization'], name, value)
 
 
+
+
     class DocsIfCmtsDownChannelCounterTable(Entity):
         """
         This table is implemented at the CMTS to collect downstream
@@ -3329,6 +3743,8 @@ class DOCSIFMIB(Entity):
         
         	An entry provides a list of traffic counters for a single downstream channel. An entry in this table exists for each ifEntry with an ifType of docsCableDownstream(128)
         	**type**\: list of  		 :py:class:`DocsIfCmtsDownChannelCounterEntry <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsDownChannelCounterTable.DocsIfCmtsDownChannelCounterEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3373,12 +3789,16 @@ class DOCSIFMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsdownchnlctrid
             
             	The Cable Modem Termination System (CMTS) identification of the downstream channel within this particular MAC interface. If the interface is down, the object returns the most current value. If the downstream channel ID is unknown, this object returns a value of 0
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsdownchnlctrtotalbytes
             
@@ -3387,12 +3807,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsdownchnlctrusedbytes
             
             	At the CMTS, the total number of DOCSIS data bytes transported by this downstream channel since CMTS initialization. The number of data bytes is defined as the total number of bytes transported in DOCSIS payloads minus the number of stuff bytes transported in DOCSIS payloads. This is the 32 bit version of docsIfCmtsDownChnlCtrExtUsedBytes, included to provide back compatibility with SNMPv1 managers
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsdownchnlctrexttotalbytes
             
@@ -3401,12 +3825,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsdownchnlctrextusedbytes
             
             	At the CMTS, the total number of DOCSIS data bytes transported by this downstream channel since CMTS initialization. The number of data bytes is defined as the total number of bytes transported in DOCSIS payloads minus the number of stuff bytes transported in DOCSIS payloads. This is the 64 bit version of docsIfCmtsDownChnlCtrUsedBytes, and will not be accessible to SNMPv1 managers
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -3446,6 +3874,8 @@ class DOCSIFMIB(Entity):
                 self._perform_setattr(DOCSIFMIB.DocsIfCmtsDownChannelCounterTable.DocsIfCmtsDownChannelCounterEntry, [u'ifindex', u'docsifcmtsdownchnlctrid', u'docsifcmtsdownchnlctrtotalbytes', u'docsifcmtsdownchnlctrusedbytes', u'docsifcmtsdownchnlctrexttotalbytes', u'docsifcmtsdownchnlctrextusedbytes'], name, value)
 
 
+
+
     class DocsIfCmtsUpChannelCounterTable(Entity):
         """
         This table is implemented at the CMTS to provide upstream
@@ -3456,6 +3886,8 @@ class DOCSIFMIB(Entity):
         
         	List of traffic statistics for a single upstream channel. For Docsis 2.0 CMTSs, an entry in this table exists for  each ifEntry with an ifType of docsCableUpstreamChannel (205). For Docsis 1.x CMTSs, an entry in this table exists for each ifEntry with an ifType of docsCableUpstreamInterface (129)
         	**type**\: list of  		 :py:class:`DocsIfCmtsUpChannelCounterEntry <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsUpChannelCounterTable.DocsIfCmtsUpChannelCounterEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3501,12 +3933,16 @@ class DOCSIFMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsupchnlctrid
             
             	The CMTS identification of the upstream channel
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsupchnlctrtotalmslots
             
@@ -3515,12 +3951,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsupchnlctrucastgrantedmslots
             
             	Current count, from CMTS initialization, of unicast granted minislots on the upstream logical channel, regardless of burst type. Unicast granted minislots are those in which the CMTS assigned bandwidth to any unicast SID on the logical channel. This is the 32 bit version of docsIfCmtsUpChnlCtrExtUcastGrantedMslots, and is included for back compatibility with SNMPv1 managers. Support for this object is mandatory
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsupchnlctrtotalcntnmslots
             
@@ -3529,12 +3969,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsupchnlctrusedcntnmslots
             
             	Current count, from CMTS initialization, of contention minislots utilized on the upstream logical channel. For contention regions, utilized minislots are those in which the CMTS correctly received an upstream burst from any CM on the upstream logical channel. This is the 32 bit version of docsIfCmtsUpChnlCtrExtUsedCntnMslots, and is included for back compatibility with SNMPv1 managers. Support for this object is mandatory
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsupchnlctrexttotalmslots
             
@@ -3543,12 +3987,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsupchnlctrextucastgrantedmslots
             
             	Current count, from CMTS initialization, of unicast granted minislots on the upstream logical channel, regardless of burst type. Unicast granted minislots are those in which the CMTS assigned bandwidth to any unicast SID on the logical channel. This is the 64 bit version of docsIfCmtsUpChnlCtrUcastGrantedMslots, and will not be accessible to SNMPv1 managers. Support for this object is mandatory
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsupchnlctrexttotalcntnmslots
             
@@ -3557,12 +4005,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsupchnlctrextusedcntnmslots
             
             	Current count, from CMTS initialization, of contention minislots utilized on the upstream logical channel. For contention regions, utilized minislots are those in which the CMTS correctly received an upstream burst from any CM on the upstream logical channel. This is the 64 bit version of docsIfCmtsUpChnlCtrUsedCntnMslots, and will not be accessible to SNMPv1 managers. Support for this object is mandatory
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsupchnlctrcollcntnmslots
             
@@ -3571,12 +4023,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsupchnlctrtotalcntnreqmslots
             
             	Current count, from CMTS initialization, of contention request minislots defined for this upstream logical channel. This count  includes all minislots for IUC1 assigned to a broadcast or multicast  SID on the logical channel.  This is the 32 bit version of docsIfCmtsUpChnlCtrExtTotalCntnReqMslots, and is included for back compatibility with SNMPv1 managers. Support for this object is optional. If the object is not supported, A value of zero is returned
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsupchnlctrusedcntnreqmslots
             
@@ -3585,12 +4041,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsupchnlctrcollcntnreqmslots
             
             	Current count, from CMTS initialization, of contention request minislots subjected to collisions on this upstream logical channel.   This includes all contention minislots for IUC1 applicable to bursts that the CMTS detected, but could not correctly receive.              This is the 32 bit version of docsIfCmtsUpChnlCtrExtCollCntnReqMslots, and is included for back compatibility with SNMPv1 managers. Support for this object is optional. If the object is not supported, A value of zero is returned
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsupchnlctrtotalcntnreqdatamslots
             
@@ -3599,12 +4059,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsupchnlctrusedcntnreqdatamslots
             
             	Current count, from CMTS initialization, of contention request data minislots utilized on this upstream logical channel. This   includes all contention minislots for IUC2 applicable to bursts that the CMTS correctly received.              This is the 32 bit version of  docsIfCmtsUpChnlCtrExtUsedCntnReqDataMslots, and is included for back compatibility with SNMPv1 managers. Support for this object is optional. If the object is not supported, A value of zero is returned
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsupchnlctrcollcntnreqdatamslots
             
@@ -3613,12 +4077,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsupchnlctrtotalcntninitmaintmslots
             
             	Current count, from CMTS initialization, of contention initial maintenance minislots defined for this upstream logical channel.  This includes all minislots for IUC3 assigned to a broadcast or  multicast SID on the logical channel.  This is the 32 bit version of docsIfCmtsUpChnlCtrExtTotalCntnInitMaintMslots, and is included for back compatibility with SNMPv1 managers. Support for this object is optional. If the object is not supported, A value of zero is returned
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsupchnlctrusedcntninitmaintmslots
             
@@ -3627,12 +4095,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsupchnlctrcollcntninitmaintmslots
             
             	Current count, from CMTS initialization, of contention initial maintenance minislots subjected to collisions on this upstream  logical channel. This includes all contention minislots for IUC3 applicable to bursts that the CMTS detected, but could not correctly receive.              This is the 32 bit version of  docsIfCmtsUpChnlCtrExtCollCntnInitMaintMslots, and is included for back compatibility with SNMPv1 managers. Support for this object is optional. If the object is not supported, A value of zero is returned
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsupchnlctrextcollcntnmslots
             
@@ -3641,12 +4113,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsupchnlctrexttotalcntnreqmslots
             
             	Current count, from CMTS initialization, of contention request minislots defined for this upstream logical channel. This count  includes all minislots for IUC1 assigned to a broadcast or multicast  SID on the logical channel.  This is the 64 bit version of docsIfCmtsUpChnlCtrTotalCntnReqMslots, and will not be accessible to SNMPv1 managers. Support for this object is optional. If the object is not supported, A value of zero is returned
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsupchnlctrextusedcntnreqmslots
             
@@ -3655,12 +4131,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsupchnlctrextcollcntnreqmslots
             
             	Current count, from CMTS initialization, of contention request minislots subjected to collisions on this upstream logical channel. This includes all contention minislots for IUC1 applicable to bursts that the CMTS detected, but could not correctly receive.              This is the 64 bit version of docsIfCmtsUpChnlCtrCollCntnReqMslots, and will not be accessible to SNMPv1 managers. Support for this object is optional. If the object is not supported, A value of zero is returned
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsupchnlctrexttotalcntnreqdatamslots
             
@@ -3669,12 +4149,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsupchnlctrextusedcntnreqdatamslots
             
             	Current count, from CMTS initialization, of contention request data minislots utilized on this upstream logical channel. This   includes all contention minislots for IUC2 applicable to bursts that the CMTS correctly received.              This is the 64 bit version of docsIfCmtsUpChnlCtrUsedCntnReqDataMslots, and will not be accessible to SNMPv1 managers. Support for this object is optional. If the object is not supported, A value of zero is returned
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsupchnlctrextcollcntnreqdatamslots
             
@@ -3683,12 +4167,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsupchnlctrexttotalcntninitmaintmslots
             
             	Current count, from CMTS initialization, of initial maintenance minislots defined for this upstream logical channel. This count  includes all minislots for IUC3 assigned to a broadcast or multicast  SID on the logical channel.  This is the 64 bit version of  docsIfCmtsUpChnlCtrTotalCntnInitMaintMslots, and will not be accessible to SNMPv1 managers. Support for this object is optional. If the object is not supported, A value of zero is returned
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: docsifcmtsupchnlctrextusedcntninitmaintmslots
             
@@ -3697,12 +4185,16 @@ class DOCSIFMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsupchnlctrextcollcntninitmaintmslots
             
             	Current count, from CMTS initialization, of contention initial maintenance minislots subjected to collisions on this upstream  logical channel. This includes all contention minislots for IUC3 applicable to bursts that the CMTS detected, but could not correctly receive.              This is the 64 bit version of docsIfCmtsUpChnlCtrCollCntnInitMaintMslots, and will not be accessible to SNMPv1 managers. Support for this object is optional. If the object is not supported, A value of zero is returned
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -3789,7 +4281,11 @@ class DOCSIFMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(DOCSIFMIB.DocsIfCmtsUpChannelCounterTable.DocsIfCmtsUpChannelCounterEntry, [u'ifindex', u'docsifcmtsupchnlctrid', u'docsifcmtsupchnlctrtotalmslots', u'docsifcmtsupchnlctrucastgrantedmslots', u'docsifcmtsupchnlctrtotalcntnmslots', u'docsifcmtsupchnlctrusedcntnmslots', u'docsifcmtsupchnlctrexttotalmslots', u'docsifcmtsupchnlctrextucastgrantedmslots', u'docsifcmtsupchnlctrexttotalcntnmslots', u'docsifcmtsupchnlctrextusedcntnmslots', u'docsifcmtsupchnlctrcollcntnmslots', u'docsifcmtsupchnlctrtotalcntnreqmslots', u'docsifcmtsupchnlctrusedcntnreqmslots', u'docsifcmtsupchnlctrcollcntnreqmslots', u'docsifcmtsupchnlctrtotalcntnreqdatamslots', u'docsifcmtsupchnlctrusedcntnreqdatamslots', u'docsifcmtsupchnlctrcollcntnreqdatamslots', u'docsifcmtsupchnlctrtotalcntninitmaintmslots', u'docsifcmtsupchnlctrusedcntninitmaintmslots', u'docsifcmtsupchnlctrcollcntninitmaintmslots', u'docsifcmtsupchnlctrextcollcntnmslots', u'docsifcmtsupchnlctrexttotalcntnreqmslots', u'docsifcmtsupchnlctrextusedcntnreqmslots', u'docsifcmtsupchnlctrextcollcntnreqmslots', u'docsifcmtsupchnlctrexttotalcntnreqdatamslots', u'docsifcmtsupchnlctrextusedcntnreqdatamslots', u'docsifcmtsupchnlctrextcollcntnreqdatamslots', u'docsifcmtsupchnlctrexttotalcntninitmaintmslots', u'docsifcmtsupchnlctrextusedcntninitmaintmslots', u'docsifcmtsupchnlctrextcollcntninitmaintmslots'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = DOCSIFMIB()
         return self._top_entity
+
+
 

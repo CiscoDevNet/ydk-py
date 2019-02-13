@@ -46,6 +46,8 @@ class SnmpColdStart(Entity):
         self._top_entity = SnmpColdStart()
         return self._top_entity
 
+
+
 class SnmpWarmStart(Entity):
     """
     Generate SNMPv2\-MIB\:\:warmStart
@@ -74,6 +76,8 @@ class SnmpWarmStart(Entity):
     def clone_ptr(self):
         self._top_entity = SnmpWarmStart()
         return self._top_entity
+
+
 
 class InterfaceLinkUp(Entity):
     """
@@ -148,9 +152,12 @@ class InterfaceLinkUp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(InterfaceLinkUp.Input, ['ifindex'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = InterfaceLinkUp()
         return self._top_entity
+
+
 
 class InterfaceLinkDown(Entity):
     """
@@ -225,9 +232,12 @@ class InterfaceLinkDown(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(InterfaceLinkDown.Input, ['ifindex'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = InterfaceLinkDown()
         return self._top_entity
+
+
 
 class SonetSectionStatus(Entity):
     """
@@ -302,9 +312,12 @@ class SonetSectionStatus(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SonetSectionStatus.Input, ['ifindex'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = SonetSectionStatus()
         return self._top_entity
+
+
 
 class SonetLineStatus(Entity):
     """
@@ -379,9 +392,12 @@ class SonetLineStatus(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SonetLineStatus.Input, ['ifindex'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = SonetLineStatus()
         return self._top_entity
+
+
 
 class SonetPathStatus(Entity):
     """
@@ -456,9 +472,12 @@ class SonetPathStatus(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SonetPathStatus.Input, ['ifindex'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = SonetPathStatus()
         return self._top_entity
+
+
 
 class InfraSyslogMessageGenerated(Entity):
     """
@@ -489,6 +508,8 @@ class InfraSyslogMessageGenerated(Entity):
         self._top_entity = InfraSyslogMessageGenerated()
         return self._top_entity
 
+
+
 class InfraFlashDeviceInserted(Entity):
     """
     Generate CISCO\-FLASH\-MIB\:\:ciscoFlashDeviceInsertedNotif
@@ -517,6 +538,8 @@ class InfraFlashDeviceInserted(Entity):
     def clone_ptr(self):
         self._top_entity = InfraFlashDeviceInserted()
         return self._top_entity
+
+
 
 class InfraFlashDeviceRemoved(Entity):
     """
@@ -547,6 +570,8 @@ class InfraFlashDeviceRemoved(Entity):
         self._top_entity = InfraFlashDeviceRemoved()
         return self._top_entity
 
+
+
 class InfraRedundancyProgression(Entity):
     """
     Generate CISCO\-RF\-MIB\:\:ciscoRFProgressionNotif
@@ -575,6 +600,8 @@ class InfraRedundancyProgression(Entity):
     def clone_ptr(self):
         self._top_entity = InfraRedundancyProgression()
         return self._top_entity
+
+
 
 class InfraRedundancySwitch(Entity):
     """
@@ -605,6 +632,8 @@ class InfraRedundancySwitch(Entity):
         self._top_entity = InfraRedundancySwitch()
         return self._top_entity
 
+
+
 class InfraBridgeNewRoot(Entity):
     """
     Generate BRIDGE\-MIB\:\:newRoot
@@ -633,6 +662,8 @@ class InfraBridgeNewRoot(Entity):
     def clone_ptr(self):
         self._top_entity = InfraBridgeNewRoot()
         return self._top_entity
+
+
 
 class InfraBridgeTopologyChange(Entity):
     """
@@ -663,6 +694,8 @@ class InfraBridgeTopologyChange(Entity):
         self._top_entity = InfraBridgeTopologyChange()
         return self._top_entity
 
+
+
 class InfraConfigEvent(Entity):
     """
     Generate CISCO\-CONFIG\-MAN\-MIB\:\:ciscoConfigManEvent
@@ -691,6 +724,8 @@ class InfraConfigEvent(Entity):
     def clone_ptr(self):
         self._top_entity = InfraConfigEvent()
         return self._top_entity
+
+
 
 class EntitySensorThresholdNotification(Entity):
     """
@@ -765,9 +800,12 @@ class EntitySensorThresholdNotification(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(EntitySensorThresholdNotification.Input, ['entindex'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = EntitySensorThresholdNotification()
         return self._top_entity
+
+
 
 class EntityFruPowerStatusChangeFailed(Entity):
     """
@@ -842,9 +880,12 @@ class EntityFruPowerStatusChangeFailed(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(EntityFruPowerStatusChangeFailed.Input, ['entindex'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = EntityFruPowerStatusChangeFailed()
         return self._top_entity
+
+
 
 class EntityFruModuleStatusChangeUp(Entity):
     """
@@ -919,9 +960,12 @@ class EntityFruModuleStatusChangeUp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(EntityFruModuleStatusChangeUp.Input, ['entindex'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = EntityFruModuleStatusChangeUp()
         return self._top_entity
+
+
 
 class EntityFruModuleStatusChangeDown(Entity):
     """
@@ -996,9 +1040,12 @@ class EntityFruModuleStatusChangeDown(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(EntityFruModuleStatusChangeDown.Input, ['entindex'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = EntityFruModuleStatusChangeDown()
         return self._top_entity
+
+
 
 class EntityFruFanTrayOperStatusUp(Entity):
     """
@@ -1073,9 +1120,12 @@ class EntityFruFanTrayOperStatusUp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(EntityFruFanTrayOperStatusUp.Input, ['entindex'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = EntityFruFanTrayOperStatusUp()
         return self._top_entity
+
+
 
 class EntityFruFanTrayInserted(Entity):
     """
@@ -1150,9 +1200,12 @@ class EntityFruFanTrayInserted(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(EntityFruFanTrayInserted.Input, ['entindex'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = EntityFruFanTrayInserted()
         return self._top_entity
+
+
 
 class EntityFruFanTrayRemoved(Entity):
     """
@@ -1227,9 +1280,12 @@ class EntityFruFanTrayRemoved(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(EntityFruFanTrayRemoved.Input, ['entindex'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = EntityFruFanTrayRemoved()
         return self._top_entity
+
+
 
 class PlatformHfrBundleDownedLink(Entity):
     """
@@ -1302,9 +1358,12 @@ class PlatformHfrBundleDownedLink(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(PlatformHfrBundleDownedLink.Input, ['bundle_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = PlatformHfrBundleDownedLink()
         return self._top_entity
+
+
 
 class PlatformHfrBundleState(Entity):
     """
@@ -1377,9 +1436,12 @@ class PlatformHfrBundleState(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(PlatformHfrBundleState.Input, ['bundle_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = PlatformHfrBundleState()
         return self._top_entity
+
+
 
 class PlatformHfrPlaneState(Entity):
     """
@@ -1454,9 +1516,12 @@ class PlatformHfrPlaneState(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(PlatformHfrPlaneState.Input, ['plane_id'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = PlatformHfrPlaneState()
         return self._top_entity
+
+
 
 class RoutingBgpEstablished(Entity):
     """
@@ -1486,6 +1551,8 @@ class RoutingBgpEstablished(Entity):
     def clone_ptr(self):
         self._top_entity = RoutingBgpEstablished()
         return self._top_entity
+
+
 
 class RoutingBgpEstablishedRemotePeer(Entity):
     """
@@ -1562,9 +1629,12 @@ class RoutingBgpEstablishedRemotePeer(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingBgpEstablishedRemotePeer.Input, ['address'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = RoutingBgpEstablishedRemotePeer()
         return self._top_entity
+
+
 
 class RoutingBgpStateChange(Entity):
     """
@@ -1594,6 +1664,8 @@ class RoutingBgpStateChange(Entity):
     def clone_ptr(self):
         self._top_entity = RoutingBgpStateChange()
         return self._top_entity
+
+
 
 class RoutingBgpStateChangeRemotePeer(Entity):
     """
@@ -1670,9 +1742,12 @@ class RoutingBgpStateChangeRemotePeer(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingBgpStateChangeRemotePeer.Input, ['address'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = RoutingBgpStateChangeRemotePeer()
         return self._top_entity
+
+
 
 class RoutingOspfNeighborStateChange(Entity):
     """
@@ -1702,6 +1777,8 @@ class RoutingOspfNeighborStateChange(Entity):
     def clone_ptr(self):
         self._top_entity = RoutingOspfNeighborStateChange()
         return self._top_entity
+
+
 
 class RoutingOspfNeighborStateChangeAddress(Entity):
     """
@@ -1789,9 +1866,12 @@ class RoutingOspfNeighborStateChangeAddress(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingOspfNeighborStateChangeAddress.Input, ['address', 'ifindex'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = RoutingOspfNeighborStateChangeAddress()
         return self._top_entity
+
+
 
 class RoutingMplsLdpSessionDown(Entity):
     """
@@ -1821,6 +1901,8 @@ class RoutingMplsLdpSessionDown(Entity):
     def clone_ptr(self):
         self._top_entity = RoutingMplsLdpSessionDown()
         return self._top_entity
+
+
 
 class RoutingMplsLdpSessionDownEntityId(Entity):
     """
@@ -1919,9 +2001,12 @@ class RoutingMplsLdpSessionDownEntityId(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingMplsLdpSessionDownEntityId.Input, ['entity_id', 'entity_index', 'peer_id'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = RoutingMplsLdpSessionDownEntityId()
         return self._top_entity
+
+
 
 class RoutingMplsTunnelReRouted(Entity):
     """
@@ -1951,6 +2036,8 @@ class RoutingMplsTunnelReRouted(Entity):
     def clone_ptr(self):
         self._top_entity = RoutingMplsTunnelReRouted()
         return self._top_entity
+
+
 
 class RoutingMplsTunnelReRoutedIndex(Entity):
     """
@@ -2060,9 +2147,12 @@ class RoutingMplsTunnelReRoutedIndex(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingMplsTunnelReRoutedIndex.Input, ['index', 'instance', 'source', 'destination'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = RoutingMplsTunnelReRoutedIndex()
         return self._top_entity
+
+
 
 class RoutingMplsTunnelReOptimized(Entity):
     """
@@ -2092,6 +2182,8 @@ class RoutingMplsTunnelReOptimized(Entity):
     def clone_ptr(self):
         self._top_entity = RoutingMplsTunnelReOptimized()
         return self._top_entity
+
+
 
 class RoutingMplsTunnelReOptimizedIndex(Entity):
     """
@@ -2201,9 +2293,12 @@ class RoutingMplsTunnelReOptimizedIndex(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingMplsTunnelReOptimizedIndex.Input, ['index', 'instance', 'source', 'destination'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = RoutingMplsTunnelReOptimizedIndex()
         return self._top_entity
+
+
 
 class RoutingMplsTunnelDown(Entity):
     """
@@ -2233,6 +2328,8 @@ class RoutingMplsTunnelDown(Entity):
     def clone_ptr(self):
         self._top_entity = RoutingMplsTunnelDown()
         return self._top_entity
+
+
 
 class RoutingMplsTunnelDownIndex(Entity):
     """
@@ -2342,9 +2439,12 @@ class RoutingMplsTunnelDownIndex(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingMplsTunnelDownIndex.Input, ['index', 'instance', 'source', 'destination'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = RoutingMplsTunnelDownIndex()
         return self._top_entity
+
+
 
 class All(Entity):
     """
@@ -2374,4 +2474,6 @@ class All(Entity):
     def clone_ptr(self):
         self._top_entity = All()
         return self._top_entity
+
+
 

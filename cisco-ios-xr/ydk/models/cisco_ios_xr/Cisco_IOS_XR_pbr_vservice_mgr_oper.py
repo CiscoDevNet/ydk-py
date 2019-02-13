@@ -89,15 +89,21 @@ class GlobalServiceFunctionChaining(Entity):
     	Service Function Path operational data
     	**type**\:  :py:class:`ServiceFunctionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath>`
     
+    	**config**\: False
+    
     .. attribute:: service_function
     
     	Service Function operational data
     	**type**\:  :py:class:`ServiceFunction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction>`
     
+    	**config**\: False
+    
     .. attribute:: service_function_forwarder
     
     	Service Function Forwarder operational data
     	**type**\:  :py:class:`ServiceFunctionForwarder <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder>`
+    
+    	**config**\: False
     
     
 
@@ -145,6 +151,8 @@ class GlobalServiceFunctionChaining(Entity):
         	Service Function Path Id 
         	**type**\:  :py:class:`PathIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds>`
         
+        	**config**\: False
+        
         
 
         """
@@ -182,6 +190,8 @@ class GlobalServiceFunctionChaining(Entity):
             
             	Specific Service\-Function\-Path identifier 
             	**type**\: list of  		 :py:class:`PathId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId>`
+            
+            	**config**\: False
             
             
 
@@ -221,15 +231,21 @@ class GlobalServiceFunctionChaining(Entity):
                 
                 	**range:** 1..16777215
                 
+                	**config**\: False
+                
                 .. attribute:: stats
                 
                 	SFP Statistics
                 	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats>`
                 
+                	**config**\: False
+                
                 .. attribute:: service_indexes
                 
                 	Service Index Belonging to Path
                 	**type**\:  :py:class:`ServiceIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes>`
+                
+                	**config**\: False
                 
                 
 
@@ -276,10 +292,14 @@ class GlobalServiceFunctionChaining(Entity):
                     	Detail statistics per service index 
                     	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: summarized
                     
                     	Combined statistics of all service index in service functionpath
                     	**type**\:  :py:class:`Summarized <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -322,10 +342,14 @@ class GlobalServiceFunctionChaining(Entity):
                         	Statistics data
                         	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: si_arr
                         
                         	SI array in case of detail stats
                         	**type**\: list of  		 :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -366,35 +390,49 @@ class GlobalServiceFunctionChaining(Entity):
                             	SFP stats
                             	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: spi_si
                             
                             	SPI SI stats
                             	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: term
                             
                             	Terminate stats
                             	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: sf
                             
                             	Service function stats
                             	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: sff
                             
                             	Service function forwarder stats
                             	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: sff_local
                             
                             	Local service function forwarder stats
                             	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	type
                             	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -444,7 +482,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data, ['type'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data, [u'type'], name, value)
 
 
                             class Sfp(Entity):
@@ -456,10 +494,14 @@ class GlobalServiceFunctionChaining(Entity):
                                 	Service index counters
                                 	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: term
                                 
                                 	Terminate counters
                                 	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -504,12 +546,16 @@ class GlobalServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -539,7 +585,8 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                                 class Term(Entity):
@@ -553,12 +600,16 @@ class GlobalServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: terminated_bytes
                                     
                                     	Total bytes terminated
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -588,7 +639,9 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+
+
 
 
                             class SpiSi(Entity):
@@ -602,12 +655,16 @@ class GlobalServiceFunctionChaining(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: processed_bytes
                                 
                                 	Total bytes processed
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -637,7 +694,8 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                             class Term(Entity):
@@ -651,12 +709,16 @@ class GlobalServiceFunctionChaining(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: terminated_bytes
                                 
                                 	Total bytes terminated
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -686,7 +748,8 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+
 
 
                             class Sf(Entity):
@@ -700,12 +763,16 @@ class GlobalServiceFunctionChaining(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: processed_bytes
                                 
                                 	Total bytes processed
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -735,7 +802,8 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                             class Sff(Entity):
@@ -749,12 +817,16 @@ class GlobalServiceFunctionChaining(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: processed_bytes
                                 
                                 	Total bytes processed
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -784,7 +856,8 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                             class SffLocal(Entity):
@@ -798,6 +871,8 @@ class GlobalServiceFunctionChaining(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lookup_err_pkts
                                 
                                 	Number of packets with unknown spi\-si
@@ -805,12 +880,16 @@ class GlobalServiceFunctionChaining(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: malformed_err_bytes
                                 
                                 	Total bytes with invalid NSH header
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -820,6 +899,8 @@ class GlobalServiceFunctionChaining(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -853,7 +934,9 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
+
+
 
 
                         class SiArr(Entity):
@@ -865,12 +948,16 @@ class GlobalServiceFunctionChaining(Entity):
                             	Stats counter for this index
                             	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: si
                             
                             	Service index
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -900,7 +987,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr, ['si'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr, [u'si'], name, value)
 
 
                             class Data(Entity):
@@ -912,15 +999,21 @@ class GlobalServiceFunctionChaining(Entity):
                                 	SF/SFF stats
                                 	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: term
                                 
                                 	Terminate stats
                                 	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	type
                                 	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -954,7 +1047,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data, ['type'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data, [u'type'], name, value)
 
 
                                 class SpiSi(Entity):
@@ -968,12 +1061,16 @@ class GlobalServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -1003,7 +1100,8 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                                 class Term(Entity):
@@ -1017,12 +1115,16 @@ class GlobalServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: terminated_bytes
                                     
                                     	Total bytes terminated
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -1052,7 +1154,11 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+
+
+
+
 
 
                     class Summarized(Entity):
@@ -1065,10 +1171,14 @@ class GlobalServiceFunctionChaining(Entity):
                         	Statistics data
                         	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: si_arr
                         
                         	SI array in case of detail stats
                         	**type**\: list of  		 :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1109,35 +1219,49 @@ class GlobalServiceFunctionChaining(Entity):
                             	SFP stats
                             	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: spi_si
                             
                             	SPI SI stats
                             	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: term
                             
                             	Terminate stats
                             	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: sf
                             
                             	Service function stats
                             	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: sff
                             
                             	Service function forwarder stats
                             	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: sff_local
                             
                             	Local service function forwarder stats
                             	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	type
                             	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1187,7 +1311,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data, ['type'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data, [u'type'], name, value)
 
 
                             class Sfp(Entity):
@@ -1199,10 +1323,14 @@ class GlobalServiceFunctionChaining(Entity):
                                 	Service index counters
                                 	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: term
                                 
                                 	Terminate counters
                                 	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1247,12 +1375,16 @@ class GlobalServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -1282,7 +1414,8 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                                 class Term(Entity):
@@ -1296,12 +1429,16 @@ class GlobalServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: terminated_bytes
                                     
                                     	Total bytes terminated
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -1331,7 +1468,9 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+
+
 
 
                             class SpiSi(Entity):
@@ -1345,12 +1484,16 @@ class GlobalServiceFunctionChaining(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: processed_bytes
                                 
                                 	Total bytes processed
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -1380,7 +1523,8 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                             class Term(Entity):
@@ -1394,12 +1538,16 @@ class GlobalServiceFunctionChaining(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: terminated_bytes
                                 
                                 	Total bytes terminated
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -1429,7 +1577,8 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+
 
 
                             class Sf(Entity):
@@ -1443,12 +1592,16 @@ class GlobalServiceFunctionChaining(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: processed_bytes
                                 
                                 	Total bytes processed
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -1478,7 +1631,8 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                             class Sff(Entity):
@@ -1492,12 +1646,16 @@ class GlobalServiceFunctionChaining(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: processed_bytes
                                 
                                 	Total bytes processed
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -1527,7 +1685,8 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                             class SffLocal(Entity):
@@ -1541,6 +1700,8 @@ class GlobalServiceFunctionChaining(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lookup_err_pkts
                                 
                                 	Number of packets with unknown spi\-si
@@ -1548,12 +1709,16 @@ class GlobalServiceFunctionChaining(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: malformed_err_bytes
                                 
                                 	Total bytes with invalid NSH header
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -1563,6 +1728,8 @@ class GlobalServiceFunctionChaining(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -1596,7 +1763,9 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
+
+
 
 
                         class SiArr(Entity):
@@ -1608,12 +1777,16 @@ class GlobalServiceFunctionChaining(Entity):
                             	Stats counter for this index
                             	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: si
                             
                             	Service index
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -1643,7 +1816,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr, ['si'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr, [u'si'], name, value)
 
 
                             class Data(Entity):
@@ -1655,15 +1828,21 @@ class GlobalServiceFunctionChaining(Entity):
                                 	SF/SFF stats
                                 	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: term
                                 
                                 	Terminate stats
                                 	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	type
                                 	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1697,7 +1876,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data, ['type'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data, [u'type'], name, value)
 
 
                                 class SpiSi(Entity):
@@ -1711,12 +1890,16 @@ class GlobalServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -1746,7 +1929,8 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                                 class Term(Entity):
@@ -1760,12 +1944,16 @@ class GlobalServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: terminated_bytes
                                     
                                     	Total bytes terminated
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -1795,7 +1983,12 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+
+
+
+
+
 
 
                 class ServiceIndexes(Entity):
@@ -1806,6 +1999,8 @@ class GlobalServiceFunctionChaining(Entity):
                     
                     	Service index operational data belonging to this path
                     	**type**\: list of  		 :py:class:`ServiceIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1845,15 +2040,21 @@ class GlobalServiceFunctionChaining(Entity):
                         
                         	**range:** 1..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: data
                         
                         	Statistics data
                         	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: si_arr
                         
                         	SI array in case of detail stats
                         	**type**\: list of  		 :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1897,35 +2098,49 @@ class GlobalServiceFunctionChaining(Entity):
                             	SFP stats
                             	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: spi_si
                             
                             	SPI SI stats
                             	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: term
                             
                             	Terminate stats
                             	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: sf
                             
                             	Service function stats
                             	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: sff
                             
                             	Service function forwarder stats
                             	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: sff_local
                             
                             	Local service function forwarder stats
                             	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	type
                             	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1975,7 +2190,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data, ['type'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data, [u'type'], name, value)
 
 
                             class Sfp(Entity):
@@ -1987,10 +2202,14 @@ class GlobalServiceFunctionChaining(Entity):
                                 	Service index counters
                                 	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: term
                                 
                                 	Terminate counters
                                 	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2035,12 +2254,16 @@ class GlobalServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -2070,7 +2293,8 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                                 class Term(Entity):
@@ -2084,12 +2308,16 @@ class GlobalServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: terminated_bytes
                                     
                                     	Total bytes terminated
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -2119,7 +2347,9 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+
+
 
 
                             class SpiSi(Entity):
@@ -2133,12 +2363,16 @@ class GlobalServiceFunctionChaining(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: processed_bytes
                                 
                                 	Total bytes processed
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -2168,7 +2402,8 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                             class Term(Entity):
@@ -2182,12 +2417,16 @@ class GlobalServiceFunctionChaining(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: terminated_bytes
                                 
                                 	Total bytes terminated
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -2217,7 +2456,8 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+
 
 
                             class Sf(Entity):
@@ -2231,12 +2471,16 @@ class GlobalServiceFunctionChaining(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: processed_bytes
                                 
                                 	Total bytes processed
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -2266,7 +2510,8 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                             class Sff(Entity):
@@ -2280,12 +2525,16 @@ class GlobalServiceFunctionChaining(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: processed_bytes
                                 
                                 	Total bytes processed
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -2315,7 +2564,8 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                             class SffLocal(Entity):
@@ -2329,6 +2579,8 @@ class GlobalServiceFunctionChaining(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lookup_err_pkts
                                 
                                 	Number of packets with unknown spi\-si
@@ -2336,12 +2588,16 @@ class GlobalServiceFunctionChaining(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: malformed_err_bytes
                                 
                                 	Total bytes with invalid NSH header
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -2351,6 +2607,8 @@ class GlobalServiceFunctionChaining(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -2384,7 +2642,9 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
+
+
 
 
                         class SiArr(Entity):
@@ -2396,12 +2656,16 @@ class GlobalServiceFunctionChaining(Entity):
                             	Stats counter for this index
                             	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: si
                             
                             	Service index
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -2431,7 +2695,7 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr, ['si'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr, [u'si'], name, value)
 
 
                             class Data(Entity):
@@ -2443,15 +2707,21 @@ class GlobalServiceFunctionChaining(Entity):
                                 	SF/SFF stats
                                 	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: term
                                 
                                 	Terminate stats
                                 	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	type
                                 	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2485,7 +2755,7 @@ class GlobalServiceFunctionChaining(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data, ['type'], name, value)
+                                    self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data, [u'type'], name, value)
 
 
                                 class SpiSi(Entity):
@@ -2499,12 +2769,16 @@ class GlobalServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -2534,7 +2808,8 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                                 class Term(Entity):
@@ -2548,12 +2823,16 @@ class GlobalServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: terminated_bytes
                                     
                                     	Total bytes terminated
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -2583,7 +2862,15 @@ class GlobalServiceFunctionChaining(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+                                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+
+
+
+
+
+
+
+
 
 
     class ServiceFunction(Entity):
@@ -2594,6 +2881,8 @@ class GlobalServiceFunctionChaining(Entity):
         
         	List of Service Function Names
         	**type**\:  :py:class:`SfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames>`
+        
+        	**config**\: False
         
         
 
@@ -2633,6 +2922,8 @@ class GlobalServiceFunctionChaining(Entity):
             	Name of Service Function
             	**type**\: list of  		 :py:class:`SfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName>`
             
+            	**config**\: False
+            
             
 
             """
@@ -2671,15 +2962,21 @@ class GlobalServiceFunctionChaining(Entity):
                 
                 	**length:** 1..32
                 
+                	**config**\: False
+                
                 .. attribute:: data
                 
                 	Statistics data
                 	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data>`
                 
+                	**config**\: False
+                
                 .. attribute:: si_arr
                 
                 	SI array in case of detail stats
                 	**type**\: list of  		 :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr>`
+                
+                	**config**\: False
                 
                 
 
@@ -2724,35 +3021,49 @@ class GlobalServiceFunctionChaining(Entity):
                     	SFP stats
                     	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: spi_si
                     
                     	SPI SI stats
                     	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: term
                     
                     	Terminate stats
                     	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sf
                     
                     	Service function stats
                     	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: sff
                     
                     	Service function forwarder stats
                     	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sff_local
                     
                     	Local service function forwarder stats
                     	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: type
                     
                     	type
                     	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2802,7 +3113,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data, ['type'], name, value)
+                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data, [u'type'], name, value)
 
 
                     class Sfp(Entity):
@@ -2814,10 +3125,14 @@ class GlobalServiceFunctionChaining(Entity):
                         	Service index counters
                         	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: term
                         
                         	Terminate counters
                         	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2862,12 +3177,16 @@ class GlobalServiceFunctionChaining(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: processed_bytes
                             
                             	Total bytes processed
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2897,7 +3216,8 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                         class Term(Entity):
@@ -2911,12 +3231,16 @@ class GlobalServiceFunctionChaining(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: terminated_bytes
                             
                             	Total bytes terminated
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2946,7 +3270,9 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+
+
 
 
                     class SpiSi(Entity):
@@ -2960,12 +3286,16 @@ class GlobalServiceFunctionChaining(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: processed_bytes
                         
                         	Total bytes processed
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -2995,7 +3325,8 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                     class Term(Entity):
@@ -3009,12 +3340,16 @@ class GlobalServiceFunctionChaining(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: terminated_bytes
                         
                         	Total bytes terminated
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -3044,7 +3379,8 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+
 
 
                     class Sf(Entity):
@@ -3058,12 +3394,16 @@ class GlobalServiceFunctionChaining(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: processed_bytes
                         
                         	Total bytes processed
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -3093,7 +3433,8 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                     class Sff(Entity):
@@ -3107,12 +3448,16 @@ class GlobalServiceFunctionChaining(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: processed_bytes
                         
                         	Total bytes processed
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -3142,7 +3487,8 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                     class SffLocal(Entity):
@@ -3156,6 +3502,8 @@ class GlobalServiceFunctionChaining(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: lookup_err_pkts
                         
                         	Number of packets with unknown spi\-si
@@ -3163,12 +3511,16 @@ class GlobalServiceFunctionChaining(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: malformed_err_bytes
                         
                         	Total bytes with invalid NSH header
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -3178,6 +3530,8 @@ class GlobalServiceFunctionChaining(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -3211,7 +3565,9 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
+
+
 
 
                 class SiArr(Entity):
@@ -3223,12 +3579,16 @@ class GlobalServiceFunctionChaining(Entity):
                     	Stats counter for this index
                     	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: si
                     
                     	Service index
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -3258,7 +3618,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr, ['si'], name, value)
+                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr, [u'si'], name, value)
 
 
                     class Data(Entity):
@@ -3270,15 +3630,21 @@ class GlobalServiceFunctionChaining(Entity):
                         	SF/SFF stats
                         	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: term
                         
                         	Terminate stats
                         	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	type
                         	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3312,7 +3678,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data, ['type'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data, [u'type'], name, value)
 
 
                         class SpiSi(Entity):
@@ -3326,12 +3692,16 @@ class GlobalServiceFunctionChaining(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: processed_bytes
                             
                             	Total bytes processed
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -3361,7 +3731,8 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                         class Term(Entity):
@@ -3375,12 +3746,16 @@ class GlobalServiceFunctionChaining(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: terminated_bytes
                             
                             	Total bytes terminated
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -3410,7 +3785,13 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunction.SfNames.SfName.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+
+
+
+
+
+
 
 
     class ServiceFunctionForwarder(Entity):
@@ -3422,10 +3803,14 @@ class GlobalServiceFunctionChaining(Entity):
         	List of Service Function Forwarder Names
         	**type**\:  :py:class:`SffNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames>`
         
+        	**config**\: False
+        
         .. attribute:: local
         
         	Local Service Function Forwarder operational data
         	**type**\:  :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local>`
+        
+        	**config**\: False
         
         
 
@@ -3469,6 +3854,8 @@ class GlobalServiceFunctionChaining(Entity):
             	Name of Service Function Forwarder
             	**type**\: list of  		 :py:class:`SffName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName>`
             
+            	**config**\: False
+            
             
 
             """
@@ -3507,15 +3894,21 @@ class GlobalServiceFunctionChaining(Entity):
                 
                 	**length:** 1..32
                 
+                	**config**\: False
+                
                 .. attribute:: data
                 
                 	Statistics data
                 	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data>`
                 
+                	**config**\: False
+                
                 .. attribute:: si_arr
                 
                 	SI array in case of detail stats
                 	**type**\: list of  		 :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr>`
+                
+                	**config**\: False
                 
                 
 
@@ -3560,35 +3953,49 @@ class GlobalServiceFunctionChaining(Entity):
                     	SFP stats
                     	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: spi_si
                     
                     	SPI SI stats
                     	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: term
                     
                     	Terminate stats
                     	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sf
                     
                     	Service function stats
                     	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: sff
                     
                     	Service function forwarder stats
                     	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sff_local
                     
                     	Local service function forwarder stats
                     	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: type
                     
                     	type
                     	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3638,7 +4045,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data, ['type'], name, value)
+                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data, [u'type'], name, value)
 
 
                     class Sfp(Entity):
@@ -3650,10 +4057,14 @@ class GlobalServiceFunctionChaining(Entity):
                         	Service index counters
                         	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: term
                         
                         	Terminate counters
                         	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3698,12 +4109,16 @@ class GlobalServiceFunctionChaining(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: processed_bytes
                             
                             	Total bytes processed
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -3733,7 +4148,8 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                         class Term(Entity):
@@ -3747,12 +4163,16 @@ class GlobalServiceFunctionChaining(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: terminated_bytes
                             
                             	Total bytes terminated
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -3782,7 +4202,9 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+
+
 
 
                     class SpiSi(Entity):
@@ -3796,12 +4218,16 @@ class GlobalServiceFunctionChaining(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: processed_bytes
                         
                         	Total bytes processed
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -3831,7 +4257,8 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                     class Term(Entity):
@@ -3845,12 +4272,16 @@ class GlobalServiceFunctionChaining(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: terminated_bytes
                         
                         	Total bytes terminated
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -3880,7 +4311,8 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+
 
 
                     class Sf(Entity):
@@ -3894,12 +4326,16 @@ class GlobalServiceFunctionChaining(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: processed_bytes
                         
                         	Total bytes processed
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -3929,7 +4365,8 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                     class Sff(Entity):
@@ -3943,12 +4380,16 @@ class GlobalServiceFunctionChaining(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: processed_bytes
                         
                         	Total bytes processed
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -3978,7 +4419,8 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                     class SffLocal(Entity):
@@ -3992,6 +4434,8 @@ class GlobalServiceFunctionChaining(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: lookup_err_pkts
                         
                         	Number of packets with unknown spi\-si
@@ -3999,12 +4443,16 @@ class GlobalServiceFunctionChaining(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: malformed_err_bytes
                         
                         	Total bytes with invalid NSH header
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -4014,6 +4462,8 @@ class GlobalServiceFunctionChaining(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -4047,7 +4497,9 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
+
+
 
 
                 class SiArr(Entity):
@@ -4059,12 +4511,16 @@ class GlobalServiceFunctionChaining(Entity):
                     	Stats counter for this index
                     	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: si
                     
                     	Service index
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -4094,7 +4550,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr, ['si'], name, value)
+                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr, [u'si'], name, value)
 
 
                     class Data(Entity):
@@ -4106,15 +4562,21 @@ class GlobalServiceFunctionChaining(Entity):
                         	SF/SFF stats
                         	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: term
                         
                         	Terminate stats
                         	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	type
                         	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -4148,7 +4610,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data, ['type'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data, [u'type'], name, value)
 
 
                         class SpiSi(Entity):
@@ -4162,12 +4624,16 @@ class GlobalServiceFunctionChaining(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: processed_bytes
                             
                             	Total bytes processed
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -4197,7 +4663,8 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                         class Term(Entity):
@@ -4211,12 +4678,16 @@ class GlobalServiceFunctionChaining(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: terminated_bytes
                             
                             	Total bytes terminated
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -4246,7 +4717,12 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+
+
+
+
+
 
 
         class Local(Entity):
@@ -4258,6 +4734,8 @@ class GlobalServiceFunctionChaining(Entity):
             
             	Error Statistics for local service function forwarder
             	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error>`
+            
+            	**config**\: False
             
             
 
@@ -4298,10 +4776,14 @@ class GlobalServiceFunctionChaining(Entity):
                 	Statistics data
                 	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data>`
                 
+                	**config**\: False
+                
                 .. attribute:: si_arr
                 
                 	SI array in case of detail stats
                 	**type**\: list of  		 :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr>`
+                
+                	**config**\: False
                 
                 
 
@@ -4343,35 +4825,49 @@ class GlobalServiceFunctionChaining(Entity):
                     	SFP stats
                     	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: spi_si
                     
                     	SPI SI stats
                     	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: term
                     
                     	Terminate stats
                     	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sf
                     
                     	Service function stats
                     	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: sff
                     
                     	Service function forwarder stats
                     	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sff_local
                     
                     	Local service function forwarder stats
                     	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: type
                     
                     	type
                     	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4422,7 +4918,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data, ['type'], name, value)
+                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data, [u'type'], name, value)
 
 
                     class Sfp(Entity):
@@ -4434,10 +4930,14 @@ class GlobalServiceFunctionChaining(Entity):
                         	Service index counters
                         	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: term
                         
                         	Terminate counters
                         	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -4483,12 +4983,16 @@ class GlobalServiceFunctionChaining(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: processed_bytes
                             
                             	Total bytes processed
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -4519,7 +5023,8 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                         class Term(Entity):
@@ -4533,12 +5038,16 @@ class GlobalServiceFunctionChaining(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: terminated_bytes
                             
                             	Total bytes terminated
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -4569,7 +5078,9 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+
+
 
 
                     class SpiSi(Entity):
@@ -4583,12 +5094,16 @@ class GlobalServiceFunctionChaining(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: processed_bytes
                         
                         	Total bytes processed
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -4619,7 +5134,8 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                     class Term(Entity):
@@ -4633,12 +5149,16 @@ class GlobalServiceFunctionChaining(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: terminated_bytes
                         
                         	Total bytes terminated
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -4669,7 +5189,8 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+
 
 
                     class Sf(Entity):
@@ -4683,12 +5204,16 @@ class GlobalServiceFunctionChaining(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: processed_bytes
                         
                         	Total bytes processed
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -4719,7 +5244,8 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf, ['processed_pkts', 'processed_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                     class Sff(Entity):
@@ -4733,12 +5259,16 @@ class GlobalServiceFunctionChaining(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: processed_bytes
                         
                         	Total bytes processed
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -4769,7 +5299,8 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff, ['processed_pkts', 'processed_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                     class SffLocal(Entity):
@@ -4783,6 +5314,8 @@ class GlobalServiceFunctionChaining(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: lookup_err_pkts
                         
                         	Number of packets with unknown spi\-si
@@ -4790,12 +5323,16 @@ class GlobalServiceFunctionChaining(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: malformed_err_bytes
                         
                         	Total bytes with invalid NSH header
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -4805,6 +5342,8 @@ class GlobalServiceFunctionChaining(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -4839,7 +5378,9 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal, ['malformed_err_pkts', 'lookup_err_pkts', 'malformed_err_bytes', 'lookup_err_bytes'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
+
+
 
 
                 class SiArr(Entity):
@@ -4851,12 +5392,16 @@ class GlobalServiceFunctionChaining(Entity):
                     	Stats counter for this index
                     	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: si
                     
                     	Service index
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -4887,7 +5432,7 @@ class GlobalServiceFunctionChaining(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr, ['si'], name, value)
+                        self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr, [u'si'], name, value)
 
 
                     class Data(Entity):
@@ -4899,15 +5444,21 @@ class GlobalServiceFunctionChaining(Entity):
                         	SF/SFF stats
                         	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: term
                         
                         	Terminate stats
                         	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	type
                         	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper.VsNshStats>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -4942,7 +5493,7 @@ class GlobalServiceFunctionChaining(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data, ['type'], name, value)
+                            self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data, [u'type'], name, value)
 
 
                         class SpiSi(Entity):
@@ -4956,12 +5507,16 @@ class GlobalServiceFunctionChaining(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: processed_bytes
                             
                             	Total bytes processed
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -4992,7 +5547,8 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi, ['processed_pkts', 'processed_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
+
 
 
                         class Term(Entity):
@@ -5006,12 +5562,16 @@ class GlobalServiceFunctionChaining(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: terminated_bytes
                             
                             	Total bytes terminated
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -5042,9 +5602,17 @@ class GlobalServiceFunctionChaining(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term, ['terminated_pkts', 'terminated_bytes'], name, value)
+                                self._perform_setattr(GlobalServiceFunctionChaining.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = GlobalServiceFunctionChaining()
         return self._top_entity
+
+
 

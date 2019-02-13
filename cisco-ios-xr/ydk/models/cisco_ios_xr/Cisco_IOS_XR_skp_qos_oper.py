@@ -603,6 +603,8 @@ class PlatformQos(Entity):
     	List of nodes with platform specific QoS configuration
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -642,6 +644,8 @@ class PlatformQos(Entity):
         	Node with platform specific QoS configuration
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node>`
         
+        	**config**\: False
+        
         
 
         """
@@ -680,20 +684,28 @@ class PlatformQos(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: bundle_interfaces
             
             	QoS list of bundle interfaces
             	**type**\:  :py:class:`BundleInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces>`
+            
+            	**config**\: False
             
             .. attribute:: capability
             
             	QoS system capability
             	**type**\:  :py:class:`Capability <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Capability>`
             
+            	**config**\: False
+            
             .. attribute:: interfaces
             
             	QoS list of interfaces
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces>`
+            
+            	**config**\: False
             
             
 
@@ -744,6 +756,8 @@ class PlatformQos(Entity):
                 	QoS interface name
                 	**type**\: list of  		 :py:class:`BundleInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -781,10 +795,14 @@ class PlatformQos(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: member_interfaces
                     
                     	QoS list of member interfaces
                     	**type**\:  :py:class:`MemberInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -826,6 +844,8 @@ class PlatformQos(Entity):
                         	QoS interface name
                         	**type**\: list of  		 :py:class:`MemberInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -863,15 +883,21 @@ class PlatformQos(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: bundle_input
                             
                             	QoS policy direction input
                             	**type**\:  :py:class:`BundleInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: bundle_output
                             
                             	QoS policy direction output
                             	**type**\:  :py:class:`BundleOutput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -917,15 +943,21 @@ class PlatformQos(Entity):
                                 	QoS EA policy header
                                 	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Header>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: interface_parameters
                                 
                                 	QoS Interface Parameters
                                 	**type**\:  :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: skywarp_qos_policy_class
                                 
                                 	Skywarp QoS policy class details
                                 	**type**\:  :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -974,12 +1006,16 @@ class PlatformQos(Entity):
                                     
                                     	**length:** 0..101
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: policy_name
                                     
                                     	Policy name
                                     	**type**\: str
                                     
                                     	**length:** 0..65
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: direction
                                     
@@ -988,12 +1024,16 @@ class PlatformQos(Entity):
                                     
                                     	**length:** 0..11
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: classes
                                     
                                     	Number of classes
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1025,7 +1065,8 @@ class PlatformQos(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Header, [u'interface_name', u'policy_name', u'direction', u'classes'], name, value)
+
 
 
                                 class InterfaceParameters(Entity):
@@ -1037,15 +1078,21 @@ class PlatformQos(Entity):
                                     	Interface Configured Rate
                                     	**type**\:  :py:class:`InterfaceConfigRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceConfigRate>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: interface_program_rate
                                     
                                     	Interface Programmed Rate
                                     	**type**\:  :py:class:`InterfaceProgramRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceProgramRate>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: port_shaper_rate
                                     
                                     	Port Shaper Rate
                                     	**type**\:  :py:class:`PortShaperRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.PortShaperRate>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1094,10 +1141,14 @@ class PlatformQos(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unit
                                         
                                         	Config unit
                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1125,7 +1176,8 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceConfigRate, ['value', 'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceConfigRate, [u'value', u'unit'], name, value)
+
 
 
                                     class InterfaceProgramRate(Entity):
@@ -1139,10 +1191,14 @@ class PlatformQos(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unit
                                         
                                         	Config unit
                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1170,7 +1226,8 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceProgramRate, ['value', 'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceProgramRate, [u'value', u'unit'], name, value)
+
 
 
                                     class PortShaperRate(Entity):
@@ -1184,10 +1241,14 @@ class PlatformQos(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unit
                                         
                                         	Config unit
                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1215,7 +1276,9 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.PortShaperRate, ['value', 'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.PortShaperRate, [u'value', u'unit'], name, value)
+
+
 
 
                                 class SkywarpQosPolicyClass(Entity):
@@ -1226,6 +1289,8 @@ class PlatformQos(Entity):
                                     
                                     	qos show pclass st
                                     	**type**\: list of  		 :py:class:`QosShowPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1262,25 +1327,35 @@ class PlatformQos(Entity):
                                         	QoS Queue parameters
                                         	**type**\:  :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Queue>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: shape
                                         
                                         	QoS EA Shaper parameters
                                         	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: wfq
                                         
                                         	QoS WFQ parameters
                                         	**type**\:  :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: police
                                         
                                         	QoS Policer parameters
                                         	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: marking
                                         
                                         	QoS Mark parameters
                                         	**type**\:  :py:class:`Marking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: class_level
                                         
@@ -1289,12 +1364,16 @@ class PlatformQos(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: class_name
                                         
                                         	Class name
                                         	**type**\: str
                                         
                                         	**length:** 0..65
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1342,7 +1421,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt, [u'class_level', u'class_name'], name, value)
 
 
                                         class Queue(Entity):
@@ -1356,12 +1435,16 @@ class PlatformQos(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: queue_type
                                             
                                             	Queue Type
                                             	**type**\: str
                                             
                                             	**length:** 0..101
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1389,7 +1472,8 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, [u'queue_id', u'queue_type'], name, value)
+
 
 
                                         class Shape(Entity):
@@ -1401,10 +1485,14 @@ class PlatformQos(Entity):
                                             	PIR in kbps
                                             	**type**\:  :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: pbs
                                             
                                             	PBS in bytes
                                             	**type**\:  :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1449,10 +1537,14 @@ class PlatformQos(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -1480,7 +1572,8 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, [u'value', u'unit'], name, value)
+
 
 
                                             class Pbs(Entity):
@@ -1494,10 +1587,14 @@ class PlatformQos(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -1525,7 +1622,9 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, [u'value', u'unit'], name, value)
+
+
 
 
                                         class Wfq(Entity):
@@ -1537,10 +1636,14 @@ class PlatformQos(Entity):
                                             	Committed Weight
                                             	**type**\:  :py:class:`CommittedWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: programmed_wfq
                                             
                                             	QoS Programmed WFQ parameters
                                             	**type**\:  :py:class:`ProgrammedWfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: excess_weight
                                             
@@ -1548,6 +1651,8 @@ class PlatformQos(Entity):
                                             	**type**\: int
                                             
                                             	**range:** 0..65535
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1581,7 +1686,7 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, [u'excess_weight'], name, value)
 
 
                                             class CommittedWeight(Entity):
@@ -1595,10 +1700,14 @@ class PlatformQos(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -1626,7 +1735,8 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, [u'value', u'unit'], name, value)
+
 
 
                                             class ProgrammedWfq(Entity):
@@ -1638,10 +1748,14 @@ class PlatformQos(Entity):
                                                 	Bandwidth
                                                 	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: sum_of_bandwidth
                                                 
                                                 	Sum of Bandwidth
                                                 	**type**\:  :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: excess_ratio
                                                 
@@ -1649,6 +1763,8 @@ class PlatformQos(Entity):
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..65535
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -1682,7 +1798,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, [u'excess_ratio'], name, value)
 
 
                                                 class Bandwidth(Entity):
@@ -1696,10 +1812,14 @@ class PlatformQos(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: unit
                                                     
                                                     	Config unit
                                                     	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -1727,7 +1847,8 @@ class PlatformQos(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['value', 'unit'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, [u'value', u'unit'], name, value)
+
 
 
                                                 class SumOfBandwidth(Entity):
@@ -1741,10 +1862,14 @@ class PlatformQos(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: unit
                                                     
                                                     	Config unit
                                                     	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -1772,7 +1897,10 @@ class PlatformQos(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['value', 'unit'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, [u'value', u'unit'], name, value)
+
+
+
 
 
                                         class Police(Entity):
@@ -1784,10 +1912,14 @@ class PlatformQos(Entity):
                                             	CIR
                                             	**type**\:  :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: cbs
                                             
                                             	CBS
                                             	**type**\:  :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: policer_id
                                             
@@ -1796,10 +1928,14 @@ class PlatformQos(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: policer_type
                                             
                                             	Policer type
                                             	**type**\:  :py:class:`TbAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithm>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1835,7 +1971,7 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police, [u'policer_id', u'policer_type'], name, value)
 
 
                                             class Cir(Entity):
@@ -1849,10 +1985,14 @@ class PlatformQos(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -1880,7 +2020,8 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, [u'value', u'unit'], name, value)
+
 
 
                                             class Cbs(Entity):
@@ -1894,10 +2035,14 @@ class PlatformQos(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -1925,7 +2070,9 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, [u'value', u'unit'], name, value)
+
+
 
 
                                         class Marking(Entity):
@@ -1937,15 +2084,21 @@ class PlatformQos(Entity):
                                             	Mark Only
                                             	**type**\:  :py:class:`MarkOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: police_conform
                                             
                                             	Police conform mark
                                             	**type**\:  :py:class:`PoliceConform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: police_exceed
                                             
                                             	Police exceed mark
                                             	**type**\:  :py:class:`PoliceExceed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1992,10 +2145,14 @@ class PlatformQos(Entity):
                                                 	Action type
                                                 	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.Action>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: mark_detail
                                                 
                                                 	Mark value
                                                 	**type**\: list of  		 :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -2023,7 +2180,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, ['action_type'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, [u'action_type'], name, value)
 
 
                                                 class MarkDetail(Entity):
@@ -2037,10 +2194,14 @@ class PlatformQos(Entity):
                                                     
                                                     	**range:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: action_opcode
                                                     
                                                     	Action opcode
                                                     	**type**\:  :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -2068,7 +2229,9 @@ class PlatformQos(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['mark_value', 'action_opcode'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+
+
 
 
                                             class PoliceConform(Entity):
@@ -2080,10 +2243,14 @@ class PlatformQos(Entity):
                                                 	Action type
                                                 	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.Action>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: mark_detail
                                                 
                                                 	Mark value
                                                 	**type**\: list of  		 :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -2111,7 +2278,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, ['action_type'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, [u'action_type'], name, value)
 
 
                                                 class MarkDetail(Entity):
@@ -2125,10 +2292,14 @@ class PlatformQos(Entity):
                                                     
                                                     	**range:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: action_opcode
                                                     
                                                     	Action opcode
                                                     	**type**\:  :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -2156,7 +2327,9 @@ class PlatformQos(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['mark_value', 'action_opcode'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+
+
 
 
                                             class PoliceExceed(Entity):
@@ -2168,10 +2341,14 @@ class PlatformQos(Entity):
                                                 	Action type
                                                 	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.Action>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: mark_detail
                                                 
                                                 	Mark value
                                                 	**type**\: list of  		 :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -2199,7 +2376,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, ['action_type'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, [u'action_type'], name, value)
 
 
                                                 class MarkDetail(Entity):
@@ -2213,10 +2390,14 @@ class PlatformQos(Entity):
                                                     
                                                     	**range:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: action_opcode
                                                     
                                                     	Action opcode
                                                     	**type**\:  :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -2244,7 +2425,13 @@ class PlatformQos(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['mark_value', 'action_opcode'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+
+
+
+
+
+
 
 
                             class BundleOutput(Entity):
@@ -2256,15 +2443,21 @@ class PlatformQos(Entity):
                                 	QoS EA policy header
                                 	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Header>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: interface_parameters
                                 
                                 	QoS Interface Parameters
                                 	**type**\:  :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: skywarp_qos_policy_class
                                 
                                 	Skywarp QoS policy class details
                                 	**type**\:  :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2313,12 +2506,16 @@ class PlatformQos(Entity):
                                     
                                     	**length:** 0..101
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: policy_name
                                     
                                     	Policy name
                                     	**type**\: str
                                     
                                     	**length:** 0..65
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: direction
                                     
@@ -2327,12 +2524,16 @@ class PlatformQos(Entity):
                                     
                                     	**length:** 0..11
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: classes
                                     
                                     	Number of classes
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2364,7 +2565,8 @@ class PlatformQos(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Header, [u'interface_name', u'policy_name', u'direction', u'classes'], name, value)
+
 
 
                                 class InterfaceParameters(Entity):
@@ -2376,15 +2578,21 @@ class PlatformQos(Entity):
                                     	Interface Configured Rate
                                     	**type**\:  :py:class:`InterfaceConfigRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceConfigRate>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: interface_program_rate
                                     
                                     	Interface Programmed Rate
                                     	**type**\:  :py:class:`InterfaceProgramRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceProgramRate>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: port_shaper_rate
                                     
                                     	Port Shaper Rate
                                     	**type**\:  :py:class:`PortShaperRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.PortShaperRate>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2433,10 +2641,14 @@ class PlatformQos(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unit
                                         
                                         	Config unit
                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2464,7 +2676,8 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceConfigRate, ['value', 'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceConfigRate, [u'value', u'unit'], name, value)
+
 
 
                                     class InterfaceProgramRate(Entity):
@@ -2478,10 +2691,14 @@ class PlatformQos(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unit
                                         
                                         	Config unit
                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2509,7 +2726,8 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceProgramRate, ['value', 'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceProgramRate, [u'value', u'unit'], name, value)
+
 
 
                                     class PortShaperRate(Entity):
@@ -2523,10 +2741,14 @@ class PlatformQos(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unit
                                         
                                         	Config unit
                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2554,7 +2776,9 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.PortShaperRate, ['value', 'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.PortShaperRate, [u'value', u'unit'], name, value)
+
+
 
 
                                 class SkywarpQosPolicyClass(Entity):
@@ -2565,6 +2789,8 @@ class PlatformQos(Entity):
                                     
                                     	qos show pclass st
                                     	**type**\: list of  		 :py:class:`QosShowPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2601,25 +2827,35 @@ class PlatformQos(Entity):
                                         	QoS Queue parameters
                                         	**type**\:  :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Queue>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: shape
                                         
                                         	QoS EA Shaper parameters
                                         	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: wfq
                                         
                                         	QoS WFQ parameters
                                         	**type**\:  :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: police
                                         
                                         	QoS Policer parameters
                                         	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: marking
                                         
                                         	QoS Mark parameters
                                         	**type**\:  :py:class:`Marking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: class_level
                                         
@@ -2628,12 +2864,16 @@ class PlatformQos(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: class_name
                                         
                                         	Class name
                                         	**type**\: str
                                         
                                         	**length:** 0..65
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2681,7 +2921,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt, [u'class_level', u'class_name'], name, value)
 
 
                                         class Queue(Entity):
@@ -2695,12 +2935,16 @@ class PlatformQos(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: queue_type
                                             
                                             	Queue Type
                                             	**type**\: str
                                             
                                             	**length:** 0..101
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -2728,7 +2972,8 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, [u'queue_id', u'queue_type'], name, value)
+
 
 
                                         class Shape(Entity):
@@ -2740,10 +2985,14 @@ class PlatformQos(Entity):
                                             	PIR in kbps
                                             	**type**\:  :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: pbs
                                             
                                             	PBS in bytes
                                             	**type**\:  :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -2788,10 +3037,14 @@ class PlatformQos(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -2819,7 +3072,8 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, [u'value', u'unit'], name, value)
+
 
 
                                             class Pbs(Entity):
@@ -2833,10 +3087,14 @@ class PlatformQos(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -2864,7 +3122,9 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, [u'value', u'unit'], name, value)
+
+
 
 
                                         class Wfq(Entity):
@@ -2876,10 +3136,14 @@ class PlatformQos(Entity):
                                             	Committed Weight
                                             	**type**\:  :py:class:`CommittedWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: programmed_wfq
                                             
                                             	QoS Programmed WFQ parameters
                                             	**type**\:  :py:class:`ProgrammedWfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: excess_weight
                                             
@@ -2887,6 +3151,8 @@ class PlatformQos(Entity):
                                             	**type**\: int
                                             
                                             	**range:** 0..65535
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -2920,7 +3186,7 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, [u'excess_weight'], name, value)
 
 
                                             class CommittedWeight(Entity):
@@ -2934,10 +3200,14 @@ class PlatformQos(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -2965,7 +3235,8 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, [u'value', u'unit'], name, value)
+
 
 
                                             class ProgrammedWfq(Entity):
@@ -2977,10 +3248,14 @@ class PlatformQos(Entity):
                                                 	Bandwidth
                                                 	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: sum_of_bandwidth
                                                 
                                                 	Sum of Bandwidth
                                                 	**type**\:  :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: excess_ratio
                                                 
@@ -2988,6 +3263,8 @@ class PlatformQos(Entity):
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..65535
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -3021,7 +3298,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, [u'excess_ratio'], name, value)
 
 
                                                 class Bandwidth(Entity):
@@ -3035,10 +3312,14 @@ class PlatformQos(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: unit
                                                     
                                                     	Config unit
                                                     	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -3066,7 +3347,8 @@ class PlatformQos(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['value', 'unit'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, [u'value', u'unit'], name, value)
+
 
 
                                                 class SumOfBandwidth(Entity):
@@ -3080,10 +3362,14 @@ class PlatformQos(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: unit
                                                     
                                                     	Config unit
                                                     	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -3111,7 +3397,10 @@ class PlatformQos(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['value', 'unit'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, [u'value', u'unit'], name, value)
+
+
+
 
 
                                         class Police(Entity):
@@ -3123,10 +3412,14 @@ class PlatformQos(Entity):
                                             	CIR
                                             	**type**\:  :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: cbs
                                             
                                             	CBS
                                             	**type**\:  :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: policer_id
                                             
@@ -3135,10 +3428,14 @@ class PlatformQos(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: policer_type
                                             
                                             	Policer type
                                             	**type**\:  :py:class:`TbAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithm>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -3174,7 +3471,7 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police, [u'policer_id', u'policer_type'], name, value)
 
 
                                             class Cir(Entity):
@@ -3188,10 +3485,14 @@ class PlatformQos(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -3219,7 +3520,8 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, [u'value', u'unit'], name, value)
+
 
 
                                             class Cbs(Entity):
@@ -3233,10 +3535,14 @@ class PlatformQos(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -3264,7 +3570,9 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, [u'value', u'unit'], name, value)
+
+
 
 
                                         class Marking(Entity):
@@ -3276,15 +3584,21 @@ class PlatformQos(Entity):
                                             	Mark Only
                                             	**type**\:  :py:class:`MarkOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: police_conform
                                             
                                             	Police conform mark
                                             	**type**\:  :py:class:`PoliceConform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: police_exceed
                                             
                                             	Police exceed mark
                                             	**type**\:  :py:class:`PoliceExceed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -3331,10 +3645,14 @@ class PlatformQos(Entity):
                                                 	Action type
                                                 	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.Action>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: mark_detail
                                                 
                                                 	Mark value
                                                 	**type**\: list of  		 :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -3362,7 +3680,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, ['action_type'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, [u'action_type'], name, value)
 
 
                                                 class MarkDetail(Entity):
@@ -3376,10 +3694,14 @@ class PlatformQos(Entity):
                                                     
                                                     	**range:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: action_opcode
                                                     
                                                     	Action opcode
                                                     	**type**\:  :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -3407,7 +3729,9 @@ class PlatformQos(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['mark_value', 'action_opcode'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+
+
 
 
                                             class PoliceConform(Entity):
@@ -3419,10 +3743,14 @@ class PlatformQos(Entity):
                                                 	Action type
                                                 	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.Action>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: mark_detail
                                                 
                                                 	Mark value
                                                 	**type**\: list of  		 :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -3450,7 +3778,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, ['action_type'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, [u'action_type'], name, value)
 
 
                                                 class MarkDetail(Entity):
@@ -3464,10 +3792,14 @@ class PlatformQos(Entity):
                                                     
                                                     	**range:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: action_opcode
                                                     
                                                     	Action opcode
                                                     	**type**\:  :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -3495,7 +3827,9 @@ class PlatformQos(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['mark_value', 'action_opcode'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+
+
 
 
                                             class PoliceExceed(Entity):
@@ -3507,10 +3841,14 @@ class PlatformQos(Entity):
                                                 	Action type
                                                 	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.Action>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: mark_detail
                                                 
                                                 	Mark value
                                                 	**type**\: list of  		 :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -3538,7 +3876,7 @@ class PlatformQos(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, ['action_type'], name, value)
+                                                    self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, [u'action_type'], name, value)
 
 
                                                 class MarkDetail(Entity):
@@ -3552,10 +3890,14 @@ class PlatformQos(Entity):
                                                     
                                                     	**range:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: action_opcode
                                                     
                                                     	Action opcode
                                                     	**type**\:  :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -3583,7 +3925,17 @@ class PlatformQos(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['mark_value', 'action_opcode'], name, value)
+                                                        self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+
+
+
+
+
+
+
+
+
+
 
 
             class Capability(Entity):
@@ -3597,12 +3949,16 @@ class PlatformQos(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: max_policy_hierarchy
                 
                 	Maximum policy hierarchy
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: max_policy_name_length
                 
@@ -3611,12 +3967,16 @@ class PlatformQos(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: max_classes_per_policy
                 
                 	Maximum classes per policy
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: max_police_actions_per_class
                 
@@ -3625,12 +3985,16 @@ class PlatformQos(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: max_marking_actions_per_class
                 
                 	Maximum marking action  per class
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: max_matches_per_class
                 
@@ -3639,6 +4003,8 @@ class PlatformQos(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: max_classmap_name_length
                 
                 	Maximum classmap name length
@@ -3646,12 +4012,16 @@ class PlatformQos(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: max_bundle_members
                 
                 	Maximum bundle members
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -3693,7 +4063,8 @@ class PlatformQos(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PlatformQos.Nodes.Node.Capability, ['max_policy_maps', 'max_policy_hierarchy', 'max_policy_name_length', 'max_classes_per_policy', 'max_police_actions_per_class', 'max_marking_actions_per_class', 'max_matches_per_class', 'max_classmap_name_length', 'max_bundle_members'], name, value)
+                    self._perform_setattr(PlatformQos.Nodes.Node.Capability, [u'max_policy_maps', u'max_policy_hierarchy', u'max_policy_name_length', u'max_classes_per_policy', u'max_police_actions_per_class', u'max_marking_actions_per_class', u'max_matches_per_class', u'max_classmap_name_length', u'max_bundle_members'], name, value)
+
 
 
             class Interfaces(Entity):
@@ -3704,6 +4075,8 @@ class PlatformQos(Entity):
                 
                 	QoS interface name
                 	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface>`
+                
+                	**config**\: False
                 
                 
 
@@ -3742,15 +4115,21 @@ class PlatformQos(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: output
                     
                     	QoS policy direction egress
                     	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: input
                     
                     	QoS policy direction ingress
                     	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3796,15 +4175,21 @@ class PlatformQos(Entity):
                         	QoS EA policy header
                         	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.Header>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: interface_parameters
                         
                         	QoS Interface Parameters
                         	**type**\:  :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: skywarp_qos_policy_class
                         
                         	Skywarp QoS policy class details
                         	**type**\:  :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3853,12 +4238,16 @@ class PlatformQos(Entity):
                             
                             	**length:** 0..101
                             
+                            	**config**\: False
+                            
                             .. attribute:: policy_name
                             
                             	Policy name
                             	**type**\: str
                             
                             	**length:** 0..65
+                            
+                            	**config**\: False
                             
                             .. attribute:: direction
                             
@@ -3867,12 +4256,16 @@ class PlatformQos(Entity):
                             
                             	**length:** 0..11
                             
+                            	**config**\: False
+                            
                             .. attribute:: classes
                             
                             	Number of classes
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -3904,7 +4297,8 @@ class PlatformQos(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
+                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.Header, [u'interface_name', u'policy_name', u'direction', u'classes'], name, value)
+
 
 
                         class InterfaceParameters(Entity):
@@ -3916,15 +4310,21 @@ class PlatformQos(Entity):
                             	Interface Configured Rate
                             	**type**\:  :py:class:`InterfaceConfigRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceConfigRate>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_program_rate
                             
                             	Interface Programmed Rate
                             	**type**\:  :py:class:`InterfaceProgramRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceProgramRate>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: port_shaper_rate
                             
                             	Port Shaper Rate
                             	**type**\:  :py:class:`PortShaperRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.PortShaperRate>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -3973,10 +4373,14 @@ class PlatformQos(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: unit
                                 
                                 	Config unit
                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4004,7 +4408,8 @@ class PlatformQos(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceConfigRate, ['value', 'unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceConfigRate, [u'value', u'unit'], name, value)
+
 
 
                             class InterfaceProgramRate(Entity):
@@ -4018,10 +4423,14 @@ class PlatformQos(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: unit
                                 
                                 	Config unit
                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4049,7 +4458,8 @@ class PlatformQos(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceProgramRate, ['value', 'unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceProgramRate, [u'value', u'unit'], name, value)
+
 
 
                             class PortShaperRate(Entity):
@@ -4063,10 +4473,14 @@ class PlatformQos(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: unit
                                 
                                 	Config unit
                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4094,7 +4508,9 @@ class PlatformQos(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.PortShaperRate, ['value', 'unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.PortShaperRate, [u'value', u'unit'], name, value)
+
+
 
 
                         class SkywarpQosPolicyClass(Entity):
@@ -4105,6 +4521,8 @@ class PlatformQos(Entity):
                             
                             	qos show pclass st
                             	**type**\: list of  		 :py:class:`QosShowPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -4141,25 +4559,35 @@ class PlatformQos(Entity):
                                 	QoS Queue parameters
                                 	**type**\:  :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Queue>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: shape
                                 
                                 	QoS EA Shaper parameters
                                 	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: wfq
                                 
                                 	QoS WFQ parameters
                                 	**type**\:  :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: police
                                 
                                 	QoS Policer parameters
                                 	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: marking
                                 
                                 	QoS Mark parameters
                                 	**type**\:  :py:class:`Marking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: class_level
                                 
@@ -4168,12 +4596,16 @@ class PlatformQos(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: class_name
                                 
                                 	Class name
                                 	**type**\: str
                                 
                                 	**length:** 0..65
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4221,7 +4653,7 @@ class PlatformQos(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt, [u'class_level', u'class_name'], name, value)
 
 
                                 class Queue(Entity):
@@ -4235,12 +4667,16 @@ class PlatformQos(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: queue_type
                                     
                                     	Queue Type
                                     	**type**\: str
                                     
                                     	**length:** 0..101
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4268,7 +4704,8 @@ class PlatformQos(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Queue, [u'queue_id', u'queue_type'], name, value)
+
 
 
                                 class Shape(Entity):
@@ -4280,10 +4717,14 @@ class PlatformQos(Entity):
                                     	PIR in kbps
                                     	**type**\:  :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pbs
                                     
                                     	PBS in bytes
                                     	**type**\:  :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4328,10 +4769,14 @@ class PlatformQos(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unit
                                         
                                         	Config unit
                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4359,7 +4804,8 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['value', 'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, [u'value', u'unit'], name, value)
+
 
 
                                     class Pbs(Entity):
@@ -4373,10 +4819,14 @@ class PlatformQos(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unit
                                         
                                         	Config unit
                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4404,7 +4854,9 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['value', 'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, [u'value', u'unit'], name, value)
+
+
 
 
                                 class Wfq(Entity):
@@ -4416,10 +4868,14 @@ class PlatformQos(Entity):
                                     	Committed Weight
                                     	**type**\:  :py:class:`CommittedWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: programmed_wfq
                                     
                                     	QoS Programmed WFQ parameters
                                     	**type**\:  :py:class:`ProgrammedWfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: excess_weight
                                     
@@ -4427,6 +4883,8 @@ class PlatformQos(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4460,7 +4918,7 @@ class PlatformQos(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, [u'excess_weight'], name, value)
 
 
                                     class CommittedWeight(Entity):
@@ -4474,10 +4932,14 @@ class PlatformQos(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unit
                                         
                                         	Config unit
                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4505,7 +4967,8 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['value', 'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, [u'value', u'unit'], name, value)
+
 
 
                                     class ProgrammedWfq(Entity):
@@ -4517,10 +4980,14 @@ class PlatformQos(Entity):
                                         	Bandwidth
                                         	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sum_of_bandwidth
                                         
                                         	Sum of Bandwidth
                                         	**type**\:  :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: excess_ratio
                                         
@@ -4528,6 +4995,8 @@ class PlatformQos(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4561,7 +5030,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, [u'excess_ratio'], name, value)
 
 
                                         class Bandwidth(Entity):
@@ -4575,10 +5044,14 @@ class PlatformQos(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: unit
                                             
                                             	Config unit
                                             	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -4606,7 +5079,8 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['value', 'unit'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, [u'value', u'unit'], name, value)
+
 
 
                                         class SumOfBandwidth(Entity):
@@ -4620,10 +5094,14 @@ class PlatformQos(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: unit
                                             
                                             	Config unit
                                             	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -4651,7 +5129,10 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['value', 'unit'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, [u'value', u'unit'], name, value)
+
+
+
 
 
                                 class Police(Entity):
@@ -4663,10 +5144,14 @@ class PlatformQos(Entity):
                                     	CIR
                                     	**type**\:  :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: cbs
                                     
                                     	CBS
                                     	**type**\:  :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: policer_id
                                     
@@ -4675,10 +5160,14 @@ class PlatformQos(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: policer_type
                                     
                                     	Policer type
                                     	**type**\:  :py:class:`TbAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithm>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4714,7 +5203,7 @@ class PlatformQos(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police, [u'policer_id', u'policer_type'], name, value)
 
 
                                     class Cir(Entity):
@@ -4728,10 +5217,14 @@ class PlatformQos(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unit
                                         
                                         	Config unit
                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4759,7 +5252,8 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['value', 'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, [u'value', u'unit'], name, value)
+
 
 
                                     class Cbs(Entity):
@@ -4773,10 +5267,14 @@ class PlatformQos(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unit
                                         
                                         	Config unit
                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4804,7 +5302,9 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['value', 'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, [u'value', u'unit'], name, value)
+
+
 
 
                                 class Marking(Entity):
@@ -4816,15 +5316,21 @@ class PlatformQos(Entity):
                                     	Mark Only
                                     	**type**\:  :py:class:`MarkOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: police_conform
                                     
                                     	Police conform mark
                                     	**type**\:  :py:class:`PoliceConform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: police_exceed
                                     
                                     	Police exceed mark
                                     	**type**\:  :py:class:`PoliceExceed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4871,10 +5377,14 @@ class PlatformQos(Entity):
                                         	Action type
                                         	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.Action>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: mark_detail
                                         
                                         	Mark value
                                         	**type**\: list of  		 :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4902,7 +5412,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, ['action_type'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, [u'action_type'], name, value)
 
 
                                         class MarkDetail(Entity):
@@ -4916,10 +5426,14 @@ class PlatformQos(Entity):
                                             
                                             	**range:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: action_opcode
                                             
                                             	Action opcode
                                             	**type**\:  :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -4947,7 +5461,9 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['mark_value', 'action_opcode'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+
+
 
 
                                     class PoliceConform(Entity):
@@ -4959,10 +5475,14 @@ class PlatformQos(Entity):
                                         	Action type
                                         	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.Action>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: mark_detail
                                         
                                         	Mark value
                                         	**type**\: list of  		 :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4990,7 +5510,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, ['action_type'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, [u'action_type'], name, value)
 
 
                                         class MarkDetail(Entity):
@@ -5004,10 +5524,14 @@ class PlatformQos(Entity):
                                             
                                             	**range:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: action_opcode
                                             
                                             	Action opcode
                                             	**type**\:  :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -5035,7 +5559,9 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['mark_value', 'action_opcode'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+
+
 
 
                                     class PoliceExceed(Entity):
@@ -5047,10 +5573,14 @@ class PlatformQos(Entity):
                                         	Action type
                                         	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.Action>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: mark_detail
                                         
                                         	Mark value
                                         	**type**\: list of  		 :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5078,7 +5608,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, ['action_type'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, [u'action_type'], name, value)
 
 
                                         class MarkDetail(Entity):
@@ -5092,10 +5622,14 @@ class PlatformQos(Entity):
                                             
                                             	**range:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: action_opcode
                                             
                                             	Action opcode
                                             	**type**\:  :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -5123,7 +5657,13 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['mark_value', 'action_opcode'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+
+
+
+
+
+
 
 
                     class Input(Entity):
@@ -5135,15 +5675,21 @@ class PlatformQos(Entity):
                         	QoS EA policy header
                         	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: interface_parameters
                         
                         	QoS Interface Parameters
                         	**type**\:  :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: skywarp_qos_policy_class
                         
                         	Skywarp QoS policy class details
                         	**type**\:  :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5192,12 +5738,16 @@ class PlatformQos(Entity):
                             
                             	**length:** 0..101
                             
+                            	**config**\: False
+                            
                             .. attribute:: policy_name
                             
                             	Policy name
                             	**type**\: str
                             
                             	**length:** 0..65
+                            
+                            	**config**\: False
                             
                             .. attribute:: direction
                             
@@ -5206,12 +5756,16 @@ class PlatformQos(Entity):
                             
                             	**length:** 0..11
                             
+                            	**config**\: False
+                            
                             .. attribute:: classes
                             
                             	Number of classes
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -5243,7 +5797,8 @@ class PlatformQos(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
+                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header, [u'interface_name', u'policy_name', u'direction', u'classes'], name, value)
+
 
 
                         class InterfaceParameters(Entity):
@@ -5255,15 +5810,21 @@ class PlatformQos(Entity):
                             	Interface Configured Rate
                             	**type**\:  :py:class:`InterfaceConfigRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_program_rate
                             
                             	Interface Programmed Rate
                             	**type**\:  :py:class:`InterfaceProgramRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: port_shaper_rate
                             
                             	Port Shaper Rate
                             	**type**\:  :py:class:`PortShaperRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -5312,10 +5873,14 @@ class PlatformQos(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: unit
                                 
                                 	Config unit
                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5343,7 +5908,8 @@ class PlatformQos(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate, ['value', 'unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate, [u'value', u'unit'], name, value)
+
 
 
                             class InterfaceProgramRate(Entity):
@@ -5357,10 +5923,14 @@ class PlatformQos(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: unit
                                 
                                 	Config unit
                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5388,7 +5958,8 @@ class PlatformQos(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate, ['value', 'unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate, [u'value', u'unit'], name, value)
+
 
 
                             class PortShaperRate(Entity):
@@ -5402,10 +5973,14 @@ class PlatformQos(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: unit
                                 
                                 	Config unit
                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5433,7 +6008,9 @@ class PlatformQos(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate, ['value', 'unit'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate, [u'value', u'unit'], name, value)
+
+
 
 
                         class SkywarpQosPolicyClass(Entity):
@@ -5444,6 +6021,8 @@ class PlatformQos(Entity):
                             
                             	qos show pclass st
                             	**type**\: list of  		 :py:class:`QosShowPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -5480,25 +6059,35 @@ class PlatformQos(Entity):
                                 	QoS Queue parameters
                                 	**type**\:  :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: shape
                                 
                                 	QoS EA Shaper parameters
                                 	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: wfq
                                 
                                 	QoS WFQ parameters
                                 	**type**\:  :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: police
                                 
                                 	QoS Policer parameters
                                 	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: marking
                                 
                                 	QoS Mark parameters
                                 	**type**\:  :py:class:`Marking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: class_level
                                 
@@ -5507,12 +6096,16 @@ class PlatformQos(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: class_name
                                 
                                 	Class name
                                 	**type**\: str
                                 
                                 	**length:** 0..65
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5560,7 +6153,7 @@ class PlatformQos(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
+                                    self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt, [u'class_level', u'class_name'], name, value)
 
 
                                 class Queue(Entity):
@@ -5574,12 +6167,16 @@ class PlatformQos(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: queue_type
                                     
                                     	Queue Type
                                     	**type**\: str
                                     
                                     	**length:** 0..101
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5607,7 +6204,8 @@ class PlatformQos(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue, [u'queue_id', u'queue_type'], name, value)
+
 
 
                                 class Shape(Entity):
@@ -5619,10 +6217,14 @@ class PlatformQos(Entity):
                                     	PIR in kbps
                                     	**type**\:  :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pbs
                                     
                                     	PBS in bytes
                                     	**type**\:  :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5667,10 +6269,14 @@ class PlatformQos(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unit
                                         
                                         	Config unit
                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5698,7 +6304,8 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['value', 'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, [u'value', u'unit'], name, value)
+
 
 
                                     class Pbs(Entity):
@@ -5712,10 +6319,14 @@ class PlatformQos(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unit
                                         
                                         	Config unit
                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5743,7 +6354,9 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['value', 'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, [u'value', u'unit'], name, value)
+
+
 
 
                                 class Wfq(Entity):
@@ -5755,10 +6368,14 @@ class PlatformQos(Entity):
                                     	Committed Weight
                                     	**type**\:  :py:class:`CommittedWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: programmed_wfq
                                     
                                     	QoS Programmed WFQ parameters
                                     	**type**\:  :py:class:`ProgrammedWfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: excess_weight
                                     
@@ -5766,6 +6383,8 @@ class PlatformQos(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5799,7 +6418,7 @@ class PlatformQos(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, [u'excess_weight'], name, value)
 
 
                                     class CommittedWeight(Entity):
@@ -5813,10 +6432,14 @@ class PlatformQos(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unit
                                         
                                         	Config unit
                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5844,7 +6467,8 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['value', 'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, [u'value', u'unit'], name, value)
+
 
 
                                     class ProgrammedWfq(Entity):
@@ -5856,10 +6480,14 @@ class PlatformQos(Entity):
                                         	Bandwidth
                                         	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sum_of_bandwidth
                                         
                                         	Sum of Bandwidth
                                         	**type**\:  :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: excess_ratio
                                         
@@ -5867,6 +6495,8 @@ class PlatformQos(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5900,7 +6530,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, [u'excess_ratio'], name, value)
 
 
                                         class Bandwidth(Entity):
@@ -5914,10 +6544,14 @@ class PlatformQos(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: unit
                                             
                                             	Config unit
                                             	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -5945,7 +6579,8 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['value', 'unit'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, [u'value', u'unit'], name, value)
+
 
 
                                         class SumOfBandwidth(Entity):
@@ -5959,10 +6594,14 @@ class PlatformQos(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: unit
                                             
                                             	Config unit
                                             	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -5990,7 +6629,10 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['value', 'unit'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, [u'value', u'unit'], name, value)
+
+
+
 
 
                                 class Police(Entity):
@@ -6002,10 +6644,14 @@ class PlatformQos(Entity):
                                     	CIR
                                     	**type**\:  :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: cbs
                                     
                                     	CBS
                                     	**type**\:  :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: policer_id
                                     
@@ -6014,10 +6660,14 @@ class PlatformQos(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: policer_type
                                     
                                     	Policer type
                                     	**type**\:  :py:class:`TbAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithm>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6053,7 +6703,7 @@ class PlatformQos(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
+                                        self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police, [u'policer_id', u'policer_type'], name, value)
 
 
                                     class Cir(Entity):
@@ -6067,10 +6717,14 @@ class PlatformQos(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unit
                                         
                                         	Config unit
                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6098,7 +6752,8 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['value', 'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, [u'value', u'unit'], name, value)
+
 
 
                                     class Cbs(Entity):
@@ -6112,10 +6767,14 @@ class PlatformQos(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unit
                                         
                                         	Config unit
                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6143,7 +6802,9 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['value', 'unit'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, [u'value', u'unit'], name, value)
+
+
 
 
                                 class Marking(Entity):
@@ -6155,15 +6816,21 @@ class PlatformQos(Entity):
                                     	Mark Only
                                     	**type**\:  :py:class:`MarkOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: police_conform
                                     
                                     	Police conform mark
                                     	**type**\:  :py:class:`PoliceConform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: police_exceed
                                     
                                     	Police exceed mark
                                     	**type**\:  :py:class:`PoliceExceed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6210,10 +6877,14 @@ class PlatformQos(Entity):
                                         	Action type
                                         	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.Action>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: mark_detail
                                         
                                         	Mark value
                                         	**type**\: list of  		 :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6241,7 +6912,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, ['action_type'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, [u'action_type'], name, value)
 
 
                                         class MarkDetail(Entity):
@@ -6255,10 +6926,14 @@ class PlatformQos(Entity):
                                             
                                             	**range:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: action_opcode
                                             
                                             	Action opcode
                                             	**type**\:  :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -6286,7 +6961,9 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['mark_value', 'action_opcode'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+
+
 
 
                                     class PoliceConform(Entity):
@@ -6298,10 +6975,14 @@ class PlatformQos(Entity):
                                         	Action type
                                         	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.Action>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: mark_detail
                                         
                                         	Mark value
                                         	**type**\: list of  		 :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6329,7 +7010,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, ['action_type'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, [u'action_type'], name, value)
 
 
                                         class MarkDetail(Entity):
@@ -6343,10 +7024,14 @@ class PlatformQos(Entity):
                                             
                                             	**range:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: action_opcode
                                             
                                             	Action opcode
                                             	**type**\:  :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -6374,7 +7059,9 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['mark_value', 'action_opcode'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+
+
 
 
                                     class PoliceExceed(Entity):
@@ -6386,10 +7073,14 @@ class PlatformQos(Entity):
                                         	Action type
                                         	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.Action>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: mark_detail
                                         
                                         	Mark value
                                         	**type**\: list of  		 :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6417,7 +7108,7 @@ class PlatformQos(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, ['action_type'], name, value)
+                                            self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, [u'action_type'], name, value)
 
 
                                         class MarkDetail(Entity):
@@ -6431,10 +7122,14 @@ class PlatformQos(Entity):
                                             
                                             	**range:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: action_opcode
                                             
                                             	Action opcode
                                             	**type**\:  :py:class:`ActionOpcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcode>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -6462,11 +7157,23 @@ class PlatformQos(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['mark_value', 'action_opcode'], name, value)
+                                                self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, [u'mark_value', u'action_opcode'], name, value)
+
+
+
+
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = PlatformQos()
         return self._top_entity
+
+
 
 class PlatformQosEa(Entity):
     """
@@ -6476,6 +7183,8 @@ class PlatformQosEa(Entity):
     
     	List of nodes with platform specific QoS\-EA configuration
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes>`
+    
+    	**config**\: False
     
     
 
@@ -6516,6 +7225,8 @@ class PlatformQosEa(Entity):
         	Node with platform specific QoS\-EA configuration
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node>`
         
+        	**config**\: False
+        
         
 
         """
@@ -6555,15 +7266,21 @@ class PlatformQosEa(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: bundle_interfaces
             
             	QoS\-EA list of bundle interfaces
             	**type**\:  :py:class:`BundleInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces>`
             
+            	**config**\: False
+            
             .. attribute:: interfaces
             
             	QoS\-EA list of interfaces
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces>`
+            
+            	**config**\: False
             
             
 
@@ -6610,6 +7327,8 @@ class PlatformQosEa(Entity):
                 	QoS\-EA interface name
                 	**type**\: list of  		 :py:class:`BundleInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -6647,10 +7366,14 @@ class PlatformQosEa(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: member_interfaces
                     
                     	QoS\-EA list of member interfaces
                     	**type**\:  :py:class:`MemberInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -6692,6 +7415,8 @@ class PlatformQosEa(Entity):
                         	QoS\-EA interface name
                         	**type**\: list of  		 :py:class:`MemberInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -6729,15 +7454,21 @@ class PlatformQosEa(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: bundle_output
                             
                             	QoS\-EA policy direction output
                             	**type**\:  :py:class:`BundleOutput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: bundle_input
                             
                             	QoS\-EA policy direction input
                             	**type**\:  :py:class:`BundleInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -6783,6 +7514,8 @@ class PlatformQosEa(Entity):
                                 	QoS\-EA policy details
                                 	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -6820,15 +7553,21 @@ class PlatformQosEa(Entity):
                                     	QoS EA policy header
                                     	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.Header>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: interface_parameters
                                     
                                     	QoS EA Interface Parameters
                                     	**type**\:  :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.InterfaceParameters>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: skywarp_qos_policy_class
                                     
                                     	Skywarp QoS EA policy class details
                                     	**type**\:  :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6877,12 +7616,16 @@ class PlatformQosEa(Entity):
                                         
                                         	**length:** 0..101
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: policy_name
                                         
                                         	Policy name
                                         	**type**\: str
                                         
                                         	**length:** 0..65
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: direction
                                         
@@ -6891,12 +7634,16 @@ class PlatformQosEa(Entity):
                                         
                                         	**length:** 0..11
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: classes
                                         
                                         	Number of classes
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6928,7 +7675,8 @@ class PlatformQosEa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.Header, [u'interface_name', u'policy_name', u'direction', u'classes'], name, value)
+
 
 
                                     class InterfaceParameters(Entity):
@@ -6942,12 +7690,16 @@ class PlatformQosEa(Entity):
                                         
                                         	**length:** 0..65
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: hierarchical_depth
                                         
                                         	Max Hierarchial Depth
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: interface_type
                                         
@@ -6956,12 +7708,16 @@ class PlatformQosEa(Entity):
                                         
                                         	**length:** 0..101
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: interface_rate
                                         
                                         	Interface Programmed Rate
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: port_shaper_rate
                                         
@@ -6970,12 +7726,16 @@ class PlatformQosEa(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: interface_handle
                                         
                                         	Interface Handle
                                         	**type**\: str
                                         
                                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: under_line_interface_handle
                                         
@@ -6984,12 +7744,16 @@ class PlatformQosEa(Entity):
                                         
                                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: bundle_id
                                         
                                         	Bundle Interface ID
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: uidb_index
                                         
@@ -6998,12 +7762,16 @@ class PlatformQosEa(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: qos_interface_handle
                                         
                                         	QoS Interface handle
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: port
                                         
@@ -7012,12 +7780,16 @@ class PlatformQosEa(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: policy_map_id
                                         
                                         	Policy Map ID
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7065,7 +7837,8 @@ class PlatformQosEa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.InterfaceParameters, ['policy_name', 'hierarchical_depth', 'interface_type', 'interface_rate', 'port_shaper_rate', 'interface_handle', 'under_line_interface_handle', 'bundle_id', 'uidb_index', 'qos_interface_handle', 'port', 'policy_map_id'], name, value)
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.InterfaceParameters, [u'policy_name', u'hierarchical_depth', u'interface_type', u'interface_rate', u'port_shaper_rate', u'interface_handle', u'under_line_interface_handle', u'bundle_id', u'uidb_index', u'qos_interface_handle', u'port', u'policy_map_id'], name, value)
+
 
 
                                     class SkywarpQosPolicyClass(Entity):
@@ -7076,6 +7849,8 @@ class PlatformQosEa(Entity):
                                         
                                         	qos show ea pclass st
                                         	**type**\: list of  		 :py:class:`QosShowEaPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7112,10 +7887,14 @@ class PlatformQosEa(Entity):
                                             	QoS EA Class Configuration
                                             	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: result
                                             
                                             	QoS EA Class Result
                                             	**type**\:  :py:class:`Result <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: index
                                             
@@ -7124,12 +7903,16 @@ class PlatformQosEa(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: class_level
                                             
                                             	Class level
                                             	**type**\: int
                                             
                                             	**range:** 0..255
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: class_name
                                             
@@ -7138,12 +7921,16 @@ class PlatformQosEa(Entity):
                                             
                                             	**length:** 0..65
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: policy_name
                                             
                                             	Policy name
                                             	**type**\: str
                                             
                                             	**length:** 0..65
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: node_flags
                                             
@@ -7152,12 +7939,16 @@ class PlatformQosEa(Entity):
                                             
                                             	**length:** 0..101
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: stats_flags
                                             
                                             	Statistical Flags
                                             	**type**\: str
                                             
                                             	**length:** 0..101
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -7201,7 +7992,7 @@ class PlatformQosEa(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['index', 'class_level', 'class_name', 'policy_name', 'node_flags', 'stats_flags'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, [u'index', u'class_level', u'class_name', u'policy_name', u'node_flags', u'stats_flags'], name, value)
 
 
                                             class Config(Entity):
@@ -7213,15 +8004,21 @@ class PlatformQosEa(Entity):
                                                 	QoS EA Policer parameters
                                                 	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: shape
                                                 
                                                 	QoS EA Shaper parameters
                                                 	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: wfq
                                                 
                                                 	QoS EA WFQ parameters
                                                 	**type**\:  :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: node_config
                                                 
@@ -7229,6 +8026,8 @@ class PlatformQosEa(Entity):
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..101
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -7266,7 +8065,7 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, ['node_config'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, [u'node_config'], name, value)
 
 
                                                 class Police(Entity):
@@ -7278,20 +8077,28 @@ class PlatformQosEa(Entity):
                                                     	CIR
                                                     	**type**\:  :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: cbs
                                                     
                                                     	CBS
                                                     	**type**\:  :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: color_aware
                                                     
                                                     	Color Aware
                                                     	**type**\: bool
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: policer_type
                                                     
                                                     	Policer type
                                                     	**type**\:  :py:class:`TbAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithm>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -7327,7 +8134,7 @@ class PlatformQosEa(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, [u'color_aware', u'policer_type'], name, value)
 
 
                                                     class Cir(Entity):
@@ -7341,10 +8148,14 @@ class PlatformQosEa(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
                                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -7372,7 +8183,8 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['value', 'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, [u'value', u'unit'], name, value)
+
 
 
                                                     class Cbs(Entity):
@@ -7386,10 +8198,14 @@ class PlatformQosEa(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
                                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -7417,7 +8233,9 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['value', 'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, [u'value', u'unit'], name, value)
+
+
 
 
                                                 class Shape(Entity):
@@ -7429,10 +8247,14 @@ class PlatformQosEa(Entity):
                                                     	PIR in kbps
                                                     	**type**\:  :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: pbs
                                                     
                                                     	PBS in bytes
                                                     	**type**\:  :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -7477,10 +8299,14 @@ class PlatformQosEa(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
                                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -7508,7 +8334,8 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['value', 'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, [u'value', u'unit'], name, value)
+
 
 
                                                     class Pbs(Entity):
@@ -7522,10 +8349,14 @@ class PlatformQosEa(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
                                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -7553,7 +8384,9 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['value', 'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, [u'value', u'unit'], name, value)
+
+
 
 
                                                 class Wfq(Entity):
@@ -7565,10 +8398,14 @@ class PlatformQosEa(Entity):
                                                     	Bandwidth
                                                     	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: sum_of_bandwidth
                                                     
                                                     	Sum of Bandwidth
                                                     	**type**\:  :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: excess_ratio
                                                     
@@ -7576,6 +8413,8 @@ class PlatformQosEa(Entity):
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..65535
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -7609,7 +8448,7 @@ class PlatformQosEa(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, ['excess_ratio'], name, value)
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, [u'excess_ratio'], name, value)
 
 
                                                     class Bandwidth(Entity):
@@ -7623,10 +8462,14 @@ class PlatformQosEa(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
                                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -7654,7 +8497,8 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['value', 'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, [u'value', u'unit'], name, value)
+
 
 
                                                     class SumOfBandwidth(Entity):
@@ -7668,10 +8512,14 @@ class PlatformQosEa(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
                                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -7699,7 +8547,10 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['value', 'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, [u'value', u'unit'], name, value)
+
+
+
 
 
                                             class Result(Entity):
@@ -7711,10 +8562,14 @@ class PlatformQosEa(Entity):
                                                 	QoS EA Queue Result
                                                 	**type**\:  :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: police
                                                 
                                                 	QoS EA Policer Result
                                                 	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: stats_id
                                                 
@@ -7722,6 +8577,8 @@ class PlatformQosEa(Entity):
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -7755,7 +8612,7 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, [u'stats_id'], name, value)
 
 
                                                 class Queue(Entity):
@@ -7769,12 +8626,16 @@ class PlatformQosEa(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: commit_tx
                                                     
                                                     	Commit Tx
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: excess_tx
                                                     
@@ -7783,12 +8644,16 @@ class PlatformQosEa(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: drop
                                                     
                                                     	Drop
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -7820,7 +8685,8 @@ class PlatformQosEa(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['queue_id', 'commit_tx', 'excess_tx', 'drop'], name, value)
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, [u'queue_id', u'commit_tx', u'excess_tx', u'drop'], name, value)
+
 
 
                                                 class Police(Entity):
@@ -7834,12 +8700,16 @@ class PlatformQosEa(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: conform
                                                     
                                                     	Conform Rate
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: exceed
                                                     
@@ -7848,12 +8718,16 @@ class PlatformQosEa(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: violate
                                                     
                                                     	Violate Rate
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -7885,7 +8759,13 @@ class PlatformQosEa(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['token_bucket_id', 'conform', 'exceed', 'violate'], name, value)
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, [u'token_bucket_id', u'conform', u'exceed', u'violate'], name, value)
+
+
+
+
+
+
 
 
                             class BundleInput(Entity):
@@ -7896,6 +8776,8 @@ class PlatformQosEa(Entity):
                                 
                                 	QoS\-EA policy details
                                 	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7934,15 +8816,21 @@ class PlatformQosEa(Entity):
                                     	QoS EA policy header
                                     	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: interface_parameters
                                     
                                     	QoS EA Interface Parameters
                                     	**type**\:  :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: skywarp_qos_policy_class
                                     
                                     	Skywarp QoS EA policy class details
                                     	**type**\:  :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7991,12 +8879,16 @@ class PlatformQosEa(Entity):
                                         
                                         	**length:** 0..101
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: policy_name
                                         
                                         	Policy name
                                         	**type**\: str
                                         
                                         	**length:** 0..65
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: direction
                                         
@@ -8005,12 +8897,16 @@ class PlatformQosEa(Entity):
                                         
                                         	**length:** 0..11
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: classes
                                         
                                         	Number of classes
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8042,7 +8938,8 @@ class PlatformQosEa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header, [u'interface_name', u'policy_name', u'direction', u'classes'], name, value)
+
 
 
                                     class InterfaceParameters(Entity):
@@ -8056,12 +8953,16 @@ class PlatformQosEa(Entity):
                                         
                                         	**length:** 0..65
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: hierarchical_depth
                                         
                                         	Max Hierarchial Depth
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: interface_type
                                         
@@ -8070,12 +8971,16 @@ class PlatformQosEa(Entity):
                                         
                                         	**length:** 0..101
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: interface_rate
                                         
                                         	Interface Programmed Rate
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: port_shaper_rate
                                         
@@ -8084,12 +8989,16 @@ class PlatformQosEa(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: interface_handle
                                         
                                         	Interface Handle
                                         	**type**\: str
                                         
                                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: under_line_interface_handle
                                         
@@ -8098,12 +9007,16 @@ class PlatformQosEa(Entity):
                                         
                                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: bundle_id
                                         
                                         	Bundle Interface ID
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: uidb_index
                                         
@@ -8112,12 +9025,16 @@ class PlatformQosEa(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: qos_interface_handle
                                         
                                         	QoS Interface handle
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: port
                                         
@@ -8126,12 +9043,16 @@ class PlatformQosEa(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: policy_map_id
                                         
                                         	Policy Map ID
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8179,7 +9100,8 @@ class PlatformQosEa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters, ['policy_name', 'hierarchical_depth', 'interface_type', 'interface_rate', 'port_shaper_rate', 'interface_handle', 'under_line_interface_handle', 'bundle_id', 'uidb_index', 'qos_interface_handle', 'port', 'policy_map_id'], name, value)
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters, [u'policy_name', u'hierarchical_depth', u'interface_type', u'interface_rate', u'port_shaper_rate', u'interface_handle', u'under_line_interface_handle', u'bundle_id', u'uidb_index', u'qos_interface_handle', u'port', u'policy_map_id'], name, value)
+
 
 
                                     class SkywarpQosPolicyClass(Entity):
@@ -8190,6 +9112,8 @@ class PlatformQosEa(Entity):
                                         
                                         	qos show ea pclass st
                                         	**type**\: list of  		 :py:class:`QosShowEaPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8226,10 +9150,14 @@ class PlatformQosEa(Entity):
                                             	QoS EA Class Configuration
                                             	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: result
                                             
                                             	QoS EA Class Result
                                             	**type**\:  :py:class:`Result <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: index
                                             
@@ -8238,12 +9166,16 @@ class PlatformQosEa(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: class_level
                                             
                                             	Class level
                                             	**type**\: int
                                             
                                             	**range:** 0..255
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: class_name
                                             
@@ -8252,12 +9184,16 @@ class PlatformQosEa(Entity):
                                             
                                             	**length:** 0..65
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: policy_name
                                             
                                             	Policy name
                                             	**type**\: str
                                             
                                             	**length:** 0..65
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: node_flags
                                             
@@ -8266,12 +9202,16 @@ class PlatformQosEa(Entity):
                                             
                                             	**length:** 0..101
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: stats_flags
                                             
                                             	Statistical Flags
                                             	**type**\: str
                                             
                                             	**length:** 0..101
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -8315,7 +9255,7 @@ class PlatformQosEa(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['index', 'class_level', 'class_name', 'policy_name', 'node_flags', 'stats_flags'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, [u'index', u'class_level', u'class_name', u'policy_name', u'node_flags', u'stats_flags'], name, value)
 
 
                                             class Config(Entity):
@@ -8327,15 +9267,21 @@ class PlatformQosEa(Entity):
                                                 	QoS EA Policer parameters
                                                 	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: shape
                                                 
                                                 	QoS EA Shaper parameters
                                                 	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: wfq
                                                 
                                                 	QoS EA WFQ parameters
                                                 	**type**\:  :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: node_config
                                                 
@@ -8343,6 +9289,8 @@ class PlatformQosEa(Entity):
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..101
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -8380,7 +9328,7 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, ['node_config'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, [u'node_config'], name, value)
 
 
                                                 class Police(Entity):
@@ -8392,20 +9340,28 @@ class PlatformQosEa(Entity):
                                                     	CIR
                                                     	**type**\:  :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: cbs
                                                     
                                                     	CBS
                                                     	**type**\:  :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: color_aware
                                                     
                                                     	Color Aware
                                                     	**type**\: bool
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: policer_type
                                                     
                                                     	Policer type
                                                     	**type**\:  :py:class:`TbAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithm>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -8441,7 +9397,7 @@ class PlatformQosEa(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, [u'color_aware', u'policer_type'], name, value)
 
 
                                                     class Cir(Entity):
@@ -8455,10 +9411,14 @@ class PlatformQosEa(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
                                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -8486,7 +9446,8 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['value', 'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, [u'value', u'unit'], name, value)
+
 
 
                                                     class Cbs(Entity):
@@ -8500,10 +9461,14 @@ class PlatformQosEa(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
                                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -8531,7 +9496,9 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['value', 'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, [u'value', u'unit'], name, value)
+
+
 
 
                                                 class Shape(Entity):
@@ -8543,10 +9510,14 @@ class PlatformQosEa(Entity):
                                                     	PIR in kbps
                                                     	**type**\:  :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: pbs
                                                     
                                                     	PBS in bytes
                                                     	**type**\:  :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -8591,10 +9562,14 @@ class PlatformQosEa(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
                                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -8622,7 +9597,8 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['value', 'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, [u'value', u'unit'], name, value)
+
 
 
                                                     class Pbs(Entity):
@@ -8636,10 +9612,14 @@ class PlatformQosEa(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
                                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -8667,7 +9647,9 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['value', 'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, [u'value', u'unit'], name, value)
+
+
 
 
                                                 class Wfq(Entity):
@@ -8679,10 +9661,14 @@ class PlatformQosEa(Entity):
                                                     	Bandwidth
                                                     	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: sum_of_bandwidth
                                                     
                                                     	Sum of Bandwidth
                                                     	**type**\:  :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: excess_ratio
                                                     
@@ -8690,6 +9676,8 @@ class PlatformQosEa(Entity):
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..65535
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -8723,7 +9711,7 @@ class PlatformQosEa(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, ['excess_ratio'], name, value)
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, [u'excess_ratio'], name, value)
 
 
                                                     class Bandwidth(Entity):
@@ -8737,10 +9725,14 @@ class PlatformQosEa(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
                                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -8768,7 +9760,8 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['value', 'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, [u'value', u'unit'], name, value)
+
 
 
                                                     class SumOfBandwidth(Entity):
@@ -8782,10 +9775,14 @@ class PlatformQosEa(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
                                                         	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -8813,7 +9810,10 @@ class PlatformQosEa(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['value', 'unit'], name, value)
+                                                            self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, [u'value', u'unit'], name, value)
+
+
+
 
 
                                             class Result(Entity):
@@ -8825,10 +9825,14 @@ class PlatformQosEa(Entity):
                                                 	QoS EA Queue Result
                                                 	**type**\:  :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: police
                                                 
                                                 	QoS EA Policer Result
                                                 	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: stats_id
                                                 
@@ -8836,6 +9840,8 @@ class PlatformQosEa(Entity):
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -8869,7 +9875,7 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, [u'stats_id'], name, value)
 
 
                                                 class Queue(Entity):
@@ -8883,12 +9889,16 @@ class PlatformQosEa(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: commit_tx
                                                     
                                                     	Commit Tx
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: excess_tx
                                                     
@@ -8897,12 +9907,16 @@ class PlatformQosEa(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: drop
                                                     
                                                     	Drop
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -8934,7 +9948,8 @@ class PlatformQosEa(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['queue_id', 'commit_tx', 'excess_tx', 'drop'], name, value)
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, [u'queue_id', u'commit_tx', u'excess_tx', u'drop'], name, value)
+
 
 
                                                 class Police(Entity):
@@ -8948,12 +9963,16 @@ class PlatformQosEa(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: conform
                                                     
                                                     	Conform Rate
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: exceed
                                                     
@@ -8962,12 +9981,16 @@ class PlatformQosEa(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: violate
                                                     
                                                     	Violate Rate
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -8999,7 +10022,17 @@ class PlatformQosEa(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['token_bucket_id', 'conform', 'exceed', 'violate'], name, value)
+                                                        self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, [u'token_bucket_id', u'conform', u'exceed', u'violate'], name, value)
+
+
+
+
+
+
+
+
+
+
 
 
             class Interfaces(Entity):
@@ -9010,6 +10043,8 @@ class PlatformQosEa(Entity):
                 
                 	QoS\-EA interface name
                 	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface>`
+                
+                	**config**\: False
                 
                 
 
@@ -9048,15 +10083,21 @@ class PlatformQosEa(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: output
                     
                     	QoS\-EA policy direction egress
                     	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: input
                     
                     	QoS\-EA policy direction ingress
                     	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -9102,6 +10143,8 @@ class PlatformQosEa(Entity):
                         	QoS\-EA policy details
                         	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -9139,15 +10182,21 @@ class PlatformQosEa(Entity):
                             	QoS EA policy header
                             	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.Header>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_parameters
                             
                             	QoS EA Interface Parameters
                             	**type**\:  :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.InterfaceParameters>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: skywarp_qos_policy_class
                             
                             	Skywarp QoS EA policy class details
                             	**type**\:  :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -9196,12 +10245,16 @@ class PlatformQosEa(Entity):
                                 
                                 	**length:** 0..101
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: policy_name
                                 
                                 	Policy name
                                 	**type**\: str
                                 
                                 	**length:** 0..65
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: direction
                                 
@@ -9210,12 +10263,16 @@ class PlatformQosEa(Entity):
                                 
                                 	**length:** 0..11
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: classes
                                 
                                 	Number of classes
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9247,7 +10304,8 @@ class PlatformQosEa(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
+                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.Header, [u'interface_name', u'policy_name', u'direction', u'classes'], name, value)
+
 
 
                             class InterfaceParameters(Entity):
@@ -9261,12 +10319,16 @@ class PlatformQosEa(Entity):
                                 
                                 	**length:** 0..65
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: hierarchical_depth
                                 
                                 	Max Hierarchial Depth
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: interface_type
                                 
@@ -9275,12 +10337,16 @@ class PlatformQosEa(Entity):
                                 
                                 	**length:** 0..101
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: interface_rate
                                 
                                 	Interface Programmed Rate
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: port_shaper_rate
                                 
@@ -9289,12 +10355,16 @@ class PlatformQosEa(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: interface_handle
                                 
                                 	Interface Handle
                                 	**type**\: str
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: under_line_interface_handle
                                 
@@ -9303,12 +10373,16 @@ class PlatformQosEa(Entity):
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bundle_id
                                 
                                 	Bundle Interface ID
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: uidb_index
                                 
@@ -9317,12 +10391,16 @@ class PlatformQosEa(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: qos_interface_handle
                                 
                                 	QoS Interface handle
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: port
                                 
@@ -9331,12 +10409,16 @@ class PlatformQosEa(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: policy_map_id
                                 
                                 	Policy Map ID
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9384,7 +10466,8 @@ class PlatformQosEa(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.InterfaceParameters, ['policy_name', 'hierarchical_depth', 'interface_type', 'interface_rate', 'port_shaper_rate', 'interface_handle', 'under_line_interface_handle', 'bundle_id', 'uidb_index', 'qos_interface_handle', 'port', 'policy_map_id'], name, value)
+                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.InterfaceParameters, [u'policy_name', u'hierarchical_depth', u'interface_type', u'interface_rate', u'port_shaper_rate', u'interface_handle', u'under_line_interface_handle', u'bundle_id', u'uidb_index', u'qos_interface_handle', u'port', u'policy_map_id'], name, value)
+
 
 
                             class SkywarpQosPolicyClass(Entity):
@@ -9395,6 +10478,8 @@ class PlatformQosEa(Entity):
                                 
                                 	qos show ea pclass st
                                 	**type**\: list of  		 :py:class:`QosShowEaPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9431,10 +10516,14 @@ class PlatformQosEa(Entity):
                                     	QoS EA Class Configuration
                                     	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: result
                                     
                                     	QoS EA Class Result
                                     	**type**\:  :py:class:`Result <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: index
                                     
@@ -9443,12 +10532,16 @@ class PlatformQosEa(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: class_level
                                     
                                     	Class level
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: class_name
                                     
@@ -9457,12 +10550,16 @@ class PlatformQosEa(Entity):
                                     
                                     	**length:** 0..65
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: policy_name
                                     
                                     	Policy name
                                     	**type**\: str
                                     
                                     	**length:** 0..65
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_flags
                                     
@@ -9471,12 +10568,16 @@ class PlatformQosEa(Entity):
                                     
                                     	**length:** 0..101
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: stats_flags
                                     
                                     	Statistical Flags
                                     	**type**\: str
                                     
                                     	**length:** 0..101
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -9520,7 +10621,7 @@ class PlatformQosEa(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['index', 'class_level', 'class_name', 'policy_name', 'node_flags', 'stats_flags'], name, value)
+                                        self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, [u'index', u'class_level', u'class_name', u'policy_name', u'node_flags', u'stats_flags'], name, value)
 
 
                                     class Config(Entity):
@@ -9532,15 +10633,21 @@ class PlatformQosEa(Entity):
                                         	QoS EA Policer parameters
                                         	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: shape
                                         
                                         	QoS EA Shaper parameters
                                         	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: wfq
                                         
                                         	QoS EA WFQ parameters
                                         	**type**\:  :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: node_config
                                         
@@ -9548,6 +10655,8 @@ class PlatformQosEa(Entity):
                                         	**type**\: str
                                         
                                         	**length:** 0..101
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -9585,7 +10694,7 @@ class PlatformQosEa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, ['node_config'], name, value)
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, [u'node_config'], name, value)
 
 
                                         class Police(Entity):
@@ -9597,20 +10706,28 @@ class PlatformQosEa(Entity):
                                             	CIR
                                             	**type**\:  :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: cbs
                                             
                                             	CBS
                                             	**type**\:  :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: color_aware
                                             
                                             	Color Aware
                                             	**type**\: bool
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: policer_type
                                             
                                             	Policer type
                                             	**type**\:  :py:class:`TbAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithm>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -9646,7 +10763,7 @@ class PlatformQosEa(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, [u'color_aware', u'policer_type'], name, value)
 
 
                                             class Cir(Entity):
@@ -9660,10 +10777,14 @@ class PlatformQosEa(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -9691,7 +10812,8 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, [u'value', u'unit'], name, value)
+
 
 
                                             class Cbs(Entity):
@@ -9705,10 +10827,14 @@ class PlatformQosEa(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -9736,7 +10862,9 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, [u'value', u'unit'], name, value)
+
+
 
 
                                         class Shape(Entity):
@@ -9748,10 +10876,14 @@ class PlatformQosEa(Entity):
                                             	PIR in kbps
                                             	**type**\:  :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: pbs
                                             
                                             	PBS in bytes
                                             	**type**\:  :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -9796,10 +10928,14 @@ class PlatformQosEa(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -9827,7 +10963,8 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, [u'value', u'unit'], name, value)
+
 
 
                                             class Pbs(Entity):
@@ -9841,10 +10978,14 @@ class PlatformQosEa(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -9872,7 +11013,9 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, [u'value', u'unit'], name, value)
+
+
 
 
                                         class Wfq(Entity):
@@ -9884,10 +11027,14 @@ class PlatformQosEa(Entity):
                                             	Bandwidth
                                             	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: sum_of_bandwidth
                                             
                                             	Sum of Bandwidth
                                             	**type**\:  :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: excess_ratio
                                             
@@ -9895,6 +11042,8 @@ class PlatformQosEa(Entity):
                                             	**type**\: int
                                             
                                             	**range:** 0..65535
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -9928,7 +11077,7 @@ class PlatformQosEa(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, ['excess_ratio'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, [u'excess_ratio'], name, value)
 
 
                                             class Bandwidth(Entity):
@@ -9942,10 +11091,14 @@ class PlatformQosEa(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -9973,7 +11126,8 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, [u'value', u'unit'], name, value)
+
 
 
                                             class SumOfBandwidth(Entity):
@@ -9987,10 +11141,14 @@ class PlatformQosEa(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -10018,7 +11176,10 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, [u'value', u'unit'], name, value)
+
+
+
 
 
                                     class Result(Entity):
@@ -10030,10 +11191,14 @@ class PlatformQosEa(Entity):
                                         	QoS EA Queue Result
                                         	**type**\:  :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: police
                                         
                                         	QoS EA Policer Result
                                         	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: stats_id
                                         
@@ -10041,6 +11206,8 @@ class PlatformQosEa(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -10074,7 +11241,7 @@ class PlatformQosEa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, [u'stats_id'], name, value)
 
 
                                         class Queue(Entity):
@@ -10088,12 +11255,16 @@ class PlatformQosEa(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: commit_tx
                                             
                                             	Commit Tx
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: excess_tx
                                             
@@ -10102,12 +11273,16 @@ class PlatformQosEa(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: drop
                                             
                                             	Drop
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -10139,7 +11314,8 @@ class PlatformQosEa(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['queue_id', 'commit_tx', 'excess_tx', 'drop'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, [u'queue_id', u'commit_tx', u'excess_tx', u'drop'], name, value)
+
 
 
                                         class Police(Entity):
@@ -10153,12 +11329,16 @@ class PlatformQosEa(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: conform
                                             
                                             	Conform Rate
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: exceed
                                             
@@ -10167,12 +11347,16 @@ class PlatformQosEa(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: violate
                                             
                                             	Violate Rate
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -10204,7 +11388,13 @@ class PlatformQosEa(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['token_bucket_id', 'conform', 'exceed', 'violate'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, [u'token_bucket_id', u'conform', u'exceed', u'violate'], name, value)
+
+
+
+
+
+
 
 
                     class Input(Entity):
@@ -10215,6 +11405,8 @@ class PlatformQosEa(Entity):
                         
                         	QoS\-EA policy details
                         	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -10253,15 +11445,21 @@ class PlatformQosEa(Entity):
                             	QoS EA policy header
                             	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_parameters
                             
                             	QoS EA Interface Parameters
                             	**type**\:  :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: skywarp_qos_policy_class
                             
                             	Skywarp QoS EA policy class details
                             	**type**\:  :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -10310,12 +11508,16 @@ class PlatformQosEa(Entity):
                                 
                                 	**length:** 0..101
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: policy_name
                                 
                                 	Policy name
                                 	**type**\: str
                                 
                                 	**length:** 0..65
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: direction
                                 
@@ -10324,12 +11526,16 @@ class PlatformQosEa(Entity):
                                 
                                 	**length:** 0..11
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: classes
                                 
                                 	Number of classes
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10361,7 +11567,8 @@ class PlatformQosEa(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
+                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header, [u'interface_name', u'policy_name', u'direction', u'classes'], name, value)
+
 
 
                             class InterfaceParameters(Entity):
@@ -10375,12 +11582,16 @@ class PlatformQosEa(Entity):
                                 
                                 	**length:** 0..65
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: hierarchical_depth
                                 
                                 	Max Hierarchial Depth
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: interface_type
                                 
@@ -10389,12 +11600,16 @@ class PlatformQosEa(Entity):
                                 
                                 	**length:** 0..101
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: interface_rate
                                 
                                 	Interface Programmed Rate
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: port_shaper_rate
                                 
@@ -10403,12 +11618,16 @@ class PlatformQosEa(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: interface_handle
                                 
                                 	Interface Handle
                                 	**type**\: str
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: under_line_interface_handle
                                 
@@ -10417,12 +11636,16 @@ class PlatformQosEa(Entity):
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bundle_id
                                 
                                 	Bundle Interface ID
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: uidb_index
                                 
@@ -10431,12 +11654,16 @@ class PlatformQosEa(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: qos_interface_handle
                                 
                                 	QoS Interface handle
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: port
                                 
@@ -10445,12 +11672,16 @@ class PlatformQosEa(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: policy_map_id
                                 
                                 	Policy Map ID
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10498,7 +11729,8 @@ class PlatformQosEa(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters, ['policy_name', 'hierarchical_depth', 'interface_type', 'interface_rate', 'port_shaper_rate', 'interface_handle', 'under_line_interface_handle', 'bundle_id', 'uidb_index', 'qos_interface_handle', 'port', 'policy_map_id'], name, value)
+                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters, [u'policy_name', u'hierarchical_depth', u'interface_type', u'interface_rate', u'port_shaper_rate', u'interface_handle', u'under_line_interface_handle', u'bundle_id', u'uidb_index', u'qos_interface_handle', u'port', u'policy_map_id'], name, value)
+
 
 
                             class SkywarpQosPolicyClass(Entity):
@@ -10509,6 +11741,8 @@ class PlatformQosEa(Entity):
                                 
                                 	qos show ea pclass st
                                 	**type**\: list of  		 :py:class:`QosShowEaPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10545,10 +11779,14 @@ class PlatformQosEa(Entity):
                                     	QoS EA Class Configuration
                                     	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: result
                                     
                                     	QoS EA Class Result
                                     	**type**\:  :py:class:`Result <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: index
                                     
@@ -10557,12 +11795,16 @@ class PlatformQosEa(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: class_level
                                     
                                     	Class level
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: class_name
                                     
@@ -10571,12 +11813,16 @@ class PlatformQosEa(Entity):
                                     
                                     	**length:** 0..65
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: policy_name
                                     
                                     	Policy name
                                     	**type**\: str
                                     
                                     	**length:** 0..65
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_flags
                                     
@@ -10585,12 +11831,16 @@ class PlatformQosEa(Entity):
                                     
                                     	**length:** 0..101
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: stats_flags
                                     
                                     	Statistical Flags
                                     	**type**\: str
                                     
                                     	**length:** 0..101
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -10634,7 +11884,7 @@ class PlatformQosEa(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['index', 'class_level', 'class_name', 'policy_name', 'node_flags', 'stats_flags'], name, value)
+                                        self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, [u'index', u'class_level', u'class_name', u'policy_name', u'node_flags', u'stats_flags'], name, value)
 
 
                                     class Config(Entity):
@@ -10646,15 +11896,21 @@ class PlatformQosEa(Entity):
                                         	QoS EA Policer parameters
                                         	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: shape
                                         
                                         	QoS EA Shaper parameters
                                         	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: wfq
                                         
                                         	QoS EA WFQ parameters
                                         	**type**\:  :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: node_config
                                         
@@ -10662,6 +11918,8 @@ class PlatformQosEa(Entity):
                                         	**type**\: str
                                         
                                         	**length:** 0..101
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -10699,7 +11957,7 @@ class PlatformQosEa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, ['node_config'], name, value)
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, [u'node_config'], name, value)
 
 
                                         class Police(Entity):
@@ -10711,20 +11969,28 @@ class PlatformQosEa(Entity):
                                             	CIR
                                             	**type**\:  :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: cbs
                                             
                                             	CBS
                                             	**type**\:  :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: color_aware
                                             
                                             	Color Aware
                                             	**type**\: bool
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: policer_type
                                             
                                             	Policer type
                                             	**type**\:  :py:class:`TbAlgorithm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithm>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -10760,7 +12026,7 @@ class PlatformQosEa(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, [u'color_aware', u'policer_type'], name, value)
 
 
                                             class Cir(Entity):
@@ -10774,10 +12040,14 @@ class PlatformQosEa(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -10805,7 +12075,8 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, [u'value', u'unit'], name, value)
+
 
 
                                             class Cbs(Entity):
@@ -10819,10 +12090,14 @@ class PlatformQosEa(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -10850,7 +12125,9 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, [u'value', u'unit'], name, value)
+
+
 
 
                                         class Shape(Entity):
@@ -10862,10 +12139,14 @@ class PlatformQosEa(Entity):
                                             	PIR in kbps
                                             	**type**\:  :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: pbs
                                             
                                             	PBS in bytes
                                             	**type**\:  :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -10910,10 +12191,14 @@ class PlatformQosEa(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -10941,7 +12226,8 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, [u'value', u'unit'], name, value)
+
 
 
                                             class Pbs(Entity):
@@ -10955,10 +12241,14 @@ class PlatformQosEa(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -10986,7 +12276,9 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, [u'value', u'unit'], name, value)
+
+
 
 
                                         class Wfq(Entity):
@@ -10998,10 +12290,14 @@ class PlatformQosEa(Entity):
                                             	Bandwidth
                                             	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: sum_of_bandwidth
                                             
                                             	Sum of Bandwidth
                                             	**type**\:  :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: excess_ratio
                                             
@@ -11009,6 +12305,8 @@ class PlatformQosEa(Entity):
                                             	**type**\: int
                                             
                                             	**range:** 0..65535
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -11042,7 +12340,7 @@ class PlatformQosEa(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, ['excess_ratio'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, [u'excess_ratio'], name, value)
 
 
                                             class Bandwidth(Entity):
@@ -11056,10 +12354,14 @@ class PlatformQosEa(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -11087,7 +12389,8 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, [u'value', u'unit'], name, value)
+
 
 
                                             class SumOfBandwidth(Entity):
@@ -11101,10 +12404,14 @@ class PlatformQosEa(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
                                                 	**type**\:  :py:class:`QosUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnit>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -11132,7 +12439,10 @@ class PlatformQosEa(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['value', 'unit'], name, value)
+                                                    self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, [u'value', u'unit'], name, value)
+
+
+
 
 
                                     class Result(Entity):
@@ -11144,10 +12454,14 @@ class PlatformQosEa(Entity):
                                         	QoS EA Queue Result
                                         	**type**\:  :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: police
                                         
                                         	QoS EA Policer Result
                                         	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: stats_id
                                         
@@ -11155,6 +12469,8 @@ class PlatformQosEa(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -11188,7 +12504,7 @@ class PlatformQosEa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
+                                            self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, [u'stats_id'], name, value)
 
 
                                         class Queue(Entity):
@@ -11202,12 +12518,16 @@ class PlatformQosEa(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: commit_tx
                                             
                                             	Commit Tx
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: excess_tx
                                             
@@ -11216,12 +12536,16 @@ class PlatformQosEa(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: drop
                                             
                                             	Drop
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -11253,7 +12577,8 @@ class PlatformQosEa(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['queue_id', 'commit_tx', 'excess_tx', 'drop'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, [u'queue_id', u'commit_tx', u'excess_tx', u'drop'], name, value)
+
 
 
                                         class Police(Entity):
@@ -11267,12 +12592,16 @@ class PlatformQosEa(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: conform
                                             
                                             	Conform Rate
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: exceed
                                             
@@ -11281,12 +12610,16 @@ class PlatformQosEa(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: violate
                                             
                                             	Violate Rate
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -11318,9 +12651,21 @@ class PlatformQosEa(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['token_bucket_id', 'conform', 'exceed', 'violate'], name, value)
+                                                self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, [u'token_bucket_id', u'conform', u'exceed', u'violate'], name, value)
+
+
+
+
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = PlatformQosEa()
         return self._top_entity
+
+
 

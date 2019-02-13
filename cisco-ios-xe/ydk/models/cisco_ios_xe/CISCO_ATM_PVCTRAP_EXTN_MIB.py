@@ -105,60 +105,84 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
     	A table indicating all VCLs for which there is an active row in the atmVclTable having an atmVclConnKind value of `pvc' and atmVclOperStatus to have changed in the last corresponding PVC notification
     	**type**\:  :py:class:`CatmCurStatChangePVclTable <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmCurStatChangePVclTable>`
     
+    	**config**\: False
+    
     .. attribute:: catmstatuschangepvclrangetable
     
     	A table indicating more than one VCLs in a consecutive  range and for each VCL there is an active row in the  atmVclTable having an atmVclConnKind value of `pvc' and atmVclOperStatus to have changed in the same direction in the last corresponding PVC notification 
     	**type**\:  :py:class:`CatmStatusChangePVclRangeTable <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmStatusChangePVclRangeTable>`
+    
+    	**config**\: False
     
     .. attribute:: catmsegccstatuschpvclrangetable
     
     	A table indicating more than one VCLs in a consecutive  range and for each VCL there is an active row in the  atmVclTable having an atmVclConnKind value of `pvc' and atmVclOperStatus to have changed due to segment CC  failure in the same direction in the last PVC  corresponding notification 
     	**type**\:  :py:class:`CatmSegCCStatusChPVclRangeTable <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmSegCCStatusChPVclRangeTable>`
     
+    	**config**\: False
+    
     .. attribute:: catmendccstatuschpvclrangetable
     
     	A table indicating more than one VCLs in a consecutive  range and for each VCL there is an active row in the  atmVclTable having an atmVclConnKind value of `pvc' and atmVclOperStatus to have changed due to End CC failure in the same direction in the last PVC notification  interval
     	**type**\:  :py:class:`CatmEndCCStatusChPVclRangeTable <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmEndCCStatusChPVclRangeTable>`
+    
+    	**config**\: False
     
     .. attribute:: catmaisrdistatuschpvclrangetable
     
     	A table indicating more than one VCLs in a consecutive  range and for each VCL there is an active row in the  atmVclTable having an atmVclConnKind value of `pvc' and atmVclOperStatus to have changed due to AIS/RDI failure in the same direction in the last corresponding PVC  notification
     	**type**\:  :py:class:`CatmAISRDIStatusChPVclRangeTable <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmAISRDIStatusChPVclRangeTable>`
     
+    	**config**\: False
+    
     .. attribute:: catmdownpvclrangetable
     
     	A table indicating more than one VCLs in a consecutive  range and for each VCL there is an active row in the  atmVclTable having an atmVclConnKind value of `pvc' and atmVclOperStatus to have detected as Down in the last corresponding PVC notification 
     	**type**\:  :py:class:`CatmDownPVclRangeTable <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmDownPVclRangeTable>`
+    
+    	**config**\: False
     
     .. attribute:: catmcurstatusuppvcltable
     
     	A table indicating all VCLs for which there is an active row in the atmVclTable having an atmVclConnKind value of `pvc' and atmVclOperStatus to have changed to UP in the last corresponding PVC notification 
     	**type**\:  :py:class:`CatmCurStatusUpPVclTable <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmCurStatusUpPVclTable>`
     
+    	**config**\: False
+    
     .. attribute:: catmstatusuppvclrangetable
     
     	A table indicating more than one VCLs in a consecutive  range and for each VCL there is an active row in the  atmVclTable having an atmVclConnKind value of `pvc' and loopback OAM status to have detected as recovered in the last corresponding PVC notification 
     	**type**\:  :py:class:`CatmStatusUpPVclRangeTable <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmStatusUpPVclRangeTable>`
+    
+    	**config**\: False
     
     .. attribute:: catmsegccstatusuppvclrangetable
     
     	A table indicating more than one VCLs in a consecutive range and for each VCL there is an active row in the atmVclTable having an atmVclConnKind value of `pvc' and Segment CC OAM status to have detected as recovered in the last corresponding PVC notification 
     	**type**\:  :py:class:`CatmSegCCStatusUpPVclRangeTable <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmSegCCStatusUpPVclRangeTable>`
     
+    	**config**\: False
+    
     .. attribute:: catmendccstatusuppvclrangetable
     
     	A table indicating more than one VCLs in a consecutive range and for each VCL there is an active row in the atmVclTable having an atmVclConnKind value of `pvc' and End\-to\-End CC OAM status to have detected as recovered in the last corresponding PVC notification 
     	**type**\:  :py:class:`CatmEndCCStatusUpPVclRangeTable <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmEndCCStatusUpPVclRangeTable>`
+    
+    	**config**\: False
     
     .. attribute:: catmaisrdistatusuppvclrangetable
     
     	A table indicating more than one VCLs in a consecutive range and for each VCL there is an active row in the atmVclTable having an atmVclConnKind value of `pvc' and AISRDI OAM status to have detected as recovered in the last corresponding PVC notification 
     	**type**\:  :py:class:`CatmAISRDIStatusUpPVclRangeTable <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmAISRDIStatusUpPVclRangeTable>`
     
+    	**config**\: False
+    
     .. attribute:: catmuppvclrangetable
     
     	A table indicating more than one VCLs in a consecutive  range and for each VCL there is an active row in the  atmVclTable having an atmVclConnKind value of `pvc' and atmVclOperStatus to have detected as Up in the last corresponding PVC notification 
     	**type**\:  :py:class:`CatmUpPVclRangeTable <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmUpPVclRangeTable>`
+    
+    	**config**\: False
     
     
 
@@ -245,6 +269,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
         	Each entry in the table represents a VCL for which there is an active row in the atmVclTable having an atmVclConnKind value of `pvc' and atmVclOperStatus to have changed in the last corresponding PVC notification
         	**type**\: list of  		 :py:class:`CatmCurStatChangePVclEntry <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmCurStatChangePVclTable.CatmCurStatChangePVclEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -288,6 +314,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: atmvclvpi  (key)
             
             	
@@ -296,6 +324,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             	**range:** 0..4095
             
             	**refers to**\:  :py:class:`atmvclvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
+            
+            	**config**\: False
             
             .. attribute:: atmvclvci  (key)
             
@@ -306,12 +336,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`atmvclvci <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
             
+            	**config**\: False
+            
             .. attribute:: catmpvclstatustransition
             
             	The number of state transitions that has happened  on this PVCL in the last corresponding notification
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: catmpvclstatuschangestart
             
@@ -320,12 +354,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclstatuschangeend
             
             	The time stamp of the last state change of this PVCL in the last corresponding notification
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: catmpvclsegccstatustransition
             
@@ -334,12 +372,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclsegccstatuschangestart
             
             	The time stamp at which this PVCL changed state for the first time in  the last corresponding notification due to Segment CC OAM failure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: catmpvclsegccstatuschangeend
             
@@ -348,12 +390,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclendccstatustransition
             
             	The number of state transitions that has happened  on this PVCL in the last corresponding notification due to End CC OAM failure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: catmpvclendccstatuschangestart
             
@@ -362,12 +408,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclendccstatuschangeend
             
             	The time stamp of the last state change of this PVCL in the last corresponding notification due to End CC OAM failure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: catmpvclaisrdistatustransition
             
@@ -376,12 +426,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclaisrdistatuschangestart
             
             	The time stamp at which this PVCL changed state for the first time in  the last corresponding notification due to AIS RDI OAM failure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: catmpvclaisrdistatuschangeend
             
@@ -390,12 +444,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclcurfailtime
             
             	The time stamp at which this PVCL changed state to DOWN last time in the last corresponding notification 
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: catmpvclprevrecovertime
             
@@ -404,10 +462,14 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclfailurereason
             
             	Type of OAM failure
             	**type**\:  :py:class:`CatmOAMFailureType <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CatmOAMFailureType>`
+            
+            	**config**\: False
             
             
 
@@ -471,6 +533,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmCurStatChangePVclTable.CatmCurStatChangePVclEntry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'catmpvclstatustransition', 'catmpvclstatuschangestart', 'catmpvclstatuschangeend', 'catmpvclsegccstatustransition', 'catmpvclsegccstatuschangestart', 'catmpvclsegccstatuschangeend', 'catmpvclendccstatustransition', 'catmpvclendccstatuschangestart', 'catmpvclendccstatuschangeend', 'catmpvclaisrdistatustransition', 'catmpvclaisrdistatuschangestart', 'catmpvclaisrdistatuschangeend', 'catmpvclcurfailtime', 'catmpvclprevrecovertime', 'catmpvclfailurereason'], name, value)
 
 
+
+
     class CatmStatusChangePVclRangeTable(Entity):
         """
         A table indicating more than one VCLs in a consecutive 
@@ -483,6 +547,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
         
         	Each entry in this table represents a range of VCLs and  for each VCL there is an active row in the atmVclTable having an atmVclConnKind value of 'pvc' and atmVclOperStatus to have changed in the same direction in the last notification  interval
         	**type**\: list of  		 :py:class:`CatmStatusChangePVclRangeEntry <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmStatusChangePVclRangeTable.CatmStatusChangePVclRangeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -528,6 +594,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: atmvclvpi  (key)
             
             	
@@ -537,12 +605,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`atmvclvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
             
+            	**config**\: False
+            
             .. attribute:: catmstatuschangepvclrangeindex  (key)
             
             	Index to represent different ranges, the first range is indexed by value 0, the second by 1 and so on..
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: catmpvcllowerrangevalue
             
@@ -551,12 +623,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..65536
             
+            	**config**\: False
+            
             .. attribute:: catmpvclhigherrangevalue
             
             	The last PVCL in a range of PVCLs for which the  atmOperStatus to have changed in the last  corresponding notification due to Loopback OAM failure
             	**type**\: int
             
             	**range:** 0..65536
+            
+            	**config**\: False
             
             .. attribute:: catmpvclrangestatuschangestart
             
@@ -565,12 +641,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclrangestatuschangeend
             
             	The time stamp at which the last PVCL in the range changed state in the last corresponding notification due  to Loopback OAM failure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -612,6 +692,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmStatusChangePVclRangeTable.CatmStatusChangePVclRangeEntry, ['ifindex', 'atmvclvpi', 'catmstatuschangepvclrangeindex', 'catmpvcllowerrangevalue', 'catmpvclhigherrangevalue', 'catmpvclrangestatuschangestart', 'catmpvclrangestatuschangeend'], name, value)
 
 
+
+
     class CatmSegCCStatusChPVclRangeTable(Entity):
         """
         A table indicating more than one VCLs in a consecutive 
@@ -625,6 +707,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
         
         	Each entry in this table represents a range of VCLs and  for each VCL there is an active row in the atmVclTable having an atmVclConnKind value of 'pvc' and atmVclOperStatus to have changed due to segment CC failure in the same direction  in the last corresponding notification 
         	**type**\: list of  		 :py:class:`CatmSegCCStatusChPVclRangeEntry <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmSegCCStatusChPVclRangeTable.CatmSegCCStatusChPVclRangeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -670,6 +754,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: atmvclvpi  (key)
             
             	
@@ -678,6 +764,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             	**range:** 0..4095
             
             	**refers to**\:  :py:class:`atmvclvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
+            
+            	**config**\: False
             
             .. attribute:: catmstatuschangepvclrangeindex  (key)
             
@@ -688,12 +776,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`catmstatuschangepvclrangeindex <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmStatusChangePVclRangeTable.CatmStatusChangePVclRangeEntry>`
             
+            	**config**\: False
+            
             .. attribute:: catmpvclsegcclowerrangevalue
             
             	The first PVCL in a range of PVCLs for which the  atmVclOperStatus to have changed in the last  corresponding notification due to Segment CC OAM failure
             	**type**\: int
             
             	**range:** 0..65536
+            
+            	**config**\: False
             
             .. attribute:: catmpvclsegcchigherrangevalue
             
@@ -702,6 +794,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..65536
             
+            	**config**\: False
+            
             .. attribute:: catmpvclsegccrangestatuschstart
             
             	The time stamp at which the first PVCL in the range changed state in the last corresponding notification due  to Segment CC OAM failure
@@ -709,12 +803,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclsegccrangestatuschend
             
             	The time stamp at which the last PVCL in the range changed state in the last corresponding notification due  to Segment CC OAM failure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -756,6 +854,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmSegCCStatusChPVclRangeTable.CatmSegCCStatusChPVclRangeEntry, ['ifindex', 'atmvclvpi', 'catmstatuschangepvclrangeindex', 'catmpvclsegcclowerrangevalue', 'catmpvclsegcchigherrangevalue', 'catmpvclsegccrangestatuschstart', 'catmpvclsegccrangestatuschend'], name, value)
 
 
+
+
     class CatmEndCCStatusChPVclRangeTable(Entity):
         """
         A table indicating more than one VCLs in a consecutive 
@@ -769,6 +869,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
         
         	Each entry in this table represents a range of VCLs and  for each VCL there is an active row in the atmVclTable having an atmVclConnKind value of 'pvc' and atmVclOperStatus to have changed due to End CC failure in the same direction in the  last corresponding notification 
         	**type**\: list of  		 :py:class:`CatmEndCCStatusChPVclRangeEntry <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmEndCCStatusChPVclRangeTable.CatmEndCCStatusChPVclRangeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -814,6 +916,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: atmvclvpi  (key)
             
             	
@@ -822,6 +926,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             	**range:** 0..4095
             
             	**refers to**\:  :py:class:`atmvclvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
+            
+            	**config**\: False
             
             .. attribute:: catmstatuschangepvclrangeindex  (key)
             
@@ -832,12 +938,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`catmstatuschangepvclrangeindex <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmStatusChangePVclRangeTable.CatmStatusChangePVclRangeEntry>`
             
+            	**config**\: False
+            
             .. attribute:: catmpvclendcclowerrangevalue
             
             	The first PVCL in a range of PVCLs for which the  atmVclOperStatus to have changed in the last  corresponding notification due to End CC OAM failure
             	**type**\: int
             
             	**range:** 0..65536
+            
+            	**config**\: False
             
             .. attribute:: catmpvclendcchigherrangevalue
             
@@ -846,6 +956,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..65536
             
+            	**config**\: False
+            
             .. attribute:: catmpvclendccrangestatuschstart
             
             	The time stamp at which the first PVCL in the range changed state in the last corresponding notification due  to End CC OAM failure
@@ -853,12 +965,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclendccrangestatuschend
             
             	The time stamp at which the last PVCL in the range changed state in the last corresponding notification due  to End CC OAM failure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -900,6 +1016,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmEndCCStatusChPVclRangeTable.CatmEndCCStatusChPVclRangeEntry, ['ifindex', 'atmvclvpi', 'catmstatuschangepvclrangeindex', 'catmpvclendcclowerrangevalue', 'catmpvclendcchigherrangevalue', 'catmpvclendccrangestatuschstart', 'catmpvclendccrangestatuschend'], name, value)
 
 
+
+
     class CatmAISRDIStatusChPVclRangeTable(Entity):
         """
         A table indicating more than one VCLs in a consecutive 
@@ -913,6 +1031,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
         
         	Each entry in this table represents a range of VCLs and  for each VCL there is an active row in the atmVclTable having an atmVclConnKind value of 'pvc' and atmVclOperStatus to have changed due to AIS/RDI failure in the same direction in the  last corresponding notification 
         	**type**\: list of  		 :py:class:`CatmAISRDIStatusChPVclRangeEntry <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmAISRDIStatusChPVclRangeTable.CatmAISRDIStatusChPVclRangeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -958,6 +1078,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: atmvclvpi  (key)
             
             	
@@ -966,6 +1088,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             	**range:** 0..4095
             
             	**refers to**\:  :py:class:`atmvclvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
+            
+            	**config**\: False
             
             .. attribute:: catmstatuschangepvclrangeindex  (key)
             
@@ -976,12 +1100,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`catmstatuschangepvclrangeindex <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmStatusChangePVclRangeTable.CatmStatusChangePVclRangeEntry>`
             
+            	**config**\: False
+            
             .. attribute:: catmpvclaisrdilowerrangevalue
             
             	The first PVCL in a range of PVCLs for which the  atmVclOperStatus to have changed in the last  corresponding notification due to AISRDI OAM failure
             	**type**\: int
             
             	**range:** 0..65536
+            
+            	**config**\: False
             
             .. attribute:: catmpvclaisrdihigherrangevalue
             
@@ -990,6 +1118,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..65536
             
+            	**config**\: False
+            
             .. attribute:: catmpvclaisrdirangestatuschstart
             
             	The time stamp at which the first PVCL in the range changed state in the last corresponding notification due  to AISRDI OAM failure
@@ -997,12 +1127,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclaisrdirangestatuschend
             
             	The time stamp at which the last PVCL in the range changed state in the last corresponding notification due  to AISRDI OAM failure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1044,6 +1178,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmAISRDIStatusChPVclRangeTable.CatmAISRDIStatusChPVclRangeEntry, ['ifindex', 'atmvclvpi', 'catmstatuschangepvclrangeindex', 'catmpvclaisrdilowerrangevalue', 'catmpvclaisrdihigherrangevalue', 'catmpvclaisrdirangestatuschstart', 'catmpvclaisrdirangestatuschend'], name, value)
 
 
+
+
     class CatmDownPVclRangeTable(Entity):
         """
         A table indicating more than one VCLs in a consecutive 
@@ -1056,6 +1192,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
         
         	Each entry in this table represents a range of VCLs and  for each VCL there is an active row in the atmVclTable having an atmVclConnKind value of 'pvc' and  atmVclOperStatus to  have detected as Down in the last notification  interval
         	**type**\: list of  		 :py:class:`CatmDownPVclRangeEntry <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmDownPVclRangeTable.CatmDownPVclRangeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1101,6 +1239,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: atmvclvpi  (key)
             
             	
@@ -1109,6 +1249,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             	**range:** 0..4095
             
             	**refers to**\:  :py:class:`atmvclvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
+            
+            	**config**\: False
             
             .. attribute:: catmstatuschangepvclrangeindex  (key)
             
@@ -1119,12 +1261,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`catmstatuschangepvclrangeindex <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmStatusChangePVclRangeTable.CatmStatusChangePVclRangeEntry>`
             
+            	**config**\: False
+            
             .. attribute:: catmdownpvcllowerrangevalue
             
             	The first PVCL in a range of PVCLs for which the  atmVclOperStatus has been detected as Down in the  corresponding notification 
             	**type**\: int
             
             	**range:** 0..65536
+            
+            	**config**\: False
             
             .. attribute:: catmdownpvclhigherrangevalue
             
@@ -1133,12 +1279,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..65536
             
+            	**config**\: False
+            
             .. attribute:: catmdownpvclrangestart
             
             	The time stamp at which the first atmVclOperStatus is detected as Down on any of the PVCLs in the range in the corresponding notification 
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: catmdownpvclrangeend
             
@@ -1147,12 +1297,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmprevuppvclrangestart
             
             	The time stamp at which the first atmVclOperStatus is detected as Up on any of the PVCLs in the range in the previous catmIntfPvcUp2Trap notification
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: catmprevuppvclrangeend
             
@@ -1161,10 +1315,14 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclrangefailurereason
             
             	Type of OAM failure
             	**type**\:  :py:class:`CatmOAMFailureType <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CatmOAMFailureType>`
+            
+            	**config**\: False
             
             
 
@@ -1212,6 +1370,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmDownPVclRangeTable.CatmDownPVclRangeEntry, ['ifindex', 'atmvclvpi', 'catmstatuschangepvclrangeindex', 'catmdownpvcllowerrangevalue', 'catmdownpvclhigherrangevalue', 'catmdownpvclrangestart', 'catmdownpvclrangeend', 'catmprevuppvclrangestart', 'catmprevuppvclrangeend', 'catmpvclrangefailurereason'], name, value)
 
 
+
+
     class CatmCurStatusUpPVclTable(Entity):
         """
         A table indicating all VCLs for which there is an
@@ -1223,6 +1383,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
         
         	Each entry in the table represents a VCL for which there is an active row in the atmVclTable having an atmVclConnKind value of `pvc' and atmVclOperStatus to have changed to UP in the last PVC notification  interval
         	**type**\: list of  		 :py:class:`CatmCurStatusUpPVclEntry <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmCurStatusUpPVclTable.CatmCurStatusUpPVclEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1268,6 +1430,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: atmvclvpi  (key)
             
             	
@@ -1276,6 +1440,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             	**range:** 0..4095
             
             	**refers to**\:  :py:class:`atmvclvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
+            
+            	**config**\: False
             
             .. attribute:: atmvclvci  (key)
             
@@ -1286,12 +1452,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`atmvclvci <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
             
+            	**config**\: False
+            
             .. attribute:: catmpvclstatusuptransition
             
             	The number of Down to Up state transitions due to OAM loopback recovery that has happened on this PVCL  in the last corresponding notification 
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: catmpvclstatusupstart
             
@@ -1300,12 +1470,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclstatusupend
             
             	The time stamp at which this PVCL changed state to UP  for the last time due to OAM loopback recovery in the last corresponding notification 
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: catmpvclsegccstatusuptransition
             
@@ -1314,12 +1488,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclsegccstatusupstart
             
             	The time stamp at which this PVCL changed state to Up for  the first time in the last corresponding notification due to Segment CC OAM recovery
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: catmpvclsegccstatusupend
             
@@ -1328,12 +1506,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclendccstatusuptransition
             
             	The number of Down to UP state transitions that has  happened on this PVCL in the last notification  interval due to End CC OAM recovery
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: catmpvclendccstatusupstart
             
@@ -1342,12 +1524,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclendccstatusupend
             
             	The time stamp at which this PVCL changed state to Up for the last time in the last corresponding notification  due to End CC OAM recovery
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: catmpvclaisrdistatusuptransition
             
@@ -1356,12 +1542,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclaisrdistatusupstart
             
             	The time stamp at which this PVCL changed state to Up for the first time in the last corresponding notification  due to AIS/RDI OAM recovery
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: catmpvclaisrdistatusupend
             
@@ -1370,12 +1560,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclcurrecovertime
             
             	The time stamp at which this PVCL changed state to UP last time in the last corresponding notification 
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: catmpvclprevfailtime
             
@@ -1384,10 +1578,14 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclrecoveryreason
             
             	Type of OAM Recovered
             	**type**\:  :py:class:`CatmOAMRecoveryType <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CatmOAMRecoveryType>`
+            
+            	**config**\: False
             
             
 
@@ -1451,6 +1649,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmCurStatusUpPVclTable.CatmCurStatusUpPVclEntry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'catmpvclstatusuptransition', 'catmpvclstatusupstart', 'catmpvclstatusupend', 'catmpvclsegccstatusuptransition', 'catmpvclsegccstatusupstart', 'catmpvclsegccstatusupend', 'catmpvclendccstatusuptransition', 'catmpvclendccstatusupstart', 'catmpvclendccstatusupend', 'catmpvclaisrdistatusuptransition', 'catmpvclaisrdistatusupstart', 'catmpvclaisrdistatusupend', 'catmpvclcurrecovertime', 'catmpvclprevfailtime', 'catmpvclrecoveryreason'], name, value)
 
 
+
+
     class CatmStatusUpPVclRangeTable(Entity):
         """
         A table indicating more than one VCLs in a consecutive 
@@ -1463,6 +1663,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
         
         	Each entry in this table represents a range of VCLs and  for each VCL there is an active row in the atmVclTable having an atmVclConnKind value of 'pvc' and  loopback OAM status to  have detected as recovered in the last notification  interval
         	**type**\: list of  		 :py:class:`CatmStatusUpPVclRangeEntry <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmStatusUpPVclRangeTable.CatmStatusUpPVclRangeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1508,6 +1710,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: atmvclvpi  (key)
             
             	
@@ -1516,6 +1720,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             	**range:** 0..4095
             
             	**refers to**\:  :py:class:`atmvclvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
+            
+            	**config**\: False
             
             .. attribute:: catmstatuschangepvclrangeindex  (key)
             
@@ -1526,12 +1732,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`catmstatuschangepvclrangeindex <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmStatusChangePVclRangeTable.CatmStatusChangePVclRangeEntry>`
             
+            	**config**\: False
+            
             .. attribute:: catmpvcluplowerrangevalue
             
             	The first PVCL in a range of PVCLs for which the  Loopback OAM recovery has been detected in the last  corresponding notification 
             	**type**\: int
             
             	**range:** 0..65536
+            
+            	**config**\: False
             
             .. attribute:: catmpvcluphigherrangevalue
             
@@ -1540,6 +1750,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..65536
             
+            	**config**\: False
+            
             .. attribute:: catmpvclrangestatusupstart
             
             	The time stamp at which the first Loopback OAM recovery is detected on any of the PVCLs in the range in the last corresponding notification 
@@ -1547,12 +1759,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclrangestatusupend
             
             	The time stamp at which the last Loopback OAM recovery is detected on any of the PVCLs in the range in the last corresponding notification 
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1594,6 +1810,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmStatusUpPVclRangeTable.CatmStatusUpPVclRangeEntry, ['ifindex', 'atmvclvpi', 'catmstatuschangepvclrangeindex', 'catmpvcluplowerrangevalue', 'catmpvcluphigherrangevalue', 'catmpvclrangestatusupstart', 'catmpvclrangestatusupend'], name, value)
 
 
+
+
     class CatmSegCCStatusUpPVclRangeTable(Entity):
         """
         A table indicating more than one VCLs in a consecutive
@@ -1606,6 +1824,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
         
         	Each entry in this table represents a range of VCLs and for each VCL there is an active row in the atmVclTable having an atmVclConnKind value of 'pvc' and Segment CC OAM status to have detected as recovered in the last notification interval
         	**type**\: list of  		 :py:class:`CatmSegCCStatusUpPVclRangeEntry <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmSegCCStatusUpPVclRangeTable.CatmSegCCStatusUpPVclRangeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1651,6 +1871,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: atmvclvpi  (key)
             
             	
@@ -1659,6 +1881,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             	**range:** 0..4095
             
             	**refers to**\:  :py:class:`atmvclvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
+            
+            	**config**\: False
             
             .. attribute:: catmstatuschangepvclrangeindex  (key)
             
@@ -1669,12 +1893,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`catmstatuschangepvclrangeindex <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmStatusChangePVclRangeTable.CatmStatusChangePVclRangeEntry>`
             
+            	**config**\: False
+            
             .. attribute:: catmpvclsegccuplowerrangevalue
             
             	The first PVCL in a range of PVCLs for which the Segment CC OAM recovery has been detected in the last corresponding notification 
             	**type**\: int
             
             	**range:** 0..65536
+            
+            	**config**\: False
             
             .. attribute:: catmpvclsegccuphigherrangevalue
             
@@ -1683,6 +1911,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..65536
             
+            	**config**\: False
+            
             .. attribute:: catmpvclsegccrangestatusupstart
             
             	The time stamp at which the first Segment CC OAM recovery is detected on any of the PVCLs in the range in the last corresponding notification 
@@ -1690,12 +1920,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclsegccrangestatusupend
             
             	The time stamp at which the last Segment CC OAM recovery is detected on any of the PVCLs in the range in the last corresponding notification 
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1737,6 +1971,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmSegCCStatusUpPVclRangeTable.CatmSegCCStatusUpPVclRangeEntry, ['ifindex', 'atmvclvpi', 'catmstatuschangepvclrangeindex', 'catmpvclsegccuplowerrangevalue', 'catmpvclsegccuphigherrangevalue', 'catmpvclsegccrangestatusupstart', 'catmpvclsegccrangestatusupend'], name, value)
 
 
+
+
     class CatmEndCCStatusUpPVclRangeTable(Entity):
         """
         A table indicating more than one VCLs in a consecutive
@@ -1749,6 +1985,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
         
         	Each entry in this table represents a range of VCLs and for each VCL there is an active row in the atmVclTable having an atmVclConnKind value of 'pvc' and End\-to\-End CC OAM status  to have detected as recovered in the last notification interval
         	**type**\: list of  		 :py:class:`CatmEndCCStatusUpPVclRangeEntry <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmEndCCStatusUpPVclRangeTable.CatmEndCCStatusUpPVclRangeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1794,6 +2032,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: atmvclvpi  (key)
             
             	
@@ -1802,6 +2042,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             	**range:** 0..4095
             
             	**refers to**\:  :py:class:`atmvclvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
+            
+            	**config**\: False
             
             .. attribute:: catmstatuschangepvclrangeindex  (key)
             
@@ -1812,12 +2054,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`catmstatuschangepvclrangeindex <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmStatusChangePVclRangeTable.CatmStatusChangePVclRangeEntry>`
             
+            	**config**\: False
+            
             .. attribute:: catmpvclendccuplowerrangevalue
             
             	The first PVCL in a range of PVCLs for which the End\-to\-End CC OAM recovery has been detected in the last corresponding notification 
             	**type**\: int
             
             	**range:** 0..65536
+            
+            	**config**\: False
             
             .. attribute:: catmpvclendccuphigherrangevalue
             
@@ -1826,6 +2072,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..65536
             
+            	**config**\: False
+            
             .. attribute:: catmpvclendccrangestatusupstart
             
             	The time stamp at which the first End\-to\-End CC OAM recovery is detected on any of the PVCLs in the range in the last corresponding notification 
@@ -1833,12 +2081,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclendccrangestatusupend
             
             	The time stamp at which the last End\-to\-End CC OAM recovery is detected on any of the PVCLs in the range in the last corresponding notification 
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1880,6 +2132,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmEndCCStatusUpPVclRangeTable.CatmEndCCStatusUpPVclRangeEntry, ['ifindex', 'atmvclvpi', 'catmstatuschangepvclrangeindex', 'catmpvclendccuplowerrangevalue', 'catmpvclendccuphigherrangevalue', 'catmpvclendccrangestatusupstart', 'catmpvclendccrangestatusupend'], name, value)
 
 
+
+
     class CatmAISRDIStatusUpPVclRangeTable(Entity):
         """
         A table indicating more than one VCLs in a consecutive
@@ -1892,6 +2146,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
         
         	Each entry in this table represents a range of VCLs and for each VCL there is an active row in the atmVclTable having an atmVclConnKind value of 'pvc' and AISRDI OAM status  to have detected as recovered in the last notification interval
         	**type**\: list of  		 :py:class:`CatmAISRDIStatusUpPVclRangeEntry <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmAISRDIStatusUpPVclRangeTable.CatmAISRDIStatusUpPVclRangeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1937,6 +2193,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: atmvclvpi  (key)
             
             	
@@ -1945,6 +2203,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             	**range:** 0..4095
             
             	**refers to**\:  :py:class:`atmvclvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
+            
+            	**config**\: False
             
             .. attribute:: catmstatuschangepvclrangeindex  (key)
             
@@ -1955,12 +2215,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`catmstatuschangepvclrangeindex <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmStatusChangePVclRangeTable.CatmStatusChangePVclRangeEntry>`
             
+            	**config**\: False
+            
             .. attribute:: catmpvclaisrdiuplowerrangevalue
             
             	The first PVCL in a range of PVCLs for which the AISRDI OAM recovery has been detected in the last corresponding notification 
             	**type**\: int
             
             	**range:** 0..65536
+            
+            	**config**\: False
             
             .. attribute:: catmpvclaisrdiuphigherrangevalue
             
@@ -1969,6 +2233,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..65536
             
+            	**config**\: False
+            
             .. attribute:: catmpvclaisrdirangestatusupstart
             
             	The time stamp at which the first AISRDI OAM recovery is detected on any of the PVCLs in the range in the last corresponding notification 
@@ -1976,12 +2242,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclaisrdirangestatusupend
             
             	The time stamp at which the last AISRDI OAM recovery is detected on any of the PVCLs in the range in the last corresponding notification 
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2023,6 +2293,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmAISRDIStatusUpPVclRangeTable.CatmAISRDIStatusUpPVclRangeEntry, ['ifindex', 'atmvclvpi', 'catmstatuschangepvclrangeindex', 'catmpvclaisrdiuplowerrangevalue', 'catmpvclaisrdiuphigherrangevalue', 'catmpvclaisrdirangestatusupstart', 'catmpvclaisrdirangestatusupend'], name, value)
 
 
+
+
     class CatmUpPVclRangeTable(Entity):
         """
         A table indicating more than one VCLs in a consecutive 
@@ -2035,6 +2307,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
         
         	Each entry in this table represents a range of VCLs and  for each VCL there is an active row in the atmVclTable having an atmVclConnKind value of 'pvc' and  atmVclOperStatus to  have detected as Up in the last notification  interval
         	**type**\: list of  		 :py:class:`CatmUpPVclRangeEntry <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmUpPVclRangeTable.CatmUpPVclRangeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2080,6 +2354,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: atmvclvpi  (key)
             
             	
@@ -2088,6 +2364,8 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             	**range:** 0..4095
             
             	**refers to**\:  :py:class:`atmvclvpi <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.AtmVclTable.AtmVclEntry>`
+            
+            	**config**\: False
             
             .. attribute:: catmstatuschangepvclrangeindex  (key)
             
@@ -2098,12 +2376,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**refers to**\:  :py:class:`catmstatuschangepvclrangeindex <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CISCOATMPVCTRAPEXTNMIB.CatmStatusChangePVclRangeTable.CatmStatusChangePVclRangeEntry>`
             
+            	**config**\: False
+            
             .. attribute:: catmuppvcllowerrangevalue
             
             	The first PVCL in a range of PVCLs for which the  atmVclOperStatus has been detected as Up in the  corresponding notification 
             	**type**\: int
             
             	**range:** 0..65536
+            
+            	**config**\: False
             
             .. attribute:: catmuppvclhigherrangevalue
             
@@ -2112,12 +2394,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..65536
             
+            	**config**\: False
+            
             .. attribute:: catmuppvclrangestart
             
             	The time stamp at which the first atmVclOperStatus is detected as Up on any of the PVCLs in the range in the corresponding notification 
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: catmuppvclrangeend
             
@@ -2126,12 +2412,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmprevdownpvclrangestart
             
             	The time stamp at which the first atmVclOperStatus is detected as Down on any of the PVCLs in the range in the previous catmIntfPvcDownTrap notification
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: catmprevdownpvclrangeend
             
@@ -2140,10 +2430,14 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: catmpvclrangerecoveryreason
             
             	Type of OAM Recovered
             	**type**\:  :py:class:`CatmOAMRecoveryType <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CatmOAMRecoveryType>`
+            
+            	**config**\: False
             
             
 
@@ -2190,7 +2484,11 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmUpPVclRangeTable.CatmUpPVclRangeEntry, ['ifindex', 'atmvclvpi', 'catmstatuschangepvclrangeindex', 'catmuppvcllowerrangevalue', 'catmuppvclhigherrangevalue', 'catmuppvclrangestart', 'catmuppvclrangeend', 'catmprevdownpvclrangestart', 'catmprevdownpvclrangeend', 'catmpvclrangerecoveryreason'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOATMPVCTRAPEXTNMIB()
         return self._top_entity
+
+
 

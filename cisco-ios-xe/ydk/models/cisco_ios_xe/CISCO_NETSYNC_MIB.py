@@ -662,30 +662,42 @@ class CISCONETSYNCMIB(Entity):
     	
     	**type**\:  :py:class:`CiscoNetsyncMIBNotifControl <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CiscoNetsyncMIBNotifControl>`
     
+    	**config**\: False
+    
     .. attribute:: cnsclkselglobaltable
     
     	G.781 clock selection process table. This table contains the global parameters for the G.781 clock selection process
     	**type**\:  :py:class:`CnsClkSelGlobalTable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsClkSelGlobalTable>`
+    
+    	**config**\: False
     
     .. attribute:: cnsselectedinputsourcetable
     
     	T0 selected clock source table. This table contains the selected clock source for the input T0 clock
     	**type**\:  :py:class:`CnsSelectedInputSourceTable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsSelectedInputSourceTable>`
     
+    	**config**\: False
+    
     .. attribute:: cnsinputsourcetable
     
     	T0 clock source table. This table contains a list of input sources for input T0 clock selection
     	**type**\:  :py:class:`CnsInputSourceTable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsInputSourceTable>`
+    
+    	**config**\: False
     
     .. attribute:: cnsextoutputtable
     
     	T4 external output table. This table contains a list of T4 external outputs.  Each T4 external output is associated with clock source(s) to be found in cnsT4ClockSourceTable. The clock selection process considers all the available clock sources and select the T4 clock source based on the G.781 clock selection algorithm
     	**type**\:  :py:class:`CnsExtOutputTable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsExtOutputTable>`
     
+    	**config**\: False
+    
     .. attribute:: cnst4clocksourcetable
     
     	T4 clock source table. This table contains a list of input sources for a specific T4 external output. An entry shall be added to cnsExtOutputTable first. Then clock sources shall be added in this table for the selection process to select the appropriate T4 clock source
     	**type**\:  :py:class:`CnsT4ClockSourceTable <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsT4ClockSourceTable>`
+    
+    	**config**\: False
     
     
 
@@ -745,6 +757,8 @@ class CISCONETSYNCMIB(Entity):
         	A control object to enable/disable ciscoNetsyncSelectedT0Clock, ciscoNetsyncSelectedT4Clock, ciscoNetsyncInputSignalFailureStatus, ciscoNetsyncInputAlarmStatus notifications at the system level. This object should hold any of the below values.     true \- The notif is enabled globally for the system     false\- The notif is disabled globally for the system
         	**type**\: bool
         
+        	**config**\: False
+        
         
 
         """
@@ -773,6 +787,7 @@ class CISCONETSYNCMIB(Entity):
             self._perform_setattr(CISCONETSYNCMIB.CiscoNetsyncMIBNotifControl, ['cnsmibenablestatusnotification'], name, value)
 
 
+
     class CnsClkSelGlobalTable(Entity):
         """
         G.781 clock selection process table.
@@ -783,6 +798,8 @@ class CISCONETSYNCMIB(Entity):
         
         	An entry is added to cnsClkSelGlobalTable when G.781 clock selection is enabled in the device configuration.  The entry is removed when G.781 clock selection is removed from the configuration
         	**type**\: list of  		 :py:class:`CnsClkSelGlobalEntry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsClkSelGlobalTable.CnsClkSelGlobalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -825,40 +842,56 @@ class CISCONETSYNCMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cnsclkselglobprocessmode
             
             	This object indicates the QL mode of the network synchronization clock selection process as described in ITU\-T standard G.781 section 5.12
             	**type**\:  :py:class:`CiscoNetsyncQLMode <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQLMode>`
+            
+            	**config**\: False
             
             .. attribute:: cnsclkselglobclockmode
             
             	This object indicates the operating mode of the system clock
             	**type**\:  :py:class:`CiscoNetsyncClockMode <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncClockMode>`
             
+            	**config**\: False
+            
             .. attribute:: cnsclkselglobnetsyncenable
             
             	This object indicates whether the G.781 clock selection is enabled or not.  'true'  \- G.781 clock selection is enabled 'false' \- G.781 clock selection is disabled
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cnsclkselglobrevertivemode
             
             	This object indicates the revertive mode setting in the G.781 clock selection process.  The switching of clock sources can be made revertive or non\-revertive. In non\-revertive mode, an alternate clock source is maintained even after the original clock source has recovered from the failure that caused the switch. In revertive mode, the clock selection process switches back to the original clock source after recovering from the failure
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cnsclkselglobesmcmode
             
             	This object indicates if global ESMC is enabled. With ESMC enabled globally, the system is capable of handling ESMC messages
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cnsclkselglobeecoption
             
             	This object indicates the network synchronization EEC (Ethernet Equipment Clock) option
             	**type**\:  :py:class:`CiscoNetsyncEECOption <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncEECOption>`
             
+            	**config**\: False
+            
             .. attribute:: cnsclkselglobnetworkoption
             
             	This object indicates the synchronization network option
             	**type**\:  :py:class:`CiscoNetsyncNetworkOption <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncNetworkOption>`
+            
+            	**config**\: False
             
             .. attribute:: cnsclkselglobholdofftime
             
@@ -866,6 +899,8 @@ class CISCONETSYNCMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -876,6 +911,8 @@ class CISCONETSYNCMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: cnsclkselglobnofsources
@@ -884,6 +921,8 @@ class CISCONETSYNCMIB(Entity):
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             	**units**\: clock sources
             
@@ -894,6 +933,8 @@ class CISCONETSYNCMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: cnsclkselglobcurrholdoverseconds
@@ -902,6 +943,8 @@ class CISCONETSYNCMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -957,6 +1000,8 @@ class CISCONETSYNCMIB(Entity):
                 self._perform_setattr(CISCONETSYNCMIB.CnsClkSelGlobalTable.CnsClkSelGlobalEntry, ['cnsclkselgloprocindex', 'cnsclkselglobprocessmode', 'cnsclkselglobclockmode', 'cnsclkselglobnetsyncenable', 'cnsclkselglobrevertivemode', 'cnsclkselglobesmcmode', 'cnsclkselglobeecoption', 'cnsclkselglobnetworkoption', 'cnsclkselglobholdofftime', 'cnsclkselglobwtrtime', 'cnsclkselglobnofsources', 'cnsclkselgloblastholdoverseconds', 'cnsclkselglobcurrholdoverseconds'], name, value)
 
 
+
+
     class CnsSelectedInputSourceTable(Entity):
         """
         T0 selected clock source table.
@@ -967,6 +1012,8 @@ class CISCONETSYNCMIB(Entity):
         
         	An entry is created in the table when the G.781 clock selection process has successfully selected a T0 clock source.  The entry shall remain during the time the G.781 clock selection process remains enabled
         	**type**\: list of  		 :py:class:`CnsSelectedInputSourceEntry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsSelectedInputSourceTable.CnsSelectedInputSourceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1009,6 +1056,8 @@ class CISCONETSYNCMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cnsselinpsrcname
             
             	This object indicates the name of the selected T0 clock
@@ -1016,15 +1065,21 @@ class CISCONETSYNCMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: cnsselinpsrcintftype
             
             	This object indicates the type of the selected T0 clock
             	**type**\:  :py:class:`CiscoNetsyncIfType <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncIfType>`
             
+            	**config**\: False
+            
             .. attribute:: cnsselinpsrcqualitylevel
             
             	This object indicates the selected T0 clock source's effective quality level, which is the derived clock quality based on the three factors\:  (a) Received quality level.  (b) Configured Rx quality level.  This factor supersedes (a).  (c) System overridden quality level as a result of exceptional events such as signal failure or ESMC failure.  This factor supersedes (a) and (b)
             	**type**\:  :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
+            
+            	**config**\: False
             
             .. attribute:: cnsselinpsrcpriority
             
@@ -1033,6 +1088,8 @@ class CISCONETSYNCMIB(Entity):
             
             	**range:** 1..1024
             
+            	**config**\: False
+            
             .. attribute:: cnsselinpsrctimestamp
             
             	This object indicates the timestamp of the T0 clock source being selected by the G.781 clock selection process
@@ -1040,15 +1097,21 @@ class CISCONETSYNCMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cnsselinpsrcfsw
             
             	This object indicates the forced switching flag. Forced switching, as described in G.781, is used to override the currently selected synchronization source.  The 'true' value indicates the currently selected clock source is a result of the forced switching. The 'false' value indicates the currently selected clock source is not a result of forced switching
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cnsselinpsrcmsw
             
             	This object indicates the manual switching flag. The 'true' value indicates the currently selected clock source is a result of the manual switch command. The command allows a user to select a synchronization source assuming it is enabled, not locked out, not in signal fail condition, and has a QL better than DNU in QL\-enabled mode. Furthermore, in QL\-enabled mode, a manual switch can be performed only to a source which has the highest available QL
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -1092,6 +1155,8 @@ class CISCONETSYNCMIB(Entity):
                 self._perform_setattr(CISCONETSYNCMIB.CnsSelectedInputSourceTable.CnsSelectedInputSourceEntry, ['cnsselinpsrcnetsyncindex', 'cnsselinpsrcname', 'cnsselinpsrcintftype', 'cnsselinpsrcqualitylevel', 'cnsselinpsrcpriority', 'cnsselinpsrctimestamp', 'cnsselinpsrcfsw', 'cnsselinpsrcmsw'], name, value)
 
 
+
+
     class CnsInputSourceTable(Entity):
         """
         T0 clock source table.
@@ -1102,6 +1167,8 @@ class CISCONETSYNCMIB(Entity):
         
         	An entry is created in the table when a user adds a T0 clock source in the configuration. An entry is removed  in the table when a user removes a T0 clock source from the configuration
         	**type**\: list of  		 :py:class:`CnsInputSourceEntry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsInputSourceTable.CnsInputSourceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1144,6 +1211,8 @@ class CISCONETSYNCMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cnsinpsrcname
             
             	This object indicates the name of an input clock source configured for the T0 clock selection
@@ -1151,10 +1220,14 @@ class CISCONETSYNCMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: cnsinpsrcintftype
             
             	This object indicates the type of an input clock source configured for the T0 clock selection
             	**type**\:  :py:class:`CiscoNetsyncIfType <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncIfType>`
+            
+            	**config**\: False
             
             .. attribute:: cnsinpsrcpriority
             
@@ -1163,40 +1236,56 @@ class CISCONETSYNCMIB(Entity):
             
             	**range:** 1..1024
             
+            	**config**\: False
+            
             .. attribute:: cnsinpsrcesmccap
             
             	This object indicates the ESMC capability of an input clock source configured for the T0 clock selection.  This is applicable only to Synchronous Ethernet input clock source identified by cnsInpSrcIntfType 'netsyncIfTypeEthernet'
             	**type**\:  :py:class:`CiscoNetsyncESMCCap <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncESMCCap>`
+            
+            	**config**\: False
             
             .. attribute:: cnsinpsrcssmcap
             
             	This object indicates the SSM capability of an input clock source configured for the T0 clock selection. This is applicable only to any synchronous interface clock source except SyncE interface, which is identified by cnsInpSrcIntfType 'netsyncIfTypeEthernet'
             	**type**\:  :py:class:`CiscoNetsyncSSMCap <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncSSMCap>`
             
+            	**config**\: False
+            
             .. attribute:: cnsinpsrcqualityleveltxcfg
             
             	This object indicates the configured transmit clock quality level of an input clock source
             	**type**\:  :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
+            
+            	**config**\: False
             
             .. attribute:: cnsinpsrcqualitylevelrxcfg
             
             	This object indicates the configured receive clock quality level of an input clock source
             	**type**\:  :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
             
+            	**config**\: False
+            
             .. attribute:: cnsinpsrcqualityleveltx
             
             	This object indicates the most recent clock quality level transmitted on the input clock source
             	**type**\:  :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
+            
+            	**config**\: False
             
             .. attribute:: cnsinpsrcqualitylevelrx
             
             	This object indicates the last clock quality level received on the input clock source
             	**type**\:  :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
             
+            	**config**\: False
+            
             .. attribute:: cnsinpsrcqualitylevel
             
             	This object indicates the current clock quality level of the input clock source.  This is the effective quality which is derived from three values\:  1) most recent clock quality level received, 2) forced clock quality level (entered via configuration) 3) overridden clock quality level as a result of line protocol down, signal failure, or alarms
             	**type**\:  :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
+            
+            	**config**\: False
             
             .. attribute:: cnsinpsrcholdofftime
             
@@ -1204,6 +1293,8 @@ class CISCONETSYNCMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -1214,6 +1305,8 @@ class CISCONETSYNCMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Seconds
             
             .. attribute:: cnsinpsrclockout
@@ -1221,30 +1314,42 @@ class CISCONETSYNCMIB(Entity):
             	This object indicates whether or not the lockout command has been applied to a clock source.  The 'true' value means the clock source is not considered by the selection process
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cnsinpsrcsignalfailure
             
             	This object indicates whether or not a signal failure event is currently being reported on the input clock source
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cnsinpsrcalarm
             
             	This object indicates whether or not an alarm event is currently being reported on the input clock source
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cnsinpsrcalarminfo
             
             	This object indicates the alarm reasons of an input clock source if an alarm event is being reported on it
             	**type**\:  :py:class:`CiscoNetsyncAlarmInfo <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncAlarmInfo>`
+            
+            	**config**\: False
             
             .. attribute:: cnsinpsrcfsw
             
             	This object indicates the forced switching flag. Forced switching, as described in G.781, is used to override the currently selected synchronization source.  The 'true' value indicates the currently selected clock source is a result of the forced switching. The 'false' value indicates the currently selected clock source is not a result of forced switching
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cnsinpsrcmsw
             
             	This object indicates the manual switching flag.  The 'true' value indicates the currently selected clock source is a result of the manual switching. The switch allows a user to select a synchronization source assuming it is enabled, not locked out, not in signal fail condition, and has a QL better than DNU in QL\-enabled mode.  A clock source is enabled when it occupies a row in cnsInputSourceTable.  A clock source is not locked out when cnsInpSrcLockout contains the value 'false'. A clock source is not in signal failure condition when cnsInpSrcSignalFailure contains the value 'false'.  The QL is identified in cnsInpSrcQualityLevel.  In QL\-enabled mode, a manual switch can be performed only to a source which has the highest available QL
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -1310,6 +1415,8 @@ class CISCONETSYNCMIB(Entity):
                 self._perform_setattr(CISCONETSYNCMIB.CnsInputSourceTable.CnsInputSourceEntry, ['cnsinpsrcnetsyncindex', 'cnsinpsrcname', 'cnsinpsrcintftype', 'cnsinpsrcpriority', 'cnsinpsrcesmccap', 'cnsinpsrcssmcap', 'cnsinpsrcqualityleveltxcfg', 'cnsinpsrcqualitylevelrxcfg', 'cnsinpsrcqualityleveltx', 'cnsinpsrcqualitylevelrx', 'cnsinpsrcqualitylevel', 'cnsinpsrcholdofftime', 'cnsinpsrcwtrtime', 'cnsinpsrclockout', 'cnsinpsrcsignalfailure', 'cnsinpsrcalarm', 'cnsinpsrcalarminfo', 'cnsinpsrcfsw', 'cnsinpsrcmsw'], name, value)
 
 
+
+
     class CnsExtOutputTable(Entity):
         """
         T4 external output table.
@@ -1325,6 +1432,8 @@ class CISCONETSYNCMIB(Entity):
         
         	An entry is created in the table when a user adds a T4 external output in the configuration.  A T4 external output configured input clock sources are defined in cnsT4ClockSourceTable.  An entry is removed from the table when a user removes a T4 external output from the configuration
         	**type**\: list of  		 :py:class:`CnsExtOutputEntry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsExtOutputTable.CnsExtOutputEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1370,12 +1479,16 @@ class CISCONETSYNCMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cnsextoutselnetsyncindex
             
             	An index that uniquely represents the selected input clock source whose information is reported by a row in cnsT4ClockSourceTable. The index lists the value of cnsT4ClkSrcNetsyncIndex, which is the input clock source of the T4 external output selected by the G.781 clock selection process
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cnsextoutname
             
@@ -1384,15 +1497,21 @@ class CISCONETSYNCMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: cnsextoutintftype
             
             	This object indicates the interface type of the T4 external output
             	**type**\:  :py:class:`CiscoNetsyncIfType <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncIfType>`
             
+            	**config**\: False
+            
             .. attribute:: cnsextoutqualitylevel
             
             	This object indicates the clock quality of the T4 external output
             	**type**\:  :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
+            
+            	**config**\: False
             
             .. attribute:: cnsextoutpriority
             
@@ -1401,20 +1520,28 @@ class CISCONETSYNCMIB(Entity):
             
             	**range:** 1..1024
             
+            	**config**\: False
+            
             .. attribute:: cnsextoutfsw
             
             	This object indicates the forced switching flag. Forced switching, as described in G.781, is used to override the currently selected synchronization source, The T4 selected synchronization source is identified by cnsExtOutSelNetsyncIndex, which contains the index to the clock source in cnsT4ClockSourceTable.  The 'true' value indicates the currently selected T4 clock source is a result of the forced switching. The 'false' value indicates the currently selected T4 clock source is not a result of forced switching
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cnsextoutmsw
             
             	This object indicates the manual switching flag.  The 'true' value indicates the currently selected T4 clock source is a result of the manual switch command. The command allows a user to select a synchronization source assuming it is enabled, not locked out, not in signal fail condition, and has a QL better than DNU in QL\-enabled mode.  A clock source is enabled when it occupies in row in cnsT4ClockSourceTable.  A clock source is not locked out when cnsT4ClkSrcLockout contains the value 'false'. A clock source is not in signal failure condition when cnsT4ClkSrcSignalFailure contains the value 'false'.  The QL is identified in cnsT4ClkSrcQualityLevel.  In QL\-enabled mode, a manual switch can be  performed only to a source which has the highest available QL
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cnsextoutsquelch
             
             	This object indicates whether or not a T4 external output is squelched.  Squelching is a sychronization function defined to prevent transmission of a timing signal with a quality that is lower than the quality of the clock in the receiving networks element or SASE. It is also used for the prevention of timing loops
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -1460,6 +1587,8 @@ class CISCONETSYNCMIB(Entity):
                 self._perform_setattr(CISCONETSYNCMIB.CnsExtOutputTable.CnsExtOutputEntry, ['cnsextoutlistindex', 'cnsextoutselnetsyncindex', 'cnsextoutname', 'cnsextoutintftype', 'cnsextoutqualitylevel', 'cnsextoutpriority', 'cnsextoutfsw', 'cnsextoutmsw', 'cnsextoutsquelch'], name, value)
 
 
+
+
     class CnsT4ClockSourceTable(Entity):
         """
         T4 clock source table.
@@ -1473,6 +1602,8 @@ class CISCONETSYNCMIB(Entity):
         
         	An entry is created in the table when a user adds a clock source to a T4 external output in the configuration. The T4 external output is defined in the T4 external output table. An entry is removed in the table when a user removes a T4 clock source from the configuration
         	**type**\: list of  		 :py:class:`CnsT4ClockSourceEntry <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsT4ClockSourceTable.CnsT4ClockSourceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1518,12 +1649,16 @@ class CISCONETSYNCMIB(Entity):
             
             	**refers to**\:  :py:class:`cnsextoutlistindex <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CISCONETSYNCMIB.CnsExtOutputTable.CnsExtOutputEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cnst4clksrcnetsyncindex  (key)
             
             	An index that uniquely represents an entry in this table.  This index is assigned arbitrarily by the clock selection process and may not be persistent across reboots
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cnst4clksrcname
             
@@ -1532,10 +1667,14 @@ class CISCONETSYNCMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: cnst4clksrcintftype
             
             	This object indicates the type of an input clock source configured for the T4 clock selection
             	**type**\:  :py:class:`CiscoNetsyncIfType <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncIfType>`
+            
+            	**config**\: False
             
             .. attribute:: cnst4clksrcpriority
             
@@ -1544,40 +1683,56 @@ class CISCONETSYNCMIB(Entity):
             
             	**range:** 1..1024
             
+            	**config**\: False
+            
             .. attribute:: cnst4clksrcesmccap
             
             	This object indicates the ESMC capability of an input clock source configured for the T4 clock selection.  This is applicable only to Synchronous Ethernet input clock source identified by cnsT4ClkSrcIntfType 'netsyncIfTypeEthernet'
             	**type**\:  :py:class:`CiscoNetsyncESMCCap <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncESMCCap>`
+            
+            	**config**\: False
             
             .. attribute:: cnst4clksrcssmcap
             
             	This object indicates the SSM capability of an input clock source configured for the T4 clock selection. This is applicable only to any synchronous interface clock source except SyncE interface, which is identified by cnsT4ClkSrcIntfType 'netsyncIfTypeEthernet'
             	**type**\:  :py:class:`CiscoNetsyncSSMCap <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncSSMCap>`
             
+            	**config**\: False
+            
             .. attribute:: cnst4clksrcqualityleveltxcfg
             
             	This object indicates the configured transmit clock quality level of a T4 input clock source
             	**type**\:  :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
+            
+            	**config**\: False
             
             .. attribute:: cnst4clksrcqualitylevelrxcfg
             
             	This object indicates the configured receive clock quality level of a T4 input clock source
             	**type**\:  :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
             
+            	**config**\: False
+            
             .. attribute:: cnst4clksrcqualityleveltx
             
             	This object indicates the most recent clock quality level transmitted on the T4 input clock source
             	**type**\:  :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
+            
+            	**config**\: False
             
             .. attribute:: cnst4clksrcqualitylevelrx
             
             	This object indicates the last clock quality level received on the T4 input clock source
             	**type**\:  :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
             
+            	**config**\: False
+            
             .. attribute:: cnst4clksrcqualitylevel
             
             	This object indicates the current clock quality level of the T4 input clock source.  This is the effective quality which is derived from three values\:  1) most recent clock quality level received, 2) forced clock quality level (entered via configuration) 3) overridden clock quality level as a result of line protocol down, signal failure, or alarms
             	**type**\:  :py:class:`CiscoNetsyncQualityLevel <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncQualityLevel>`
+            
+            	**config**\: False
             
             .. attribute:: cnst4clksrcholdofftime
             
@@ -1585,6 +1740,8 @@ class CISCONETSYNCMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -1595,6 +1752,8 @@ class CISCONETSYNCMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: cnst4clksrclockout
@@ -1602,30 +1761,42 @@ class CISCONETSYNCMIB(Entity):
             	This object indicates whether or not the lockout command has been applied on a T4 clock source.  The 'true' value means the clock source is not considered by the selection process
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cnst4clksrcsignalfailure
             
             	This object indicates whether or not a signal failure event is currently being reported on the T4 input clock source
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cnst4clksrcalarm
             
             	This object indicates whether or not an alarm event is currently being reported on the T4 input clock source
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cnst4clksrcalarminfo
             
             	This object indicates the alarm reasons of a T4 input clock source if an alarm event is being reported on the clock source
             	**type**\:  :py:class:`CiscoNetsyncAlarmInfo <ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB.CiscoNetsyncAlarmInfo>`
+            
+            	**config**\: False
             
             .. attribute:: cnst4clksrcfsw
             
             	This object indicates the forced switching flag. Forced switching, as described in G.781, is used to override the currently selected synchronization source.  The 'true' value indicates the currently selected T4 clock source is a result of the forced switching. The 'false' value indicates the currently selected T4 clock source is not a result of forced switching
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cnst4clksrcmsw
             
             	This object indicates the manual switching flag.  The 'true' value indicates the currently selected T4 clock source is a result of the manual switching. The switch allows a user to select a  synchronization source assuming it is enabled, not locked out, not in signal fail condition, and has a QL better than DNU in QL\-enabled mode.  A clock source is enabled when it occupies a row in  cnsT4ClockSourceTable.  A clock source is not locked out when cnsT4ClkSrcLockout contains the value 'false'. A clock source is not in signal failure condition when cnsT4ClkSrcSignalFailure contains the value 'false'. The QL is identified in cnsT4ClkSrcQualityLevel.  In QL\-enabled mode, a manual switch can be performed only to a source which has the highest available QL
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -1692,7 +1863,11 @@ class CISCONETSYNCMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCONETSYNCMIB.CnsT4ClockSourceTable.CnsT4ClockSourceEntry, ['cnsextoutlistindex', 'cnst4clksrcnetsyncindex', 'cnst4clksrcname', 'cnst4clksrcintftype', 'cnst4clksrcpriority', 'cnst4clksrcesmccap', 'cnst4clksrcssmcap', 'cnst4clksrcqualityleveltxcfg', 'cnst4clksrcqualitylevelrxcfg', 'cnst4clksrcqualityleveltx', 'cnst4clksrcqualitylevelrx', 'cnst4clksrcqualitylevel', 'cnst4clksrcholdofftime', 'cnst4clksrcwtrtime', 'cnst4clksrclockout', 'cnst4clksrcsignalfailure', 'cnst4clksrcalarm', 'cnst4clksrcalarminfo', 'cnst4clksrcfsw', 'cnst4clksrcmsw'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCONETSYNCMIB()
         return self._top_entity
+
+
 

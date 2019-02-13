@@ -28,6 +28,8 @@ class CISCOVLANIFTABLERELATIONSHIPMIB(Entity):
     	The cviVlanInterfaceIndexTable provides a way to translate a VLAN\-id in to an ifIndex, so that  the routed VLAN interface's routing configuration  can be obtained from interface entry in ipRouteTable.  Note that some routers can have interfaces to multiple VLAN management domains, and therefore can have multiple  routed VLAN interfaces which connect to different VLANs  having the same VLAN\-id.  Thus, it is possible to have  multiple rows in this table for the same VLAN\-id.  The cviVlanInterfaceIndexTable also provides a way to find the VLAN\-id from an ifTable VLAN's ifIndex
     	**type**\:  :py:class:`CviVlanInterfaceIndexTable <ydk.models.cisco_ios_xe.CISCO_VLAN_IFTABLE_RELATIONSHIP_MIB.CISCOVLANIFTABLERELATIONSHIPMIB.CviVlanInterfaceIndexTable>`
     
+    	**config**\: False
+    
     
 
     """
@@ -78,6 +80,8 @@ class CISCOVLANIFTABLERELATIONSHIPMIB(Entity):
         	Each entry represents a routed VLAN interface, its corresponding physical port if any, and the ifTable entry for the routed VLAN interface.  Entries are created by the agent when the routed VLAN interface is created.  Operational status of routing does not affect the entries listed here.  For routing configuration please refer to ipRouteTable.  Entries are deleted by the agent when the routed VLAN interface is removed from the system configuration
         	**type**\: list of  		 :py:class:`CviVlanInterfaceIndexEntry <ydk.models.cisco_ios_xe.CISCO_VLAN_IFTABLE_RELATIONSHIP_MIB.CISCOVLANIFTABLERELATIONSHIPMIB.CviVlanInterfaceIndexTable.CviVlanInterfaceIndexEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -126,6 +130,8 @@ class CISCOVLANIFTABLERELATIONSHIPMIB(Entity):
             
             	**range:** 0..4095
             
+            	**config**\: False
+            
             .. attribute:: cviphysicalifindex  (key)
             
             	For subinterfaces, this object is the ifIndex of the physical interface for the subinterface.  For Switch Virtual Interfaces (SVIs), this object is zero
@@ -133,12 +139,16 @@ class CISCOVLANIFTABLERELATIONSHIPMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cviroutedvlanifindex
             
             	The index for the ifTable entry associated with this routed VLAN interface
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             
 
@@ -171,7 +181,11 @@ class CISCOVLANIFTABLERELATIONSHIPMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOVLANIFTABLERELATIONSHIPMIB.CviVlanInterfaceIndexTable.CviVlanInterfaceIndexEntry, ['cvivlanid', 'cviphysicalifindex', 'cviroutedvlanifindex'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOVLANIFTABLERELATIONSHIPMIB()
         return self._top_entity
+
+
 

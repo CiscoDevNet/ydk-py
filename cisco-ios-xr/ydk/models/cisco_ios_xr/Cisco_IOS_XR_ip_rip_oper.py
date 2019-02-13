@@ -108,15 +108,21 @@ class Rip(Entity):
     	VRF related operational data
     	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Vrfs>`
     
+    	**config**\: False
+    
     .. attribute:: protocol
     
     	Protocol operational data
     	**type**\:  :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol>`
     
+    	**config**\: False
+    
     .. attribute:: default_vrf
     
     	RIP operational data for Default VRF
     	**type**\:  :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.DefaultVrf>`
+    
+    	**config**\: False
     
     
 
@@ -164,6 +170,8 @@ class Rip(Entity):
         	Operational data for a particular VRF
         	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Vrfs.Vrf>`
         
+        	**config**\: False
+        
         
 
         """
@@ -202,30 +210,42 @@ class Rip(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: routes
             
             	RIP route database
             	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Vrfs.Vrf.Routes>`
+            
+            	**config**\: False
             
             .. attribute:: configuration
             
             	RIP global configuration
             	**type**\:  :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Vrfs.Vrf.Configuration>`
             
+            	**config**\: False
+            
             .. attribute:: statistics
             
             	RIP statistics information
             	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Vrfs.Vrf.Statistics>`
+            
+            	**config**\: False
             
             .. attribute:: interfaces
             
             	RIP interfaces
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Vrfs.Vrf.Interfaces>`
             
+            	**config**\: False
+            
             .. attribute:: global_
             
             	Global Information 
             	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Vrfs.Vrf.Global>`
+            
+            	**config**\: False
             
             
 
@@ -284,6 +304,8 @@ class Rip(Entity):
                 	A route in the RIP database
                 	**type**\: list of  		 :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Vrfs.Vrf.Routes.Route>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -321,12 +343,16 @@ class Rip(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix_length
                     
                     	Prefix length
                     	**type**\: int
                     
                     	**range:** 0..32
+                    
+                    	**config**\: False
                     
                     .. attribute:: destination_address
                     
@@ -335,12 +361,16 @@ class Rip(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix_length_xr
                     
                     	Prefix length of IP address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: distance
                     
@@ -349,12 +379,16 @@ class Rip(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: bgp_count
                     
                     	Hop count for this route
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: route_type
                     
@@ -363,10 +397,14 @@ class Rip(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: route_summary
                     
                     	Summary route placeholder indicator
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: route_tag
                     
@@ -375,12 +413,16 @@ class Rip(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: version
                     
                     	RIB supplied version number
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: attributes
                     
@@ -389,25 +431,35 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: active
                     
                     	Active route indicator
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: path_origin
                     
                     	Where this route was learnt
                     	**type**\:  :py:class:`RipRouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.RipRouteOrigin>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hold_down
                     
                     	Indicates whether route is in holddown
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: paths
                     
                     	The paths for this route
                     	**type**\: list of  		 :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Vrfs.Vrf.Routes.Route.Paths>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -475,12 +527,16 @@ class Rip(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: next_hop_address
                         
                         	Next hop address
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: metric
                         
@@ -489,12 +545,16 @@ class Rip(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: tag
                         
                         	Tag
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: interface
                         
@@ -503,6 +563,8 @@ class Rip(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: uptime
                         
                         	Up time
@@ -510,10 +572,14 @@ class Rip(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_permanent
                         
                         	Permanent indicator
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -554,6 +620,9 @@ class Rip(Entity):
                             self._perform_setattr(Rip.Vrfs.Vrf.Routes.Route.Paths, ['source_address', 'next_hop_address', 'metric', 'tag', 'interface', 'uptime', 'is_permanent'], name, value)
 
 
+
+
+
             class Configuration(Entity):
                 """
                 RIP global configuration
@@ -563,10 +632,14 @@ class Rip(Entity):
                 	VRF active indicator
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: vr_fised_socket
                 
                 	VRF added to socket indicator
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: rip_version
                 
@@ -575,12 +648,16 @@ class Rip(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: default_metric
                 
                 	Default metric for RIP routes
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: maximum_paths
                 
@@ -589,15 +666,21 @@ class Rip(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: auto_summarize
                 
                 	Auto\-summarization indicator
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: multicast_address
                 
                 	Use broadcast/multicast address indicator
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: flash_threshold
                 
@@ -606,6 +689,8 @@ class Rip(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: input_q_length
                 
                 	Length of the input queue
@@ -613,15 +698,21 @@ class Rip(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: triggered_rip
                 
                 	Triggered RIP enabled indicator
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: validation_indicator
                 
                 	Incoming packet source validation indicator
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: update_timer
                 
@@ -630,12 +721,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: next_update_time
                 
                 	Time left for next update
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: invalid_timer
                 
@@ -644,12 +739,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: hold_down_timer
                 
                 	Holddown timer
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: flush_timer
                 
@@ -658,6 +757,8 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: oom_flags
                 
                 	Out\-of\-memory status flags
@@ -665,10 +766,14 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: nsf_status
                 
                 	NSF Enable status
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: nsf_life_time
                 
@@ -676,6 +781,8 @@ class Rip(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -740,6 +847,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.Vrfs.Vrf.Configuration, ['active', 'vr_fised_socket', 'rip_version', 'default_metric', 'maximum_paths', 'auto_summarize', 'multicast_address', 'flash_threshold', 'input_q_length', 'triggered_rip', 'validation_indicator', 'update_timer', 'next_update_time', 'invalid_timer', 'hold_down_timer', 'flush_timer', 'oom_flags', 'nsf_status', 'nsf_life_time'], name, value)
 
 
+
             class Statistics(Entity):
                 """
                 RIP statistics information
@@ -751,12 +859,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: discarded_packets
                 
                 	Total discarded packets
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: discarded_routes
                 
@@ -765,12 +877,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: standby_packets_received
                 
                 	Packets rx in SRP
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: sent_messages
                 
@@ -779,12 +895,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: sent_message_failures
                 
                 	Number of message send failures
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: query_responses
                 
@@ -793,12 +913,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: periodic_updates
                 
                 	Number of periodic RIP updates
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: route_count
                 
@@ -807,12 +931,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: path_count
                 
                 	Number of paths allocated
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: route_malloc_failures
                 
@@ -821,6 +949,8 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: path_malloc_failures
                 
                 	Number of failures to allocate memory for a path
@@ -828,12 +958,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: rib_updates
                 
                 	Number of route updates to RIB made by RIP
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -886,6 +1020,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.Vrfs.Vrf.Statistics, ['received_packets', 'discarded_packets', 'discarded_routes', 'standby_packets_received', 'sent_messages', 'sent_message_failures', 'query_responses', 'periodic_updates', 'route_count', 'path_count', 'route_malloc_failures', 'path_malloc_failures', 'rib_updates'], name, value)
 
 
+
             class Interfaces(Entity):
                 """
                 RIP interfaces
@@ -894,6 +1029,8 @@ class Rip(Entity):
                 
                 	Information about a particular RIP interface
                 	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Vrfs.Vrf.Interfaces.Interface>`
+                
+                	**config**\: False
                 
                 
 
@@ -932,10 +1069,14 @@ class Rip(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface
                     
                     	Interface name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: if_handle
                     
@@ -944,25 +1085,35 @@ class Rip(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: rip_enabled
                     
                     	Whether RIP is enabled on this interface
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: is_passive_interface
                     
                     	Passive interface indicator
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: multicast_address
                     
                     	Use broadcast address for v2 packets
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: accept_metric
                     
                     	Accept routes of metric 0 indicator
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: send_version
                     
@@ -971,6 +1122,8 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: receive_version
                     
                     	Versions that the interface will recieve
@@ -978,10 +1131,14 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Current state of the interface
                     	**type**\:  :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.InterfaceState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: destination_address
                     
@@ -990,12 +1147,16 @@ class Rip(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix_length
                     
                     	Prefix length of the IP address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: metric_cost
                     
@@ -1004,20 +1165,28 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: split_horizon
                     
                     	Split horizon enabled indicator
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: poison_horizon
                     
                     	Poisoned reverse enabled indicator
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: triggered_rip
                     
                     	Triggered RIP enabled indicator
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: neighbor_address
                     
@@ -1026,6 +1195,8 @@ class Rip(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: oom_flags
                     
                     	Out\-of\-memory status flags
@@ -1033,15 +1204,21 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: join_status
                     
                     	Multicast group join status
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: lpts_state
                     
                     	LPTSState
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: auth_mode
                     
@@ -1050,20 +1227,28 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: auth_keychain
                     
                     	Authentication Keychain Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: send_auth_key_exists
                     
                     	Authentication send key exists
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: auth_key_md5
                     
                     	Authentication key programmed with MD5 algorithm
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: auth_key_send_id
                     
@@ -1072,12 +1257,16 @@ class Rip(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_pkt_recvd
                     
                     	Total packets received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: pkt_drop_wrong_kc
                     
@@ -1086,12 +1275,16 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: pkt_drop_no_auth
                     
                     	Packets dropped due to missing authentication data
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: pkt_drop_invalid_auth
                     
@@ -1100,6 +1293,8 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: pkt_accepted_valid_auth
                     
                     	Packets accepted with valid authentication data
@@ -1107,15 +1302,21 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rip_summary
                     
                     	User defined summary addresses
                     	**type**\: list of  		 :py:class:`RipSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Vrfs.Vrf.Interfaces.Interface.RipSummary>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: rip_peer
                     
                     	Neighbors on this interface
                     	**type**\: list of  		 :py:class:`RipPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Vrfs.Vrf.Interfaces.Interface.RipPeer>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1216,12 +1417,16 @@ class Rip(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix_length
                         
                         	Summary address prefix length
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: next_hop_address
                         
@@ -1230,12 +1435,16 @@ class Rip(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: metric
                         
                         	Summary metric
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         
 
@@ -1270,6 +1479,7 @@ class Rip(Entity):
                             self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface.RipSummary, ['prefix', 'prefix_length', 'next_hop_address', 'metric'], name, value)
 
 
+
                     class RipPeer(Entity):
                         """
                         Neighbors on this interface
@@ -1281,12 +1491,16 @@ class Rip(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: peer_address
                         
                         	IP Address of this peer
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: peer_version
                         
@@ -1295,6 +1509,8 @@ class Rip(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: discarded_peer_packets
                         
                         	Discarded packets from this peer
@@ -1302,12 +1518,16 @@ class Rip(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: discarded_peer_routes
                         
                         	Discarded routes from this peer
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1344,6 +1564,9 @@ class Rip(Entity):
                             self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface.RipPeer, ['peer_uptime', 'peer_address', 'peer_version', 'discarded_peer_packets', 'discarded_peer_routes'], name, value)
 
 
+
+
+
             class Global(Entity):
                 """
                 Global Information 
@@ -1353,10 +1576,14 @@ class Rip(Entity):
                 	VRF summary data
                 	**type**\:  :py:class:`VrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Vrfs.Vrf.Global.VrfSummary>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_summary
                 
                 	List of Interfaces configured
                 	**type**\: list of  		 :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Vrfs.Vrf.Global.InterfaceSummary>`
+                
+                	**config**\: False
                 
                 
 
@@ -1397,10 +1624,14 @@ class Rip(Entity):
                     	VRF Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: active
                     
                     	VRF Active indicator
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: oom_flags
                     
@@ -1409,12 +1640,16 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: route_count
                     
                     	Number of routes allocated
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: path_count
                     
@@ -1423,12 +1658,16 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: update_timer
                     
                     	Update timer
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: next_update_time
                     
@@ -1437,12 +1676,16 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: invalid_timer
                     
                     	Invalid timer
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: hold_down_timer
                     
@@ -1451,12 +1694,16 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: flush_timer
                     
                     	Flush timer
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_configured_count
                     
@@ -1465,12 +1712,16 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: active_interface_count
                     
                     	Number of active interfaces
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1521,6 +1772,7 @@ class Rip(Entity):
                         self._perform_setattr(Rip.Vrfs.Vrf.Global.VrfSummary, ['vrf_name', 'active', 'oom_flags', 'route_count', 'path_count', 'update_timer', 'next_update_time', 'invalid_timer', 'hold_down_timer', 'flush_timer', 'interface_configured_count', 'active_interface_count'], name, value)
 
 
+
                 class InterfaceSummary(Entity):
                     """
                     List of Interfaces configured
@@ -1530,15 +1782,21 @@ class Rip(Entity):
                     	Interface name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: enabled
                     
                     	RIP enabled indicator
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Interface state
                     	**type**\:  :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.InterfaceState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: destination_address
                     
@@ -1547,12 +1805,16 @@ class Rip(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix_length
                     
                     	Prefix length of IP address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: oom_flags
                     
@@ -1561,12 +1823,16 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: send_version
                     
                     	RIP versions this interface sends out
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: receive_version
                     
@@ -1575,12 +1841,16 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: neighbor_count
                     
                     	Number of neighbors seen
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1625,6 +1895,10 @@ class Rip(Entity):
                         self._perform_setattr(Rip.Vrfs.Vrf.Global.InterfaceSummary, ['interface_name', 'enabled', 'state', 'destination_address', 'prefix_length', 'oom_flags', 'send_version', 'receive_version', 'neighbor_count'], name, value)
 
 
+
+
+
+
     class Protocol(Entity):
         """
         Protocol operational data
@@ -1634,10 +1908,14 @@ class Rip(Entity):
         	RIP global process 
         	**type**\:  :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.Process>`
         
+        	**config**\: False
+        
         .. attribute:: default_vrf
         
         	RIP operational data for Default VRF
         	**type**\:  :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.DefaultVrf>`
+        
+        	**config**\: False
         
         
 
@@ -1683,12 +1961,16 @@ class Rip(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: vrf_active_count
             
             	Number of active VRFs
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: socket_descriptor
             
@@ -1697,12 +1979,16 @@ class Rip(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: current_oom_state
             
             	Current OOM state
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: route_count
             
@@ -1711,6 +1997,8 @@ class Rip(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: path_count
             
             	Number of paths allocated
@@ -1718,10 +2006,14 @@ class Rip(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: vrf_summary
             
             	List of VRFs configured
             	**type**\: list of  		 :py:class:`VrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.Process.VrfSummary>`
+            
+            	**config**\: False
             
             
 
@@ -1772,10 +2064,14 @@ class Rip(Entity):
                 	VRF Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: active
                 
                 	VRF Active indicator
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: oom_flags
                 
@@ -1784,12 +2080,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: route_count
                 
                 	Number of routes allocated
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: path_count
                 
@@ -1798,12 +2098,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: update_timer
                 
                 	Update timer
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: next_update_time
                 
@@ -1812,12 +2116,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: invalid_timer
                 
                 	Invalid timer
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: hold_down_timer
                 
@@ -1826,12 +2134,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: flush_timer
                 
                 	Flush timer
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: interface_configured_count
                 
@@ -1840,12 +2152,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: active_interface_count
                 
                 	Number of active interfaces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1897,6 +2213,8 @@ class Rip(Entity):
                     self._perform_setattr(Rip.Protocol.Process.VrfSummary, ['vrf_name', 'active', 'oom_flags', 'route_count', 'path_count', 'update_timer', 'next_update_time', 'invalid_timer', 'hold_down_timer', 'flush_timer', 'interface_configured_count', 'active_interface_count'], name, value)
 
 
+
+
         class DefaultVrf(Entity):
             """
             RIP operational data for Default VRF
@@ -1906,25 +2224,35 @@ class Rip(Entity):
             	RIP route database
             	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.DefaultVrf.Routes>`
             
+            	**config**\: False
+            
             .. attribute:: configuration
             
             	RIP global configuration
             	**type**\:  :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.DefaultVrf.Configuration>`
+            
+            	**config**\: False
             
             .. attribute:: statistics
             
             	RIP statistics information
             	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.DefaultVrf.Statistics>`
             
+            	**config**\: False
+            
             .. attribute:: interfaces
             
             	RIP interfaces
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.DefaultVrf.Interfaces>`
             
+            	**config**\: False
+            
             .. attribute:: global_
             
             	Global Information 
             	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.DefaultVrf.Global>`
+            
+            	**config**\: False
             
             
 
@@ -1980,6 +2308,8 @@ class Rip(Entity):
                 	A route in the RIP database
                 	**type**\: list of  		 :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.DefaultVrf.Routes.Route>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -2018,12 +2348,16 @@ class Rip(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix_length
                     
                     	Prefix length
                     	**type**\: int
                     
                     	**range:** 0..32
+                    
+                    	**config**\: False
                     
                     .. attribute:: destination_address
                     
@@ -2032,12 +2366,16 @@ class Rip(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix_length_xr
                     
                     	Prefix length of IP address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: distance
                     
@@ -2046,12 +2384,16 @@ class Rip(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: bgp_count
                     
                     	Hop count for this route
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: route_type
                     
@@ -2060,10 +2402,14 @@ class Rip(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: route_summary
                     
                     	Summary route placeholder indicator
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: route_tag
                     
@@ -2072,12 +2418,16 @@ class Rip(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: version
                     
                     	RIB supplied version number
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: attributes
                     
@@ -2086,25 +2436,35 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: active
                     
                     	Active route indicator
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: path_origin
                     
                     	Where this route was learnt
                     	**type**\:  :py:class:`RipRouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.RipRouteOrigin>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hold_down
                     
                     	Indicates whether route is in holddown
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: paths
                     
                     	The paths for this route
                     	**type**\: list of  		 :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.DefaultVrf.Routes.Route.Paths>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2173,12 +2533,16 @@ class Rip(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: next_hop_address
                         
                         	Next hop address
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: metric
                         
@@ -2187,12 +2551,16 @@ class Rip(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: tag
                         
                         	Tag
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: interface
                         
@@ -2201,6 +2569,8 @@ class Rip(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: uptime
                         
                         	Up time
@@ -2208,10 +2578,14 @@ class Rip(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_permanent
                         
                         	Permanent indicator
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -2253,6 +2627,9 @@ class Rip(Entity):
                             self._perform_setattr(Rip.Protocol.DefaultVrf.Routes.Route.Paths, ['source_address', 'next_hop_address', 'metric', 'tag', 'interface', 'uptime', 'is_permanent'], name, value)
 
 
+
+
+
             class Configuration(Entity):
                 """
                 RIP global configuration
@@ -2262,10 +2639,14 @@ class Rip(Entity):
                 	VRF active indicator
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: vr_fised_socket
                 
                 	VRF added to socket indicator
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: rip_version
                 
@@ -2274,12 +2655,16 @@ class Rip(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: default_metric
                 
                 	Default metric for RIP routes
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: maximum_paths
                 
@@ -2288,15 +2673,21 @@ class Rip(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: auto_summarize
                 
                 	Auto\-summarization indicator
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: multicast_address
                 
                 	Use broadcast/multicast address indicator
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: flash_threshold
                 
@@ -2305,6 +2696,8 @@ class Rip(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: input_q_length
                 
                 	Length of the input queue
@@ -2312,15 +2705,21 @@ class Rip(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: triggered_rip
                 
                 	Triggered RIP enabled indicator
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: validation_indicator
                 
                 	Incoming packet source validation indicator
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: update_timer
                 
@@ -2329,12 +2728,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: next_update_time
                 
                 	Time left for next update
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: invalid_timer
                 
@@ -2343,12 +2746,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: hold_down_timer
                 
                 	Holddown timer
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: flush_timer
                 
@@ -2357,6 +2764,8 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: oom_flags
                 
                 	Out\-of\-memory status flags
@@ -2364,10 +2773,14 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: nsf_status
                 
                 	NSF Enable status
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: nsf_life_time
                 
@@ -2375,6 +2788,8 @@ class Rip(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -2440,6 +2855,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.Protocol.DefaultVrf.Configuration, ['active', 'vr_fised_socket', 'rip_version', 'default_metric', 'maximum_paths', 'auto_summarize', 'multicast_address', 'flash_threshold', 'input_q_length', 'triggered_rip', 'validation_indicator', 'update_timer', 'next_update_time', 'invalid_timer', 'hold_down_timer', 'flush_timer', 'oom_flags', 'nsf_status', 'nsf_life_time'], name, value)
 
 
+
             class Statistics(Entity):
                 """
                 RIP statistics information
@@ -2451,12 +2867,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: discarded_packets
                 
                 	Total discarded packets
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: discarded_routes
                 
@@ -2465,12 +2885,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: standby_packets_received
                 
                 	Packets rx in SRP
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: sent_messages
                 
@@ -2479,12 +2903,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: sent_message_failures
                 
                 	Number of message send failures
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: query_responses
                 
@@ -2493,12 +2921,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: periodic_updates
                 
                 	Number of periodic RIP updates
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: route_count
                 
@@ -2507,12 +2939,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: path_count
                 
                 	Number of paths allocated
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: route_malloc_failures
                 
@@ -2521,6 +2957,8 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: path_malloc_failures
                 
                 	Number of failures to allocate memory for a path
@@ -2528,12 +2966,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: rib_updates
                 
                 	Number of route updates to RIB made by RIP
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -2587,6 +3029,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.Protocol.DefaultVrf.Statistics, ['received_packets', 'discarded_packets', 'discarded_routes', 'standby_packets_received', 'sent_messages', 'sent_message_failures', 'query_responses', 'periodic_updates', 'route_count', 'path_count', 'route_malloc_failures', 'path_malloc_failures', 'rib_updates'], name, value)
 
 
+
             class Interfaces(Entity):
                 """
                 RIP interfaces
@@ -2595,6 +3038,8 @@ class Rip(Entity):
                 
                 	Information about a particular RIP interface
                 	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.DefaultVrf.Interfaces.Interface>`
+                
+                	**config**\: False
                 
                 
 
@@ -2634,10 +3079,14 @@ class Rip(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface
                     
                     	Interface name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: if_handle
                     
@@ -2646,25 +3095,35 @@ class Rip(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: rip_enabled
                     
                     	Whether RIP is enabled on this interface
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: is_passive_interface
                     
                     	Passive interface indicator
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: multicast_address
                     
                     	Use broadcast address for v2 packets
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: accept_metric
                     
                     	Accept routes of metric 0 indicator
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: send_version
                     
@@ -2673,6 +3132,8 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: receive_version
                     
                     	Versions that the interface will recieve
@@ -2680,10 +3141,14 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Current state of the interface
                     	**type**\:  :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.InterfaceState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: destination_address
                     
@@ -2692,12 +3157,16 @@ class Rip(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix_length
                     
                     	Prefix length of the IP address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: metric_cost
                     
@@ -2706,20 +3175,28 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: split_horizon
                     
                     	Split horizon enabled indicator
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: poison_horizon
                     
                     	Poisoned reverse enabled indicator
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: triggered_rip
                     
                     	Triggered RIP enabled indicator
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: neighbor_address
                     
@@ -2728,6 +3205,8 @@ class Rip(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: oom_flags
                     
                     	Out\-of\-memory status flags
@@ -2735,15 +3214,21 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: join_status
                     
                     	Multicast group join status
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: lpts_state
                     
                     	LPTSState
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: auth_mode
                     
@@ -2752,20 +3237,28 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: auth_keychain
                     
                     	Authentication Keychain Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: send_auth_key_exists
                     
                     	Authentication send key exists
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: auth_key_md5
                     
                     	Authentication key programmed with MD5 algorithm
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: auth_key_send_id
                     
@@ -2774,12 +3267,16 @@ class Rip(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_pkt_recvd
                     
                     	Total packets received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: pkt_drop_wrong_kc
                     
@@ -2788,12 +3285,16 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: pkt_drop_no_auth
                     
                     	Packets dropped due to missing authentication data
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: pkt_drop_invalid_auth
                     
@@ -2802,6 +3303,8 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: pkt_accepted_valid_auth
                     
                     	Packets accepted with valid authentication data
@@ -2809,15 +3312,21 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rip_summary
                     
                     	User defined summary addresses
                     	**type**\: list of  		 :py:class:`RipSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.DefaultVrf.Interfaces.Interface.RipSummary>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: rip_peer
                     
                     	Neighbors on this interface
                     	**type**\: list of  		 :py:class:`RipPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.DefaultVrf.Interfaces.Interface.RipPeer>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2919,12 +3428,16 @@ class Rip(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix_length
                         
                         	Summary address prefix length
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: next_hop_address
                         
@@ -2933,12 +3446,16 @@ class Rip(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: metric
                         
                         	Summary metric
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         
 
@@ -2973,6 +3490,7 @@ class Rip(Entity):
                             self._perform_setattr(Rip.Protocol.DefaultVrf.Interfaces.Interface.RipSummary, ['prefix', 'prefix_length', 'next_hop_address', 'metric'], name, value)
 
 
+
                     class RipPeer(Entity):
                         """
                         Neighbors on this interface
@@ -2984,12 +3502,16 @@ class Rip(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: peer_address
                         
                         	IP Address of this peer
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: peer_version
                         
@@ -2998,6 +3520,8 @@ class Rip(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: discarded_peer_packets
                         
                         	Discarded packets from this peer
@@ -3005,12 +3529,16 @@ class Rip(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: discarded_peer_routes
                         
                         	Discarded routes from this peer
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3047,6 +3575,9 @@ class Rip(Entity):
                             self._perform_setattr(Rip.Protocol.DefaultVrf.Interfaces.Interface.RipPeer, ['peer_uptime', 'peer_address', 'peer_version', 'discarded_peer_packets', 'discarded_peer_routes'], name, value)
 
 
+
+
+
             class Global(Entity):
                 """
                 Global Information 
@@ -3056,10 +3587,14 @@ class Rip(Entity):
                 	VRF summary data
                 	**type**\:  :py:class:`VrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.DefaultVrf.Global.VrfSummary>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_summary
                 
                 	List of Interfaces configured
                 	**type**\: list of  		 :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.Protocol.DefaultVrf.Global.InterfaceSummary>`
+                
+                	**config**\: False
                 
                 
 
@@ -3101,10 +3636,14 @@ class Rip(Entity):
                     	VRF Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: active
                     
                     	VRF Active indicator
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: oom_flags
                     
@@ -3113,12 +3652,16 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: route_count
                     
                     	Number of routes allocated
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: path_count
                     
@@ -3127,12 +3670,16 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: update_timer
                     
                     	Update timer
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: next_update_time
                     
@@ -3141,12 +3688,16 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: invalid_timer
                     
                     	Invalid timer
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: hold_down_timer
                     
@@ -3155,12 +3706,16 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: flush_timer
                     
                     	Flush timer
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_configured_count
                     
@@ -3169,12 +3724,16 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: active_interface_count
                     
                     	Number of active interfaces
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -3226,6 +3785,7 @@ class Rip(Entity):
                         self._perform_setattr(Rip.Protocol.DefaultVrf.Global.VrfSummary, ['vrf_name', 'active', 'oom_flags', 'route_count', 'path_count', 'update_timer', 'next_update_time', 'invalid_timer', 'hold_down_timer', 'flush_timer', 'interface_configured_count', 'active_interface_count'], name, value)
 
 
+
                 class InterfaceSummary(Entity):
                     """
                     List of Interfaces configured
@@ -3235,15 +3795,21 @@ class Rip(Entity):
                     	Interface name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: enabled
                     
                     	RIP enabled indicator
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Interface state
                     	**type**\:  :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.InterfaceState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: destination_address
                     
@@ -3252,12 +3818,16 @@ class Rip(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix_length
                     
                     	Prefix length of IP address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: oom_flags
                     
@@ -3266,12 +3836,16 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: send_version
                     
                     	RIP versions this interface sends out
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: receive_version
                     
@@ -3280,12 +3854,16 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: neighbor_count
                     
                     	Number of neighbors seen
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -3331,6 +3909,10 @@ class Rip(Entity):
                         self._perform_setattr(Rip.Protocol.DefaultVrf.Global.InterfaceSummary, ['interface_name', 'enabled', 'state', 'destination_address', 'prefix_length', 'oom_flags', 'send_version', 'receive_version', 'neighbor_count'], name, value)
 
 
+
+
+
+
     class DefaultVrf(Entity):
         """
         RIP operational data for Default VRF
@@ -3340,25 +3922,35 @@ class Rip(Entity):
         	RIP route database
         	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.DefaultVrf.Routes>`
         
+        	**config**\: False
+        
         .. attribute:: configuration
         
         	RIP global configuration
         	**type**\:  :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.DefaultVrf.Configuration>`
+        
+        	**config**\: False
         
         .. attribute:: statistics
         
         	RIP statistics information
         	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.DefaultVrf.Statistics>`
         
+        	**config**\: False
+        
         .. attribute:: interfaces
         
         	RIP interfaces
         	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.DefaultVrf.Interfaces>`
         
+        	**config**\: False
+        
         .. attribute:: global_
         
         	Global Information 
         	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.DefaultVrf.Global>`
+        
+        	**config**\: False
         
         
 
@@ -3414,6 +4006,8 @@ class Rip(Entity):
             	A route in the RIP database
             	**type**\: list of  		 :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.DefaultVrf.Routes.Route>`
             
+            	**config**\: False
+            
             
 
             """
@@ -3452,12 +4046,16 @@ class Rip(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: prefix_length
                 
                 	Prefix length
                 	**type**\: int
                 
                 	**range:** 0..32
+                
+                	**config**\: False
                 
                 .. attribute:: destination_address
                 
@@ -3466,12 +4064,16 @@ class Rip(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: prefix_length_xr
                 
                 	Prefix length of IP address
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: distance
                 
@@ -3480,12 +4082,16 @@ class Rip(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: bgp_count
                 
                 	Hop count for this route
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 .. attribute:: route_type
                 
@@ -3494,10 +4100,14 @@ class Rip(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: route_summary
                 
                 	Summary route placeholder indicator
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: route_tag
                 
@@ -3506,12 +4116,16 @@ class Rip(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: version
                 
                 	RIB supplied version number
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: attributes
                 
@@ -3520,25 +4134,35 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: active
                 
                 	Active route indicator
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: path_origin
                 
                 	Where this route was learnt
                 	**type**\:  :py:class:`RipRouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.RipRouteOrigin>`
                 
+                	**config**\: False
+                
                 .. attribute:: hold_down
                 
                 	Indicates whether route is in holddown
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: paths
                 
                 	The paths for this route
                 	**type**\: list of  		 :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.DefaultVrf.Routes.Route.Paths>`
+                
+                	**config**\: False
                 
                 
 
@@ -3607,12 +4231,16 @@ class Rip(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_hop_address
                     
                     	Next hop address
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: metric
                     
@@ -3621,12 +4249,16 @@ class Rip(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: tag
                     
                     	Tag
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface
                     
@@ -3635,6 +4267,8 @@ class Rip(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: uptime
                     
                     	Up time
@@ -3642,10 +4276,14 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_permanent
                     
                     	Permanent indicator
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -3687,6 +4325,9 @@ class Rip(Entity):
                         self._perform_setattr(Rip.DefaultVrf.Routes.Route.Paths, ['source_address', 'next_hop_address', 'metric', 'tag', 'interface', 'uptime', 'is_permanent'], name, value)
 
 
+
+
+
         class Configuration(Entity):
             """
             RIP global configuration
@@ -3696,10 +4337,14 @@ class Rip(Entity):
             	VRF active indicator
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: vr_fised_socket
             
             	VRF added to socket indicator
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: rip_version
             
@@ -3708,12 +4353,16 @@ class Rip(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: default_metric
             
             	Default metric for RIP routes
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: maximum_paths
             
@@ -3722,15 +4371,21 @@ class Rip(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: auto_summarize
             
             	Auto\-summarization indicator
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: multicast_address
             
             	Use broadcast/multicast address indicator
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: flash_threshold
             
@@ -3739,6 +4394,8 @@ class Rip(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: input_q_length
             
             	Length of the input queue
@@ -3746,15 +4403,21 @@ class Rip(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: triggered_rip
             
             	Triggered RIP enabled indicator
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: validation_indicator
             
             	Incoming packet source validation indicator
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: update_timer
             
@@ -3763,12 +4426,16 @@ class Rip(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: next_update_time
             
             	Time left for next update
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: invalid_timer
             
@@ -3777,12 +4444,16 @@ class Rip(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: hold_down_timer
             
             	Holddown timer
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: flush_timer
             
@@ -3791,6 +4462,8 @@ class Rip(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: oom_flags
             
             	Out\-of\-memory status flags
@@ -3798,10 +4471,14 @@ class Rip(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: nsf_status
             
             	NSF Enable status
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: nsf_life_time
             
@@ -3809,6 +4486,8 @@ class Rip(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -3874,6 +4553,7 @@ class Rip(Entity):
                 self._perform_setattr(Rip.DefaultVrf.Configuration, ['active', 'vr_fised_socket', 'rip_version', 'default_metric', 'maximum_paths', 'auto_summarize', 'multicast_address', 'flash_threshold', 'input_q_length', 'triggered_rip', 'validation_indicator', 'update_timer', 'next_update_time', 'invalid_timer', 'hold_down_timer', 'flush_timer', 'oom_flags', 'nsf_status', 'nsf_life_time'], name, value)
 
 
+
         class Statistics(Entity):
             """
             RIP statistics information
@@ -3885,12 +4565,16 @@ class Rip(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: discarded_packets
             
             	Total discarded packets
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: discarded_routes
             
@@ -3899,12 +4583,16 @@ class Rip(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: standby_packets_received
             
             	Packets rx in SRP
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sent_messages
             
@@ -3913,12 +4601,16 @@ class Rip(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sent_message_failures
             
             	Number of message send failures
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: query_responses
             
@@ -3927,12 +4619,16 @@ class Rip(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: periodic_updates
             
             	Number of periodic RIP updates
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: route_count
             
@@ -3941,12 +4637,16 @@ class Rip(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: path_count
             
             	Number of paths allocated
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: route_malloc_failures
             
@@ -3955,6 +4655,8 @@ class Rip(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: path_malloc_failures
             
             	Number of failures to allocate memory for a path
@@ -3962,12 +4664,16 @@ class Rip(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rib_updates
             
             	Number of route updates to RIB made by RIP
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -4021,6 +4727,7 @@ class Rip(Entity):
                 self._perform_setattr(Rip.DefaultVrf.Statistics, ['received_packets', 'discarded_packets', 'discarded_routes', 'standby_packets_received', 'sent_messages', 'sent_message_failures', 'query_responses', 'periodic_updates', 'route_count', 'path_count', 'route_malloc_failures', 'path_malloc_failures', 'rib_updates'], name, value)
 
 
+
         class Interfaces(Entity):
             """
             RIP interfaces
@@ -4029,6 +4736,8 @@ class Rip(Entity):
             
             	Information about a particular RIP interface
             	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.DefaultVrf.Interfaces.Interface>`
+            
+            	**config**\: False
             
             
 
@@ -4068,10 +4777,14 @@ class Rip(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: interface
                 
                 	Interface name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: if_handle
                 
@@ -4080,25 +4793,35 @@ class Rip(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: rip_enabled
                 
                 	Whether RIP is enabled on this interface
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: is_passive_interface
                 
                 	Passive interface indicator
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: multicast_address
                 
                 	Use broadcast address for v2 packets
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: accept_metric
                 
                 	Accept routes of metric 0 indicator
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: send_version
                 
@@ -4107,6 +4830,8 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: receive_version
                 
                 	Versions that the interface will recieve
@@ -4114,10 +4839,14 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	Current state of the interface
                 	**type**\:  :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.InterfaceState>`
+                
+                	**config**\: False
                 
                 .. attribute:: destination_address
                 
@@ -4126,12 +4855,16 @@ class Rip(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: prefix_length
                 
                 	Prefix length of the IP address
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: metric_cost
                 
@@ -4140,20 +4873,28 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: split_horizon
                 
                 	Split horizon enabled indicator
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: poison_horizon
                 
                 	Poisoned reverse enabled indicator
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: triggered_rip
                 
                 	Triggered RIP enabled indicator
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: neighbor_address
                 
@@ -4162,6 +4903,8 @@ class Rip(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: oom_flags
                 
                 	Out\-of\-memory status flags
@@ -4169,15 +4912,21 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: join_status
                 
                 	Multicast group join status
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: lpts_state
                 
                 	LPTSState
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: auth_mode
                 
@@ -4186,20 +4935,28 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: auth_keychain
                 
                 	Authentication Keychain Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: send_auth_key_exists
                 
                 	Authentication send key exists
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: auth_key_md5
                 
                 	Authentication key programmed with MD5 algorithm
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: auth_key_send_id
                 
@@ -4208,12 +4965,16 @@ class Rip(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: total_pkt_recvd
                 
                 	Total packets received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: pkt_drop_wrong_kc
                 
@@ -4222,12 +4983,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pkt_drop_no_auth
                 
                 	Packets dropped due to missing authentication data
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: pkt_drop_invalid_auth
                 
@@ -4236,6 +5001,8 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pkt_accepted_valid_auth
                 
                 	Packets accepted with valid authentication data
@@ -4243,15 +5010,21 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: rip_summary
                 
                 	User defined summary addresses
                 	**type**\: list of  		 :py:class:`RipSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.DefaultVrf.Interfaces.Interface.RipSummary>`
                 
+                	**config**\: False
+                
                 .. attribute:: rip_peer
                 
                 	Neighbors on this interface
                 	**type**\: list of  		 :py:class:`RipPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.DefaultVrf.Interfaces.Interface.RipPeer>`
+                
+                	**config**\: False
                 
                 
 
@@ -4353,12 +5126,16 @@ class Rip(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix_length
                     
                     	Summary address prefix length
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: next_hop_address
                     
@@ -4367,12 +5144,16 @@ class Rip(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: metric
                     
                     	Summary metric
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     
 
@@ -4407,6 +5188,7 @@ class Rip(Entity):
                         self._perform_setattr(Rip.DefaultVrf.Interfaces.Interface.RipSummary, ['prefix', 'prefix_length', 'next_hop_address', 'metric'], name, value)
 
 
+
                 class RipPeer(Entity):
                     """
                     Neighbors on this interface
@@ -4418,12 +5200,16 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_address
                     
                     	IP Address of this peer
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: peer_version
                     
@@ -4432,6 +5218,8 @@ class Rip(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: discarded_peer_packets
                     
                     	Discarded packets from this peer
@@ -4439,12 +5227,16 @@ class Rip(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: discarded_peer_routes
                     
                     	Discarded routes from this peer
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -4481,6 +5273,9 @@ class Rip(Entity):
                         self._perform_setattr(Rip.DefaultVrf.Interfaces.Interface.RipPeer, ['peer_uptime', 'peer_address', 'peer_version', 'discarded_peer_packets', 'discarded_peer_routes'], name, value)
 
 
+
+
+
         class Global(Entity):
             """
             Global Information 
@@ -4490,10 +5285,14 @@ class Rip(Entity):
             	VRF summary data
             	**type**\:  :py:class:`VrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.DefaultVrf.Global.VrfSummary>`
             
+            	**config**\: False
+            
             .. attribute:: interface_summary
             
             	List of Interfaces configured
             	**type**\: list of  		 :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.Rip.DefaultVrf.Global.InterfaceSummary>`
+            
+            	**config**\: False
             
             
 
@@ -4535,10 +5334,14 @@ class Rip(Entity):
                 	VRF Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: active
                 
                 	VRF Active indicator
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: oom_flags
                 
@@ -4547,12 +5350,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: route_count
                 
                 	Number of routes allocated
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: path_count
                 
@@ -4561,12 +5368,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: update_timer
                 
                 	Update timer
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: next_update_time
                 
@@ -4575,12 +5386,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: invalid_timer
                 
                 	Invalid timer
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: hold_down_timer
                 
@@ -4589,12 +5404,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: flush_timer
                 
                 	Flush timer
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: interface_configured_count
                 
@@ -4603,12 +5422,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: active_interface_count
                 
                 	Number of active interfaces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -4660,6 +5483,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.DefaultVrf.Global.VrfSummary, ['vrf_name', 'active', 'oom_flags', 'route_count', 'path_count', 'update_timer', 'next_update_time', 'invalid_timer', 'hold_down_timer', 'flush_timer', 'interface_configured_count', 'active_interface_count'], name, value)
 
 
+
             class InterfaceSummary(Entity):
                 """
                 List of Interfaces configured
@@ -4669,15 +5493,21 @@ class Rip(Entity):
                 	Interface name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: enabled
                 
                 	RIP enabled indicator
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	Interface state
                 	**type**\:  :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.InterfaceState>`
+                
+                	**config**\: False
                 
                 .. attribute:: destination_address
                 
@@ -4686,12 +5516,16 @@ class Rip(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: prefix_length
                 
                 	Prefix length of IP address
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: oom_flags
                 
@@ -4700,12 +5534,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: send_version
                 
                 	RIP versions this interface sends out
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: receive_version
                 
@@ -4714,12 +5552,16 @@ class Rip(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: neighbor_count
                 
                 	Number of neighbors seen
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -4764,7 +5606,12 @@ class Rip(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.DefaultVrf.Global.InterfaceSummary, ['interface_name', 'enabled', 'state', 'destination_address', 'prefix_length', 'oom_flags', 'send_version', 'receive_version', 'neighbor_count'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Rip()
         return self._top_entity
+
+
 

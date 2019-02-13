@@ -84,6 +84,8 @@ class Interfaces(Entity):
         	Operational state data at the global interface level
         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State>`
         
+        	**config**\: False
+        
         .. attribute:: hold_time
         
         	Top\-level container for hold\-time settings to enable dampening advertisements of interface transitions
@@ -245,6 +247,7 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.Interface.Config, [u'type', u'mtu', u'name', u'description', u'enabled'], name, value)
 
 
+
         class State(Entity):
             """
             Operational state data at the global interface level
@@ -256,6 +259,8 @@ class Interfaces(Entity):
             
             	**mandatory**\: True
             
+            	**config**\: False
+            
             .. attribute:: mtu
             
             	Set the max transmission unit size in octets for the physical interface.  If this is not set, the mtu is set to the operational default \-\- e.g., 1514 bytes on an Ethernet interface
@@ -263,20 +268,28 @@ class Interfaces(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: name
             
             	[adapted from IETF interfaces model (RFC 7223)]  The name of the interface.  A device MAY restrict the allowed values for this leaf, possibly depending on the type of the interface. For system\-controlled interfaces, this leaf is the device\-specific name of the interface.  The 'config false' list interfaces/interface[name]/state contains the currently existing interfaces on the device.  If a client tries to create configuration for a system\-controlled interface that is not present in the corresponding state list, the server MAY reject the request if the implementation does not support pre\-provisioning of interfaces or if the name refers to an interface that can never exist in the system.  A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case.  The IETF model in RFC 7223 provides YANG features for the following (i.e., pre\-provisioning and arbitrary\-names), however they are omitted here\:   If the device supports pre\-provisioning of interface  configuration, the 'pre\-provisioning' feature is  advertised.   If the device allows arbitrarily named user\-controlled  interfaces, the 'arbitrary\-names' feature is advertised.  When a configured user\-controlled interface is created by the system, it is instantiated with the same name in the /interfaces/interface[name]/state list
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: description
             
             	[adapted from IETF interfaces model (RFC 7223)]  A textual description of the interface.  A server implementation MAY map this leaf to the ifAlias MIB object.  Such an implementation needs to use some mechanism to handle the differences in size and characters allowed between this leaf and ifAlias.  The definition of such a mechanism is outside the scope of this document.  Since ifAlias is defined to be stored in non\-volatile storage, the MIB implementation MUST map ifAlias to the value of 'description' in the persistently stored datastore.  Specifically, if the device supports '\:startup', when ifAlias is read the device MUST return the value of 'description' in the 'startup' datastore, and when it is written, it MUST be written to the 'running' and 'startup' datastores.  Note that it is up to the implementation to  decide whether to modify this single leaf in 'startup' or perform an implicit copy\-config from 'running' to 'startup'.  If the device does not support '\:startup', ifAlias MUST be mapped to the 'description' leaf in the 'running' datastore
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: enabled
             
             	[adapted from IETF interfaces model (RFC 7223)]  This leaf contains the configured, desired state of the interface.  Systems that implement the IF\-MIB use the value of this leaf in the 'running' datastore to set IF\-MIB.ifAdminStatus to 'up' or 'down' after an ifEntry has been initialized, as described in RFC 2863.  Changes in this leaf in the 'running' datastore are reflected in ifAdminStatus, but if ifAdminStatus is changed over SNMP, this leaf is not affected
             	**type**\: bool
+            
+            	**config**\: False
             
             	**default value**\: true
             
@@ -287,12 +300,16 @@ class Interfaces(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: admin_status
             
             	[adapted from IETF interfaces model (RFC 7223)]  The desired state of the interface.  In RFC 7223 this leaf has the same read semantics as ifAdminStatus.  Here, it reflects the administrative state as set by enabling or disabling the interface
             	**type**\:  :py:class:`AdminStatus <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State.AdminStatus>`
             
             	**mandatory**\: True
+            
+            	**config**\: False
             
             .. attribute:: oper_status
             
@@ -301,6 +318,8 @@ class Interfaces(Entity):
             
             	**mandatory**\: True
             
+            	**config**\: False
+            
             .. attribute:: last_change
             
             	Date and time of the last state change of the interface (e.g., up\-to\-down transition).   This corresponds to the ifLastChange object in the standard interface MIB
@@ -308,10 +327,14 @@ class Interfaces(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: counters
             
             	A collection of interface\-related statistics objects
             	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State.Counters>`
+            
+            	**config**\: False
             
             .. attribute:: hardware_port
             
@@ -319,6 +342,8 @@ class Interfaces(Entity):
             	**type**\: str
             
             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
+            
+            	**config**\: False
             
             
 
@@ -366,7 +391,7 @@ class Interfaces(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.Interface.State, [u'type', u'mtu', u'name', u'description', u'enabled', u'ifindex', u'admin_status', u'oper_status', u'last_change', 'hardware_port'], name, value)
+                self._perform_setattr(Interfaces.Interface.State, [u'type', u'mtu', u'name', u'description', u'enabled', u'ifindex', u'admin_status', u'oper_status', u'last_change', u'hardware_port'], name, value)
 
             class AdminStatus(Enum):
                 """
@@ -472,12 +497,16 @@ class Interfaces(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: in_unicast_pkts
                 
                 	[adapted from IETF interfaces model (RFC 7223)]  The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were not addressed to a multicast or broadcast address at this sub\-layer.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: in_broadcast_pkts
                 
@@ -486,12 +515,16 @@ class Interfaces(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: in_multicast_pkts
                 
                 	[adapted from IETF interfaces model (RFC 7223)]   The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were addressed to a multicast address at this sub\-layer.  For a MAC\-layer protocol, this includes both Group and Functional addresses.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: in_discards
                 
@@ -500,12 +533,16 @@ class Interfaces(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: in_errors
                 
                 	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  For packet\-oriented interfaces, the number of inbound packets that contained errors preventing them from being deliverable to a higher\-layer protocol.  For character\- oriented or fixed\-length interfaces, the number of inbound transmission units that contained errors preventing them from being deliverable to a higher\-layer protocol.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: in_unknown_protos
                 
@@ -514,12 +551,16 @@ class Interfaces(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_octets
                 
                 	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  The total number of octets transmitted out of the interface, including framing characters.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: out_unicast_pkts
                 
@@ -528,12 +569,16 @@ class Interfaces(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: out_broadcast_pkts
                 
                 	[adapted from IETF interfaces model (RFC 7223)]  The total number of packets that higher\-level protocols requested be transmitted, and that were addressed to a broadcast address at this sub\-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: out_multicast_pkts
                 
@@ -542,12 +587,16 @@ class Interfaces(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: out_discards
                 
                 	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  The number of outbound packets that were chosen to be discarded even though no errors had been detected to prevent their being transmitted.  One possible reason for discarding such a packet could be to free up buffer space.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: out_errors
                 
@@ -556,12 +605,16 @@ class Interfaces(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: last_clear
                 
                 	Indicates the last time the interface counters were cleared
                 	**type**\: str
                 
                 	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+                
+                	**config**\: False
                 
                 
 
@@ -616,6 +669,8 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.Interface.State.Counters, [u'in_octets', u'in_unicast_pkts', u'in_broadcast_pkts', u'in_multicast_pkts', u'in_discards', u'in_errors', u'in_unknown_protos', u'out_octets', u'out_unicast_pkts', u'out_broadcast_pkts', u'out_multicast_pkts', u'out_discards', u'out_errors', u'last_clear'], name, value)
 
 
+
+
         class HoldTime(Entity):
             """
             Top\-level container for hold\-time settings to enable
@@ -630,6 +685,8 @@ class Interfaces(Entity):
             
             	Operational state data for interface hold\-time
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.HoldTime.State>`
+            
+            	**config**\: False
             
             
 
@@ -718,6 +775,7 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.Interface.HoldTime.Config, [u'up', u'down'], name, value)
 
 
+
             class State(Entity):
                 """
                 Operational state data for interface hold\-time.
@@ -729,6 +787,8 @@ class Interfaces(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: milliseconds
                 
                 	**default value**\: 0
@@ -739,6 +799,8 @@ class Interfaces(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: milliseconds
                 
@@ -771,6 +833,8 @@ class Interfaces(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.Interface.HoldTime.State, [u'up', u'down'], name, value)
+
+
 
 
         class Subinterfaces(Entity):
@@ -832,6 +896,8 @@ class Interfaces(Entity):
                 
                 	Operational state data for logical interfaces
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State>`
+                
+                	**config**\: False
                 
                 .. attribute:: vlan
                 
@@ -958,6 +1024,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Config, [u'index', u'name', u'description', u'enabled'], name, value)
 
 
+
                 class State(Entity):
                     """
                     Operational state data for logical interfaces
@@ -969,6 +1036,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**default value**\: 0
                     
                     .. attribute:: name
@@ -976,15 +1045,21 @@ class Interfaces(Entity):
                     	[adapted from IETF interfaces model (RFC 7223)]  The name of the interface.  A device MAY restrict the allowed values for this leaf, possibly depending on the type of the interface. For system\-controlled interfaces, this leaf is the device\-specific name of the interface.  The 'config false' list interfaces/interface[name]/state contains the currently existing interfaces on the device.  If a client tries to create configuration for a system\-controlled interface that is not present in the corresponding state list, the server MAY reject the request if the implementation does not support pre\-provisioning of interfaces or if the name refers to an interface that can never exist in the system.  A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case.  The IETF model in RFC 7223 provides YANG features for the following (i.e., pre\-provisioning and arbitrary\-names), however they are omitted here\:   If the device supports pre\-provisioning of interface  configuration, the 'pre\-provisioning' feature is  advertised.   If the device allows arbitrarily named user\-controlled  interfaces, the 'arbitrary\-names' feature is advertised.  When a configured user\-controlled interface is created by the system, it is instantiated with the same name in the /interfaces/interface[name]/state list
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	[adapted from IETF interfaces model (RFC 7223)]  A textual description of the interface.  A server implementation MAY map this leaf to the ifAlias MIB object.  Such an implementation needs to use some mechanism to handle the differences in size and characters allowed between this leaf and ifAlias.  The definition of such a mechanism is outside the scope of this document.  Since ifAlias is defined to be stored in non\-volatile storage, the MIB implementation MUST map ifAlias to the value of 'description' in the persistently stored datastore.  Specifically, if the device supports '\:startup', when ifAlias is read the device MUST return the value of 'description' in the 'startup' datastore, and when it is written, it MUST be written to the 'running' and 'startup' datastores.  Note that it is up to the implementation to  decide whether to modify this single leaf in 'startup' or perform an implicit copy\-config from 'running' to 'startup'.  If the device does not support '\:startup', ifAlias MUST be mapped to the 'description' leaf in the 'running' datastore
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: enabled
                     
                     	[adapted from IETF interfaces model (RFC 7223)]  This leaf contains the configured, desired state of the interface.  Systems that implement the IF\-MIB use the value of this leaf in the 'running' datastore to set IF\-MIB.ifAdminStatus to 'up' or 'down' after an ifEntry has been initialized, as described in RFC 2863.  Changes in this leaf in the 'running' datastore are reflected in ifAdminStatus, but if ifAdminStatus is changed over SNMP, this leaf is not affected
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     	**default value**\: true
                     
@@ -995,12 +1070,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: admin_status
                     
                     	[adapted from IETF interfaces model (RFC 7223)]  The desired state of the interface.  In RFC 7223 this leaf has the same read semantics as ifAdminStatus.  Here, it reflects the administrative state as set by enabling or disabling the interface
                     	**type**\:  :py:class:`AdminStatus <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State.AdminStatus>`
                     
                     	**mandatory**\: True
+                    
+                    	**config**\: False
                     
                     .. attribute:: oper_status
                     
@@ -1009,6 +1088,8 @@ class Interfaces(Entity):
                     
                     	**mandatory**\: True
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_change
                     
                     	Date and time of the last state change of the interface (e.g., up\-to\-down transition).   This corresponds to the ifLastChange object in the standard interface MIB
@@ -1016,10 +1097,14 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: counters
                     
                     	A collection of interface\-related statistics objects
                     	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State.Counters>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1169,12 +1254,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_unicast_pkts
                         
                         	[adapted from IETF interfaces model (RFC 7223)]  The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were not addressed to a multicast or broadcast address at this sub\-layer.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: in_broadcast_pkts
                         
@@ -1183,12 +1272,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_multicast_pkts
                         
                         	[adapted from IETF interfaces model (RFC 7223)]   The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were addressed to a multicast address at this sub\-layer.  For a MAC\-layer protocol, this includes both Group and Functional addresses.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: in_discards
                         
@@ -1197,12 +1290,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_errors
                         
                         	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  For packet\-oriented interfaces, the number of inbound packets that contained errors preventing them from being deliverable to a higher\-layer protocol.  For character\- oriented or fixed\-length interfaces, the number of inbound transmission units that contained errors preventing them from being deliverable to a higher\-layer protocol.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: in_unknown_protos
                         
@@ -1211,12 +1308,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: out_octets
                         
                         	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  The total number of octets transmitted out of the interface, including framing characters.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: out_unicast_pkts
                         
@@ -1225,12 +1326,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: out_broadcast_pkts
                         
                         	[adapted from IETF interfaces model (RFC 7223)]  The total number of packets that higher\-level protocols requested be transmitted, and that were addressed to a broadcast address at this sub\-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: out_multicast_pkts
                         
@@ -1239,12 +1344,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: out_discards
                         
                         	[adapted from IETF interfaces model (RFC 7223)] Changed the counter type to counter64.  The number of outbound packets that were chosen to be discarded even though no errors had been detected to prevent their being transmitted.  One possible reason for discarding such a packet could be to free up buffer space.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: out_errors
                         
@@ -1253,12 +1362,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_clear
                         
                         	Indicates the last time the interface counters were cleared
                         	**type**\: str
                         
                         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+                        
+                        	**config**\: False
                         
                         
 
@@ -1313,6 +1426,8 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.State.Counters, [u'in_octets', u'in_unicast_pkts', u'in_broadcast_pkts', u'in_multicast_pkts', u'in_discards', u'in_errors', u'in_unknown_protos', u'out_octets', u'out_unicast_pkts', u'out_broadcast_pkts', u'out_multicast_pkts', u'out_discards', u'out_errors', u'last_clear'], name, value)
 
 
+
+
                 class Vlan(Entity):
                     """
                     Enclosing container for VLAN interface\-specific
@@ -1327,6 +1442,8 @@ class Interfaces(Entity):
                     
                     	State variables for VLANs
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Vlan.State>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1401,7 +1518,8 @@ class Interfaces(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Vlan.Config, [u'vlan_id'], name, value)
+                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Vlan.Config, ['vlan_id'], name, value)
+
 
 
                     class State(Entity):
@@ -1420,6 +1538,8 @@ class Interfaces(Entity):
                         		**type**\: str
                         
                         			**pattern:** ^(409[0\-4]\|40[0\-8][0\-9]\|[1\-3][0\-9]{3}\|[1\-9][0\-9]{1,2}\|[1\-9])\\.((409[0\-4]\|40[0\-8][0\-9]\|[1\-3][0\-9]{3}\|[1\-9][0\-9]{1,2}\|[1\-9])\|\\\*)$
+                        
+                        	**config**\: False
                         
                         
 
@@ -1445,7 +1565,9 @@ class Interfaces(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Vlan.State, [u'vlan_id'], name, value)
+                            self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Vlan.State, ['vlan_id'], name, value)
+
+
 
 
                 class Ipv4(Entity):
@@ -1476,6 +1598,8 @@ class Interfaces(Entity):
                     
                     	Top level IPv4 operational state data
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1579,6 +1703,8 @@ class Interfaces(Entity):
                             	Operational state data for each IPv4 address configured on the interface
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.State>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: vrrp
                             
                             	Enclosing container for VRRP groups handled by this IP interface
@@ -1671,6 +1797,7 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Config, ['ip', 'prefix_length'], name, value)
 
 
+
                             class State(Entity):
                                 """
                                 Operational state data for each IPv4 address
@@ -1683,6 +1810,8 @@ class Interfaces(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prefix_length
                                 
                                 	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
@@ -1690,10 +1819,14 @@ class Interfaces(Entity):
                                 
                                 	**range:** 0..32
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: origin
                                 
                                 	The origin of this address, e.g., statically configured, assigned by DHCP, etc.
                                 	**type**\:  :py:class:`IpAddressOrigin <ydk.models.openconfig.openconfig_if_ip.IpAddressOrigin>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1724,6 +1857,7 @@ class Interfaces(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.State, ['ip', 'prefix_length', 'origin'], name, value)
+
 
 
                             class Vrrp(Entity):
@@ -1784,6 +1918,8 @@ class Interfaces(Entity):
                                     
                                     	Operational state data for the VRRP group
                                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.State>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: interface_tracking
                                     
@@ -1935,6 +2071,7 @@ class Interfaces(Entity):
                                             self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.Config, ['virtual_router_id', 'virtual_address', 'priority', 'preempt', 'preempt_delay', 'accept_mode', 'advertisement_interval'], name, value)
 
 
+
                                     class State(Entity):
                                         """
                                         Operational state data for the VRRP group
@@ -1945,6 +2082,8 @@ class Interfaces(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 1..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: virtual_address
                                         
@@ -1959,6 +2098,8 @@ class Interfaces(Entity):
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: priority
                                         
                                         	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
@@ -1966,12 +2107,16 @@ class Interfaces(Entity):
                                         
                                         	**range:** 1..254
                                         
+                                        	**config**\: False
+                                        
                                         	**default value**\: 100
                                         
                                         .. attribute:: preempt
                                         
                                         	When set to true, enables preemption by a higher priority backup router of a lower priority master router
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         	**default value**\: true
                                         
@@ -1982,12 +2127,16 @@ class Interfaces(Entity):
                                         
                                         	**range:** 0..3600
                                         
+                                        	**config**\: False
+                                        
                                         	**default value**\: 0
                                         
                                         .. attribute:: accept_mode
                                         
                                         	Configure whether packets destined for virtual addresses are accepted even when the virtual address is not owned by the router interface
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         	**default value**\: false
                                         
@@ -1997,6 +2146,8 @@ class Interfaces(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 1..4095
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: centiseconds
                                         
@@ -2008,6 +2159,8 @@ class Interfaces(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2050,6 +2203,7 @@ class Interfaces(Entity):
                                             self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.State, ['virtual_router_id', 'virtual_address', 'priority', 'preempt', 'preempt_delay', 'accept_mode', 'advertisement_interval', 'current_priority'], name, value)
 
 
+
                                     class InterfaceTracking(Entity):
                                         """
                                         Top\-level container for VRRP interface tracking
@@ -2063,6 +2217,8 @@ class Interfaces(Entity):
                                         
                                         	Operational state data for VRRP interface tracking
                                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2145,6 +2301,7 @@ class Interfaces(Entity):
                                                 self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config, ['track_interface', 'priority_decrement'], name, value)
 
 
+
                                         class State(Entity):
                                             """
                                             Operational state data for VRRP interface tracking
@@ -2156,12 +2313,16 @@ class Interfaces(Entity):
                                             
                                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: priority_decrement
                                             
                                             	Set the value to subtract from priority when the tracked interface goes down
                                             	**type**\: int
                                             
                                             	**range:** 0..254
+                                            
+                                            	**config**\: False
                                             
                                             	**default value**\: 0
                                             
@@ -2192,6 +2353,12 @@ class Interfaces(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State, ['track_interface', 'priority_decrement'], name, value)
+
+
+
+
+
+
 
 
                     class Neighbors(Entity):
@@ -2255,6 +2422,8 @@ class Interfaces(Entity):
                             
                             	Operational state data for each IPv4 address configured on the interface
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors.Neighbor.State>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2341,6 +2510,7 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors.Neighbor.Config, ['ip', 'link_layer_address'], name, value)
 
 
+
                             class State(Entity):
                                 """
                                 Operational state data for each IPv4 address
@@ -2353,6 +2523,8 @@ class Interfaces(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: link_layer_address
                                 
                                 	The link\-layer address of the neighbor node
@@ -2362,10 +2534,14 @@ class Interfaces(Entity):
                                 
                                 	**mandatory**\: True
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: origin
                                 
                                 	The origin of this neighbor entry, static or dynamic
                                 	**type**\:  :py:class:`NeighborOrigin <ydk.models.openconfig.openconfig_if_ip.NeighborOrigin>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2398,6 +2574,9 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbors.Neighbor.State, ['ip', 'link_layer_address', 'origin'], name, value)
 
 
+
+
+
                     class Unnumbered(Entity):
                         """
                         Top\-level container for setting unnumbered interfaces.
@@ -2413,6 +2592,8 @@ class Interfaces(Entity):
                         
                         	Operational state data for unnumbered interfaces
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.State>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: interface_ref
                         
@@ -2493,6 +2674,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.Config, [u'enabled'], name, value)
 
 
+
                         class State(Entity):
                             """
                             Operational state data for unnumbered interfaces
@@ -2501,6 +2683,8 @@ class Interfaces(Entity):
                             
                             	Indicates that the subinterface is unnumbered.  By default the subinterface is numbered, i.e., expected to have an IP address configuration
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             	**default value**\: false
                             
@@ -2531,6 +2715,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.State, [u'enabled'], name, value)
 
 
+
                         class InterfaceRef(Entity):
                             """
                             Reference to an interface or subinterface
@@ -2544,6 +2729,8 @@ class Interfaces(Entity):
                             
                             	Operational state for interface\-ref
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.State>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2626,6 +2813,7 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
 
 
+
                             class State(Entity):
                                 """
                                 Operational state for interface\-ref
@@ -2637,6 +2825,8 @@ class Interfaces(Entity):
                                 
                                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: subinterface
                                 
                                 	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
@@ -2645,6 +2835,8 @@ class Interfaces(Entity):
                                 	**range:** 0..4294967295
                                 
                                 	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2673,6 +2865,9 @@ class Interfaces(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Unnumbered.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+
+
+
 
 
                     class Config(Entity):
@@ -2724,6 +2919,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Config, ['enabled', 'mtu'], name, value)
 
 
+
                     class State(Entity):
                         """
                         Top level IPv4 operational state data
@@ -2733,6 +2929,8 @@ class Interfaces(Entity):
                         	Controls whether IPv4 is enabled or disabled on this interface.  When IPv4 is enabled, this interface is connected to an IPv4 stack, and the interface can send and receive IPv4 packets
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         	**default value**\: true
                         
                         .. attribute:: mtu
@@ -2741,6 +2939,8 @@ class Interfaces(Entity):
                         	**type**\: int
                         
                         	**range:** 68..65535
+                        
+                        	**config**\: False
                         
                         	**units**\: octets
                         
@@ -2773,6 +2973,8 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State, ['enabled', 'mtu'], name, value)
 
 
+
+
                 class Ipv6(Entity):
                     """
                     Parameters for the IPv6 address family.
@@ -2801,6 +3003,8 @@ class Interfaces(Entity):
                     
                     	Top\-level operational state data for the IPv6 interface
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2904,6 +3108,8 @@ class Interfaces(Entity):
                             	State data for each IPv6 address on the interface
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.State>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: vrrp
                             
                             	Enclosing container for VRRP groups handled by this IP interface
@@ -2998,6 +3204,7 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Config, ['ip', 'prefix_length'], name, value)
 
 
+
                             class State(Entity):
                                 """
                                 State data for each IPv6 address on the
@@ -3010,6 +3217,8 @@ class Interfaces(Entity):
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prefix_length
                                 
                                 	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
@@ -3019,15 +3228,21 @@ class Interfaces(Entity):
                                 
                                 	**mandatory**\: True
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: origin
                                 
                                 	[adapted from IETF IP model RFC 7277]  The origin of this address, e.g., static, dhcp, etc
                                 	**type**\:  :py:class:`IpAddressOrigin <ydk.models.openconfig.openconfig_if_ip.IpAddressOrigin>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: status
                                 
                                 	[adapted from IETF IP model RFC 7277]  The status of an address.  Most of the states correspond to states from the IPv6 Stateless Address Autoconfiguration protocol
                                 	**type**\:  :py:class:`Status <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.State.Status>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3151,6 +3366,7 @@ class Interfaces(Entity):
 
 
 
+
                             class Vrrp(Entity):
                                 """
                                 Enclosing container for VRRP groups handled by this
@@ -3209,6 +3425,8 @@ class Interfaces(Entity):
                                     
                                     	Operational state data for the VRRP group
                                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.State>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: interface_tracking
                                     
@@ -3375,6 +3593,7 @@ class Interfaces(Entity):
                                             self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.Config, ['virtual_router_id', 'virtual_address', 'priority', 'preempt', 'preempt_delay', 'accept_mode', 'advertisement_interval', 'virtual_link_local'], name, value)
 
 
+
                                     class State(Entity):
                                         """
                                         Operational state data for the VRRP group
@@ -3385,6 +3604,8 @@ class Interfaces(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 1..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: virtual_address
                                         
@@ -3399,6 +3620,8 @@ class Interfaces(Entity):
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: priority
                                         
                                         	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
@@ -3406,12 +3629,16 @@ class Interfaces(Entity):
                                         
                                         	**range:** 1..254
                                         
+                                        	**config**\: False
+                                        
                                         	**default value**\: 100
                                         
                                         .. attribute:: preempt
                                         
                                         	When set to true, enables preemption by a higher priority backup router of a lower priority master router
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         	**default value**\: true
                                         
@@ -3422,12 +3649,16 @@ class Interfaces(Entity):
                                         
                                         	**range:** 0..3600
                                         
+                                        	**config**\: False
+                                        
                                         	**default value**\: 0
                                         
                                         .. attribute:: accept_mode
                                         
                                         	Configure whether packets destined for virtual addresses are accepted even when the virtual address is not owned by the router interface
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         	**default value**\: false
                                         
@@ -3437,6 +3668,8 @@ class Interfaces(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 1..4095
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: centiseconds
                                         
@@ -3448,6 +3681,8 @@ class Interfaces(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: virtual_link_local
                                         
@@ -3461,6 +3696,8 @@ class Interfaces(Entity):
                                         		**type**\: str
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3505,6 +3742,7 @@ class Interfaces(Entity):
                                             self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.State, ['virtual_router_id', 'virtual_address', 'priority', 'preempt', 'preempt_delay', 'accept_mode', 'advertisement_interval', 'current_priority', 'virtual_link_local'], name, value)
 
 
+
                                     class InterfaceTracking(Entity):
                                         """
                                         Top\-level container for VRRP interface tracking
@@ -3518,6 +3756,8 @@ class Interfaces(Entity):
                                         
                                         	Operational state data for VRRP interface tracking
                                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3600,6 +3840,7 @@ class Interfaces(Entity):
                                                 self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config, ['track_interface', 'priority_decrement'], name, value)
 
 
+
                                         class State(Entity):
                                             """
                                             Operational state data for VRRP interface tracking
@@ -3611,12 +3852,16 @@ class Interfaces(Entity):
                                             
                                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: priority_decrement
                                             
                                             	Set the value to subtract from priority when the tracked interface goes down
                                             	**type**\: int
                                             
                                             	**range:** 0..254
+                                            
+                                            	**config**\: False
                                             
                                             	**default value**\: 0
                                             
@@ -3647,6 +3892,12 @@ class Interfaces(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State, ['track_interface', 'priority_decrement'], name, value)
+
+
+
+
+
+
 
 
                     class Neighbors(Entity):
@@ -3706,6 +3957,8 @@ class Interfaces(Entity):
                             
                             	State data for each IPv6 address on the interface
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor.State>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -3792,6 +4045,7 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor.Config, ['ip', 'link_layer_address'], name, value)
 
 
+
                             class State(Entity):
                                 """
                                 State data for each IPv6 address on the
@@ -3804,6 +4058,8 @@ class Interfaces(Entity):
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: link_layer_address
                                 
                                 	[adapted from IETF IP model RFC 7277]  The link\-layer address of the neighbor node
@@ -3813,20 +4069,28 @@ class Interfaces(Entity):
                                 
                                 	**mandatory**\: True
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: origin
                                 
                                 	[adapted from IETF IP model RFC 7277]  The origin of this neighbor entry
                                 	**type**\:  :py:class:`NeighborOrigin <ydk.models.openconfig.openconfig_if_ip.NeighborOrigin>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: is_router
                                 
                                 	[adapted from IETF IP model RFC 7277]  Indicates that the neighbor node acts as a router
                                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: neighbor_state
                                 
                                 	[adapted from IETF IP model RFC 7277]  The Neighbor Unreachability Detection state of this entry
                                 	**type**\:  :py:class:`NeighborState <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbors.Neighbor.State.NeighborState>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3930,6 +4194,9 @@ class Interfaces(Entity):
 
 
 
+
+
+
                     class Unnumbered(Entity):
                         """
                         Top\-level container for setting unnumbered interfaces.
@@ -3945,6 +4212,8 @@ class Interfaces(Entity):
                         
                         	Operational state data for unnumbered interfaces
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.State>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: interface_ref
                         
@@ -4025,6 +4294,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.Config, [u'enabled'], name, value)
 
 
+
                         class State(Entity):
                             """
                             Operational state data for unnumbered interfaces
@@ -4033,6 +4303,8 @@ class Interfaces(Entity):
                             
                             	Indicates that the subinterface is unnumbered.  By default the subinterface is numbered, i.e., expected to have an IP address configuration
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             	**default value**\: false
                             
@@ -4063,6 +4335,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.State, [u'enabled'], name, value)
 
 
+
                         class InterfaceRef(Entity):
                             """
                             Reference to an interface or subinterface
@@ -4076,6 +4349,8 @@ class Interfaces(Entity):
                             
                             	Operational state for interface\-ref
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.State>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -4158,6 +4433,7 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
 
 
+
                             class State(Entity):
                                 """
                                 Operational state for interface\-ref
@@ -4169,6 +4445,8 @@ class Interfaces(Entity):
                                 
                                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: subinterface
                                 
                                 	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
@@ -4177,6 +4455,8 @@ class Interfaces(Entity):
                                 	**range:** 0..4294967295
                                 
                                 	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4205,6 +4485,9 @@ class Interfaces(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Unnumbered.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+
+
+
 
 
                     class Config(Entity):
@@ -4267,6 +4550,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Config, ['enabled', 'mtu', 'dup_addr_detect_transmits'], name, value)
 
 
+
                     class State(Entity):
                         """
                         Top\-level operational state data for the IPv6 interface
@@ -4275,6 +4559,8 @@ class Interfaces(Entity):
                         
                         	[adapted from IETF IP model RFC 7277]  Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         	**default value**\: true
                         
@@ -4285,6 +4571,8 @@ class Interfaces(Entity):
                         
                         	**range:** 1280..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: octets
                         
                         .. attribute:: dup_addr_detect_transmits
@@ -4293,6 +4581,8 @@ class Interfaces(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**default value**\: 1
                         
@@ -4327,6 +4617,10 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State, ['enabled', 'mtu', 'dup_addr_detect_transmits'], name, value)
 
 
+
+
+
+
         class Ethernet(Entity):
             """
             Top\-level container for ethernet configuration
@@ -4341,6 +4635,8 @@ class Interfaces(Entity):
             
             	State variables for Ethernet interfaces
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.State>`
+            
+            	**config**\: False
             
             .. attribute:: switched_vlan
             
@@ -4459,7 +4755,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Ethernet.Config, [u'mac_address', u'auto_negotiate', u'duplex_mode', u'port_speed', u'enable_flow_control', 'aggregate_id'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Ethernet.Config, [u'mac_address', u'auto_negotiate', u'duplex_mode', u'port_speed', u'enable_flow_control', u'aggregate_id'], name, value)
 
                 class DuplexMode(Enum):
                     """
@@ -4491,6 +4787,7 @@ class Interfaces(Entity):
 
 
 
+
             class State(Entity):
                 """
                 State variables for Ethernet interfaces
@@ -4502,10 +4799,14 @@ class Interfaces(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: auto_negotiate
                 
                 	Set to TRUE to request the interface to auto\-negotiate transmission parameters with its peer interface.  When set to FALSE, the transmission parameters are specified manually
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 	**default value**\: true
                 
@@ -4514,15 +4815,21 @@ class Interfaces(Entity):
                 	When auto\-negotiate is TRUE, this optionally sets the duplex mode that will be advertised to the peer.  If unspecified, the interface should negotiate the duplex mode directly (typically full\-duplex).  When auto\-negotiate is FALSE, this sets the duplex mode on the interface directly
                 	**type**\:  :py:class:`DuplexMode <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.State.DuplexMode>`
                 
+                	**config**\: False
+                
                 .. attribute:: port_speed
                 
                 	When auto\-negotiate is TRUE, this optionally sets the port\-speed mode that will be advertised to the peer for negotiation.  If unspecified, it is expected that the interface will select the highest speed available based on negotiation.  When auto\-negotiate is set to FALSE, sets the link speed to a fixed value \-\- supported values are defined by ETHERNET\_SPEED identities
                 	**type**\:  :py:class:`ETHERNETSPEED <ydk.models.openconfig.openconfig_if_ethernet.ETHERNETSPEED>`
                 
+                	**config**\: False
+                
                 .. attribute:: enable_flow_control
                 
                 	Enable or disable flow control for this interface. Ethernet flow control is a mechanism by which a receiver may send PAUSE frames to a sender to stop transmission for a specified time.  This setting should override auto\-negotiated flow control settings.  If left unspecified, and auto\-negotiate is TRUE, flow control mode is negotiated with the peer interface
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 	**default value**\: false
                 
@@ -4533,12 +4840,16 @@ class Interfaces(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: effective_speed
                 
                 	Reports the effective speed of the interface, e.g., the negotiated speed if auto\-negotiate is enabled
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: Mbps
                 
@@ -4547,12 +4858,16 @@ class Interfaces(Entity):
                 	Ethernet interface counters
                 	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.State.Counters>`
                 
+                	**config**\: False
+                
                 .. attribute:: aggregate_id
                 
                 	Specify the logical aggregate interface to which this interface belongs
                 	**type**\: str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                
+                	**config**\: False
                 
                 
 
@@ -4596,7 +4911,7 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Ethernet.State, [u'mac_address', u'auto_negotiate', u'duplex_mode', u'port_speed', u'enable_flow_control', u'hw_mac_address', u'effective_speed', 'aggregate_id'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Ethernet.State, [u'mac_address', u'auto_negotiate', u'duplex_mode', u'port_speed', u'enable_flow_control', u'hw_mac_address', u'effective_speed', u'aggregate_id'], name, value)
 
                 class DuplexMode(Enum):
                     """
@@ -4639,12 +4954,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: in_mac_pause_frames
                     
                     	MAC layer PAUSE frames received on the interface
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: in_oversize_frames
                     
@@ -4653,12 +4972,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: in_jabber_frames
                     
                     	Number of jabber frames received on the interface.  Jabber frames are typically defined as oversize frames which also have a bad CRC.  Implementations may use slightly different definitions of what constitutes a jabber frame.  Often indicative of a NIC hardware problem
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: in_fragment_frames
                     
@@ -4667,12 +4990,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: in_8021q_frames
                     
                     	Number of 802.1q tagged frames received on the interface
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: in_crc_errors
                     
@@ -4681,12 +5008,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: out_mac_control_frames
                     
                     	MAC layer control frames sent on the interface
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: out_mac_pause_frames
                     
@@ -4695,12 +5026,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: out_8021q_frames
                     
                     	Number of 802.1q tagged frames sent on the interface
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -4747,6 +5082,8 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.Ethernet.State.Counters, [u'in_mac_control_frames', u'in_mac_pause_frames', u'in_oversize_frames', u'in_jabber_frames', u'in_fragment_frames', u'in_8021q_frames', u'in_crc_errors', u'out_mac_control_frames', u'out_mac_pause_frames', u'out_8021q_frames'], name, value)
 
 
+
+
             class SwitchedVlan(Entity):
                 """
                 Enclosing container for VLAN interface\-specific
@@ -4762,6 +5099,8 @@ class Interfaces(Entity):
                 
                 	State variables for VLANs
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.SwitchedVlan.State>`
+                
+                	**config**\: False
                 
                 
 
@@ -4885,7 +5224,8 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.Ethernet.SwitchedVlan.Config, [u'interface_mode', u'native_vlan', u'access_vlan', u'trunk_vlans'], name, value)
+                        self._perform_setattr(Interfaces.Interface.Ethernet.SwitchedVlan.Config, ['interface_mode', 'native_vlan', 'access_vlan', 'trunk_vlans'], name, value)
+
 
 
                 class State(Entity):
@@ -4896,6 +5236,8 @@ class Interfaces(Entity):
                     
                     	Set the interface to access or trunk mode for VLANs
                     	**type**\:  :py:class:`VlanModeType <ydk.models.openconfig.openconfig_vlan_types.VlanModeType>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: native_vlan
                     
@@ -4910,6 +5252,8 @@ class Interfaces(Entity):
                     
                     			**pattern:** ^(409[0\-4]\|40[0\-8][0\-9]\|[1\-3][0\-9]{3}\|[1\-9][0\-9]{1,2}\|[1\-9])\\.((409[0\-4]\|40[0\-8][0\-9]\|[1\-3][0\-9]{3}\|[1\-9][0\-9]{1,2}\|[1\-9])\|\\\*)$
                     
+                    	**config**\: False
+                    
                     .. attribute:: access_vlan
                     
                     	Assign the access vlan to the access port
@@ -4922,6 +5266,8 @@ class Interfaces(Entity):
                     		**type**\: str
                     
                     			**pattern:** ^(409[0\-4]\|40[0\-8][0\-9]\|[1\-3][0\-9]{3}\|[1\-9][0\-9]{1,2}\|[1\-9])\\.((409[0\-4]\|40[0\-8][0\-9]\|[1\-3][0\-9]{3}\|[1\-9][0\-9]{1,2}\|[1\-9])\|\\\*)$
+                    
+                    	**config**\: False
                     
                     .. attribute:: trunk_vlans
                     
@@ -4947,6 +5293,8 @@ class Interfaces(Entity):
                     		**type**\: list of str
                     
                     			**pattern:** ^(\\\*\|(409[0\-4]\|40[0\-8][0\-9]\|[1\-3][0\-9]{3}\|[1\-9][0\-9]{1,2}\|[1\-9]))\\.(409[0\-4]\|40[0\-8][0\-9]\|[1\-3][0\-9]{3}\|[1\-9][0\-9]{1,2}\|[1\-9])\\.\\.(409[0\-4]\|40[0\-8][0\-9]\|[1\-3][0\-9]{3}\|[1\-9][0\-9]{1,2}\|[1\-9])$
+                    
+                    	**config**\: False
                     
                     
 
@@ -4978,7 +5326,10 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.Ethernet.SwitchedVlan.State, [u'interface_mode', u'native_vlan', u'access_vlan', u'trunk_vlans'], name, value)
+                        self._perform_setattr(Interfaces.Interface.Ethernet.SwitchedVlan.State, ['interface_mode', 'native_vlan', 'access_vlan', 'trunk_vlans'], name, value)
+
+
+
 
 
         class Aggregation(Entity):
@@ -4995,6 +5346,8 @@ class Interfaces(Entity):
             
             	Operational state variables for logical aggregate / LAG interfaces
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.State>`
+            
+            	**config**\: False
             
             .. attribute:: switched_vlan
             
@@ -5080,7 +5433,8 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Aggregation.Config, ['lag_type', 'min_links'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Aggregation.Config, [u'lag_type', u'min_links'], name, value)
+
 
 
             class State(Entity):
@@ -5093,6 +5447,8 @@ class Interfaces(Entity):
                 	Sets the type of LAG, i.e., how it is configured / maintained
                 	**type**\:  :py:class:`AggregationType <ydk.models.openconfig.openconfig_if_aggregate.AggregationType>`
                 
+                	**config**\: False
+                
                 .. attribute:: min_links
                 
                 	Specifies the mininum number of member interfaces that must be active for the aggregate interface to be available
@@ -5100,12 +5456,16 @@ class Interfaces(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: lag_speed
                 
                 	Reports effective speed of the aggregate interface, based on speed of active member interfaces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: Mbps
                 
@@ -5115,6 +5475,8 @@ class Interfaces(Entity):
                 	**type**\: list of str
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                
+                	**config**\: False
                 
                 
 
@@ -5146,7 +5508,8 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.Aggregation.State, ['lag_type', 'min_links', 'lag_speed', 'member'], name, value)
+                    self._perform_setattr(Interfaces.Interface.Aggregation.State, [u'lag_type', u'min_links', u'lag_speed', u'member'], name, value)
+
 
 
             class SwitchedVlan(Entity):
@@ -5164,6 +5527,8 @@ class Interfaces(Entity):
                 
                 	State variables for VLANs
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.SwitchedVlan.State>`
+                
+                	**config**\: False
                 
                 
 
@@ -5287,7 +5652,8 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.Aggregation.SwitchedVlan.Config, [u'interface_mode', u'native_vlan', u'access_vlan', u'trunk_vlans'], name, value)
+                        self._perform_setattr(Interfaces.Interface.Aggregation.SwitchedVlan.Config, ['interface_mode', 'native_vlan', 'access_vlan', 'trunk_vlans'], name, value)
+
 
 
                 class State(Entity):
@@ -5298,6 +5664,8 @@ class Interfaces(Entity):
                     
                     	Set the interface to access or trunk mode for VLANs
                     	**type**\:  :py:class:`VlanModeType <ydk.models.openconfig.openconfig_vlan_types.VlanModeType>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: native_vlan
                     
@@ -5312,6 +5680,8 @@ class Interfaces(Entity):
                     
                     			**pattern:** ^(409[0\-4]\|40[0\-8][0\-9]\|[1\-3][0\-9]{3}\|[1\-9][0\-9]{1,2}\|[1\-9])\\.((409[0\-4]\|40[0\-8][0\-9]\|[1\-3][0\-9]{3}\|[1\-9][0\-9]{1,2}\|[1\-9])\|\\\*)$
                     
+                    	**config**\: False
+                    
                     .. attribute:: access_vlan
                     
                     	Assign the access vlan to the access port
@@ -5324,6 +5694,8 @@ class Interfaces(Entity):
                     		**type**\: str
                     
                     			**pattern:** ^(409[0\-4]\|40[0\-8][0\-9]\|[1\-3][0\-9]{3}\|[1\-9][0\-9]{1,2}\|[1\-9])\\.((409[0\-4]\|40[0\-8][0\-9]\|[1\-3][0\-9]{3}\|[1\-9][0\-9]{1,2}\|[1\-9])\|\\\*)$
+                    
+                    	**config**\: False
                     
                     .. attribute:: trunk_vlans
                     
@@ -5349,6 +5721,8 @@ class Interfaces(Entity):
                     		**type**\: list of str
                     
                     			**pattern:** ^(\\\*\|(409[0\-4]\|40[0\-8][0\-9]\|[1\-3][0\-9]{3}\|[1\-9][0\-9]{1,2}\|[1\-9]))\\.(409[0\-4]\|40[0\-8][0\-9]\|[1\-3][0\-9]{3}\|[1\-9][0\-9]{1,2}\|[1\-9])\\.\\.(409[0\-4]\|40[0\-8][0\-9]\|[1\-3][0\-9]{3}\|[1\-9][0\-9]{1,2}\|[1\-9])$
+                    
+                    	**config**\: False
                     
                     
 
@@ -5380,7 +5754,10 @@ class Interfaces(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.Interface.Aggregation.SwitchedVlan.State, [u'interface_mode', u'native_vlan', u'access_vlan', u'trunk_vlans'], name, value)
+                        self._perform_setattr(Interfaces.Interface.Aggregation.SwitchedVlan.State, ['interface_mode', 'native_vlan', 'access_vlan', 'trunk_vlans'], name, value)
+
+
+
 
 
         class RoutedVlan(Entity):
@@ -5399,6 +5776,8 @@ class Interfaces(Entity):
             
             	Operational state data 
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.State>`
+            
+            	**config**\: False
             
             .. attribute:: ipv4
             
@@ -5489,7 +5868,8 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.RoutedVlan.Config, [u'vlan'], name, value)
+                    self._perform_setattr(Interfaces.Interface.RoutedVlan.Config, ['vlan'], name, value)
+
 
 
             class State(Entity):
@@ -5506,6 +5886,8 @@ class Interfaces(Entity):
                 			**range:** 0..65535
                 
                 		**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -5531,7 +5913,8 @@ class Interfaces(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.Interface.RoutedVlan.State, [u'vlan'], name, value)
+                    self._perform_setattr(Interfaces.Interface.RoutedVlan.State, ['vlan'], name, value)
+
 
 
             class Ipv4(Entity):
@@ -5562,6 +5945,8 @@ class Interfaces(Entity):
                 
                 	Top level IPv4 operational state data
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.State>`
+                
+                	**config**\: False
                 
                 
 
@@ -5665,6 +6050,8 @@ class Interfaces(Entity):
                         	Operational state data for each IPv4 address configured on the interface
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.State>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrrp
                         
                         	Enclosing container for VRRP groups handled by this IP interface
@@ -5757,6 +6144,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Config, ['ip', 'prefix_length'], name, value)
 
 
+
                         class State(Entity):
                             """
                             Operational state data for each IPv4 address
@@ -5769,6 +6157,8 @@ class Interfaces(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: prefix_length
                             
                             	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
@@ -5776,10 +6166,14 @@ class Interfaces(Entity):
                             
                             	**range:** 0..32
                             
+                            	**config**\: False
+                            
                             .. attribute:: origin
                             
                             	The origin of this address, e.g., statically configured, assigned by DHCP, etc.
                             	**type**\:  :py:class:`IpAddressOrigin <ydk.models.openconfig.openconfig_if_ip.IpAddressOrigin>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -5810,6 +6204,7 @@ class Interfaces(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.State, ['ip', 'prefix_length', 'origin'], name, value)
+
 
 
                         class Vrrp(Entity):
@@ -5870,6 +6265,8 @@ class Interfaces(Entity):
                                 
                                 	Operational state data for the VRRP group
                                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.State>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: interface_tracking
                                 
@@ -6021,6 +6418,7 @@ class Interfaces(Entity):
                                         self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.Config, ['virtual_router_id', 'virtual_address', 'priority', 'preempt', 'preempt_delay', 'accept_mode', 'advertisement_interval'], name, value)
 
 
+
                                 class State(Entity):
                                     """
                                     Operational state data for the VRRP group
@@ -6031,6 +6429,8 @@ class Interfaces(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 1..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: virtual_address
                                     
@@ -6045,6 +6445,8 @@ class Interfaces(Entity):
                                     
                                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: priority
                                     
                                     	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
@@ -6052,12 +6454,16 @@ class Interfaces(Entity):
                                     
                                     	**range:** 1..254
                                     
+                                    	**config**\: False
+                                    
                                     	**default value**\: 100
                                     
                                     .. attribute:: preempt
                                     
                                     	When set to true, enables preemption by a higher priority backup router of a lower priority master router
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     	**default value**\: true
                                     
@@ -6068,12 +6474,16 @@ class Interfaces(Entity):
                                     
                                     	**range:** 0..3600
                                     
+                                    	**config**\: False
+                                    
                                     	**default value**\: 0
                                     
                                     .. attribute:: accept_mode
                                     
                                     	Configure whether packets destined for virtual addresses are accepted even when the virtual address is not owned by the router interface
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     	**default value**\: false
                                     
@@ -6083,6 +6493,8 @@ class Interfaces(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 1..4095
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: centiseconds
                                     
@@ -6094,6 +6506,8 @@ class Interfaces(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6136,6 +6550,7 @@ class Interfaces(Entity):
                                         self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.State, ['virtual_router_id', 'virtual_address', 'priority', 'preempt', 'preempt_delay', 'accept_mode', 'advertisement_interval', 'current_priority'], name, value)
 
 
+
                                 class InterfaceTracking(Entity):
                                     """
                                     Top\-level container for VRRP interface tracking
@@ -6149,6 +6564,8 @@ class Interfaces(Entity):
                                     
                                     	Operational state data for VRRP interface tracking
                                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6231,6 +6648,7 @@ class Interfaces(Entity):
                                             self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config, ['track_interface', 'priority_decrement'], name, value)
 
 
+
                                     class State(Entity):
                                         """
                                         Operational state data for VRRP interface tracking
@@ -6242,12 +6660,16 @@ class Interfaces(Entity):
                                         
                                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: priority_decrement
                                         
                                         	Set the value to subtract from priority when the tracked interface goes down
                                         	**type**\: int
                                         
                                         	**range:** 0..254
+                                        
+                                        	**config**\: False
                                         
                                         	**default value**\: 0
                                         
@@ -6278,6 +6700,12 @@ class Interfaces(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State, ['track_interface', 'priority_decrement'], name, value)
+
+
+
+
+
+
 
 
                 class Neighbors(Entity):
@@ -6341,6 +6769,8 @@ class Interfaces(Entity):
                         
                         	Operational state data for each IPv4 address configured on the interface
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Neighbors.Neighbor.State>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -6427,6 +6857,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Neighbors.Neighbor.Config, ['ip', 'link_layer_address'], name, value)
 
 
+
                         class State(Entity):
                             """
                             Operational state data for each IPv4 address
@@ -6439,6 +6870,8 @@ class Interfaces(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: link_layer_address
                             
                             	The link\-layer address of the neighbor node
@@ -6448,10 +6881,14 @@ class Interfaces(Entity):
                             
                             	**mandatory**\: True
                             
+                            	**config**\: False
+                            
                             .. attribute:: origin
                             
                             	The origin of this neighbor entry, static or dynamic
                             	**type**\:  :py:class:`NeighborOrigin <ydk.models.openconfig.openconfig_if_ip.NeighborOrigin>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -6484,6 +6921,9 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Neighbors.Neighbor.State, ['ip', 'link_layer_address', 'origin'], name, value)
 
 
+
+
+
                 class Unnumbered(Entity):
                     """
                     Top\-level container for setting unnumbered interfaces.
@@ -6499,6 +6939,8 @@ class Interfaces(Entity):
                     
                     	Operational state data for unnumbered interfaces
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.State>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_ref
                     
@@ -6579,6 +7021,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.Config, [u'enabled'], name, value)
 
 
+
                     class State(Entity):
                         """
                         Operational state data for unnumbered interfaces
@@ -6587,6 +7030,8 @@ class Interfaces(Entity):
                         
                         	Indicates that the subinterface is unnumbered.  By default the subinterface is numbered, i.e., expected to have an IP address configuration
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         	**default value**\: false
                         
@@ -6617,6 +7062,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.State, [u'enabled'], name, value)
 
 
+
                     class InterfaceRef(Entity):
                         """
                         Reference to an interface or subinterface
@@ -6630,6 +7076,8 @@ class Interfaces(Entity):
                         
                         	Operational state for interface\-ref
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.State>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -6712,6 +7160,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
 
 
+
                         class State(Entity):
                             """
                             Operational state for interface\-ref
@@ -6723,6 +7172,8 @@ class Interfaces(Entity):
                             
                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: subinterface
                             
                             	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
@@ -6731,6 +7182,8 @@ class Interfaces(Entity):
                             	**range:** 0..4294967295
                             
                             	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -6759,6 +7212,9 @@ class Interfaces(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Unnumbered.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+
+
+
 
 
                 class Config(Entity):
@@ -6810,6 +7266,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.Config, ['enabled', 'mtu'], name, value)
 
 
+
                 class State(Entity):
                     """
                     Top level IPv4 operational state data
@@ -6819,6 +7276,8 @@ class Interfaces(Entity):
                     	Controls whether IPv4 is enabled or disabled on this interface.  When IPv4 is enabled, this interface is connected to an IPv4 stack, and the interface can send and receive IPv4 packets
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     	**default value**\: true
                     
                     .. attribute:: mtu
@@ -6827,6 +7286,8 @@ class Interfaces(Entity):
                     	**type**\: int
                     
                     	**range:** 68..65535
+                    
+                    	**config**\: False
                     
                     	**units**\: octets
                     
@@ -6859,6 +7320,8 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv4.State, ['enabled', 'mtu'], name, value)
 
 
+
+
             class Ipv6(Entity):
                 """
                 Parameters for the IPv6 address family.
@@ -6887,6 +7350,8 @@ class Interfaces(Entity):
                 
                 	Top\-level operational state data for the IPv6 interface
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.State>`
+                
+                	**config**\: False
                 
                 
 
@@ -6990,6 +7455,8 @@ class Interfaces(Entity):
                         	State data for each IPv6 address on the interface
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.State>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrrp
                         
                         	Enclosing container for VRRP groups handled by this IP interface
@@ -7084,6 +7551,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Config, ['ip', 'prefix_length'], name, value)
 
 
+
                         class State(Entity):
                             """
                             State data for each IPv6 address on the
@@ -7096,6 +7564,8 @@ class Interfaces(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: prefix_length
                             
                             	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
@@ -7105,15 +7575,21 @@ class Interfaces(Entity):
                             
                             	**mandatory**\: True
                             
+                            	**config**\: False
+                            
                             .. attribute:: origin
                             
                             	[adapted from IETF IP model RFC 7277]  The origin of this address, e.g., static, dhcp, etc
                             	**type**\:  :py:class:`IpAddressOrigin <ydk.models.openconfig.openconfig_if_ip.IpAddressOrigin>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: status
                             
                             	[adapted from IETF IP model RFC 7277]  The status of an address.  Most of the states correspond to states from the IPv6 Stateless Address Autoconfiguration protocol
                             	**type**\:  :py:class:`Status <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.State.Status>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -7237,6 +7713,7 @@ class Interfaces(Entity):
 
 
 
+
                         class Vrrp(Entity):
                             """
                             Enclosing container for VRRP groups handled by this
@@ -7295,6 +7772,8 @@ class Interfaces(Entity):
                                 
                                 	Operational state data for the VRRP group
                                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.State>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: interface_tracking
                                 
@@ -7461,6 +7940,7 @@ class Interfaces(Entity):
                                         self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.Config, ['virtual_router_id', 'virtual_address', 'priority', 'preempt', 'preempt_delay', 'accept_mode', 'advertisement_interval', 'virtual_link_local'], name, value)
 
 
+
                                 class State(Entity):
                                     """
                                     Operational state data for the VRRP group
@@ -7471,6 +7951,8 @@ class Interfaces(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 1..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: virtual_address
                                     
@@ -7485,6 +7967,8 @@ class Interfaces(Entity):
                                     
                                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: priority
                                     
                                     	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
@@ -7492,12 +7976,16 @@ class Interfaces(Entity):
                                     
                                     	**range:** 1..254
                                     
+                                    	**config**\: False
+                                    
                                     	**default value**\: 100
                                     
                                     .. attribute:: preempt
                                     
                                     	When set to true, enables preemption by a higher priority backup router of a lower priority master router
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     	**default value**\: true
                                     
@@ -7508,12 +7996,16 @@ class Interfaces(Entity):
                                     
                                     	**range:** 0..3600
                                     
+                                    	**config**\: False
+                                    
                                     	**default value**\: 0
                                     
                                     .. attribute:: accept_mode
                                     
                                     	Configure whether packets destined for virtual addresses are accepted even when the virtual address is not owned by the router interface
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     	**default value**\: false
                                     
@@ -7523,6 +8015,8 @@ class Interfaces(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 1..4095
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: centiseconds
                                     
@@ -7534,6 +8028,8 @@ class Interfaces(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: virtual_link_local
                                     
@@ -7547,6 +8043,8 @@ class Interfaces(Entity):
                                     		**type**\: str
                                     
                                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7591,6 +8089,7 @@ class Interfaces(Entity):
                                         self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.State, ['virtual_router_id', 'virtual_address', 'priority', 'preempt', 'preempt_delay', 'accept_mode', 'advertisement_interval', 'current_priority', 'virtual_link_local'], name, value)
 
 
+
                                 class InterfaceTracking(Entity):
                                     """
                                     Top\-level container for VRRP interface tracking
@@ -7604,6 +8103,8 @@ class Interfaces(Entity):
                                     
                                     	Operational state data for VRRP interface tracking
                                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7686,6 +8187,7 @@ class Interfaces(Entity):
                                             self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.Config, ['track_interface', 'priority_decrement'], name, value)
 
 
+
                                     class State(Entity):
                                         """
                                         Operational state data for VRRP interface tracking
@@ -7697,12 +8199,16 @@ class Interfaces(Entity):
                                         
                                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: priority_decrement
                                         
                                         	Set the value to subtract from priority when the tracked interface goes down
                                         	**type**\: int
                                         
                                         	**range:** 0..254
+                                        
+                                        	**config**\: False
                                         
                                         	**default value**\: 0
                                         
@@ -7733,6 +8239,12 @@ class Interfaces(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Addresses.Address.Vrrp.VrrpGroup.InterfaceTracking.State, ['track_interface', 'priority_decrement'], name, value)
+
+
+
+
+
+
 
 
                 class Neighbors(Entity):
@@ -7792,6 +8304,8 @@ class Interfaces(Entity):
                         
                         	State data for each IPv6 address on the interface
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbors.Neighbor.State>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -7878,6 +8392,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Neighbors.Neighbor.Config, ['ip', 'link_layer_address'], name, value)
 
 
+
                         class State(Entity):
                             """
                             State data for each IPv6 address on the
@@ -7890,6 +8405,8 @@ class Interfaces(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: link_layer_address
                             
                             	[adapted from IETF IP model RFC 7277]  The link\-layer address of the neighbor node
@@ -7899,20 +8416,28 @@ class Interfaces(Entity):
                             
                             	**mandatory**\: True
                             
+                            	**config**\: False
+                            
                             .. attribute:: origin
                             
                             	[adapted from IETF IP model RFC 7277]  The origin of this neighbor entry
                             	**type**\:  :py:class:`NeighborOrigin <ydk.models.openconfig.openconfig_if_ip.NeighborOrigin>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_router
                             
                             	[adapted from IETF IP model RFC 7277]  Indicates that the neighbor node acts as a router
                             	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: neighbor_state
                             
                             	[adapted from IETF IP model RFC 7277]  The Neighbor Unreachability Detection state of this entry
                             	**type**\:  :py:class:`NeighborState <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbors.Neighbor.State.NeighborState>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -8016,6 +8541,9 @@ class Interfaces(Entity):
 
 
 
+
+
+
                 class Unnumbered(Entity):
                     """
                     Top\-level container for setting unnumbered interfaces.
@@ -8031,6 +8559,8 @@ class Interfaces(Entity):
                     
                     	Operational state data for unnumbered interfaces
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.State>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_ref
                     
@@ -8111,6 +8641,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.Config, [u'enabled'], name, value)
 
 
+
                     class State(Entity):
                         """
                         Operational state data for unnumbered interfaces
@@ -8119,6 +8650,8 @@ class Interfaces(Entity):
                         
                         	Indicates that the subinterface is unnumbered.  By default the subinterface is numbered, i.e., expected to have an IP address configuration
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         	**default value**\: false
                         
@@ -8149,6 +8682,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.State, [u'enabled'], name, value)
 
 
+
                     class InterfaceRef(Entity):
                         """
                         Reference to an interface or subinterface
@@ -8162,6 +8696,8 @@ class Interfaces(Entity):
                         
                         	Operational state for interface\-ref
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.State>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -8244,6 +8780,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
 
 
+
                         class State(Entity):
                             """
                             Operational state for interface\-ref
@@ -8255,6 +8792,8 @@ class Interfaces(Entity):
                             
                             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: subinterface
                             
                             	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
@@ -8263,6 +8802,8 @@ class Interfaces(Entity):
                             	**range:** 0..4294967295
                             
                             	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -8291,6 +8832,9 @@ class Interfaces(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Unnumbered.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+
+
+
 
 
                 class Config(Entity):
@@ -8353,6 +8897,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.Config, ['enabled', 'mtu', 'dup_addr_detect_transmits'], name, value)
 
 
+
                 class State(Entity):
                     """
                     Top\-level operational state data for the IPv6 interface
@@ -8361,6 +8906,8 @@ class Interfaces(Entity):
                     
                     	[adapted from IETF IP model RFC 7277]  Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     	**default value**\: true
                     
@@ -8371,6 +8918,8 @@ class Interfaces(Entity):
                     
                     	**range:** 1280..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: octets
                     
                     .. attribute:: dup_addr_detect_transmits
@@ -8379,6 +8928,8 @@ class Interfaces(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**default value**\: 1
                     
@@ -8413,6 +8964,9 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.Interface.RoutedVlan.Ipv6.State, ['enabled', 'mtu', 'dup_addr_detect_transmits'], name, value)
 
 
+
+
+
         class Sonet(Entity):
             """
             Data related to SONET/SDH interfaces
@@ -8437,7 +8991,11 @@ class Interfaces(Entity):
                 self._segment_path = lambda: "openconfig-transport-line-common:sonet"
                 self._is_frozen = True
 
+
+
     def clone_ptr(self):
         self._top_entity = Interfaces()
         return self._top_entity
+
+
 

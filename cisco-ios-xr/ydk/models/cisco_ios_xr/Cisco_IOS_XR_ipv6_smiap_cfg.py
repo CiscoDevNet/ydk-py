@@ -206,7 +206,12 @@ class Ipv6Virtual(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv6Virtual.Vrfs.Vrf.Address, ['address', 'prefix_length'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Ipv6Virtual()
         return self._top_entity
+
+
 

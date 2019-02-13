@@ -104,7 +104,10 @@ class Fpd(Entity):
             disable = Enum.YLeaf(1, "disable")
 
 
+
     def clone_ptr(self):
         self._top_entity = Fpd()
         return self._top_entity
+
+
 

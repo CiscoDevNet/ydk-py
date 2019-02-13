@@ -40,10 +40,14 @@ class HwModule(Entity):
     	
     	**type**\:  :py:class:`Oper <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_hw_module.HwModule.Oper>`
     
+    	**config**\: False
+    
     .. attribute:: shhwfpd
     
     	
     	**type**\:  :py:class:`Shhwfpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_hw_module.HwModule.Shhwfpd>`
+    
+    	**config**\: False
     
     
 
@@ -228,7 +232,9 @@ class HwModule(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HwModule.Config.Shutdown.Location, ['location'], name, value)
+                    self._perform_setattr(HwModule.Config.Shutdown.Location, [u'location'], name, value)
+
+
 
 
         class Reset(Entity):
@@ -381,7 +387,11 @@ class HwModule(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(HwModule.Config.Reset.Auto.Disable.Location, ['location'], name, value)
+                            self._perform_setattr(HwModule.Config.Reset.Auto.Disable.Location, [u'location'], name, value)
+
+
+
+
 
 
         class Offline(Entity):
@@ -458,7 +468,9 @@ class HwModule(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HwModule.Config.Offline.Location, ['location'], name, value)
+                    self._perform_setattr(HwModule.Config.Offline.Location, [u'location'], name, value)
+
+
 
 
         class AttentionLed(Entity):
@@ -535,7 +547,9 @@ class HwModule(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HwModule.Config.AttentionLed.Location, ['location'], name, value)
+                    self._perform_setattr(HwModule.Config.AttentionLed.Location, [u'location'], name, value)
+
+
 
 
         class Location(Entity):
@@ -581,7 +595,7 @@ class HwModule(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(HwModule.Config.Location, ['location'], name, value)
+                self._perform_setattr(HwModule.Config.Location, [u'location'], name, value)
 
 
             class Logging(Entity):
@@ -654,7 +668,11 @@ class HwModule(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(HwModule.Config.Location.Logging.Onboard, ['disable'], name, value)
+                        self._perform_setattr(HwModule.Config.Location.Logging.Onboard, [u'disable'], name, value)
+
+
+
+
 
 
     class Oper(Entity):
@@ -665,6 +683,8 @@ class HwModule(Entity):
         
         	
         	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_hw_module.HwModule.Oper.Location>`
+        
+        	**config**\: False
         
         
 
@@ -702,15 +722,21 @@ class HwModule(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: actions
             
             	
             	**type**\:  :py:class:`Actions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_hw_module.HwModule.Oper.Location.Actions>`
             
+            	**config**\: False
+            
             .. attribute:: show
             
             	
             	**type**\:  :py:class:`Show <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_hw_module.HwModule.Oper.Location.Show>`
+            
+            	**config**\: False
             
             
 
@@ -757,6 +783,8 @@ class HwModule(Entity):
                 	
                 	**type**\:  :py:class:`Cbootmedia <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_hw_module.HwModule.Oper.Location.Actions.Cbootmedia>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -794,6 +822,8 @@ class HwModule(Entity):
                     	
                     	**type**\: list of  		 :py:class:`Bootmedia <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_hw_module.HwModule.Oper.Location.Actions.Cbootmedia.Bootmedia>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -829,6 +859,8 @@ class HwModule(Entity):
                         	
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -853,7 +885,10 @@ class HwModule(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(HwModule.Oper.Location.Actions.Cbootmedia.Bootmedia, ['bootmedium'], name, value)
+                            self._perform_setattr(HwModule.Oper.Location.Actions.Cbootmedia.Bootmedia, [u'bootmedium'], name, value)
+
+
+
 
 
             class Show(Entity):
@@ -881,6 +916,9 @@ class HwModule(Entity):
                     self._is_frozen = True
 
 
+
+
+
     class Shhwfpd(Entity):
         """
         
@@ -890,10 +928,14 @@ class HwModule(Entity):
         	
         	**type**\: list of  		 :py:class:`Alocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_hw_module.HwModule.Shhwfpd.Alocation>`
         
+        	**config**\: False
+        
         .. attribute:: fpd
         
         	
         	**type**\: list of  		 :py:class:`Fpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_hw_module.HwModule.Shhwfpd.Fpd>`
+        
+        	**config**\: False
         
         
 
@@ -932,10 +974,14 @@ class HwModule(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: fpd
             
             	
             	**type**\: list of  		 :py:class:`Fpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_hw_module.HwModule.Shhwfpd.Alocation.Fpd>`
+            
+            	**config**\: False
             
             
 
@@ -964,7 +1010,7 @@ class HwModule(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(HwModule.Shhwfpd.Alocation, ['locs'], name, value)
+                self._perform_setattr(HwModule.Shhwfpd.Alocation, [u'locs'], name, value)
 
 
             class Fpd(Entity):
@@ -976,35 +1022,49 @@ class HwModule(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	Status
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: hwver
                 
                 	HWver
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: fpdver
                 
                 	FPD ver
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: cardname
                 
                 	Card type
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: attr
                 
                 	Attribute
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: fpddnld
                 
                 	FPD Programed
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1042,7 +1102,9 @@ class HwModule(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HwModule.Shhwfpd.Alocation.Fpd, ['fpdname', 'state', 'hwver', 'fpdver', 'cardname', 'attr', 'fpddnld'], name, value)
+                    self._perform_setattr(HwModule.Shhwfpd.Alocation.Fpd, [u'fpdname', u'state', u'hwver', u'fpdver', u'cardname', u'attr', u'fpddnld'], name, value)
+
+
 
 
         class Fpd(Entity):
@@ -1053,6 +1115,8 @@ class HwModule(Entity):
             
             	
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1079,9 +1143,13 @@ class HwModule(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(HwModule.Shhwfpd.Fpd, ['fpdname'], name, value)
+                self._perform_setattr(HwModule.Shhwfpd.Fpd, [u'fpdname'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = HwModule()
         return self._top_entity
+
+
 

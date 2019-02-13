@@ -28,6 +28,8 @@ class OSPFTRAPMIB(Entity):
     	
     	**type**\:  :py:class:`OspfTrapControl <ydk.models.cisco_ios_xe.OSPF_TRAP_MIB.OSPFTRAPMIB.OspfTrapControl>`
     
+    	**config**\: False
+    
     
 
     """
@@ -68,15 +70,21 @@ class OSPFTRAPMIB(Entity):
         
         	**length:** 4
         
+        	**config**\: False
+        
         .. attribute:: ospfconfigerrortype
         
         	Potential types of configuration conflicts. Used by the ospfConfigError and ospfConfigVirtError traps.  When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as noError
         	**type**\:  :py:class:`OspfConfigErrorType <ydk.models.cisco_ios_xe.OSPF_TRAP_MIB.OSPFTRAPMIB.OspfTrapControl.OspfConfigErrorType>`
         
+        	**config**\: False
+        
         .. attribute:: ospfpackettype
         
         	OSPF packet types.  When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as nullPacket
         	**type**\:  :py:class:`OspfPacketType <ydk.models.cisco_ios_xe.OSPF_TRAP_MIB.OSPFTRAPMIB.OspfTrapControl.OspfPacketType>`
+        
+        	**config**\: False
         
         .. attribute:: ospfpacketsrc
         
@@ -84,6 +92,8 @@ class OSPFTRAPMIB(Entity):
         	**type**\: str
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        	**config**\: False
         
         
 
@@ -230,7 +240,10 @@ class OSPFTRAPMIB(Entity):
             nullPacket = Enum.YLeaf(6, "nullPacket")
 
 
+
     def clone_ptr(self):
         self._top_entity = OSPFTRAPMIB()
         return self._top_entity
+
+
 

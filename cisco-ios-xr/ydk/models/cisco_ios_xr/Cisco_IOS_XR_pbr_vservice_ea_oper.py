@@ -88,6 +88,8 @@ class ServiceFunctionChaining(Entity):
     	Node\-specific NSH Service Function Chaining operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -127,6 +129,8 @@ class ServiceFunctionChaining(Entity):
         	NSH operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node>`
         
+        	**config**\: False
+        
         
 
         """
@@ -165,10 +169,14 @@ class ServiceFunctionChaining(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: process
             
             	Client Process
             	**type**\:  :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process>`
+            
+            	**config**\: False
             
             
 
@@ -211,15 +219,21 @@ class ServiceFunctionChaining(Entity):
                 	Service Function Path operational data
                 	**type**\:  :py:class:`ServiceFunctionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath>`
                 
+                	**config**\: False
+                
                 .. attribute:: service_function
                 
                 	Service Function operational data
                 	**type**\:  :py:class:`ServiceFunction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction>`
                 
+                	**config**\: False
+                
                 .. attribute:: service_function_forwarder
                 
                 	Service Function Forwarder operational data
                 	**type**\:  :py:class:`ServiceFunctionForwarder <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder>`
+                
+                	**config**\: False
                 
                 
 
@@ -266,6 +280,8 @@ class ServiceFunctionChaining(Entity):
                     	Service Function Path Id 
                     	**type**\:  :py:class:`PathIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -302,6 +318,8 @@ class ServiceFunctionChaining(Entity):
                         
                         	Specific Service\-Function\-Path identifier 
                         	**type**\: list of  		 :py:class:`PathId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -340,15 +358,21 @@ class ServiceFunctionChaining(Entity):
                             
                             	**range:** 1..16777215
                             
+                            	**config**\: False
+                            
                             .. attribute:: service_indexes
                             
                             	Service Index Belonging to Path
                             	**type**\:  :py:class:`ServiceIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: stats
                             
                             	SFP Statistics
                             	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -394,6 +418,8 @@ class ServiceFunctionChaining(Entity):
                                 	Service index operational data belonging to this path
                                 	**type**\: list of  		 :py:class:`ServiceIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -432,15 +458,21 @@ class ServiceFunctionChaining(Entity):
                                     
                                     	**range:** 1..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: data
                                     
                                     	Statistics data
                                     	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: si_arr
                                     
                                     	SI array in case of detail stats
                                     	**type**\: list of  		 :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -484,35 +516,49 @@ class ServiceFunctionChaining(Entity):
                                         	SFP stats
                                         	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: spi_si
                                         
                                         	SPI SI stats
                                         	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: term
                                         
                                         	Terminate stats
                                         	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sf
                                         
                                         	Service function stats
                                         	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: sff
                                         
                                         	Service function forwarder stats
                                         	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sff_local
                                         
                                         	Local service function forwarder stats
                                         	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: type
                                         
                                         	type
                                         	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStats>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -574,10 +620,14 @@ class ServiceFunctionChaining(Entity):
                                             	Service index counters
                                             	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: term
                                             
                                             	Terminate counters
                                             	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -622,12 +672,16 @@ class ServiceFunctionChaining(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: processed_bytes
                                                 
                                                 	Total bytes processed
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: byte
                                                 
@@ -660,6 +714,7 @@ class ServiceFunctionChaining(Entity):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                             class Term(Entity):
                                                 """
                                                 Terminate counters
@@ -671,12 +726,16 @@ class ServiceFunctionChaining(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: terminated_bytes
                                                 
                                                 	Total bytes terminated
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: byte
                                                 
@@ -709,6 +768,8 @@ class ServiceFunctionChaining(Entity):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
 
 
+
+
                                         class SpiSi(Entity):
                                             """
                                             SPI SI stats
@@ -720,12 +781,16 @@ class ServiceFunctionChaining(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: processed_bytes
                                             
                                             	Total bytes processed
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: byte
                                             
@@ -758,6 +823,7 @@ class ServiceFunctionChaining(Entity):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                         class Term(Entity):
                                             """
                                             Terminate stats
@@ -769,12 +835,16 @@ class ServiceFunctionChaining(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: terminated_bytes
                                             
                                             	Total bytes terminated
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: byte
                                             
@@ -807,6 +877,7 @@ class ServiceFunctionChaining(Entity):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
 
 
+
                                         class Sf(Entity):
                                             """
                                             Service function stats
@@ -818,12 +889,16 @@ class ServiceFunctionChaining(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: processed_bytes
                                             
                                             	Total bytes processed
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: byte
                                             
@@ -856,6 +931,7 @@ class ServiceFunctionChaining(Entity):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                         class Sff(Entity):
                                             """
                                             Service function forwarder stats
@@ -867,12 +943,16 @@ class ServiceFunctionChaining(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: processed_bytes
                                             
                                             	Total bytes processed
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: byte
                                             
@@ -905,6 +985,7 @@ class ServiceFunctionChaining(Entity):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                         class SffLocal(Entity):
                                             """
                                             Local service function forwarder stats
@@ -916,6 +997,8 @@ class ServiceFunctionChaining(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: lookup_err_pkts
                                             
                                             	Number of packets with unknown spi\-si
@@ -923,12 +1006,16 @@ class ServiceFunctionChaining(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: malformed_err_bytes
                                             
                                             	Total bytes with invalid NSH header
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: byte
                                             
@@ -938,6 +1025,8 @@ class ServiceFunctionChaining(Entity):
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: byte
                                             
@@ -974,6 +1063,8 @@ class ServiceFunctionChaining(Entity):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
 
 
+
+
                                     class SiArr(Entity):
                                         """
                                         SI array in case of detail stats
@@ -983,12 +1074,16 @@ class ServiceFunctionChaining(Entity):
                                         	Stats counter for this index
                                         	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: si
                                         
                                         	Service index
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1030,15 +1125,21 @@ class ServiceFunctionChaining(Entity):
                                             	SF/SFF stats
                                             	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: term
                                             
                                             	Terminate stats
                                             	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: type
                                             
                                             	type
                                             	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStats>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1086,12 +1187,16 @@ class ServiceFunctionChaining(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: processed_bytes
                                                 
                                                 	Total bytes processed
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: byte
                                                 
@@ -1124,6 +1229,7 @@ class ServiceFunctionChaining(Entity):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                             class Term(Entity):
                                                 """
                                                 Terminate stats
@@ -1135,12 +1241,16 @@ class ServiceFunctionChaining(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: terminated_bytes
                                                 
                                                 	Total bytes terminated
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: byte
                                                 
@@ -1173,6 +1283,11 @@ class ServiceFunctionChaining(Entity):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
 
 
+
+
+
+
+
                             class Stats(Entity):
                                 """
                                 SFP Statistics
@@ -1182,10 +1297,14 @@ class ServiceFunctionChaining(Entity):
                                 	Detail statistics per service index 
                                 	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: summarized
                                 
                                 	Combined statistics of all service index in service functionpath
                                 	**type**\:  :py:class:`Summarized <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1228,10 +1347,14 @@ class ServiceFunctionChaining(Entity):
                                     	Statistics data
                                     	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: si_arr
                                     
                                     	SI array in case of detail stats
                                     	**type**\: list of  		 :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1272,35 +1395,49 @@ class ServiceFunctionChaining(Entity):
                                         	SFP stats
                                         	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: spi_si
                                         
                                         	SPI SI stats
                                         	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: term
                                         
                                         	Terminate stats
                                         	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sf
                                         
                                         	Service function stats
                                         	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: sff
                                         
                                         	Service function forwarder stats
                                         	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sff_local
                                         
                                         	Local service function forwarder stats
                                         	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: type
                                         
                                         	type
                                         	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStats>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1362,10 +1499,14 @@ class ServiceFunctionChaining(Entity):
                                             	Service index counters
                                             	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: term
                                             
                                             	Terminate counters
                                             	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1410,12 +1551,16 @@ class ServiceFunctionChaining(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: processed_bytes
                                                 
                                                 	Total bytes processed
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: byte
                                                 
@@ -1448,6 +1593,7 @@ class ServiceFunctionChaining(Entity):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                             class Term(Entity):
                                                 """
                                                 Terminate counters
@@ -1459,12 +1605,16 @@ class ServiceFunctionChaining(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: terminated_bytes
                                                 
                                                 	Total bytes terminated
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: byte
                                                 
@@ -1497,6 +1647,8 @@ class ServiceFunctionChaining(Entity):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
 
 
+
+
                                         class SpiSi(Entity):
                                             """
                                             SPI SI stats
@@ -1508,12 +1660,16 @@ class ServiceFunctionChaining(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: processed_bytes
                                             
                                             	Total bytes processed
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: byte
                                             
@@ -1546,6 +1702,7 @@ class ServiceFunctionChaining(Entity):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                         class Term(Entity):
                                             """
                                             Terminate stats
@@ -1557,12 +1714,16 @@ class ServiceFunctionChaining(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: terminated_bytes
                                             
                                             	Total bytes terminated
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: byte
                                             
@@ -1595,6 +1756,7 @@ class ServiceFunctionChaining(Entity):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
 
 
+
                                         class Sf(Entity):
                                             """
                                             Service function stats
@@ -1606,12 +1768,16 @@ class ServiceFunctionChaining(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: processed_bytes
                                             
                                             	Total bytes processed
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: byte
                                             
@@ -1644,6 +1810,7 @@ class ServiceFunctionChaining(Entity):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                         class Sff(Entity):
                                             """
                                             Service function forwarder stats
@@ -1655,12 +1822,16 @@ class ServiceFunctionChaining(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: processed_bytes
                                             
                                             	Total bytes processed
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: byte
                                             
@@ -1693,6 +1864,7 @@ class ServiceFunctionChaining(Entity):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                         class SffLocal(Entity):
                                             """
                                             Local service function forwarder stats
@@ -1704,6 +1876,8 @@ class ServiceFunctionChaining(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: lookup_err_pkts
                                             
                                             	Number of packets with unknown spi\-si
@@ -1711,12 +1885,16 @@ class ServiceFunctionChaining(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: malformed_err_bytes
                                             
                                             	Total bytes with invalid NSH header
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: byte
                                             
@@ -1726,6 +1904,8 @@ class ServiceFunctionChaining(Entity):
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: byte
                                             
@@ -1762,6 +1942,8 @@ class ServiceFunctionChaining(Entity):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
 
 
+
+
                                     class SiArr(Entity):
                                         """
                                         SI array in case of detail stats
@@ -1771,12 +1953,16 @@ class ServiceFunctionChaining(Entity):
                                         	Stats counter for this index
                                         	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: si
                                         
                                         	Service index
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1818,15 +2004,21 @@ class ServiceFunctionChaining(Entity):
                                             	SF/SFF stats
                                             	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: term
                                             
                                             	Terminate stats
                                             	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: type
                                             
                                             	type
                                             	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStats>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1874,12 +2066,16 @@ class ServiceFunctionChaining(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: processed_bytes
                                                 
                                                 	Total bytes processed
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: byte
                                                 
@@ -1912,6 +2108,7 @@ class ServiceFunctionChaining(Entity):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                             class Term(Entity):
                                                 """
                                                 Terminate stats
@@ -1923,12 +2120,16 @@ class ServiceFunctionChaining(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: terminated_bytes
                                                 
                                                 	Total bytes terminated
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: byte
                                                 
@@ -1961,6 +2162,10 @@ class ServiceFunctionChaining(Entity):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
 
 
+
+
+
+
                                 class Summarized(Entity):
                                     """
                                     Combined statistics of all service index
@@ -1971,10 +2176,14 @@ class ServiceFunctionChaining(Entity):
                                     	Statistics data
                                     	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: si_arr
                                     
                                     	SI array in case of detail stats
                                     	**type**\: list of  		 :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2015,35 +2224,49 @@ class ServiceFunctionChaining(Entity):
                                         	SFP stats
                                         	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: spi_si
                                         
                                         	SPI SI stats
                                         	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: term
                                         
                                         	Terminate stats
                                         	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sf
                                         
                                         	Service function stats
                                         	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: sff
                                         
                                         	Service function forwarder stats
                                         	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sff_local
                                         
                                         	Local service function forwarder stats
                                         	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: type
                                         
                                         	type
                                         	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStats>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2105,10 +2328,14 @@ class ServiceFunctionChaining(Entity):
                                             	Service index counters
                                             	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: term
                                             
                                             	Terminate counters
                                             	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -2153,12 +2380,16 @@ class ServiceFunctionChaining(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: processed_bytes
                                                 
                                                 	Total bytes processed
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: byte
                                                 
@@ -2191,6 +2422,7 @@ class ServiceFunctionChaining(Entity):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                             class Term(Entity):
                                                 """
                                                 Terminate counters
@@ -2202,12 +2434,16 @@ class ServiceFunctionChaining(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: terminated_bytes
                                                 
                                                 	Total bytes terminated
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: byte
                                                 
@@ -2240,6 +2476,8 @@ class ServiceFunctionChaining(Entity):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
 
 
+
+
                                         class SpiSi(Entity):
                                             """
                                             SPI SI stats
@@ -2251,12 +2489,16 @@ class ServiceFunctionChaining(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: processed_bytes
                                             
                                             	Total bytes processed
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: byte
                                             
@@ -2289,6 +2531,7 @@ class ServiceFunctionChaining(Entity):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                         class Term(Entity):
                                             """
                                             Terminate stats
@@ -2300,12 +2543,16 @@ class ServiceFunctionChaining(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: terminated_bytes
                                             
                                             	Total bytes terminated
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: byte
                                             
@@ -2338,6 +2585,7 @@ class ServiceFunctionChaining(Entity):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
 
 
+
                                         class Sf(Entity):
                                             """
                                             Service function stats
@@ -2349,12 +2597,16 @@ class ServiceFunctionChaining(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: processed_bytes
                                             
                                             	Total bytes processed
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: byte
                                             
@@ -2387,6 +2639,7 @@ class ServiceFunctionChaining(Entity):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                         class Sff(Entity):
                                             """
                                             Service function forwarder stats
@@ -2398,12 +2651,16 @@ class ServiceFunctionChaining(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: processed_bytes
                                             
                                             	Total bytes processed
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: byte
                                             
@@ -2436,6 +2693,7 @@ class ServiceFunctionChaining(Entity):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                         class SffLocal(Entity):
                                             """
                                             Local service function forwarder stats
@@ -2447,6 +2705,8 @@ class ServiceFunctionChaining(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: lookup_err_pkts
                                             
                                             	Number of packets with unknown spi\-si
@@ -2454,12 +2714,16 @@ class ServiceFunctionChaining(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: malformed_err_bytes
                                             
                                             	Total bytes with invalid NSH header
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: byte
                                             
@@ -2469,6 +2733,8 @@ class ServiceFunctionChaining(Entity):
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: byte
                                             
@@ -2505,6 +2771,8 @@ class ServiceFunctionChaining(Entity):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
 
 
+
+
                                     class SiArr(Entity):
                                         """
                                         SI array in case of detail stats
@@ -2514,12 +2782,16 @@ class ServiceFunctionChaining(Entity):
                                         	Stats counter for this index
                                         	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: si
                                         
                                         	Service index
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2561,15 +2833,21 @@ class ServiceFunctionChaining(Entity):
                                             	SF/SFF stats
                                             	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: term
                                             
                                             	Terminate stats
                                             	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: type
                                             
                                             	type
                                             	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStats>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -2617,12 +2895,16 @@ class ServiceFunctionChaining(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: processed_bytes
                                                 
                                                 	Total bytes processed
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: byte
                                                 
@@ -2655,6 +2937,7 @@ class ServiceFunctionChaining(Entity):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                             class Term(Entity):
                                                 """
                                                 Terminate stats
@@ -2666,12 +2949,16 @@ class ServiceFunctionChaining(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: terminated_bytes
                                                 
                                                 	Total bytes terminated
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: byte
                                                 
@@ -2704,6 +2991,14 @@ class ServiceFunctionChaining(Entity):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
 
 
+
+
+
+
+
+
+
+
                 class ServiceFunction(Entity):
                     """
                     Service Function operational data
@@ -2712,6 +3007,8 @@ class ServiceFunctionChaining(Entity):
                     
                     	List of Service Function Names
                     	**type**\:  :py:class:`SfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2750,6 +3047,8 @@ class ServiceFunctionChaining(Entity):
                         	Name of Service Function
                         	**type**\: list of  		 :py:class:`SfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -2787,15 +3086,21 @@ class ServiceFunctionChaining(Entity):
                             
                             	**length:** 1..32
                             
+                            	**config**\: False
+                            
                             .. attribute:: data
                             
                             	Statistics data
                             	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: si_arr
                             
                             	SI array in case of detail stats
                             	**type**\: list of  		 :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2839,35 +3144,49 @@ class ServiceFunctionChaining(Entity):
                                 	SFP stats
                                 	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sfp>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: spi_si
                                 
                                 	SPI SI stats
                                 	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.SpiSi>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: term
                                 
                                 	Terminate stats
                                 	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Term>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sf
                                 
                                 	Service function stats
                                 	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sf>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: sff
                                 
                                 	Service function forwarder stats
                                 	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sff>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sff_local
                                 
                                 	Local service function forwarder stats
                                 	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.SffLocal>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	type
                                 	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStats>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2929,10 +3248,14 @@ class ServiceFunctionChaining(Entity):
                                     	Service index counters
                                     	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: term
                                     
                                     	Terminate counters
                                     	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sfp.Term>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2977,12 +3300,16 @@ class ServiceFunctionChaining(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: processed_bytes
                                         
                                         	Total bytes processed
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -3015,6 +3342,7 @@ class ServiceFunctionChaining(Entity):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                     class Term(Entity):
                                         """
                                         Terminate counters
@@ -3026,12 +3354,16 @@ class ServiceFunctionChaining(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: terminated_bytes
                                         
                                         	Total bytes terminated
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -3064,6 +3396,8 @@ class ServiceFunctionChaining(Entity):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
 
 
+
+
                                 class SpiSi(Entity):
                                     """
                                     SPI SI stats
@@ -3075,12 +3409,16 @@ class ServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -3113,6 +3451,7 @@ class ServiceFunctionChaining(Entity):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                 class Term(Entity):
                                     """
                                     Terminate stats
@@ -3124,12 +3463,16 @@ class ServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: terminated_bytes
                                     
                                     	Total bytes terminated
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -3162,6 +3505,7 @@ class ServiceFunctionChaining(Entity):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
 
 
+
                                 class Sf(Entity):
                                     """
                                     Service function stats
@@ -3173,12 +3517,16 @@ class ServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -3211,6 +3559,7 @@ class ServiceFunctionChaining(Entity):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                 class Sff(Entity):
                                     """
                                     Service function forwarder stats
@@ -3222,12 +3571,16 @@ class ServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -3260,6 +3613,7 @@ class ServiceFunctionChaining(Entity):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                 class SffLocal(Entity):
                                     """
                                     Local service function forwarder stats
@@ -3271,6 +3625,8 @@ class ServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lookup_err_pkts
                                     
                                     	Number of packets with unknown spi\-si
@@ -3278,12 +3634,16 @@ class ServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: malformed_err_bytes
                                     
                                     	Total bytes with invalid NSH header
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -3293,6 +3653,8 @@ class ServiceFunctionChaining(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -3329,6 +3691,8 @@ class ServiceFunctionChaining(Entity):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
 
 
+
+
                             class SiArr(Entity):
                                 """
                                 SI array in case of detail stats
@@ -3338,12 +3702,16 @@ class ServiceFunctionChaining(Entity):
                                 	Stats counter for this index
                                 	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr.Data>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: si
                                 
                                 	Service index
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3385,15 +3753,21 @@ class ServiceFunctionChaining(Entity):
                                     	SF/SFF stats
                                     	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: term
                                     
                                     	Terminate stats
                                     	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr.Data.Term>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: type
                                     
                                     	type
                                     	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStats>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3441,12 +3815,16 @@ class ServiceFunctionChaining(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: processed_bytes
                                         
                                         	Total bytes processed
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -3479,6 +3857,7 @@ class ServiceFunctionChaining(Entity):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                     class Term(Entity):
                                         """
                                         Terminate stats
@@ -3490,12 +3869,16 @@ class ServiceFunctionChaining(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: terminated_bytes
                                         
                                         	Total bytes terminated
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -3528,6 +3911,12 @@ class ServiceFunctionChaining(Entity):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
 
 
+
+
+
+
+
+
                 class ServiceFunctionForwarder(Entity):
                     """
                     Service Function Forwarder operational data
@@ -3537,10 +3926,14 @@ class ServiceFunctionChaining(Entity):
                     	Local Service Function Forwarder operational data
                     	**type**\:  :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sff_names
                     
                     	List of Service Function Forwarder Names
                     	**type**\:  :py:class:`SffNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3584,6 +3977,8 @@ class ServiceFunctionChaining(Entity):
                         	Error Statistics for local service function forwarder
                         	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -3622,10 +4017,14 @@ class ServiceFunctionChaining(Entity):
                             	Statistics data
                             	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: si_arr
                             
                             	SI array in case of detail stats
                             	**type**\: list of  		 :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -3666,35 +4065,49 @@ class ServiceFunctionChaining(Entity):
                                 	SFP stats
                                 	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sfp>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: spi_si
                                 
                                 	SPI SI stats
                                 	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.SpiSi>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: term
                                 
                                 	Terminate stats
                                 	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Term>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sf
                                 
                                 	Service function stats
                                 	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sf>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: sff
                                 
                                 	Service function forwarder stats
                                 	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sff>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sff_local
                                 
                                 	Local service function forwarder stats
                                 	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.SffLocal>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	type
                                 	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStats>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3756,10 +4169,14 @@ class ServiceFunctionChaining(Entity):
                                     	Service index counters
                                     	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: term
                                     
                                     	Terminate counters
                                     	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3804,12 +4221,16 @@ class ServiceFunctionChaining(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: processed_bytes
                                         
                                         	Total bytes processed
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -3842,6 +4263,7 @@ class ServiceFunctionChaining(Entity):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                     class Term(Entity):
                                         """
                                         Terminate counters
@@ -3853,12 +4275,16 @@ class ServiceFunctionChaining(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: terminated_bytes
                                         
                                         	Total bytes terminated
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -3891,6 +4317,8 @@ class ServiceFunctionChaining(Entity):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
 
 
+
+
                                 class SpiSi(Entity):
                                     """
                                     SPI SI stats
@@ -3902,12 +4330,16 @@ class ServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -3940,6 +4372,7 @@ class ServiceFunctionChaining(Entity):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                 class Term(Entity):
                                     """
                                     Terminate stats
@@ -3951,12 +4384,16 @@ class ServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: terminated_bytes
                                     
                                     	Total bytes terminated
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -3989,6 +4426,7 @@ class ServiceFunctionChaining(Entity):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
 
 
+
                                 class Sf(Entity):
                                     """
                                     Service function stats
@@ -4000,12 +4438,16 @@ class ServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -4038,6 +4480,7 @@ class ServiceFunctionChaining(Entity):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                 class Sff(Entity):
                                     """
                                     Service function forwarder stats
@@ -4049,12 +4492,16 @@ class ServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -4087,6 +4534,7 @@ class ServiceFunctionChaining(Entity):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                 class SffLocal(Entity):
                                     """
                                     Local service function forwarder stats
@@ -4098,6 +4546,8 @@ class ServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lookup_err_pkts
                                     
                                     	Number of packets with unknown spi\-si
@@ -4105,12 +4555,16 @@ class ServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: malformed_err_bytes
                                     
                                     	Total bytes with invalid NSH header
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -4120,6 +4574,8 @@ class ServiceFunctionChaining(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -4156,6 +4612,8 @@ class ServiceFunctionChaining(Entity):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
 
 
+
+
                             class SiArr(Entity):
                                 """
                                 SI array in case of detail stats
@@ -4165,12 +4623,16 @@ class ServiceFunctionChaining(Entity):
                                 	Stats counter for this index
                                 	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr.Data>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: si
                                 
                                 	Service index
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4212,15 +4674,21 @@ class ServiceFunctionChaining(Entity):
                                     	SF/SFF stats
                                     	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: term
                                     
                                     	Terminate stats
                                     	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: type
                                     
                                     	type
                                     	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStats>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4268,12 +4736,16 @@ class ServiceFunctionChaining(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: processed_bytes
                                         
                                         	Total bytes processed
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -4306,6 +4778,7 @@ class ServiceFunctionChaining(Entity):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                     class Term(Entity):
                                         """
                                         Terminate stats
@@ -4317,12 +4790,16 @@ class ServiceFunctionChaining(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: terminated_bytes
                                         
                                         	Total bytes terminated
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -4355,6 +4832,11 @@ class ServiceFunctionChaining(Entity):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
 
 
+
+
+
+
+
                     class SffNames(Entity):
                         """
                         List of Service Function Forwarder Names
@@ -4363,6 +4845,8 @@ class ServiceFunctionChaining(Entity):
                         
                         	Name of Service Function Forwarder
                         	**type**\: list of  		 :py:class:`SffName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -4401,15 +4885,21 @@ class ServiceFunctionChaining(Entity):
                             
                             	**length:** 1..32
                             
+                            	**config**\: False
+                            
                             .. attribute:: data
                             
                             	Statistics data
                             	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: si_arr
                             
                             	SI array in case of detail stats
                             	**type**\: list of  		 :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -4453,35 +4943,49 @@ class ServiceFunctionChaining(Entity):
                                 	SFP stats
                                 	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: spi_si
                                 
                                 	SPI SI stats
                                 	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: term
                                 
                                 	Terminate stats
                                 	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Term>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sf
                                 
                                 	Service function stats
                                 	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sf>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: sff
                                 
                                 	Service function forwarder stats
                                 	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sff>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sff_local
                                 
                                 	Local service function forwarder stats
                                 	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	type
                                 	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStats>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4543,10 +5047,14 @@ class ServiceFunctionChaining(Entity):
                                     	Service index counters
                                     	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: term
                                     
                                     	Terminate counters
                                     	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4591,12 +5099,16 @@ class ServiceFunctionChaining(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: processed_bytes
                                         
                                         	Total bytes processed
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -4629,6 +5141,7 @@ class ServiceFunctionChaining(Entity):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                     class Term(Entity):
                                         """
                                         Terminate counters
@@ -4640,12 +5153,16 @@ class ServiceFunctionChaining(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: terminated_bytes
                                         
                                         	Total bytes terminated
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -4678,6 +5195,8 @@ class ServiceFunctionChaining(Entity):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
 
 
+
+
                                 class SpiSi(Entity):
                                     """
                                     SPI SI stats
@@ -4689,12 +5208,16 @@ class ServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -4727,6 +5250,7 @@ class ServiceFunctionChaining(Entity):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                 class Term(Entity):
                                     """
                                     Terminate stats
@@ -4738,12 +5262,16 @@ class ServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: terminated_bytes
                                     
                                     	Total bytes terminated
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -4776,6 +5304,7 @@ class ServiceFunctionChaining(Entity):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
 
 
+
                                 class Sf(Entity):
                                     """
                                     Service function stats
@@ -4787,12 +5316,16 @@ class ServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -4825,6 +5358,7 @@ class ServiceFunctionChaining(Entity):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                 class Sff(Entity):
                                     """
                                     Service function forwarder stats
@@ -4836,12 +5370,16 @@ class ServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: processed_bytes
                                     
                                     	Total bytes processed
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -4874,6 +5412,7 @@ class ServiceFunctionChaining(Entity):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                 class SffLocal(Entity):
                                     """
                                     Local service function forwarder stats
@@ -4885,6 +5424,8 @@ class ServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lookup_err_pkts
                                     
                                     	Number of packets with unknown spi\-si
@@ -4892,12 +5433,16 @@ class ServiceFunctionChaining(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: malformed_err_bytes
                                     
                                     	Total bytes with invalid NSH header
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -4907,6 +5452,8 @@ class ServiceFunctionChaining(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -4943,6 +5490,8 @@ class ServiceFunctionChaining(Entity):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
 
 
+
+
                             class SiArr(Entity):
                                 """
                                 SI array in case of detail stats
@@ -4952,12 +5501,16 @@ class ServiceFunctionChaining(Entity):
                                 	Stats counter for this index
                                 	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: si
                                 
                                 	Service index
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4999,15 +5552,21 @@ class ServiceFunctionChaining(Entity):
                                     	SF/SFF stats
                                     	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: term
                                     
                                     	Terminate stats
                                     	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: type
                                     
                                     	type
                                     	**type**\:  :py:class:`VsNshStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStats>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5055,12 +5614,16 @@ class ServiceFunctionChaining(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: processed_bytes
                                         
                                         	Total bytes processed
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -5093,6 +5656,7 @@ class ServiceFunctionChaining(Entity):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
 
 
+
                                     class Term(Entity):
                                         """
                                         Terminate stats
@@ -5104,12 +5668,16 @@ class ServiceFunctionChaining(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: terminated_bytes
                                         
                                         	Total bytes terminated
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -5141,7 +5709,18 @@ class ServiceFunctionChaining(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
 
+
+
+
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = ServiceFunctionChaining()
         return self._top_entity
+
+
 

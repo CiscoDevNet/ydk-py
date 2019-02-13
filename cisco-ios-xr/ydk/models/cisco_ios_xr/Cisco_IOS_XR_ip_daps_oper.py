@@ -117,6 +117,8 @@ class AddressPoolService(Entity):
     	Pool operational data for a particular location
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -154,6 +156,8 @@ class AddressPoolService(Entity):
         
         	Location. For eg., 0/1/CPU0
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -193,20 +197,28 @@ class AddressPoolService(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: pools
             
             	List of IPv4/IPv6 pool data
             	**type**\:  :py:class:`Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools>`
+            
+            	**config**\: False
             
             .. attribute:: total_utilization
             
             	Show total utilization for pool
             	**type**\:  :py:class:`TotalUtilization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.TotalUtilization>`
             
+            	**config**\: False
+            
             .. attribute:: vrfs
             
             	Pool VRF data
             	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs>`
+            
+            	**config**\: False
             
             
 
@@ -257,6 +269,8 @@ class AddressPoolService(Entity):
                 	Pool data by pool name
                 	**type**\: list of  		 :py:class:`Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -294,20 +308,28 @@ class AddressPoolService(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: address_ranges
                     
                     	Summary info for pool
                     	**type**\:  :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: allocated_addresses
                     
                     	Detailed info for the Pool
                     	**type**\:  :py:class:`AllocatedAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: configuration
                     
                     	Configuration info for pool
                     	**type**\:  :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.Configuration>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -357,6 +379,8 @@ class AddressPoolService(Entity):
                         	Start Address of the Range
                         	**type**\: list of  		 :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -400,20 +424,28 @@ class AddressPoolService(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: start_address_xr
                             
                             	Range start
                             	**type**\:  :py:class:`StartAddressXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: end_address
                             
                             	Range end
                             	**type**\:  :py:class:`EndAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: default_router
                             
                             	Default router
                             	**type**\:  :py:class:`DefaultRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: pool_name
                             
@@ -422,12 +454,16 @@ class AddressPoolService(Entity):
                             
                             	**length:** 0..64
                             
+                            	**config**\: False
+                            
                             .. attribute:: vrf_name
                             
                             	VRF name
                             	**type**\: str
                             
                             	**length:** 0..64
+                            
+                            	**config**\: False
                             
                             .. attribute:: pool_scope
                             
@@ -436,12 +472,16 @@ class AddressPoolService(Entity):
                             
                             	**length:** 0..64
                             
+                            	**config**\: False
+                            
                             .. attribute:: allocated_addresses
                             
                             	Number of addresses allocated
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: free_addresses
                             
@@ -450,12 +490,16 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: excluded_addresses
                             
                             	Number of addresses excluded
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: network_blocked_status
                             
@@ -464,12 +508,16 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: network_blocked_status_trp
                             
                             	Is network blocked trap send
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -523,7 +571,7 @@ class AddressPoolService(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange, ['start_address', 'pool_name', 'vrf_name', 'pool_scope', 'allocated_addresses', 'free_addresses', 'excluded_addresses', 'network_blocked_status', 'network_blocked_status_trp'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange, ['start_address', u'pool_name', u'vrf_name', u'pool_scope', u'allocated_addresses', u'free_addresses', u'excluded_addresses', u'network_blocked_status', u'network_blocked_status_trp'], name, value)
 
 
                             class StartAddressXr(Entity):
@@ -534,6 +582,8 @@ class AddressPoolService(Entity):
                                 
                                 	Address
                                 	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr.Address>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -572,6 +622,8 @@ class AddressPoolService(Entity):
                                     	AddressFamily
                                     	**type**\:  :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 address
@@ -579,12 +631,16 @@ class AddressPoolService(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 address
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -614,7 +670,9 @@ class AddressPoolService(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr.Address, [u'address_family', u'ipv4_address', u'ipv6_address'], name, value)
+
+
 
 
                             class EndAddress(Entity):
@@ -625,6 +683,8 @@ class AddressPoolService(Entity):
                                 
                                 	Address
                                 	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -663,6 +723,8 @@ class AddressPoolService(Entity):
                                     	AddressFamily
                                     	**type**\:  :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 address
@@ -670,12 +732,16 @@ class AddressPoolService(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 address
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -705,7 +771,9 @@ class AddressPoolService(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address, [u'address_family', u'ipv4_address', u'ipv6_address'], name, value)
+
+
 
 
                             class DefaultRouter(Entity):
@@ -716,6 +784,8 @@ class AddressPoolService(Entity):
                                 
                                 	Address
                                 	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -754,6 +824,8 @@ class AddressPoolService(Entity):
                                     	AddressFamily
                                     	**type**\:  :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 address
@@ -761,12 +833,16 @@ class AddressPoolService(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 address
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -796,7 +872,11 @@ class AddressPoolService(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address, [u'address_family', u'ipv4_address', u'ipv6_address'], name, value)
+
+
+
+
 
 
                     class AllocatedAddresses(Entity):
@@ -808,15 +888,21 @@ class AddressPoolService(Entity):
                         	Pool allocations
                         	**type**\:  :py:class:`PoolAllocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: address_range
                         
                         	Address ranges
                         	**type**\: list of  		 :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_use_address
                         
                         	In\-use addresses
                         	**type**\: list of  		 :py:class:`InUseAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -858,10 +944,14 @@ class AddressPoolService(Entity):
                             	High threshold data
                             	**type**\:  :py:class:`HighThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: low_threshold
                             
                             	Low threshold data
                             	**type**\:  :py:class:`LowThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: vrf_name
                             
@@ -870,12 +960,16 @@ class AddressPoolService(Entity):
                             
                             	**length:** 0..64
                             
+                            	**config**\: False
+                            
                             .. attribute:: used
                             
                             	Used allocations
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: excluded
                             
@@ -884,12 +978,16 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: free
                             
                             	Free allocations
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: total
                             
@@ -898,12 +996,16 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: utilization
                             
                             	Current utilization in percentage
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: percentage
                             
@@ -949,7 +1051,7 @@ class AddressPoolService(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations, ['vrf_name', 'used', 'excluded', 'free', 'total', 'utilization'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations, [u'vrf_name', u'used', u'excluded', u'free', u'total', u'utilization'], name, value)
 
 
                             class HighThreshold(Entity):
@@ -963,6 +1065,8 @@ class AddressPoolService(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 	**units**\: percentage
                                 
                                 .. attribute:: triggers
@@ -972,10 +1076,14 @@ class AddressPoolService(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: time_last_crossed
                                 
                                 	Last time at which threshold crossed in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1005,7 +1113,8 @@ class AddressPoolService(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold, ['threshold', 'triggers', 'time_last_crossed'], name, value)
+                                    self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold, [u'threshold', u'triggers', u'time_last_crossed'], name, value)
+
 
 
                             class LowThreshold(Entity):
@@ -1019,6 +1128,8 @@ class AddressPoolService(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 	**units**\: percentage
                                 
                                 .. attribute:: triggers
@@ -1028,10 +1139,14 @@ class AddressPoolService(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: time_last_crossed
                                 
                                 	Last time at which threshold crossed in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1061,7 +1176,9 @@ class AddressPoolService(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold, ['threshold', 'triggers', 'time_last_crossed'], name, value)
+                                    self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold, [u'threshold', u'triggers', u'time_last_crossed'], name, value)
+
+
 
 
                         class AddressRange(Entity):
@@ -1073,10 +1190,14 @@ class AddressPoolService(Entity):
                             	Range start
                             	**type**\:  :py:class:`StartAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: end_address
                             
                             	Range end
                             	**type**\:  :py:class:`EndAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: used
                             
@@ -1085,6 +1206,8 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: excluded
                             
                             	Excluded allocations
@@ -1092,12 +1215,16 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: free
                             
                             	Free allocations
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1135,7 +1262,7 @@ class AddressPoolService(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange, ['used', 'excluded', 'free'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange, [u'used', u'excluded', u'free'], name, value)
 
 
                             class StartAddress(Entity):
@@ -1146,6 +1273,8 @@ class AddressPoolService(Entity):
                                 
                                 	Address
                                 	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress.Address>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1184,6 +1313,8 @@ class AddressPoolService(Entity):
                                     	AddressFamily
                                     	**type**\:  :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 address
@@ -1191,12 +1322,16 @@ class AddressPoolService(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 address
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1226,7 +1361,9 @@ class AddressPoolService(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress.Address, [u'address_family', u'ipv4_address', u'ipv6_address'], name, value)
+
+
 
 
                             class EndAddress(Entity):
@@ -1237,6 +1374,8 @@ class AddressPoolService(Entity):
                                 
                                 	Address
                                 	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1275,6 +1414,8 @@ class AddressPoolService(Entity):
                                     	AddressFamily
                                     	**type**\:  :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 address
@@ -1282,12 +1423,16 @@ class AddressPoolService(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 address
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1317,7 +1462,10 @@ class AddressPoolService(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address, [u'address_family', u'ipv4_address', u'ipv6_address'], name, value)
+
+
+
 
 
                         class InUseAddress(Entity):
@@ -1329,10 +1477,14 @@ class AddressPoolService(Entity):
                             	Client address
                             	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: client_type
                             
                             	Client type
                             	**type**\:  :py:class:`DapsClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.DapsClient>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1362,7 +1514,7 @@ class AddressPoolService(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress, ['client_type'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress, [u'client_type'], name, value)
 
 
                             class Address(Entity):
@@ -1373,6 +1525,8 @@ class AddressPoolService(Entity):
                                 
                                 	Address
                                 	**type**\:  :py:class:`Address_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address.Address_>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1411,6 +1565,8 @@ class AddressPoolService(Entity):
                                     	AddressFamily
                                     	**type**\:  :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 address
@@ -1418,12 +1574,16 @@ class AddressPoolService(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 address
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1453,7 +1613,11 @@ class AddressPoolService(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address.Address_, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address.Address_, [u'address_family', u'ipv4_address', u'ipv6_address'], name, value)
+
+
+
+
 
 
                     class Configuration(Entity):
@@ -1465,12 +1629,16 @@ class AddressPoolService(Entity):
                         	SERG Info
                         	**type**\:  :py:class:`SergInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.Configuration.SergInfo>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: pool_name
                         
                         	Pool name
                         	**type**\: str
                         
                         	**length:** 0..64
+                        
+                        	**config**\: False
                         
                         .. attribute:: pool_id
                         
@@ -1479,12 +1647,16 @@ class AddressPoolService(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrf_name
                         
                         	VRF name
                         	**type**\: str
                         
                         	**length:** 0..64
+                        
+                        	**config**\: False
                         
                         .. attribute:: pool_scope
                         
@@ -1493,12 +1665,16 @@ class AddressPoolService(Entity):
                         
                         	**length:** 0..64
                         
+                        	**config**\: False
+                        
                         .. attribute:: pool_prefix_length
                         
                         	Prefix length
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: high_utilization_mark
                         
@@ -1507,12 +1683,16 @@ class AddressPoolService(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: low_utilization_mark
                         
                         	Low utilization mark
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: current_utilization
                         
@@ -1521,6 +1701,8 @@ class AddressPoolService(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: utilization_high_count
                         
                         	Number of times High utilization threshold was crossed
@@ -1528,12 +1710,16 @@ class AddressPoolService(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: utilization_low_count
                         
                         	Number of times Low utilization threshold was crossed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1581,7 +1767,7 @@ class AddressPoolService(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.Configuration, ['pool_name', 'pool_id', 'vrf_name', 'pool_scope', 'pool_prefix_length', 'high_utilization_mark', 'low_utilization_mark', 'current_utilization', 'utilization_high_count', 'utilization_low_count'], name, value)
+                            self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.Configuration, [u'pool_name', u'pool_id', u'vrf_name', u'pool_scope', u'pool_prefix_length', u'high_utilization_mark', u'low_utilization_mark', u'current_utilization', u'utilization_high_count', u'utilization_low_count'], name, value)
 
 
                         class SergInfo(Entity):
@@ -1593,15 +1779,21 @@ class AddressPoolService(Entity):
                             	SERG PreferredRole
                             	**type**\:  :py:class:`DapsSergRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.DapsSergRole>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: peer_down
                             
                             	Peer Down
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: verify_pend
                             
                             	Verify Pending
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -1631,7 +1823,11 @@ class AddressPoolService(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.Configuration.SergInfo, ['preferred_role', 'peer_down', 'verify_pend'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.Configuration.SergInfo, [u'preferred_role', u'peer_down', u'verify_pend'], name, value)
+
+
+
+
 
 
             class TotalUtilization(Entity):
@@ -1645,6 +1841,8 @@ class AddressPoolService(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: total_utilization_low_mark
                 
                 	Low utilization mark
@@ -1652,12 +1850,16 @@ class AddressPoolService(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: current_total_utilization
                 
                 	Current utilization
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 
 
@@ -1687,7 +1889,8 @@ class AddressPoolService(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(AddressPoolService.Nodes.Node.TotalUtilization, ['total_utilization_high_mark', 'total_utilization_low_mark', 'current_total_utilization'], name, value)
+                    self._perform_setattr(AddressPoolService.Nodes.Node.TotalUtilization, [u'total_utilization_high_mark', u'total_utilization_low_mark', u'current_total_utilization'], name, value)
+
 
 
             class Vrfs(Entity):
@@ -1698,6 +1901,8 @@ class AddressPoolService(Entity):
                 
                 	VRF level Pool information
                 	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf>`
+                
+                	**config**\: False
                 
                 
 
@@ -1736,15 +1941,21 @@ class AddressPoolService(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4
                     
                     	IPv4 pool VRF data
                     	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 Pool VRF data
                     	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1790,10 +2001,14 @@ class AddressPoolService(Entity):
                         	Allocation summary
                         	**type**\:  :py:class:`AllocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.AllocationSummary>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: pools
                         
                         	Pools data
                         	**type**\: list of  		 :py:class:`Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.Pools>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1836,12 +2051,16 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: excluded
                             
                             	Excluded allocations
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: free
                             
@@ -1850,6 +2069,8 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: total
                             
                             	Total allocations
@@ -1857,12 +2078,16 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: high_utilization_threshold
                             
                             	High utilization threshold in percentage
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             	**units**\: percentage
                             
@@ -1873,6 +2098,8 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             	**units**\: percentage
                             
                             .. attribute:: utilization
@@ -1881,6 +2108,8 @@ class AddressPoolService(Entity):
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             	**units**\: percentage
                             
@@ -1920,7 +2149,8 @@ class AddressPoolService(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.AllocationSummary, ['used', 'excluded', 'free', 'total', 'high_utilization_threshold', 'low_utilization_threshold', 'utilization'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.AllocationSummary, [u'used', u'excluded', u'free', u'total', u'high_utilization_threshold', u'low_utilization_threshold', u'utilization'], name, value)
+
 
 
                         class Pools(Entity):
@@ -1934,12 +2164,16 @@ class AddressPoolService(Entity):
                             
                             	**length:** 0..64
                             
+                            	**config**\: False
+                            
                             .. attribute:: vrf_name
                             
                             	VRF name
                             	**type**\: str
                             
                             	**length:** 0..64
+                            
+                            	**config**\: False
                             
                             .. attribute:: used
                             
@@ -1948,12 +2182,16 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: excluded
                             
                             	Excluded allocations
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: free
                             
@@ -1962,12 +2200,16 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: total
                             
                             	Total allocations
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2003,7 +2245,9 @@ class AddressPoolService(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.Pools, ['pool_name', 'vrf_name', 'used', 'excluded', 'free', 'total'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.Pools, [u'pool_name', u'vrf_name', u'used', u'excluded', u'free', u'total'], name, value)
+
+
 
 
                     class Ipv6(Entity):
@@ -2015,10 +2259,14 @@ class AddressPoolService(Entity):
                         	Allocation summary
                         	**type**\:  :py:class:`AllocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.AllocationSummary>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: pools
                         
                         	Pools data
                         	**type**\: list of  		 :py:class:`Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.Pools>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2061,12 +2309,16 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: excluded
                             
                             	Excluded allocations
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: free
                             
@@ -2075,6 +2327,8 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: total
                             
                             	Total allocations
@@ -2082,12 +2336,16 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: high_utilization_threshold
                             
                             	High utilization threshold in percentage
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             	**units**\: percentage
                             
@@ -2098,6 +2356,8 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             	**units**\: percentage
                             
                             .. attribute:: utilization
@@ -2106,6 +2366,8 @@ class AddressPoolService(Entity):
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             	**units**\: percentage
                             
@@ -2145,7 +2407,8 @@ class AddressPoolService(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.AllocationSummary, ['used', 'excluded', 'free', 'total', 'high_utilization_threshold', 'low_utilization_threshold', 'utilization'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.AllocationSummary, [u'used', u'excluded', u'free', u'total', u'high_utilization_threshold', u'low_utilization_threshold', u'utilization'], name, value)
+
 
 
                         class Pools(Entity):
@@ -2159,12 +2422,16 @@ class AddressPoolService(Entity):
                             
                             	**length:** 0..64
                             
+                            	**config**\: False
+                            
                             .. attribute:: vrf_name
                             
                             	VRF name
                             	**type**\: str
                             
                             	**length:** 0..64
+                            
+                            	**config**\: False
                             
                             .. attribute:: used
                             
@@ -2173,12 +2440,16 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: excluded
                             
                             	Excluded allocations
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: free
                             
@@ -2187,12 +2458,16 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: total
                             
                             	Total allocations
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2228,9 +2503,17 @@ class AddressPoolService(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.Pools, ['pool_name', 'vrf_name', 'used', 'excluded', 'free', 'total'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.Pools, [u'pool_name', u'vrf_name', u'used', u'excluded', u'free', u'total'], name, value)
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = AddressPoolService()
         return self._top_entity
+
+
 

@@ -306,6 +306,7 @@ class HardwareModule(Entity):
                     self._perform_setattr(HardwareModule.Node.Slice.Values, ['client_rate', 'trunk_rate', 'fec', 'encrypted'], name, value)
 
 
+
             class ClientAins(Entity):
                 """
                 AINS Soak Interval Value
@@ -356,7 +357,12 @@ class HardwareModule(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(HardwareModule.Node.Slice.ClientAins, ['hours', 'minutes'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = HardwareModule()
         return self._top_entity
+
+
 

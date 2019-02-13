@@ -117,7 +117,7 @@ PYBIND11_MODULE(ydk_gnmi_, ydk_gnmi)
              arg("port"),
              arg("username"),
              arg("password"),
-			 arg("server_cerificate")="",
+			 arg("server_certificate")="",
 			 arg("private_key")="")
         .def("get_root_schema", &ydk::path::gNMISession::get_root_schema, return_value_policy::reference)
         .def("invoke", (std::shared_ptr<ydk::path::DataNode> (ydk::path::gNMISession::*)(ydk::path::Rpc&) const)
@@ -139,7 +139,7 @@ PYBIND11_MODULE(ydk_gnmi_, ydk_gnmi)
         .def(init<ydk::path::Repository&, const string&, int, const string&, const string&, const string&, const string&>(),
             arg("repo"), arg("address"), arg("port"),
 			arg("username"), arg("password"),
-			arg("server_cerificate")="", arg("private_key")="")
+			arg("server_certificate")="", arg("private_key")="")
         .def("get_encoding", &ydk::gNMIServiceProvider::get_encoding, return_value_policy::reference)
         .def("get_session", &ydk::gNMIServiceProvider::get_session, return_value_policy::reference)
         .def("get_capabilities", &ydk::gNMIServiceProvider::get_capabilities, return_value_policy::reference);

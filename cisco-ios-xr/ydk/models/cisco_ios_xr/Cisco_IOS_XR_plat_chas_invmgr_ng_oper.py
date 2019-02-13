@@ -736,6 +736,8 @@ class Platform(Entity):
     	Table of racks
     	**type**\:  :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.Platform.Racks>`
     
+    	**config**\: False
+    
     
 
     """
@@ -773,6 +775,8 @@ class Platform(Entity):
         
         	Rack name
         	**type**\: list of  		 :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.Platform.Racks.Rack>`
+        
+        	**config**\: False
         
         
 
@@ -812,10 +816,14 @@ class Platform(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: slots
             
             	Table of slots
             	**type**\:  :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.Platform.Racks.Rack.Slots>`
+            
+            	**config**\: False
             
             
 
@@ -858,6 +866,8 @@ class Platform(Entity):
                 	Slot name
                 	**type**\: list of  		 :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.Platform.Racks.Rack.Slots.Slot>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -895,20 +905,28 @@ class Platform(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: instances
                     
                     	Table of Instances
                     	**type**\:  :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.Platform.Racks.Rack.Slots.Slot.Instances>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: vm
                     
                     	VM information
                     	**type**\:  :py:class:`Vm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.Platform.Racks.Rack.Slots.Slot.Vm>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	State information
                     	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.Platform.Racks.Rack.Slots.Slot.State>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -958,6 +976,8 @@ class Platform(Entity):
                         	Instance name
                         	**type**\: list of  		 :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.Platform.Racks.Rack.Slots.Slot.Instances.Instance>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -993,10 +1013,14 @@ class Platform(Entity):
                             	Instance name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: state
                             
                             	State information
                             	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.Platform.Racks.Rack.Slots.Slot.Instances.Instance.State>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1038,40 +1062,56 @@ class Platform(Entity):
                                 	Card type
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: card_redundancy_state
                                 
                                 	Redundancy state
                                 	**type**\:  :py:class:`CardRedundancyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.CardRedundancyState>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: plim
                                 
                                 	PLIM
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: state
                                 
                                 	State
                                 	**type**\:  :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.NodeState>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: is_monitored
                                 
                                 	True if power state is active
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: is_powered
                                 
                                 	True if monitor state is active
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: is_shutdown
                                 
                                 	True if shutdown state is active
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: admin_state
                                 
                                 	Admin state
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1114,6 +1154,9 @@ class Platform(Entity):
                                     self._perform_setattr(Platform.Racks.Rack.Slots.Slot.Instances.Instance.State, ['card_type', 'card_redundancy_state', 'plim', 'state', 'is_monitored', 'is_powered', 'is_shutdown', 'admin_state'], name, value)
 
 
+
+
+
                     class Vm(Entity):
                         """
                         VM information
@@ -1123,25 +1166,35 @@ class Platform(Entity):
                         	Node Type
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: red_role
                         
                         	Node Redundency Role
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: partner_name
                         
                         	Partner Name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: software_status
                         
                         	SW status
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: node_ip
                         
                         	Node IP Address
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -1178,6 +1231,7 @@ class Platform(Entity):
                             self._perform_setattr(Platform.Racks.Rack.Slots.Slot.Vm, ['node_description', 'red_role', 'partner_name', 'software_status', 'node_ip'], name, value)
 
 
+
                     class State(Entity):
                         """
                         State information
@@ -1187,40 +1241,56 @@ class Platform(Entity):
                         	Card type
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: card_redundancy_state
                         
                         	Redundancy state
                         	**type**\:  :py:class:`CardRedundancyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.CardRedundancyState>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: plim
                         
                         	PLIM
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: state
                         
                         	State
                         	**type**\:  :py:class:`NodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.NodeState>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_monitored
                         
                         	True if power state is active
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_powered
                         
                         	True if monitor state is active
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_shutdown
                         
                         	True if shutdown state is active
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: admin_state
                         
                         	Admin state
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -1262,9 +1332,16 @@ class Platform(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Platform.Racks.Rack.Slots.Slot.State, ['card_type', 'card_redundancy_state', 'plim', 'state', 'is_monitored', 'is_powered', 'is_shutdown', 'admin_state'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Platform()
         return self._top_entity
+
+
 
 class PlatformInventory(Entity):
     """
@@ -1274,6 +1351,8 @@ class PlatformInventory(Entity):
     
     	Table of racks
     	**type**\:  :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks>`
+    
+    	**config**\: False
     
     
 
@@ -1313,6 +1392,8 @@ class PlatformInventory(Entity):
         	Rack name
         	**type**\: list of  		 :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack>`
         
+        	**config**\: False
+        
         
 
         """
@@ -1351,15 +1432,21 @@ class PlatformInventory(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: slots
             
             	Table of slots
             	**type**\:  :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots>`
             
+            	**config**\: False
+            
             .. attribute:: attributes
             
             	Attributes
             	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Attributes>`
+            
+            	**config**\: False
             
             
 
@@ -1406,6 +1493,8 @@ class PlatformInventory(Entity):
                 	Slot name
                 	**type**\: list of  		 :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1443,15 +1532,21 @@ class PlatformInventory(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: cards
                     
                     	Table of cards
                     	**type**\:  :py:class:`Cards <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: attributes
                     
                     	Attributes
                     	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1497,6 +1592,8 @@ class PlatformInventory(Entity):
                         	Card number
                         	**type**\: list of  		 :py:class:`Card <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -1534,40 +1631,56 @@ class PlatformInventory(Entity):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: hardware_information
                             
                             	HardwareInformationDir
                             	**type**\:  :py:class:`HardwareInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: sub_slots
                             
                             	Table of subslots
                             	**type**\:  :py:class:`SubSlots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: portses
                             
                             	Table of port slots
                             	**type**\:  :py:class:`Portses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: port_slots
                             
                             	Table of port slots
                             	**type**\:  :py:class:`PortSlots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: hw_components
                             
                             	Table of  HW components 
                             	**type**\:  :py:class:`HwComponents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: sensors
                             
                             	Table of sensors
                             	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: attributes
                             
                             	Attributes
                             	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1633,20 +1746,28 @@ class PlatformInventory(Entity):
                                 	ProcesorInformation
                                 	**type**\:  :py:class:`ProcessorInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.ProcessorInformation>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: motherboard_information
                                 
                                 	MotherboardInformation
                                 	**type**\:  :py:class:`MotherboardInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: bootflash_information
                                 
                                 	BootflashInformation
                                 	**type**\:  :py:class:`BootflashInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.BootflashInformation>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: disk_information
                                 
                                 	DiskInformation
                                 	**type**\:  :py:class:`DiskInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1699,6 +1820,8 @@ class PlatformInventory(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: speed
                                     
                                     	Speed e.g. 1197Mhz
@@ -1706,12 +1829,16 @@ class PlatformInventory(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: revision
                                     
                                     	Revision. e.g 1.1
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1741,7 +1868,8 @@ class PlatformInventory(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.ProcessorInformation, [u'processor_type', u'speed', u'revision'], name, value)
+                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.ProcessorInformation, ['processor_type', 'speed', 'revision'], name, value)
+
 
 
                                 class MotherboardInformation(Entity):
@@ -1753,15 +1881,21 @@ class PlatformInventory(Entity):
                                     	ROM information
                                     	**type**\:  :py:class:`Rom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Rom>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: bootflash
                                     
                                     	Bootflash information
                                     	**type**\:  :py:class:`Bootflash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Bootflash>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: processor
                                     
                                     	Processor information
                                     	**type**\:  :py:class:`Processor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Processor>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: main_memory_size
                                     
@@ -1769,6 +1903,8 @@ class PlatformInventory(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -1778,6 +1914,8 @@ class PlatformInventory(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -1819,7 +1957,7 @@ class PlatformInventory(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation, [u'main_memory_size', u'nvram_size'], name, value)
+                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation, ['main_memory_size', 'nvram_size'], name, value)
 
 
                                     class Rom(Entity):
@@ -1833,12 +1971,16 @@ class PlatformInventory(Entity):
                                         
                                         	**length:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: major_version
                                         
                                         	Major version
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: minor_version
                                         
@@ -1847,12 +1989,16 @@ class PlatformInventory(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: micro_image_version
                                         
                                         	Micro image version
                                         	**type**\: str
                                         
                                         	**length:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: platform_specific
                                         
@@ -1861,12 +2007,16 @@ class PlatformInventory(Entity):
                                         
                                         	**length:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: release_type
                                         
                                         	Release type
                                         	**type**\: str
                                         
                                         	**length:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1902,7 +2052,8 @@ class PlatformInventory(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Rom, [u'image_name', u'major_version', u'minor_version', u'micro_image_version', u'platform_specific', u'release_type'], name, value)
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Rom, ['image_name', 'major_version', 'minor_version', 'micro_image_version', 'platform_specific', 'release_type'], name, value)
+
 
 
                                     class Bootflash(Entity):
@@ -1916,12 +2067,16 @@ class PlatformInventory(Entity):
                                         
                                         	**length:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: platform_type
                                         
                                         	Platform Type
                                         	**type**\: str
                                         
                                         	**length:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: major_version
                                         
@@ -1930,12 +2085,16 @@ class PlatformInventory(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: minor_version
                                         
                                         	Minor version
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: micro_image_version
                                         
@@ -1944,12 +2103,16 @@ class PlatformInventory(Entity):
                                         
                                         	**length:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: platform_specific
                                         
                                         	Platform specific text
                                         	**type**\: str
                                         
                                         	**length:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: release_type
                                         
@@ -1958,6 +2121,8 @@ class PlatformInventory(Entity):
                                         
                                         	**length:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: bootflash_type
                                         
                                         	Bootflash type e.g. SIMM
@@ -1965,12 +2130,16 @@ class PlatformInventory(Entity):
                                         
                                         	**length:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: bootflash_size
                                         
                                         	Bootflash size in kilo\-bytes
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: kilobyte
                                         
@@ -1980,6 +2149,8 @@ class PlatformInventory(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -2025,7 +2196,8 @@ class PlatformInventory(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Bootflash, [u'image_name', u'platform_type', u'major_version', u'minor_version', u'micro_image_version', u'platform_specific', u'release_type', u'bootflash_type', u'bootflash_size', u'sector_size'], name, value)
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Bootflash, ['image_name', 'platform_type', 'major_version', 'minor_version', 'micro_image_version', 'platform_specific', 'release_type', 'bootflash_type', 'bootflash_size', 'sector_size'], name, value)
+
 
 
                                     class Processor(Entity):
@@ -2039,6 +2211,8 @@ class PlatformInventory(Entity):
                                         
                                         	**length:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: speed
                                         
                                         	Speed e.g. 1197Mhz
@@ -2046,12 +2220,16 @@ class PlatformInventory(Entity):
                                         
                                         	**length:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: revision
                                         
                                         	Revision. e.g 1.1
                                         	**type**\: str
                                         
                                         	**length:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2081,7 +2259,9 @@ class PlatformInventory(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Processor, [u'processor_type', u'speed', u'revision'], name, value)
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Processor, ['processor_type', 'speed', 'revision'], name, value)
+
+
 
 
                                 class BootflashInformation(Entity):
@@ -2095,12 +2275,16 @@ class PlatformInventory(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: platform_type
                                     
                                     	Platform Type
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: major_version
                                     
@@ -2109,12 +2293,16 @@ class PlatformInventory(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: minor_version
                                     
                                     	Minor version
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: micro_image_version
                                     
@@ -2123,12 +2311,16 @@ class PlatformInventory(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: platform_specific
                                     
                                     	Platform specific text
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: release_type
                                     
@@ -2137,6 +2329,8 @@ class PlatformInventory(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: bootflash_type
                                     
                                     	Bootflash type e.g. SIMM
@@ -2144,12 +2338,16 @@ class PlatformInventory(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: bootflash_size
                                     
                                     	Bootflash size in kilo\-bytes
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: kilobyte
                                     
@@ -2159,6 +2357,8 @@ class PlatformInventory(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -2204,7 +2404,8 @@ class PlatformInventory(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.BootflashInformation, [u'image_name', u'platform_type', u'major_version', u'minor_version', u'micro_image_version', u'platform_specific', u'release_type', u'bootflash_type', u'bootflash_size', u'sector_size'], name, value)
+                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.BootflashInformation, ['image_name', 'platform_type', 'major_version', 'minor_version', 'micro_image_version', 'platform_specific', 'release_type', 'bootflash_type', 'bootflash_size', 'sector_size'], name, value)
+
 
 
                                 class DiskInformation(Entity):
@@ -2218,12 +2419,16 @@ class PlatformInventory(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: disk_size
                                     
                                     	(Deprecated) Disk size in mega\-bytes
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: megabyte
                                     
@@ -2234,12 +2439,16 @@ class PlatformInventory(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: byte
                                     
                                     .. attribute:: disks
                                     
                                     	Disk attributes
                                     	**type**\: list of  		 :py:class:`Disks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation.Disks>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2271,7 +2480,7 @@ class PlatformInventory(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation, [u'disk_name', u'disk_size', u'sector_size'], name, value)
+                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation, ['disk_name', 'disk_size', 'sector_size'], name, value)
 
 
                                     class Disks(Entity):
@@ -2285,12 +2494,16 @@ class PlatformInventory(Entity):
                                         
                                         	**length:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: disk_size
                                         
                                         	Disk size in mega\-bytes
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: megabyte
                                         
@@ -2300,6 +2513,8 @@ class PlatformInventory(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -2331,7 +2546,10 @@ class PlatformInventory(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation.Disks, [u'disk_name', u'disk_size', u'sector_size'], name, value)
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation.Disks, ['disk_name', 'disk_size', 'sector_size'], name, value)
+
+
+
 
 
                             class SubSlots(Entity):
@@ -2342,6 +2560,8 @@ class PlatformInventory(Entity):
                                 
                                 	Subslot number
                                 	**type**\: list of  		 :py:class:`SubSlot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2380,15 +2600,21 @@ class PlatformInventory(Entity):
                                     
                                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: module
                                     
                                     	Module of a subslot
                                     	**type**\:  :py:class:`Module <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: attributes
                                     
                                     	Attributes
                                     	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2434,15 +2660,21 @@ class PlatformInventory(Entity):
                                         	Table of port slots
                                         	**type**\:  :py:class:`PortSlots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sensors
                                         
                                         	Table of sensors
                                         	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: attributes
                                         
                                         	Attributes
                                         	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2489,6 +2721,8 @@ class PlatformInventory(Entity):
                                             	Port slot number
                                             	**type**\: list of  		 :py:class:`PortSlot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot>`
                                             
+                                            	**config**\: False
+                                            
                                             
 
                                             """
@@ -2526,20 +2760,28 @@ class PlatformInventory(Entity):
                                                 
                                                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: portses
                                                 
                                                 	Table of port slots
                                                 	**type**\:  :py:class:`Portses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: sensors
                                                 
                                                 	Table of sensors
                                                 	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: attributes
                                                 
                                                 	Attributes
                                                 	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -2589,6 +2831,8 @@ class PlatformInventory(Entity):
                                                     	Port number
                                                     	**type**\: list of  		 :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     
 
                                                     """
@@ -2626,20 +2870,28 @@ class PlatformInventory(Entity):
                                                         
                                                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: hw_components
                                                         
                                                         	Table of  HW components 
                                                         	**type**\:  :py:class:`HwComponents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: sensors
                                                         
                                                         	Table of sensors
                                                         	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: attributes
                                                         
                                                         	Attributes
                                                         	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -2689,6 +2941,8 @@ class PlatformInventory(Entity):
                                                             	HW component number
                                                             	**type**\: list of  		 :py:class:`HwComponent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent>`
                                                             
+                                                            	**config**\: False
+                                                            
                                                             
 
                                                             """
@@ -2726,15 +2980,21 @@ class PlatformInventory(Entity):
                                                                 
                                                                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: sensors
                                                                 
                                                                 	Table of sensors
                                                                 	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors>`
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: attributes
                                                                 
                                                                 	Attributes
                                                                 	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes>`
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 
 
@@ -2780,6 +3040,8 @@ class PlatformInventory(Entity):
                                                                     	Sensor number
                                                                     	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor>`
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     
 
                                                                     """
@@ -2817,10 +3079,14 @@ class PlatformInventory(Entity):
                                                                         
                                                                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         .. attribute:: attributes
                                                                         
                                                                         	Attributes
                                                                         	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes>`
+                                                                        
+                                                                        	**config**\: False
                                                                         
                                                                         
 
@@ -2862,10 +3128,14 @@ class PlatformInventory(Entity):
                                                                             	Entity attributes
                                                                             	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo>`
                                                                             
+                                                                            	**config**\: False
+                                                                            
                                                                             .. attribute:: fru_info
                                                                             
                                                                             	Field Replaceable Unit (FRU) attributes
                                                                             	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo>`
+                                                                            
+                                                                            	**config**\: False
                                                                             
                                                                             
 
@@ -2910,12 +3180,16 @@ class PlatformInventory(Entity):
                                                                                 
                                                                                 	**length:** 0..255
                                                                                 
+                                                                                	**config**\: False
+                                                                                
                                                                                 .. attribute:: description
                                                                                 
                                                                                 	describes in user\-readable terms                 what the entity in question does
                                                                                 	**type**\: str
                                                                                 
                                                                                 	**length:** 0..255
+                                                                                
+                                                                                	**config**\: False
                                                                                 
                                                                                 .. attribute:: model_name
                                                                                 
@@ -2924,12 +3198,16 @@ class PlatformInventory(Entity):
                                                                                 
                                                                                 	**length:** 0..255
                                                                                 
+                                                                                	**config**\: False
+                                                                                
                                                                                 .. attribute:: hardware_revision
                                                                                 
                                                                                 	hw revision string
                                                                                 	**type**\: str
                                                                                 
                                                                                 	**length:** 0..255
+                                                                                
+                                                                                	**config**\: False
                                                                                 
                                                                                 .. attribute:: serial_number
                                                                                 
@@ -2938,12 +3216,16 @@ class PlatformInventory(Entity):
                                                                                 
                                                                                 	**length:** 0..255
                                                                                 
+                                                                                	**config**\: False
+                                                                                
                                                                                 .. attribute:: firmware_revision
                                                                                 
                                                                                 	firmware revision string
                                                                                 	**type**\: str
                                                                                 
                                                                                 	**length:** 0..255
+                                                                                
+                                                                                	**config**\: False
                                                                                 
                                                                                 .. attribute:: software_revision
                                                                                 
@@ -2952,6 +3234,8 @@ class PlatformInventory(Entity):
                                                                                 
                                                                                 	**length:** 0..255
                                                                                 
+                                                                                	**config**\: False
+                                                                                
                                                                                 .. attribute:: vendor_type
                                                                                 
                                                                                 	maps to the vendor OID string
@@ -2959,10 +3243,14 @@ class PlatformInventory(Entity):
                                                                                 
                                                                                 	**length:** 0..255
                                                                                 
+                                                                                	**config**\: False
+                                                                                
                                                                                 .. attribute:: is_field_replaceable_unit
                                                                                 
                                                                                 	1 if Field Replaceable Unit 0, if not
                                                                                 	**type**\: bool
+                                                                                
+                                                                                	**config**\: False
                                                                                 
                                                                                 
 
@@ -3004,7 +3292,8 @@ class PlatformInventory(Entity):
                                                                                     self._is_frozen = True
 
                                                                                 def __setattr__(self, name, value):
-                                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                                                             class FruInfo(Entity):
@@ -3016,35 +3305,49 @@ class PlatformInventory(Entity):
                                                                                 	Time operational state is   last changed
                                                                                 	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                                                 
+                                                                                	**config**\: False
+                                                                                
                                                                                 .. attribute:: module_up_time
                                                                                 
                                                                                 	Module up time
                                                                                 	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                                                
+                                                                                	**config**\: False
                                                                                 
                                                                                 .. attribute:: module_administrative_state
                                                                                 
                                                                                 	Administrative    state
                                                                                 	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                                                                 
+                                                                                	**config**\: False
+                                                                                
                                                                                 .. attribute:: module_power_administrative_state
                                                                                 
                                                                                 	Power administrative state
                                                                                 	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                                                                
+                                                                                	**config**\: False
                                                                                 
                                                                                 .. attribute:: module_operational_state
                                                                                 
                                                                                 	Operation state
                                                                                 	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                                                                 
+                                                                                	**config**\: False
+                                                                                
                                                                                 .. attribute:: module_monitor_state
                                                                                 
                                                                                 	Monitor state
                                                                                 	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                                                                 
+                                                                                	**config**\: False
+                                                                                
                                                                                 .. attribute:: module_reset_reason
                                                                                 
                                                                                 	Reset reason
                                                                                 	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                                                                
+                                                                                	**config**\: False
                                                                                 
                                                                                 
 
@@ -3086,7 +3389,7 @@ class PlatformInventory(Entity):
                                                                                     self._is_frozen = True
 
                                                                                 def __setattr__(self, name, value):
-                                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                                                 class LastOperationalStateChange(Entity):
@@ -3100,6 +3403,8 @@ class PlatformInventory(Entity):
                                                                                     
                                                                                     	**range:** \-2147483648..2147483647
                                                                                     
+                                                                                    	**config**\: False
+                                                                                    
                                                                                     	**units**\: second
                                                                                     
                                                                                     .. attribute:: time_in_nano_seconds
@@ -3108,6 +3413,8 @@ class PlatformInventory(Entity):
                                                                                     	**type**\: int
                                                                                     
                                                                                     	**range:** \-2147483648..2147483647
+                                                                                    
+                                                                                    	**config**\: False
                                                                                     
                                                                                     	**units**\: nanosecond
                                                                                     
@@ -3137,7 +3444,8 @@ class PlatformInventory(Entity):
                                                                                         self._is_frozen = True
 
                                                                                     def __setattr__(self, name, value):
-                                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                                                                 class ModuleUpTime(Entity):
@@ -3151,6 +3459,8 @@ class PlatformInventory(Entity):
                                                                                     
                                                                                     	**range:** \-2147483648..2147483647
                                                                                     
+                                                                                    	**config**\: False
+                                                                                    
                                                                                     	**units**\: second
                                                                                     
                                                                                     .. attribute:: time_in_nano_seconds
@@ -3159,6 +3469,8 @@ class PlatformInventory(Entity):
                                                                                     	**type**\: int
                                                                                     
                                                                                     	**range:** \-2147483648..2147483647
+                                                                                    
+                                                                                    	**config**\: False
                                                                                     
                                                                                     	**units**\: nanosecond
                                                                                     
@@ -3188,7 +3500,12 @@ class PlatformInventory(Entity):
                                                                                         self._is_frozen = True
 
                                                                                     def __setattr__(self, name, value):
-                                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                                                                 class Attributes(Entity):
@@ -3200,10 +3517,14 @@ class PlatformInventory(Entity):
                                                                     	Entity attributes
                                                                     	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo>`
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: fru_info
                                                                     
                                                                     	Field Replaceable Unit (FRU) attributes
                                                                     	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo>`
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     
 
@@ -3248,12 +3569,16 @@ class PlatformInventory(Entity):
                                                                         
                                                                         	**length:** 0..255
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         .. attribute:: description
                                                                         
                                                                         	describes in user\-readable terms                 what the entity in question does
                                                                         	**type**\: str
                                                                         
                                                                         	**length:** 0..255
+                                                                        
+                                                                        	**config**\: False
                                                                         
                                                                         .. attribute:: model_name
                                                                         
@@ -3262,12 +3587,16 @@ class PlatformInventory(Entity):
                                                                         
                                                                         	**length:** 0..255
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         .. attribute:: hardware_revision
                                                                         
                                                                         	hw revision string
                                                                         	**type**\: str
                                                                         
                                                                         	**length:** 0..255
+                                                                        
+                                                                        	**config**\: False
                                                                         
                                                                         .. attribute:: serial_number
                                                                         
@@ -3276,12 +3605,16 @@ class PlatformInventory(Entity):
                                                                         
                                                                         	**length:** 0..255
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         .. attribute:: firmware_revision
                                                                         
                                                                         	firmware revision string
                                                                         	**type**\: str
                                                                         
                                                                         	**length:** 0..255
+                                                                        
+                                                                        	**config**\: False
                                                                         
                                                                         .. attribute:: software_revision
                                                                         
@@ -3290,6 +3623,8 @@ class PlatformInventory(Entity):
                                                                         
                                                                         	**length:** 0..255
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         .. attribute:: vendor_type
                                                                         
                                                                         	maps to the vendor OID string
@@ -3297,10 +3632,14 @@ class PlatformInventory(Entity):
                                                                         
                                                                         	**length:** 0..255
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         .. attribute:: is_field_replaceable_unit
                                                                         
                                                                         	1 if Field Replaceable Unit 0, if not
                                                                         	**type**\: bool
+                                                                        
+                                                                        	**config**\: False
                                                                         
                                                                         
 
@@ -3342,7 +3681,8 @@ class PlatformInventory(Entity):
                                                                             self._is_frozen = True
 
                                                                         def __setattr__(self, name, value):
-                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                                                     class FruInfo(Entity):
@@ -3354,35 +3694,49 @@ class PlatformInventory(Entity):
                                                                         	Time operational state is   last changed
                                                                         	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange>`
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         .. attribute:: module_up_time
                                                                         
                                                                         	Module up time
                                                                         	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime>`
+                                                                        
+                                                                        	**config**\: False
                                                                         
                                                                         .. attribute:: module_administrative_state
                                                                         
                                                                         	Administrative    state
                                                                         	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         .. attribute:: module_power_administrative_state
                                                                         
                                                                         	Power administrative state
                                                                         	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                                                        
+                                                                        	**config**\: False
                                                                         
                                                                         .. attribute:: module_operational_state
                                                                         
                                                                         	Operation state
                                                                         	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         .. attribute:: module_monitor_state
                                                                         
                                                                         	Monitor state
                                                                         	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         .. attribute:: module_reset_reason
                                                                         
                                                                         	Reset reason
                                                                         	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                                                        
+                                                                        	**config**\: False
                                                                         
                                                                         
 
@@ -3424,7 +3778,7 @@ class PlatformInventory(Entity):
                                                                             self._is_frozen = True
 
                                                                         def __setattr__(self, name, value):
-                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                                         class LastOperationalStateChange(Entity):
@@ -3438,6 +3792,8 @@ class PlatformInventory(Entity):
                                                                             
                                                                             	**range:** \-2147483648..2147483647
                                                                             
+                                                                            	**config**\: False
+                                                                            
                                                                             	**units**\: second
                                                                             
                                                                             .. attribute:: time_in_nano_seconds
@@ -3446,6 +3802,8 @@ class PlatformInventory(Entity):
                                                                             	**type**\: int
                                                                             
                                                                             	**range:** \-2147483648..2147483647
+                                                                            
+                                                                            	**config**\: False
                                                                             
                                                                             	**units**\: nanosecond
                                                                             
@@ -3475,7 +3833,8 @@ class PlatformInventory(Entity):
                                                                                 self._is_frozen = True
 
                                                                             def __setattr__(self, name, value):
-                                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                                                         class ModuleUpTime(Entity):
@@ -3489,6 +3848,8 @@ class PlatformInventory(Entity):
                                                                             
                                                                             	**range:** \-2147483648..2147483647
                                                                             
+                                                                            	**config**\: False
+                                                                            
                                                                             	**units**\: second
                                                                             
                                                                             .. attribute:: time_in_nano_seconds
@@ -3497,6 +3858,8 @@ class PlatformInventory(Entity):
                                                                             	**type**\: int
                                                                             
                                                                             	**range:** \-2147483648..2147483647
+                                                                            
+                                                                            	**config**\: False
                                                                             
                                                                             	**units**\: nanosecond
                                                                             
@@ -3526,7 +3889,12 @@ class PlatformInventory(Entity):
                                                                                 self._is_frozen = True
 
                                                                             def __setattr__(self, name, value):
-                                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                                                         class Sensors(Entity):
@@ -3537,6 +3905,8 @@ class PlatformInventory(Entity):
                                                             
                                                             	Sensor number
                                                             	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor>`
+                                                            
+                                                            	**config**\: False
                                                             
                                                             
 
@@ -3575,10 +3945,14 @@ class PlatformInventory(Entity):
                                                                 
                                                                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: attributes
                                                                 
                                                                 	Attributes
                                                                 	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes>`
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 
 
@@ -3620,10 +3994,14 @@ class PlatformInventory(Entity):
                                                                     	Entity attributes
                                                                     	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo>`
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: fru_info
                                                                     
                                                                     	Field Replaceable Unit (FRU) attributes
                                                                     	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo>`
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     
 
@@ -3668,12 +4046,16 @@ class PlatformInventory(Entity):
                                                                         
                                                                         	**length:** 0..255
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         .. attribute:: description
                                                                         
                                                                         	describes in user\-readable terms                 what the entity in question does
                                                                         	**type**\: str
                                                                         
                                                                         	**length:** 0..255
+                                                                        
+                                                                        	**config**\: False
                                                                         
                                                                         .. attribute:: model_name
                                                                         
@@ -3682,12 +4064,16 @@ class PlatformInventory(Entity):
                                                                         
                                                                         	**length:** 0..255
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         .. attribute:: hardware_revision
                                                                         
                                                                         	hw revision string
                                                                         	**type**\: str
                                                                         
                                                                         	**length:** 0..255
+                                                                        
+                                                                        	**config**\: False
                                                                         
                                                                         .. attribute:: serial_number
                                                                         
@@ -3696,12 +4082,16 @@ class PlatformInventory(Entity):
                                                                         
                                                                         	**length:** 0..255
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         .. attribute:: firmware_revision
                                                                         
                                                                         	firmware revision string
                                                                         	**type**\: str
                                                                         
                                                                         	**length:** 0..255
+                                                                        
+                                                                        	**config**\: False
                                                                         
                                                                         .. attribute:: software_revision
                                                                         
@@ -3710,6 +4100,8 @@ class PlatformInventory(Entity):
                                                                         
                                                                         	**length:** 0..255
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         .. attribute:: vendor_type
                                                                         
                                                                         	maps to the vendor OID string
@@ -3717,10 +4109,14 @@ class PlatformInventory(Entity):
                                                                         
                                                                         	**length:** 0..255
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         .. attribute:: is_field_replaceable_unit
                                                                         
                                                                         	1 if Field Replaceable Unit 0, if not
                                                                         	**type**\: bool
+                                                                        
+                                                                        	**config**\: False
                                                                         
                                                                         
 
@@ -3762,7 +4158,8 @@ class PlatformInventory(Entity):
                                                                             self._is_frozen = True
 
                                                                         def __setattr__(self, name, value):
-                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                                                     class FruInfo(Entity):
@@ -3774,35 +4171,49 @@ class PlatformInventory(Entity):
                                                                         	Time operational state is   last changed
                                                                         	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         .. attribute:: module_up_time
                                                                         
                                                                         	Module up time
                                                                         	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                                        
+                                                                        	**config**\: False
                                                                         
                                                                         .. attribute:: module_administrative_state
                                                                         
                                                                         	Administrative    state
                                                                         	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         .. attribute:: module_power_administrative_state
                                                                         
                                                                         	Power administrative state
                                                                         	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                                                        
+                                                                        	**config**\: False
                                                                         
                                                                         .. attribute:: module_operational_state
                                                                         
                                                                         	Operation state
                                                                         	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         .. attribute:: module_monitor_state
                                                                         
                                                                         	Monitor state
                                                                         	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         .. attribute:: module_reset_reason
                                                                         
                                                                         	Reset reason
                                                                         	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                                                        
+                                                                        	**config**\: False
                                                                         
                                                                         
 
@@ -3844,7 +4255,7 @@ class PlatformInventory(Entity):
                                                                             self._is_frozen = True
 
                                                                         def __setattr__(self, name, value):
-                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                                         class LastOperationalStateChange(Entity):
@@ -3858,6 +4269,8 @@ class PlatformInventory(Entity):
                                                                             
                                                                             	**range:** \-2147483648..2147483647
                                                                             
+                                                                            	**config**\: False
+                                                                            
                                                                             	**units**\: second
                                                                             
                                                                             .. attribute:: time_in_nano_seconds
@@ -3866,6 +4279,8 @@ class PlatformInventory(Entity):
                                                                             	**type**\: int
                                                                             
                                                                             	**range:** \-2147483648..2147483647
+                                                                            
+                                                                            	**config**\: False
                                                                             
                                                                             	**units**\: nanosecond
                                                                             
@@ -3895,7 +4310,8 @@ class PlatformInventory(Entity):
                                                                                 self._is_frozen = True
 
                                                                             def __setattr__(self, name, value):
-                                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                                                         class ModuleUpTime(Entity):
@@ -3909,6 +4325,8 @@ class PlatformInventory(Entity):
                                                                             
                                                                             	**range:** \-2147483648..2147483647
                                                                             
+                                                                            	**config**\: False
+                                                                            
                                                                             	**units**\: second
                                                                             
                                                                             .. attribute:: time_in_nano_seconds
@@ -3917,6 +4335,8 @@ class PlatformInventory(Entity):
                                                                             	**type**\: int
                                                                             
                                                                             	**range:** \-2147483648..2147483647
+                                                                            
+                                                                            	**config**\: False
                                                                             
                                                                             	**units**\: nanosecond
                                                                             
@@ -3946,7 +4366,12 @@ class PlatformInventory(Entity):
                                                                                 self._is_frozen = True
 
                                                                             def __setattr__(self, name, value):
-                                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                                                         class Attributes(Entity):
@@ -3958,10 +4383,14 @@ class PlatformInventory(Entity):
                                                             	Entity attributes
                                                             	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo>`
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: fru_info
                                                             
                                                             	Field Replaceable Unit (FRU) attributes
                                                             	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo>`
+                                                            
+                                                            	**config**\: False
                                                             
                                                             
 
@@ -4006,12 +4435,16 @@ class PlatformInventory(Entity):
                                                                 
                                                                 	**length:** 0..255
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: description
                                                                 
                                                                 	describes in user\-readable terms                 what the entity in question does
                                                                 	**type**\: str
                                                                 
                                                                 	**length:** 0..255
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 .. attribute:: model_name
                                                                 
@@ -4020,12 +4453,16 @@ class PlatformInventory(Entity):
                                                                 
                                                                 	**length:** 0..255
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: hardware_revision
                                                                 
                                                                 	hw revision string
                                                                 	**type**\: str
                                                                 
                                                                 	**length:** 0..255
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 .. attribute:: serial_number
                                                                 
@@ -4034,12 +4471,16 @@ class PlatformInventory(Entity):
                                                                 
                                                                 	**length:** 0..255
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: firmware_revision
                                                                 
                                                                 	firmware revision string
                                                                 	**type**\: str
                                                                 
                                                                 	**length:** 0..255
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 .. attribute:: software_revision
                                                                 
@@ -4048,6 +4489,8 @@ class PlatformInventory(Entity):
                                                                 
                                                                 	**length:** 0..255
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: vendor_type
                                                                 
                                                                 	maps to the vendor OID string
@@ -4055,10 +4498,14 @@ class PlatformInventory(Entity):
                                                                 
                                                                 	**length:** 0..255
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: is_field_replaceable_unit
                                                                 
                                                                 	1 if Field Replaceable Unit 0, if not
                                                                 	**type**\: bool
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 
 
@@ -4100,7 +4547,8 @@ class PlatformInventory(Entity):
                                                                     self._is_frozen = True
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                                             class FruInfo(Entity):
@@ -4112,35 +4560,49 @@ class PlatformInventory(Entity):
                                                                 	Time operational state is   last changed
                                                                 	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange>`
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: module_up_time
                                                                 
                                                                 	Module up time
                                                                 	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime>`
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 .. attribute:: module_administrative_state
                                                                 
                                                                 	Administrative    state
                                                                 	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: module_power_administrative_state
                                                                 
                                                                 	Power administrative state
                                                                 	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 .. attribute:: module_operational_state
                                                                 
                                                                 	Operation state
                                                                 	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: module_monitor_state
                                                                 
                                                                 	Monitor state
                                                                 	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: module_reset_reason
                                                                 
                                                                 	Reset reason
                                                                 	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 
 
@@ -4182,7 +4644,7 @@ class PlatformInventory(Entity):
                                                                     self._is_frozen = True
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                                 class LastOperationalStateChange(Entity):
@@ -4196,6 +4658,8 @@ class PlatformInventory(Entity):
                                                                     
                                                                     	**range:** \-2147483648..2147483647
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     	**units**\: second
                                                                     
                                                                     .. attribute:: time_in_nano_seconds
@@ -4204,6 +4668,8 @@ class PlatformInventory(Entity):
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** \-2147483648..2147483647
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     	**units**\: nanosecond
                                                                     
@@ -4233,7 +4699,8 @@ class PlatformInventory(Entity):
                                                                         self._is_frozen = True
 
                                                                     def __setattr__(self, name, value):
-                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                                                 class ModuleUpTime(Entity):
@@ -4247,6 +4714,8 @@ class PlatformInventory(Entity):
                                                                     
                                                                     	**range:** \-2147483648..2147483647
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     	**units**\: second
                                                                     
                                                                     .. attribute:: time_in_nano_seconds
@@ -4255,6 +4724,8 @@ class PlatformInventory(Entity):
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** \-2147483648..2147483647
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     	**units**\: nanosecond
                                                                     
@@ -4284,7 +4755,12 @@ class PlatformInventory(Entity):
                                                                         self._is_frozen = True
 
                                                                     def __setattr__(self, name, value):
-                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                                                 class Sensors(Entity):
@@ -4295,6 +4771,8 @@ class PlatformInventory(Entity):
                                                     
                                                     	Sensor number
                                                     	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -4333,10 +4811,14 @@ class PlatformInventory(Entity):
                                                         
                                                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: attributes
                                                         
                                                         	Attributes
                                                         	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -4378,10 +4860,14 @@ class PlatformInventory(Entity):
                                                             	Entity attributes
                                                             	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo>`
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: fru_info
                                                             
                                                             	Field Replaceable Unit (FRU) attributes
                                                             	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo>`
+                                                            
+                                                            	**config**\: False
                                                             
                                                             
 
@@ -4426,12 +4912,16 @@ class PlatformInventory(Entity):
                                                                 
                                                                 	**length:** 0..255
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: description
                                                                 
                                                                 	describes in user\-readable terms                 what the entity in question does
                                                                 	**type**\: str
                                                                 
                                                                 	**length:** 0..255
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 .. attribute:: model_name
                                                                 
@@ -4440,12 +4930,16 @@ class PlatformInventory(Entity):
                                                                 
                                                                 	**length:** 0..255
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: hardware_revision
                                                                 
                                                                 	hw revision string
                                                                 	**type**\: str
                                                                 
                                                                 	**length:** 0..255
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 .. attribute:: serial_number
                                                                 
@@ -4454,12 +4948,16 @@ class PlatformInventory(Entity):
                                                                 
                                                                 	**length:** 0..255
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: firmware_revision
                                                                 
                                                                 	firmware revision string
                                                                 	**type**\: str
                                                                 
                                                                 	**length:** 0..255
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 .. attribute:: software_revision
                                                                 
@@ -4468,6 +4966,8 @@ class PlatformInventory(Entity):
                                                                 
                                                                 	**length:** 0..255
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: vendor_type
                                                                 
                                                                 	maps to the vendor OID string
@@ -4475,10 +4975,14 @@ class PlatformInventory(Entity):
                                                                 
                                                                 	**length:** 0..255
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: is_field_replaceable_unit
                                                                 
                                                                 	1 if Field Replaceable Unit 0, if not
                                                                 	**type**\: bool
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 
 
@@ -4520,7 +5024,8 @@ class PlatformInventory(Entity):
                                                                     self._is_frozen = True
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                                             class FruInfo(Entity):
@@ -4532,35 +5037,49 @@ class PlatformInventory(Entity):
                                                                 	Time operational state is   last changed
                                                                 	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: module_up_time
                                                                 
                                                                 	Module up time
                                                                 	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 .. attribute:: module_administrative_state
                                                                 
                                                                 	Administrative    state
                                                                 	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: module_power_administrative_state
                                                                 
                                                                 	Power administrative state
                                                                 	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 .. attribute:: module_operational_state
                                                                 
                                                                 	Operation state
                                                                 	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: module_monitor_state
                                                                 
                                                                 	Monitor state
                                                                 	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: module_reset_reason
                                                                 
                                                                 	Reset reason
                                                                 	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 
 
@@ -4602,7 +5121,7 @@ class PlatformInventory(Entity):
                                                                     self._is_frozen = True
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                                 class LastOperationalStateChange(Entity):
@@ -4616,6 +5135,8 @@ class PlatformInventory(Entity):
                                                                     
                                                                     	**range:** \-2147483648..2147483647
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     	**units**\: second
                                                                     
                                                                     .. attribute:: time_in_nano_seconds
@@ -4624,6 +5145,8 @@ class PlatformInventory(Entity):
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** \-2147483648..2147483647
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     	**units**\: nanosecond
                                                                     
@@ -4653,7 +5176,8 @@ class PlatformInventory(Entity):
                                                                         self._is_frozen = True
 
                                                                     def __setattr__(self, name, value):
-                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                                                 class ModuleUpTime(Entity):
@@ -4667,6 +5191,8 @@ class PlatformInventory(Entity):
                                                                     
                                                                     	**range:** \-2147483648..2147483647
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     	**units**\: second
                                                                     
                                                                     .. attribute:: time_in_nano_seconds
@@ -4675,6 +5201,8 @@ class PlatformInventory(Entity):
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** \-2147483648..2147483647
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     	**units**\: nanosecond
                                                                     
@@ -4704,7 +5232,12 @@ class PlatformInventory(Entity):
                                                                         self._is_frozen = True
 
                                                                     def __setattr__(self, name, value):
-                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                                                 class Attributes(Entity):
@@ -4716,10 +5249,14 @@ class PlatformInventory(Entity):
                                                     	Entity attributes
                                                     	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.BasicInfo>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: fru_info
                                                     
                                                     	Field Replaceable Unit (FRU) attributes
                                                     	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -4764,12 +5301,16 @@ class PlatformInventory(Entity):
                                                         
                                                         	**length:** 0..255
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: description
                                                         
                                                         	describes in user\-readable terms                 what the entity in question does
                                                         	**type**\: str
                                                         
                                                         	**length:** 0..255
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: model_name
                                                         
@@ -4778,12 +5319,16 @@ class PlatformInventory(Entity):
                                                         
                                                         	**length:** 0..255
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: hardware_revision
                                                         
                                                         	hw revision string
                                                         	**type**\: str
                                                         
                                                         	**length:** 0..255
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: serial_number
                                                         
@@ -4792,12 +5337,16 @@ class PlatformInventory(Entity):
                                                         
                                                         	**length:** 0..255
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: firmware_revision
                                                         
                                                         	firmware revision string
                                                         	**type**\: str
                                                         
                                                         	**length:** 0..255
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: software_revision
                                                         
@@ -4806,6 +5355,8 @@ class PlatformInventory(Entity):
                                                         
                                                         	**length:** 0..255
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: vendor_type
                                                         
                                                         	maps to the vendor OID string
@@ -4813,10 +5364,14 @@ class PlatformInventory(Entity):
                                                         
                                                         	**length:** 0..255
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: is_field_replaceable_unit
                                                         
                                                         	1 if Field Replaceable Unit 0, if not
                                                         	**type**\: bool
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -4858,7 +5413,8 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                                     class FruInfo(Entity):
@@ -4870,35 +5426,49 @@ class PlatformInventory(Entity):
                                                         	Time operational state is   last changed
                                                         	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: module_up_time
                                                         
                                                         	Module up time
                                                         	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: module_administrative_state
                                                         
                                                         	Administrative    state
                                                         	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: module_power_administrative_state
                                                         
                                                         	Power administrative state
                                                         	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: module_operational_state
                                                         
                                                         	Operation state
                                                         	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: module_monitor_state
                                                         
                                                         	Monitor state
                                                         	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: module_reset_reason
                                                         
                                                         	Reset reason
                                                         	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -4940,7 +5510,7 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                         class LastOperationalStateChange(Entity):
@@ -4954,6 +5524,8 @@ class PlatformInventory(Entity):
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
+                                                            	**config**\: False
+                                                            
                                                             	**units**\: second
                                                             
                                                             .. attribute:: time_in_nano_seconds
@@ -4962,6 +5534,8 @@ class PlatformInventory(Entity):
                                                             	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
+                                                            
+                                                            	**config**\: False
                                                             
                                                             	**units**\: nanosecond
                                                             
@@ -4991,7 +5565,8 @@ class PlatformInventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                                         class ModuleUpTime(Entity):
@@ -5005,6 +5580,8 @@ class PlatformInventory(Entity):
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
+                                                            	**config**\: False
+                                                            
                                                             	**units**\: second
                                                             
                                                             .. attribute:: time_in_nano_seconds
@@ -5013,6 +5590,8 @@ class PlatformInventory(Entity):
                                                             	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
+                                                            
+                                                            	**config**\: False
                                                             
                                                             	**units**\: nanosecond
                                                             
@@ -5042,7 +5621,12 @@ class PlatformInventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                                         class Sensors(Entity):
@@ -5053,6 +5637,8 @@ class PlatformInventory(Entity):
                                             
                                             	Sensor number
                                             	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -5091,10 +5677,14 @@ class PlatformInventory(Entity):
                                                 
                                                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: attributes
                                                 
                                                 	Attributes
                                                 	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -5136,10 +5726,14 @@ class PlatformInventory(Entity):
                                                     	Entity attributes
                                                     	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.BasicInfo>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: fru_info
                                                     
                                                     	Field Replaceable Unit (FRU) attributes
                                                     	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -5184,12 +5778,16 @@ class PlatformInventory(Entity):
                                                         
                                                         	**length:** 0..255
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: description
                                                         
                                                         	describes in user\-readable terms                 what the entity in question does
                                                         	**type**\: str
                                                         
                                                         	**length:** 0..255
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: model_name
                                                         
@@ -5198,12 +5796,16 @@ class PlatformInventory(Entity):
                                                         
                                                         	**length:** 0..255
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: hardware_revision
                                                         
                                                         	hw revision string
                                                         	**type**\: str
                                                         
                                                         	**length:** 0..255
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: serial_number
                                                         
@@ -5212,12 +5814,16 @@ class PlatformInventory(Entity):
                                                         
                                                         	**length:** 0..255
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: firmware_revision
                                                         
                                                         	firmware revision string
                                                         	**type**\: str
                                                         
                                                         	**length:** 0..255
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: software_revision
                                                         
@@ -5226,6 +5832,8 @@ class PlatformInventory(Entity):
                                                         
                                                         	**length:** 0..255
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: vendor_type
                                                         
                                                         	maps to the vendor OID string
@@ -5233,10 +5841,14 @@ class PlatformInventory(Entity):
                                                         
                                                         	**length:** 0..255
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: is_field_replaceable_unit
                                                         
                                                         	1 if Field Replaceable Unit 0, if not
                                                         	**type**\: bool
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -5278,7 +5890,8 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                                     class FruInfo(Entity):
@@ -5290,35 +5903,49 @@ class PlatformInventory(Entity):
                                                         	Time operational state is   last changed
                                                         	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: module_up_time
                                                         
                                                         	Module up time
                                                         	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: module_administrative_state
                                                         
                                                         	Administrative    state
                                                         	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: module_power_administrative_state
                                                         
                                                         	Power administrative state
                                                         	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: module_operational_state
                                                         
                                                         	Operation state
                                                         	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: module_monitor_state
                                                         
                                                         	Monitor state
                                                         	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: module_reset_reason
                                                         
                                                         	Reset reason
                                                         	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -5360,7 +5987,7 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                         class LastOperationalStateChange(Entity):
@@ -5374,6 +6001,8 @@ class PlatformInventory(Entity):
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
+                                                            	**config**\: False
+                                                            
                                                             	**units**\: second
                                                             
                                                             .. attribute:: time_in_nano_seconds
@@ -5382,6 +6011,8 @@ class PlatformInventory(Entity):
                                                             	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
+                                                            
+                                                            	**config**\: False
                                                             
                                                             	**units**\: nanosecond
                                                             
@@ -5411,7 +6042,8 @@ class PlatformInventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                                         class ModuleUpTime(Entity):
@@ -5425,6 +6057,8 @@ class PlatformInventory(Entity):
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
+                                                            	**config**\: False
+                                                            
                                                             	**units**\: second
                                                             
                                                             .. attribute:: time_in_nano_seconds
@@ -5433,6 +6067,8 @@ class PlatformInventory(Entity):
                                                             	**type**\: int
                                                             
                                                             	**range:** \-2147483648..2147483647
+                                                            
+                                                            	**config**\: False
                                                             
                                                             	**units**\: nanosecond
                                                             
@@ -5462,7 +6098,12 @@ class PlatformInventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                                         class Attributes(Entity):
@@ -5474,10 +6115,14 @@ class PlatformInventory(Entity):
                                             	Entity attributes
                                             	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.BasicInfo>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: fru_info
                                             
                                             	Field Replaceable Unit (FRU) attributes
                                             	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -5522,12 +6167,16 @@ class PlatformInventory(Entity):
                                                 
                                                 	**length:** 0..255
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: description
                                                 
                                                 	describes in user\-readable terms                 what the entity in question does
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..255
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: model_name
                                                 
@@ -5536,12 +6185,16 @@ class PlatformInventory(Entity):
                                                 
                                                 	**length:** 0..255
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: hardware_revision
                                                 
                                                 	hw revision string
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..255
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: serial_number
                                                 
@@ -5550,12 +6203,16 @@ class PlatformInventory(Entity):
                                                 
                                                 	**length:** 0..255
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: firmware_revision
                                                 
                                                 	firmware revision string
                                                 	**type**\: str
                                                 
                                                 	**length:** 0..255
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: software_revision
                                                 
@@ -5564,6 +6221,8 @@ class PlatformInventory(Entity):
                                                 
                                                 	**length:** 0..255
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: vendor_type
                                                 
                                                 	maps to the vendor OID string
@@ -5571,10 +6230,14 @@ class PlatformInventory(Entity):
                                                 
                                                 	**length:** 0..255
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: is_field_replaceable_unit
                                                 
                                                 	1 if Field Replaceable Unit 0, if not
                                                 	**type**\: bool
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -5616,7 +6279,8 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                             class FruInfo(Entity):
@@ -5628,35 +6292,49 @@ class PlatformInventory(Entity):
                                                 	Time operational state is   last changed
                                                 	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.LastOperationalStateChange>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: module_up_time
                                                 
                                                 	Module up time
                                                 	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.ModuleUpTime>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: module_administrative_state
                                                 
                                                 	Administrative    state
                                                 	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: module_power_administrative_state
                                                 
                                                 	Power administrative state
                                                 	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: module_operational_state
                                                 
                                                 	Operation state
                                                 	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: module_monitor_state
                                                 
                                                 	Monitor state
                                                 	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: module_reset_reason
                                                 
                                                 	Reset reason
                                                 	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -5698,7 +6376,7 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                 class LastOperationalStateChange(Entity):
@@ -5712,6 +6390,8 @@ class PlatformInventory(Entity):
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
+                                                    	**config**\: False
+                                                    
                                                     	**units**\: second
                                                     
                                                     .. attribute:: time_in_nano_seconds
@@ -5720,6 +6400,8 @@ class PlatformInventory(Entity):
                                                     	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
+                                                    
+                                                    	**config**\: False
                                                     
                                                     	**units**\: nanosecond
                                                     
@@ -5749,7 +6431,8 @@ class PlatformInventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                                 class ModuleUpTime(Entity):
@@ -5763,6 +6446,8 @@ class PlatformInventory(Entity):
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
+                                                    	**config**\: False
+                                                    
                                                     	**units**\: second
                                                     
                                                     .. attribute:: time_in_nano_seconds
@@ -5771,6 +6456,8 @@ class PlatformInventory(Entity):
                                                     	**type**\: int
                                                     
                                                     	**range:** \-2147483648..2147483647
+                                                    
+                                                    	**config**\: False
                                                     
                                                     	**units**\: nanosecond
                                                     
@@ -5800,7 +6487,11 @@ class PlatformInventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
 
 
                                     class Attributes(Entity):
@@ -5812,10 +6503,14 @@ class PlatformInventory(Entity):
                                         	Entity attributes
                                         	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.BasicInfo>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: fru_info
                                         
                                         	Field Replaceable Unit (FRU) attributes
                                         	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5860,12 +6555,16 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: description
                                             
                                             	describes in user\-readable terms                 what the entity in question does
                                             	**type**\: str
                                             
                                             	**length:** 0..255
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: model_name
                                             
@@ -5874,12 +6573,16 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: hardware_revision
                                             
                                             	hw revision string
                                             	**type**\: str
                                             
                                             	**length:** 0..255
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: serial_number
                                             
@@ -5888,12 +6591,16 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: firmware_revision
                                             
                                             	firmware revision string
                                             	**type**\: str
                                             
                                             	**length:** 0..255
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: software_revision
                                             
@@ -5902,6 +6609,8 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: vendor_type
                                             
                                             	maps to the vendor OID string
@@ -5909,10 +6618,14 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: is_field_replaceable_unit
                                             
                                             	1 if Field Replaceable Unit 0, if not
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -5954,7 +6667,8 @@ class PlatformInventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                         class FruInfo(Entity):
@@ -5966,35 +6680,49 @@ class PlatformInventory(Entity):
                                             	Time operational state is   last changed
                                             	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.LastOperationalStateChange>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: module_up_time
                                             
                                             	Module up time
                                             	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.ModuleUpTime>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
                                             	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: module_power_administrative_state
                                             
                                             	Power administrative state
                                             	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: module_operational_state
                                             
                                             	Operation state
                                             	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
                                             	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
                                             	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -6036,7 +6764,7 @@ class PlatformInventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                             class LastOperationalStateChange(Entity):
@@ -6050,6 +6778,8 @@ class PlatformInventory(Entity):
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
+                                                	**config**\: False
+                                                
                                                 	**units**\: second
                                                 
                                                 .. attribute:: time_in_nano_seconds
@@ -6058,6 +6788,8 @@ class PlatformInventory(Entity):
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: nanosecond
                                                 
@@ -6087,7 +6819,8 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                             class ModuleUpTime(Entity):
@@ -6101,6 +6834,8 @@ class PlatformInventory(Entity):
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
+                                                	**config**\: False
+                                                
                                                 	**units**\: second
                                                 
                                                 .. attribute:: time_in_nano_seconds
@@ -6109,6 +6844,8 @@ class PlatformInventory(Entity):
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: nanosecond
                                                 
@@ -6138,7 +6875,12 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                             class Portses(Entity):
@@ -6149,6 +6891,8 @@ class PlatformInventory(Entity):
                                 
                                 	Port number
                                 	**type**\: list of  		 :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6187,20 +6931,28 @@ class PlatformInventory(Entity):
                                     
                                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: hw_components
                                     
                                     	Table of  HW components 
                                     	**type**\:  :py:class:`HwComponents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sensors
                                     
                                     	Table of sensors
                                     	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: attributes
                                     
                                     	Attributes
                                     	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6250,6 +7002,8 @@ class PlatformInventory(Entity):
                                         	HW component number
                                         	**type**\: list of  		 :py:class:`HwComponent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent>`
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -6287,15 +7041,21 @@ class PlatformInventory(Entity):
                                             
                                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: sensors
                                             
                                             	Table of sensors
                                             	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attributes
                                             
                                             	Attributes
                                             	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -6341,6 +7101,8 @@ class PlatformInventory(Entity):
                                                 	Sensor number
                                                 	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor>`
                                                 
+                                                	**config**\: False
+                                                
                                                 
 
                                                 """
@@ -6378,10 +7140,14 @@ class PlatformInventory(Entity):
                                                     
                                                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: attributes
                                                     
                                                     	Attributes
                                                     	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -6423,10 +7189,14 @@ class PlatformInventory(Entity):
                                                         	Entity attributes
                                                         	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: fru_info
                                                         
                                                         	Field Replaceable Unit (FRU) attributes
                                                         	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -6471,12 +7241,16 @@ class PlatformInventory(Entity):
                                                             
                                                             	**length:** 0..255
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: description
                                                             
                                                             	describes in user\-readable terms                 what the entity in question does
                                                             	**type**\: str
                                                             
                                                             	**length:** 0..255
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: model_name
                                                             
@@ -6485,12 +7259,16 @@ class PlatformInventory(Entity):
                                                             
                                                             	**length:** 0..255
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: hardware_revision
                                                             
                                                             	hw revision string
                                                             	**type**\: str
                                                             
                                                             	**length:** 0..255
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: serial_number
                                                             
@@ -6499,12 +7277,16 @@ class PlatformInventory(Entity):
                                                             
                                                             	**length:** 0..255
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: firmware_revision
                                                             
                                                             	firmware revision string
                                                             	**type**\: str
                                                             
                                                             	**length:** 0..255
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: software_revision
                                                             
@@ -6513,6 +7295,8 @@ class PlatformInventory(Entity):
                                                             
                                                             	**length:** 0..255
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: vendor_type
                                                             
                                                             	maps to the vendor OID string
@@ -6520,10 +7304,14 @@ class PlatformInventory(Entity):
                                                             
                                                             	**length:** 0..255
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: is_field_replaceable_unit
                                                             
                                                             	1 if Field Replaceable Unit 0, if not
                                                             	**type**\: bool
+                                                            
+                                                            	**config**\: False
                                                             
                                                             
 
@@ -6565,7 +7353,8 @@ class PlatformInventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                                         class FruInfo(Entity):
@@ -6577,35 +7366,49 @@ class PlatformInventory(Entity):
                                                             	Time operational state is   last changed
                                                             	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: module_up_time
                                                             
                                                             	Module up time
                                                             	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: module_administrative_state
                                                             
                                                             	Administrative    state
                                                             	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: module_power_administrative_state
                                                             
                                                             	Power administrative state
                                                             	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: module_operational_state
                                                             
                                                             	Operation state
                                                             	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: module_monitor_state
                                                             
                                                             	Monitor state
                                                             	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: module_reset_reason
                                                             
                                                             	Reset reason
                                                             	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                                            
+                                                            	**config**\: False
                                                             
                                                             
 
@@ -6647,7 +7450,7 @@ class PlatformInventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                             class LastOperationalStateChange(Entity):
@@ -6661,6 +7464,8 @@ class PlatformInventory(Entity):
                                                                 
                                                                 	**range:** \-2147483648..2147483647
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 	**units**\: second
                                                                 
                                                                 .. attribute:: time_in_nano_seconds
@@ -6669,6 +7474,8 @@ class PlatformInventory(Entity):
                                                                 	**type**\: int
                                                                 
                                                                 	**range:** \-2147483648..2147483647
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 	**units**\: nanosecond
                                                                 
@@ -6698,7 +7505,8 @@ class PlatformInventory(Entity):
                                                                     self._is_frozen = True
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                                             class ModuleUpTime(Entity):
@@ -6712,6 +7520,8 @@ class PlatformInventory(Entity):
                                                                 
                                                                 	**range:** \-2147483648..2147483647
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 	**units**\: second
                                                                 
                                                                 .. attribute:: time_in_nano_seconds
@@ -6720,6 +7530,8 @@ class PlatformInventory(Entity):
                                                                 	**type**\: int
                                                                 
                                                                 	**range:** \-2147483648..2147483647
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 	**units**\: nanosecond
                                                                 
@@ -6749,7 +7561,12 @@ class PlatformInventory(Entity):
                                                                     self._is_frozen = True
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                                             class Attributes(Entity):
@@ -6761,10 +7578,14 @@ class PlatformInventory(Entity):
                                                 	Entity attributes
                                                 	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: fru_info
                                                 
                                                 	Field Replaceable Unit (FRU) attributes
                                                 	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -6809,12 +7630,16 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: description
                                                     
                                                     	describes in user\-readable terms                 what the entity in question does
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: model_name
                                                     
@@ -6823,12 +7648,16 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: hardware_revision
                                                     
                                                     	hw revision string
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: serial_number
                                                     
@@ -6837,12 +7666,16 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: firmware_revision
                                                     
                                                     	firmware revision string
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: software_revision
                                                     
@@ -6851,6 +7684,8 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: vendor_type
                                                     
                                                     	maps to the vendor OID string
@@ -6858,10 +7693,14 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: is_field_replaceable_unit
                                                     
                                                     	1 if Field Replaceable Unit 0, if not
                                                     	**type**\: bool
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -6903,7 +7742,8 @@ class PlatformInventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                                 class FruInfo(Entity):
@@ -6915,35 +7755,49 @@ class PlatformInventory(Entity):
                                                     	Time operational state is   last changed
                                                     	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: module_up_time
                                                     
                                                     	Module up time
                                                     	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: module_administrative_state
                                                     
                                                     	Administrative    state
                                                     	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: module_power_administrative_state
                                                     
                                                     	Power administrative state
                                                     	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: module_operational_state
                                                     
                                                     	Operation state
                                                     	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: module_monitor_state
                                                     
                                                     	Monitor state
                                                     	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: module_reset_reason
                                                     
                                                     	Reset reason
                                                     	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -6985,7 +7839,7 @@ class PlatformInventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                     class LastOperationalStateChange(Entity):
@@ -6999,6 +7853,8 @@ class PlatformInventory(Entity):
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
+                                                        	**config**\: False
+                                                        
                                                         	**units**\: second
                                                         
                                                         .. attribute:: time_in_nano_seconds
@@ -7007,6 +7863,8 @@ class PlatformInventory(Entity):
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**config**\: False
                                                         
                                                         	**units**\: nanosecond
                                                         
@@ -7036,7 +7894,8 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                                     class ModuleUpTime(Entity):
@@ -7050,6 +7909,8 @@ class PlatformInventory(Entity):
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
+                                                        	**config**\: False
+                                                        
                                                         	**units**\: second
                                                         
                                                         .. attribute:: time_in_nano_seconds
@@ -7058,6 +7919,8 @@ class PlatformInventory(Entity):
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**config**\: False
                                                         
                                                         	**units**\: nanosecond
                                                         
@@ -7087,7 +7950,12 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                                     class Sensors(Entity):
@@ -7098,6 +7966,8 @@ class PlatformInventory(Entity):
                                         
                                         	Sensor number
                                         	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7136,10 +8006,14 @@ class PlatformInventory(Entity):
                                             
                                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attributes
                                             
                                             	Attributes
                                             	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -7181,10 +8055,14 @@ class PlatformInventory(Entity):
                                                 	Entity attributes
                                                 	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: fru_info
                                                 
                                                 	Field Replaceable Unit (FRU) attributes
                                                 	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -7229,12 +8107,16 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: description
                                                     
                                                     	describes in user\-readable terms                 what the entity in question does
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: model_name
                                                     
@@ -7243,12 +8125,16 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: hardware_revision
                                                     
                                                     	hw revision string
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: serial_number
                                                     
@@ -7257,12 +8143,16 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: firmware_revision
                                                     
                                                     	firmware revision string
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: software_revision
                                                     
@@ -7271,6 +8161,8 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: vendor_type
                                                     
                                                     	maps to the vendor OID string
@@ -7278,10 +8170,14 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: is_field_replaceable_unit
                                                     
                                                     	1 if Field Replaceable Unit 0, if not
                                                     	**type**\: bool
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -7323,7 +8219,8 @@ class PlatformInventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                                 class FruInfo(Entity):
@@ -7335,35 +8232,49 @@ class PlatformInventory(Entity):
                                                     	Time operational state is   last changed
                                                     	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: module_up_time
                                                     
                                                     	Module up time
                                                     	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: module_administrative_state
                                                     
                                                     	Administrative    state
                                                     	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: module_power_administrative_state
                                                     
                                                     	Power administrative state
                                                     	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: module_operational_state
                                                     
                                                     	Operation state
                                                     	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: module_monitor_state
                                                     
                                                     	Monitor state
                                                     	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: module_reset_reason
                                                     
                                                     	Reset reason
                                                     	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -7405,7 +8316,7 @@ class PlatformInventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                     class LastOperationalStateChange(Entity):
@@ -7419,6 +8330,8 @@ class PlatformInventory(Entity):
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
+                                                        	**config**\: False
+                                                        
                                                         	**units**\: second
                                                         
                                                         .. attribute:: time_in_nano_seconds
@@ -7427,6 +8340,8 @@ class PlatformInventory(Entity):
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**config**\: False
                                                         
                                                         	**units**\: nanosecond
                                                         
@@ -7456,7 +8371,8 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                                     class ModuleUpTime(Entity):
@@ -7470,6 +8386,8 @@ class PlatformInventory(Entity):
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
+                                                        	**config**\: False
+                                                        
                                                         	**units**\: second
                                                         
                                                         .. attribute:: time_in_nano_seconds
@@ -7478,6 +8396,8 @@ class PlatformInventory(Entity):
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**config**\: False
                                                         
                                                         	**units**\: nanosecond
                                                         
@@ -7507,7 +8427,12 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                                     class Attributes(Entity):
@@ -7519,10 +8444,14 @@ class PlatformInventory(Entity):
                                         	Entity attributes
                                         	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.BasicInfo>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: fru_info
                                         
                                         	Field Replaceable Unit (FRU) attributes
                                         	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7567,12 +8496,16 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: description
                                             
                                             	describes in user\-readable terms                 what the entity in question does
                                             	**type**\: str
                                             
                                             	**length:** 0..255
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: model_name
                                             
@@ -7581,12 +8514,16 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: hardware_revision
                                             
                                             	hw revision string
                                             	**type**\: str
                                             
                                             	**length:** 0..255
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: serial_number
                                             
@@ -7595,12 +8532,16 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: firmware_revision
                                             
                                             	firmware revision string
                                             	**type**\: str
                                             
                                             	**length:** 0..255
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: software_revision
                                             
@@ -7609,6 +8550,8 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: vendor_type
                                             
                                             	maps to the vendor OID string
@@ -7616,10 +8559,14 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: is_field_replaceable_unit
                                             
                                             	1 if Field Replaceable Unit 0, if not
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -7661,7 +8608,8 @@ class PlatformInventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                         class FruInfo(Entity):
@@ -7673,35 +8621,49 @@ class PlatformInventory(Entity):
                                             	Time operational state is   last changed
                                             	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: module_up_time
                                             
                                             	Module up time
                                             	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.ModuleUpTime>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
                                             	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: module_power_administrative_state
                                             
                                             	Power administrative state
                                             	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: module_operational_state
                                             
                                             	Operation state
                                             	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
                                             	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
                                             	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -7743,7 +8705,7 @@ class PlatformInventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                             class LastOperationalStateChange(Entity):
@@ -7757,6 +8719,8 @@ class PlatformInventory(Entity):
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
+                                                	**config**\: False
+                                                
                                                 	**units**\: second
                                                 
                                                 .. attribute:: time_in_nano_seconds
@@ -7765,6 +8729,8 @@ class PlatformInventory(Entity):
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: nanosecond
                                                 
@@ -7794,7 +8760,8 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                             class ModuleUpTime(Entity):
@@ -7808,6 +8775,8 @@ class PlatformInventory(Entity):
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
+                                                	**config**\: False
+                                                
                                                 	**units**\: second
                                                 
                                                 .. attribute:: time_in_nano_seconds
@@ -7816,6 +8785,8 @@ class PlatformInventory(Entity):
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: nanosecond
                                                 
@@ -7845,7 +8816,12 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                             class PortSlots(Entity):
@@ -7856,6 +8832,8 @@ class PlatformInventory(Entity):
                                 
                                 	Port slot number
                                 	**type**\: list of  		 :py:class:`PortSlot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7894,20 +8872,28 @@ class PlatformInventory(Entity):
                                     
                                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: portses
                                     
                                     	Table of port slots
                                     	**type**\:  :py:class:`Portses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sensors
                                     
                                     	Table of sensors
                                     	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: attributes
                                     
                                     	Attributes
                                     	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7957,6 +8943,8 @@ class PlatformInventory(Entity):
                                         	Port number
                                         	**type**\: list of  		 :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports>`
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -7994,20 +8982,28 @@ class PlatformInventory(Entity):
                                             
                                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: hw_components
                                             
                                             	Table of  HW components 
                                             	**type**\:  :py:class:`HwComponents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: sensors
                                             
                                             	Table of sensors
                                             	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attributes
                                             
                                             	Attributes
                                             	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -8057,6 +9053,8 @@ class PlatformInventory(Entity):
                                                 	HW component number
                                                 	**type**\: list of  		 :py:class:`HwComponent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent>`
                                                 
+                                                	**config**\: False
+                                                
                                                 
 
                                                 """
@@ -8094,15 +9092,21 @@ class PlatformInventory(Entity):
                                                     
                                                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: sensors
                                                     
                                                     	Table of sensors
                                                     	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: attributes
                                                     
                                                     	Attributes
                                                     	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -8148,6 +9152,8 @@ class PlatformInventory(Entity):
                                                         	Sensor number
                                                         	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         
 
                                                         """
@@ -8185,10 +9191,14 @@ class PlatformInventory(Entity):
                                                             
                                                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: attributes
                                                             
                                                             	Attributes
                                                             	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes>`
+                                                            
+                                                            	**config**\: False
                                                             
                                                             
 
@@ -8230,10 +9240,14 @@ class PlatformInventory(Entity):
                                                                 	Entity attributes
                                                                 	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo>`
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: fru_info
                                                                 
                                                                 	Field Replaceable Unit (FRU) attributes
                                                                 	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo>`
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 
 
@@ -8278,12 +9292,16 @@ class PlatformInventory(Entity):
                                                                     
                                                                     	**length:** 0..255
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: description
                                                                     
                                                                     	describes in user\-readable terms                 what the entity in question does
                                                                     	**type**\: str
                                                                     
                                                                     	**length:** 0..255
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: model_name
                                                                     
@@ -8292,12 +9310,16 @@ class PlatformInventory(Entity):
                                                                     
                                                                     	**length:** 0..255
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: hardware_revision
                                                                     
                                                                     	hw revision string
                                                                     	**type**\: str
                                                                     
                                                                     	**length:** 0..255
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: serial_number
                                                                     
@@ -8306,12 +9328,16 @@ class PlatformInventory(Entity):
                                                                     
                                                                     	**length:** 0..255
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: firmware_revision
                                                                     
                                                                     	firmware revision string
                                                                     	**type**\: str
                                                                     
                                                                     	**length:** 0..255
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: software_revision
                                                                     
@@ -8320,6 +9346,8 @@ class PlatformInventory(Entity):
                                                                     
                                                                     	**length:** 0..255
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: vendor_type
                                                                     
                                                                     	maps to the vendor OID string
@@ -8327,10 +9355,14 @@ class PlatformInventory(Entity):
                                                                     
                                                                     	**length:** 0..255
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: is_field_replaceable_unit
                                                                     
                                                                     	1 if Field Replaceable Unit 0, if not
                                                                     	**type**\: bool
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     
 
@@ -8372,7 +9404,8 @@ class PlatformInventory(Entity):
                                                                         self._is_frozen = True
 
                                                                     def __setattr__(self, name, value):
-                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                                                 class FruInfo(Entity):
@@ -8384,35 +9417,49 @@ class PlatformInventory(Entity):
                                                                     	Time operational state is   last changed
                                                                     	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: module_up_time
                                                                     
                                                                     	Module up time
                                                                     	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: module_administrative_state
                                                                     
                                                                     	Administrative    state
                                                                     	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: module_power_administrative_state
                                                                     
                                                                     	Power administrative state
                                                                     	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: module_operational_state
                                                                     
                                                                     	Operation state
                                                                     	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: module_monitor_state
                                                                     
                                                                     	Monitor state
                                                                     	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: module_reset_reason
                                                                     
                                                                     	Reset reason
                                                                     	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     
 
@@ -8454,7 +9501,7 @@ class PlatformInventory(Entity):
                                                                         self._is_frozen = True
 
                                                                     def __setattr__(self, name, value):
-                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                                     class LastOperationalStateChange(Entity):
@@ -8468,6 +9515,8 @@ class PlatformInventory(Entity):
                                                                         
                                                                         	**range:** \-2147483648..2147483647
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         	**units**\: second
                                                                         
                                                                         .. attribute:: time_in_nano_seconds
@@ -8476,6 +9525,8 @@ class PlatformInventory(Entity):
                                                                         	**type**\: int
                                                                         
                                                                         	**range:** \-2147483648..2147483647
+                                                                        
+                                                                        	**config**\: False
                                                                         
                                                                         	**units**\: nanosecond
                                                                         
@@ -8505,7 +9556,8 @@ class PlatformInventory(Entity):
                                                                             self._is_frozen = True
 
                                                                         def __setattr__(self, name, value):
-                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                                                     class ModuleUpTime(Entity):
@@ -8519,6 +9571,8 @@ class PlatformInventory(Entity):
                                                                         
                                                                         	**range:** \-2147483648..2147483647
                                                                         
+                                                                        	**config**\: False
+                                                                        
                                                                         	**units**\: second
                                                                         
                                                                         .. attribute:: time_in_nano_seconds
@@ -8527,6 +9581,8 @@ class PlatformInventory(Entity):
                                                                         	**type**\: int
                                                                         
                                                                         	**range:** \-2147483648..2147483647
+                                                                        
+                                                                        	**config**\: False
                                                                         
                                                                         	**units**\: nanosecond
                                                                         
@@ -8556,7 +9612,12 @@ class PlatformInventory(Entity):
                                                                             self._is_frozen = True
 
                                                                         def __setattr__(self, name, value):
-                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                                                     class Attributes(Entity):
@@ -8568,10 +9629,14 @@ class PlatformInventory(Entity):
                                                         	Entity attributes
                                                         	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: fru_info
                                                         
                                                         	Field Replaceable Unit (FRU) attributes
                                                         	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -8616,12 +9681,16 @@ class PlatformInventory(Entity):
                                                             
                                                             	**length:** 0..255
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: description
                                                             
                                                             	describes in user\-readable terms                 what the entity in question does
                                                             	**type**\: str
                                                             
                                                             	**length:** 0..255
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: model_name
                                                             
@@ -8630,12 +9699,16 @@ class PlatformInventory(Entity):
                                                             
                                                             	**length:** 0..255
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: hardware_revision
                                                             
                                                             	hw revision string
                                                             	**type**\: str
                                                             
                                                             	**length:** 0..255
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: serial_number
                                                             
@@ -8644,12 +9717,16 @@ class PlatformInventory(Entity):
                                                             
                                                             	**length:** 0..255
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: firmware_revision
                                                             
                                                             	firmware revision string
                                                             	**type**\: str
                                                             
                                                             	**length:** 0..255
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: software_revision
                                                             
@@ -8658,6 +9735,8 @@ class PlatformInventory(Entity):
                                                             
                                                             	**length:** 0..255
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: vendor_type
                                                             
                                                             	maps to the vendor OID string
@@ -8665,10 +9744,14 @@ class PlatformInventory(Entity):
                                                             
                                                             	**length:** 0..255
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: is_field_replaceable_unit
                                                             
                                                             	1 if Field Replaceable Unit 0, if not
                                                             	**type**\: bool
+                                                            
+                                                            	**config**\: False
                                                             
                                                             
 
@@ -8710,7 +9793,8 @@ class PlatformInventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                                         class FruInfo(Entity):
@@ -8722,35 +9806,49 @@ class PlatformInventory(Entity):
                                                             	Time operational state is   last changed
                                                             	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange>`
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: module_up_time
                                                             
                                                             	Module up time
                                                             	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime>`
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: module_administrative_state
                                                             
                                                             	Administrative    state
                                                             	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: module_power_administrative_state
                                                             
                                                             	Power administrative state
                                                             	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: module_operational_state
                                                             
                                                             	Operation state
                                                             	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: module_monitor_state
                                                             
                                                             	Monitor state
                                                             	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: module_reset_reason
                                                             
                                                             	Reset reason
                                                             	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                                            
+                                                            	**config**\: False
                                                             
                                                             
 
@@ -8792,7 +9890,7 @@ class PlatformInventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                             class LastOperationalStateChange(Entity):
@@ -8806,6 +9904,8 @@ class PlatformInventory(Entity):
                                                                 
                                                                 	**range:** \-2147483648..2147483647
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 	**units**\: second
                                                                 
                                                                 .. attribute:: time_in_nano_seconds
@@ -8814,6 +9914,8 @@ class PlatformInventory(Entity):
                                                                 	**type**\: int
                                                                 
                                                                 	**range:** \-2147483648..2147483647
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 	**units**\: nanosecond
                                                                 
@@ -8843,7 +9945,8 @@ class PlatformInventory(Entity):
                                                                     self._is_frozen = True
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                                             class ModuleUpTime(Entity):
@@ -8857,6 +9960,8 @@ class PlatformInventory(Entity):
                                                                 
                                                                 	**range:** \-2147483648..2147483647
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 	**units**\: second
                                                                 
                                                                 .. attribute:: time_in_nano_seconds
@@ -8865,6 +9970,8 @@ class PlatformInventory(Entity):
                                                                 	**type**\: int
                                                                 
                                                                 	**range:** \-2147483648..2147483647
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 	**units**\: nanosecond
                                                                 
@@ -8894,7 +10001,12 @@ class PlatformInventory(Entity):
                                                                     self._is_frozen = True
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                                             class Sensors(Entity):
@@ -8905,6 +10017,8 @@ class PlatformInventory(Entity):
                                                 
                                                 	Sensor number
                                                 	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -8943,10 +10057,14 @@ class PlatformInventory(Entity):
                                                     
                                                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: attributes
                                                     
                                                     	Attributes
                                                     	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -8988,10 +10106,14 @@ class PlatformInventory(Entity):
                                                         	Entity attributes
                                                         	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: fru_info
                                                         
                                                         	Field Replaceable Unit (FRU) attributes
                                                         	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -9036,12 +10158,16 @@ class PlatformInventory(Entity):
                                                             
                                                             	**length:** 0..255
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: description
                                                             
                                                             	describes in user\-readable terms                 what the entity in question does
                                                             	**type**\: str
                                                             
                                                             	**length:** 0..255
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: model_name
                                                             
@@ -9050,12 +10176,16 @@ class PlatformInventory(Entity):
                                                             
                                                             	**length:** 0..255
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: hardware_revision
                                                             
                                                             	hw revision string
                                                             	**type**\: str
                                                             
                                                             	**length:** 0..255
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: serial_number
                                                             
@@ -9064,12 +10194,16 @@ class PlatformInventory(Entity):
                                                             
                                                             	**length:** 0..255
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: firmware_revision
                                                             
                                                             	firmware revision string
                                                             	**type**\: str
                                                             
                                                             	**length:** 0..255
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: software_revision
                                                             
@@ -9078,6 +10212,8 @@ class PlatformInventory(Entity):
                                                             
                                                             	**length:** 0..255
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: vendor_type
                                                             
                                                             	maps to the vendor OID string
@@ -9085,10 +10221,14 @@ class PlatformInventory(Entity):
                                                             
                                                             	**length:** 0..255
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: is_field_replaceable_unit
                                                             
                                                             	1 if Field Replaceable Unit 0, if not
                                                             	**type**\: bool
+                                                            
+                                                            	**config**\: False
                                                             
                                                             
 
@@ -9130,7 +10270,8 @@ class PlatformInventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                                         class FruInfo(Entity):
@@ -9142,35 +10283,49 @@ class PlatformInventory(Entity):
                                                             	Time operational state is   last changed
                                                             	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: module_up_time
                                                             
                                                             	Module up time
                                                             	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: module_administrative_state
                                                             
                                                             	Administrative    state
                                                             	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: module_power_administrative_state
                                                             
                                                             	Power administrative state
                                                             	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: module_operational_state
                                                             
                                                             	Operation state
                                                             	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: module_monitor_state
                                                             
                                                             	Monitor state
                                                             	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: module_reset_reason
                                                             
                                                             	Reset reason
                                                             	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                                            
+                                                            	**config**\: False
                                                             
                                                             
 
@@ -9212,7 +10367,7 @@ class PlatformInventory(Entity):
                                                                 self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                             class LastOperationalStateChange(Entity):
@@ -9226,6 +10381,8 @@ class PlatformInventory(Entity):
                                                                 
                                                                 	**range:** \-2147483648..2147483647
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 	**units**\: second
                                                                 
                                                                 .. attribute:: time_in_nano_seconds
@@ -9234,6 +10391,8 @@ class PlatformInventory(Entity):
                                                                 	**type**\: int
                                                                 
                                                                 	**range:** \-2147483648..2147483647
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 	**units**\: nanosecond
                                                                 
@@ -9263,7 +10422,8 @@ class PlatformInventory(Entity):
                                                                     self._is_frozen = True
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                                             class ModuleUpTime(Entity):
@@ -9277,6 +10437,8 @@ class PlatformInventory(Entity):
                                                                 
                                                                 	**range:** \-2147483648..2147483647
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 	**units**\: second
                                                                 
                                                                 .. attribute:: time_in_nano_seconds
@@ -9285,6 +10447,8 @@ class PlatformInventory(Entity):
                                                                 	**type**\: int
                                                                 
                                                                 	**range:** \-2147483648..2147483647
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 	**units**\: nanosecond
                                                                 
@@ -9314,7 +10478,12 @@ class PlatformInventory(Entity):
                                                                     self._is_frozen = True
 
                                                                 def __setattr__(self, name, value):
-                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                                             class Attributes(Entity):
@@ -9326,10 +10495,14 @@ class PlatformInventory(Entity):
                                                 	Entity attributes
                                                 	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: fru_info
                                                 
                                                 	Field Replaceable Unit (FRU) attributes
                                                 	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -9374,12 +10547,16 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: description
                                                     
                                                     	describes in user\-readable terms                 what the entity in question does
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: model_name
                                                     
@@ -9388,12 +10565,16 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: hardware_revision
                                                     
                                                     	hw revision string
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: serial_number
                                                     
@@ -9402,12 +10583,16 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: firmware_revision
                                                     
                                                     	firmware revision string
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: software_revision
                                                     
@@ -9416,6 +10601,8 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: vendor_type
                                                     
                                                     	maps to the vendor OID string
@@ -9423,10 +10610,14 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: is_field_replaceable_unit
                                                     
                                                     	1 if Field Replaceable Unit 0, if not
                                                     	**type**\: bool
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -9468,7 +10659,8 @@ class PlatformInventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                                 class FruInfo(Entity):
@@ -9480,35 +10672,49 @@ class PlatformInventory(Entity):
                                                     	Time operational state is   last changed
                                                     	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: module_up_time
                                                     
                                                     	Module up time
                                                     	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: module_administrative_state
                                                     
                                                     	Administrative    state
                                                     	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: module_power_administrative_state
                                                     
                                                     	Power administrative state
                                                     	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: module_operational_state
                                                     
                                                     	Operation state
                                                     	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: module_monitor_state
                                                     
                                                     	Monitor state
                                                     	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: module_reset_reason
                                                     
                                                     	Reset reason
                                                     	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -9550,7 +10756,7 @@ class PlatformInventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                     class LastOperationalStateChange(Entity):
@@ -9564,6 +10770,8 @@ class PlatformInventory(Entity):
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
+                                                        	**config**\: False
+                                                        
                                                         	**units**\: second
                                                         
                                                         .. attribute:: time_in_nano_seconds
@@ -9572,6 +10780,8 @@ class PlatformInventory(Entity):
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**config**\: False
                                                         
                                                         	**units**\: nanosecond
                                                         
@@ -9601,7 +10811,8 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                                     class ModuleUpTime(Entity):
@@ -9615,6 +10826,8 @@ class PlatformInventory(Entity):
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
+                                                        	**config**\: False
+                                                        
                                                         	**units**\: second
                                                         
                                                         .. attribute:: time_in_nano_seconds
@@ -9623,6 +10836,8 @@ class PlatformInventory(Entity):
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**config**\: False
                                                         
                                                         	**units**\: nanosecond
                                                         
@@ -9652,7 +10867,12 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                                     class Sensors(Entity):
@@ -9663,6 +10883,8 @@ class PlatformInventory(Entity):
                                         
                                         	Sensor number
                                         	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -9701,10 +10923,14 @@ class PlatformInventory(Entity):
                                             
                                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attributes
                                             
                                             	Attributes
                                             	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -9746,10 +10972,14 @@ class PlatformInventory(Entity):
                                                 	Entity attributes
                                                 	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: fru_info
                                                 
                                                 	Field Replaceable Unit (FRU) attributes
                                                 	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -9794,12 +11024,16 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: description
                                                     
                                                     	describes in user\-readable terms                 what the entity in question does
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: model_name
                                                     
@@ -9808,12 +11042,16 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: hardware_revision
                                                     
                                                     	hw revision string
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: serial_number
                                                     
@@ -9822,12 +11060,16 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: firmware_revision
                                                     
                                                     	firmware revision string
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: software_revision
                                                     
@@ -9836,6 +11078,8 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: vendor_type
                                                     
                                                     	maps to the vendor OID string
@@ -9843,10 +11087,14 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: is_field_replaceable_unit
                                                     
                                                     	1 if Field Replaceable Unit 0, if not
                                                     	**type**\: bool
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -9888,7 +11136,8 @@ class PlatformInventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                                 class FruInfo(Entity):
@@ -9900,35 +11149,49 @@ class PlatformInventory(Entity):
                                                     	Time operational state is   last changed
                                                     	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: module_up_time
                                                     
                                                     	Module up time
                                                     	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: module_administrative_state
                                                     
                                                     	Administrative    state
                                                     	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: module_power_administrative_state
                                                     
                                                     	Power administrative state
                                                     	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: module_operational_state
                                                     
                                                     	Operation state
                                                     	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: module_monitor_state
                                                     
                                                     	Monitor state
                                                     	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: module_reset_reason
                                                     
                                                     	Reset reason
                                                     	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -9970,7 +11233,7 @@ class PlatformInventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                     class LastOperationalStateChange(Entity):
@@ -9984,6 +11247,8 @@ class PlatformInventory(Entity):
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
+                                                        	**config**\: False
+                                                        
                                                         	**units**\: second
                                                         
                                                         .. attribute:: time_in_nano_seconds
@@ -9992,6 +11257,8 @@ class PlatformInventory(Entity):
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**config**\: False
                                                         
                                                         	**units**\: nanosecond
                                                         
@@ -10021,7 +11288,8 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                                     class ModuleUpTime(Entity):
@@ -10035,6 +11303,8 @@ class PlatformInventory(Entity):
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
+                                                        	**config**\: False
+                                                        
                                                         	**units**\: second
                                                         
                                                         .. attribute:: time_in_nano_seconds
@@ -10043,6 +11313,8 @@ class PlatformInventory(Entity):
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**config**\: False
                                                         
                                                         	**units**\: nanosecond
                                                         
@@ -10072,7 +11344,12 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                                     class Attributes(Entity):
@@ -10084,10 +11361,14 @@ class PlatformInventory(Entity):
                                         	Entity attributes
                                         	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: fru_info
                                         
                                         	Field Replaceable Unit (FRU) attributes
                                         	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -10132,12 +11413,16 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: description
                                             
                                             	describes in user\-readable terms                 what the entity in question does
                                             	**type**\: str
                                             
                                             	**length:** 0..255
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: model_name
                                             
@@ -10146,12 +11431,16 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: hardware_revision
                                             
                                             	hw revision string
                                             	**type**\: str
                                             
                                             	**length:** 0..255
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: serial_number
                                             
@@ -10160,12 +11449,16 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: firmware_revision
                                             
                                             	firmware revision string
                                             	**type**\: str
                                             
                                             	**length:** 0..255
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: software_revision
                                             
@@ -10174,6 +11467,8 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: vendor_type
                                             
                                             	maps to the vendor OID string
@@ -10181,10 +11476,14 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: is_field_replaceable_unit
                                             
                                             	1 if Field Replaceable Unit 0, if not
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -10226,7 +11525,8 @@ class PlatformInventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                         class FruInfo(Entity):
@@ -10238,35 +11538,49 @@ class PlatformInventory(Entity):
                                             	Time operational state is   last changed
                                             	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: module_up_time
                                             
                                             	Module up time
                                             	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
                                             	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: module_power_administrative_state
                                             
                                             	Power administrative state
                                             	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: module_operational_state
                                             
                                             	Operation state
                                             	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
                                             	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
                                             	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -10308,7 +11622,7 @@ class PlatformInventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                             class LastOperationalStateChange(Entity):
@@ -10322,6 +11636,8 @@ class PlatformInventory(Entity):
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
+                                                	**config**\: False
+                                                
                                                 	**units**\: second
                                                 
                                                 .. attribute:: time_in_nano_seconds
@@ -10330,6 +11646,8 @@ class PlatformInventory(Entity):
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: nanosecond
                                                 
@@ -10359,7 +11677,8 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                             class ModuleUpTime(Entity):
@@ -10373,6 +11692,8 @@ class PlatformInventory(Entity):
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
+                                                	**config**\: False
+                                                
                                                 	**units**\: second
                                                 
                                                 .. attribute:: time_in_nano_seconds
@@ -10381,6 +11702,8 @@ class PlatformInventory(Entity):
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: nanosecond
                                                 
@@ -10410,7 +11733,12 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                             class HwComponents(Entity):
@@ -10421,6 +11749,8 @@ class PlatformInventory(Entity):
                                 
                                 	HW component number
                                 	**type**\: list of  		 :py:class:`HwComponent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10459,15 +11789,21 @@ class PlatformInventory(Entity):
                                     
                                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sensors
                                     
                                     	Table of sensors
                                     	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: attributes
                                     
                                     	Attributes
                                     	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -10513,6 +11849,8 @@ class PlatformInventory(Entity):
                                         	Sensor number
                                         	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor>`
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -10550,10 +11888,14 @@ class PlatformInventory(Entity):
                                             
                                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attributes
                                             
                                             	Attributes
                                             	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -10595,10 +11937,14 @@ class PlatformInventory(Entity):
                                                 	Entity attributes
                                                 	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: fru_info
                                                 
                                                 	Field Replaceable Unit (FRU) attributes
                                                 	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -10643,12 +11989,16 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: description
                                                     
                                                     	describes in user\-readable terms                 what the entity in question does
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: model_name
                                                     
@@ -10657,12 +12007,16 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: hardware_revision
                                                     
                                                     	hw revision string
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: serial_number
                                                     
@@ -10671,12 +12025,16 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: firmware_revision
                                                     
                                                     	firmware revision string
                                                     	**type**\: str
                                                     
                                                     	**length:** 0..255
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: software_revision
                                                     
@@ -10685,6 +12043,8 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: vendor_type
                                                     
                                                     	maps to the vendor OID string
@@ -10692,10 +12052,14 @@ class PlatformInventory(Entity):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: is_field_replaceable_unit
                                                     
                                                     	1 if Field Replaceable Unit 0, if not
                                                     	**type**\: bool
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -10737,7 +12101,8 @@ class PlatformInventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                                 class FruInfo(Entity):
@@ -10749,35 +12114,49 @@ class PlatformInventory(Entity):
                                                     	Time operational state is   last changed
                                                     	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: module_up_time
                                                     
                                                     	Module up time
                                                     	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: module_administrative_state
                                                     
                                                     	Administrative    state
                                                     	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: module_power_administrative_state
                                                     
                                                     	Power administrative state
                                                     	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: module_operational_state
                                                     
                                                     	Operation state
                                                     	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: module_monitor_state
                                                     
                                                     	Monitor state
                                                     	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: module_reset_reason
                                                     
                                                     	Reset reason
                                                     	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -10819,7 +12198,7 @@ class PlatformInventory(Entity):
                                                         self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                                     class LastOperationalStateChange(Entity):
@@ -10833,6 +12212,8 @@ class PlatformInventory(Entity):
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
+                                                        	**config**\: False
+                                                        
                                                         	**units**\: second
                                                         
                                                         .. attribute:: time_in_nano_seconds
@@ -10841,6 +12222,8 @@ class PlatformInventory(Entity):
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**config**\: False
                                                         
                                                         	**units**\: nanosecond
                                                         
@@ -10870,7 +12253,8 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                                     class ModuleUpTime(Entity):
@@ -10884,6 +12268,8 @@ class PlatformInventory(Entity):
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
+                                                        	**config**\: False
+                                                        
                                                         	**units**\: second
                                                         
                                                         .. attribute:: time_in_nano_seconds
@@ -10892,6 +12278,8 @@ class PlatformInventory(Entity):
                                                         	**type**\: int
                                                         
                                                         	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**config**\: False
                                                         
                                                         	**units**\: nanosecond
                                                         
@@ -10921,7 +12309,12 @@ class PlatformInventory(Entity):
                                                             self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
-                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                                     class Attributes(Entity):
@@ -10933,10 +12326,14 @@ class PlatformInventory(Entity):
                                         	Entity attributes
                                         	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.BasicInfo>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: fru_info
                                         
                                         	Field Replaceable Unit (FRU) attributes
                                         	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -10981,12 +12378,16 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: description
                                             
                                             	describes in user\-readable terms                 what the entity in question does
                                             	**type**\: str
                                             
                                             	**length:** 0..255
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: model_name
                                             
@@ -10995,12 +12396,16 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: hardware_revision
                                             
                                             	hw revision string
                                             	**type**\: str
                                             
                                             	**length:** 0..255
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: serial_number
                                             
@@ -11009,12 +12414,16 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: firmware_revision
                                             
                                             	firmware revision string
                                             	**type**\: str
                                             
                                             	**length:** 0..255
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: software_revision
                                             
@@ -11023,6 +12432,8 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: vendor_type
                                             
                                             	maps to the vendor OID string
@@ -11030,10 +12441,14 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: is_field_replaceable_unit
                                             
                                             	1 if Field Replaceable Unit 0, if not
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -11075,7 +12490,8 @@ class PlatformInventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                         class FruInfo(Entity):
@@ -11087,35 +12503,49 @@ class PlatformInventory(Entity):
                                             	Time operational state is   last changed
                                             	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: module_up_time
                                             
                                             	Module up time
                                             	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
                                             	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: module_power_administrative_state
                                             
                                             	Power administrative state
                                             	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: module_operational_state
                                             
                                             	Operation state
                                             	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
                                             	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
                                             	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -11157,7 +12587,7 @@ class PlatformInventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                             class LastOperationalStateChange(Entity):
@@ -11171,6 +12601,8 @@ class PlatformInventory(Entity):
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
+                                                	**config**\: False
+                                                
                                                 	**units**\: second
                                                 
                                                 .. attribute:: time_in_nano_seconds
@@ -11179,6 +12611,8 @@ class PlatformInventory(Entity):
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: nanosecond
                                                 
@@ -11208,7 +12642,8 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                             class ModuleUpTime(Entity):
@@ -11222,6 +12657,8 @@ class PlatformInventory(Entity):
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
+                                                	**config**\: False
+                                                
                                                 	**units**\: second
                                                 
                                                 .. attribute:: time_in_nano_seconds
@@ -11230,6 +12667,8 @@ class PlatformInventory(Entity):
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: nanosecond
                                                 
@@ -11259,7 +12698,12 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                             class Sensors(Entity):
@@ -11270,6 +12714,8 @@ class PlatformInventory(Entity):
                                 
                                 	Sensor number
                                 	**type**\: list of  		 :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -11308,10 +12754,14 @@ class PlatformInventory(Entity):
                                     
                                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: attributes
                                     
                                     	Attributes
                                     	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -11353,10 +12803,14 @@ class PlatformInventory(Entity):
                                         	Entity attributes
                                         	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.BasicInfo>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: fru_info
                                         
                                         	Field Replaceable Unit (FRU) attributes
                                         	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -11401,12 +12855,16 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: description
                                             
                                             	describes in user\-readable terms                 what the entity in question does
                                             	**type**\: str
                                             
                                             	**length:** 0..255
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: model_name
                                             
@@ -11415,12 +12873,16 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: hardware_revision
                                             
                                             	hw revision string
                                             	**type**\: str
                                             
                                             	**length:** 0..255
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: serial_number
                                             
@@ -11429,12 +12891,16 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: firmware_revision
                                             
                                             	firmware revision string
                                             	**type**\: str
                                             
                                             	**length:** 0..255
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: software_revision
                                             
@@ -11443,6 +12909,8 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: vendor_type
                                             
                                             	maps to the vendor OID string
@@ -11450,10 +12918,14 @@ class PlatformInventory(Entity):
                                             
                                             	**length:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: is_field_replaceable_unit
                                             
                                             	1 if Field Replaceable Unit 0, if not
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -11495,7 +12967,8 @@ class PlatformInventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                         class FruInfo(Entity):
@@ -11507,35 +12980,49 @@ class PlatformInventory(Entity):
                                             	Time operational state is   last changed
                                             	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: module_up_time
                                             
                                             	Module up time
                                             	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
                                             	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: module_power_administrative_state
                                             
                                             	Power administrative state
                                             	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: module_operational_state
                                             
                                             	Operation state
                                             	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
                                             	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
                                             	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -11577,7 +13064,7 @@ class PlatformInventory(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                             class LastOperationalStateChange(Entity):
@@ -11591,6 +13078,8 @@ class PlatformInventory(Entity):
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
+                                                	**config**\: False
+                                                
                                                 	**units**\: second
                                                 
                                                 .. attribute:: time_in_nano_seconds
@@ -11599,6 +13088,8 @@ class PlatformInventory(Entity):
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: nanosecond
                                                 
@@ -11628,7 +13119,8 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                             class ModuleUpTime(Entity):
@@ -11642,6 +13134,8 @@ class PlatformInventory(Entity):
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
+                                                	**config**\: False
+                                                
                                                 	**units**\: second
                                                 
                                                 .. attribute:: time_in_nano_seconds
@@ -11650,6 +13144,8 @@ class PlatformInventory(Entity):
                                                 	**type**\: int
                                                 
                                                 	**range:** \-2147483648..2147483647
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: nanosecond
                                                 
@@ -11679,7 +13175,12 @@ class PlatformInventory(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                             class Attributes(Entity):
@@ -11691,10 +13192,14 @@ class PlatformInventory(Entity):
                                 	Entity attributes
                                 	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.BasicInfo>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fru_info
                                 
                                 	Field Replaceable Unit (FRU) attributes
                                 	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -11739,12 +13244,16 @@ class PlatformInventory(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: description
                                     
                                     	describes in user\-readable terms                 what the entity in question does
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: model_name
                                     
@@ -11753,12 +13262,16 @@ class PlatformInventory(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: hardware_revision
                                     
                                     	hw revision string
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: serial_number
                                     
@@ -11767,12 +13280,16 @@ class PlatformInventory(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: firmware_revision
                                     
                                     	firmware revision string
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: software_revision
                                     
@@ -11781,6 +13298,8 @@ class PlatformInventory(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: vendor_type
                                     
                                     	maps to the vendor OID string
@@ -11788,10 +13307,14 @@ class PlatformInventory(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: is_field_replaceable_unit
                                     
                                     	1 if Field Replaceable Unit 0, if not
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -11833,7 +13356,8 @@ class PlatformInventory(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                                 class FruInfo(Entity):
@@ -11845,35 +13369,49 @@ class PlatformInventory(Entity):
                                     	Time operational state is   last changed
                                     	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.LastOperationalStateChange>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: module_up_time
                                     
                                     	Module up time
                                     	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.ModuleUpTime>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: module_administrative_state
                                     
                                     	Administrative    state
                                     	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: module_power_administrative_state
                                     
                                     	Power administrative state
                                     	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: module_operational_state
                                     
                                     	Operation state
                                     	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: module_monitor_state
                                     
                                     	Monitor state
                                     	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: module_reset_reason
                                     
                                     	Reset reason
                                     	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -11915,7 +13453,7 @@ class PlatformInventory(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                        self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                                     class LastOperationalStateChange(Entity):
@@ -11929,6 +13467,8 @@ class PlatformInventory(Entity):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: second
                                         
                                         .. attribute:: time_in_nano_seconds
@@ -11937,6 +13477,8 @@ class PlatformInventory(Entity):
                                         	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: nanosecond
                                         
@@ -11966,7 +13508,8 @@ class PlatformInventory(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                                     class ModuleUpTime(Entity):
@@ -11980,6 +13523,8 @@ class PlatformInventory(Entity):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: second
                                         
                                         .. attribute:: time_in_nano_seconds
@@ -11988,6 +13533,8 @@ class PlatformInventory(Entity):
                                         	**type**\: int
                                         
                                         	**range:** \-2147483648..2147483647
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: nanosecond
                                         
@@ -12017,7 +13564,12 @@ class PlatformInventory(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                            self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
                     class Attributes(Entity):
@@ -12029,10 +13581,14 @@ class PlatformInventory(Entity):
                         	Entity attributes
                         	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.BasicInfo>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: fru_info
                         
                         	Field Replaceable Unit (FRU) attributes
                         	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -12077,12 +13633,16 @@ class PlatformInventory(Entity):
                             
                             	**length:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: description
                             
                             	describes in user\-readable terms                 what the entity in question does
                             	**type**\: str
                             
                             	**length:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: model_name
                             
@@ -12091,12 +13651,16 @@ class PlatformInventory(Entity):
                             
                             	**length:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: hardware_revision
                             
                             	hw revision string
                             	**type**\: str
                             
                             	**length:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: serial_number
                             
@@ -12105,12 +13669,16 @@ class PlatformInventory(Entity):
                             
                             	**length:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: firmware_revision
                             
                             	firmware revision string
                             	**type**\: str
                             
                             	**length:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: software_revision
                             
@@ -12119,6 +13687,8 @@ class PlatformInventory(Entity):
                             
                             	**length:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: vendor_type
                             
                             	maps to the vendor OID string
@@ -12126,10 +13696,14 @@ class PlatformInventory(Entity):
                             
                             	**length:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_field_replaceable_unit
                             
                             	1 if Field Replaceable Unit 0, if not
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -12171,7 +13745,8 @@ class PlatformInventory(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                         class FruInfo(Entity):
@@ -12183,35 +13758,49 @@ class PlatformInventory(Entity):
                             	Time operational state is   last changed
                             	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.LastOperationalStateChange>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: module_up_time
                             
                             	Module up time
                             	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.ModuleUpTime>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: module_administrative_state
                             
                             	Administrative    state
                             	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: module_power_administrative_state
                             
                             	Power administrative state
                             	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: module_operational_state
                             
                             	Operation state
                             	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: module_monitor_state
                             
                             	Monitor state
                             	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: module_reset_reason
                             
                             	Reset reason
                             	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -12253,7 +13842,7 @@ class PlatformInventory(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                                self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                             class LastOperationalStateChange(Entity):
@@ -12267,6 +13856,8 @@ class PlatformInventory(Entity):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
+                                	**config**\: False
+                                
                                 	**units**\: second
                                 
                                 .. attribute:: time_in_nano_seconds
@@ -12275,6 +13866,8 @@ class PlatformInventory(Entity):
                                 	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
+                                
+                                	**config**\: False
                                 
                                 	**units**\: nanosecond
                                 
@@ -12304,7 +13897,8 @@ class PlatformInventory(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                             class ModuleUpTime(Entity):
@@ -12318,6 +13912,8 @@ class PlatformInventory(Entity):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
+                                	**config**\: False
+                                
                                 	**units**\: second
                                 
                                 .. attribute:: time_in_nano_seconds
@@ -12326,6 +13922,8 @@ class PlatformInventory(Entity):
                                 	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
+                                
+                                	**config**\: False
                                 
                                 	**units**\: nanosecond
                                 
@@ -12355,7 +13953,12 @@ class PlatformInventory(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                                    self._perform_setattr(PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
 
             class Attributes(Entity):
@@ -12367,10 +13970,14 @@ class PlatformInventory(Entity):
                 	Entity attributes
                 	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Attributes.BasicInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: fru_info
                 
                 	Field Replaceable Unit (FRU) attributes
                 	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Attributes.FruInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -12415,12 +14022,16 @@ class PlatformInventory(Entity):
                     
                     	**length:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	describes in user\-readable terms                 what the entity in question does
                     	**type**\: str
                     
                     	**length:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: model_name
                     
@@ -12429,12 +14040,16 @@ class PlatformInventory(Entity):
                     
                     	**length:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: hardware_revision
                     
                     	hw revision string
                     	**type**\: str
                     
                     	**length:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: serial_number
                     
@@ -12443,12 +14058,16 @@ class PlatformInventory(Entity):
                     
                     	**length:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: firmware_revision
                     
                     	firmware revision string
                     	**type**\: str
                     
                     	**length:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: software_revision
                     
@@ -12457,6 +14076,8 @@ class PlatformInventory(Entity):
                     
                     	**length:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: vendor_type
                     
                     	maps to the vendor OID string
@@ -12464,10 +14085,14 @@ class PlatformInventory(Entity):
                     
                     	**length:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_field_replaceable_unit
                     
                     	1 if Field Replaceable Unit 0, if not
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -12509,7 +14134,8 @@ class PlatformInventory(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.BasicInfo, [u'name', u'description', u'model_name', u'hardware_revision', u'serial_number', u'firmware_revision', u'software_revision', u'vendor_type', u'is_field_replaceable_unit'], name, value)
+                        self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.BasicInfo, ['name', 'description', 'model_name', 'hardware_revision', 'serial_number', 'firmware_revision', 'software_revision', 'vendor_type', 'is_field_replaceable_unit'], name, value)
+
 
 
                 class FruInfo(Entity):
@@ -12521,35 +14147,49 @@ class PlatformInventory(Entity):
                     	Time operational state is   last changed
                     	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Attributes.FruInfo.LastOperationalStateChange>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: module_up_time
                     
                     	Module up time
                     	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.PlatformInventory.Racks.Rack.Attributes.FruInfo.ModuleUpTime>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: module_administrative_state
                     
                     	Administrative    state
                     	**type**\:  :py:class:`InvAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvAdminState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: module_power_administrative_state
                     
                     	Power administrative state
                     	**type**\:  :py:class:`InvPowerAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvPowerAdminState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: module_operational_state
                     
                     	Operation state
                     	**type**\:  :py:class:`InvCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvCardState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: module_monitor_state
                     
                     	Monitor state
                     	**type**\:  :py:class:`InvMonitorState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvMonitorState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: module_reset_reason
                     
                     	Reset reason
                     	**type**\:  :py:class:`InvResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper.InvResetReason>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -12591,7 +14231,7 @@ class PlatformInventory(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.FruInfo, [u'module_administrative_state', u'module_power_administrative_state', u'module_operational_state', u'module_monitor_state', u'module_reset_reason'], name, value)
+                        self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.FruInfo, ['module_administrative_state', 'module_power_administrative_state', 'module_operational_state', 'module_monitor_state', 'module_reset_reason'], name, value)
 
 
                     class LastOperationalStateChange(Entity):
@@ -12605,6 +14245,8 @@ class PlatformInventory(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         	**units**\: second
                         
                         .. attribute:: time_in_nano_seconds
@@ -12613,6 +14255,8 @@ class PlatformInventory(Entity):
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         	**units**\: nanosecond
                         
@@ -12642,7 +14286,8 @@ class PlatformInventory(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.FruInfo.LastOperationalStateChange, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                            self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.FruInfo.LastOperationalStateChange, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
 
 
                     class ModuleUpTime(Entity):
@@ -12656,6 +14301,8 @@ class PlatformInventory(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         	**units**\: second
                         
                         .. attribute:: time_in_nano_seconds
@@ -12664,6 +14311,8 @@ class PlatformInventory(Entity):
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         	**units**\: nanosecond
                         
@@ -12693,9 +14342,16 @@ class PlatformInventory(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.FruInfo.ModuleUpTime, [u'time_in_seconds', u'time_in_nano_seconds'], name, value)
+                            self._perform_setattr(PlatformInventory.Racks.Rack.Attributes.FruInfo.ModuleUpTime, ['time_in_seconds', 'time_in_nano_seconds'], name, value)
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = PlatformInventory()
         return self._top_entity
+
+
 

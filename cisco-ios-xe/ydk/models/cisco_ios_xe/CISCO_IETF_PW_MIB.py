@@ -44,35 +44,49 @@ class CISCOIETFPWMIB(Entity):
     	
     	**type**\:  :py:class:`CpwVcObjects <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcObjects>`
     
+    	**config**\: False
+    
     .. attribute:: cpwvctable
     
     	This table specifies information for connecting various  emulated services to various tunnel type
     	**type**\:  :py:class:`CpwVcTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable>`
+    
+    	**config**\: False
     
     .. attribute:: cpwvcperfcurrenttable
     
     	This table provides per\-VC performance information for the   current interval
     	**type**\:  :py:class:`CpwVcPerfCurrentTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcPerfCurrentTable>`
     
+    	**config**\: False
+    
     .. attribute:: cpwvcperfintervaltable
     
     	This table provides per\-VC performance information for   each interval
     	**type**\:  :py:class:`CpwVcPerfIntervalTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcPerfIntervalTable>`
+    
+    	**config**\: False
     
     .. attribute:: cpwvcperftotaltable
     
     	This table provides per\-VC Performance information from VC   start time
     	**type**\:  :py:class:`CpwVcPerfTotalTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcPerfTotalTable>`
     
+    	**config**\: False
+    
     .. attribute:: cpwvcidmappingtable
     
     	This table provides reverse mapping of the existing VCs   based on vc type and VC ID ordering. This table is   typically useful for EMS ordered query of existing VCs
     	**type**\:  :py:class:`CpwVcIdMappingTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcIdMappingTable>`
     
+    	**config**\: False
+    
     .. attribute:: cpwvcpeermappingtable
     
     	This table provides reverse mapping of the existing VCs   based on vc type and VC ID ordering. This table is   typically useful for EMS ordered query of existing VCs
     	**type**\:  :py:class:`CpwVcPeerMappingTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcPeerMappingTable>`
+    
+    	**config**\: False
     
     
 
@@ -138,6 +152,8 @@ class CISCOIETFPWMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: cpwvcperftotalerrorpackets
         
         	Counter for number of error at VC level processing, for   example packets received with unknown VC label
@@ -145,10 +161,14 @@ class CISCOIETFPWMIB(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: cpwvcupdownnotifenable
         
         	If this object is set to true(1), then it enables the emission of cpwVcUp and cpwVcDown notifications; otherwise these notifications are not emitted
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: cpwvcnotifrate
         
@@ -156,6 +176,8 @@ class CISCOIETFPWMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -191,6 +213,7 @@ class CISCOIETFPWMIB(Entity):
             self._perform_setattr(CISCOIETFPWMIB.CpwVcObjects, [u'cpwvcindexnext', u'cpwvcperftotalerrorpackets', u'cpwvcupdownnotifenable', u'cpwvcnotifrate'], name, value)
 
 
+
     class CpwVcTable(Entity):
         """
         This table specifies information for connecting various 
@@ -200,6 +223,8 @@ class CISCOIETFPWMIB(Entity):
         
         	A row in this table represents an emulated virtual  connection (VC) across a packet network. It is indexed by  cpwVcIndex, which uniquely identifying a singular   connection. 
         	**type**\: list of  		 :py:class:`CpwVcEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
+        
+        	**config**\: False
         
         
 
@@ -242,20 +267,28 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwvctype
             
             	This value indicate the service to be carried over  this VC.   Note\: the exact set of VC types is yet to be worked   out by the WG. 
             	**type**\:  :py:class:`CpwVcType <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB.CpwVcType>`
+            
+            	**config**\: False
             
             .. attribute:: cpwvcowner
             
             	Set by the operator to indicate the protocol responsible   for establishing this VC. Value 'manual' is used in all  cases where no maintenance protocol (PW signaling) is used   to set\-up the VC, i.e. require configuration of entries in  the VC tables including VC labels, etc. The value   'maintenanceProtocol' is used in case of standard  signaling of the VC for the specific PSN, for example LDP  for MPLS PSN as specified in <draft\- draft\-martini\-  l2circuit\-trans\-mpls> or L2TP control protocol.   Value 'other' is used for other types of signaling
             	**type**\:  :py:class:`CpwVcOwner <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry.CpwVcOwner>`
             
+            	**config**\: False
+            
             .. attribute:: cpwvcpsntype
             
             	Set by the operator to indicate the PSN type on which this   VC will be carried. Based on this object, the relevant PSN   table entries are created in the in the PSN specific MIB   modules. For example, if mpls(1) is defined, the agent   create an entry in cpwVcMplsTable, which further define the   MPLS PSN configuration.  Note\: the exact set of PSN types is yet to be worked   out by the WG. 
             	**type**\:  :py:class:`CpwVcPsnType <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry.CpwVcPsnType>`
+            
+            	**config**\: False
             
             .. attribute:: cpwvcsetuppriority
             
@@ -264,6 +297,8 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..7
             
+            	**config**\: False
+            
             .. attribute:: cpwvcholdingpriority
             
             	This object define the relative holding priority of the VC    in a lowest\-to\-highest fashion, where 0 is the highest   priority. VCs with the same priority are treated with  equal priority. Dropped VC will be set 'dormant' (as  indicated in cpwVcOperStatus).  This value is significant if there are competing resources  between VCs and the implementation support this feature.  If not supported or not relevant, the value of zero MUST  be used
@@ -271,15 +306,21 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..7
             
+            	**config**\: False
+            
             .. attribute:: cpwvcinboundmode
             
             	This object is used to enable greater security for   implementation that use per platform VC label space. In   strict mode, packets coming from the PSN are accepted only   from tunnels that are associated to the same VC via the   inbound tunnel table in the case of MPLS, or as identified   by the source IP address in case of L2TP or IP PSN. The   entries in the inbound tunnel table are either explicitly   configured or implicitly known by the maintenance protocol   used for VC set\-up.   If such association is not known, not configured or not   desired, loose mode should be configured, and the node   should accept the packet based on the VC label only   regardless of the outer tunnel used to carry the VC
             	**type**\:  :py:class:`CpwVcInboundMode <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry.CpwVcInboundMode>`
             
+            	**config**\: False
+            
             .. attribute:: cpwvcpeeraddrtype
             
             	Denotes the address type of the peer node maintenance  protocol (signaling) address if PW maintenance protocol is  used for the VC creation. It should be set to   'unknown' if PE/PW maintenance protocol is not used,   i.e. cpwVcOwner is set to 'manual'. 
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cpwvcpeeraddr
             
@@ -288,12 +329,16 @@ class CISCOIETFPWMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cpwvcid
             
             	Used in the outgoing VC ID field within the 'Virtual  Circuit FEC Element' when LDP signaling is used or PW ID   AVP for L2TP
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cpwvclocalgroupid
             
@@ -302,10 +347,14 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwvccontrolword
             
             	Define if the control word will be sent with each packet by   the local node
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cpwvclocalifmtu
             
@@ -314,10 +363,14 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: cpwvclocalifstring
             
             	Each VC is associated to an interface (or a virtual   interface) in the ifTable of the node as part of the  service configuration. This object defines if the   maintenance protocol will send the interface's name as  appears on the ifTable in the name object as part of the  maintenance protocol. If set to false, the optional element  will not be sent
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cpwvcremotegroupid
             
@@ -326,10 +379,14 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwvcremotecontrolword
             
             	If maintenance protocol is used for VC establishment, this   parameter indicates the received status of the control word   usage, i.e. if packets will be received with control word  or not. The value of 'notYetKnown' is used while the  maintenance protocol has not yet received the indication   from the remote node.  In manual configuration of the VC this parameters indicate   to the local node what is the expected encapsulation for  the received packets. 
             	**type**\:  :py:class:`CpwVcRemoteControlWord <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry.CpwVcRemoteControlWord>`
+            
+            	**config**\: False
             
             .. attribute:: cpwvcremoteifmtu
             
@@ -338,12 +395,16 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwvcremoteifstring
             
             	Indicate the interface description string as received by  the maintenance protocol, MUST be NULL string if not   applicable or not known yet
             	**type**\: str
             
             	**length:** 0..80
+            
+            	**config**\: False
             
             .. attribute:: cpwvcoutboundvclabel
             
@@ -352,6 +413,8 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwvcinboundvclabel
             
             	The VC label used in the inbound direction (i.e. packets   received from the PSN. It may be set up manually if owner  is 'manual' or automatically otherwise.   Examples\: For MPLS PSN, it represents the 20 bits of VC  tag, for L2TP it represent the 32 bits Session ID.  If the label is not yet known (signaling in process), the   object should return a value of 0xFFFF
@@ -359,15 +422,21 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwvcname
             
             	The canonical name assigned to the VC
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: cpwvcdescr
             
             	A textual string containing information about the VC.   If there is no description this object contains a zero  length string
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: cpwvccreatetime
             
@@ -376,6 +445,8 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwvcuptime
             
             	Number of consecutive ticks this VC has been 'up' in  both directions together (i.e. 'up' is observed in   cpwVcOperStatus.)
@@ -383,25 +454,35 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwvcadminstatus
             
             	The desired operational status of this VC
             	**type**\:  :py:class:`CpwVcAdminStatus <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry.CpwVcAdminStatus>`
+            
+            	**config**\: False
             
             .. attribute:: cpwvcoperstatus
             
             	Indicates the actual combined operational status of this   VC. It is 'up' if both cpwVcInboundOperStatus and   cpwVcOutboundOperStatus are in 'up' state. For all other   values, if the VCs in both directions are of the same  value it reflects that value, otherwise it is set to the  most severe status out of the two statuses. The order of   severance from most severe to less severe is\: unknown,   notPresent, down, lowerLayerDown, dormant, testing, up.  The operator may consult the per direction OperStatus for  fault isolation per direction
             	**type**\:  :py:class:`CpwOperStatus <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB.CpwOperStatus>`
             
+            	**config**\: False
+            
             .. attribute:: cpwvcinboundoperstatus
             
             	Indicates the actual operational status of this VC in the   inbound direction.   \- down\:           if PW signaling has not yet finished, or                    indications available at the service                     level indicate that the VC is not                     passing packets.  \- testing\:        if AdminStatus at the VC level is set to                     test.  \- dormant\:        The VC is not available because of the                    required resources are occupied VC with                     higher priority VCs .  \- notPresent\:     Some component is missing to accomplish                     the set up of the VC.  \- lowerLayerDown\: The underlying PSN is not in OperStatus                     'up'.  
             	**type**\:  :py:class:`CpwOperStatus <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB.CpwOperStatus>`
             
+            	**config**\: False
+            
             .. attribute:: cpwvcoutboundoperstatus
             
             	Indicates the actual operational status of this VC in the   outbound direction  \- down\:           if PW signaling has not yet finished, or                    indications available at the service                     level indicate that the VC is not                    passing packets.  \- testing\:        if AdminStatus at the VC level is set to                     test.  \- dormant\:        The VC is not available because of the                    required resources are occupied VC with                     higher priority VCs .  \- notPresent\:     Some component is missing to accomplish                     the set up of the VC.  \- lowerLayerDown\: The underlying PSN is not in OperStatus                     'up'.  
             	**type**\:  :py:class:`CpwOperStatus <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB.CpwOperStatus>`
+            
+            	**config**\: False
             
             .. attribute:: cpwvctimeelapsed
             
@@ -410,6 +491,8 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 1..900
             
+            	**config**\: False
+            
             .. attribute:: cpwvcvalidintervals
             
             	The number of previous 15\-minute intervals  for which data was collected.   An agent with PW capability must be capable of supporting at   least n intervals. The minimum value of n is 4, The default   of n is 32 and the maximum value of n is 96.  The value will be <n> unless the measurement was (re\-)   started within the last (<n>\*15) minutes, in which case the   value will be the number of complete 15 minute intervals for   which the agent has at least some data. In certain cases   (e.g., in the case where the agent is a proxy) it is   possible that some intervals are unavailable.  In this case,   this interval is the maximum interval number for which data   is available. 
@@ -417,15 +500,21 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..96
             
+            	**config**\: False
+            
             .. attribute:: cpwvcrowstatus
             
             	For creating, modifying, and deleting this row
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: cpwvcstoragetype
             
             	This variable indicates the storage type for this  object
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            	**config**\: False
             
             
 
@@ -702,6 +791,8 @@ class CISCOIETFPWMIB(Entity):
 
 
 
+
+
     class CpwVcPerfCurrentTable(Entity):
         """
         This table provides per\-VC performance information for the  
@@ -711,6 +802,8 @@ class CISCOIETFPWMIB(Entity):
         
         	An entry in this table is created by the agent for  every VC
         	**type**\: list of  		 :py:class:`CpwVcPerfCurrentEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcPerfCurrentTable.CpwVcPerfCurrentEntry>`
+        
+        	**config**\: False
         
         
 
@@ -753,12 +846,16 @@ class CISCOIETFPWMIB(Entity):
             
             	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cpwvcperfcurrentinhcpackets
             
             	High capacity counter for number of packets received  by the VC (from the PSN) in the current 15 minute  interval
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: cpwvcperfcurrentinhcbytes
             
@@ -767,6 +864,8 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cpwvcperfcurrentouthcpackets
             
             	High capacity counter for number of packets forwarded  by the VC (to the PSN) in the current 15 minute interval
@@ -774,12 +873,16 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cpwvcperfcurrentouthcbytes
             
             	High capacity counter for number of bytes forwarded  by the VC (to the PSN) in the current 15 minute interval
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -817,6 +920,8 @@ class CISCOIETFPWMIB(Entity):
                 self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfCurrentTable.CpwVcPerfCurrentEntry, [u'cpwvcindex', u'cpwvcperfcurrentinhcpackets', u'cpwvcperfcurrentinhcbytes', u'cpwvcperfcurrentouthcpackets', u'cpwvcperfcurrentouthcbytes'], name, value)
 
 
+
+
     class CpwVcPerfIntervalTable(Entity):
         """
         This table provides per\-VC performance information for  
@@ -826,6 +931,8 @@ class CISCOIETFPWMIB(Entity):
         
         	An entry in this table is created agent for every VC
         	**type**\: list of  		 :py:class:`CpwVcPerfIntervalEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcPerfIntervalTable.CpwVcPerfIntervalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -867,6 +974,8 @@ class CISCOIETFPWMIB(Entity):
             
             	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cpwvcperfintervalnumber  (key)
             
             	A number N, between 1 and 96, which identifies the  interval for which the set of statistics is available.  The interval identified by 1 is the most recently  completed 15 minute interval, and the interval identified  by N is the interval immediately preceding the one  identified by N\-1.  The minimum range of N is 1 through 4. The default range  is 1 to 32. The maximum range of N is 1 through 96. 
@@ -874,10 +983,14 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 1..96
             
+            	**config**\: False
+            
             .. attribute:: cpwvcperfintervalvaliddata
             
             	This variable indicates if the data for this interval  is valid
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cpwvcperfintervaltimeelapsed
             
@@ -886,12 +999,16 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cpwvcperfintervalinhcpackets
             
             	High capacity counter for number of packets received by  the VC (from the PSN) in a particular 15\-minute interval
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: cpwvcperfintervalinhcbytes
             
@@ -900,6 +1017,8 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cpwvcperfintervalouthcpackets
             
             	High capacity counter for number of packets forwarded by   the VC (to the PSN) in a particular 15\-minute interval
@@ -907,12 +1026,16 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cpwvcperfintervalouthcbytes
             
             	High capacity counter for number of bytes forwarded by the   VC (to the PSN) in a particular 15\-minute interval
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -956,6 +1079,8 @@ class CISCOIETFPWMIB(Entity):
                 self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfIntervalTable.CpwVcPerfIntervalEntry, [u'cpwvcindex', u'cpwvcperfintervalnumber', u'cpwvcperfintervalvaliddata', u'cpwvcperfintervaltimeelapsed', u'cpwvcperfintervalinhcpackets', u'cpwvcperfintervalinhcbytes', u'cpwvcperfintervalouthcpackets', u'cpwvcperfintervalouthcbytes'], name, value)
 
 
+
+
     class CpwVcPerfTotalTable(Entity):
         """
         This table provides per\-VC Performance information from VC  
@@ -965,6 +1090,8 @@ class CISCOIETFPWMIB(Entity):
         
         	An entry in this table is created agent for every VC
         	**type**\: list of  		 :py:class:`CpwVcPerfTotalEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcPerfTotalTable.CpwVcPerfTotalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1006,12 +1133,16 @@ class CISCOIETFPWMIB(Entity):
             
             	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cpwvcperftotalinhcpackets
             
             	High capacity counter for number of packets received by the   VC (from the PSN)
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: cpwvcperftotalinhcbytes
             
@@ -1020,12 +1151,16 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cpwvcperftotalouthcpackets
             
             	High capacity counter for number of packets forwarded by   the VC (to the PSN)
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: cpwvcperftotalouthcbytes
             
@@ -1034,12 +1169,16 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cpwvcperftotaldiscontinuitytime
             
             	The value of sysUpTime on the most recent occasion at  which any one or more of this row Counter32 or  Counter64 suffered a discontinuity. If no such  discontinuities have occurred since the last re\-  initialization of the local management subsystem, then  this object contains a zero value
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1079,6 +1218,8 @@ class CISCOIETFPWMIB(Entity):
                 self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfTotalTable.CpwVcPerfTotalEntry, [u'cpwvcindex', u'cpwvcperftotalinhcpackets', u'cpwvcperftotalinhcbytes', u'cpwvcperftotalouthcpackets', u'cpwvcperftotalouthcbytes', u'cpwvcperftotaldiscontinuitytime'], name, value)
 
 
+
+
     class CpwVcIdMappingTable(Entity):
         """
         This table provides reverse mapping of the existing VCs  
@@ -1089,6 +1230,8 @@ class CISCOIETFPWMIB(Entity):
         
         	An entry in this table is created by the agent for every   VC configured by the cpwVcTable
         	**type**\: list of  		 :py:class:`CpwVcIdMappingEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcIdMappingTable.CpwVcIdMappingEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1127,6 +1270,8 @@ class CISCOIETFPWMIB(Entity):
             	The VC type (indicate the service) of this VC
             	**type**\:  :py:class:`CpwVcType <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB.CpwVcType>`
             
+            	**config**\: False
+            
             .. attribute:: cpwvcidmappingvcid  (key)
             
             	The VC ID of this VC. Zero if the VC is configured   manually
@@ -1134,10 +1279,14 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwvcidmappingpeeraddrtype  (key)
             
             	IP address type of the peer node
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cpwvcidmappingpeeraddr  (key)
             
@@ -1146,12 +1295,16 @@ class CISCOIETFPWMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cpwvcidmappingvcindex  (key)
             
             	The value that represent the VC in the cpwVcTable
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1189,6 +1342,8 @@ class CISCOIETFPWMIB(Entity):
                 self._perform_setattr(CISCOIETFPWMIB.CpwVcIdMappingTable.CpwVcIdMappingEntry, [u'cpwvcidmappingvctype', u'cpwvcidmappingvcid', u'cpwvcidmappingpeeraddrtype', u'cpwvcidmappingpeeraddr', u'cpwvcidmappingvcindex'], name, value)
 
 
+
+
     class CpwVcPeerMappingTable(Entity):
         """
         This table provides reverse mapping of the existing VCs  
@@ -1199,6 +1354,8 @@ class CISCOIETFPWMIB(Entity):
         
         	An entry in this table is created by the agent for every   VC configured in cpwVcTable
         	**type**\: list of  		 :py:class:`CpwVcPeerMappingEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcPeerMappingTable.CpwVcPeerMappingEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1237,6 +1394,8 @@ class CISCOIETFPWMIB(Entity):
             	IP address type of the peer node
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
+            	**config**\: False
+            
             .. attribute:: cpwvcpeermappingpeeraddr  (key)
             
             	IP address type of the peer node
@@ -1244,10 +1403,14 @@ class CISCOIETFPWMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cpwvcpeermappingvctype  (key)
             
             	The VC type (indicate the service) of this VC
             	**type**\:  :py:class:`CpwVcType <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB.CpwVcType>`
+            
+            	**config**\: False
             
             .. attribute:: cpwvcpeermappingvcid  (key)
             
@@ -1256,12 +1419,16 @@ class CISCOIETFPWMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwvcpeermappingvcindex  (key)
             
             	The value that represent the VC in the cpwVcTable
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1298,7 +1465,11 @@ class CISCOIETFPWMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFPWMIB.CpwVcPeerMappingTable.CpwVcPeerMappingEntry, [u'cpwvcpeermappingpeeraddrtype', u'cpwvcpeermappingpeeraddr', u'cpwvcpeermappingvctype', u'cpwvcpeermappingvcid', u'cpwvcpeermappingvcindex'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOIETFPWMIB()
         return self._top_entity
+
+
 

@@ -93,40 +93,56 @@ class ObjectTracking(Entity):
     	Object Tracking Type interface info
     	**type**\:  :py:class:`TrackTypeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface>`
     
+    	**config**\: False
+    
     .. attribute:: track_briefs
     
     	Object Tracking Track table brief
     	**type**\:  :py:class:`TrackBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs>`
+    
+    	**config**\: False
     
     .. attribute:: track_type_rtr_reachability
     
     	Object Tracking Type RTR Reachability info
     	**type**\:  :py:class:`TrackTypeRtrReachability <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability>`
     
+    	**config**\: False
+    
     .. attribute:: track_type_rtr_reachability_brief
     
     	Object Tracking Type RTR Reachability brief info
     	**type**\:  :py:class:`TrackTypeRtrReachabilityBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief>`
+    
+    	**config**\: False
     
     .. attribute:: tracks
     
     	Object Tracking Track table
     	**type**\:  :py:class:`Tracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks>`
     
+    	**config**\: False
+    
     .. attribute:: track_type_ipv4_route_brief
     
     	Object Tracking Type Ipv4 Route brief info
     	**type**\:  :py:class:`TrackTypeIpv4RouteBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief>`
+    
+    	**config**\: False
     
     .. attribute:: track_type_ipv4_route
     
     	Object Tracking Type IPV4 route info
     	**type**\:  :py:class:`TrackTypeIpv4Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route>`
     
+    	**config**\: False
+    
     .. attribute:: track_type_interface_brief
     
     	Object Tracking Type Interface brief info
     	**type**\:  :py:class:`TrackTypeInterfaceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief>`
+    
+    	**config**\: False
     
     
 
@@ -194,6 +210,8 @@ class ObjectTracking(Entity):
         	track info
         	**type**\: list of  		 :py:class:`TrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo>`
         
+        	**config**\: False
+        
         
 
         """
@@ -230,25 +248,35 @@ class ObjectTracking(Entity):
             	Track type information
             	**type**\:  :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo>`
             
+            	**config**\: False
+            
             .. attribute:: bool_tracks
             
             	boolean objects
             	**type**\:  :py:class:`BoolTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks>`
+            
+            	**config**\: False
             
             .. attribute:: threshold_tracks
             
             	Threshold objects
             	**type**\:  :py:class:`ThresholdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks>`
             
+            	**config**\: False
+            
             .. attribute:: tracking_interaces
             
             	Tracking Interfaces
             	**type**\:  :py:class:`TrackingInteraces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces>`
             
+            	**config**\: False
+            
             .. attribute:: delayed
             
             	Is the state change delay counter in progress
             	**type**\:  :py:class:`Delayed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.Delayed>`
+            
+            	**config**\: False
             
             .. attribute:: tracke_name
             
@@ -257,15 +285,21 @@ class ObjectTracking(Entity):
             
             	**length:** 0..33
             
+            	**config**\: False
+            
             .. attribute:: type
             
             	Track type
             	**type**\:  :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.Track>`
             
+            	**config**\: False
+            
             .. attribute:: track_state
             
             	Track state
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: state_change_counter
             
@@ -274,12 +308,16 @@ class ObjectTracking(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: seconds_last_change
             
             	Seconds Last Change
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -290,12 +328,16 @@ class ObjectTracking(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: threshold_down
             
             	User specified threshold lower limit
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -366,25 +408,35 @@ class ObjectTracking(Entity):
                 	track type interface info
                 	**type**\:  :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.InterfaceTracks>`
                 
+                	**config**\: False
+                
                 .. attribute:: route_tracks
                 
                 	track type route info
                 	**type**\:  :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.RouteTracks>`
+                
+                	**config**\: False
                 
                 .. attribute:: ipsla_tracks
                 
                 	track type rtr info
                 	**type**\:  :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.IpslaTracks>`
                 
+                	**config**\: False
+                
                 .. attribute:: bfd_tracks
                 
                 	track type bfdrtr info
                 	**type**\:  :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.BfdTracks>`
                 
+                	**config**\: False
+                
                 .. attribute:: discriminant
                 
                 	discriminant
                 	**type**\:  :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.Track>`
+                
+                	**config**\: False
                 
                 
 
@@ -441,6 +493,8 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -469,6 +523,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
 
+
                 class RouteTracks(Entity):
                     """
                     track type route info
@@ -480,12 +535,16 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix_length
                     
                     	Prefix Length
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: vrf
                     
@@ -494,12 +553,16 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_hop
                     
                     	Next Hop
                     	**type**\: str
                     
                     	**length:** 0..120
+                    
+                    	**config**\: False
                     
                     
 
@@ -535,6 +598,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
 
+
                 class IpslaTracks(Entity):
                     """
                     track type rtr info
@@ -546,6 +610,8 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rtt
                     
                     	Latest RTT
@@ -553,12 +619,16 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: return_code
                     
                     	Latest Return Code
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -592,6 +662,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
 
 
+
                 class BfdTracks(Entity):
                     """
                     track type bfdrtr info
@@ -603,12 +674,16 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     .. attribute:: destination_address
                     
                     	Destination Address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: rate
                     
@@ -617,12 +692,16 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: debounce_count
                     
                     	Debounce Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -658,6 +737,8 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
 
+
+
             class BoolTracks(Entity):
                 """
                 boolean objects
@@ -666,6 +747,8 @@ class ObjectTracking(Entity):
                 
                 	bool track info
                 	**type**\: list of  		 :py:class:`BoolTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks.BoolTrackInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -705,15 +788,21 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..33
                     
+                    	**config**\: False
+                    
                     .. attribute:: track_state
                     
                     	Track state
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: with_not
                     
                     	Track object with Not
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -747,6 +836,8 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks.BoolTrackInfo, ['object_name', 'track_state', 'with_not'], name, value)
 
 
+
+
             class ThresholdTracks(Entity):
                 """
                 Threshold objects
@@ -755,6 +846,8 @@ class ObjectTracking(Entity):
                 
                 	threshold track info
                 	**type**\: list of  		 :py:class:`ThresholdTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks.ThresholdTrackInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -794,10 +887,14 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..33
                     
+                    	**config**\: False
+                    
                     .. attribute:: track_state
                     
                     	Track state. True means track is up; False means track is down
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: weight
                     
@@ -805,6 +902,8 @@ class ObjectTracking(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: percentage
                     
@@ -840,6 +939,8 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks.ThresholdTrackInfo, ['object_name', 'track_state', 'weight'], name, value)
 
 
+
+
             class TrackingInteraces(Entity):
                 """
                 Tracking Interfaces
@@ -848,6 +949,8 @@ class ObjectTracking(Entity):
                 
                 	interface tracking info
                 	**type**\: list of  		 :py:class:`InterfaceTrackingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces.InterfaceTrackingInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -887,6 +990,8 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -915,6 +1020,8 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, ['interface_name'], name, value)
 
 
+
+
             class Delayed(Entity):
                 """
                 Is the state change delay counter in progress
@@ -926,12 +1033,16 @@ class ObjectTracking(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: track_state
                 
                 	State the track will transition to. Track state. True means track is up; False means track is down
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -963,6 +1074,9 @@ class ObjectTracking(Entity):
                     self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.Delayed, ['time_remaining', 'track_state'], name, value)
 
 
+
+
+
     class TrackBriefs(Entity):
         """
         Object Tracking Track table brief
@@ -971,6 +1085,8 @@ class ObjectTracking(Entity):
         
         	Track name \- maximum 32 characters
         	**type**\: list of  		 :py:class:`TrackBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief>`
+        
+        	**config**\: False
         
         
 
@@ -1010,10 +1126,14 @@ class ObjectTracking(Entity):
             
             	**length:** 1..32
             
+            	**config**\: False
+            
             .. attribute:: track_info_brief
             
             	track info brief
             	**type**\: list of  		 :py:class:`TrackInfoBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief>`
+            
+            	**config**\: False
             
             
 
@@ -1054,6 +1174,8 @@ class ObjectTracking(Entity):
                 	Track type information
                 	**type**\:  :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: tracke_name
                 
                 	Track Name
@@ -1061,15 +1183,21 @@ class ObjectTracking(Entity):
                 
                 	**length:** 0..33
                 
+                	**config**\: False
+                
                 .. attribute:: type
                 
                 	Track type
                 	**type**\:  :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.Track>`
                 
+                	**config**\: False
+                
                 .. attribute:: track_state
                 
                 	Track state
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -1115,25 +1243,35 @@ class ObjectTracking(Entity):
                     	track type interface info
                     	**type**\:  :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: route_tracks
                     
                     	track type route info
                     	**type**\:  :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipsla_tracks
                     
                     	track type rtr info
                     	**type**\:  :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: bfd_tracks
                     
                     	track type bfdrtr info
                     	**type**\:  :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: discriminant
                     
                     	discriminant
                     	**type**\:  :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.Track>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1189,6 +1327,8 @@ class ObjectTracking(Entity):
                         
                         	**length:** 0..120
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -1216,6 +1356,7 @@ class ObjectTracking(Entity):
                             self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
 
+
                     class RouteTracks(Entity):
                         """
                         track type route info
@@ -1227,12 +1368,16 @@ class ObjectTracking(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix_length
                         
                         	Prefix Length
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: vrf
                         
@@ -1241,12 +1386,16 @@ class ObjectTracking(Entity):
                         
                         	**length:** 0..120
                         
+                        	**config**\: False
+                        
                         .. attribute:: next_hop
                         
                         	Next Hop
                         	**type**\: str
                         
                         	**length:** 0..120
+                        
+                        	**config**\: False
                         
                         
 
@@ -1281,6 +1430,7 @@ class ObjectTracking(Entity):
                             self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
 
+
                     class IpslaTracks(Entity):
                         """
                         track type rtr info
@@ -1292,6 +1442,8 @@ class ObjectTracking(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: rtt
                         
                         	Latest RTT
@@ -1299,12 +1451,16 @@ class ObjectTracking(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: return_code
                         
                         	Latest Return Code
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1337,6 +1493,7 @@ class ObjectTracking(Entity):
                             self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
 
 
+
                     class BfdTracks(Entity):
                         """
                         track type bfdrtr info
@@ -1348,12 +1505,16 @@ class ObjectTracking(Entity):
                         
                         	**length:** 0..120
                         
+                        	**config**\: False
+                        
                         .. attribute:: destination_address
                         
                         	Destination Address
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: rate
                         
@@ -1362,12 +1523,16 @@ class ObjectTracking(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: debounce_count
                         
                         	Debounce Count
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1402,6 +1567,11 @@ class ObjectTracking(Entity):
                             self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
 
+
+
+
+
+
     class TrackTypeRtrReachability(Entity):
         """
         Object Tracking Type RTR Reachability info
@@ -1410,6 +1580,8 @@ class ObjectTracking(Entity):
         
         	track info
         	**type**\: list of  		 :py:class:`TrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo>`
+        
+        	**config**\: False
         
         
 
@@ -1447,25 +1619,35 @@ class ObjectTracking(Entity):
             	Track type information
             	**type**\:  :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo>`
             
+            	**config**\: False
+            
             .. attribute:: bool_tracks
             
             	boolean objects
             	**type**\:  :py:class:`BoolTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks>`
+            
+            	**config**\: False
             
             .. attribute:: threshold_tracks
             
             	Threshold objects
             	**type**\:  :py:class:`ThresholdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks>`
             
+            	**config**\: False
+            
             .. attribute:: tracking_interaces
             
             	Tracking Interfaces
             	**type**\:  :py:class:`TrackingInteraces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces>`
             
+            	**config**\: False
+            
             .. attribute:: delayed
             
             	Is the state change delay counter in progress
             	**type**\:  :py:class:`Delayed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.Delayed>`
+            
+            	**config**\: False
             
             .. attribute:: tracke_name
             
@@ -1474,15 +1656,21 @@ class ObjectTracking(Entity):
             
             	**length:** 0..33
             
+            	**config**\: False
+            
             .. attribute:: type
             
             	Track type
             	**type**\:  :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.Track>`
             
+            	**config**\: False
+            
             .. attribute:: track_state
             
             	Track state
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: state_change_counter
             
@@ -1491,12 +1679,16 @@ class ObjectTracking(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: seconds_last_change
             
             	Seconds Last Change
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -1507,12 +1699,16 @@ class ObjectTracking(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: threshold_down
             
             	User specified threshold lower limit
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1583,25 +1779,35 @@ class ObjectTracking(Entity):
                 	track type interface info
                 	**type**\:  :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.InterfaceTracks>`
                 
+                	**config**\: False
+                
                 .. attribute:: route_tracks
                 
                 	track type route info
                 	**type**\:  :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.RouteTracks>`
+                
+                	**config**\: False
                 
                 .. attribute:: ipsla_tracks
                 
                 	track type rtr info
                 	**type**\:  :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.IpslaTracks>`
                 
+                	**config**\: False
+                
                 .. attribute:: bfd_tracks
                 
                 	track type bfdrtr info
                 	**type**\:  :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.BfdTracks>`
                 
+                	**config**\: False
+                
                 .. attribute:: discriminant
                 
                 	discriminant
                 	**type**\:  :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.Track>`
+                
+                	**config**\: False
                 
                 
 
@@ -1658,6 +1864,8 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1686,6 +1894,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
 
+
                 class RouteTracks(Entity):
                     """
                     track type route info
@@ -1697,12 +1906,16 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix_length
                     
                     	Prefix Length
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: vrf
                     
@@ -1711,12 +1924,16 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_hop
                     
                     	Next Hop
                     	**type**\: str
                     
                     	**length:** 0..120
+                    
+                    	**config**\: False
                     
                     
 
@@ -1752,6 +1969,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
 
+
                 class IpslaTracks(Entity):
                     """
                     track type rtr info
@@ -1763,6 +1981,8 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rtt
                     
                     	Latest RTT
@@ -1770,12 +1990,16 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: return_code
                     
                     	Latest Return Code
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1809,6 +2033,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
 
 
+
                 class BfdTracks(Entity):
                     """
                     track type bfdrtr info
@@ -1820,12 +2045,16 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     .. attribute:: destination_address
                     
                     	Destination Address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: rate
                     
@@ -1834,12 +2063,16 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: debounce_count
                     
                     	Debounce Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1875,6 +2108,8 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
 
+
+
             class BoolTracks(Entity):
                 """
                 boolean objects
@@ -1883,6 +2118,8 @@ class ObjectTracking(Entity):
                 
                 	bool track info
                 	**type**\: list of  		 :py:class:`BoolTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks.BoolTrackInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -1922,15 +2159,21 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..33
                     
+                    	**config**\: False
+                    
                     .. attribute:: track_state
                     
                     	Track state
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: with_not
                     
                     	Track object with Not
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -1964,6 +2207,8 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks.BoolTrackInfo, ['object_name', 'track_state', 'with_not'], name, value)
 
 
+
+
             class ThresholdTracks(Entity):
                 """
                 Threshold objects
@@ -1972,6 +2217,8 @@ class ObjectTracking(Entity):
                 
                 	threshold track info
                 	**type**\: list of  		 :py:class:`ThresholdTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks.ThresholdTrackInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -2011,10 +2258,14 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..33
                     
+                    	**config**\: False
+                    
                     .. attribute:: track_state
                     
                     	Track state. True means track is up; False means track is down
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: weight
                     
@@ -2022,6 +2273,8 @@ class ObjectTracking(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: percentage
                     
@@ -2057,6 +2310,8 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks.ThresholdTrackInfo, ['object_name', 'track_state', 'weight'], name, value)
 
 
+
+
             class TrackingInteraces(Entity):
                 """
                 Tracking Interfaces
@@ -2065,6 +2320,8 @@ class ObjectTracking(Entity):
                 
                 	interface tracking info
                 	**type**\: list of  		 :py:class:`InterfaceTrackingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces.InterfaceTrackingInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -2104,6 +2361,8 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -2132,6 +2391,8 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, ['interface_name'], name, value)
 
 
+
+
             class Delayed(Entity):
                 """
                 Is the state change delay counter in progress
@@ -2143,12 +2404,16 @@ class ObjectTracking(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: track_state
                 
                 	State the track will transition to. Track state. True means track is up; False means track is down
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -2180,6 +2445,9 @@ class ObjectTracking(Entity):
                     self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.Delayed, ['time_remaining', 'track_state'], name, value)
 
 
+
+
+
     class TrackTypeRtrReachabilityBrief(Entity):
         """
         Object Tracking Type RTR Reachability brief info
@@ -2188,6 +2456,8 @@ class ObjectTracking(Entity):
         
         	track info brief
         	**type**\: list of  		 :py:class:`TrackInfoBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief>`
+        
+        	**config**\: False
         
         
 
@@ -2225,6 +2495,8 @@ class ObjectTracking(Entity):
             	Track type information
             	**type**\:  :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo>`
             
+            	**config**\: False
+            
             .. attribute:: tracke_name
             
             	Track Name
@@ -2232,15 +2504,21 @@ class ObjectTracking(Entity):
             
             	**length:** 0..33
             
+            	**config**\: False
+            
             .. attribute:: type
             
             	Track type
             	**type**\:  :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.Track>`
             
+            	**config**\: False
+            
             .. attribute:: track_state
             
             	Track state
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -2287,25 +2565,35 @@ class ObjectTracking(Entity):
                 	track type interface info
                 	**type**\:  :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks>`
                 
+                	**config**\: False
+                
                 .. attribute:: route_tracks
                 
                 	track type route info
                 	**type**\:  :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks>`
+                
+                	**config**\: False
                 
                 .. attribute:: ipsla_tracks
                 
                 	track type rtr info
                 	**type**\:  :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks>`
                 
+                	**config**\: False
+                
                 .. attribute:: bfd_tracks
                 
                 	track type bfdrtr info
                 	**type**\:  :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks>`
                 
+                	**config**\: False
+                
                 .. attribute:: discriminant
                 
                 	discriminant
                 	**type**\:  :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.Track>`
+                
+                	**config**\: False
                 
                 
 
@@ -2362,6 +2650,8 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -2390,6 +2680,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
 
+
                 class RouteTracks(Entity):
                     """
                     track type route info
@@ -2401,12 +2692,16 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix_length
                     
                     	Prefix Length
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: vrf
                     
@@ -2415,12 +2710,16 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_hop
                     
                     	Next Hop
                     	**type**\: str
                     
                     	**length:** 0..120
+                    
+                    	**config**\: False
                     
                     
 
@@ -2456,6 +2755,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
 
+
                 class IpslaTracks(Entity):
                     """
                     track type rtr info
@@ -2467,6 +2767,8 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rtt
                     
                     	Latest RTT
@@ -2474,12 +2776,16 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: return_code
                     
                     	Latest Return Code
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -2513,6 +2819,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
 
 
+
                 class BfdTracks(Entity):
                     """
                     track type bfdrtr info
@@ -2524,12 +2831,16 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     .. attribute:: destination_address
                     
                     	Destination Address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: rate
                     
@@ -2538,12 +2849,16 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: debounce_count
                     
                     	Debounce Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -2579,6 +2894,10 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
 
+
+
+
+
     class Tracks(Entity):
         """
         Object Tracking Track table
@@ -2587,6 +2906,8 @@ class ObjectTracking(Entity):
         
         	Track name \- maximum 32 characters
         	**type**\: list of  		 :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track>`
+        
+        	**config**\: False
         
         
 
@@ -2626,10 +2947,14 @@ class ObjectTracking(Entity):
             
             	**length:** 1..32
             
+            	**config**\: False
+            
             .. attribute:: track_info
             
             	track info
             	**type**\: list of  		 :py:class:`TrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo>`
+            
+            	**config**\: False
             
             
 
@@ -2670,25 +2995,35 @@ class ObjectTracking(Entity):
                 	Track type information
                 	**type**\:  :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: bool_tracks
                 
                 	boolean objects
                 	**type**\:  :py:class:`BoolTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.BoolTracks>`
+                
+                	**config**\: False
                 
                 .. attribute:: threshold_tracks
                 
                 	Threshold objects
                 	**type**\:  :py:class:`ThresholdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks>`
                 
+                	**config**\: False
+                
                 .. attribute:: tracking_interaces
                 
                 	Tracking Interfaces
                 	**type**\:  :py:class:`TrackingInteraces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces>`
                 
+                	**config**\: False
+                
                 .. attribute:: delayed
                 
                 	Is the state change delay counter in progress
                 	**type**\:  :py:class:`Delayed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.Delayed>`
+                
+                	**config**\: False
                 
                 .. attribute:: tracke_name
                 
@@ -2697,15 +3032,21 @@ class ObjectTracking(Entity):
                 
                 	**length:** 0..33
                 
+                	**config**\: False
+                
                 .. attribute:: type
                 
                 	Track type
                 	**type**\:  :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.Track>`
                 
+                	**config**\: False
+                
                 .. attribute:: track_state
                 
                 	Track state
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: state_change_counter
                 
@@ -2714,12 +3055,16 @@ class ObjectTracking(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: seconds_last_change
                 
                 	Seconds Last Change
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -2730,12 +3075,16 @@ class ObjectTracking(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: threshold_down
                 
                 	User specified threshold lower limit
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -2805,25 +3154,35 @@ class ObjectTracking(Entity):
                     	track type interface info
                     	**type**\:  :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.InterfaceTracks>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: route_tracks
                     
                     	track type route info
                     	**type**\:  :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.RouteTracks>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipsla_tracks
                     
                     	track type rtr info
                     	**type**\:  :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.IpslaTracks>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: bfd_tracks
                     
                     	track type bfdrtr info
                     	**type**\:  :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.BfdTracks>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: discriminant
                     
                     	discriminant
                     	**type**\:  :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.Track>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2879,6 +3238,8 @@ class ObjectTracking(Entity):
                         
                         	**length:** 0..120
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -2906,6 +3267,7 @@ class ObjectTracking(Entity):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
 
+
                     class RouteTracks(Entity):
                         """
                         track type route info
@@ -2917,12 +3279,16 @@ class ObjectTracking(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix_length
                         
                         	Prefix Length
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: vrf
                         
@@ -2931,12 +3297,16 @@ class ObjectTracking(Entity):
                         
                         	**length:** 0..120
                         
+                        	**config**\: False
+                        
                         .. attribute:: next_hop
                         
                         	Next Hop
                         	**type**\: str
                         
                         	**length:** 0..120
+                        
+                        	**config**\: False
                         
                         
 
@@ -2971,6 +3341,7 @@ class ObjectTracking(Entity):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
 
+
                     class IpslaTracks(Entity):
                         """
                         track type rtr info
@@ -2982,6 +3353,8 @@ class ObjectTracking(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: rtt
                         
                         	Latest RTT
@@ -2989,12 +3362,16 @@ class ObjectTracking(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: return_code
                         
                         	Latest Return Code
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3027,6 +3404,7 @@ class ObjectTracking(Entity):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
 
 
+
                     class BfdTracks(Entity):
                         """
                         track type bfdrtr info
@@ -3038,12 +3416,16 @@ class ObjectTracking(Entity):
                         
                         	**length:** 0..120
                         
+                        	**config**\: False
+                        
                         .. attribute:: destination_address
                         
                         	Destination Address
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: rate
                         
@@ -3052,12 +3434,16 @@ class ObjectTracking(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: debounce_count
                         
                         	Debounce Count
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3092,6 +3478,8 @@ class ObjectTracking(Entity):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
 
+
+
                 class BoolTracks(Entity):
                     """
                     boolean objects
@@ -3100,6 +3488,8 @@ class ObjectTracking(Entity):
                     
                     	bool track info
                     	**type**\: list of  		 :py:class:`BoolTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.BoolTracks.BoolTrackInfo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3138,15 +3528,21 @@ class ObjectTracking(Entity):
                         
                         	**length:** 0..33
                         
+                        	**config**\: False
+                        
                         .. attribute:: track_state
                         
                         	Track state
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: with_not
                         
                         	Track object with Not
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -3179,6 +3575,8 @@ class ObjectTracking(Entity):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.BoolTracks.BoolTrackInfo, ['object_name', 'track_state', 'with_not'], name, value)
 
 
+
+
                 class ThresholdTracks(Entity):
                     """
                     Threshold objects
@@ -3187,6 +3585,8 @@ class ObjectTracking(Entity):
                     
                     	threshold track info
                     	**type**\: list of  		 :py:class:`ThresholdTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks.ThresholdTrackInfo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3225,10 +3625,14 @@ class ObjectTracking(Entity):
                         
                         	**length:** 0..33
                         
+                        	**config**\: False
+                        
                         .. attribute:: track_state
                         
                         	Track state. True means track is up; False means track is down
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: weight
                         
@@ -3236,6 +3640,8 @@ class ObjectTracking(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: percentage
                         
@@ -3270,6 +3676,8 @@ class ObjectTracking(Entity):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks.ThresholdTrackInfo, ['object_name', 'track_state', 'weight'], name, value)
 
 
+
+
                 class TrackingInteraces(Entity):
                     """
                     Tracking Interfaces
@@ -3278,6 +3686,8 @@ class ObjectTracking(Entity):
                     
                     	interface tracking info
                     	**type**\: list of  		 :py:class:`InterfaceTrackingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces.InterfaceTrackingInfo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3316,6 +3726,8 @@ class ObjectTracking(Entity):
                         
                         	**length:** 0..120
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -3343,6 +3755,8 @@ class ObjectTracking(Entity):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, ['interface_name'], name, value)
 
 
+
+
                 class Delayed(Entity):
                     """
                     Is the state change delay counter in progress
@@ -3354,12 +3768,16 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: track_state
                     
                     	State the track will transition to. Track state. True means track is up; False means track is down
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -3390,6 +3808,10 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.Delayed, ['time_remaining', 'track_state'], name, value)
 
 
+
+
+
+
     class TrackTypeIpv4RouteBrief(Entity):
         """
         Object Tracking Type Ipv4 Route brief info
@@ -3398,6 +3820,8 @@ class ObjectTracking(Entity):
         
         	track info brief
         	**type**\: list of  		 :py:class:`TrackInfoBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief>`
+        
+        	**config**\: False
         
         
 
@@ -3435,6 +3859,8 @@ class ObjectTracking(Entity):
             	Track type information
             	**type**\:  :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo>`
             
+            	**config**\: False
+            
             .. attribute:: tracke_name
             
             	Track Name
@@ -3442,15 +3868,21 @@ class ObjectTracking(Entity):
             
             	**length:** 0..33
             
+            	**config**\: False
+            
             .. attribute:: type
             
             	Track type
             	**type**\:  :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.Track>`
             
+            	**config**\: False
+            
             .. attribute:: track_state
             
             	Track state
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -3497,25 +3929,35 @@ class ObjectTracking(Entity):
                 	track type interface info
                 	**type**\:  :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks>`
                 
+                	**config**\: False
+                
                 .. attribute:: route_tracks
                 
                 	track type route info
                 	**type**\:  :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks>`
+                
+                	**config**\: False
                 
                 .. attribute:: ipsla_tracks
                 
                 	track type rtr info
                 	**type**\:  :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks>`
                 
+                	**config**\: False
+                
                 .. attribute:: bfd_tracks
                 
                 	track type bfdrtr info
                 	**type**\:  :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks>`
                 
+                	**config**\: False
+                
                 .. attribute:: discriminant
                 
                 	discriminant
                 	**type**\:  :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.Track>`
+                
+                	**config**\: False
                 
                 
 
@@ -3572,6 +4014,8 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -3600,6 +4044,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
 
+
                 class RouteTracks(Entity):
                     """
                     track type route info
@@ -3611,12 +4056,16 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix_length
                     
                     	Prefix Length
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: vrf
                     
@@ -3625,12 +4074,16 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_hop
                     
                     	Next Hop
                     	**type**\: str
                     
                     	**length:** 0..120
+                    
+                    	**config**\: False
                     
                     
 
@@ -3666,6 +4119,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
 
+
                 class IpslaTracks(Entity):
                     """
                     track type rtr info
@@ -3677,6 +4131,8 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rtt
                     
                     	Latest RTT
@@ -3684,12 +4140,16 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: return_code
                     
                     	Latest Return Code
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -3723,6 +4183,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
 
 
+
                 class BfdTracks(Entity):
                     """
                     track type bfdrtr info
@@ -3734,12 +4195,16 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     .. attribute:: destination_address
                     
                     	Destination Address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: rate
                     
@@ -3748,12 +4213,16 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: debounce_count
                     
                     	Debounce Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -3789,6 +4258,10 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
 
+
+
+
+
     class TrackTypeIpv4Route(Entity):
         """
         Object Tracking Type IPV4 route info
@@ -3797,6 +4270,8 @@ class ObjectTracking(Entity):
         
         	track info
         	**type**\: list of  		 :py:class:`TrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo>`
+        
+        	**config**\: False
         
         
 
@@ -3834,25 +4309,35 @@ class ObjectTracking(Entity):
             	Track type information
             	**type**\:  :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo>`
             
+            	**config**\: False
+            
             .. attribute:: bool_tracks
             
             	boolean objects
             	**type**\:  :py:class:`BoolTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks>`
+            
+            	**config**\: False
             
             .. attribute:: threshold_tracks
             
             	Threshold objects
             	**type**\:  :py:class:`ThresholdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks>`
             
+            	**config**\: False
+            
             .. attribute:: tracking_interaces
             
             	Tracking Interfaces
             	**type**\:  :py:class:`TrackingInteraces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces>`
             
+            	**config**\: False
+            
             .. attribute:: delayed
             
             	Is the state change delay counter in progress
             	**type**\:  :py:class:`Delayed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.Delayed>`
+            
+            	**config**\: False
             
             .. attribute:: tracke_name
             
@@ -3861,15 +4346,21 @@ class ObjectTracking(Entity):
             
             	**length:** 0..33
             
+            	**config**\: False
+            
             .. attribute:: type
             
             	Track type
             	**type**\:  :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.Track>`
             
+            	**config**\: False
+            
             .. attribute:: track_state
             
             	Track state
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: state_change_counter
             
@@ -3878,12 +4369,16 @@ class ObjectTracking(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: seconds_last_change
             
             	Seconds Last Change
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -3894,12 +4389,16 @@ class ObjectTracking(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: threshold_down
             
             	User specified threshold lower limit
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -3970,25 +4469,35 @@ class ObjectTracking(Entity):
                 	track type interface info
                 	**type**\:  :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.InterfaceTracks>`
                 
+                	**config**\: False
+                
                 .. attribute:: route_tracks
                 
                 	track type route info
                 	**type**\:  :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.RouteTracks>`
+                
+                	**config**\: False
                 
                 .. attribute:: ipsla_tracks
                 
                 	track type rtr info
                 	**type**\:  :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.IpslaTracks>`
                 
+                	**config**\: False
+                
                 .. attribute:: bfd_tracks
                 
                 	track type bfdrtr info
                 	**type**\:  :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.BfdTracks>`
                 
+                	**config**\: False
+                
                 .. attribute:: discriminant
                 
                 	discriminant
                 	**type**\:  :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.Track>`
+                
+                	**config**\: False
                 
                 
 
@@ -4045,6 +4554,8 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -4073,6 +4584,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
 
+
                 class RouteTracks(Entity):
                     """
                     track type route info
@@ -4084,12 +4596,16 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix_length
                     
                     	Prefix Length
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: vrf
                     
@@ -4098,12 +4614,16 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_hop
                     
                     	Next Hop
                     	**type**\: str
                     
                     	**length:** 0..120
+                    
+                    	**config**\: False
                     
                     
 
@@ -4139,6 +4659,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
 
+
                 class IpslaTracks(Entity):
                     """
                     track type rtr info
@@ -4150,6 +4671,8 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rtt
                     
                     	Latest RTT
@@ -4157,12 +4680,16 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: return_code
                     
                     	Latest Return Code
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -4196,6 +4723,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
 
 
+
                 class BfdTracks(Entity):
                     """
                     track type bfdrtr info
@@ -4207,12 +4735,16 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     .. attribute:: destination_address
                     
                     	Destination Address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: rate
                     
@@ -4221,12 +4753,16 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: debounce_count
                     
                     	Debounce Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -4262,6 +4798,8 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
 
+
+
             class BoolTracks(Entity):
                 """
                 boolean objects
@@ -4270,6 +4808,8 @@ class ObjectTracking(Entity):
                 
                 	bool track info
                 	**type**\: list of  		 :py:class:`BoolTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks.BoolTrackInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -4309,15 +4849,21 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..33
                     
+                    	**config**\: False
+                    
                     .. attribute:: track_state
                     
                     	Track state
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: with_not
                     
                     	Track object with Not
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -4351,6 +4897,8 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks.BoolTrackInfo, ['object_name', 'track_state', 'with_not'], name, value)
 
 
+
+
             class ThresholdTracks(Entity):
                 """
                 Threshold objects
@@ -4359,6 +4907,8 @@ class ObjectTracking(Entity):
                 
                 	threshold track info
                 	**type**\: list of  		 :py:class:`ThresholdTrackInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks.ThresholdTrackInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -4398,10 +4948,14 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..33
                     
+                    	**config**\: False
+                    
                     .. attribute:: track_state
                     
                     	Track state. True means track is up; False means track is down
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: weight
                     
@@ -4409,6 +4963,8 @@ class ObjectTracking(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: percentage
                     
@@ -4444,6 +5000,8 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks.ThresholdTrackInfo, ['object_name', 'track_state', 'weight'], name, value)
 
 
+
+
             class TrackingInteraces(Entity):
                 """
                 Tracking Interfaces
@@ -4452,6 +5010,8 @@ class ObjectTracking(Entity):
                 
                 	interface tracking info
                 	**type**\: list of  		 :py:class:`InterfaceTrackingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces.InterfaceTrackingInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -4491,6 +5051,8 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -4519,6 +5081,8 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, ['interface_name'], name, value)
 
 
+
+
             class Delayed(Entity):
                 """
                 Is the state change delay counter in progress
@@ -4530,12 +5094,16 @@ class ObjectTracking(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: track_state
                 
                 	State the track will transition to. Track state. True means track is up; False means track is down
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -4567,6 +5135,9 @@ class ObjectTracking(Entity):
                     self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.Delayed, ['time_remaining', 'track_state'], name, value)
 
 
+
+
+
     class TrackTypeInterfaceBrief(Entity):
         """
         Object Tracking Type Interface brief info
@@ -4575,6 +5146,8 @@ class ObjectTracking(Entity):
         
         	track info brief
         	**type**\: list of  		 :py:class:`TrackInfoBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief>`
+        
+        	**config**\: False
         
         
 
@@ -4612,6 +5185,8 @@ class ObjectTracking(Entity):
             	Track type information
             	**type**\:  :py:class:`TrackTypeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo>`
             
+            	**config**\: False
+            
             .. attribute:: tracke_name
             
             	Track Name
@@ -4619,15 +5194,21 @@ class ObjectTracking(Entity):
             
             	**length:** 0..33
             
+            	**config**\: False
+            
             .. attribute:: type
             
             	Track type
             	**type**\:  :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.Track>`
             
+            	**config**\: False
+            
             .. attribute:: track_state
             
             	Track state
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -4674,25 +5255,35 @@ class ObjectTracking(Entity):
                 	track type interface info
                 	**type**\:  :py:class:`InterfaceTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks>`
                 
+                	**config**\: False
+                
                 .. attribute:: route_tracks
                 
                 	track type route info
                 	**type**\:  :py:class:`RouteTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks>`
+                
+                	**config**\: False
                 
                 .. attribute:: ipsla_tracks
                 
                 	track type rtr info
                 	**type**\:  :py:class:`IpslaTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks>`
                 
+                	**config**\: False
+                
                 .. attribute:: bfd_tracks
                 
                 	track type bfdrtr info
                 	**type**\:  :py:class:`BfdTracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks>`
                 
+                	**config**\: False
+                
                 .. attribute:: discriminant
                 
                 	discriminant
                 	**type**\:  :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper.Track>`
+                
+                	**config**\: False
                 
                 
 
@@ -4749,6 +5340,8 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -4777,6 +5370,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
 
 
+
                 class RouteTracks(Entity):
                     """
                     track type route info
@@ -4788,12 +5382,16 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix_length
                     
                     	Prefix Length
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: vrf
                     
@@ -4802,12 +5400,16 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_hop
                     
                     	Next Hop
                     	**type**\: str
                     
                     	**length:** 0..120
+                    
+                    	**config**\: False
                     
                     
 
@@ -4843,6 +5445,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
 
 
+
                 class IpslaTracks(Entity):
                     """
                     track type rtr info
@@ -4854,6 +5457,8 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rtt
                     
                     	Latest RTT
@@ -4861,12 +5466,16 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: return_code
                     
                     	Latest Return Code
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -4900,6 +5509,7 @@ class ObjectTracking(Entity):
                         self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
 
 
+
                 class BfdTracks(Entity):
                     """
                     track type bfdrtr info
@@ -4911,12 +5521,16 @@ class ObjectTracking(Entity):
                     
                     	**length:** 0..120
                     
+                    	**config**\: False
+                    
                     .. attribute:: destination_address
                     
                     	Destination Address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: rate
                     
@@ -4925,12 +5539,16 @@ class ObjectTracking(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: debounce_count
                     
                     	Debounce Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -4965,7 +5583,13 @@ class ObjectTracking(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = ObjectTracking()
         return self._top_entity
+
+
 

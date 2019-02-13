@@ -162,6 +162,7 @@ class Dot1x(Entity):
                 self._perform_setattr(Dot1x.Dot1xProfile.Supplicant, ['eap_profile'], name, value)
 
 
+
         class Authenticator(Entity):
             """
             Dot1x Authenticator Related Configuration
@@ -293,9 +294,15 @@ class Dot1x(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dot1x.Dot1xProfile.Authenticator.Timers.ReauthTime, ['server', 'local'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Dot1x()
         return self._top_entity
+
+
 
 class Eap(Entity):
     """
@@ -427,7 +434,11 @@ class Eap(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Eap.EapProfile.Eaptls, ['pki_trustpoint'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Eap()
         return self._top_entity
+
+
 

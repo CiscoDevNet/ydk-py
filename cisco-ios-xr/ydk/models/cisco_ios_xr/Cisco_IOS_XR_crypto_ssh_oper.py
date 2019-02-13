@@ -493,6 +493,8 @@ class Ssh1(Entity):
     	key exchange method data
     	**type**\:  :py:class:`Kex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex>`
     
+    	**config**\: False
+    
     
 
     """
@@ -530,6 +532,8 @@ class Ssh1(Entity):
         
         	Node\-specific ssh session details
         	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes>`
+        
+        	**config**\: False
         
         
 
@@ -569,6 +573,8 @@ class Ssh1(Entity):
             	SSH session details for a particular node
             	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node>`
             
+            	**config**\: False
+            
             
 
             """
@@ -607,15 +613,21 @@ class Ssh1(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: incoming_sessions
                 
                 	List of incoming sessions
                 	**type**\:  :py:class:`IncomingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.IncomingSessions>`
                 
+                	**config**\: False
+                
                 .. attribute:: outgoing_connections
                 
                 	List of outgoing connections
                 	**type**\:  :py:class:`OutgoingConnections <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.OutgoingConnections>`
+                
+                	**config**\: False
                 
                 
 
@@ -662,6 +674,8 @@ class Ssh1(Entity):
                     	session detail info
                     	**type**\: list of  		 :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -699,45 +713,63 @@ class Ssh1(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: key_exchange
                         
                         	Key exchange name
                         	**type**\:  :py:class:`KexName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexName>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: public_key
                         
                         	Host key algorithm
                         	**type**\:  :py:class:`Hostkey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Hostkey>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_cipher
                         
                         	In cipher algorithm
                         	**type**\:  :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: out_cipher
                         
                         	Out cipher algorithm
                         	**type**\:  :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_mac
                         
                         	In MAC
                         	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: out_mac
                         
                         	Out MAC
                         	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: start_time
                         
                         	session start time
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: end_time
                         
                         	session end time
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -779,7 +811,9 @@ class Ssh1(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo, [u'session_id', u'key_exchange', u'public_key', u'in_cipher', u'out_cipher', u'in_mac', u'out_mac', u'start_time', u'end_time'], name, value)
+                            self._perform_setattr(Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac', 'start_time', 'end_time'], name, value)
+
+
 
 
                 class OutgoingConnections(Entity):
@@ -790,6 +824,8 @@ class Ssh1(Entity):
                     
                     	session detail info
                     	**type**\: list of  		 :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -828,45 +864,63 @@ class Ssh1(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: key_exchange
                         
                         	Key exchange name
                         	**type**\:  :py:class:`KexName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexName>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: public_key
                         
                         	Host key algorithm
                         	**type**\:  :py:class:`Hostkey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Hostkey>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_cipher
                         
                         	In cipher algorithm
                         	**type**\:  :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: out_cipher
                         
                         	Out cipher algorithm
                         	**type**\:  :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_mac
                         
                         	In MAC
                         	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: out_mac
                         
                         	Out MAC
                         	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: start_time
                         
                         	session start time
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: end_time
                         
                         	session end time
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -908,11 +962,18 @@ class Ssh1(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo, [u'session_id', u'key_exchange', u'public_key', u'in_cipher', u'out_cipher', u'in_mac', u'out_mac', u'start_time', u'end_time'], name, value)
+                            self._perform_setattr(Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac', 'start_time', 'end_time'], name, value)
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Ssh1()
         return self._top_entity
+
+
 
 class Ssh(Entity):
     """
@@ -922,6 +983,8 @@ class Ssh(Entity):
     
     	Crypto SSH session
     	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session>`
+    
+    	**config**\: False
     
     
 
@@ -961,25 +1024,35 @@ class Ssh(Entity):
         	SSH session rekey information
         	**type**\:  :py:class:`Rekey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Rekey>`
         
+        	**config**\: False
+        
         .. attribute:: history_detail
         
         	SSH session history detail information
         	**type**\:  :py:class:`HistoryDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.HistoryDetail>`
+        
+        	**config**\: False
         
         .. attribute:: brief
         
         	SSH session brief information
         	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief>`
         
+        	**config**\: False
+        
         .. attribute:: history
         
         	SSH session history information
         	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.History>`
         
+        	**config**\: False
+        
         .. attribute:: detail
         
         	SSH session detail information
         	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail>`
+        
+        	**config**\: False
         
         
 
@@ -1035,10 +1108,14 @@ class Ssh(Entity):
             	List of incoming sessions
             	**type**\:  :py:class:`IncomingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Rekey.IncomingSessions>`
             
+            	**config**\: False
+            
             .. attribute:: outgoing_connections
             
             	List of outgoing connections
             	**type**\:  :py:class:`OutgoingConnections <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Rekey.OutgoingConnections>`
+            
+            	**config**\: False
             
             
 
@@ -1082,6 +1159,8 @@ class Ssh(Entity):
                 	session rekey info
                 	**type**\: list of  		 :py:class:`SessionRekeyInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1120,6 +1199,8 @@ class Ssh(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_rekey_count
                     
                     	Session Rekey Count
@@ -1127,15 +1208,21 @@ class Ssh(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: time_to_rekey
                     
                     	Time To Rekey
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: volume_to_rekey
                     
                     	Volume To Rekey
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1168,7 +1255,9 @@ class Ssh(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo, [u'session_id', u'session_rekey_count', u'time_to_rekey', u'volume_to_rekey'], name, value)
+                        self._perform_setattr(Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo, ['session_id', 'session_rekey_count', 'time_to_rekey', 'volume_to_rekey'], name, value)
+
+
 
 
             class OutgoingConnections(Entity):
@@ -1179,6 +1268,8 @@ class Ssh(Entity):
                 
                 	session rekey info
                 	**type**\: list of  		 :py:class:`SessionRekeyInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -1218,6 +1309,8 @@ class Ssh(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_rekey_count
                     
                     	Session Rekey Count
@@ -1225,15 +1318,21 @@ class Ssh(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: time_to_rekey
                     
                     	Time To Rekey
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: volume_to_rekey
                     
                     	Volume To Rekey
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1266,7 +1365,10 @@ class Ssh(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo, [u'session_id', u'session_rekey_count', u'time_to_rekey', u'volume_to_rekey'], name, value)
+                        self._perform_setattr(Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo, ['session_id', 'session_rekey_count', 'time_to_rekey', 'volume_to_rekey'], name, value)
+
+
+
 
 
         class HistoryDetail(Entity):
@@ -1278,10 +1380,14 @@ class Ssh(Entity):
             	List of incoming sessions
             	**type**\:  :py:class:`IncomingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.HistoryDetail.IncomingSessions>`
             
+            	**config**\: False
+            
             .. attribute:: outgoing_connections
             
             	List of outgoing connections
             	**type**\:  :py:class:`OutgoingConnections <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.HistoryDetail.OutgoingConnections>`
+            
+            	**config**\: False
             
             
 
@@ -1325,6 +1431,8 @@ class Ssh(Entity):
                 	session detail info
                 	**type**\: list of  		 :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.HistoryDetail.IncomingSessions.SessionDetailInfo>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1363,45 +1471,63 @@ class Ssh(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: key_exchange
                     
                     	Key exchange name
                     	**type**\:  :py:class:`KexName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexName>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: public_key
                     
                     	Host key algorithm
                     	**type**\:  :py:class:`Hostkey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Hostkey>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: in_cipher
                     
                     	In cipher algorithm
                     	**type**\:  :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: out_cipher
                     
                     	Out cipher algorithm
                     	**type**\:  :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: in_mac
                     
                     	In MAC
                     	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: out_mac
                     
                     	Out MAC
                     	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: start_time
                     
                     	session start time
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: end_time
                     
                     	session end time
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1444,7 +1570,9 @@ class Ssh(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ssh.Session.HistoryDetail.IncomingSessions.SessionDetailInfo, [u'session_id', u'key_exchange', u'public_key', u'in_cipher', u'out_cipher', u'in_mac', u'out_mac', u'start_time', u'end_time'], name, value)
+                        self._perform_setattr(Ssh.Session.HistoryDetail.IncomingSessions.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac', 'start_time', 'end_time'], name, value)
+
+
 
 
             class OutgoingConnections(Entity):
@@ -1455,6 +1583,8 @@ class Ssh(Entity):
                 
                 	session detail info
                 	**type**\: list of  		 :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.HistoryDetail.OutgoingConnections.SessionDetailInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -1494,45 +1624,63 @@ class Ssh(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: key_exchange
                     
                     	Key exchange name
                     	**type**\:  :py:class:`KexName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexName>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: public_key
                     
                     	Host key algorithm
                     	**type**\:  :py:class:`Hostkey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Hostkey>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: in_cipher
                     
                     	In cipher algorithm
                     	**type**\:  :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: out_cipher
                     
                     	Out cipher algorithm
                     	**type**\:  :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: in_mac
                     
                     	In MAC
                     	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: out_mac
                     
                     	Out MAC
                     	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: start_time
                     
                     	session start time
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: end_time
                     
                     	session end time
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1575,7 +1723,10 @@ class Ssh(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ssh.Session.HistoryDetail.OutgoingConnections.SessionDetailInfo, [u'session_id', u'key_exchange', u'public_key', u'in_cipher', u'out_cipher', u'in_mac', u'out_mac', u'start_time', u'end_time'], name, value)
+                        self._perform_setattr(Ssh.Session.HistoryDetail.OutgoingConnections.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac', 'start_time', 'end_time'], name, value)
+
+
+
 
 
         class Brief(Entity):
@@ -1587,10 +1738,14 @@ class Ssh(Entity):
             	List of incoming sessions
             	**type**\:  :py:class:`IncomingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.IncomingSessions>`
             
+            	**config**\: False
+            
             .. attribute:: outgoing_sessions
             
             	List of outgoing sessions
             	**type**\:  :py:class:`OutgoingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.OutgoingSessions>`
+            
+            	**config**\: False
             
             
 
@@ -1634,6 +1789,8 @@ class Ssh(Entity):
                 	session brief info
                 	**type**\: list of  		 :py:class:`SessionBriefInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.IncomingSessions.SessionBriefInfo>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1672,6 +1829,8 @@ class Ssh(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: node_name
                     
                     	Node name
@@ -1679,35 +1838,49 @@ class Ssh(Entity):
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_state
                     
                     	SSH session state
                     	**type**\:  :py:class:`States <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.States>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: user_id
                     
                     	User ID
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: host_address
                     
                     	Host address
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: version
                     
                     	SSH state version
                     	**type**\:  :py:class:`Version <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Version>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: authentication_type
                     
                     	Authentication method
                     	**type**\:  :py:class:`Authen <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Authen>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: mc_info
                     
                     	List of channel info
                     	**type**\: list of  		 :py:class:`McInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.IncomingSessions.SessionBriefInfo.McInfo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1748,7 +1921,7 @@ class Ssh(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo, [u'session_id', u'node_name', u'session_state', u'user_id', u'host_address', u'version', u'authentication_type'], name, value)
+                        self._perform_setattr(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo, ['session_id', 'node_name', 'session_state', 'user_id', 'host_address', 'version', 'authentication_type'], name, value)
 
 
                     class McInfo(Entity):
@@ -1762,10 +1935,14 @@ class Ssh(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: connection_type
                         
                         	Channel Connection Type
                         	**type**\:  :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Connection>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: vty_line_number
                         
@@ -1774,10 +1951,14 @@ class Ssh(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: vty_assigned
                         
                         	Boolean indicating whether line VTY line number is valid
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -1810,7 +1991,10 @@ class Ssh(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo.McInfo, [u'channel_id', u'connection_type', u'vty_line_number', u'vty_assigned'], name, value)
+                            self._perform_setattr(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo.McInfo, ['channel_id', 'connection_type', 'vty_line_number', 'vty_assigned'], name, value)
+
+
+
 
 
             class OutgoingSessions(Entity):
@@ -1821,6 +2005,8 @@ class Ssh(Entity):
                 
                 	session brief info
                 	**type**\: list of  		 :py:class:`SessionBriefInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -1860,6 +2046,8 @@ class Ssh(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: node_name
                     
                     	Node name
@@ -1867,35 +2055,49 @@ class Ssh(Entity):
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_state
                     
                     	SSH session state
                     	**type**\:  :py:class:`States <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.States>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: user_id
                     
                     	User ID
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: host_address
                     
                     	Host address
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: version
                     
                     	SSH state version
                     	**type**\:  :py:class:`Version <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Version>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: authentication_type
                     
                     	Authentication method
                     	**type**\:  :py:class:`Authen <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Authen>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: mc_info
                     
                     	List of channel info
                     	**type**\: list of  		 :py:class:`McInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo.McInfo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1936,7 +2138,7 @@ class Ssh(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo, [u'session_id', u'node_name', u'session_state', u'user_id', u'host_address', u'version', u'authentication_type'], name, value)
+                        self._perform_setattr(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo, ['session_id', 'node_name', 'session_state', 'user_id', 'host_address', 'version', 'authentication_type'], name, value)
 
 
                     class McInfo(Entity):
@@ -1950,10 +2152,14 @@ class Ssh(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: connection_type
                         
                         	Channel Connection Type
                         	**type**\:  :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Connection>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: vty_line_number
                         
@@ -1962,10 +2168,14 @@ class Ssh(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: vty_assigned
                         
                         	Boolean indicating whether line VTY line number is valid
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -1998,7 +2208,11 @@ class Ssh(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo.McInfo, [u'channel_id', u'connection_type', u'vty_line_number', u'vty_assigned'], name, value)
+                            self._perform_setattr(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo.McInfo, ['channel_id', 'connection_type', 'vty_line_number', 'vty_assigned'], name, value)
+
+
+
+
 
 
         class History(Entity):
@@ -2009,6 +2223,8 @@ class Ssh(Entity):
             
             	List of incoming sessions
             	**type**\:  :py:class:`IncomingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.History.IncomingSessions>`
+            
+            	**config**\: False
             
             
 
@@ -2048,6 +2264,8 @@ class Ssh(Entity):
                 	session history info
                 	**type**\: list of  		 :py:class:`SessionHistoryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.History.IncomingSessions.SessionHistoryInfo>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -2086,6 +2304,8 @@ class Ssh(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: node_name
                     
                     	Node name
@@ -2093,30 +2313,42 @@ class Ssh(Entity):
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
+                    	**config**\: False
+                    
                     .. attribute:: user_id
                     
                     	User ID
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: host_address
                     
                     	Host address
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: version
                     
                     	SSH state version
                     	**type**\:  :py:class:`Version <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Version>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: authentication_type
                     
                     	Authentication method
                     	**type**\:  :py:class:`Authen <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Authen>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: mc_info
                     
                     	List of channel info
                     	**type**\: list of  		 :py:class:`McInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.History.IncomingSessions.SessionHistoryInfo.McInfo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2155,7 +2387,7 @@ class Ssh(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ssh.Session.History.IncomingSessions.SessionHistoryInfo, [u'session_id', u'node_name', u'user_id', u'host_address', u'version', u'authentication_type'], name, value)
+                        self._perform_setattr(Ssh.Session.History.IncomingSessions.SessionHistoryInfo, ['session_id', 'node_name', 'user_id', 'host_address', 'version', 'authentication_type'], name, value)
 
 
                     class McInfo(Entity):
@@ -2169,10 +2401,14 @@ class Ssh(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: connection_type
                         
                         	Channel Connection Type
                         	**type**\:  :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Connection>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: vty_line_number
                         
@@ -2181,10 +2417,14 @@ class Ssh(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: vty_assigned
                         
                         	Boolean indicating whether line VTY line number is valid
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -2217,7 +2457,11 @@ class Ssh(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ssh.Session.History.IncomingSessions.SessionHistoryInfo.McInfo, [u'channel_id', u'connection_type', u'vty_line_number', u'vty_assigned'], name, value)
+                            self._perform_setattr(Ssh.Session.History.IncomingSessions.SessionHistoryInfo.McInfo, ['channel_id', 'connection_type', 'vty_line_number', 'vty_assigned'], name, value)
+
+
+
+
 
 
         class Detail(Entity):
@@ -2229,10 +2473,14 @@ class Ssh(Entity):
             	List of incoming sessions
             	**type**\:  :py:class:`IncomingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.IncomingSessions>`
             
+            	**config**\: False
+            
             .. attribute:: outgoing_connections
             
             	List of outgoing connections
             	**type**\:  :py:class:`OutgoingConnections <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.OutgoingConnections>`
+            
+            	**config**\: False
             
             
 
@@ -2276,6 +2524,8 @@ class Ssh(Entity):
                 	session detail info
                 	**type**\: list of  		 :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.IncomingSessions.SessionDetailInfo>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -2314,45 +2564,63 @@ class Ssh(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: key_exchange
                     
                     	Key exchange name
                     	**type**\:  :py:class:`KexName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexName>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: public_key
                     
                     	Host key algorithm
                     	**type**\:  :py:class:`Hostkey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Hostkey>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: in_cipher
                     
                     	In cipher algorithm
                     	**type**\:  :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: out_cipher
                     
                     	Out cipher algorithm
                     	**type**\:  :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: in_mac
                     
                     	In MAC
                     	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: out_mac
                     
                     	Out MAC
                     	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: start_time
                     
                     	session start time
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: end_time
                     
                     	session end time
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -2395,7 +2663,9 @@ class Ssh(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ssh.Session.Detail.IncomingSessions.SessionDetailInfo, [u'session_id', u'key_exchange', u'public_key', u'in_cipher', u'out_cipher', u'in_mac', u'out_mac', u'start_time', u'end_time'], name, value)
+                        self._perform_setattr(Ssh.Session.Detail.IncomingSessions.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac', 'start_time', 'end_time'], name, value)
+
+
 
 
             class OutgoingConnections(Entity):
@@ -2406,6 +2676,8 @@ class Ssh(Entity):
                 
                 	session detail info
                 	**type**\: list of  		 :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -2445,45 +2717,63 @@ class Ssh(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: key_exchange
                     
                     	Key exchange name
                     	**type**\:  :py:class:`KexName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexName>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: public_key
                     
                     	Host key algorithm
                     	**type**\:  :py:class:`Hostkey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Hostkey>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: in_cipher
                     
                     	In cipher algorithm
                     	**type**\:  :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: out_cipher
                     
                     	Out cipher algorithm
                     	**type**\:  :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: in_mac
                     
                     	In MAC
                     	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: out_mac
                     
                     	Out MAC
                     	**type**\:  :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: start_time
                     
                     	session start time
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: end_time
                     
                     	session end time
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -2526,9 +2816,15 @@ class Ssh(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo, [u'session_id', u'key_exchange', u'public_key', u'in_cipher', u'out_cipher', u'in_mac', u'out_mac', u'start_time', u'end_time'], name, value)
+                        self._perform_setattr(Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac', 'start_time', 'end_time'], name, value)
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Ssh()
         return self._top_entity
+
+
 

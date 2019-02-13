@@ -100,6 +100,7 @@ class CliCommand(Entity):
             self._perform_setattr(CliCommand.Input, ['command'], name, value)
 
 
+
     class Output(Entity):
         """
         
@@ -136,7 +137,10 @@ class CliCommand(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CliCommand.Output, ['response'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = CliCommand()
         return self._top_entity
+
+
 

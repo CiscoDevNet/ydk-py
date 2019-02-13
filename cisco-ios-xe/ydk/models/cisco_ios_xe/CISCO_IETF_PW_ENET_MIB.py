@@ -24,15 +24,21 @@ class CISCOIETFPWENETMIB(Entity):
     	This table contains the index to the Ethernet tables   associated with this ETH VC, the VLAN configuration and   VLAN mode
     	**type**\:  :py:class:`CpwVcEnetTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.CpwVcEnetTable>`
     
+    	**config**\: False
+    
     .. attribute:: cpwvcenetmplsprimappingtable
     
     	This table may be used for MPLS PSNs if there is a need   to hold multiple VC, each with different COS, for the same  user service (port + PW VLAN). Such a need may arise if the  MPLS network is capable of L\-LSP or E\-LSP without multiple  COS capabilities.  Each row is indexed by the cpwVcIndex   and indicate the PRI bits on the packet recieved from the   user port (or VPLS virtual port) that are  classified to this VC. Note that the EXP bit value of the VC  is configured in the CISCO\-IETF\-PW\-MPLS\-MIB
     	**type**\:  :py:class:`CpwVcEnetMplsPriMappingTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.CpwVcEnetMplsPriMappingTable>`
     
+    	**config**\: False
+    
     .. attribute:: cpwvcenetstatstable
     
     	This table contains statistical counters specific for   Ethernet PW
     	**type**\:  :py:class:`CpwVcEnetStatsTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.CpwVcEnetStatsTable>`
+    
+    	**config**\: False
     
     
 
@@ -81,6 +87,8 @@ class CISCOIETFPWENETMIB(Entity):
         
         	This table is indexed by the same index that was created   for the associated entry in the PW VC Table in the  CISCO\-IETF\-PW\-MIB.  The CpwVcIndex and the cpwVcEnetPwVlan  are used as indexes to allow multiple VLANs to exist on  the same PW.   An entry is created in this table by the agent for every   entry in the cpwVc table with a VcType of 'ethernetVLAN',  'ethernet' or 'ethernetVPLS'. Additional rows may be   created by the operator or the agent if multiple entries  are required for the same VC.   This table provides Ethernet port mapping and VLAN   configuration for each Ethernet VC
         	**type**\: list of  		 :py:class:`CpwVcEnetEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.CpwVcEnetTable.CpwVcEnetEntry>`
+        
+        	**config**\: False
         
         
 
@@ -135,6 +143,8 @@ class CISCOIETFPWENETMIB(Entity):
             
             	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cpwvcenetpwvlan  (key)
             
             	This Object defines the VLAN on the VC. The value of 4097  is used if the object is not applicable, for example when  mapping all packets from an Ethernet port to this VC.  The value of 4096 is used to indicate untagged frames (at   least from the PW point of view), for example if   cpwVcEnetVlanMode is equal 'removeVLAN' or when   cpwVcEnetVlanMode equal 'noChange' and cpwVcEnetPortVlan  is equal 4096
@@ -142,10 +152,14 @@ class CISCOIETFPWENETMIB(Entity):
             
             	**range:** 0..4097
             
+            	**config**\: False
+            
             .. attribute:: cpwvcenetvlanmode
             
             	Indicate the mode of VLAN handling between the port   associated to the VC and the VC encapsulation itself.   \- 'other' indicate operation that is not defined by    this MIB.   \- 'portBased' indicates that the forwarder will forward    packets between the port and the PW independent of their    structure.   \- 'noChange' indicates that the VC contains the original     user VLAN, as specified in cpwVcEnetPortVlan.   \- 'changeVlan' indicates that the VLAN field on the VC     may be different than the VLAN field on the user's     port.   \- 'removeVlan' indicates that the encapsulation on the     VC does not include the original VLAN field. Note     that PRI bits transparency is lost in this case.   \- 'addVlan' indicate that a VLAN field will be added    on the PSN bound direction. cpwVcEnetPwVlan indicate    the value that will be added.    \- 'removeVlan', 'addVlan' and 'changeVlan' implementation    is not required. 
             	**type**\:  :py:class:`CpwVcEnetVlanMode <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.CpwVcEnetTable.CpwVcEnetEntry.CpwVcEnetVlanMode>`
+            
+            	**config**\: False
             
             .. attribute:: cpwvcenetportvlan
             
@@ -154,12 +168,16 @@ class CISCOIETFPWENETMIB(Entity):
             
             	**range:** 0..4097
             
+            	**config**\: False
+            
             .. attribute:: cpwvcenetvcifindex
             
             	It is sometimes convenient to model the VC PW as a   virtual interface in the ifTable. In these cases this   object hold the value of the ifIndex in the ifTable   representing this VC PW. A value of zero indicate no such   association or association is not yet known
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: cpwvcenetportifindex
             
@@ -168,15 +186,21 @@ class CISCOIETFPWENETMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cpwvcenetrowstatus
             
             	Enable creating, deleting and modifying this row
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: cpwvcenetstoragetype
             
             	Indicates the storage type of this row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            	**config**\: False
             
             
 
@@ -291,6 +315,8 @@ class CISCOIETFPWENETMIB(Entity):
 
 
 
+
+
     class CpwVcEnetMplsPriMappingTable(Entity):
         """
         This table may be used for MPLS PSNs if there is a need  
@@ -307,6 +333,8 @@ class CISCOIETFPWENETMIB(Entity):
         
         	Each entry is created if special classification based on   the PRI bits is required for this VC
         	**type**\: list of  		 :py:class:`CpwVcEnetMplsPriMappingTableEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.CpwVcEnetMplsPriMappingTable.CpwVcEnetMplsPriMappingTableEntry>`
+        
+        	**config**\: False
         
         
 
@@ -349,20 +377,28 @@ class CISCOIETFPWENETMIB(Entity):
             
             	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cpwvcenetmplsprimapping
             
             	This object defines the groups of user PRI mapped into  this VC. Each bit set indicates that this user priority   is assigned to this VC.   The value 'untagged' is used to indicate that untagged   frames are also associated to this VC.   This object allow the use of different PSN COS based on   user marking of PRI bits in MPLS PSN with L\-LSP or   E\-LSP without multiple COS support. In all other cases,   the default value MUST be used.   It is REQUIRED that there is no overlap on this object   between rows serving the same service (port+ PW VLAN).   In case of missing BIT configuration between rows to   the same service, incoming packets with PRI marking not   configured should be handled by the VC with the lowest   COS. 
             	**type**\:  :py:class:`CpwVcEnetMplsPriMapping <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.CpwVcEnetMplsPriMappingTable.CpwVcEnetMplsPriMappingTableEntry.CpwVcEnetMplsPriMapping>`
+            
+            	**config**\: False
             
             .. attribute:: cpwvcenetmplsprimappingrowstatus
             
             	Enable creating, deleting and modifying this row
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: cpwvcenetmplsprimappingstoragetype
             
             	Indicates the storage type of this row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            	**config**\: False
             
             
 
@@ -398,6 +434,8 @@ class CISCOIETFPWENETMIB(Entity):
                 self._perform_setattr(CISCOIETFPWENETMIB.CpwVcEnetMplsPriMappingTable.CpwVcEnetMplsPriMappingTableEntry, ['cpwvcindex', 'cpwvcenetmplsprimapping', 'cpwvcenetmplsprimappingrowstatus', 'cpwvcenetmplsprimappingstoragetype'], name, value)
 
 
+
+
     class CpwVcEnetStatsTable(Entity):
         """
         This table contains statistical counters specific for  
@@ -407,6 +445,8 @@ class CISCOIETFPWENETMIB(Entity):
         
         	Each entry represents the statistics gathered for the   VC carrying the Ethernet packets since this VC was   first created in the cpwVcEnetTable
         	**type**\: list of  		 :py:class:`CpwVcEnetStatsEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ENET_MIB.CISCOIETFPWENETMIB.CpwVcEnetStatsTable.CpwVcEnetStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -450,6 +490,8 @@ class CISCOIETFPWENETMIB(Entity):
             
             	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cpwvcenetstatsillegalvlan
             
             	The number of packets received (from the PSN) on this VC with   an illegal VLAN field, missing VLAN field that was expected, or   A VLAN field when it was not expected. This counter is not   relevant if the VC type is 'ethernet' (i.e. raw mode), and   should be set to 0 by the agent to indicate this
@@ -457,12 +499,16 @@ class CISCOIETFPWENETMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cpwvcenetstatsillegallength
             
             	The number of packets that were received with an illegal   Ethernet packet length on this VC. An illegal length is defined  as being greater than the value in the advertised maximum MTU   supported, or shorter than the allowed Ethernet packet size
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -495,7 +541,11 @@ class CISCOIETFPWENETMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFPWENETMIB.CpwVcEnetStatsTable.CpwVcEnetStatsEntry, ['cpwvcindex', 'cpwvcenetstatsillegalvlan', 'cpwvcenetstatsillegallength'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOIETFPWENETMIB()
         return self._top_entity
+
+
 

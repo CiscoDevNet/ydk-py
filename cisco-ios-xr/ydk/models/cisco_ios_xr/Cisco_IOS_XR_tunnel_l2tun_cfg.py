@@ -390,6 +390,8 @@ class L2tp(Entity):
                         self._perform_setattr(L2tp.Classes.Class.Security.Ip, ['address_check'], name, value)
 
 
+
+
             class Retransmit(Entity):
                 """
                 Control message retransmission parameters
@@ -540,6 +542,8 @@ class L2tp(Entity):
                             self._perform_setattr(L2tp.Classes.Class.Retransmit.Initial.Timeout, ['minimum', 'maximum'], name, value)
 
 
+
+
                 class Timeout(Entity):
                     """
                     Set timeout value range
@@ -587,6 +591,8 @@ class L2tp(Entity):
                         self._perform_setattr(L2tp.Classes.Class.Retransmit.Timeout, ['minimum', 'maximum'], name, value)
 
 
+
+
             class Tunnel(Entity):
                 """
                 l2TP tunnel
@@ -621,6 +627,7 @@ class L2tp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2tp.Classes.Class.Tunnel, ['accounting'], name, value)
+
 
 
             class Digest(Entity):
@@ -758,6 +765,9 @@ class L2tp(Entity):
                             self._perform_setattr(L2tp.Classes.Class.Digest.Secrets.Secret, ['secret_name', 'hash'], name, value)
 
 
+
+
+
             class Ip(Entity):
                 """
                 IP TOS value
@@ -795,7 +805,12 @@ class L2tp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2tp.Classes.Class.Ip, ['tos'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = L2tp()
         return self._top_entity
+
+
 

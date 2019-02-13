@@ -56,6 +56,8 @@ class RVM(Entity):
     	
     	**type**\: list of  		 :py:class:`AllLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_rvm_mgr.RVM.AllLocations>`
     
+    	**config**\: False
+    
     
 
     """
@@ -92,20 +94,28 @@ class RVM(Entity):
         	
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: objects
         
         	RVM Manager Info
         	**type**\:  :py:class:`Objects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_rvm_mgr.RVM.AllLocations.Objects>`
+        
+        	**config**\: False
         
         .. attribute:: node
         
         	RVM Manager Node Info
         	**type**\:  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_rvm_mgr.RVM.AllLocations.Node>`
         
+        	**config**\: False
+        
         .. attribute:: card
         
         	RVM Manager Card Info
         	**type**\:  :py:class:`Card <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_rvm_mgr.RVM.AllLocations.Card>`
+        
+        	**config**\: False
         
         
 
@@ -156,6 +166,8 @@ class RVM(Entity):
             	
             	**type**\: list of  		 :py:class:`AllObjs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_rvm_mgr.RVM.AllLocations.Objects.AllObjs>`
             
+            	**config**\: False
+            
             
 
             """
@@ -193,12 +205,16 @@ class RVM(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: num_allocated
                 
                 	Number of allocated nodes
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: num_freed
                 
@@ -207,12 +223,16 @@ class RVM(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: num_objects
                 
                 	Number of current object nodes
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -247,6 +267,8 @@ class RVM(Entity):
                     self._perform_setattr(RVM.AllLocations.Objects.AllObjs, ['index', 'num_allocated', 'num_freed', 'num_objects'], name, value)
 
 
+
+
         class Node(Entity):
             """
             RVM Manager Node Info
@@ -255,6 +277,8 @@ class RVM(Entity):
             
             	
             	**type**\: list of  		 :py:class:`AllNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_rvm_mgr.RVM.AllLocations.Node.AllNodes>`
+            
+            	**config**\: False
             
             
 
@@ -293,25 +317,35 @@ class RVM(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4_addr_str
                 
                 	IP address of the node in string format
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: node_info
                 
                 	Node type state and flag
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: node_hb_info
                 
                 	Node heartbeat related info
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: node_card_info
                 
                 	Card info the node belongs to
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -348,6 +382,8 @@ class RVM(Entity):
                     self._perform_setattr(RVM.AllLocations.Node.AllNodes, ['ipv4_addr', 'ipv4_addr_str', 'node_info', 'node_hb_info', 'node_card_info'], name, value)
 
 
+
+
         class Card(Entity):
             """
             RVM Manager Card Info
@@ -356,6 +392,8 @@ class RVM(Entity):
             
             	
             	**type**\: list of  		 :py:class:`AllCards <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_rvm_mgr.RVM.AllLocations.Card.AllCards>`
+            
+            	**config**\: False
             
             
 
@@ -392,25 +430,35 @@ class RVM(Entity):
                 	Serial number of the card
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: card_flag
                 
                 	Card flags
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: card_info
                 
                 	Card rack and slot num
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: sysadmin_nodes
                 
                 	Sysadmin nodes on this card
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: xr_nodes
                 
                 	XR nodes on this card
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -446,7 +494,12 @@ class RVM(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(RVM.AllLocations.Card.AllCards, ['serial_num', 'card_flag', 'card_info', 'sysadmin_nodes', 'xr_nodes'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = RVM()
         return self._top_entity
+
+
 

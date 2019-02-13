@@ -53,6 +53,7 @@ class IanaInterfaceType(InterfaceType):
         super(IanaInterfaceType, self).__init__(ns, pref, tag)
 
 
+
 class VoiceFXO(IanaInterfaceType):
     """
     Voice Foreign Exchange Office.
@@ -68,6 +69,7 @@ class VoiceFXO(IanaInterfaceType):
         super(VoiceFXO, self).__init__(ns, pref, tag)
 
 
+
 class AtmVciEndPt(IanaInterfaceType):
     """
     ATM VCI End Point.
@@ -81,6 +83,7 @@ class AtmVciEndPt(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:atmVciEndPt"):
         super(AtmVciEndPt, self).__init__(ns, pref, tag)
+
 
 
 class PropBWAp2Mp(IanaInterfaceType):
@@ -101,6 +104,7 @@ class PropBWAp2Mp(IanaInterfaceType):
         super(PropBWAp2Mp, self).__init__(ns, pref, tag)
 
 
+
 class PropDocsWirelessDownstream(IanaInterfaceType):
     """
     Cisco proprietary Downstream.
@@ -114,6 +118,7 @@ class PropDocsWirelessDownstream(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:propDocsWirelessDownstream"):
         super(PropDocsWirelessDownstream, self).__init__(ns, pref, tag)
+
 
 
 class V11(IanaInterfaceType):
@@ -131,6 +136,7 @@ class V11(IanaInterfaceType):
         super(V11, self).__init__(ns, pref, tag)
 
 
+
 class SoftwareLoopback(IanaInterfaceType):
     """
     
@@ -144,6 +150,7 @@ class SoftwareLoopback(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:softwareLoopback"):
         super(SoftwareLoopback, self).__init__(ns, pref, tag)
+
 
 
 class Hdlc(IanaInterfaceType):
@@ -161,6 +168,7 @@ class Hdlc(IanaInterfaceType):
         super(Hdlc, self).__init__(ns, pref, tag)
 
 
+
 class VoiceFGDOS(IanaInterfaceType):
     """
     Voice FGD Operator Services.
@@ -174,6 +182,7 @@ class VoiceFGDOS(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:voiceFGDOS"):
         super(VoiceFGDOS, self).__init__(ns, pref, tag)
+
 
 
 class FastEtherFX(IanaInterfaceType):
@@ -192,6 +201,7 @@ class FastEtherFX(IanaInterfaceType):
         super(FastEtherFX, self).__init__(ns, pref, tag)
 
 
+
 class DvbTdm(IanaInterfaceType):
     """
     DVB Satellite TDM.
@@ -205,6 +215,7 @@ class DvbTdm(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:dvbTdm"):
         super(DvbTdm, self).__init__(ns, pref, tag)
+
 
 
 class Nfas(IanaInterfaceType):
@@ -222,6 +233,7 @@ class Nfas(IanaInterfaceType):
         super(Nfas, self).__init__(ns, pref, tag)
 
 
+
 class IfPwType(IanaInterfaceType):
     """
     Pseudowire interface type.
@@ -237,6 +249,7 @@ class IfPwType(IanaInterfaceType):
         super(IfPwType, self).__init__(ns, pref, tag)
 
 
+
 class L2vlan(IanaInterfaceType):
     """
     Layer 2 Virtual LAN using 802.1Q.
@@ -250,6 +263,7 @@ class L2vlan(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:l2vlan"):
         super(L2vlan, self).__init__(ns, pref, tag)
+
 
 
 class Adsl2plus(IanaInterfaceType):
@@ -268,6 +282,7 @@ class Adsl2plus(IanaInterfaceType):
         super(Adsl2plus, self).__init__(ns, pref, tag)
 
 
+
 class Ieee802154(IanaInterfaceType):
     """
     IEEE 802.15.4 WPAN interface.
@@ -281,6 +296,7 @@ class Ieee802154(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ieee802154"):
         super(Ieee802154, self).__init__(ns, pref, tag)
+
 
 
 class VoiceFXS(IanaInterfaceType):
@@ -298,6 +314,7 @@ class VoiceFXS(IanaInterfaceType):
         super(VoiceFXS, self).__init__(ns, pref, tag)
 
 
+
 class DvbRcsMacLayer(IanaInterfaceType):
     """
     DVB\-RCS MAC Layer.
@@ -311,6 +328,7 @@ class DvbRcsMacLayer(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:dvbRcsMacLayer"):
         super(DvbRcsMacLayer, self).__init__(ns, pref, tag)
+
 
 
 class Idsl(IanaInterfaceType):
@@ -328,6 +346,7 @@ class Idsl(IanaInterfaceType):
         super(Idsl, self).__init__(ns, pref, tag)
 
 
+
 class Infiniband(IanaInterfaceType):
     """
     Infiniband.
@@ -341,6 +360,7 @@ class Infiniband(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:infiniband"):
         super(Infiniband, self).__init__(ns, pref, tag)
+
 
 
 class DdnX25(IanaInterfaceType):
@@ -358,6 +378,7 @@ class DdnX25(IanaInterfaceType):
         super(DdnX25, self).__init__(ns, pref, tag)
 
 
+
 class WwanPP2(IanaInterfaceType):
     """
     3GPP2 WWAN.
@@ -371,6 +392,7 @@ class WwanPP2(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:wwanPP2"):
         super(WwanPP2, self).__init__(ns, pref, tag)
+
 
 
 class DocsCableUpstream(IanaInterfaceType):
@@ -388,6 +410,7 @@ class DocsCableUpstream(IanaInterfaceType):
         super(DocsCableUpstream, self).__init__(ns, pref, tag)
 
 
+
 class Ethernet3Mbit(IanaInterfaceType):
     """
     
@@ -401,6 +424,7 @@ class Ethernet3Mbit(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ethernet3Mbit"):
         super(Ethernet3Mbit, self).__init__(ns, pref, tag)
+
 
 
 class DigitalPowerline(IanaInterfaceType):
@@ -418,6 +442,7 @@ class DigitalPowerline(IanaInterfaceType):
         super(DigitalPowerline, self).__init__(ns, pref, tag)
 
 
+
 class H323Proxy(IanaInterfaceType):
     """
     H323 Voice and Video Proxy.
@@ -431,6 +456,7 @@ class H323Proxy(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:h323Proxy"):
         super(H323Proxy, self).__init__(ns, pref, tag)
+
 
 
 class Gtp(IanaInterfaceType):
@@ -448,6 +474,7 @@ class Gtp(IanaInterfaceType):
         super(Gtp, self).__init__(ns, pref, tag)
 
 
+
 class IpOverAtm(IanaInterfaceType):
     """
     IBM ipOverAtm.
@@ -461,6 +488,7 @@ class IpOverAtm(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ipOverAtm"):
         super(IpOverAtm, self).__init__(ns, pref, tag)
+
 
 
 class AluEpon(IanaInterfaceType):
@@ -478,6 +506,7 @@ class AluEpon(IanaInterfaceType):
         super(AluEpon, self).__init__(ns, pref, tag)
 
 
+
 class Imt(IanaInterfaceType):
     """
     Inter\-Machine Trunks.
@@ -491,6 +520,7 @@ class Imt(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:imt"):
         super(Imt, self).__init__(ns, pref, tag)
+
 
 
 class IpSwitch(IanaInterfaceType):
@@ -508,6 +538,7 @@ class IpSwitch(IanaInterfaceType):
         super(IpSwitch, self).__init__(ns, pref, tag)
 
 
+
 class Msdsl(IanaInterfaceType):
     """
     Multi\-rate Symmetric DSL.
@@ -521,6 +552,7 @@ class Msdsl(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:msdsl"):
         super(Msdsl, self).__init__(ns, pref, tag)
+
 
 
 class DvbRccMacLayer(IanaInterfaceType):
@@ -538,6 +570,7 @@ class DvbRccMacLayer(IanaInterfaceType):
         super(DvbRccMacLayer, self).__init__(ns, pref, tag)
 
 
+
 class SmdsDxi(IanaInterfaceType):
     """
     
@@ -551,6 +584,7 @@ class SmdsDxi(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:smdsDxi"):
         super(SmdsDxi, self).__init__(ns, pref, tag)
+
 
 
 class VoiceOverAtm(IanaInterfaceType):
@@ -568,6 +602,7 @@ class VoiceOverAtm(IanaInterfaceType):
         super(VoiceOverAtm, self).__init__(ns, pref, tag)
 
 
+
 class Arap(IanaInterfaceType):
     """
     Appletalk Remote Access Protocol.
@@ -581,6 +616,7 @@ class Arap(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:arap"):
         super(Arap, self).__init__(ns, pref, tag)
+
 
 
 class FastEther(IanaInterfaceType):
@@ -599,6 +635,7 @@ class FastEther(IanaInterfaceType):
         super(FastEther, self).__init__(ns, pref, tag)
 
 
+
 class Mpc(IanaInterfaceType):
     """
     IBM multi\-protocol channel support.
@@ -612,6 +649,7 @@ class Mpc(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:mpc"):
         super(Mpc, self).__init__(ns, pref, tag)
+
 
 
 class Linegroup(IanaInterfaceType):
@@ -629,6 +667,7 @@ class Linegroup(IanaInterfaceType):
         super(Linegroup, self).__init__(ns, pref, tag)
 
 
+
 class Hippi(IanaInterfaceType):
     """
     
@@ -642,6 +681,7 @@ class Hippi(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:hippi"):
         super(Hippi, self).__init__(ns, pref, tag)
+
 
 
 class Rpr(IanaInterfaceType):
@@ -659,6 +699,7 @@ class Rpr(IanaInterfaceType):
         super(Rpr, self).__init__(ns, pref, tag)
 
 
+
 class Ds1FDL(IanaInterfaceType):
     """
     Facility Data Link (4Kbps) on a DS1.
@@ -672,6 +713,7 @@ class Ds1FDL(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ds1FDL"):
         super(Ds1FDL, self).__init__(ns, pref, tag)
+
 
 
 class SonetVT(IanaInterfaceType):
@@ -689,6 +731,7 @@ class SonetVT(IanaInterfaceType):
         super(SonetVT, self).__init__(ns, pref, tag)
 
 
+
 class VoiceEncap(IanaInterfaceType):
     """
     Voice encapsulation.
@@ -702,6 +745,7 @@ class VoiceEncap(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:voiceEncap"):
         super(VoiceEncap, self).__init__(ns, pref, tag)
+
 
 
 class Ss7SigLink(IanaInterfaceType):
@@ -719,6 +763,7 @@ class Ss7SigLink(IanaInterfaceType):
         super(Ss7SigLink, self).__init__(ns, pref, tag)
 
 
+
 class Arcnet(IanaInterfaceType):
     """
     ARCnet.
@@ -732,6 +777,7 @@ class Arcnet(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:arcnet"):
         super(Arcnet, self).__init__(ns, pref, tag)
+
 
 
 class ActelisMetaLOOP(IanaInterfaceType):
@@ -749,6 +795,7 @@ class ActelisMetaLOOP(IanaInterfaceType):
         super(ActelisMetaLOOP, self).__init__(ns, pref, tag)
 
 
+
 class Qllc(IanaInterfaceType):
     """
     SNA QLLC.
@@ -762,6 +809,7 @@ class Qllc(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:qllc"):
         super(Qllc, self).__init__(ns, pref, tag)
+
 
 
 class Rfc877x25(IanaInterfaceType):
@@ -779,6 +827,7 @@ class Rfc877x25(IanaInterfaceType):
         super(Rfc877x25, self).__init__(ns, pref, tag)
 
 
+
 class MpegTransport(IanaInterfaceType):
     """
     MPEG transport interface.
@@ -792,6 +841,7 @@ class MpegTransport(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:mpegTransport"):
         super(MpegTransport, self).__init__(ns, pref, tag)
+
 
 
 class X25mlp(IanaInterfaceType):
@@ -809,6 +859,7 @@ class X25mlp(IanaInterfaceType):
         super(X25mlp, self).__init__(ns, pref, tag)
 
 
+
 class VirtualTg(IanaInterfaceType):
     """
     Virtual Trunk Group.
@@ -824,6 +875,7 @@ class VirtualTg(IanaInterfaceType):
         super(VirtualTg, self).__init__(ns, pref, tag)
 
 
+
 class HostPad(IanaInterfaceType):
     """
     CCITT\-ITU X.29 PAD Protocol.
@@ -837,6 +889,7 @@ class HostPad(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:hostPad"):
         super(HostPad, self).__init__(ns, pref, tag)
+
 
 
 class StarLan(IanaInterfaceType):
@@ -855,6 +908,7 @@ class StarLan(IanaInterfaceType):
         super(StarLan, self).__init__(ns, pref, tag)
 
 
+
 class Iso88025Dtr(IanaInterfaceType):
     """
     ISO 802.5r DTR.
@@ -870,6 +924,7 @@ class Iso88025Dtr(IanaInterfaceType):
         super(Iso88025Dtr, self).__init__(ns, pref, tag)
 
 
+
 class Ibm370parChan(IanaInterfaceType):
     """
     IBM System 360/370 OEMI Channel.
@@ -883,6 +938,7 @@ class Ibm370parChan(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ibm370parChan"):
         super(Ibm370parChan, self).__init__(ns, pref, tag)
+
 
 
 class Adsl2(IanaInterfaceType):
@@ -902,6 +958,7 @@ class Adsl2(IanaInterfaceType):
         super(Adsl2, self).__init__(ns, pref, tag)
 
 
+
 class OtnOtu(IanaInterfaceType):
     """
     OTN Optical channel Transport Unit.
@@ -915,6 +972,7 @@ class OtnOtu(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:otnOtu"):
         super(OtnOtu, self).__init__(ns, pref, tag)
+
 
 
 class PropWirelessP2P(IanaInterfaceType):
@@ -932,6 +990,7 @@ class PropWirelessP2P(IanaInterfaceType):
         super(PropWirelessP2P, self).__init__(ns, pref, tag)
 
 
+
 class Interleave(IanaInterfaceType):
     """
     Interleave channel.
@@ -945,6 +1004,7 @@ class Interleave(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:interleave"):
         super(Interleave, self).__init__(ns, pref, tag)
+
 
 
 class Isup(IanaInterfaceType):
@@ -962,6 +1022,7 @@ class Isup(IanaInterfaceType):
         super(Isup, self).__init__(ns, pref, tag)
 
 
+
 class Regular1822(IanaInterfaceType):
     """
     
@@ -975,6 +1036,7 @@ class Regular1822(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:regular1822"):
         super(Regular1822, self).__init__(ns, pref, tag)
+
 
 
 class Gr303RDT(IanaInterfaceType):
@@ -992,6 +1054,7 @@ class Gr303RDT(IanaInterfaceType):
         super(Gr303RDT, self).__init__(ns, pref, tag)
 
 
+
 class PropDocsWirelessMaclayer(IanaInterfaceType):
     """
     Cisco proprietary Maclayer.
@@ -1005,6 +1068,7 @@ class PropDocsWirelessMaclayer(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:propDocsWirelessMaclayer"):
         super(PropDocsWirelessMaclayer, self).__init__(ns, pref, tag)
+
 
 
 class Async(IanaInterfaceType):
@@ -1022,6 +1086,7 @@ class Async(IanaInterfaceType):
         super(Async, self).__init__(ns, pref, tag)
 
 
+
 class RadioMAC(IanaInterfaceType):
     """
     MAC layer over radio links.
@@ -1035,6 +1100,7 @@ class RadioMAC(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:radioMAC"):
         super(RadioMAC, self).__init__(ns, pref, tag)
+
 
 
 class OpticalChannelGroup(IanaInterfaceType):
@@ -1052,6 +1118,7 @@ class OpticalChannelGroup(IanaInterfaceType):
         super(OpticalChannelGroup, self).__init__(ns, pref, tag)
 
 
+
 class SixToFour(IanaInterfaceType):
     """
     6to4 interface (DEPRECATED).
@@ -1065,6 +1132,7 @@ class SixToFour(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:sixToFour"):
         super(SixToFour, self).__init__(ns, pref, tag)
+
 
 
 class PropDocsWirelessUpstream(IanaInterfaceType):
@@ -1082,6 +1150,7 @@ class PropDocsWirelessUpstream(IanaInterfaceType):
         super(PropDocsWirelessUpstream, self).__init__(ns, pref, tag)
 
 
+
 class Q2931(IanaInterfaceType):
     """
     Q.2931.
@@ -1095,6 +1164,7 @@ class Q2931(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:q2931"):
         super(Q2931, self).__init__(ns, pref, tag)
+
 
 
 class Fddi(IanaInterfaceType):
@@ -1112,6 +1182,7 @@ class Fddi(IanaInterfaceType):
         super(Fddi, self).__init__(ns, pref, tag)
 
 
+
 class PropCnls(IanaInterfaceType):
     """
     Proprietary Connectionless Protocol.
@@ -1125,6 +1196,7 @@ class PropCnls(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:propCnls"):
         super(PropCnls, self).__init__(ns, pref, tag)
+
 
 
 class Aal2(IanaInterfaceType):
@@ -1142,6 +1214,7 @@ class Aal2(IanaInterfaceType):
         super(Aal2, self).__init__(ns, pref, tag)
 
 
+
 class DvbAsiOut(IanaInterfaceType):
     """
     DVB\-ASI Output.
@@ -1155,6 +1228,7 @@ class DvbAsiOut(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:dvbAsiOut"):
         super(DvbAsiOut, self).__init__(ns, pref, tag)
+
 
 
 class AluELP(IanaInterfaceType):
@@ -1172,6 +1246,7 @@ class AluELP(IanaInterfaceType):
         super(AluELP, self).__init__(ns, pref, tag)
 
 
+
 class CiscoISLvlan(IanaInterfaceType):
     """
     Layer 2 Virtual LAN using Cisco ISL.
@@ -1185,6 +1260,7 @@ class CiscoISLvlan(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ciscoISLvlan"):
         super(CiscoISLvlan, self).__init__(ns, pref, tag)
+
 
 
 class DocsCableUpstreamRfPort(IanaInterfaceType):
@@ -1202,6 +1278,7 @@ class DocsCableUpstreamRfPort(IanaInterfaceType):
         super(DocsCableUpstreamRfPort, self).__init__(ns, pref, tag)
 
 
+
 class Aal5(IanaInterfaceType):
     """
     AAL5 over ATM.
@@ -1215,6 +1292,7 @@ class Aal5(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:aal5"):
         super(Aal5, self).__init__(ns, pref, tag)
+
 
 
 class FrDlciEndPt(IanaInterfaceType):
@@ -1232,6 +1310,7 @@ class FrDlciEndPt(IanaInterfaceType):
         super(FrDlciEndPt, self).__init__(ns, pref, tag)
 
 
+
 class HippiInterface(IanaInterfaceType):
     """
     HIPPI interfaces.
@@ -1245,6 +1324,7 @@ class HippiInterface(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:hippiInterface"):
         super(HippiInterface, self).__init__(ns, pref, tag)
+
 
 
 class L3ipvlan(IanaInterfaceType):
@@ -1262,6 +1342,7 @@ class L3ipvlan(IanaInterfaceType):
         super(L3ipvlan, self).__init__(ns, pref, tag)
 
 
+
 class Miox25(IanaInterfaceType):
     """
     
@@ -1275,6 +1356,7 @@ class Miox25(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:miox25"):
         super(Miox25, self).__init__(ns, pref, tag)
+
 
 
 class Hssi(IanaInterfaceType):
@@ -1292,6 +1374,7 @@ class Hssi(IanaInterfaceType):
         super(Hssi, self).__init__(ns, pref, tag)
 
 
+
 class AtmVirtual(IanaInterfaceType):
     """
     ATM Virtual Interface.
@@ -1305,6 +1388,7 @@ class AtmVirtual(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:atmVirtual"):
         super(AtmVirtual, self).__init__(ns, pref, tag)
+
 
 
 class AluGponOnu(IanaInterfaceType):
@@ -1322,6 +1406,7 @@ class AluGponOnu(IanaInterfaceType):
         super(AluGponOnu, self).__init__(ns, pref, tag)
 
 
+
 class Rfc1483(IanaInterfaceType):
     """
     Multiprotocol over ATM AAL5.
@@ -1335,6 +1420,7 @@ class Rfc1483(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:rfc1483"):
         super(Rfc1483, self).__init__(ns, pref, tag)
+
 
 
 class Cnr(IanaInterfaceType):
@@ -1352,6 +1438,7 @@ class Cnr(IanaInterfaceType):
         super(Cnr, self).__init__(ns, pref, tag)
 
 
+
 class SipSig(IanaInterfaceType):
     """
     SIP Signaling.
@@ -1365,6 +1452,7 @@ class SipSig(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:sipSig"):
         super(SipSig, self).__init__(ns, pref, tag)
+
 
 
 class Myrinet(IanaInterfaceType):
@@ -1382,6 +1470,7 @@ class Myrinet(IanaInterfaceType):
         super(Myrinet, self).__init__(ns, pref, tag)
 
 
+
 class Dlsw(IanaInterfaceType):
     """
     Data Link Switching.
@@ -1395,6 +1484,7 @@ class Dlsw(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:dlsw"):
         super(Dlsw, self).__init__(ns, pref, tag)
+
 
 
 class GigabitEthernet(IanaInterfaceType):
@@ -1413,6 +1503,7 @@ class GigabitEthernet(IanaInterfaceType):
         super(GigabitEthernet, self).__init__(ns, pref, tag)
 
 
+
 class X25ple(IanaInterfaceType):
     """
     
@@ -1426,6 +1517,7 @@ class X25ple(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:x25ple"):
         super(X25ple, self).__init__(ns, pref, tag)
+
 
 
 class Lmp(IanaInterfaceType):
@@ -1443,6 +1535,7 @@ class Lmp(IanaInterfaceType):
         super(Lmp, self).__init__(ns, pref, tag)
 
 
+
 class OpticalTransport(IanaInterfaceType):
     """
     Optical Transport.
@@ -1456,6 +1549,7 @@ class OpticalTransport(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:opticalTransport"):
         super(OpticalTransport, self).__init__(ns, pref, tag)
+
 
 
 class Sdlc(IanaInterfaceType):
@@ -1473,6 +1567,7 @@ class Sdlc(IanaInterfaceType):
         super(Sdlc, self).__init__(ns, pref, tag)
 
 
+
 class VoiceEM(IanaInterfaceType):
     """
     Voice recEive and transMit.
@@ -1486,6 +1581,7 @@ class VoiceEM(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:voiceEM"):
         super(VoiceEM, self).__init__(ns, pref, tag)
+
 
 
 class X86Laps(IanaInterfaceType):
@@ -1503,6 +1599,7 @@ class X86Laps(IanaInterfaceType):
         super(X86Laps, self).__init__(ns, pref, tag)
 
 
+
 class G9982(IanaInterfaceType):
     """
     G.998.2 bonded interface.
@@ -1516,6 +1613,7 @@ class G9982(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:g9982"):
         super(G9982, self).__init__(ns, pref, tag)
+
 
 
 class Iso88022llc(IanaInterfaceType):
@@ -1533,6 +1631,7 @@ class Iso88022llc(IanaInterfaceType):
         super(Iso88022llc, self).__init__(ns, pref, tag)
 
 
+
 class DvbAsiIn(IanaInterfaceType):
     """
     DVB\-ASI Input.
@@ -1546,6 +1645,7 @@ class DvbAsiIn(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:dvbAsiIn"):
         super(DvbAsiIn, self).__init__(ns, pref, tag)
+
 
 
 class Bgppolicyaccounting(IanaInterfaceType):
@@ -1563,6 +1663,7 @@ class Bgppolicyaccounting(IanaInterfaceType):
         super(Bgppolicyaccounting, self).__init__(ns, pref, tag)
 
 
+
 class AluEponOnu(IanaInterfaceType):
     """
     EPON Optical Network Unit.
@@ -1576,6 +1677,7 @@ class AluEponOnu(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:aluEponOnu"):
         super(AluEponOnu, self).__init__(ns, pref, tag)
+
 
 
 class MfSigLink(IanaInterfaceType):
@@ -1593,6 +1695,7 @@ class MfSigLink(IanaInterfaceType):
         super(MfSigLink, self).__init__(ns, pref, tag)
 
 
+
 class Dcn(IanaInterfaceType):
     """
     Data Communications Network.
@@ -1606,6 +1709,7 @@ class Dcn(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:dcn"):
         super(Dcn, self).__init__(ns, pref, tag)
+
 
 
 class AtmDxi(IanaInterfaceType):
@@ -1623,6 +1727,7 @@ class AtmDxi(IanaInterfaceType):
         super(AtmDxi, self).__init__(ns, pref, tag)
 
 
+
 class VoiceOverFrameRelay(IanaInterfaceType):
     """
     Voice Over Frame Relay.
@@ -1636,6 +1741,7 @@ class VoiceOverFrameRelay(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:voiceOverFrameRelay"):
         super(VoiceOverFrameRelay, self).__init__(ns, pref, tag)
+
 
 
 class Gfp(IanaInterfaceType):
@@ -1653,6 +1759,7 @@ class Gfp(IanaInterfaceType):
         super(Gfp, self).__init__(ns, pref, tag)
 
 
+
 class SonetOverheadChannel(IanaInterfaceType):
     """
     SONET Overhead Channel.
@@ -1666,6 +1773,7 @@ class SonetOverheadChannel(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:sonetOverheadChannel"):
         super(SonetOverheadChannel, self).__init__(ns, pref, tag)
+
 
 
 class VmwareVirtualNic(IanaInterfaceType):
@@ -1683,6 +1791,7 @@ class VmwareVirtualNic(IanaInterfaceType):
         super(VmwareVirtualNic, self).__init__(ns, pref, tag)
 
 
+
 class FcipLink(IanaInterfaceType):
     """
     FCIP Link.
@@ -1696,6 +1805,7 @@ class FcipLink(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:fcipLink"):
         super(FcipLink, self).__init__(ns, pref, tag)
+
 
 
 class IpOverClaw(IanaInterfaceType):
@@ -1713,6 +1823,7 @@ class IpOverClaw(IanaInterfaceType):
         super(IpOverClaw, self).__init__(ns, pref, tag)
 
 
+
 class Coffee(IanaInterfaceType):
     """
     Coffee pot.
@@ -1728,6 +1839,7 @@ class Coffee(IanaInterfaceType):
         super(Coffee, self).__init__(ns, pref, tag)
 
 
+
 class Radsl(IanaInterfaceType):
     """
     Rate\-Adapt. Digital Subscriber Loop.
@@ -1741,6 +1853,7 @@ class Radsl(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:radsl"):
         super(Radsl, self).__init__(ns, pref, tag)
+
 
 
 class Vdsl2(IanaInterfaceType):
@@ -1759,6 +1872,7 @@ class Vdsl2(IanaInterfaceType):
         super(Vdsl2, self).__init__(ns, pref, tag)
 
 
+
 class Rs232(IanaInterfaceType):
     """
     
@@ -1772,6 +1886,7 @@ class Rs232(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:rs232"):
         super(Rs232, self).__init__(ns, pref, tag)
+
 
 
 class E1(IanaInterfaceType):
@@ -1789,6 +1904,7 @@ class E1(IanaInterfaceType):
         super(E1, self).__init__(ns, pref, tag)
 
 
+
 class ReachDSL(IanaInterfaceType):
     """
     Long Reach DSL.
@@ -1802,6 +1918,7 @@ class ReachDSL(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:reachDSL"):
         super(ReachDSL, self).__init__(ns, pref, tag)
+
 
 
 class VoiceOverCable(IanaInterfaceType):
@@ -1819,6 +1936,7 @@ class VoiceOverCable(IanaInterfaceType):
         super(VoiceOverCable, self).__init__(ns, pref, tag)
 
 
+
 class Tr008(IanaInterfaceType):
     """
     TR008.
@@ -1832,6 +1950,7 @@ class Tr008(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:tr008"):
         super(Tr008, self).__init__(ns, pref, tag)
+
 
 
 class VoiceOverIp(IanaInterfaceType):
@@ -1849,6 +1968,7 @@ class VoiceOverIp(IanaInterfaceType):
         super(VoiceOverIp, self).__init__(ns, pref, tag)
 
 
+
 class Atm(IanaInterfaceType):
     """
     ATM cells.
@@ -1862,6 +1982,7 @@ class Atm(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:atm"):
         super(Atm, self).__init__(ns, pref, tag)
+
 
 
 class Ds3(IanaInterfaceType):
@@ -1879,6 +2000,7 @@ class Ds3(IanaInterfaceType):
         super(Ds3, self).__init__(ns, pref, tag)
 
 
+
 class Ds0(IanaInterfaceType):
     """
     Digital Signal Level 0.
@@ -1892,6 +2014,7 @@ class Ds0(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ds0"):
         super(Ds0, self).__init__(ns, pref, tag)
+
 
 
 class Ds1(IanaInterfaceType):
@@ -1909,6 +2032,7 @@ class Ds1(IanaInterfaceType):
         super(Ds1, self).__init__(ns, pref, tag)
 
 
+
 class Srp(IanaInterfaceType):
     """
     Spatial Reuse Protocol.
@@ -1922,6 +2046,7 @@ class Srp(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:srp"):
         super(Srp, self).__init__(ns, pref, tag)
+
 
 
 class DocsCableDownstream(IanaInterfaceType):
@@ -1939,6 +2064,7 @@ class DocsCableDownstream(IanaInterfaceType):
         super(DocsCableDownstream, self).__init__(ns, pref, tag)
 
 
+
 class DvbRcsTdma(IanaInterfaceType):
     """
     DVB\-RCS TDMA.
@@ -1952,6 +2078,7 @@ class DvbRcsTdma(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:dvbRcsTdma"):
         super(DvbRcsTdma, self).__init__(ns, pref, tag)
+
 
 
 class G9983(IanaInterfaceType):
@@ -1969,6 +2096,7 @@ class G9983(IanaInterfaceType):
         super(G9983, self).__init__(ns, pref, tag)
 
 
+
 class Plc(IanaInterfaceType):
     """
     Power Line Communications.
@@ -1982,6 +2110,7 @@ class Plc(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:plc"):
         super(Plc, self).__init__(ns, pref, tag)
+
 
 
 class FrameRelayMPI(IanaInterfaceType):
@@ -1999,6 +2128,7 @@ class FrameRelayMPI(IanaInterfaceType):
         super(FrameRelayMPI, self).__init__(ns, pref, tag)
 
 
+
 class Mvl(IanaInterfaceType):
     """
     Multiple Virtual Lines DSL.
@@ -2012,6 +2142,7 @@ class Mvl(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:mvl"):
         super(Mvl, self).__init__(ns, pref, tag)
+
 
 
 class PropMultiplexor(IanaInterfaceType):
@@ -2029,6 +2160,7 @@ class PropMultiplexor(IanaInterfaceType):
         super(PropMultiplexor, self).__init__(ns, pref, tag)
 
 
+
 class VoiceDID(IanaInterfaceType):
     """
     Voice Direct Inward Dialing.
@@ -2042,6 +2174,7 @@ class VoiceDID(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:voiceDID"):
         super(VoiceDID, self).__init__(ns, pref, tag)
+
 
 
 class CompositeLink(IanaInterfaceType):
@@ -2059,6 +2192,7 @@ class CompositeLink(IanaInterfaceType):
         super(CompositeLink, self).__init__(ns, pref, tag)
 
 
+
 class Proteon10Mbit(IanaInterfaceType):
     """
     
@@ -2072,6 +2206,7 @@ class Proteon10Mbit(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:proteon10Mbit"):
         super(Proteon10Mbit, self).__init__(ns, pref, tag)
+
 
 
 class Atmbond(IanaInterfaceType):
@@ -2089,6 +2224,7 @@ class Atmbond(IanaInterfaceType):
         super(Atmbond, self).__init__(ns, pref, tag)
 
 
+
 class Frf16MfrBundle(IanaInterfaceType):
     """
     FRF.16 Multilink Frame Relay.
@@ -2102,6 +2238,7 @@ class Frf16MfrBundle(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:frf16MfrBundle"):
         super(Frf16MfrBundle, self).__init__(ns, pref, tag)
+
 
 
 class CctEmul(IanaInterfaceType):
@@ -2119,6 +2256,7 @@ class CctEmul(IanaInterfaceType):
         super(CctEmul, self).__init__(ns, pref, tag)
 
 
+
 class MplsTunnel(IanaInterfaceType):
     """
     MPLS Tunnel Virtual Interface.
@@ -2132,6 +2270,7 @@ class MplsTunnel(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:mplsTunnel"):
         super(MplsTunnel, self).__init__(ns, pref, tag)
+
 
 
 class Gpon(IanaInterfaceType):
@@ -2150,6 +2289,7 @@ class Gpon(IanaInterfaceType):
         super(Gpon, self).__init__(ns, pref, tag)
 
 
+
 class Vdsl(IanaInterfaceType):
     """
     Very H\-Speed Digital Subscrib. Loop.
@@ -2163,6 +2303,7 @@ class Vdsl(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:vdsl"):
         super(Vdsl, self).__init__(ns, pref, tag)
+
 
 
 class Pos(IanaInterfaceType):
@@ -2180,6 +2321,7 @@ class Pos(IanaInterfaceType):
         super(Pos, self).__init__(ns, pref, tag)
 
 
+
 class Ieee8023adLag(IanaInterfaceType):
     """
     IEEE 802.3ad Link Aggregate.
@@ -2193,6 +2335,7 @@ class Ieee8023adLag(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ieee8023adLag"):
         super(Ieee8023adLag, self).__init__(ns, pref, tag)
+
 
 
 class DocsCableMaclayer(IanaInterfaceType):
@@ -2210,6 +2353,7 @@ class DocsCableMaclayer(IanaInterfaceType):
         super(DocsCableMaclayer, self).__init__(ns, pref, tag)
 
 
+
 class DocsCableMCmtsDownstream(IanaInterfaceType):
     """
     CATV Modular CMTS Downstream Interface.
@@ -2223,6 +2367,7 @@ class DocsCableMCmtsDownstream(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:docsCableMCmtsDownstream"):
         super(DocsCableMCmtsDownstream, self).__init__(ns, pref, tag)
+
 
 
 class Ppp(IanaInterfaceType):
@@ -2240,6 +2385,7 @@ class Ppp(IanaInterfaceType):
         super(Ppp, self).__init__(ns, pref, tag)
 
 
+
 class FrameRelay(IanaInterfaceType):
     """
     DTE only.
@@ -2253,6 +2399,7 @@ class FrameRelay(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:frameRelay"):
         super(FrameRelay, self).__init__(ns, pref, tag)
+
 
 
 class Eplrs(IanaInterfaceType):
@@ -2270,6 +2417,7 @@ class Eplrs(IanaInterfaceType):
         super(Eplrs, self).__init__(ns, pref, tag)
 
 
+
 class VmwareNicTeam(IanaInterfaceType):
     """
     VMware NIC Team.
@@ -2283,6 +2431,7 @@ class VmwareNicTeam(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:vmwareNicTeam"):
         super(VmwareNicTeam, self).__init__(ns, pref, tag)
+
 
 
 class CableDownstreamRfPort(IanaInterfaceType):
@@ -2300,6 +2449,7 @@ class CableDownstreamRfPort(IanaInterfaceType):
         super(CableDownstreamRfPort, self).__init__(ns, pref, tag)
 
 
+
 class MacSecUncontrolledIF(IanaInterfaceType):
     """
     MACSecUncontrolled.
@@ -2313,6 +2463,7 @@ class MacSecUncontrolledIF(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:macSecUncontrolledIF"):
         super(MacSecUncontrolledIF, self).__init__(ns, pref, tag)
+
 
 
 class Iso88023Csmacd(IanaInterfaceType):
@@ -2331,6 +2482,7 @@ class Iso88023Csmacd(IanaInterfaceType):
         super(Iso88023Csmacd, self).__init__(ns, pref, tag)
 
 
+
 class Usb(IanaInterfaceType):
     """
     USB Interface.
@@ -2344,6 +2496,7 @@ class Usb(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:usb"):
         super(Usb, self).__init__(ns, pref, tag)
+
 
 
 class AtmFuni(IanaInterfaceType):
@@ -2361,6 +2514,7 @@ class AtmFuni(IanaInterfaceType):
         super(AtmFuni, self).__init__(ns, pref, tag)
 
 
+
 class TeLink(IanaInterfaceType):
     """
     TE Link.
@@ -2374,6 +2528,7 @@ class TeLink(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:teLink"):
         super(TeLink, self).__init__(ns, pref, tag)
+
 
 
 class Pon622(IanaInterfaceType):
@@ -2391,6 +2546,7 @@ class Pon622(IanaInterfaceType):
         super(Pon622, self).__init__(ns, pref, tag)
 
 
+
 class Econet(IanaInterfaceType):
     """
     Acorn Econet.
@@ -2404,6 +2560,7 @@ class Econet(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:econet"):
         super(Econet, self).__init__(ns, pref, tag)
+
 
 
 class Tdlc(IanaInterfaceType):
@@ -2421,6 +2578,7 @@ class Tdlc(IanaInterfaceType):
         super(Tdlc, self).__init__(ns, pref, tag)
 
 
+
 class Ds0Bundle(IanaInterfaceType):
     """
     Group of ds0s on the same ds1.
@@ -2434,6 +2592,7 @@ class Ds0Bundle(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ds0Bundle"):
         super(Ds0Bundle, self).__init__(ns, pref, tag)
+
 
 
 class Fast(IanaInterfaceType):
@@ -2451,6 +2610,7 @@ class Fast(IanaInterfaceType):
         super(Fast, self).__init__(ns, pref, tag)
 
 
+
 class Ieee1394(IanaInterfaceType):
     """
     IEEE1394 High Performance Serial Bus.
@@ -2464,6 +2624,7 @@ class Ieee1394(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ieee1394"):
         super(Ieee1394, self).__init__(ns, pref, tag)
+
 
 
 class CblVectaStar(IanaInterfaceType):
@@ -2481,6 +2642,7 @@ class CblVectaStar(IanaInterfaceType):
         super(CblVectaStar, self).__init__(ns, pref, tag)
 
 
+
 class Rsrb(IanaInterfaceType):
     """
     Remote Source Route Bridging.
@@ -2494,6 +2656,7 @@ class Rsrb(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:rsrb"):
         super(Rsrb, self).__init__(ns, pref, tag)
+
 
 
 class FrameRelayInterconnect(IanaInterfaceType):
@@ -2512,6 +2675,7 @@ class FrameRelayInterconnect(IanaInterfaceType):
         super(FrameRelayInterconnect, self).__init__(ns, pref, tag)
 
 
+
 class Isdns(IanaInterfaceType):
     """
     ISDN S/T interface.
@@ -2525,6 +2689,7 @@ class Isdns(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:isdns"):
         super(Isdns, self).__init__(ns, pref, tag)
+
 
 
 class PppMultilinkBundle(IanaInterfaceType):
@@ -2542,6 +2707,7 @@ class PppMultilinkBundle(IanaInterfaceType):
         super(PppMultilinkBundle, self).__init__(ns, pref, tag)
 
 
+
 class Aflane8025(IanaInterfaceType):
     """
     ATM Emulated LAN for 802.5.
@@ -2555,6 +2721,7 @@ class Aflane8025(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:aflane8025"):
         super(Aflane8025, self).__init__(ns, pref, tag)
+
 
 
 class Lapb(IanaInterfaceType):
@@ -2572,6 +2739,7 @@ class Lapb(IanaInterfaceType):
         super(Lapb, self).__init__(ns, pref, tag)
 
 
+
 class Aflane8023(IanaInterfaceType):
     """
     ATM Emulated LAN for 802.3.
@@ -2585,6 +2753,7 @@ class Aflane8023(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:aflane8023"):
         super(Aflane8023, self).__init__(ns, pref, tag)
+
 
 
 class Lapd(IanaInterfaceType):
@@ -2602,6 +2771,7 @@ class Lapd(IanaInterfaceType):
         super(Lapd, self).__init__(ns, pref, tag)
 
 
+
 class Isdnu(IanaInterfaceType):
     """
     ISDN U interface.
@@ -2615,6 +2785,7 @@ class Isdnu(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:isdnu"):
         super(Isdnu, self).__init__(ns, pref, tag)
+
 
 
 class Lapf(IanaInterfaceType):
@@ -2632,6 +2803,7 @@ class Lapf(IanaInterfaceType):
         super(Lapf, self).__init__(ns, pref, tag)
 
 
+
 class CapwapWtpVirtualRadio(IanaInterfaceType):
     """
     WTP Virtual Radio Interface.
@@ -2645,6 +2817,7 @@ class CapwapWtpVirtualRadio(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:capwapWtpVirtualRadio"):
         super(CapwapWtpVirtualRadio, self).__init__(ns, pref, tag)
+
 
 
 class IfVfiType(IanaInterfaceType):
@@ -2662,6 +2835,7 @@ class IfVfiType(IanaInterfaceType):
         super(IfVfiType, self).__init__(ns, pref, tag)
 
 
+
 class X25huntGroup(IanaInterfaceType):
     """
     X25 Hunt Group.
@@ -2675,6 +2849,7 @@ class X25huntGroup(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:x25huntGroup"):
         super(X25huntGroup, self).__init__(ns, pref, tag)
+
 
 
 class Para(IanaInterfaceType):
@@ -2692,6 +2867,7 @@ class Para(IanaInterfaceType):
         super(Para, self).__init__(ns, pref, tag)
 
 
+
 class MacSecControlledIF(IanaInterfaceType):
     """
     MACSecControlled.
@@ -2705,6 +2881,7 @@ class MacSecControlledIF(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:macSecControlledIF"):
         super(MacSecControlledIF, self).__init__(ns, pref, tag)
+
 
 
 class Iso88024TokenBus(IanaInterfaceType):
@@ -2722,6 +2899,7 @@ class Iso88024TokenBus(IanaInterfaceType):
         super(Iso88024TokenBus, self).__init__(ns, pref, tag)
 
 
+
 class LocalTalk(IanaInterfaceType):
     """
     
@@ -2735,6 +2913,7 @@ class LocalTalk(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:localTalk"):
         super(LocalTalk, self).__init__(ns, pref, tag)
+
 
 
 class Hyperchannel(IanaInterfaceType):
@@ -2752,6 +2931,7 @@ class Hyperchannel(IanaInterfaceType):
         super(Hyperchannel, self).__init__(ns, pref, tag)
 
 
+
 class MediaMailOverIp(IanaInterfaceType):
     """
     Multimedia Mail over IP.
@@ -2765,6 +2945,7 @@ class MediaMailOverIp(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:mediaMailOverIp"):
         super(MediaMailOverIp, self).__init__(ns, pref, tag)
+
 
 
 class IfGsn(IanaInterfaceType):
@@ -2782,6 +2963,7 @@ class IfGsn(IanaInterfaceType):
         super(IfGsn, self).__init__(ns, pref, tag)
 
 
+
 class CapwapDot11Profile(IanaInterfaceType):
     """
     WLAN Profile Interface.
@@ -2795,6 +2977,7 @@ class CapwapDot11Profile(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:capwapDot11Profile"):
         super(CapwapDot11Profile, self).__init__(ns, pref, tag)
+
 
 
 class L3ipxvlan(IanaInterfaceType):
@@ -2812,6 +2995,7 @@ class L3ipxvlan(IanaInterfaceType):
         super(L3ipxvlan, self).__init__(ns, pref, tag)
 
 
+
 class AtmSubInterface(IanaInterfaceType):
     """
     ATM Sub Interface.
@@ -2825,6 +3009,7 @@ class AtmSubInterface(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:atmSubInterface"):
         super(AtmSubInterface, self).__init__(ns, pref, tag)
+
 
 
 class PrimaryISDN(IanaInterfaceType):
@@ -2842,6 +3027,7 @@ class PrimaryISDN(IanaInterfaceType):
         super(PrimaryISDN, self).__init__(ns, pref, tag)
 
 
+
 class Proteon80Mbit(IanaInterfaceType):
     """
     
@@ -2855,6 +3041,7 @@ class Proteon80Mbit(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:proteon80Mbit"):
         super(Proteon80Mbit, self).__init__(ns, pref, tag)
+
 
 
 class Iso88026Man(IanaInterfaceType):
@@ -2872,6 +3059,7 @@ class Iso88026Man(IanaInterfaceType):
         super(Iso88026Man, self).__init__(ns, pref, tag)
 
 
+
 class DigitalWrapperOverheadChannel(IanaInterfaceType):
     """
     Digital Wrapper.
@@ -2885,6 +3073,7 @@ class DigitalWrapperOverheadChannel(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:digitalWrapperOverheadChannel"):
         super(DigitalWrapperOverheadChannel, self).__init__(ns, pref, tag)
+
 
 
 class DocsCableUpstreamChannel(IanaInterfaceType):
@@ -2902,6 +3091,7 @@ class DocsCableUpstreamChannel(IanaInterfaceType):
         super(DocsCableUpstreamChannel, self).__init__(ns, pref, tag)
 
 
+
 class OpticalChannel(IanaInterfaceType):
     """
     Optical Channel.
@@ -2915,6 +3105,7 @@ class OpticalChannel(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:opticalChannel"):
         super(OpticalChannel, self).__init__(ns, pref, tag)
+
 
 
 class EthernetCsmacd(IanaInterfaceType):
@@ -2933,6 +3124,7 @@ class EthernetCsmacd(IanaInterfaceType):
         super(EthernetCsmacd, self).__init__(ns, pref, tag)
 
 
+
 class Bits(IanaInterfaceType):
     """
     bitsport.
@@ -2946,6 +3138,7 @@ class Bits(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:bits"):
         super(Bits, self).__init__(ns, pref, tag)
+
 
 
 class Tunnel(IanaInterfaceType):
@@ -2963,6 +3156,7 @@ class Tunnel(IanaInterfaceType):
         super(Tunnel, self).__init__(ns, pref, tag)
 
 
+
 class Hdsl2(IanaInterfaceType):
     """
     High Bit\-Rate DSL \- 2nd generation.
@@ -2976,6 +3170,7 @@ class Hdsl2(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:hdsl2"):
         super(Hdsl2, self).__init__(ns, pref, tag)
+
 
 
 class FrameRelayService(IanaInterfaceType):
@@ -2993,6 +3188,7 @@ class FrameRelayService(IanaInterfaceType):
         super(FrameRelayService, self).__init__(ns, pref, tag)
 
 
+
 class Mpls(IanaInterfaceType):
     """
     MPLS.
@@ -3006,6 +3202,7 @@ class Mpls(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:mpls"):
         super(Mpls, self).__init__(ns, pref, tag)
+
 
 
 class Ieee80211(IanaInterfaceType):
@@ -3023,6 +3220,7 @@ class Ieee80211(IanaInterfaceType):
         super(Ieee80211, self).__init__(ns, pref, tag)
 
 
+
 class Ieee80212(IanaInterfaceType):
     """
     100BaseVG.
@@ -3036,6 +3234,7 @@ class Ieee80212(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ieee80212"):
         super(Ieee80212, self).__init__(ns, pref, tag)
+
 
 
 class MocaVersion1(IanaInterfaceType):
@@ -3054,6 +3253,7 @@ class MocaVersion1(IanaInterfaceType):
         super(MocaVersion1, self).__init__(ns, pref, tag)
 
 
+
 class Sonet(IanaInterfaceType):
     """
     SONET or SDH.
@@ -3069,6 +3269,7 @@ class Sonet(IanaInterfaceType):
         super(Sonet, self).__init__(ns, pref, tag)
 
 
+
 class Escon(IanaInterfaceType):
     """
     IBM Enterprise Systems Connection.
@@ -3082,6 +3283,7 @@ class Escon(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:escon"):
         super(Escon, self).__init__(ns, pref, tag)
+
 
 
 class AluEponLogicalLink(IanaInterfaceType):
@@ -3100,6 +3302,7 @@ class AluEponLogicalLink(IanaInterfaceType):
         super(AluEponLogicalLink, self).__init__(ns, pref, tag)
 
 
+
 class G703at2mb(IanaInterfaceType):
     """
     Obsolete; see DS1\-MIB.
@@ -3113,6 +3316,7 @@ class G703at2mb(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:g703at2mb"):
         super(G703at2mb, self).__init__(ns, pref, tag)
+
 
 
 class Ultra(IanaInterfaceType):
@@ -3130,6 +3334,7 @@ class Ultra(IanaInterfaceType):
         super(Ultra, self).__init__(ns, pref, tag)
 
 
+
 class DvbRccDownstream(IanaInterfaceType):
     """
     DVB\-RCC Downstream Channel.
@@ -3143,6 +3348,7 @@ class DvbRccDownstream(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:dvbRccDownstream"):
         super(DvbRccDownstream, self).__init__(ns, pref, tag)
+
 
 
 class SipTg(IanaInterfaceType):
@@ -3160,6 +3366,7 @@ class SipTg(IanaInterfaceType):
         super(SipTg, self).__init__(ns, pref, tag)
 
 
+
 class SmdsIcip(IanaInterfaceType):
     """
     SMDS InterCarrier Interface.
@@ -3173,6 +3380,7 @@ class SmdsIcip(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:smdsIcip"):
         super(SmdsIcip, self).__init__(ns, pref, tag)
+
 
 
 class Bridge(IanaInterfaceType):
@@ -3190,6 +3398,7 @@ class Bridge(IanaInterfaceType):
         super(Bridge, self).__init__(ns, pref, tag)
 
 
+
 class AtmLogical(IanaInterfaceType):
     """
     ATM Logical Port.
@@ -3203,6 +3412,7 @@ class AtmLogical(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:atmLogical"):
         super(AtmLogical, self).__init__(ns, pref, tag)
+
 
 
 class PropPointToPointSerial(IanaInterfaceType):
@@ -3220,6 +3430,7 @@ class PropPointToPointSerial(IanaInterfaceType):
         super(PropPointToPointSerial, self).__init__(ns, pref, tag)
 
 
+
 class V35(IanaInterfaceType):
     """
     
@@ -3233,6 +3444,7 @@ class V35(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:v35"):
         super(V35, self).__init__(ns, pref, tag)
+
 
 
 class V36(IanaInterfaceType):
@@ -3250,6 +3462,7 @@ class V36(IanaInterfaceType):
         super(V36, self).__init__(ns, pref, tag)
 
 
+
 class V37(IanaInterfaceType):
     """
     V.37.
@@ -3263,6 +3476,7 @@ class V37(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:v37"):
         super(V37, self).__init__(ns, pref, tag)
+
 
 
 class Ip(IanaInterfaceType):
@@ -3280,6 +3494,7 @@ class Ip(IanaInterfaceType):
         super(Ip, self).__init__(ns, pref, tag)
 
 
+
 class Gr303IDT(IanaInterfaceType):
     """
     Integrated Digital Terminal.
@@ -3293,6 +3508,7 @@ class Gr303IDT(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:gr303IDT"):
         super(Gr303IDT, self).__init__(ns, pref, tag)
+
 
 
 class BasicISDN(IanaInterfaceType):
@@ -3310,6 +3526,7 @@ class BasicISDN(IanaInterfaceType):
         super(BasicISDN, self).__init__(ns, pref, tag)
 
 
+
 class G703at64k(IanaInterfaceType):
     """
     CCITT G703 at 64Kbps.
@@ -3323,6 +3540,7 @@ class G703at64k(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:g703at64k"):
         super(G703at64k, self).__init__(ns, pref, tag)
+
 
 
 class ArcnetPlus(IanaInterfaceType):
@@ -3340,6 +3558,7 @@ class ArcnetPlus(IanaInterfaceType):
         super(ArcnetPlus, self).__init__(ns, pref, tag)
 
 
+
 class Pip(IanaInterfaceType):
     """
     Provider Instance Port on a bridge per IEEE 802.1ah PBB.
@@ -3353,6 +3572,7 @@ class Pip(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:pip"):
         super(Pip, self).__init__(ns, pref, tag)
+
 
 
 class Dtm(IanaInterfaceType):
@@ -3370,6 +3590,7 @@ class Dtm(IanaInterfaceType):
         super(Dtm, self).__init__(ns, pref, tag)
 
 
+
 class Slip(IanaInterfaceType):
     """
     Generic SLIP.
@@ -3383,6 +3604,7 @@ class Slip(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:slip"):
         super(Slip, self).__init__(ns, pref, tag)
+
 
 
 class Hiperlan2(IanaInterfaceType):
@@ -3400,6 +3622,7 @@ class Hiperlan2(IanaInterfaceType):
         super(Hiperlan2, self).__init__(ns, pref, tag)
 
 
+
 class Adsl(IanaInterfaceType):
     """
     Asymmetric Digital Subscriber Loop.
@@ -3413,6 +3636,7 @@ class Adsl(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:adsl"):
         super(Adsl, self).__init__(ns, pref, tag)
+
 
 
 class Ieee80216WMAN(IanaInterfaceType):
@@ -3430,6 +3654,7 @@ class Ieee80216WMAN(IanaInterfaceType):
         super(Ieee80216WMAN, self).__init__(ns, pref, tag)
 
 
+
 class AtmIma(IanaInterfaceType):
     """
     ATM IMA.
@@ -3443,6 +3668,7 @@ class AtmIma(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:atmIma"):
         super(AtmIma, self).__init__(ns, pref, tag)
+
 
 
 class Isdn(IanaInterfaceType):
@@ -3460,6 +3686,7 @@ class Isdn(IanaInterfaceType):
         super(Isdn, self).__init__(ns, pref, tag)
 
 
+
 class CapwapDot11Bss(IanaInterfaceType):
     """
     WLAN BSS Interface.
@@ -3473,6 +3700,7 @@ class CapwapDot11Bss(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:capwapDot11Bss"):
         super(CapwapDot11Bss, self).__init__(ns, pref, tag)
+
 
 
 class Sip(IanaInterfaceType):
@@ -3490,6 +3718,7 @@ class Sip(IanaInterfaceType):
         super(Sip, self).__init__(ns, pref, tag)
 
 
+
 class PdnEtherLoop2(IanaInterfaceType):
     """
     Paradyne EtherLoop 2.
@@ -3503,6 +3732,7 @@ class PdnEtherLoop2(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:pdnEtherLoop2"):
         super(PdnEtherLoop2, self).__init__(ns, pref, tag)
+
 
 
 class VoiceEBS(IanaInterfaceType):
@@ -3520,6 +3750,7 @@ class VoiceEBS(IanaInterfaceType):
         super(VoiceEBS, self).__init__(ns, pref, tag)
 
 
+
 class IpForward(IanaInterfaceType):
     """
     IP Forwarding Interface.
@@ -3533,6 +3764,7 @@ class IpForward(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:ipForward"):
         super(IpForward, self).__init__(ns, pref, tag)
+
 
 
 class Iso88025CRFPInt(IanaInterfaceType):
@@ -3550,6 +3782,7 @@ class Iso88025CRFPInt(IanaInterfaceType):
         super(Iso88025CRFPInt, self).__init__(ns, pref, tag)
 
 
+
 class PropVirtual(IanaInterfaceType):
     """
     Proprietary virtual/internal.
@@ -3563,6 +3796,7 @@ class PropVirtual(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:propVirtual"):
         super(PropVirtual, self).__init__(ns, pref, tag)
+
 
 
 class WwanPP(IanaInterfaceType):
@@ -3580,6 +3814,7 @@ class WwanPP(IanaInterfaceType):
         super(WwanPP, self).__init__(ns, pref, tag)
 
 
+
 class Other(IanaInterfaceType):
     """
     
@@ -3593,6 +3828,7 @@ class Other(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:other"):
         super(Other, self).__init__(ns, pref, tag)
+
 
 
 class Pon155(IanaInterfaceType):
@@ -3610,6 +3846,7 @@ class Pon155(IanaInterfaceType):
         super(Pon155, self).__init__(ns, pref, tag)
 
 
+
 class Qam(IanaInterfaceType):
     """
     RF Qam Interface.
@@ -3623,6 +3860,7 @@ class Qam(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:qam"):
         super(Qam, self).__init__(ns, pref, tag)
+
 
 
 class OtnOdu(IanaInterfaceType):
@@ -3640,6 +3878,7 @@ class OtnOdu(IanaInterfaceType):
         super(OtnOdu, self).__init__(ns, pref, tag)
 
 
+
 class Iso88025Fiber(IanaInterfaceType):
     """
     ISO 802.5j Fiber Token Ring.
@@ -3653,6 +3892,7 @@ class Iso88025Fiber(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:iso88025Fiber"):
         super(Iso88025Fiber, self).__init__(ns, pref, tag)
+
 
 
 class Channel(IanaInterfaceType):
@@ -3670,6 +3910,7 @@ class Channel(IanaInterfaceType):
         super(Channel, self).__init__(ns, pref, tag)
 
 
+
 class VoiceEMFGD(IanaInterfaceType):
     """
     Voice E&M Feature Group D.
@@ -3683,6 +3924,7 @@ class VoiceEMFGD(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:voiceEMFGD"):
         super(VoiceEMFGD, self).__init__(ns, pref, tag)
+
 
 
 class AluGponPhysicalUni(IanaInterfaceType):
@@ -3700,6 +3942,7 @@ class AluGponPhysicalUni(IanaInterfaceType):
         super(AluGponPhysicalUni, self).__init__(ns, pref, tag)
 
 
+
 class A12MppSwitch(IanaInterfaceType):
     """
     Avalon Parallel Processor.
@@ -3713,6 +3956,7 @@ class A12MppSwitch(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:a12MppSwitch"):
         super(A12MppSwitch, self).__init__(ns, pref, tag)
+
 
 
 class Ilan(IanaInterfaceType):
@@ -3730,6 +3974,7 @@ class Ilan(IanaInterfaceType):
         super(Ilan, self).__init__(ns, pref, tag)
 
 
+
 class PdnEtherLoop1(IanaInterfaceType):
     """
     Paradyne EtherLoop 1.
@@ -3743,6 +3988,7 @@ class PdnEtherLoop1(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:pdnEtherLoop1"):
         super(PdnEtherLoop1, self).__init__(ns, pref, tag)
+
 
 
 class X213(IanaInterfaceType):
@@ -3760,6 +4006,7 @@ class X213(IanaInterfaceType):
         super(X213, self).__init__(ns, pref, tag)
 
 
+
 class SonetPath(IanaInterfaceType):
     """
     
@@ -3773,6 +4020,7 @@ class SonetPath(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:sonetPath"):
         super(SonetPath, self).__init__(ns, pref, tag)
+
 
 
 class VoiceFGDEANA(IanaInterfaceType):
@@ -3790,6 +4038,7 @@ class VoiceFGDEANA(IanaInterfaceType):
         super(VoiceFGDEANA, self).__init__(ns, pref, tag)
 
 
+
 class Iso88025TokenRing(IanaInterfaceType):
     """
     
@@ -3803,6 +4052,7 @@ class Iso88025TokenRing(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:iso88025TokenRing"):
         super(Iso88025TokenRing, self).__init__(ns, pref, tag)
+
 
 
 class PropAtm(IanaInterfaceType):
@@ -3820,6 +4070,7 @@ class PropAtm(IanaInterfaceType):
         super(PropAtm, self).__init__(ns, pref, tag)
 
 
+
 class AluEponPhysicalUni(IanaInterfaceType):
     """
     EPON physical User to Network interface.
@@ -3833,6 +4084,7 @@ class AluEponPhysicalUni(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:aluEponPhysicalUni"):
         super(AluEponPhysicalUni, self).__init__(ns, pref, tag)
+
 
 
 class StackToStack(IanaInterfaceType):
@@ -3850,6 +4102,7 @@ class StackToStack(IanaInterfaceType):
         super(StackToStack, self).__init__(ns, pref, tag)
 
 
+
 class FrForward(IanaInterfaceType):
     """
     Frame Forward Interface.
@@ -3863,6 +4116,7 @@ class FrForward(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:frForward"):
         super(FrForward, self).__init__(ns, pref, tag)
+
 
 
 class Homepna(IanaInterfaceType):
@@ -3880,6 +4134,7 @@ class Homepna(IanaInterfaceType):
         super(Homepna, self).__init__(ns, pref, tag)
 
 
+
 class Sdsl(IanaInterfaceType):
     """
     Symmetric Digital Subscriber Loop.
@@ -3893,6 +4148,7 @@ class Sdsl(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:sdsl"):
         super(Sdsl, self).__init__(ns, pref, tag)
+
 
 
 class VirtualIpAddress(IanaInterfaceType):
@@ -3910,6 +4166,7 @@ class VirtualIpAddress(IanaInterfaceType):
         super(VirtualIpAddress, self).__init__(ns, pref, tag)
 
 
+
 class Bsc(IanaInterfaceType):
     """
     Bisynchronous Protocol.
@@ -3923,6 +4180,7 @@ class Bsc(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:bsc"):
         super(Bsc, self).__init__(ns, pref, tag)
+
 
 
 class AtmRadio(IanaInterfaceType):
@@ -3940,6 +4198,7 @@ class AtmRadio(IanaInterfaceType):
         super(AtmRadio, self).__init__(ns, pref, tag)
 
 
+
 class AviciOpticalEther(IanaInterfaceType):
     """
     Avici Optical Ethernet Aggregate.
@@ -3953,6 +4212,7 @@ class AviciOpticalEther(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:aviciOpticalEther"):
         super(AviciOpticalEther, self).__init__(ns, pref, tag)
+
 
 
 class G9981(IanaInterfaceType):
@@ -3970,6 +4230,7 @@ class G9981(IanaInterfaceType):
         super(G9981, self).__init__(ns, pref, tag)
 
 
+
 class FibreChannel(IanaInterfaceType):
     """
     Fibre Channel.
@@ -3983,6 +4244,7 @@ class FibreChannel(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:fibreChannel"):
         super(FibreChannel, self).__init__(ns, pref, tag)
+
 
 
 class Shdsl(IanaInterfaceType):
@@ -4000,6 +4262,7 @@ class Shdsl(IanaInterfaceType):
         super(Shdsl, self).__init__(ns, pref, tag)
 
 
+
 class Eon(IanaInterfaceType):
     """
     CLNP over IP.
@@ -4013,6 +4276,7 @@ class Eon(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:eon"):
         super(Eon, self).__init__(ns, pref, tag)
+
 
 
 class H323Gatekeeper(IanaInterfaceType):
@@ -4030,6 +4294,7 @@ class H323Gatekeeper(IanaInterfaceType):
         super(H323Gatekeeper, self).__init__(ns, pref, tag)
 
 
+
 class Hdh1822(IanaInterfaceType):
     """
     
@@ -4043,6 +4308,7 @@ class Hdh1822(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:hdh1822"):
         super(Hdh1822, self).__init__(ns, pref, tag)
+
 
 
 class DvbRccUpstream(IanaInterfaceType):
@@ -4060,6 +4326,7 @@ class DvbRccUpstream(IanaInterfaceType):
         super(DvbRccUpstream, self).__init__(ns, pref, tag)
 
 
+
 class Nsip(IanaInterfaceType):
     """
     XNS over IP.
@@ -4073,6 +4340,7 @@ class Nsip(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:nsip"):
         super(Nsip, self).__init__(ns, pref, tag)
+
 
 
 class TranspHdlc(IanaInterfaceType):
@@ -4090,6 +4358,7 @@ class TranspHdlc(IanaInterfaceType):
         super(TranspHdlc, self).__init__(ns, pref, tag)
 
 
+
 class TermPad(IanaInterfaceType):
     """
     CCITT\-ITU X.3 PAD Facility.
@@ -4103,6 +4372,7 @@ class TermPad(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:termPad"):
         super(TermPad, self).__init__(ns, pref, tag)
+
 
 
 class IpOverCdlc(IanaInterfaceType):
@@ -4120,6 +4390,7 @@ class IpOverCdlc(IanaInterfaceType):
         super(IpOverCdlc, self).__init__(ns, pref, tag)
 
 
+
 class Ces(IanaInterfaceType):
     """
     Circuit Emulation Service.
@@ -4135,6 +4406,7 @@ class Ces(IanaInterfaceType):
         super(Ces, self).__init__(ns, pref, tag)
 
 
+
 class Modem(IanaInterfaceType):
     """
     Generic modem.
@@ -4148,5 +4420,6 @@ class Modem(IanaInterfaceType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:iana-if-type", pref="iana-if-type", tag="iana-if-type:modem"):
         super(Modem, self).__init__(ns, pref, tag)
+
 
 

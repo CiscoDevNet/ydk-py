@@ -31,6 +31,8 @@ class HardwareModule(Entity):
     	List of PRM Nodes
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -68,6 +70,8 @@ class HardwareModule(Entity):
         
         	Node Information
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -107,10 +111,14 @@ class HardwareModule(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: np
             
             	Server specific
             	**type**\:  :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np>`
+            
+            	**config**\: False
             
             
 
@@ -153,10 +161,14 @@ class HardwareModule(Entity):
                 	Resource specific
                 	**type**\:  :py:class:`Cpu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.Cpu>`
                 
+                	**config**\: False
+                
                 .. attribute:: platform_drop
                 
                 	Platform drops
                 	**type**\:  :py:class:`PlatformDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop>`
+                
+                	**config**\: False
                 
                 
 
@@ -199,6 +211,8 @@ class HardwareModule(Entity):
                     	Data for software resource
                     	**type**\:  :py:class:`Indexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.Cpu.Indexes>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -235,6 +249,8 @@ class HardwareModule(Entity):
                         
                         	Queue Stats
                         	**type**\: list of  		 :py:class:`Index <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.Cpu.Indexes.Index>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -273,12 +289,16 @@ class HardwareModule(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: cos_q_name
                             
                             	CosQ Name
                             	**type**\: str
                             
                             	**length:** 0..1024
+                            
+                            	**config**\: False
                             
                             .. attribute:: cos_q
                             
@@ -287,12 +307,16 @@ class HardwareModule(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: rx_channel
                             
                             	Rx DMA Channel
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: flow_rate
                             
@@ -301,12 +325,16 @@ class HardwareModule(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: burst
                             
                             	Burst
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: accepted
                             
@@ -315,12 +343,16 @@ class HardwareModule(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: dropped
                             
                             	Dropped
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -363,6 +395,9 @@ class HardwareModule(Entity):
                                 self._perform_setattr(HardwareModule.Nodes.Node.Np.Cpu.Indexes.Index, ['index', 'cos_q_name', 'cos_q', 'rx_channel', 'flow_rate', 'burst', 'accepted', 'dropped'], name, value)
 
 
+
+
+
                 class PlatformDrop(Entity):
                     """
                     Platform drops
@@ -372,10 +407,14 @@ class HardwareModule(Entity):
                     	Captured Packets
                     	**type**\:  :py:class:`Indxes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: idxes
                     
                     	Stats for Drop packets
                     	**type**\:  :py:class:`Idxes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -418,6 +457,8 @@ class HardwareModule(Entity):
                         	Captured packets
                         	**type**\: list of  		 :py:class:`Indx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes.Indx>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -455,12 +496,16 @@ class HardwareModule(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: total_captured
                             
                             	Total packets Captured
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: captured_pak
                             
@@ -469,12 +514,16 @@ class HardwareModule(Entity):
                             
                             	**length:** 0..1024
                             
+                            	**config**\: False
+                            
                             .. attribute:: pkt_index
                             
                             	Packet Index
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: ifhandle
                             
@@ -483,12 +532,16 @@ class HardwareModule(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: buffer_len
                             
                             	Buffer Length
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: reason_hi
                             
@@ -497,12 +550,16 @@ class HardwareModule(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: reason
                             
                             	Reason
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: years
                             
@@ -511,12 +568,16 @@ class HardwareModule(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: hours
                             
                             	Hours
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: hour
                             
@@ -527,6 +588,8 @@ class HardwareModule(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             	**units**\: day
                             
                             .. attribute:: mins
@@ -536,6 +599,8 @@ class HardwareModule(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             	**units**\: minute
                             
                             .. attribute:: secs
@@ -544,6 +609,8 @@ class HardwareModule(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             	**units**\: second
                             
@@ -598,6 +665,8 @@ class HardwareModule(Entity):
                                 self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes.Indx, ['index', 'total_captured', 'captured_pak', 'pkt_index', 'ifhandle', 'buffer_len', 'reason_hi', 'reason', 'years', 'hours', 'days', 'mins', 'secs'], name, value)
 
 
+
+
                     class Idxes(Entity):
                         """
                         Stats for Drop packets
@@ -606,6 +675,8 @@ class HardwareModule(Entity):
                         
                         	Drop Stats
                         	**type**\: list of  		 :py:class:`Idx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -644,6 +715,8 @@ class HardwareModule(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: drop_reason
                             
                             	Drop Reason
@@ -651,12 +724,16 @@ class HardwareModule(Entity):
                             
                             	**length:** 0..1024
                             
+                            	**config**\: False
+                            
                             .. attribute:: counters
                             
                             	Counter
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -688,9 +765,17 @@ class HardwareModule(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx, ['index', 'drop_reason', 'counters'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = HardwareModule()
         return self._top_entity
+
+
 
 class Prm(Entity):
     """
@@ -700,6 +785,8 @@ class Prm(Entity):
     
     	List of PRM Nodes
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes>`
+    
+    	**config**\: False
     
     
 
@@ -739,6 +826,8 @@ class Prm(Entity):
         	Node Information
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node>`
         
+        	**config**\: False
+        
         
 
         """
@@ -777,10 +866,14 @@ class Prm(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: server
             
             	Server specific
             	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node.Server>`
+            
+            	**config**\: False
             
             
 
@@ -823,6 +916,8 @@ class Prm(Entity):
                 	Resource specific
                 	**type**\:  :py:class:`Resource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node.Server.Resource>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -859,6 +954,8 @@ class Prm(Entity):
                     
                     	Data for software resource
                     	**type**\:  :py:class:`Indexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node.Server.Resource.Indexes>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -897,6 +994,8 @@ class Prm(Entity):
                         	Data for software resource
                         	**type**\: list of  		 :py:class:`Index <ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_server_oper.Prm.Nodes.Node.Server.Resource.Indexes.Index>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -934,12 +1033,16 @@ class Prm(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: resource_name
                             
                             	Resource Name
                             	**type**\: str
                             
                             	**length:** 0..1024
+                            
+                            	**config**\: False
                             
                             .. attribute:: resource_type
                             
@@ -948,12 +1051,16 @@ class Prm(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: total_num
                             
                             	Total Resource Count
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: free_num
                             
@@ -962,12 +1069,16 @@ class Prm(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: first_available_index
                             
                             	Next Free Index
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_index
                             
@@ -976,10 +1087,14 @@ class Prm(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: availability_status
                             
                             	Availability Status
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: flags
                             
@@ -988,10 +1103,14 @@ class Prm(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: inconsistent
                             
                             	Inconsistice Flags
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -1037,7 +1156,15 @@ class Prm(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Prm.Nodes.Node.Server.Resource.Indexes.Index, ['index', 'resource_name', 'resource_type', 'total_num', 'free_num', 'first_available_index', 'start_index', 'availability_status', 'flags', 'inconsistent'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Prm()
         return self._top_entity
+
+
 

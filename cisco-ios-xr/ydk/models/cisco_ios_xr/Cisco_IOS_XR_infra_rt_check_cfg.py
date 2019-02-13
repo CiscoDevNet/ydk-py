@@ -173,6 +173,7 @@ class Rcc(Entity):
                 self._perform_setattr(Rcc.Ipv6.Lcc, ['period', 'enable'], name, value)
 
 
+
         class Unicast(Entity):
             """
             RCC configuration for unicast
@@ -221,6 +222,7 @@ class Rcc(Entity):
                 self._perform_setattr(Rcc.Ipv6.Unicast, ['period', 'enable'], name, value)
 
 
+
         class Multicast(Entity):
             """
             RCC configuration for multicast
@@ -267,6 +269,8 @@ class Rcc(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rcc.Ipv6.Multicast, ['period', 'enable'], name, value)
+
+
 
 
     class Ipv4(Entity):
@@ -374,6 +378,7 @@ class Rcc(Entity):
                 self._perform_setattr(Rcc.Ipv4.Lcc, ['period', 'enable'], name, value)
 
 
+
         class Unicast(Entity):
             """
             RCC configuration for unicast
@@ -420,6 +425,7 @@ class Rcc(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rcc.Ipv4.Unicast, ['period', 'enable'], name, value)
+
 
 
         class Multicast(Entity):
@@ -469,7 +475,11 @@ class Rcc(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Rcc.Ipv4.Multicast, ['period', 'enable'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Rcc()
         return self._top_entity
+
+
 

@@ -30,6 +30,8 @@ class Macsec(Entity):
     	MAC Security Entity
     	**type**\:  :py:class:`Secy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class Macsec(Entity):
         
         	MAC Security Data
         	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces>`
+        
+        	**config**\: False
         
         
 
@@ -106,6 +110,8 @@ class Macsec(Entity):
             	MAC Security Data for the Interface
             	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface>`
             
+            	**config**\: False
+            
             
 
             """
@@ -144,10 +150,14 @@ class Macsec(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: stats
                 
                 	MACsec Stats
                 	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface.Stats>`
+                
+                	**config**\: False
                 
                 
 
@@ -190,15 +200,21 @@ class Macsec(Entity):
                     	Interface stats
                     	**type**\:  :py:class:`IntfStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface.Stats.IntfStats>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_sc_stats
                     
                     	Tx SC Stats
                     	**type**\:  :py:class:`TxScStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface.Stats.TxScStats>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: rx_sc_stats
                     
                     	RX SC Stats List
                     	**type**\: list of  		 :py:class:`RxScStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface.Stats.RxScStats>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -245,12 +261,16 @@ class Macsec(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_pkts_no_tag
                         
                         	InPktsNoTag
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: in_pkts_bad_tag
                         
@@ -259,12 +279,16 @@ class Macsec(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_pkts_unknown_sci
                         
                         	InPktsUnknownSCI
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: in_pkts_no_sci
                         
@@ -273,12 +297,16 @@ class Macsec(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_pkts_overrun
                         
                         	InPktsOverrun
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: in_octets_validated
                         
@@ -287,12 +315,16 @@ class Macsec(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_octets_decrypted
                         
                         	InOctetsDecrypted
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: out_pkts_untagged
                         
@@ -301,12 +333,16 @@ class Macsec(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: out_pkts_too_long
                         
                         	OutPktsTooLong
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: out_octets_protected
                         
@@ -315,12 +351,16 @@ class Macsec(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: out_octets_encrypted
                         
                         	OutOctetsEncrypted
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -371,6 +411,7 @@ class Macsec(Entity):
                             self._perform_setattr(Macsec.Secy.Interfaces.Interface.Stats.IntfStats, ['in_pkts_untagged', 'in_pkts_no_tag', 'in_pkts_bad_tag', 'in_pkts_unknown_sci', 'in_pkts_no_sci', 'in_pkts_overrun', 'in_octets_validated', 'in_octets_decrypted', 'out_pkts_untagged', 'out_pkts_too_long', 'out_octets_protected', 'out_octets_encrypted'], name, value)
 
 
+
                     class TxScStats(Entity):
                         """
                         Tx SC Stats
@@ -382,12 +423,16 @@ class Macsec(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: out_pkts_protected
                         
                         	OutPktsProtected
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: out_pkts_encrypted
                         
@@ -396,12 +441,16 @@ class Macsec(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: out_octets_protected
                         
                         	OutOctetsProtected
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: out_octets_encrypted
                         
@@ -410,6 +459,8 @@ class Macsec(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: out_pkts_too_long
                         
                         	OutPktsTooLong
@@ -417,10 +468,14 @@ class Macsec(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: txsa_stat
                         
                         	tx sa stats
                         	**type**\: list of  		 :py:class:`TxsaStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface.Stats.TxScStats.TxsaStat>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -472,6 +527,8 @@ class Macsec(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: out_pkts_encrypted
                             
                             	OutPktsEncrypted
@@ -479,12 +536,16 @@ class Macsec(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: next_pn
                             
                             	NextPN
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -517,6 +578,8 @@ class Macsec(Entity):
                                 self._perform_setattr(Macsec.Secy.Interfaces.Interface.Stats.TxScStats.TxsaStat, ['out_pkts_protected', 'out_pkts_encrypted', 'next_pn'], name, value)
 
 
+
+
                     class RxScStats(Entity):
                         """
                         RX SC Stats List
@@ -528,12 +591,16 @@ class Macsec(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_pkts_unchecked
                         
                         	InPktsUnchecked
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: in_pkts_delayed
                         
@@ -542,12 +609,16 @@ class Macsec(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_pkts_late
                         
                         	InPktsLate
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: in_pkts_ok
                         
@@ -556,12 +627,16 @@ class Macsec(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_pkts_invalid
                         
                         	InPktsInvalid
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: in_pkts_not_valid
                         
@@ -570,12 +645,16 @@ class Macsec(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_pkts_not_using_sa
                         
                         	InPktsNotUsingSA
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: in_pkts_unused_sa
                         
@@ -584,12 +663,16 @@ class Macsec(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_pkts_untagged_hit
                         
                         	InPktsUntaggedHit
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: in_octets_validated
                         
@@ -598,6 +681,8 @@ class Macsec(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: in_octets_decrypted
                         
                         	InOctetsDecrypted
@@ -605,10 +690,14 @@ class Macsec(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: rxsa_stat
                         
                         	rxsa stats
                         	**type**\: list of  		 :py:class:`RxsaStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_secy_oper.Macsec.Secy.Interfaces.Interface.Stats.RxScStats.RxsaStat>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -672,12 +761,16 @@ class Macsec(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: in_pkts_invalid
                             
                             	InPktsInvalid
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: in_pkts_not_valid
                             
@@ -686,12 +779,16 @@ class Macsec(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: in_pkts_not_using_sa
                             
                             	InPktsNotUsingSA
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: in_pkts_unused_sa
                             
@@ -700,12 +797,16 @@ class Macsec(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: next_pn
                             
                             	NextPN
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -743,7 +844,15 @@ class Macsec(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Macsec.Secy.Interfaces.Interface.Stats.RxScStats.RxsaStat, ['in_pkts_ok', 'in_pkts_invalid', 'in_pkts_not_valid', 'in_pkts_not_using_sa', 'in_pkts_unused_sa', 'next_pn'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Macsec()
         return self._top_entity
+
+
 

@@ -30,6 +30,8 @@ class Drop(Entity):
     	Drop data per node
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_drop_stats_oper.Drop.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class Drop(Entity):
         
         	Drop stats data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_drop_stats_oper.Drop.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -106,10 +110,14 @@ class Drop(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: npu_number_for_drop_stats
             
             	NPU drop stats
             	**type**\:  :py:class:`NpuNumberForDropStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_drop_stats_oper.Drop.Nodes.Node.NpuNumberForDropStats>`
+            
+            	**config**\: False
             
             
 
@@ -152,6 +160,8 @@ class Drop(Entity):
                 	All drop stats for a particular NPU
                 	**type**\: list of  		 :py:class:`NpuNumberForDropStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_drop_stats_oper.Drop.Nodes.Node.NpuNumberForDropStats.NpuNumberForDropStat>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -189,10 +199,14 @@ class Drop(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: drop_specific_stats_data
                     
                     	Second argument to the module
                     	**type**\: list of  		 :py:class:`DropSpecificStatsData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_drop_stats_oper.Drop.Nodes.Node.NpuNumberForDropStats.NpuNumberForDropStat.DropSpecificStatsData>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -234,6 +248,8 @@ class Drop(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: id
                         
                         	id
@@ -241,10 +257,14 @@ class Drop(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: name
                         
                         	name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: count
                         
@@ -252,6 +272,8 @@ class Drop(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -285,7 +307,14 @@ class Drop(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Drop.Nodes.Node.NpuNumberForDropStats.NpuNumberForDropStat.DropSpecificStatsData, ['drop_data', 'id', 'name', 'count'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Drop()
         return self._top_entity
+
+
 

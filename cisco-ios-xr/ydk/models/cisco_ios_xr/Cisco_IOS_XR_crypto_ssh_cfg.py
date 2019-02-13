@@ -251,6 +251,8 @@ class Ssh(Entity):
                     self._perform_setattr(Ssh.Client.ClientAlgo.KeyExchanges, ['key_exchange'], name, value)
 
 
+
+
         class ClientEnable(Entity):
             """
             clientenable
@@ -335,6 +337,9 @@ class Ssh(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Client.ClientEnable.ClientCipher, ['aes_cbc', 'tripledes_cbc'], name, value)
+
+
+
 
 
     class Server(Entity):
@@ -589,6 +594,8 @@ class Ssh(Entity):
                     self._perform_setattr(Ssh.Server.Disable.Hmac, ['hmac_sha512'], name, value)
 
 
+
+
         class Enable(Entity):
             """
             enable
@@ -673,6 +680,8 @@ class Ssh(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Server.Enable.Cipher, ['aes_cbc', 'tripledes_cbc'], name, value)
+
+
 
 
         class VrfTable(Entity):
@@ -777,6 +786,8 @@ class Ssh(Entity):
                     self._perform_setattr(Ssh.Server.VrfTable.Vrf, ['vrf_name', 'enable', 'ipv4_access_list', 'ipv6_access_list'], name, value)
 
 
+
+
         class ServerAlgo(Entity):
             """
             Cisco ssh algorithms
@@ -854,6 +865,8 @@ class Ssh(Entity):
                     self._perform_setattr(Ssh.Server.ServerAlgo.KeyExchanges, ['key_exchange'], name, value)
 
 
+
+
         class Capability(Entity):
             """
             Capability
@@ -891,6 +904,7 @@ class Ssh(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ssh.Server.Capability, ['netconf_xml'], name, value)
+
 
 
         class NetconfVrfTable(Entity):
@@ -994,7 +1008,12 @@ class Ssh(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Server.NetconfVrfTable.Vrf, ['vrf_name', 'enable', 'ipv4_access_list', 'ipv6_access_list'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Ssh()
         return self._top_entity
+
+
 

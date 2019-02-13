@@ -407,6 +407,10 @@ class RouterConvergence(Entity):
                         self._perform_setattr(RouterConvergence.Protocols.Protocol.Priorities.Priority, ['rcmd_priority', 'threshold', 'leaf_networks', 'disable', 'enable', 'frr_threshold'], name, value)
 
 
+
+
+
+
     class StorageLocation(Entity):
         """
         Absolute directory path for saving the archive
@@ -472,6 +476,7 @@ class RouterConvergence(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(RouterConvergence.StorageLocation, ['diagnostics', 'diagnostics_size', 'reports_size', 'reports'], name, value)
+
 
 
     class MplsLdp(Entity):
@@ -560,6 +565,8 @@ class RouterConvergence(Entity):
                 self._perform_setattr(RouterConvergence.MplsLdp.RemoteLfa, ['threshold'], name, value)
 
 
+
+
     class CollectDiagnostics(Entity):
         """
         Table of CollectDiagnostics
@@ -640,6 +647,8 @@ class RouterConvergence(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RouterConvergence.CollectDiagnostics.CollectDiagnostic, ['node_name', 'enable'], name, value)
+
+
 
 
     class Nodes(Entity):
@@ -731,7 +740,11 @@ class RouterConvergence(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(RouterConvergence.Nodes.Node, ['node_name', 'disable', 'enable'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = RouterConvergence()
         return self._top_entity
+
+
 

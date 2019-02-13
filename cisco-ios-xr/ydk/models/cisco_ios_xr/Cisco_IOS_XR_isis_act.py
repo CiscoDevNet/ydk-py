@@ -134,9 +134,13 @@ class ClearIsisProcess(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearIsisProcess.Input.Instance, ['instance_identifier'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ClearIsisProcess()
         return self._top_entity
+
+
 
 class ClearIsisRoute(Entity):
     """
@@ -255,9 +259,13 @@ class ClearIsisRoute(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearIsisRoute.Input.Instance, ['instance_identifier'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ClearIsisRoute()
         return self._top_entity
+
+
 
 class ClearIsisStat(Entity):
     """
@@ -378,6 +386,7 @@ class ClearIsisStat(Entity):
                 self._perform_setattr(ClearIsisStat.Input.Instance, ['instance_identifier'], name, value)
 
 
+
         class Statistics(Entity):
             """
             Clear IS\-IS protocol statistics
@@ -418,9 +427,13 @@ class ClearIsisStat(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearIsisStat.Input.Statistics, ['interface_name'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ClearIsisStat()
         return self._top_entity
+
+
 
 class ClearIsisDist(Entity):
     """
@@ -539,9 +552,13 @@ class ClearIsisDist(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearIsisDist.Input.Instance, ['instance_identifier'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ClearIsisDist()
         return self._top_entity
+
+
 
 class ClearIsisLocalLsp(Entity):
     """
@@ -660,9 +677,13 @@ class ClearIsisLocalLsp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearIsisLocalLsp.Input.Instance, ['instance_identifier'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ClearIsisLocalLsp()
         return self._top_entity
+
+
 
 class ClearIsis(Entity):
     """
@@ -840,7 +861,11 @@ class ClearIsis(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearIsis.Input.Instance, ['instance_identifier'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ClearIsis()
         return self._top_entity
+
+
 

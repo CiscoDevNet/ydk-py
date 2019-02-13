@@ -438,6 +438,7 @@ class Rip(Entity):
                 self._perform_setattr(Rip.DefaultVrf.DefaultInformation, ['route_policy_name', 'option'], name, value)
 
 
+
         class Redistribution(Entity):
             """
             Redistribute information from another routing
@@ -571,6 +572,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.DefaultVrf.Redistribution.Connected, ['route_policy_name', 'route_type'], name, value)
 
 
+
             class Bgps(Entity):
                 """
                 Redistribute BGP routes
@@ -669,6 +671,8 @@ class Rip(Entity):
                         self._perform_setattr(Rip.DefaultVrf.Redistribution.Bgps.Bgp, ['asnxx', 'asnyy', 'policy', 'type'], name, value)
 
 
+
+
             class Isises(Entity):
                 """
                 Redistribute IS\-IS routes
@@ -756,6 +760,8 @@ class Rip(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Redistribution.Isises.Isis, ['isis_name', 'route_policy_name', 'route_type'], name, value)
+
+
 
 
             class EigrpS(Entity):
@@ -847,6 +853,8 @@ class Rip(Entity):
                         self._perform_setattr(Rip.DefaultVrf.Redistribution.EigrpS.Eigrp, ['as_', 'route_policy_name', 'route_type'], name, value)
 
 
+
+
             class Static(Entity):
                 """
                 Redistribute static routes
@@ -892,6 +900,7 @@ class Rip(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.DefaultVrf.Redistribution.Static, ['route_policy_name', 'route_type'], name, value)
+
 
 
             class Ospfs(Entity):
@@ -1015,6 +1024,9 @@ class Rip(Entity):
                         self._perform_setattr(Rip.DefaultVrf.Redistribution.Ospfs.Ospf, ['ospf_name', 'route_policy_name', 'internal', 'external', 'external_type', 'nssa_external', 'nssa_external_type'], name, value)
 
 
+
+
+
         class IpDistances(Entity):
             """
             Table of IP specific administrative distances
@@ -1108,6 +1120,8 @@ class Rip(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.DefaultVrf.IpDistances.IpDistance, ['address', 'netmask', 'distance'], name, value)
+
+
 
 
         class Interfaces(Entity):
@@ -1328,6 +1342,7 @@ class Rip(Entity):
                         self._perform_setattr(Rip.DefaultVrf.Interfaces.Interface.Authentication, ['keychain', 'mode'], name, value)
 
 
+
                 class SiteOfOrigin(Entity):
                     """
                     SOO community for prefixes learned over this
@@ -1410,6 +1425,7 @@ class Rip(Entity):
                         self._perform_setattr(Rip.DefaultVrf.Interfaces.Interface.SiteOfOrigin, ['type', 'as_xx', 'as_yy', 'as_index', 'address', 'address_index'], name, value)
 
 
+
                 class ReceiveVersion(Entity):
                     """
                     RIP versions supported for receiving
@@ -1456,6 +1472,7 @@ class Rip(Entity):
                         self._perform_setattr(Rip.DefaultVrf.Interfaces.Interface.ReceiveVersion, ['version1', 'version2'], name, value)
 
 
+
                 class SendVersion(Entity):
                     """
                     RIP versions supported for sending
@@ -1500,6 +1517,9 @@ class Rip(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Interfaces.Interface.SendVersion, ['version1', 'version2'], name, value)
+
+
+
 
 
         class Neighbors(Entity):
@@ -1577,6 +1597,8 @@ class Rip(Entity):
                     self._perform_setattr(Rip.DefaultVrf.Neighbors.Neighbor, ['neighbor_address'], name, value)
 
 
+
+
         class Timers(Entity):
             """
             Various routing timers
@@ -1652,6 +1674,8 @@ class Rip(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rip.DefaultVrf.Timers, ['update_timer', 'invalid_timer', 'holddown_timer', 'flush_timer'], name, value)
+
+
 
 
     class Vrfs(Entity):
@@ -1924,6 +1948,7 @@ class Rip(Entity):
                     self._perform_setattr(Rip.Vrfs.Vrf.DefaultInformation, ['route_policy_name', 'option'], name, value)
 
 
+
             class Redistribution(Entity):
                 """
                 Redistribute information from another routing
@@ -2055,6 +2080,7 @@ class Rip(Entity):
                         self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Connected, ['route_policy_name', 'route_type'], name, value)
 
 
+
                 class Bgps(Entity):
                     """
                     Redistribute BGP routes
@@ -2151,6 +2177,8 @@ class Rip(Entity):
                             self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Bgps.Bgp, ['asnxx', 'asnyy', 'policy', 'type'], name, value)
 
 
+
+
                 class Isises(Entity):
                     """
                     Redistribute IS\-IS routes
@@ -2236,6 +2264,8 @@ class Rip(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Isises.Isis, ['isis_name', 'route_policy_name', 'route_type'], name, value)
+
+
 
 
                 class EigrpS(Entity):
@@ -2325,6 +2355,8 @@ class Rip(Entity):
                             self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.EigrpS.Eigrp, ['as_', 'route_policy_name', 'route_type'], name, value)
 
 
+
+
                 class Static(Entity):
                     """
                     Redistribute static routes
@@ -2369,6 +2401,7 @@ class Rip(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Static, ['route_policy_name', 'route_type'], name, value)
+
 
 
                 class Ospfs(Entity):
@@ -2490,6 +2523,9 @@ class Rip(Entity):
                             self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Ospfs.Ospf, ['ospf_name', 'route_policy_name', 'internal', 'external', 'external_type', 'nssa_external', 'nssa_external_type'], name, value)
 
 
+
+
+
             class IpDistances(Entity):
                 """
                 Table of IP specific administrative distances
@@ -2581,6 +2617,8 @@ class Rip(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Vrfs.Vrf.IpDistances.IpDistance, ['address', 'netmask', 'distance'], name, value)
+
+
 
 
             class Interfaces(Entity):
@@ -2799,6 +2837,7 @@ class Rip(Entity):
                             self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface.Authentication, ['keychain', 'mode'], name, value)
 
 
+
                     class SiteOfOrigin(Entity):
                         """
                         SOO community for prefixes learned over this
@@ -2881,6 +2920,7 @@ class Rip(Entity):
                             self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface.SiteOfOrigin, ['type', 'as_xx', 'as_yy', 'as_index', 'address', 'address_index'], name, value)
 
 
+
                     class ReceiveVersion(Entity):
                         """
                         RIP versions supported for receiving
@@ -2927,6 +2967,7 @@ class Rip(Entity):
                             self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface.ReceiveVersion, ['version1', 'version2'], name, value)
 
 
+
                     class SendVersion(Entity):
                         """
                         RIP versions supported for sending
@@ -2971,6 +3012,9 @@ class Rip(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface.SendVersion, ['version1', 'version2'], name, value)
+
+
+
 
 
             class Neighbors(Entity):
@@ -3044,6 +3088,8 @@ class Rip(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Vrfs.Vrf.Neighbors.Neighbor, ['neighbor_address'], name, value)
+
+
 
 
             class Timers(Entity):
@@ -3121,7 +3167,12 @@ class Rip(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.Vrfs.Vrf.Timers, ['update_timer', 'invalid_timer', 'holddown_timer', 'flush_timer'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Rip()
         return self._top_entity
+
+
 

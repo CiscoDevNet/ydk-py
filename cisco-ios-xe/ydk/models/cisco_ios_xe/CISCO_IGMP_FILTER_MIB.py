@@ -26,20 +26,28 @@ class CISCOIGMPFILTERMIB(Entity):
     	
     	**type**\:  :py:class:`CIgmpFilterGeneral <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.CIgmpFilterGeneral>`
     
+    	**config**\: False
+    
     .. attribute:: cigmpfiltereditor
     
     	
     	**type**\:  :py:class:`CIgmpFilterEditor <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.CIgmpFilterEditor>`
+    
+    	**config**\: False
     
     .. attribute:: cigmpfiltertable
     
     	This table contains entries that identify lists of IP Multicast groups for each profile configured on the device.   Each entry contains a range of contiguous IP Multicast groups associated to a profile index. Multiple cIgmpFilterEntry may be associated with the same cIgmpFilterProfileIndex.  All the cIgmpFilterEntry with  the same profile index  are subjected to the same IGMP filtering action as  defined in cIgmpFilterProfileAction.  Each profile index may be associated with zero or more  interfaces through cIgmpFilterInterfaceIfIndex object in cIgmpFilterInterfaceTable. The maximum number of entries is determined by cIgmpFilterMaxProfiles
     	**type**\:  :py:class:`CIgmpFilterTable <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.CIgmpFilterTable>`
     
+    	**config**\: False
+    
     .. attribute:: cigmpfilterinterfacetable
     
     	This table contains the list of interfaces that can support IGMP filter feature
     	**type**\:  :py:class:`CIgmpFilterInterfaceTable <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.CIgmpFilterInterfaceTable>`
+    
+    	**config**\: False
     
     
 
@@ -91,12 +99,16 @@ class CISCOIGMPFILTERMIB(Entity):
         	This object controls whether the IGMP filtering is enabled on the device. A false(2) value will  prevent the IGMP filtering action on the device
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: cigmpfiltermaxprofiles
         
         	Indicates the maximum number of profiles supported by this device.  A value of zero indicates no limitation on the number of profiles
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: profiles
         
@@ -130,6 +142,7 @@ class CISCOIGMPFILTERMIB(Entity):
             self._perform_setattr(CISCOIGMPFILTERMIB.CIgmpFilterGeneral, ['cigmpfilterenable', 'cigmpfiltermaxprofiles'], name, value)
 
 
+
     class CIgmpFilterEditor(Entity):
         """
         
@@ -141,6 +154,8 @@ class CISCOIGMPFILTERMIB(Entity):
         
         	**range:** 0..2147483647
         
+        	**config**\: False
+        
         .. attribute:: cigmpfiltereditprofileindex
         
         	Buffer object to edit corresponding object cIgmpFilterProfileIndex in cIgmpFilterTable.  Maximum value this object can be set to is  determined by cIgmpFilterMaxProfiles object
@@ -148,10 +163,14 @@ class CISCOIGMPFILTERMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: cigmpfiltereditstartaddresstype
         
         	Buffer object to edit corresponding object cIgmpFilterStartAddressType in cIgmpFilterTable.  This object describes the type of Internet   address used to determine the start address  of IP multicast group for a profile
         	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+        
+        	**config**\: False
         
         .. attribute:: cigmpfiltereditstartaddress
         
@@ -160,10 +179,14 @@ class CISCOIGMPFILTERMIB(Entity):
         
         	**length:** 1..64
         
+        	**config**\: False
+        
         .. attribute:: cigmpfiltereditendaddresstype
         
         	Buffer object to edit corresponding object cIgmpFilterEndAddressType in cIgmpFilterTable.  This object describes the type of Internet      address used to determine the start address  of IP multicast group for a profile
         	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+        
+        	**config**\: False
         
         .. attribute:: cigmpfiltereditendaddress
         
@@ -172,20 +195,28 @@ class CISCOIGMPFILTERMIB(Entity):
         
         	**length:** 0..255
         
+        	**config**\: False
+        
         .. attribute:: cigmpfiltereditprofileaction
         
         	Buffer object to edit corresponding object in cIgmpFilterTable to determine filtering action of each profile
         	**type**\:  :py:class:`CIgmpFilterEditProfileAction <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.CIgmpFilterEditor.CIgmpFilterEditProfileAction>`
+        
+        	**config**\: False
         
         .. attribute:: cigmpfiltereditoperation
         
         	The function of this object is to allow user to apply the changes in cIgmpFilterEditor objects to  cIgmpFilterTable.   This object always has the value 'none' when read. When written each value causes the appropriate action\:  'add' \- tries to insert the information contained  in cIgmpFilterEditor objects into  cIgmpFilterTable. If the entry already exists in the table the 'add'  fails.          'delete' \- tries to delete corresponding entry from cIgmpFilterTable. If a user completely deletes a profile that has corresponding entries in the cIgmpFilterInterfaceTable, then all the interfaces mapped to corresponding profile will be cleared and set to zero.  'modify' \- Mode of operation used to edit an entry in  cIgmpFilterTable. If the corresponding entry does not   exist, modify operation fails. This mode allows user to  extend/truncate a contiguous filtered range, type of  Internet addressing and filtering action for a profile.   'none' \- no operation is performed
         	**type**\:  :py:class:`CIgmpFilterEditOperation <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.CIgmpFilterEditor.CIgmpFilterEditOperation>`
         
+        	**config**\: False
+        
         .. attribute:: cigmpfilterapplystatus
         
         	The current status of an 'add', 'delete' or 'modify' operation. If no apply is currently active, the status  represented is that of the most recently completed 'add',  'delete' or 'modify' operation.  The value of this objects indicates succeeded(2) state  initially when no 'add', 'delete', 'modify' operation has been carried out.  The possible values are\:    someOtherError \- the 'add', 'delete' or 'modify' failed     due to undefined error(s) in apply operation.    (e.g., insufficient memory).      succeeded \- the 'add', 'delete' or 'modify' operation    was successful. (This value is also used when no    apply has been invoked since the last time the local     system restarted.)     inconsistentEdit \- the 'add', 'delete' or 'modify' failed    due to inconsistency of the data.     entryPresentError \- the 'add' operation failed  as the     corresponding entry already exists in cIgmpFilterTable.     entryNotPresentError \- the 'modify' operation failed     as no corresponding entry exists in cIgmpFilterTable
         	**type**\:  :py:class:`CIgmpFilterApplyStatus <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.CIgmpFilterEditor.CIgmpFilterApplyStatus>`
+        
+        	**config**\: False
         
         
 
@@ -388,6 +419,7 @@ class CISCOIGMPFILTERMIB(Entity):
 
 
 
+
     class CIgmpFilterTable(Entity):
         """
         This table contains entries that identify lists of
@@ -413,6 +445,8 @@ class CISCOIGMPFILTERMIB(Entity):
         
         	An entry (conceptual row) in the cIgmpFilterTable.  The creation, deletion or modification of an entry is controlled through the MIB objects defined under cIgmpFilterEditor group
         	**type**\: list of  		 :py:class:`CIgmpFilterEntry <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.CIgmpFilterTable.CIgmpFilterEntry>`
+        
+        	**config**\: False
         
         
 
@@ -456,10 +490,14 @@ class CISCOIGMPFILTERMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cigmpfilterstartaddresstype  (key)
             
             	This object describes the type of Internet address used to determine the start address  of IP multicast group for a profile
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cigmpfilterstartaddress  (key)
             
@@ -468,10 +506,14 @@ class CISCOIGMPFILTERMIB(Entity):
             
             	**length:** 1..64
             
+            	**config**\: False
+            
             .. attribute:: cigmpfilterendaddresstype
             
             	This object indicates the type of Internet address used to determine the end address  of IP multicast group for a profile
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cigmpfilterendaddress
             
@@ -480,10 +522,14 @@ class CISCOIGMPFILTERMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cigmpfilterprofileaction
             
             	This object defines the action for filtering IGMP reports for this profile.  If the object is set to deny(2)\: then all IGMP reports associated to IP multicast groups included in the profile identified by cIgmpFilterInterfaceProfileIndex will be dropped.  If the object is set to permit(1)\: then all IGMP reports associated to IP multicast groups not included in the profile identified by cIgmpFilterInterfaceProfileIndex will be dropped
             	**type**\:  :py:class:`CIgmpFilterProfileAction <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.CIgmpFilterTable.CIgmpFilterEntry.CIgmpFilterProfileAction>`
+            
+            	**config**\: False
             
             
 
@@ -558,6 +604,8 @@ class CISCOIGMPFILTERMIB(Entity):
 
 
 
+
+
     class CIgmpFilterInterfaceTable(Entity):
         """
         This table contains the list of interfaces that can
@@ -567,6 +615,8 @@ class CISCOIGMPFILTERMIB(Entity):
         
         	Each entry contains the configuration for associating the IGMP filter profile index with the interface.  An entry is created for each of the IGMP filter capable  interface on the system.  The entry is removed on removal of corresponding  interface from system
         	**type**\: list of  		 :py:class:`CIgmpFilterInterfaceEntry <ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB.CISCOIGMPFILTERMIB.CIgmpFilterInterfaceTable.CIgmpFilterInterfaceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -615,12 +665,16 @@ class CISCOIGMPFILTERMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cigmpfilterinterfaceprofileindex
             
             	Specifies which IGMP filter profile applies to this interface. If the value of this MIB object matches the  value of cIgmpFilterProfileIndex in cIgmpFilterTable,  the corresponding profile configuration will apply to this interface.   Agent returns inconsistentValue if this profile  does not exist in cIgmpFilterTable.  A value of zero indicates no profile is associated with corresponding interface.  The filtering action on each interface is also defined by the associated profile
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -651,7 +705,11 @@ class CISCOIGMPFILTERMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIGMPFILTERMIB.CIgmpFilterInterfaceTable.CIgmpFilterInterfaceEntry, ['ifindex', 'cigmpfilterinterfaceprofileindex'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOIGMPFILTERMIB()
         return self._top_entity
+
+
 

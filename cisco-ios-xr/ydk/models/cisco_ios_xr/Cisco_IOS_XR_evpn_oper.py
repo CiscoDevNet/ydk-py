@@ -1054,15 +1054,21 @@ class Evpn(Entity):
     	Table of EVPN operational data for a particular node
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes>`
     
+    	**config**\: False
+    
     .. attribute:: active
     
     	Active EVPN operational data
     	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active>`
     
+    	**config**\: False
+    
     .. attribute:: standby
     
     	Standby EVPN operational data
     	**type**\:  :py:class:`Standby <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby>`
+    
+    	**config**\: False
     
     
 
@@ -1111,6 +1117,8 @@ class Evpn(Entity):
         	EVPN operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node>`
         
+        	**config**\: False
+        
         
 
         """
@@ -1149,60 +1157,84 @@ class Evpn(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: evpn_groups
             
             	EVPN Group Table
             	**type**\:  :py:class:`EvpnGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EvpnGroups>`
+            
+            	**config**\: False
             
             .. attribute:: remote_shgs
             
             	EVPN Remote SHG table
             	**type**\:  :py:class:`RemoteShgs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.RemoteShgs>`
             
+            	**config**\: False
+            
             .. attribute:: client
             
             	L2VPN EVPN Client
             	**type**\:  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Client>`
+            
+            	**config**\: False
             
             .. attribute:: igmps
             
             	EVPN IGMP table
             	**type**\:  :py:class:`Igmps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps>`
             
+            	**config**\: False
+            
             .. attribute:: evis
             
             	L2VPN EVPN EVI Table
             	**type**\:  :py:class:`Evis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Evis>`
+            
+            	**config**\: False
             
             .. attribute:: summary
             
             	L2VPN EVPN Summary
             	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Summary>`
             
+            	**config**\: False
+            
             .. attribute:: evi_detail
             
             	L2VPN EVI Detail Table
             	**type**\:  :py:class:`EviDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail>`
+            
+            	**config**\: False
             
             .. attribute:: teps
             
             	L2VPN EVPN TEP Table
             	**type**\:  :py:class:`Teps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Teps>`
             
+            	**config**\: False
+            
             .. attribute:: internal_labels
             
             	EVPN Internal Label Table
             	**type**\:  :py:class:`InternalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.InternalLabels>`
+            
+            	**config**\: False
             
             .. attribute:: ethernet_segments
             
             	EVPN Ethernet\-Segment Table
             	**type**\:  :py:class:`EthernetSegments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments>`
             
+            	**config**\: False
+            
             .. attribute:: ac_ids
             
             	EVPN AC ID table
             	**type**\:  :py:class:`AcIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.AcIds>`
+            
+            	**config**\: False
             
             
 
@@ -1285,6 +1317,8 @@ class Evpn(Entity):
                 	EVPN Group information
                 	**type**\: list of  		 :py:class:`EvpnGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EvpnGroups.EvpnGroup>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1322,6 +1356,8 @@ class Evpn(Entity):
                     
                     	**range:** 1..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: group_id
                     
                     	EVPN Group ID
@@ -1329,20 +1365,28 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	EVPN Group State
                     	**type**\:  :py:class:`EvpnGrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.EvpnGrp>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: core_interface
                     
                     	EVPN Group Core Interface table
                     	**type**\: list of  		 :py:class:`CoreInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EvpnGroups.EvpnGroup.CoreInterface>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: access_interface
                     
                     	EVPN Access Core Interface table
                     	**type**\: list of  		 :py:class:`AccessInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EvpnGroups.EvpnGroup.AccessInterface>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1375,7 +1419,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Nodes.Node.EvpnGroups.EvpnGroup, ['group_number', 'group_id', 'state'], name, value)
+                        self._perform_setattr(Evpn.Nodes.Node.EvpnGroups.EvpnGroup, ['group_number', u'group_id', u'state'], name, value)
 
 
                     class CoreInterface(Entity):
@@ -1387,10 +1431,14 @@ class Evpn(Entity):
                         	Interface name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: state
                         
                         	Interface State
                         	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.ImStateEnum>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1418,7 +1466,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EvpnGroups.EvpnGroup.CoreInterface, ['interface_name', 'state'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.EvpnGroups.EvpnGroup.CoreInterface, [u'interface_name', u'state'], name, value)
+
 
 
                     class AccessInterface(Entity):
@@ -1430,10 +1479,14 @@ class Evpn(Entity):
                         	Interface name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: state
                         
                         	Interface State
                         	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.ImStateEnum>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1461,7 +1514,10 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EvpnGroups.EvpnGroup.AccessInterface, ['interface_name', 'state'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.EvpnGroups.EvpnGroup.AccessInterface, [u'interface_name', u'state'], name, value)
+
+
+
 
 
             class RemoteShgs(Entity):
@@ -1472,6 +1528,8 @@ class Evpn(Entity):
                 
                 	EVPN Remote SHG
                 	**type**\: list of  		 :py:class:`RemoteShg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.RemoteShgs.RemoteShg>`
+                
+                	**config**\: False
                 
                 
 
@@ -1510,12 +1568,16 @@ class Evpn(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
+                    	**config**\: False
+                    
                     .. attribute:: esi2
                     
                     	ES id (part 2/5)
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{1,8}
+                    
+                    	**config**\: False
                     
                     .. attribute:: esi3
                     
@@ -1524,12 +1586,16 @@ class Evpn(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
+                    	**config**\: False
+                    
                     .. attribute:: esi4
                     
                     	ES id (part 4/5)
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{1,8}
+                    
+                    	**config**\: False
                     
                     .. attribute:: esi5
                     
@@ -1538,15 +1604,21 @@ class Evpn(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
+                    	**config**\: False
+                    
                     .. attribute:: ethernet_segment_identifier
                     
                     	Ethernet Segment id
                     	**type**\: list of  		 :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.RemoteShgs.RemoteShg.EthernetSegmentIdentifier>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_split_horizon_group_label
                     
                     	Remote split horizon group labels
                     	**type**\: list of  		 :py:class:`RemoteSplitHorizonGroupLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1597,6 +1669,8 @@ class Evpn(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -1621,7 +1695,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.RemoteShgs.RemoteShg.EthernetSegmentIdentifier, ['entry'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.RemoteShgs.RemoteShg.EthernetSegmentIdentifier, [u'entry'], name, value)
+
 
 
                     class RemoteSplitHorizonGroupLabel(Entity):
@@ -1635,12 +1710,16 @@ class Evpn(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: label
                         
                         	Split horizon label associated with next\-hop address
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1668,7 +1747,10 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel, ['next_hop', 'label'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel, [u'next_hop', u'label'], name, value)
+
+
+
 
 
             class Client(Entity):
@@ -1696,6 +1778,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
 
+
             class Igmps(Entity):
                 """
                 EVPN IGMP table
@@ -1704,6 +1787,8 @@ class Evpn(Entity):
                 
                 	EVPN Remote
                 	**type**\: list of  		 :py:class:`Igmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps.Igmp>`
+                
+                	**config**\: False
                 
                 
 
@@ -1742,6 +1827,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: bpxcid
                     
                     	BP xcid
@@ -1749,12 +1836,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: evibd
                     
                     	EVI/BD
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: src_ip
                     
@@ -1769,6 +1860,8 @@ class Evpn(Entity):
                     
                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: grp_ip
                     
                     	Group IP Address
@@ -1782,12 +1875,16 @@ class Evpn(Entity):
                     
                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: esi1
                     
                     	ES id (part 1/5)
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{1,8}
+                    
+                    	**config**\: False
                     
                     .. attribute:: esi2
                     
@@ -1796,12 +1893,16 @@ class Evpn(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
+                    	**config**\: False
+                    
                     .. attribute:: esi3
                     
                     	ES id (part 3/5)
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{1,8}
+                    
+                    	**config**\: False
                     
                     .. attribute:: esi4
                     
@@ -1810,6 +1911,8 @@ class Evpn(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
+                    	**config**\: False
+                    
                     .. attribute:: esi5
                     
                     	ES id (part 5/5)
@@ -1817,15 +1920,21 @@ class Evpn(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
+                    	**config**\: False
+                    
                     .. attribute:: source_info
                     
                     	Source Info
                     	**type**\:  :py:class:`SourceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps.Igmp.SourceInfo>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ethernet_segment_name
                     
                     	Ethernet Segment Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: evi
                     
@@ -1834,6 +1943,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: bd_id
                     
                     	BD id
@@ -1841,10 +1952,14 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: route_type
                     
                     	Route Type
                     	**type**\:  :py:class:`EvpnIgmpMsg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.EvpnIgmpMsg>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: source_addr
                     
@@ -1853,12 +1968,16 @@ class Evpn(Entity):
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: group_addr
                     
                     	Group IP Address
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: ethernet_tag_id
                     
@@ -1867,15 +1986,21 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: igmp_version
                     
                     	IGMP Version
                     	**type**\:  :py:class:`EvpnIgmpVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.EvpnIgmpVersion>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: igmp_group_type
                     
                     	IGMP Group Type
                     	**type**\:  :py:class:`EvpnIgmpGrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.EvpnIgmpGrp>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ma_x_response_time
                     
@@ -1884,20 +2009,28 @@ class Evpn(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: resolved
                     
                     	Resolved
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ethernet_segment_identifier
                     
                     	Ethernet Segment id
                     	**type**\: list of  		 :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps.Igmp.EthernetSegmentIdentifier>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_hop
                     
                     	List of nexthop IPv6 addresses
                     	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps.Igmp.NextHop>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1970,7 +2103,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp, ['is_leave', 'bpxcid', 'evibd', 'src_ip', 'grp_ip', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_segment_name', 'evi', 'bd_id', 'route_type', 'source_addr', 'group_addr', 'ethernet_tag_id', 'igmp_version', 'igmp_group_type', 'ma_x_response_time', 'resolved'], name, value)
+                        self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp, ['is_leave', 'bpxcid', 'evibd', 'src_ip', 'grp_ip', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', u'ethernet_segment_name', u'evi', u'bd_id', u'route_type', u'source_addr', u'group_addr', u'ethernet_tag_id', u'igmp_version', u'igmp_group_type', u'ma_x_response_time', u'resolved'], name, value)
 
 
                     class SourceInfo(Entity):
@@ -1982,10 +2115,14 @@ class Evpn(Entity):
                         	local info
                         	**type**\:  :py:class:`LocalInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	Type
                         	**type**\:  :py:class:`EvpnIgmpSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.EvpnIgmpSource>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: remote_info
                         
@@ -1993,6 +2130,8 @@ class Evpn(Entity):
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -2024,7 +2163,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo, ['type', 'remote_info'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo, [u'type', u'remote_info'], name, value)
 
 
                         class LocalInfo(Entity):
@@ -2036,12 +2175,16 @@ class Evpn(Entity):
                             	Interface parameters
                             	**type**\:  :py:class:`Parameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: name
                             
                             	Interface name
                             	**type**\: str
                             
                             	**length:** 0..81
+                            
+                            	**config**\: False
                             
                             .. attribute:: mtu
                             
@@ -2050,12 +2193,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: payload_bytes
                             
                             	Payload bytes
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2091,7 +2238,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo, ['name', 'mtu', 'payload_bytes'], name, value)
+                                self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo, [u'name', u'mtu', u'payload_bytes'], name, value)
 
 
                             class Parameters(Entity):
@@ -2103,40 +2250,56 @@ class Evpn(Entity):
                                 	Ethernet
                                 	**type**\:  :py:class:`Ethernet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Ethernet>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vlan
                                 
                                 	VLAN
                                 	**type**\:  :py:class:`Vlan <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: tdm
                                 
                                 	TDM
                                 	**type**\:  :py:class:`Tdm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Tdm>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: atm
                                 
                                 	ATM
                                 	**type**\:  :py:class:`Atm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Atm>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: fr
                                 
                                 	Frame Relay
                                 	**type**\:  :py:class:`Fr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Fr>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: pseudowire_ether
                                 
                                 	PW Ether
                                 	**type**\:  :py:class:`PseudowireEther <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: pseudowire_iw
                                 
                                 	PW IW
                                 	**type**\:  :py:class:`PseudowireIw <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	Type
                                 	**type**\:  :py:class:`L2vpnInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnInterface>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2190,7 +2353,7 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters, ['type'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters, [u'type'], name, value)
 
 
                                 class Ethernet(Entity):
@@ -2203,6 +2366,8 @@ class Evpn(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2228,7 +2393,8 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Ethernet, ['xconnect_tags'], name, value)
+                                        self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Ethernet, [u'xconnect_tags'], name, value)
+
 
 
                                 class Vlan(Entity):
@@ -2242,12 +2408,16 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: vlan_rewrite_tag
                                     
                                     	VLAN rewrite tag
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: simple_efp
                                     
@@ -2256,12 +2426,16 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: encapsulation_type
                                     
                                     	Encapsulation Type
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: outer_tag
                                     
@@ -2270,15 +2444,21 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: rewrite_tag
                                     
                                     	Rewrite Tags
                                     	**type**\: list of  		 :py:class:`RewriteTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan.RewriteTag>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: vlan_range
                                     
                                     	vlan range
                                     	**type**\: list of  		 :py:class:`VlanRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan.VlanRange>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2315,7 +2495,7 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan, ['xconnect_tags', 'vlan_rewrite_tag', 'simple_efp', 'encapsulation_type', 'outer_tag'], name, value)
+                                        self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan, [u'xconnect_tags', u'vlan_rewrite_tag', u'simple_efp', u'encapsulation_type', u'outer_tag'], name, value)
 
 
                                     class RewriteTag(Entity):
@@ -2328,6 +2508,8 @@ class Evpn(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2353,7 +2535,8 @@ class Evpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan.RewriteTag, ['entry'], name, value)
+                                            self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan.RewriteTag, [u'entry'], name, value)
+
 
 
                                     class VlanRange(Entity):
@@ -2367,12 +2550,16 @@ class Evpn(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: upper
                                         
                                         	Upper
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2400,7 +2587,9 @@ class Evpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan.VlanRange, ['lower', 'upper'], name, value)
+                                            self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan.VlanRange, [u'lower', u'upper'], name, value)
+
+
 
 
                                 class Tdm(Entity):
@@ -2412,10 +2601,14 @@ class Evpn(Entity):
                                     	TDM options
                                     	**type**\:  :py:class:`TdmOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Tdm.TdmOptions>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: timeslot_group
                                     
                                     	Timeslots separated by , or \- from 1 to 31. \: indicates individual timeslot and \- represents a range.E.g. 1\-3,5 represents timeslots 1, 2, 3, and 5
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: timeslot_rate
                                     
@@ -2424,12 +2617,16 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: kbit/s
                                     
                                     .. attribute:: tdm_mode
                                     
                                     	TDM mode
                                     	**type**\:  :py:class:`L2vpnTdmMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnTdmMode>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2463,7 +2660,7 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Tdm, ['timeslot_group', 'timeslot_rate', 'tdm_mode'], name, value)
+                                        self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Tdm, [u'timeslot_group', u'timeslot_rate', u'tdm_mode'], name, value)
 
 
                                     class TdmOptions(Entity):
@@ -2477,6 +2674,8 @@ class Evpn(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: byte
                                         
                                         .. attribute:: bit_rate
@@ -2486,6 +2685,8 @@ class Evpn(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: kbit/s
                                         
                                         .. attribute:: rtp
@@ -2493,10 +2694,14 @@ class Evpn(Entity):
                                         	RTP header
                                         	**type**\:  :py:class:`L2vpnTdmRtpOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnTdmRtpOption>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: timestamp_mode
                                         
                                         	TDM Timestamping mode
                                         	**type**\:  :py:class:`L2vpnTimeStampMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnTimeStampMode>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: signalling_packets
                                         
@@ -2505,12 +2710,16 @@ class Evpn(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: cas
                                         
                                         	CAS
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: rtp_header_payload_type
                                         
@@ -2519,6 +2728,8 @@ class Evpn(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: timestamp_clock_freq
                                         
                                         	Timestamping clock frequency in units of 8Khz
@@ -2526,12 +2737,16 @@ class Evpn(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: ssrc
                                         
                                         	Synchronization Source identifier
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2573,7 +2788,9 @@ class Evpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Tdm.TdmOptions, ['payload_bytes', 'bit_rate', 'rtp', 'timestamp_mode', 'signalling_packets', 'cas', 'rtp_header_payload_type', 'timestamp_clock_freq', 'ssrc'], name, value)
+                                            self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Tdm.TdmOptions, [u'payload_bytes', u'bit_rate', u'rtp', u'timestamp_mode', u'signalling_packets', u'cas', u'rtp_header_payload_type', u'timestamp_clock_freq', u'ssrc'], name, value)
+
+
 
 
                                 class Atm(Entity):
@@ -2587,6 +2804,8 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: maximum_number_cells_un_packed
                                     
                                     	Max number of cells unpacked
@@ -2594,10 +2813,14 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: atm_mode
                                     
                                     	ATM mode
                                     	**type**\:  :py:class:`L2vpnAtmMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAtmMode>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: vpi
                                     
@@ -2606,12 +2829,16 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: vci
                                     
                                     	Virtual channel identifier
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2645,7 +2872,8 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Atm, ['maximum_number_cells_packed', 'maximum_number_cells_un_packed', 'atm_mode', 'vpi', 'vci'], name, value)
+                                        self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Atm, [u'maximum_number_cells_packed', u'maximum_number_cells_un_packed', u'atm_mode', u'vpi', u'vci'], name, value)
+
 
 
                                 class Fr(Entity):
@@ -2657,12 +2885,16 @@ class Evpn(Entity):
                                     	Frame Relay mode
                                     	**type**\:  :py:class:`L2vpnFrMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnFrMode>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: dlci
                                     
                                     	Data\-link connection identifier
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2690,7 +2922,8 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Fr, ['fr_mode', 'dlci'], name, value)
+                                        self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Fr, [u'fr_mode', u'dlci'], name, value)
+
 
 
                                 class PseudowireEther(Entity):
@@ -2702,10 +2935,14 @@ class Evpn(Entity):
                                     	Interface list data
                                     	**type**\:  :py:class:`InterfaceList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther.InterfaceList>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: is_valid
                                     
                                     	Is this Interface list valid
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: internal_label
                                     
@@ -2713,6 +2950,8 @@ class Evpn(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2744,7 +2983,7 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther, ['is_valid', 'internal_label'], name, value)
+                                        self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther, [u'is_valid', u'internal_label'], name, value)
 
 
                                     class InterfaceList(Entity):
@@ -2758,6 +2997,8 @@ class Evpn(Entity):
                                         
                                         	**length:** 0..33
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: interface_list_id
                                         
                                         	Interface internal ID
@@ -2765,10 +3006,14 @@ class Evpn(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: interface
                                         
                                         	Interfaces
                                         	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther.InterfaceList.Interface>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2798,7 +3043,7 @@ class Evpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther.InterfaceList, ['interface_list_name', 'interface_list_id'], name, value)
+                                            self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther.InterfaceList, [u'interface_list_name', u'interface_list_id'], name, value)
 
 
                                         class Interface(Entity):
@@ -2810,10 +3055,14 @@ class Evpn(Entity):
                                             	Interface name
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: replicate_status
                                             
                                             	Replicate status
                                             	**type**\:  :py:class:`IflistRepStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.IflistRepStatus>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -2841,7 +3090,10 @@ class Evpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther.InterfaceList.Interface, ['interface_name', 'replicate_status'], name, value)
+                                                self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther.InterfaceList.Interface, [u'interface_name', u'replicate_status'], name, value)
+
+
+
 
 
                                 class PseudowireIw(Entity):
@@ -2853,10 +3105,14 @@ class Evpn(Entity):
                                     	Interface list data
                                     	**type**\:  :py:class:`InterfaceList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw.InterfaceList>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: is_valid
                                     
                                     	Is this Interface list valid
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: internal_label
                                     
@@ -2864,6 +3120,8 @@ class Evpn(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2895,7 +3153,7 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw, ['is_valid', 'internal_label'], name, value)
+                                        self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw, [u'is_valid', u'internal_label'], name, value)
 
 
                                     class InterfaceList(Entity):
@@ -2909,6 +3167,8 @@ class Evpn(Entity):
                                         
                                         	**length:** 0..33
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: interface_list_id
                                         
                                         	Interface internal ID
@@ -2916,10 +3176,14 @@ class Evpn(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: interface
                                         
                                         	Interfaces
                                         	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw.InterfaceList.Interface>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2949,7 +3213,7 @@ class Evpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw.InterfaceList, ['interface_list_name', 'interface_list_id'], name, value)
+                                            self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw.InterfaceList, [u'interface_list_name', u'interface_list_id'], name, value)
 
 
                                         class Interface(Entity):
@@ -2961,10 +3225,14 @@ class Evpn(Entity):
                                             	Interface name
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: replicate_status
                                             
                                             	Replicate status
                                             	**type**\:  :py:class:`IflistRepStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.IflistRepStatus>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -2992,7 +3260,13 @@ class Evpn(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw.InterfaceList.Interface, ['interface_name', 'replicate_status'], name, value)
+                                                self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw.InterfaceList.Interface, [u'interface_name', u'replicate_status'], name, value)
+
+
+
+
+
+
 
 
                     class EthernetSegmentIdentifier(Entity):
@@ -3005,6 +3279,8 @@ class Evpn(Entity):
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -3030,7 +3306,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.EthernetSegmentIdentifier, ['entry'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.EthernetSegmentIdentifier, [u'entry'], name, value)
+
 
 
                     class NextHop(Entity):
@@ -3044,10 +3321,14 @@ class Evpn(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: df_dont_prempt
                         
                         	DF Dont Premption
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: df_type
                         
@@ -3056,12 +3337,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: df_pref
                         
                         	DF Election Preference Set
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -3093,7 +3378,10 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.NextHop, ['next_hop', 'df_dont_prempt', 'df_type', 'df_pref'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.Igmps.Igmp.NextHop, [u'next_hop', u'df_dont_prempt', u'df_type', u'df_pref'], name, value)
+
+
+
 
 
             class Evis(Entity):
@@ -3104,6 +3392,8 @@ class Evpn(Entity):
                 
                 	L2VPN EVPN EVI Entry
                 	**type**\: list of  		 :py:class:`Evi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Evis.Evi>`
+                
+                	**config**\: False
                 
                 
 
@@ -3142,12 +3432,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: encapsulation
                     
                     	Encap
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: ethernet_vpn_id
                     
@@ -3156,6 +3450,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: encapsulation_xr
                     
                     	EVPN Instance transport encapsulation
@@ -3163,15 +3459,21 @@ class Evpn(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: bd_name
                     
                     	Bridge domain name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: type
                     
                     	Service Type
                     	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3207,7 +3509,9 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Nodes.Node.Evis.Evi, ['evi', 'encapsulation', 'ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                        self._perform_setattr(Evpn.Nodes.Node.Evis.Evi, ['evi', 'encapsulation', u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
+
 
 
             class Summary(Entity):
@@ -3221,12 +3525,16 @@ class Evpn(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: as_
                 
                 	BGP AS number
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: ev_is
                 
@@ -3235,12 +3543,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tunnel_endpoints
                 
                 	Number of Tunnel Endpoint DB Entries
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: local_mac_routes
                 
@@ -3249,12 +3561,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: local_ipv4_mac_routes
                 
                 	Number of Local IPv4 MAC\-IP Routes
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: local_ipv6_mac_routes
                 
@@ -3263,12 +3579,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: es_global_mac_routes
                 
                 	Number of ES\:Global MAC Routes
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: remote_mac_routes
                 
@@ -3277,12 +3597,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: remote_soo_mac_routes
                 
                 	Number of Remote Soo MAC Routes
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: remote_ipv4_mac_routes
                 
@@ -3291,12 +3615,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: remote_ipv6_mac_routes
                 
                 	Number of Remote IPv6 MAC\-IP Routes
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: local_imcast_routes
                 
@@ -3305,12 +3633,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: remote_imcast_routes
                 
                 	Number of Remote IMCAST Routes
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: labels
                 
@@ -3319,12 +3651,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: es_entries
                 
                 	Number of ES Entries in DB
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: neighbor_entries
                 
@@ -3333,12 +3669,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: local_ead_routes
                 
                 	Number of Local EAD Entries in DB
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: remote_ead_routes
                 
@@ -3347,6 +3687,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: global_source_mac
                 
                 	Global Source MAC Address
@@ -3354,12 +3696,16 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: peering_time
                 
                 	EVPN ES Peering Time (seconds)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -3370,6 +3716,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: carving_time
@@ -3378,6 +3726,8 @@ class Evpn(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -3388,12 +3738,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: mac_secure_move_interval
                 
                 	Interval to watch for subsequent mac moves before locking the MAC
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: mac_secure_freeze_time
                 
@@ -3402,6 +3756,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: mac_secure_retry_count
                 
                 	Number of times to retry after a MAC un\-freezes
@@ -3409,10 +3765,14 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: cost_out
                 
                 	EVPN Node Cost\-out
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: startup_cost_in_time
                 
@@ -3421,6 +3781,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: minute
                 
                 .. attribute:: l2rib_throttle
@@ -3428,10 +3790,14 @@ class Evpn(Entity):
                 	Send to L2RIB Throttled
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: logging_df_election_enabled
                 
                 	Logging EVPN Designated Forwarder changes enabled
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -3517,7 +3883,8 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Nodes.Node.Summary, ['router_id', 'as_', 'ev_is', 'tunnel_endpoints', 'local_mac_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'es_global_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'local_imcast_routes', 'remote_imcast_routes', 'labels', 'es_entries', 'neighbor_entries', 'local_ead_routes', 'remote_ead_routes', 'global_source_mac', 'peering_time', 'recovery_time', 'carving_time', 'mac_secure_move_count', 'mac_secure_move_interval', 'mac_secure_freeze_time', 'mac_secure_retry_count', 'cost_out', 'startup_cost_in_time', 'l2rib_throttle', 'logging_df_election_enabled'], name, value)
+                    self._perform_setattr(Evpn.Nodes.Node.Summary, [u'router_id', u'as_', u'ev_is', u'tunnel_endpoints', u'local_mac_routes', u'local_ipv4_mac_routes', u'local_ipv6_mac_routes', u'es_global_mac_routes', u'remote_mac_routes', u'remote_soo_mac_routes', u'remote_ipv4_mac_routes', u'remote_ipv6_mac_routes', u'local_imcast_routes', u'remote_imcast_routes', u'labels', u'es_entries', u'neighbor_entries', u'local_ead_routes', u'remote_ead_routes', u'global_source_mac', u'peering_time', u'recovery_time', u'carving_time', u'mac_secure_move_count', u'mac_secure_move_interval', u'mac_secure_freeze_time', u'mac_secure_retry_count', u'cost_out', u'startup_cost_in_time', u'l2rib_throttle', u'logging_df_election_enabled'], name, value)
+
 
 
             class EviDetail(Entity):
@@ -3529,10 +3896,14 @@ class Evpn(Entity):
                 	EVI BGP RT Detail Info Elements
                 	**type**\:  :py:class:`Elements <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements>`
                 
+                	**config**\: False
+                
                 .. attribute:: evi_children
                 
                 	Container for all EVI detail info
                 	**type**\:  :py:class:`EviChildren <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren>`
+                
+                	**config**\: False
                 
                 
 
@@ -3575,6 +3946,8 @@ class Evpn(Entity):
                     	EVI BGP RT Detail Info
                     	**type**\: list of  		 :py:class:`Element <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -3612,6 +3985,8 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: encapsulation
                         
                         	Encap
@@ -3619,30 +3994,42 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: evpn_instance
                         
                         	EVPN Instance summary information
                         	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.EvpnInstance>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: flow_label
                         
                         	Flow Label Information
                         	**type**\:  :py:class:`FlowLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: rd_auto
                         
                         	Automatic Route Distingtuisher
                         	**type**\:  :py:class:`RdAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: rd_configured
                         
                         	Configured Route Distinguisher
                         	**type**\:  :py:class:`RdConfigured <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: rt_auto
                         
                         	Automatic Route Target
                         	**type**\:  :py:class:`RtAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: evi_xr
                         
@@ -3651,6 +4038,8 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: encapsulation_xr
                         
                         	EVPN Instance encapsulation
@@ -3658,20 +4047,28 @@ class Evpn(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: bd_name
                         
                         	Bridge domain name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: type
                         
                         	Service Type
                         	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: description
                         
                         	EVI description
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: unicast_label
                         
@@ -3680,6 +4077,8 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: multicast_label
                         
                         	Multicast Label
@@ -3687,15 +4086,21 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: cw_disable
                         
                         	Control\-Word Disable
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: table_policy_name
                         
                         	Table\-policy Name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: forward_class
                         
@@ -3704,50 +4109,70 @@ class Evpn(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: rt_import_block_set
                         
                         	Is Import RT None set
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: rt_export_block_set
                         
                         	Is Export RT None set
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: advertise_mac
                         
                         	Advertise MAC\-only routes on this EVI
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: advertise_bvi_mac
                         
                         	Advertise BVI MACs routes on this EVI
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: aliasing_disabled
                         
                         	Route Aliasing is disabled
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: unknown_unicast_flooding_disabled
                         
                         	Unknown\-unicast flooding is disabled
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: reoriginate_disabled
                         
                         	Route Re\-origination is disabled
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: stitching
                         
                         	EVPN Instance is Regular/Stitching side
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: multicast_source_connected
                         
                         	EVI is connected to multicast source
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -3833,7 +4258,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element, ['evi', 'encapsulation', 'evi_xr', 'encapsulation_xr', 'bd_name', 'type', 'description', 'unicast_label', 'multicast_label', 'cw_disable', 'table_policy_name', 'forward_class', 'rt_import_block_set', 'rt_export_block_set', 'advertise_mac', 'advertise_bvi_mac', 'aliasing_disabled', 'unknown_unicast_flooding_disabled', 'reoriginate_disabled', 'stitching', 'multicast_source_connected'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element, ['evi', 'encapsulation', u'evi_xr', u'encapsulation_xr', u'bd_name', u'type', u'description', u'unicast_label', u'multicast_label', u'cw_disable', u'table_policy_name', u'forward_class', u'rt_import_block_set', u'rt_export_block_set', u'advertise_mac', u'advertise_bvi_mac', u'aliasing_disabled', u'unknown_unicast_flooding_disabled', u'reoriginate_disabled', u'stitching', u'multicast_source_connected'], name, value)
 
 
                         class EvpnInstance(Entity):
@@ -3847,6 +4272,8 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: encapsulation_xr
                             
                             	EVPN Instance transport encapsulation
@@ -3854,15 +4281,21 @@ class Evpn(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: bd_name
                             
                             	Bridge domain name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Service Type
                             	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -3894,7 +4327,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
 
 
                         class FlowLabel(Entity):
@@ -3906,10 +4340,14 @@ class Evpn(Entity):
                             	Static flow label
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: global_flow_label
                             
                             	Globally configured flow label
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -3937,7 +4375,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel, ['static_flow_label', 'global_flow_label'], name, value)
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.FlowLabel, [u'static_flow_label', u'global_flow_label'], name, value)
+
 
 
                         class RdAuto(Entity):
@@ -3949,25 +4388,35 @@ class Evpn(Entity):
                             	auto
                             	**type**\:  :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: two_byte_as
                             
                             	two byte as
                             	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: four_byte_as
                             
                             	four byte as
                             	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: v4_addr
                             
                             	v4 addr
                             	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: rd
                             
                             	RD
                             	**type**\:  :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -4009,7 +4458,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto, ['rd'], name, value)
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto, [u'rd'], name, value)
 
 
                             class Auto(Entity):
@@ -4023,12 +4472,16 @@ class Evpn(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: auto_index
                                 
                                 	Auto\-generated Index
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4056,7 +4509,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto, ['router_id', 'auto_index'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.Auto, [u'router_id', u'auto_index'], name, value)
+
 
 
                             class TwoByteAs(Entity):
@@ -4070,12 +4524,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: four_byte_index
                                 
                                 	4 Byte Index
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4103,7 +4561,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.TwoByteAs, [u'two_byte_as', u'four_byte_index'], name, value)
+
 
 
                             class FourByteAs(Entity):
@@ -4117,12 +4576,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4150,7 +4613,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.FourByteAs, [u'four_byte_as', u'two_byte_index'], name, value)
+
 
 
                             class V4Addr(Entity):
@@ -4164,12 +4628,16 @@ class Evpn(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4197,7 +4665,9 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdAuto.V4Addr, [u'ipv4_address', u'two_byte_index'], name, value)
+
+
 
 
                         class RdConfigured(Entity):
@@ -4209,25 +4679,35 @@ class Evpn(Entity):
                             	auto
                             	**type**\:  :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: two_byte_as
                             
                             	two byte as
                             	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: four_byte_as
                             
                             	four byte as
                             	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: v4_addr
                             
                             	v4 addr
                             	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: rd
                             
                             	RD
                             	**type**\:  :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -4269,7 +4749,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured, ['rd'], name, value)
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured, [u'rd'], name, value)
 
 
                             class Auto(Entity):
@@ -4283,12 +4763,16 @@ class Evpn(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: auto_index
                                 
                                 	Auto\-generated Index
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4316,7 +4800,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto, ['router_id', 'auto_index'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.Auto, [u'router_id', u'auto_index'], name, value)
+
 
 
                             class TwoByteAs(Entity):
@@ -4330,12 +4815,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: four_byte_index
                                 
                                 	4 Byte Index
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4363,7 +4852,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.TwoByteAs, [u'two_byte_as', u'four_byte_index'], name, value)
+
 
 
                             class FourByteAs(Entity):
@@ -4377,12 +4867,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4410,7 +4904,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.FourByteAs, [u'four_byte_as', u'two_byte_index'], name, value)
+
 
 
                             class V4Addr(Entity):
@@ -4424,12 +4919,16 @@ class Evpn(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4457,7 +4956,9 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RdConfigured.V4Addr, [u'ipv4_address', u'two_byte_index'], name, value)
+
+
 
 
                         class RtAuto(Entity):
@@ -4469,25 +4970,35 @@ class Evpn(Entity):
                             	two byte as
                             	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: four_byte_as
                             
                             	four byte as
                             	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: v4_addr
                             
                             	v4 addr
                             	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: es_import
                             
                             	es import
                             	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: rt
                             
                             	RT
                             	**type**\:  :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -4529,7 +5040,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto, ['rt'], name, value)
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto, [u'rt'], name, value)
 
 
                             class TwoByteAs(Entity):
@@ -4543,12 +5054,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: four_byte_index
                                 
                                 	4 Byte Index
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4576,7 +5091,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.TwoByteAs, [u'two_byte_as', u'four_byte_index'], name, value)
+
 
 
                             class FourByteAs(Entity):
@@ -4590,12 +5106,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4623,7 +5143,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.FourByteAs, [u'four_byte_as', u'two_byte_index'], name, value)
+
 
 
                             class V4Addr(Entity):
@@ -4637,12 +5158,16 @@ class Evpn(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4670,7 +5195,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.V4Addr, [u'ipv4_address', u'two_byte_index'], name, value)
+
 
 
                             class EsImport(Entity):
@@ -4684,12 +5210,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: low_bytes
                                 
                                 	Low 2 bytes of ES Import
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4717,7 +5247,11 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport, ['high_bytes', 'low_bytes'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.Elements.Element.RtAuto.EsImport, [u'high_bytes', u'low_bytes'], name, value)
+
+
+
+
 
 
                 class EviChildren(Entity):
@@ -4729,25 +5263,35 @@ class Evpn(Entity):
                     	EVPN Neighbor table
                     	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ethernet_auto_discoveries
                     
                     	EVPN Ethernet Auto\-Discovery table
                     	**type**\:  :py:class:`EthernetAutoDiscoveries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: inclusive_multicasts
                     
                     	L2VPN EVPN IMCAST table
                     	**type**\:  :py:class:`InclusiveMulticasts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: route_targets
                     
                     	L2VPN EVPN EVI RT Child Table
                     	**type**\:  :py:class:`RouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: macs
                     
                     	L2VPN EVPN EVI MAC table
                     	**type**\:  :py:class:`Macs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4802,6 +5346,8 @@ class Evpn(Entity):
                         	EVPN Neighbor table
                         	**type**\: list of  		 :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -4839,12 +5385,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: encapsulation
                             
                             	Encap
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: neighbor_ip
                             
@@ -4859,10 +5409,14 @@ class Evpn(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: evpn_instance
                             
                             	EVPN Instance summary information
                             	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: neighbor
                             
@@ -4870,6 +5424,8 @@ class Evpn(Entity):
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -4905,7 +5461,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor, ['evi', 'encapsulation', 'neighbor_ip', 'neighbor'], name, value)
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor, ['evi', 'encapsulation', 'neighbor_ip', u'neighbor'], name, value)
 
 
                             class EvpnInstance(Entity):
@@ -4919,6 +5475,8 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: encapsulation_xr
                                 
                                 	EVPN Instance transport encapsulation
@@ -4926,15 +5484,21 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bd_name
                                 
                                 	Bridge domain name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	Service Type
                                 	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4966,7 +5530,10 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
+
+
 
 
                     class EthernetAutoDiscoveries(Entity):
@@ -4977,6 +5544,8 @@ class Evpn(Entity):
                         
                         	EVPN Ethernet Auto\-Discovery Entry
                         	**type**\: list of  		 :py:class:`EthernetAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5015,12 +5584,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: encapsulation
                             
                             	Encap
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: esi1
                             
@@ -5029,12 +5602,16 @@ class Evpn(Entity):
                             
                             	**pattern:** [0\-9a\-fA\-F]{1,8}
                             
+                            	**config**\: False
+                            
                             .. attribute:: esi2
                             
                             	ES id (part 2/5)
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{1,8}
+                            
+                            	**config**\: False
                             
                             .. attribute:: esi3
                             
@@ -5043,12 +5620,16 @@ class Evpn(Entity):
                             
                             	**pattern:** [0\-9a\-fA\-F]{1,8}
                             
+                            	**config**\: False
+                            
                             .. attribute:: esi4
                             
                             	ES id (part 4/5)
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{1,8}
+                            
+                            	**config**\: False
                             
                             .. attribute:: esi5
                             
@@ -5057,6 +5638,8 @@ class Evpn(Entity):
                             
                             	**pattern:** [0\-9a\-fA\-F]{1,8}
                             
+                            	**config**\: False
+                            
                             .. attribute:: ethernet_tag
                             
                             	Ethernet Tag ID
@@ -5064,10 +5647,14 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: evpn_instance
                             
                             	EVPN Instance summary information
                             	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ethernet_tag_xr
                             
@@ -5076,12 +5663,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: local_next_hop
                             
                             	Local nexthop IP
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: local_label
                             
@@ -5090,20 +5681,28 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_local_ead
                             
                             	Indication of EthernetAutoDiscovery Route is local
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: redundancy_single_active
                             
                             	Single\-active redundancy configured at remote EAD
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: redundancy_single_flow_active
                             
                             	Single\-flow\-active redundancy configured at remote EAD
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: num_paths
                             
@@ -5112,15 +5711,21 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ethernet_segment_identifier
                             
                             	Ethernet Segment id
                             	**type**\: list of  		 :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: path_buffer
                             
                             	Path List Buffer
                             	**type**\: list of  		 :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -5181,7 +5786,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['evi', 'encapsulation', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'ethernet_tag_xr', 'local_next_hop', 'local_label', 'is_local_ead', 'redundancy_single_active', 'redundancy_single_flow_active', 'num_paths'], name, value)
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['evi', 'encapsulation', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', u'ethernet_tag_xr', u'local_next_hop', u'local_label', u'is_local_ead', u'redundancy_single_active', u'redundancy_single_flow_active', u'num_paths'], name, value)
 
 
                             class EvpnInstance(Entity):
@@ -5195,6 +5800,8 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: encapsulation_xr
                                 
                                 	EVPN Instance transport encapsulation
@@ -5202,15 +5809,21 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bd_name
                                 
                                 	Bridge domain name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	Service Type
                                 	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5242,7 +5855,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
 
 
                             class EthernetSegmentIdentifier(Entity):
@@ -5255,6 +5869,8 @@ class Evpn(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5280,7 +5896,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier, ['entry'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier, [u'entry'], name, value)
+
 
 
                             class PathBuffer(Entity):
@@ -5294,12 +5911,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: next_hop
                                 
                                 	Next\-hop IP address (v6 format)
                                 	**type**\: str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: output_label
                                 
@@ -5308,12 +5929,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: srte_tunnel
                                 
                                 	Segment\-Routing Traffic Engineering Tunnel Interface Handle
                                 	**type**\: str
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5345,7 +5970,10 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer, [u'tunnel_endpoint_id', u'next_hop', u'output_label', u'srte_tunnel'], name, value)
+
+
+
 
 
                     class InclusiveMulticasts(Entity):
@@ -5356,6 +5984,8 @@ class Evpn(Entity):
                         
                         	L2VPN EVPN IMCAST table
                         	**type**\: list of  		 :py:class:`InclusiveMulticast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5394,6 +6024,8 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: encapsulation
                             
                             	Encap
@@ -5401,12 +6033,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ethernet_tag
                             
                             	Ethernet Tag
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: originating_ip
                             
@@ -5421,10 +6057,14 @@ class Evpn(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: evpn_instance
                             
                             	EVPN Instance summary information
                             	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ethernet_tag_xr
                             
@@ -5433,12 +6073,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: originating_ip_xr
                             
                             	Originating IP
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: tunnel_endpoint_id
                             
@@ -5447,12 +6091,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: next_hop
                             
                             	IP of nexthop
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: output_label
                             
@@ -5461,15 +6109,21 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_local_entry
                             
                             	Local entry
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_proxy_entry
                             
                             	Proxy entry
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: srte_policy
                             
@@ -5477,6 +6131,8 @@ class Evpn(Entity):
                             	**type**\: str
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            	**config**\: False
                             
                             
 
@@ -5528,7 +6184,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, ['evi', 'encapsulation', 'ethernet_tag', 'originating_ip', 'ethernet_tag_xr', 'originating_ip_xr', 'tunnel_endpoint_id', 'next_hop', 'output_label', 'is_local_entry', 'is_proxy_entry', 'srte_policy'], name, value)
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, ['evi', 'encapsulation', 'ethernet_tag', 'originating_ip', u'ethernet_tag_xr', u'originating_ip_xr', u'tunnel_endpoint_id', u'next_hop', u'output_label', u'is_local_entry', u'is_proxy_entry', u'srte_policy'], name, value)
 
 
                             class EvpnInstance(Entity):
@@ -5542,6 +6198,8 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: encapsulation_xr
                                 
                                 	EVPN Instance transport encapsulation
@@ -5549,15 +6207,21 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bd_name
                                 
                                 	Bridge domain name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	Service Type
                                 	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5589,7 +6253,10 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
+
+
 
 
                     class RouteTargets(Entity):
@@ -5600,6 +6267,8 @@ class Evpn(Entity):
                         
                         	L2VPN EVPN EVI RT Table
                         	**type**\: list of  		 :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5638,6 +6307,8 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: encapsulation
                             
                             	Encap
@@ -5645,15 +6316,21 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: role
                             
                             	Role of the route target
                             	**type**\:  :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetRole>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: format
                             
                             	Format of the route target
                             	**type**\:  :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetFormat>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: as_
                             
@@ -5662,12 +6339,16 @@ class Evpn(Entity):
                             
                             	**range:** 1..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: as_index
                             
                             	RT AS Index
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: addr_index
                             
@@ -5676,6 +6357,8 @@ class Evpn(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: address
                             
                             	RT IPv4 Address
@@ -5683,25 +6366,35 @@ class Evpn(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: evpn_instance
                             
                             	EVPN Instance summary information
                             	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: route_target
                             
                             	Route Target
                             	**type**\:  :py:class:`RouteTarget_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: route_target_role
                             
                             	RT Role
                             	**type**\:  :py:class:`L2vpnAdRtRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRtRole>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: route_target_stitching
                             
                             	RT Stitching
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -5753,7 +6446,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget, ['evi', 'encapsulation', 'role', 'format', 'as_', 'as_index', 'addr_index', 'address', 'route_target_role', 'route_target_stitching'], name, value)
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget, ['evi', 'encapsulation', 'role', 'format', 'as_', 'as_index', 'addr_index', 'address', u'route_target_role', u'route_target_stitching'], name, value)
 
 
                             class EvpnInstance(Entity):
@@ -5767,6 +6460,8 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: encapsulation_xr
                                 
                                 	EVPN Instance transport encapsulation
@@ -5774,15 +6469,21 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bd_name
                                 
                                 	Bridge domain name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	Service Type
                                 	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5814,7 +6515,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
 
 
                             class RouteTarget_(Entity):
@@ -5826,25 +6528,35 @@ class Evpn(Entity):
                                 	two byte as
                                 	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: four_byte_as
                                 
                                 	four byte as
                                 	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: v4_addr
                                 
                                 	v4 addr
                                 	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: es_import
                                 
                                 	es import
                                 	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rt
                                 
                                 	RT
                                 	**type**\:  :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5886,7 +6598,7 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, ['rt'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, [u'rt'], name, value)
 
 
                                 class TwoByteAs(Entity):
@@ -5900,12 +6612,16 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: four_byte_index
                                     
                                     	4 Byte Index
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5933,7 +6649,8 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
+                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, [u'two_byte_as', u'four_byte_index'], name, value)
+
 
 
                                 class FourByteAs(Entity):
@@ -5947,12 +6664,16 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: two_byte_index
                                     
                                     	2 Byte Index
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5980,7 +6701,8 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
+                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, [u'four_byte_as', u'two_byte_index'], name, value)
+
 
 
                                 class V4Addr(Entity):
@@ -5994,12 +6716,16 @@ class Evpn(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: two_byte_index
                                     
                                     	2 Byte Index
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6027,7 +6753,8 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
+                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, [u'ipv4_address', u'two_byte_index'], name, value)
+
 
 
                                 class EsImport(Entity):
@@ -6041,12 +6768,16 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: low_bytes
                                     
                                     	Low 2 bytes of ES Import
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6074,7 +6805,11 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, ['high_bytes', 'low_bytes'], name, value)
+                                        self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, [u'high_bytes', u'low_bytes'], name, value)
+
+
+
+
 
 
                     class Macs(Entity):
@@ -6085,6 +6820,8 @@ class Evpn(Entity):
                         
                         	L2VPN EVPN MAC table
                         	**type**\: list of  		 :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -6123,12 +6860,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: encapsulation
                             
                             	Encap
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: ethernet_tag
                             
@@ -6137,12 +6878,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_address
                             
                             	MAC address
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            	**config**\: False
                             
                             .. attribute:: ip_address
                             
@@ -6157,10 +6902,14 @@ class Evpn(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: evpn_instance
                             
                             	EVPN Instance summary information
                             	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.EvpnInstance>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ethernet_tag_xr
                             
@@ -6169,12 +6918,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_address_xr
                             
                             	MAC address
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            	**config**\: False
                             
                             .. attribute:: ip_address_xr
                             
@@ -6183,12 +6936,16 @@ class Evpn(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: local_label
                             
                             	Associated local label
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: num_paths
                             
@@ -6197,20 +6954,28 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_local_mac
                             
                             	Indication of MAC being locally generated
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_proxy_entry
                             
                             	Proxy entry
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_remote_mac
                             
                             	Indication of MAC being remotely generated
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: soo_nexthop
                             
@@ -6219,12 +6984,16 @@ class Evpn(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipnh_address
                             
                             	IP nexthop address (v6 format)
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: esi_port_key
                             
@@ -6233,12 +7002,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: local_encap_type
                             
                             	Encap type of local MAC
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: remote_encap_type
                             
@@ -6247,10 +7020,14 @@ class Evpn(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: learned_bridge_port_name
                             
                             	Port the MAC was learned on
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: local_seq_id
                             
@@ -6259,12 +7036,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: remote_seq_id
                             
                             	remote seq id
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: local_l3_label
                             
@@ -6273,12 +7054,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: router_mac_address
                             
                             	Router MAC address
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            	**config**\: False
                             
                             .. attribute:: mac_flush_requested
                             
@@ -6287,12 +7072,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_flush_received
                             
                             	Number of flushes received 
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             .. attribute:: internal_label
                             
@@ -6301,35 +7090,49 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: resolved
                             
                             	Internal Label has resolved per\-ES EAD and per\-EVI EAD or MAC routes
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: local_is_static
                             
                             	Indication if Local MAC is statically configured
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: remote_is_static
                             
                             	Indication if Remote MAC is statically configured
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: local_ethernet_segment_identifier
                             
                             	Local Ethernet Segment id
                             	**type**\: list of  		 :py:class:`LocalEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: remote_ethernet_segment_identifier
                             
                             	Remote Ethernet Segment id
                             	**type**\: list of  		 :py:class:`RemoteEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: path_buffer
                             
                             	Path List Buffer
                             	**type**\: list of  		 :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.PathBuffer>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -6419,7 +7222,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac, ['evi', 'encapsulation', 'ethernet_tag', 'mac_address', 'ip_address', 'ethernet_tag_xr', 'mac_address_xr', 'ip_address_xr', 'local_label', 'num_paths', 'is_local_mac', 'is_proxy_entry', 'is_remote_mac', 'soo_nexthop', 'ipnh_address', 'esi_port_key', 'local_encap_type', 'remote_encap_type', 'learned_bridge_port_name', 'local_seq_id', 'remote_seq_id', 'local_l3_label', 'router_mac_address', 'mac_flush_requested', 'mac_flush_received', 'internal_label', 'resolved', 'local_is_static', 'remote_is_static'], name, value)
+                                self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac, ['evi', 'encapsulation', 'ethernet_tag', 'mac_address', 'ip_address', u'ethernet_tag_xr', u'mac_address_xr', u'ip_address_xr', u'local_label', u'num_paths', u'is_local_mac', u'is_proxy_entry', u'is_remote_mac', u'soo_nexthop', u'ipnh_address', u'esi_port_key', u'local_encap_type', u'remote_encap_type', u'learned_bridge_port_name', u'local_seq_id', u'remote_seq_id', u'local_l3_label', u'router_mac_address', u'mac_flush_requested', u'mac_flush_received', u'internal_label', u'resolved', u'local_is_static', u'remote_is_static'], name, value)
 
 
                             class EvpnInstance(Entity):
@@ -6433,6 +7236,8 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: encapsulation_xr
                                 
                                 	EVPN Instance transport encapsulation
@@ -6440,15 +7245,21 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: bd_name
                                 
                                 	Bridge domain name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	Service Type
                                 	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6480,7 +7291,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
 
 
                             class LocalEthernetSegmentIdentifier(Entity):
@@ -6493,6 +7305,8 @@ class Evpn(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6518,7 +7332,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, ['entry'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, [u'entry'], name, value)
+
 
 
                             class RemoteEthernetSegmentIdentifier(Entity):
@@ -6531,6 +7346,8 @@ class Evpn(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6556,7 +7373,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, ['entry'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, [u'entry'], name, value)
+
 
 
                             class PathBuffer(Entity):
@@ -6570,12 +7388,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: next_hop
                                 
                                 	Next\-hop IP address (v6 format)
                                 	**type**\: str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: output_label
                                 
@@ -6584,12 +7406,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: srte_tunnel
                                 
                                 	Segment\-Routing Traffic Engineering Tunnel Interface Handle
                                 	**type**\: str
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6621,7 +7447,12 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.PathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
+                                    self._perform_setattr(Evpn.Nodes.Node.EviDetail.EviChildren.Macs.Mac.PathBuffer, [u'tunnel_endpoint_id', u'next_hop', u'output_label', u'srte_tunnel'], name, value)
+
+
+
+
+
 
 
             class Teps(Entity):
@@ -6632,6 +7463,8 @@ class Evpn(Entity):
                 
                 	L2VPN EVPN TEP Entry
                 	**type**\: list of  		 :py:class:`Tep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Teps.Tep>`
+                
+                	**config**\: False
                 
                 
 
@@ -6670,15 +7503,21 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_info
                     
                     	Local TEP Information
                     	**type**\:  :py:class:`LocalInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Teps.Tep.LocalInfo>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_info
                     
                     	Remote TEP Information
                     	**type**\:  :py:class:`RemoteInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.Teps.Tep.RemoteInfo>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: tunnel_endpoint_id
                     
@@ -6687,12 +7526,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: type
                     
                     	EVPN Tunnel Endpoint Type
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: use_count
                     
@@ -6701,10 +7544,14 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: vrf_name
                     
                     	VRF Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: vrf_table_id
                     
@@ -6713,12 +7560,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: udp_port
                     
                     	UDP port
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -6764,7 +7615,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Nodes.Node.Teps.Tep, ['tep_id', 'tunnel_endpoint_id', 'type', 'use_count', 'vrf_name', 'vrf_table_id', 'udp_port'], name, value)
+                        self._perform_setattr(Evpn.Nodes.Node.Teps.Tep, ['tep_id', u'tunnel_endpoint_id', u'type', u'use_count', u'vrf_name', u'vrf_table_id', u'udp_port'], name, value)
 
 
                     class LocalInfo(Entity):
@@ -6778,6 +7629,8 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: encapsulation
                         
                         	EVPN Tunnel encapsulation
@@ -6785,12 +7638,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip
                         
                         	IP address (v6 format)
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -6820,7 +7677,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.Teps.Tep.LocalInfo, ['ethernet_vpn_id', 'encapsulation', 'ip'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.Teps.Tep.LocalInfo, [u'ethernet_vpn_id', u'encapsulation', u'ip'], name, value)
+
 
 
                     class RemoteInfo(Entity):
@@ -6834,6 +7692,8 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: encapsulation
                         
                         	EVPN Tunnel encapsulation
@@ -6841,12 +7701,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip
                         
                         	IP address (v6 format)
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -6876,7 +7740,10 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.Teps.Tep.RemoteInfo, ['ethernet_vpn_id', 'encapsulation', 'ip'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.Teps.Tep.RemoteInfo, [u'ethernet_vpn_id', u'encapsulation', u'ip'], name, value)
+
+
+
 
 
             class InternalLabels(Entity):
@@ -6887,6 +7754,8 @@ class Evpn(Entity):
                 
                 	L2VPN EVPN Internal Label
                 	**type**\: list of  		 :py:class:`InternalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.InternalLabels.InternalLabel>`
+                
+                	**config**\: False
                 
                 
 
@@ -6925,12 +7794,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: encapsulation
                     
                     	Encap
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: esi1
                     
@@ -6939,12 +7812,16 @@ class Evpn(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
+                    	**config**\: False
+                    
                     .. attribute:: esi2
                     
                     	ES id (part 2/5)
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{1,8}
+                    
+                    	**config**\: False
                     
                     .. attribute:: esi3
                     
@@ -6953,12 +7830,16 @@ class Evpn(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
+                    	**config**\: False
+                    
                     .. attribute:: esi4
                     
                     	ES id (part 4/5)
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{1,8}
+                    
+                    	**config**\: False
                     
                     .. attribute:: esi5
                     
@@ -6967,6 +7848,8 @@ class Evpn(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
+                    	**config**\: False
+                    
                     .. attribute:: ethernet_tag
                     
                     	Ethernet Tag ID
@@ -6974,10 +7857,14 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: evpn_instance
                     
                     	EVPN Instance summary information
                     	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.InternalLabels.InternalLabel.EvpnInstance>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: esi
                     
@@ -6986,12 +7873,16 @@ class Evpn(Entity):
                     
                     	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: tag
                     
                     	Label Tag
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: internal_label
                     
@@ -7000,12 +7891,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: mac_num_paths
                     
                     	Number of items in the MAC path buffer
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: ead_num_paths
                     
@@ -7014,12 +7909,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: evi_num_paths
                     
                     	Number of items in the evi path buffer
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: sum_num_paths
                     
@@ -7028,6 +7927,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: sum_num_active_paths
                     
                     	Number of items in the sum path buffer that are Active Paths
@@ -7035,45 +7936,63 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: resolved
                     
                     	Internal Label has resolved per\-ES EAD and per\-EVI EAD or MAC routes
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ecmp_disable
                     
                     	ECMP Disable Per EVI Resolution
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: redundancy_single_active
                     
                     	Single\-active redundancy configured at remote ES
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: redundancy_single_flow_active
                     
                     	Single\-flow\-active redundancy at remote ES (MST\-AG)
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: mac_path_buffer
                     
                     	MAC Path list buffer
                     	**type**\: list of  		 :py:class:`MacPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.InternalLabels.InternalLabel.MacPathBuffer>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ead_path_buffer
                     
                     	EAD/ES Path list buffer
                     	**type**\: list of  		 :py:class:`EadPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.InternalLabels.InternalLabel.EadPathBuffer>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: evi_path_buffer
                     
                     	EAD/EVI Path list buffer
                     	**type**\: list of  		 :py:class:`EviPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.InternalLabels.InternalLabel.EviPathBuffer>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: summary_path_buffer
                     
                     	Summary Path list buffer
                     	**type**\: list of  		 :py:class:`SummaryPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.InternalLabels.InternalLabel.SummaryPathBuffer>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -7146,7 +8065,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel, ['evi', 'encapsulation', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'esi', 'tag', 'internal_label', 'mac_num_paths', 'ead_num_paths', 'evi_num_paths', 'sum_num_paths', 'sum_num_active_paths', 'resolved', 'ecmp_disable', 'redundancy_single_active', 'redundancy_single_flow_active'], name, value)
+                        self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel, ['evi', 'encapsulation', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', u'esi', u'tag', u'internal_label', u'mac_num_paths', u'ead_num_paths', u'evi_num_paths', u'sum_num_paths', u'sum_num_active_paths', u'resolved', u'ecmp_disable', u'redundancy_single_active', u'redundancy_single_flow_active'], name, value)
 
 
                     class EvpnInstance(Entity):
@@ -7160,6 +8079,8 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: encapsulation_xr
                         
                         	EVPN Instance transport encapsulation
@@ -7167,15 +8088,21 @@ class Evpn(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: bd_name
                         
                         	Bridge domain name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	Service Type
                         	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -7207,7 +8134,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
 
 
                     class MacPathBuffer(Entity):
@@ -7221,12 +8149,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: next_hop
                         
                         	Next\-hop IP address (v6 format)
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: output_label
                         
@@ -7235,12 +8167,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: srte_tunnel
                         
                         	Segment\-Routing Traffic Engineering Tunnel Interface Handle
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        	**config**\: False
                         
                         
 
@@ -7272,7 +8208,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel.MacPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel.MacPathBuffer, [u'tunnel_endpoint_id', u'next_hop', u'output_label', u'srte_tunnel'], name, value)
+
 
 
                     class EadPathBuffer(Entity):
@@ -7286,12 +8223,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: next_hop
                         
                         	Next\-hop IP address (v6 format)
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: output_label
                         
@@ -7300,12 +8241,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: srte_tunnel
                         
                         	Segment\-Routing Traffic Engineering Tunnel Interface Handle
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        	**config**\: False
                         
                         
 
@@ -7337,7 +8282,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel.EadPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel.EadPathBuffer, [u'tunnel_endpoint_id', u'next_hop', u'output_label', u'srte_tunnel'], name, value)
+
 
 
                     class EviPathBuffer(Entity):
@@ -7351,12 +8297,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: next_hop
                         
                         	Next\-hop IP address (v6 format)
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: output_label
                         
@@ -7365,12 +8315,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: srte_tunnel
                         
                         	Segment\-Routing Traffic Engineering Tunnel Interface Handle
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        	**config**\: False
                         
                         
 
@@ -7402,7 +8356,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel.EviPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel.EviPathBuffer, [u'tunnel_endpoint_id', u'next_hop', u'output_label', u'srte_tunnel'], name, value)
+
 
 
                     class SummaryPathBuffer(Entity):
@@ -7416,12 +8371,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: next_hop
                         
                         	Next\-hop IP address (v6 format)
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: output_label
                         
@@ -7430,12 +8389,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: srte_tunnel
                         
                         	Segment\-Routing Traffic Engineering Tunnel Interface Handle
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        	**config**\: False
                         
                         
 
@@ -7467,7 +8430,10 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel.SummaryPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.InternalLabels.InternalLabel.SummaryPathBuffer, [u'tunnel_endpoint_id', u'next_hop', u'output_label', u'srte_tunnel'], name, value)
+
+
+
 
 
             class EthernetSegments(Entity):
@@ -7478,6 +8444,8 @@ class Evpn(Entity):
                 
                 	EVPN Ethernet\-Segment Entry
                 	**type**\: list of  		 :py:class:`EthernetSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment>`
+                
+                	**config**\: False
                 
                 
 
@@ -7516,12 +8484,16 @@ class Evpn(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: esi1
                     
                     	ES id (part 1/5)
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{1,8}
+                    
+                    	**config**\: False
                     
                     .. attribute:: esi2
                     
@@ -7530,12 +8502,16 @@ class Evpn(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
+                    	**config**\: False
+                    
                     .. attribute:: esi3
                     
                     	ES id (part 3/5)
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{1,8}
+                    
+                    	**config**\: False
                     
                     .. attribute:: esi4
                     
@@ -7544,6 +8520,8 @@ class Evpn(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
+                    	**config**\: False
+                    
                     .. attribute:: esi5
                     
                     	ES id (part 5/5)
@@ -7551,15 +8529,21 @@ class Evpn(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{1,8}
                     
+                    	**config**\: False
+                    
                     .. attribute:: esi_type
                     
                     	ESI Type
                     	**type**\:  :py:class:`L2vpnEvpnEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnEsi>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: esi_system_identifier
                     
                     	ESI System Identifier
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: esi_port_key
                     
@@ -7568,6 +8552,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: esi_system_priority
                     
                     	ESI System Priority
@@ -7575,10 +8561,14 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: ethernet_segment_name
                     
                     	Ethernet Segment Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: ethernet_segment_state
                     
@@ -7587,6 +8577,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: if_handle
                     
                     	Main port ifhandle
@@ -7594,10 +8586,14 @@ class Evpn(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: main_port_role
                     
                     	Main port redundancy group role
                     	**type**\:  :py:class:`L2vpnRgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnRgRole>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: main_port_mac
                     
@@ -7606,12 +8602,16 @@ class Evpn(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_up_p_ws
                     
                     	Number of PWs in Up state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: route_target
                     
@@ -7620,45 +8620,63 @@ class Evpn(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: rt_origin
                     
                     	Origin of operational ES\-Import RT
                     	**type**\:  :py:class:`L2vpnEvpnRtOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnRtOrigin>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: es_bgp_gates
                     
                     	ES BGP Gates
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: es_l2fib_gates
                     
                     	ES L2FIB Gates
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: mac_flushing_mode_config
                     
                     	Configured MAC Flushing mode
                     	**type**\:  :py:class:`L2vpnEvpnMfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnMfMode>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: load_balance_mode_config
                     
                     	Configured load balancing mode
                     	**type**\:  :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: load_balance_mode_is_default
                     
                     	Load balancing mode is default
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: load_balance_mode_oper
                     
                     	Operational load balancing mode
                     	**type**\:  :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: force_single_home
                     
                     	Ethernet\-Segment forced to single home
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: source_mac_oper
                     
@@ -7667,10 +8685,14 @@ class Evpn(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: source_mac_origin
                     
                     	Origin of operational source MAC address
                     	**type**\:  :py:class:`L2vpnEvpnSmacSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnSmacSrc>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: peering_timer
                     
@@ -7678,6 +8700,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -7688,6 +8712,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: recovery_timer
@@ -7696,6 +8722,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -7706,6 +8734,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: carving_timer
@@ -7714,6 +8744,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -7724,6 +8756,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: service_carving_mode
@@ -7731,15 +8765,21 @@ class Evpn(Entity):
                     	Service carving mode
                     	**type**\:  :py:class:`L2vpnEvpnScMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnScMode>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: primary_services_input
                     
                     	Input string of Primary services ESI/I\-SIDs
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: secondary_services_input
                     
                     	Input string of Secondary services ESI/I\-SIDs
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: forwarder_ports
                     
@@ -7748,12 +8788,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: permanent_forwarder_ports
                     
                     	Count of Forwarders with permanent service
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: elected_forwarder_ports
                     
@@ -7762,12 +8806,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: not_elected_forwarder_ports
                     
                     	Count of Forwarders with not elected service
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: not_config_forwarder_ports
                     
@@ -7776,25 +8824,35 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: mp_protected
                     
                     	MP is protected and not under EVPN control
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: nve_anycast_vtep
                     
                     	Anycast VTEP mode on NVE main\-interface
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: nve_ingress_replication
                     
                     	Ingress\-Replication is configured on NVE main\-interface
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_split_horizon_group_label_valid
                     
                     	Local split horizon group label is valid
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: local_split_horizon_group_label
                     
@@ -7803,65 +8861,91 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: ethernet_segment_identifier
                     
                     	Ethernet Segment id
                     	**type**\: list of  		 :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: primary_service
                     
                     	List of Primary services ESI/I\-SIDs
                     	**type**\: list of  		 :py:class:`PrimaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.PrimaryService>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: secondary_service
                     
                     	List of Secondary services ESI/I\-SIDs
                     	**type**\: list of  		 :py:class:`SecondaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.SecondaryService>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: service_carving_i_sidelected_result
                     
                     	Elected ISID service carving results
                     	**type**\: list of  		 :py:class:`ServiceCarvingISidelectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: service_carving_isid_not_elected_result
                     
                     	Not elected ISID service carving results
                     	**type**\: list of  		 :py:class:`ServiceCarvingIsidNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: service_carving_evi_elected_result
                     
                     	Elected EVI service carving results
                     	**type**\: list of  		 :py:class:`ServiceCarvingEviElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: service_carving_evi_not_elected_result
                     
                     	Not elected EVI service carving results
                     	**type**\: list of  		 :py:class:`ServiceCarvingEviNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: service_carving_vni_elected_result
                     
                     	Elected VNI service carving results
                     	**type**\: list of  		 :py:class:`ServiceCarvingVniElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: service_carving_vni_not_elected_result
                     
                     	Not elected VNI service carving results
                     	**type**\: list of  		 :py:class:`ServiceCarvingVniNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: next_hop
                     
                     	List of nexthop IPv6 addresses
                     	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.NextHop>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: service_carving_vpws_permanent_result
                     
                     	Permanent EVPN VPWS service carving results
                     	**type**\: list of  		 :py:class:`ServiceCarvingVpwsPermanentResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_split_horizon_group_label
                     
                     	Remote split horizon group labels
                     	**type**\: list of  		 :py:class:`RemoteSplitHorizonGroupLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -7990,7 +9074,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment, ['interface_name', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'esi_type', 'esi_system_identifier', 'esi_port_key', 'esi_system_priority', 'ethernet_segment_name', 'ethernet_segment_state', 'if_handle', 'main_port_role', 'main_port_mac', 'num_up_p_ws', 'route_target', 'rt_origin', 'es_bgp_gates', 'es_l2fib_gates', 'mac_flushing_mode_config', 'load_balance_mode_config', 'load_balance_mode_is_default', 'load_balance_mode_oper', 'force_single_home', 'source_mac_oper', 'source_mac_origin', 'peering_timer', 'peering_timer_left', 'recovery_timer', 'recovery_timer_left', 'carving_timer', 'carving_timer_left', 'service_carving_mode', 'primary_services_input', 'secondary_services_input', 'forwarder_ports', 'permanent_forwarder_ports', 'elected_forwarder_ports', 'not_elected_forwarder_ports', 'not_config_forwarder_ports', 'mp_protected', 'nve_anycast_vtep', 'nve_ingress_replication', 'local_split_horizon_group_label_valid', 'local_split_horizon_group_label'], name, value)
+                        self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment, ['interface_name', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', u'esi_type', u'esi_system_identifier', u'esi_port_key', u'esi_system_priority', u'ethernet_segment_name', u'ethernet_segment_state', u'if_handle', u'main_port_role', u'main_port_mac', u'num_up_p_ws', u'route_target', u'rt_origin', u'es_bgp_gates', u'es_l2fib_gates', u'mac_flushing_mode_config', u'load_balance_mode_config', u'load_balance_mode_is_default', u'load_balance_mode_oper', u'force_single_home', u'source_mac_oper', u'source_mac_origin', u'peering_timer', u'peering_timer_left', u'recovery_timer', u'recovery_timer_left', u'carving_timer', u'carving_timer_left', u'service_carving_mode', u'primary_services_input', u'secondary_services_input', u'forwarder_ports', u'permanent_forwarder_ports', u'elected_forwarder_ports', u'not_elected_forwarder_ports', u'not_config_forwarder_ports', u'mp_protected', u'nve_anycast_vtep', u'nve_ingress_replication', u'local_split_horizon_group_label_valid', u'local_split_horizon_group_label'], name, value)
 
 
                     class EthernetSegmentIdentifier(Entity):
@@ -8003,6 +9087,8 @@ class Evpn(Entity):
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -8028,7 +9114,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, ['entry'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, [u'entry'], name, value)
+
 
 
                     class PrimaryService(Entity):
@@ -8041,6 +9128,8 @@ class Evpn(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8066,7 +9155,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.PrimaryService, ['entry'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.PrimaryService, [u'entry'], name, value)
+
 
 
                     class SecondaryService(Entity):
@@ -8079,6 +9169,8 @@ class Evpn(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8104,7 +9196,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.SecondaryService, ['entry'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.SecondaryService, [u'entry'], name, value)
+
 
 
                     class ServiceCarvingISidelectedResult(Entity):
@@ -8117,6 +9210,8 @@ class Evpn(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8142,7 +9237,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, ['entry'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, [u'entry'], name, value)
+
 
 
                     class ServiceCarvingIsidNotElectedResult(Entity):
@@ -8155,6 +9251,8 @@ class Evpn(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8180,7 +9278,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, ['entry'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, [u'entry'], name, value)
+
 
 
                     class ServiceCarvingEviElectedResult(Entity):
@@ -8193,6 +9292,8 @@ class Evpn(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8218,7 +9319,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, ['entry'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, [u'entry'], name, value)
+
 
 
                     class ServiceCarvingEviNotElectedResult(Entity):
@@ -8231,6 +9333,8 @@ class Evpn(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8256,7 +9360,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, ['entry'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, [u'entry'], name, value)
+
 
 
                     class ServiceCarvingVniElectedResult(Entity):
@@ -8269,6 +9374,8 @@ class Evpn(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8294,7 +9401,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult, ['entry'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult, [u'entry'], name, value)
+
 
 
                     class ServiceCarvingVniNotElectedResult(Entity):
@@ -8307,6 +9415,8 @@ class Evpn(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8332,7 +9442,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult, ['entry'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult, [u'entry'], name, value)
+
 
 
                     class NextHop(Entity):
@@ -8346,10 +9457,14 @@ class Evpn(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: df_dont_prempt
                         
                         	DF Dont Premption
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: df_type
                         
@@ -8358,12 +9473,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: df_pref
                         
                         	DF Election Preference Set
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -8395,7 +9514,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.NextHop, ['next_hop', 'df_dont_prempt', 'df_type', 'df_pref'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.NextHop, [u'next_hop', u'df_dont_prempt', u'df_type', u'df_pref'], name, value)
+
 
 
                     class ServiceCarvingVpwsPermanentResult(Entity):
@@ -8409,10 +9529,14 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	Service Type
                         	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ethernet_tag
                         
@@ -8420,6 +9544,8 @@ class Evpn(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8449,7 +9575,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, ['vpn_id', 'type', 'ethernet_tag'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, [u'vpn_id', u'type', u'ethernet_tag'], name, value)
+
 
 
                     class RemoteSplitHorizonGroupLabel(Entity):
@@ -8463,12 +9590,16 @@ class Evpn(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: label
                         
                         	Split horizon label associated with next\-hop address
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8496,7 +9627,10 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, ['next_hop', 'label'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, [u'next_hop', u'label'], name, value)
+
+
+
 
 
             class AcIds(Entity):
@@ -8507,6 +9641,8 @@ class Evpn(Entity):
                 
                 	EVPN AC ID table
                 	**type**\: list of  		 :py:class:`AcId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.AcIds.AcId>`
+                
+                	**config**\: False
                 
                 
 
@@ -8545,6 +9681,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: ac_id
                     
                     	AC ID
@@ -8552,10 +9690,14 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: evpn_instance
                     
                     	EVPN Instance summary information
                     	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Nodes.Node.AcIds.AcId.EvpnInstance>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: neighbor
                     
@@ -8563,6 +9705,8 @@ class Evpn(Entity):
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -8596,7 +9740,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Nodes.Node.AcIds.AcId, ['evi', 'ac_id', 'neighbor'], name, value)
+                        self._perform_setattr(Evpn.Nodes.Node.AcIds.AcId, ['evi', 'ac_id', u'neighbor'], name, value)
 
 
                     class EvpnInstance(Entity):
@@ -8610,6 +9754,8 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: encapsulation_xr
                         
                         	EVPN Instance transport encapsulation
@@ -8617,15 +9763,21 @@ class Evpn(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: bd_name
                         
                         	Bridge domain name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	Service Type
                         	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -8657,7 +9809,12 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Nodes.Node.AcIds.AcId.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                            self._perform_setattr(Evpn.Nodes.Node.AcIds.AcId.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
+
+
+
+
 
 
     class Active(Entity):
@@ -8669,55 +9826,77 @@ class Evpn(Entity):
         	EVPN Group Table
         	**type**\:  :py:class:`EvpnGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EvpnGroups>`
         
+        	**config**\: False
+        
         .. attribute:: remote_shgs
         
         	EVPN Remote SHG table
         	**type**\:  :py:class:`RemoteShgs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.RemoteShgs>`
+        
+        	**config**\: False
         
         .. attribute:: client
         
         	L2VPN EVPN Client
         	**type**\:  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Client>`
         
+        	**config**\: False
+        
         .. attribute:: igmps
         
         	EVPN IGMP table
         	**type**\:  :py:class:`Igmps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps>`
+        
+        	**config**\: False
         
         .. attribute:: evis
         
         	L2VPN EVPN EVI Table
         	**type**\:  :py:class:`Evis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Evis>`
         
+        	**config**\: False
+        
         .. attribute:: summary
         
         	L2VPN EVPN Summary
         	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Summary>`
+        
+        	**config**\: False
         
         .. attribute:: evi_detail
         
         	L2VPN EVI Detail Table
         	**type**\:  :py:class:`EviDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail>`
         
+        	**config**\: False
+        
         .. attribute:: teps
         
         	L2VPN EVPN TEP Table
         	**type**\:  :py:class:`Teps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Teps>`
+        
+        	**config**\: False
         
         .. attribute:: internal_labels
         
         	EVPN Internal Label Table
         	**type**\:  :py:class:`InternalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.InternalLabels>`
         
+        	**config**\: False
+        
         .. attribute:: ethernet_segments
         
         	EVPN Ethernet\-Segment Table
         	**type**\:  :py:class:`EthernetSegments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments>`
         
+        	**config**\: False
+        
         .. attribute:: ac_ids
         
         	EVPN AC ID table
         	**type**\:  :py:class:`AcIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.AcIds>`
+        
+        	**config**\: False
         
         
 
@@ -8797,6 +9976,8 @@ class Evpn(Entity):
             	EVPN Group information
             	**type**\: list of  		 :py:class:`EvpnGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EvpnGroups.EvpnGroup>`
             
+            	**config**\: False
+            
             
 
             """
@@ -8835,6 +10016,8 @@ class Evpn(Entity):
                 
                 	**range:** 1..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: group_id
                 
                 	EVPN Group ID
@@ -8842,20 +10025,28 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	EVPN Group State
                 	**type**\:  :py:class:`EvpnGrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.EvpnGrp>`
+                
+                	**config**\: False
                 
                 .. attribute:: core_interface
                 
                 	EVPN Group Core Interface table
                 	**type**\: list of  		 :py:class:`CoreInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EvpnGroups.EvpnGroup.CoreInterface>`
                 
+                	**config**\: False
+                
                 .. attribute:: access_interface
                 
                 	EVPN Access Core Interface table
                 	**type**\: list of  		 :py:class:`AccessInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EvpnGroups.EvpnGroup.AccessInterface>`
+                
+                	**config**\: False
                 
                 
 
@@ -8889,7 +10080,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Active.EvpnGroups.EvpnGroup, ['group_number', 'group_id', 'state'], name, value)
+                    self._perform_setattr(Evpn.Active.EvpnGroups.EvpnGroup, ['group_number', u'group_id', u'state'], name, value)
 
 
                 class CoreInterface(Entity):
@@ -8901,10 +10092,14 @@ class Evpn(Entity):
                     	Interface name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Interface State
                     	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.ImStateEnum>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -8932,7 +10127,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EvpnGroups.EvpnGroup.CoreInterface, ['interface_name', 'state'], name, value)
+                        self._perform_setattr(Evpn.Active.EvpnGroups.EvpnGroup.CoreInterface, [u'interface_name', u'state'], name, value)
+
 
 
                 class AccessInterface(Entity):
@@ -8944,10 +10140,14 @@ class Evpn(Entity):
                     	Interface name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Interface State
                     	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.ImStateEnum>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -8975,7 +10175,10 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EvpnGroups.EvpnGroup.AccessInterface, ['interface_name', 'state'], name, value)
+                        self._perform_setattr(Evpn.Active.EvpnGroups.EvpnGroup.AccessInterface, [u'interface_name', u'state'], name, value)
+
+
+
 
 
         class RemoteShgs(Entity):
@@ -8986,6 +10189,8 @@ class Evpn(Entity):
             
             	EVPN Remote SHG
             	**type**\: list of  		 :py:class:`RemoteShg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.RemoteShgs.RemoteShg>`
+            
+            	**config**\: False
             
             
 
@@ -9025,12 +10230,16 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: esi2
                 
                 	ES id (part 2/5)
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                	**config**\: False
                 
                 .. attribute:: esi3
                 
@@ -9039,12 +10248,16 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: esi4
                 
                 	ES id (part 4/5)
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                	**config**\: False
                 
                 .. attribute:: esi5
                 
@@ -9053,15 +10266,21 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: ethernet_segment_identifier
                 
                 	Ethernet Segment id
                 	**type**\: list of  		 :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.RemoteShgs.RemoteShg.EthernetSegmentIdentifier>`
                 
+                	**config**\: False
+                
                 .. attribute:: remote_split_horizon_group_label
                 
                 	Remote split horizon group labels
                 	**type**\: list of  		 :py:class:`RemoteSplitHorizonGroupLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel>`
+                
+                	**config**\: False
                 
                 
 
@@ -9113,6 +10332,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -9138,7 +10359,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.RemoteShgs.RemoteShg.EthernetSegmentIdentifier, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Active.RemoteShgs.RemoteShg.EthernetSegmentIdentifier, [u'entry'], name, value)
+
 
 
                 class RemoteSplitHorizonGroupLabel(Entity):
@@ -9152,12 +10374,16 @@ class Evpn(Entity):
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: label
                     
                     	Split horizon label associated with next\-hop address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -9186,7 +10412,10 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel, ['next_hop', 'label'], name, value)
+                        self._perform_setattr(Evpn.Active.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel, [u'next_hop', u'label'], name, value)
+
+
+
 
 
         class Client(Entity):
@@ -9215,6 +10444,7 @@ class Evpn(Entity):
                 self._is_frozen = True
 
 
+
         class Igmps(Entity):
             """
             EVPN IGMP table
@@ -9223,6 +10453,8 @@ class Evpn(Entity):
             
             	EVPN Remote
             	**type**\: list of  		 :py:class:`Igmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps.Igmp>`
+            
+            	**config**\: False
             
             
 
@@ -9262,6 +10494,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: bpxcid
                 
                 	BP xcid
@@ -9269,12 +10503,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: evibd
                 
                 	EVI/BD
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: src_ip
                 
@@ -9289,6 +10527,8 @@ class Evpn(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: grp_ip
                 
                 	Group IP Address
@@ -9302,12 +10542,16 @@ class Evpn(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: esi1
                 
                 	ES id (part 1/5)
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                	**config**\: False
                 
                 .. attribute:: esi2
                 
@@ -9316,12 +10560,16 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: esi3
                 
                 	ES id (part 3/5)
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                	**config**\: False
                 
                 .. attribute:: esi4
                 
@@ -9330,6 +10578,8 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: esi5
                 
                 	ES id (part 5/5)
@@ -9337,15 +10587,21 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: source_info
                 
                 	Source Info
                 	**type**\:  :py:class:`SourceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps.Igmp.SourceInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: ethernet_segment_name
                 
                 	Ethernet Segment Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: evi
                 
@@ -9354,6 +10610,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: bd_id
                 
                 	BD id
@@ -9361,10 +10619,14 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: route_type
                 
                 	Route Type
                 	**type**\:  :py:class:`EvpnIgmpMsg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.EvpnIgmpMsg>`
+                
+                	**config**\: False
                 
                 .. attribute:: source_addr
                 
@@ -9373,12 +10635,16 @@ class Evpn(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: group_addr
                 
                 	Group IP Address
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: ethernet_tag_id
                 
@@ -9387,15 +10653,21 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: igmp_version
                 
                 	IGMP Version
                 	**type**\:  :py:class:`EvpnIgmpVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.EvpnIgmpVersion>`
                 
+                	**config**\: False
+                
                 .. attribute:: igmp_group_type
                 
                 	IGMP Group Type
                 	**type**\:  :py:class:`EvpnIgmpGrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.EvpnIgmpGrp>`
+                
+                	**config**\: False
                 
                 .. attribute:: ma_x_response_time
                 
@@ -9404,20 +10676,28 @@ class Evpn(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: resolved
                 
                 	Resolved
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ethernet_segment_identifier
                 
                 	Ethernet Segment id
                 	**type**\: list of  		 :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps.Igmp.EthernetSegmentIdentifier>`
                 
+                	**config**\: False
+                
                 .. attribute:: next_hop
                 
                 	List of nexthop IPv6 addresses
                 	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps.Igmp.NextHop>`
+                
+                	**config**\: False
                 
                 
 
@@ -9491,7 +10771,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Active.Igmps.Igmp, ['is_leave', 'bpxcid', 'evibd', 'src_ip', 'grp_ip', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_segment_name', 'evi', 'bd_id', 'route_type', 'source_addr', 'group_addr', 'ethernet_tag_id', 'igmp_version', 'igmp_group_type', 'ma_x_response_time', 'resolved'], name, value)
+                    self._perform_setattr(Evpn.Active.Igmps.Igmp, ['is_leave', 'bpxcid', 'evibd', 'src_ip', 'grp_ip', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', u'ethernet_segment_name', u'evi', u'bd_id', u'route_type', u'source_addr', u'group_addr', u'ethernet_tag_id', u'igmp_version', u'igmp_group_type', u'ma_x_response_time', u'resolved'], name, value)
 
 
                 class SourceInfo(Entity):
@@ -9503,10 +10783,14 @@ class Evpn(Entity):
                     	local info
                     	**type**\:  :py:class:`LocalInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: type
                     
                     	Type
                     	**type**\:  :py:class:`EvpnIgmpSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.EvpnIgmpSource>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: remote_info
                     
@@ -9514,6 +10798,8 @@ class Evpn(Entity):
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -9546,7 +10832,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo, ['type', 'remote_info'], name, value)
+                        self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo, [u'type', u'remote_info'], name, value)
 
 
                     class LocalInfo(Entity):
@@ -9558,12 +10844,16 @@ class Evpn(Entity):
                         	Interface parameters
                         	**type**\:  :py:class:`Parameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: name
                         
                         	Interface name
                         	**type**\: str
                         
                         	**length:** 0..81
+                        
+                        	**config**\: False
                         
                         .. attribute:: mtu
                         
@@ -9572,12 +10862,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: payload_bytes
                         
                         	Payload bytes
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -9614,7 +10908,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo, ['name', 'mtu', 'payload_bytes'], name, value)
+                            self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo, [u'name', u'mtu', u'payload_bytes'], name, value)
 
 
                         class Parameters(Entity):
@@ -9626,40 +10920,56 @@ class Evpn(Entity):
                             	Ethernet
                             	**type**\:  :py:class:`Ethernet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Ethernet>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: vlan
                             
                             	VLAN
                             	**type**\:  :py:class:`Vlan <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: tdm
                             
                             	TDM
                             	**type**\:  :py:class:`Tdm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Tdm>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: atm
                             
                             	ATM
                             	**type**\:  :py:class:`Atm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Atm>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: fr
                             
                             	Frame Relay
                             	**type**\:  :py:class:`Fr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Fr>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: pseudowire_ether
                             
                             	PW Ether
                             	**type**\:  :py:class:`PseudowireEther <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: pseudowire_iw
                             
                             	PW IW
                             	**type**\:  :py:class:`PseudowireIw <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Type
                             	**type**\:  :py:class:`L2vpnInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnInterface>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -9714,7 +11024,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters, ['type'], name, value)
+                                self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters, [u'type'], name, value)
 
 
                             class Ethernet(Entity):
@@ -9727,6 +11037,8 @@ class Evpn(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9753,7 +11065,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Ethernet, ['xconnect_tags'], name, value)
+                                    self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Ethernet, [u'xconnect_tags'], name, value)
+
 
 
                             class Vlan(Entity):
@@ -9767,12 +11080,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vlan_rewrite_tag
                                 
                                 	VLAN rewrite tag
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: simple_efp
                                 
@@ -9781,12 +11098,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: encapsulation_type
                                 
                                 	Encapsulation Type
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: outer_tag
                                 
@@ -9795,15 +11116,21 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rewrite_tag
                                 
                                 	Rewrite Tags
                                 	**type**\: list of  		 :py:class:`RewriteTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan.RewriteTag>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vlan_range
                                 
                                 	vlan range
                                 	**type**\: list of  		 :py:class:`VlanRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan.VlanRange>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9841,7 +11168,7 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan, ['xconnect_tags', 'vlan_rewrite_tag', 'simple_efp', 'encapsulation_type', 'outer_tag'], name, value)
+                                    self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan, [u'xconnect_tags', u'vlan_rewrite_tag', u'simple_efp', u'encapsulation_type', u'outer_tag'], name, value)
 
 
                                 class RewriteTag(Entity):
@@ -9854,6 +11181,8 @@ class Evpn(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -9880,7 +11209,8 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan.RewriteTag, ['entry'], name, value)
+                                        self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan.RewriteTag, [u'entry'], name, value)
+
 
 
                                 class VlanRange(Entity):
@@ -9894,12 +11224,16 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: upper
                                     
                                     	Upper
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -9928,7 +11262,9 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan.VlanRange, ['lower', 'upper'], name, value)
+                                        self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan.VlanRange, [u'lower', u'upper'], name, value)
+
+
 
 
                             class Tdm(Entity):
@@ -9940,10 +11276,14 @@ class Evpn(Entity):
                                 	TDM options
                                 	**type**\:  :py:class:`TdmOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Tdm.TdmOptions>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: timeslot_group
                                 
                                 	Timeslots separated by , or \- from 1 to 31. \: indicates individual timeslot and \- represents a range.E.g. 1\-3,5 represents timeslots 1, 2, 3, and 5
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: timeslot_rate
                                 
@@ -9952,12 +11292,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 	**units**\: kbit/s
                                 
                                 .. attribute:: tdm_mode
                                 
                                 	TDM mode
                                 	**type**\:  :py:class:`L2vpnTdmMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnTdmMode>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9992,7 +11336,7 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Tdm, ['timeslot_group', 'timeslot_rate', 'tdm_mode'], name, value)
+                                    self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Tdm, [u'timeslot_group', u'timeslot_rate', u'tdm_mode'], name, value)
 
 
                                 class TdmOptions(Entity):
@@ -10006,6 +11350,8 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: byte
                                     
                                     .. attribute:: bit_rate
@@ -10015,6 +11361,8 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: kbit/s
                                     
                                     .. attribute:: rtp
@@ -10022,10 +11370,14 @@ class Evpn(Entity):
                                     	RTP header
                                     	**type**\:  :py:class:`L2vpnTdmRtpOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnTdmRtpOption>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: timestamp_mode
                                     
                                     	TDM Timestamping mode
                                     	**type**\:  :py:class:`L2vpnTimeStampMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnTimeStampMode>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: signalling_packets
                                     
@@ -10034,12 +11386,16 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: cas
                                     
                                     	CAS
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: rtp_header_payload_type
                                     
@@ -10048,6 +11404,8 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: timestamp_clock_freq
                                     
                                     	Timestamping clock frequency in units of 8Khz
@@ -10055,12 +11413,16 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ssrc
                                     
                                     	Synchronization Source identifier
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -10103,7 +11465,9 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Tdm.TdmOptions, ['payload_bytes', 'bit_rate', 'rtp', 'timestamp_mode', 'signalling_packets', 'cas', 'rtp_header_payload_type', 'timestamp_clock_freq', 'ssrc'], name, value)
+                                        self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Tdm.TdmOptions, [u'payload_bytes', u'bit_rate', u'rtp', u'timestamp_mode', u'signalling_packets', u'cas', u'rtp_header_payload_type', u'timestamp_clock_freq', u'ssrc'], name, value)
+
+
 
 
                             class Atm(Entity):
@@ -10117,6 +11481,8 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: maximum_number_cells_un_packed
                                 
                                 	Max number of cells unpacked
@@ -10124,10 +11490,14 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: atm_mode
                                 
                                 	ATM mode
                                 	**type**\:  :py:class:`L2vpnAtmMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAtmMode>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: vpi
                                 
@@ -10136,12 +11506,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vci
                                 
                                 	Virtual channel identifier
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10176,7 +11550,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Atm, ['maximum_number_cells_packed', 'maximum_number_cells_un_packed', 'atm_mode', 'vpi', 'vci'], name, value)
+                                    self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Atm, [u'maximum_number_cells_packed', u'maximum_number_cells_un_packed', u'atm_mode', u'vpi', u'vci'], name, value)
+
 
 
                             class Fr(Entity):
@@ -10188,12 +11563,16 @@ class Evpn(Entity):
                                 	Frame Relay mode
                                 	**type**\:  :py:class:`L2vpnFrMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnFrMode>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dlci
                                 
                                 	Data\-link connection identifier
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10222,7 +11601,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Fr, ['fr_mode', 'dlci'], name, value)
+                                    self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Fr, [u'fr_mode', u'dlci'], name, value)
+
 
 
                             class PseudowireEther(Entity):
@@ -10234,10 +11614,14 @@ class Evpn(Entity):
                                 	Interface list data
                                 	**type**\:  :py:class:`InterfaceList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther.InterfaceList>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: is_valid
                                 
                                 	Is this Interface list valid
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: internal_label
                                 
@@ -10245,6 +11629,8 @@ class Evpn(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10277,7 +11663,7 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther, ['is_valid', 'internal_label'], name, value)
+                                    self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther, [u'is_valid', u'internal_label'], name, value)
 
 
                                 class InterfaceList(Entity):
@@ -10291,6 +11677,8 @@ class Evpn(Entity):
                                     
                                     	**length:** 0..33
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: interface_list_id
                                     
                                     	Interface internal ID
@@ -10298,10 +11686,14 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: interface
                                     
                                     	Interfaces
                                     	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther.InterfaceList.Interface>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -10332,7 +11724,7 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther.InterfaceList, ['interface_list_name', 'interface_list_id'], name, value)
+                                        self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther.InterfaceList, [u'interface_list_name', u'interface_list_id'], name, value)
 
 
                                     class Interface(Entity):
@@ -10344,10 +11736,14 @@ class Evpn(Entity):
                                         	Interface name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: replicate_status
                                         
                                         	Replicate status
                                         	**type**\:  :py:class:`IflistRepStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.IflistRepStatus>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -10376,7 +11772,10 @@ class Evpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther.InterfaceList.Interface, ['interface_name', 'replicate_status'], name, value)
+                                            self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther.InterfaceList.Interface, [u'interface_name', u'replicate_status'], name, value)
+
+
+
 
 
                             class PseudowireIw(Entity):
@@ -10388,10 +11787,14 @@ class Evpn(Entity):
                                 	Interface list data
                                 	**type**\:  :py:class:`InterfaceList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw.InterfaceList>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: is_valid
                                 
                                 	Is this Interface list valid
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: internal_label
                                 
@@ -10399,6 +11802,8 @@ class Evpn(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10431,7 +11836,7 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw, ['is_valid', 'internal_label'], name, value)
+                                    self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw, [u'is_valid', u'internal_label'], name, value)
 
 
                                 class InterfaceList(Entity):
@@ -10445,6 +11850,8 @@ class Evpn(Entity):
                                     
                                     	**length:** 0..33
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: interface_list_id
                                     
                                     	Interface internal ID
@@ -10452,10 +11859,14 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: interface
                                     
                                     	Interfaces
                                     	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw.InterfaceList.Interface>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -10486,7 +11897,7 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw.InterfaceList, ['interface_list_name', 'interface_list_id'], name, value)
+                                        self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw.InterfaceList, [u'interface_list_name', u'interface_list_id'], name, value)
 
 
                                     class Interface(Entity):
@@ -10498,10 +11909,14 @@ class Evpn(Entity):
                                         	Interface name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: replicate_status
                                         
                                         	Replicate status
                                         	**type**\:  :py:class:`IflistRepStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.IflistRepStatus>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -10530,7 +11945,13 @@ class Evpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw.InterfaceList.Interface, ['interface_name', 'replicate_status'], name, value)
+                                            self._perform_setattr(Evpn.Active.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw.InterfaceList.Interface, [u'interface_name', u'replicate_status'], name, value)
+
+
+
+
+
+
 
 
                 class EthernetSegmentIdentifier(Entity):
@@ -10543,6 +11964,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -10569,7 +11992,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.Igmps.Igmp.EthernetSegmentIdentifier, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Active.Igmps.Igmp.EthernetSegmentIdentifier, [u'entry'], name, value)
+
 
 
                 class NextHop(Entity):
@@ -10583,10 +12007,14 @@ class Evpn(Entity):
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: df_dont_prempt
                     
                     	DF Dont Premption
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: df_type
                     
@@ -10595,12 +12023,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: df_pref
                     
                     	DF Election Preference Set
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -10633,7 +12065,10 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.Igmps.Igmp.NextHop, ['next_hop', 'df_dont_prempt', 'df_type', 'df_pref'], name, value)
+                        self._perform_setattr(Evpn.Active.Igmps.Igmp.NextHop, [u'next_hop', u'df_dont_prempt', u'df_type', u'df_pref'], name, value)
+
+
+
 
 
         class Evis(Entity):
@@ -10644,6 +12079,8 @@ class Evpn(Entity):
             
             	L2VPN EVPN EVI Entry
             	**type**\: list of  		 :py:class:`Evi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Evis.Evi>`
+            
+            	**config**\: False
             
             
 
@@ -10683,12 +12120,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: encapsulation
                 
                 	Encap
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: ethernet_vpn_id
                 
@@ -10697,6 +12138,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: encapsulation_xr
                 
                 	EVPN Instance transport encapsulation
@@ -10704,15 +12147,21 @@ class Evpn(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: bd_name
                 
                 	Bridge domain name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: type
                 
                 	Service Type
                 	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                
+                	**config**\: False
                 
                 
 
@@ -10749,7 +12198,9 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Active.Evis.Evi, ['evi', 'encapsulation', 'ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                    self._perform_setattr(Evpn.Active.Evis.Evi, ['evi', 'encapsulation', u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
+
 
 
         class Summary(Entity):
@@ -10763,12 +12214,16 @@ class Evpn(Entity):
             
             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: as_
             
             	BGP AS number
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ev_is
             
@@ -10777,12 +12232,16 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tunnel_endpoints
             
             	Number of Tunnel Endpoint DB Entries
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: local_mac_routes
             
@@ -10791,12 +12250,16 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: local_ipv4_mac_routes
             
             	Number of Local IPv4 MAC\-IP Routes
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: local_ipv6_mac_routes
             
@@ -10805,12 +12268,16 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: es_global_mac_routes
             
             	Number of ES\:Global MAC Routes
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: remote_mac_routes
             
@@ -10819,12 +12286,16 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: remote_soo_mac_routes
             
             	Number of Remote Soo MAC Routes
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: remote_ipv4_mac_routes
             
@@ -10833,12 +12304,16 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: remote_ipv6_mac_routes
             
             	Number of Remote IPv6 MAC\-IP Routes
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: local_imcast_routes
             
@@ -10847,12 +12322,16 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: remote_imcast_routes
             
             	Number of Remote IMCAST Routes
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: labels
             
@@ -10861,12 +12340,16 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: es_entries
             
             	Number of ES Entries in DB
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: neighbor_entries
             
@@ -10875,12 +12358,16 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: local_ead_routes
             
             	Number of Local EAD Entries in DB
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: remote_ead_routes
             
@@ -10889,6 +12376,8 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: global_source_mac
             
             	Global Source MAC Address
@@ -10896,12 +12385,16 @@ class Evpn(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: peering_time
             
             	EVPN ES Peering Time (seconds)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -10912,6 +12405,8 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: second
             
             .. attribute:: carving_time
@@ -10920,6 +12415,8 @@ class Evpn(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -10930,12 +12427,16 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mac_secure_move_interval
             
             	Interval to watch for subsequent mac moves before locking the MAC
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mac_secure_freeze_time
             
@@ -10944,6 +12445,8 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mac_secure_retry_count
             
             	Number of times to retry after a MAC un\-freezes
@@ -10951,10 +12454,14 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cost_out
             
             	EVPN Node Cost\-out
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: startup_cost_in_time
             
@@ -10963,6 +12470,8 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: minute
             
             .. attribute:: l2rib_throttle
@@ -10970,10 +12479,14 @@ class Evpn(Entity):
             	Send to L2RIB Throttled
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: logging_df_election_enabled
             
             	Logging EVPN Designated Forwarder changes enabled
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -11060,7 +12573,8 @@ class Evpn(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.Active.Summary, ['router_id', 'as_', 'ev_is', 'tunnel_endpoints', 'local_mac_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'es_global_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'local_imcast_routes', 'remote_imcast_routes', 'labels', 'es_entries', 'neighbor_entries', 'local_ead_routes', 'remote_ead_routes', 'global_source_mac', 'peering_time', 'recovery_time', 'carving_time', 'mac_secure_move_count', 'mac_secure_move_interval', 'mac_secure_freeze_time', 'mac_secure_retry_count', 'cost_out', 'startup_cost_in_time', 'l2rib_throttle', 'logging_df_election_enabled'], name, value)
+                self._perform_setattr(Evpn.Active.Summary, [u'router_id', u'as_', u'ev_is', u'tunnel_endpoints', u'local_mac_routes', u'local_ipv4_mac_routes', u'local_ipv6_mac_routes', u'es_global_mac_routes', u'remote_mac_routes', u'remote_soo_mac_routes', u'remote_ipv4_mac_routes', u'remote_ipv6_mac_routes', u'local_imcast_routes', u'remote_imcast_routes', u'labels', u'es_entries', u'neighbor_entries', u'local_ead_routes', u'remote_ead_routes', u'global_source_mac', u'peering_time', u'recovery_time', u'carving_time', u'mac_secure_move_count', u'mac_secure_move_interval', u'mac_secure_freeze_time', u'mac_secure_retry_count', u'cost_out', u'startup_cost_in_time', u'l2rib_throttle', u'logging_df_election_enabled'], name, value)
+
 
 
         class EviDetail(Entity):
@@ -11072,10 +12586,14 @@ class Evpn(Entity):
             	EVI BGP RT Detail Info Elements
             	**type**\:  :py:class:`Elements <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements>`
             
+            	**config**\: False
+            
             .. attribute:: evi_children
             
             	Container for all EVI detail info
             	**type**\:  :py:class:`EviChildren <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren>`
+            
+            	**config**\: False
             
             
 
@@ -11119,6 +12637,8 @@ class Evpn(Entity):
                 	EVI BGP RT Detail Info
                 	**type**\: list of  		 :py:class:`Element <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -11157,6 +12677,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: encapsulation
                     
                     	Encap
@@ -11164,30 +12686,42 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: evpn_instance
                     
                     	EVPN Instance summary information
                     	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.EvpnInstance>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: flow_label
                     
                     	Flow Label Information
                     	**type**\:  :py:class:`FlowLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.FlowLabel>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: rd_auto
                     
                     	Automatic Route Distingtuisher
                     	**type**\:  :py:class:`RdAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdAuto>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: rd_configured
                     
                     	Configured Route Distinguisher
                     	**type**\:  :py:class:`RdConfigured <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: rt_auto
                     
                     	Automatic Route Target
                     	**type**\:  :py:class:`RtAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: evi_xr
                     
@@ -11196,6 +12730,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: encapsulation_xr
                     
                     	EVPN Instance encapsulation
@@ -11203,20 +12739,28 @@ class Evpn(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: bd_name
                     
                     	Bridge domain name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: type
                     
                     	Service Type
                     	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	EVI description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: unicast_label
                     
@@ -11225,6 +12769,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: multicast_label
                     
                     	Multicast Label
@@ -11232,15 +12778,21 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: cw_disable
                     
                     	Control\-Word Disable
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: table_policy_name
                     
                     	Table\-policy Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: forward_class
                     
@@ -11249,50 +12801,70 @@ class Evpn(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: rt_import_block_set
                     
                     	Is Import RT None set
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: rt_export_block_set
                     
                     	Is Export RT None set
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: advertise_mac
                     
                     	Advertise MAC\-only routes on this EVI
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: advertise_bvi_mac
                     
                     	Advertise BVI MACs routes on this EVI
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: aliasing_disabled
                     
                     	Route Aliasing is disabled
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: unknown_unicast_flooding_disabled
                     
                     	Unknown\-unicast flooding is disabled
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: reoriginate_disabled
                     
                     	Route Re\-origination is disabled
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: stitching
                     
                     	EVPN Instance is Regular/Stitching side
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: multicast_source_connected
                     
                     	EVI is connected to multicast source
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -11379,7 +12951,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EviDetail.Elements.Element, ['evi', 'encapsulation', 'evi_xr', 'encapsulation_xr', 'bd_name', 'type', 'description', 'unicast_label', 'multicast_label', 'cw_disable', 'table_policy_name', 'forward_class', 'rt_import_block_set', 'rt_export_block_set', 'advertise_mac', 'advertise_bvi_mac', 'aliasing_disabled', 'unknown_unicast_flooding_disabled', 'reoriginate_disabled', 'stitching', 'multicast_source_connected'], name, value)
+                        self._perform_setattr(Evpn.Active.EviDetail.Elements.Element, ['evi', 'encapsulation', u'evi_xr', u'encapsulation_xr', u'bd_name', u'type', u'description', u'unicast_label', u'multicast_label', u'cw_disable', u'table_policy_name', u'forward_class', u'rt_import_block_set', u'rt_export_block_set', u'advertise_mac', u'advertise_bvi_mac', u'aliasing_disabled', u'unknown_unicast_flooding_disabled', u'reoriginate_disabled', u'stitching', u'multicast_source_connected'], name, value)
 
 
                     class EvpnInstance(Entity):
@@ -11393,6 +12965,8 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: encapsulation_xr
                         
                         	EVPN Instance transport encapsulation
@@ -11400,15 +12974,21 @@ class Evpn(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: bd_name
                         
                         	Bridge domain name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	Service Type
                         	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -11441,7 +13021,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                            self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
 
 
                     class FlowLabel(Entity):
@@ -11453,10 +13034,14 @@ class Evpn(Entity):
                         	Static flow label
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: global_flow_label
                         
                         	Globally configured flow label
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -11485,7 +13070,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.FlowLabel, ['static_flow_label', 'global_flow_label'], name, value)
+                            self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.FlowLabel, [u'static_flow_label', u'global_flow_label'], name, value)
+
 
 
                     class RdAuto(Entity):
@@ -11497,25 +13083,35 @@ class Evpn(Entity):
                         	auto
                         	**type**\:  :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdAuto.Auto>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: two_byte_as
                         
                         	two byte as
                         	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdAuto.TwoByteAs>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: four_byte_as
                         
                         	four byte as
                         	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdAuto.FourByteAs>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: v4_addr
                         
                         	v4 addr
                         	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdAuto.V4Addr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: rd
                         
                         	RD
                         	**type**\:  :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -11558,7 +13154,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdAuto, ['rd'], name, value)
+                            self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdAuto, [u'rd'], name, value)
 
 
                         class Auto(Entity):
@@ -11572,12 +13168,16 @@ class Evpn(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: auto_index
                             
                             	Auto\-generated Index
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -11606,7 +13206,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdAuto.Auto, ['router_id', 'auto_index'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdAuto.Auto, [u'router_id', u'auto_index'], name, value)
+
 
 
                         class TwoByteAs(Entity):
@@ -11620,12 +13221,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: four_byte_index
                             
                             	4 Byte Index
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -11654,7 +13259,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdAuto.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdAuto.TwoByteAs, [u'two_byte_as', u'four_byte_index'], name, value)
+
 
 
                         class FourByteAs(Entity):
@@ -11668,12 +13274,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -11702,7 +13312,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdAuto.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdAuto.FourByteAs, [u'four_byte_as', u'two_byte_index'], name, value)
+
 
 
                         class V4Addr(Entity):
@@ -11716,12 +13327,16 @@ class Evpn(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -11750,7 +13365,9 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdAuto.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdAuto.V4Addr, [u'ipv4_address', u'two_byte_index'], name, value)
+
+
 
 
                     class RdConfigured(Entity):
@@ -11762,25 +13379,35 @@ class Evpn(Entity):
                         	auto
                         	**type**\:  :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured.Auto>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: two_byte_as
                         
                         	two byte as
                         	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured.TwoByteAs>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: four_byte_as
                         
                         	four byte as
                         	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured.FourByteAs>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: v4_addr
                         
                         	v4 addr
                         	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RdConfigured.V4Addr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: rd
                         
                         	RD
                         	**type**\:  :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -11823,7 +13450,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdConfigured, ['rd'], name, value)
+                            self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdConfigured, [u'rd'], name, value)
 
 
                         class Auto(Entity):
@@ -11837,12 +13464,16 @@ class Evpn(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: auto_index
                             
                             	Auto\-generated Index
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -11871,7 +13502,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdConfigured.Auto, ['router_id', 'auto_index'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdConfigured.Auto, [u'router_id', u'auto_index'], name, value)
+
 
 
                         class TwoByteAs(Entity):
@@ -11885,12 +13517,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: four_byte_index
                             
                             	4 Byte Index
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -11919,7 +13555,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdConfigured.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdConfigured.TwoByteAs, [u'two_byte_as', u'four_byte_index'], name, value)
+
 
 
                         class FourByteAs(Entity):
@@ -11933,12 +13570,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -11967,7 +13608,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdConfigured.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdConfigured.FourByteAs, [u'four_byte_as', u'two_byte_index'], name, value)
+
 
 
                         class V4Addr(Entity):
@@ -11981,12 +13623,16 @@ class Evpn(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -12015,7 +13661,9 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdConfigured.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RdConfigured.V4Addr, [u'ipv4_address', u'two_byte_index'], name, value)
+
+
 
 
                     class RtAuto(Entity):
@@ -12027,25 +13675,35 @@ class Evpn(Entity):
                         	two byte as
                         	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: four_byte_as
                         
                         	four byte as
                         	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto.FourByteAs>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: v4_addr
                         
                         	v4 addr
                         	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto.V4Addr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: es_import
                         
                         	es import
                         	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: rt
                         
                         	RT
                         	**type**\:  :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -12088,7 +13746,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto, ['rt'], name, value)
+                            self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto, [u'rt'], name, value)
 
 
                         class TwoByteAs(Entity):
@@ -12102,12 +13760,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: four_byte_index
                             
                             	4 Byte Index
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -12136,7 +13798,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto.TwoByteAs, [u'two_byte_as', u'four_byte_index'], name, value)
+
 
 
                         class FourByteAs(Entity):
@@ -12150,12 +13813,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -12184,7 +13851,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto.FourByteAs, [u'four_byte_as', u'two_byte_index'], name, value)
+
 
 
                         class V4Addr(Entity):
@@ -12198,12 +13866,16 @@ class Evpn(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -12232,7 +13904,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto.V4Addr, [u'ipv4_address', u'two_byte_index'], name, value)
+
 
 
                         class EsImport(Entity):
@@ -12246,12 +13919,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: low_bytes
                             
                             	Low 2 bytes of ES Import
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -12280,7 +13957,11 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport, ['high_bytes', 'low_bytes'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.Elements.Element.RtAuto.EsImport, [u'high_bytes', u'low_bytes'], name, value)
+
+
+
+
 
 
             class EviChildren(Entity):
@@ -12292,25 +13973,35 @@ class Evpn(Entity):
                 	EVPN Neighbor table
                 	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Neighbors>`
                 
+                	**config**\: False
+                
                 .. attribute:: ethernet_auto_discoveries
                 
                 	EVPN Ethernet Auto\-Discovery table
                 	**type**\:  :py:class:`EthernetAutoDiscoveries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries>`
+                
+                	**config**\: False
                 
                 .. attribute:: inclusive_multicasts
                 
                 	L2VPN EVPN IMCAST table
                 	**type**\:  :py:class:`InclusiveMulticasts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts>`
                 
+                	**config**\: False
+                
                 .. attribute:: route_targets
                 
                 	L2VPN EVPN EVI RT Child Table
                 	**type**\:  :py:class:`RouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets>`
                 
+                	**config**\: False
+                
                 .. attribute:: macs
                 
                 	L2VPN EVPN EVI MAC table
                 	**type**\:  :py:class:`Macs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs>`
+                
+                	**config**\: False
                 
                 
 
@@ -12366,6 +14057,8 @@ class Evpn(Entity):
                     	EVPN Neighbor table
                     	**type**\: list of  		 :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -12404,12 +14097,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: encapsulation
                         
                         	Encap
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: neighbor_ip
                         
@@ -12424,10 +14121,14 @@ class Evpn(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: evpn_instance
                         
                         	EVPN Instance summary information
                         	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: neighbor
                         
@@ -12435,6 +14136,8 @@ class Evpn(Entity):
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -12471,7 +14174,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor, ['evi', 'encapsulation', 'neighbor_ip', 'neighbor'], name, value)
+                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor, ['evi', 'encapsulation', 'neighbor_ip', u'neighbor'], name, value)
 
 
                         class EvpnInstance(Entity):
@@ -12485,6 +14188,8 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: encapsulation_xr
                             
                             	EVPN Instance transport encapsulation
@@ -12492,15 +14197,21 @@ class Evpn(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: bd_name
                             
                             	Bridge domain name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Service Type
                             	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -12533,7 +14244,10 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
+
+
 
 
                 class EthernetAutoDiscoveries(Entity):
@@ -12544,6 +14258,8 @@ class Evpn(Entity):
                     
                     	EVPN Ethernet Auto\-Discovery Entry
                     	**type**\: list of  		 :py:class:`EthernetAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -12583,12 +14299,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: encapsulation
                         
                         	Encap
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: esi1
                         
@@ -12597,12 +14317,16 @@ class Evpn(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
+                        	**config**\: False
+                        
                         .. attribute:: esi2
                         
                         	ES id (part 2/5)
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
+                        
+                        	**config**\: False
                         
                         .. attribute:: esi3
                         
@@ -12611,12 +14335,16 @@ class Evpn(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
+                        	**config**\: False
+                        
                         .. attribute:: esi4
                         
                         	ES id (part 4/5)
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
+                        
+                        	**config**\: False
                         
                         .. attribute:: esi5
                         
@@ -12625,6 +14353,8 @@ class Evpn(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
+                        	**config**\: False
+                        
                         .. attribute:: ethernet_tag
                         
                         	Ethernet Tag ID
@@ -12632,10 +14362,14 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: evpn_instance
                         
                         	EVPN Instance summary information
                         	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ethernet_tag_xr
                         
@@ -12644,12 +14378,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: local_next_hop
                         
                         	Local nexthop IP
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: local_label
                         
@@ -12658,20 +14396,28 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_local_ead
                         
                         	Indication of EthernetAutoDiscovery Route is local
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: redundancy_single_active
                         
                         	Single\-active redundancy configured at remote EAD
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: redundancy_single_flow_active
                         
                         	Single\-flow\-active redundancy configured at remote EAD
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: num_paths
                         
@@ -12680,15 +14426,21 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ethernet_segment_identifier
                         
                         	Ethernet Segment id
                         	**type**\: list of  		 :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: path_buffer
                         
                         	Path List Buffer
                         	**type**\: list of  		 :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -12750,7 +14502,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['evi', 'encapsulation', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'ethernet_tag_xr', 'local_next_hop', 'local_label', 'is_local_ead', 'redundancy_single_active', 'redundancy_single_flow_active', 'num_paths'], name, value)
+                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['evi', 'encapsulation', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', u'ethernet_tag_xr', u'local_next_hop', u'local_label', u'is_local_ead', u'redundancy_single_active', u'redundancy_single_flow_active', u'num_paths'], name, value)
 
 
                         class EvpnInstance(Entity):
@@ -12764,6 +14516,8 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: encapsulation_xr
                             
                             	EVPN Instance transport encapsulation
@@ -12771,15 +14525,21 @@ class Evpn(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: bd_name
                             
                             	Bridge domain name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Service Type
                             	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -12812,7 +14572,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
 
 
                         class EthernetSegmentIdentifier(Entity):
@@ -12825,6 +14586,8 @@ class Evpn(Entity):
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -12851,7 +14614,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier, ['entry'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier, [u'entry'], name, value)
+
 
 
                         class PathBuffer(Entity):
@@ -12865,12 +14629,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: next_hop
                             
                             	Next\-hop IP address (v6 format)
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: output_label
                             
@@ -12879,12 +14647,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: srte_tunnel
                             
                             	Segment\-Routing Traffic Engineering Tunnel Interface Handle
                             	**type**\: str
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            	**config**\: False
                             
                             
 
@@ -12917,7 +14689,10 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer, [u'tunnel_endpoint_id', u'next_hop', u'output_label', u'srte_tunnel'], name, value)
+
+
+
 
 
                 class InclusiveMulticasts(Entity):
@@ -12928,6 +14703,8 @@ class Evpn(Entity):
                     
                     	L2VPN EVPN IMCAST table
                     	**type**\: list of  		 :py:class:`InclusiveMulticast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -12967,6 +14744,8 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: encapsulation
                         
                         	Encap
@@ -12974,12 +14753,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ethernet_tag
                         
                         	Ethernet Tag
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: originating_ip
                         
@@ -12994,10 +14777,14 @@ class Evpn(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: evpn_instance
                         
                         	EVPN Instance summary information
                         	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ethernet_tag_xr
                         
@@ -13006,12 +14793,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: originating_ip_xr
                         
                         	Originating IP
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: tunnel_endpoint_id
                         
@@ -13020,12 +14811,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: next_hop
                         
                         	IP of nexthop
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: output_label
                         
@@ -13034,15 +14829,21 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_local_entry
                         
                         	Local entry
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_proxy_entry
                         
                         	Proxy entry
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: srte_policy
                         
@@ -13050,6 +14851,8 @@ class Evpn(Entity):
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        	**config**\: False
                         
                         
 
@@ -13102,7 +14905,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, ['evi', 'encapsulation', 'ethernet_tag', 'originating_ip', 'ethernet_tag_xr', 'originating_ip_xr', 'tunnel_endpoint_id', 'next_hop', 'output_label', 'is_local_entry', 'is_proxy_entry', 'srte_policy'], name, value)
+                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, ['evi', 'encapsulation', 'ethernet_tag', 'originating_ip', u'ethernet_tag_xr', u'originating_ip_xr', u'tunnel_endpoint_id', u'next_hop', u'output_label', u'is_local_entry', u'is_proxy_entry', u'srte_policy'], name, value)
 
 
                         class EvpnInstance(Entity):
@@ -13116,6 +14919,8 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: encapsulation_xr
                             
                             	EVPN Instance transport encapsulation
@@ -13123,15 +14928,21 @@ class Evpn(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: bd_name
                             
                             	Bridge domain name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Service Type
                             	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -13164,7 +14975,10 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
+
+
 
 
                 class RouteTargets(Entity):
@@ -13175,6 +14989,8 @@ class Evpn(Entity):
                     
                     	L2VPN EVPN EVI RT Table
                     	**type**\: list of  		 :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -13214,6 +15030,8 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: encapsulation
                         
                         	Encap
@@ -13221,15 +15039,21 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: role
                         
                         	Role of the route target
                         	**type**\:  :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetRole>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: format
                         
                         	Format of the route target
                         	**type**\:  :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetFormat>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: as_
                         
@@ -13238,12 +15062,16 @@ class Evpn(Entity):
                         
                         	**range:** 1..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: as_index
                         
                         	RT AS Index
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: addr_index
                         
@@ -13252,6 +15080,8 @@ class Evpn(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: address
                         
                         	RT IPv4 Address
@@ -13259,25 +15089,35 @@ class Evpn(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: evpn_instance
                         
                         	EVPN Instance summary information
                         	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: route_target
                         
                         	Route Target
                         	**type**\:  :py:class:`RouteTarget_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: route_target_role
                         
                         	RT Role
                         	**type**\:  :py:class:`L2vpnAdRtRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRtRole>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: route_target_stitching
                         
                         	RT Stitching
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -13330,7 +15170,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget, ['evi', 'encapsulation', 'role', 'format', 'as_', 'as_index', 'addr_index', 'address', 'route_target_role', 'route_target_stitching'], name, value)
+                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget, ['evi', 'encapsulation', 'role', 'format', 'as_', 'as_index', 'addr_index', 'address', u'route_target_role', u'route_target_stitching'], name, value)
 
 
                         class EvpnInstance(Entity):
@@ -13344,6 +15184,8 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: encapsulation_xr
                             
                             	EVPN Instance transport encapsulation
@@ -13351,15 +15193,21 @@ class Evpn(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: bd_name
                             
                             	Bridge domain name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Service Type
                             	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -13392,7 +15240,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
 
 
                         class RouteTarget_(Entity):
@@ -13404,25 +15253,35 @@ class Evpn(Entity):
                             	two byte as
                             	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: four_byte_as
                             
                             	four byte as
                             	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: v4_addr
                             
                             	v4 addr
                             	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: es_import
                             
                             	es import
                             	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: rt
                             
                             	RT
                             	**type**\:  :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -13465,7 +15324,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, ['rt'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, [u'rt'], name, value)
 
 
                             class TwoByteAs(Entity):
@@ -13479,12 +15338,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: four_byte_index
                                 
                                 	4 Byte Index
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13513,7 +15376,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, [u'two_byte_as', u'four_byte_index'], name, value)
+
 
 
                             class FourByteAs(Entity):
@@ -13527,12 +15391,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13561,7 +15429,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, [u'four_byte_as', u'two_byte_index'], name, value)
+
 
 
                             class V4Addr(Entity):
@@ -13575,12 +15444,16 @@ class Evpn(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13609,7 +15482,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, [u'ipv4_address', u'two_byte_index'], name, value)
+
 
 
                             class EsImport(Entity):
@@ -13623,12 +15497,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: low_bytes
                                 
                                 	Low 2 bytes of ES Import
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13657,7 +15535,11 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, ['high_bytes', 'low_bytes'], name, value)
+                                    self._perform_setattr(Evpn.Active.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, [u'high_bytes', u'low_bytes'], name, value)
+
+
+
+
 
 
                 class Macs(Entity):
@@ -13668,6 +15550,8 @@ class Evpn(Entity):
                     
                     	L2VPN EVPN MAC table
                     	**type**\: list of  		 :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -13707,12 +15591,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: encapsulation
                         
                         	Encap
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: ethernet_tag
                         
@@ -13721,12 +15609,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: mac_address
                         
                         	MAC address
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        	**config**\: False
                         
                         .. attribute:: ip_address
                         
@@ -13741,10 +15633,14 @@ class Evpn(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: evpn_instance
                         
                         	EVPN Instance summary information
                         	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac.EvpnInstance>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ethernet_tag_xr
                         
@@ -13753,12 +15649,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: mac_address_xr
                         
                         	MAC address
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        	**config**\: False
                         
                         .. attribute:: ip_address_xr
                         
@@ -13767,12 +15667,16 @@ class Evpn(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: local_label
                         
                         	Associated local label
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: num_paths
                         
@@ -13781,20 +15685,28 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_local_mac
                         
                         	Indication of MAC being locally generated
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_proxy_entry
                         
                         	Proxy entry
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_remote_mac
                         
                         	Indication of MAC being remotely generated
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: soo_nexthop
                         
@@ -13803,12 +15715,16 @@ class Evpn(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipnh_address
                         
                         	IP nexthop address (v6 format)
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: esi_port_key
                         
@@ -13817,12 +15733,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: local_encap_type
                         
                         	Encap type of local MAC
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: remote_encap_type
                         
@@ -13831,10 +15751,14 @@ class Evpn(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: learned_bridge_port_name
                         
                         	Port the MAC was learned on
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: local_seq_id
                         
@@ -13843,12 +15767,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_seq_id
                         
                         	remote seq id
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: local_l3_label
                         
@@ -13857,12 +15785,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: router_mac_address
                         
                         	Router MAC address
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        	**config**\: False
                         
                         .. attribute:: mac_flush_requested
                         
@@ -13871,12 +15803,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: mac_flush_received
                         
                         	Number of flushes received 
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: internal_label
                         
@@ -13885,35 +15821,49 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: resolved
                         
                         	Internal Label has resolved per\-ES EAD and per\-EVI EAD or MAC routes
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: local_is_static
                         
                         	Indication if Local MAC is statically configured
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_is_static
                         
                         	Indication if Remote MAC is statically configured
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: local_ethernet_segment_identifier
                         
                         	Local Ethernet Segment id
                         	**type**\: list of  		 :py:class:`LocalEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_ethernet_segment_identifier
                         
                         	Remote Ethernet Segment id
                         	**type**\: list of  		 :py:class:`RemoteEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: path_buffer
                         
                         	Path List Buffer
                         	**type**\: list of  		 :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EviDetail.EviChildren.Macs.Mac.PathBuffer>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -14004,7 +15954,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac, ['evi', 'encapsulation', 'ethernet_tag', 'mac_address', 'ip_address', 'ethernet_tag_xr', 'mac_address_xr', 'ip_address_xr', 'local_label', 'num_paths', 'is_local_mac', 'is_proxy_entry', 'is_remote_mac', 'soo_nexthop', 'ipnh_address', 'esi_port_key', 'local_encap_type', 'remote_encap_type', 'learned_bridge_port_name', 'local_seq_id', 'remote_seq_id', 'local_l3_label', 'router_mac_address', 'mac_flush_requested', 'mac_flush_received', 'internal_label', 'resolved', 'local_is_static', 'remote_is_static'], name, value)
+                            self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac, ['evi', 'encapsulation', 'ethernet_tag', 'mac_address', 'ip_address', u'ethernet_tag_xr', u'mac_address_xr', u'ip_address_xr', u'local_label', u'num_paths', u'is_local_mac', u'is_proxy_entry', u'is_remote_mac', u'soo_nexthop', u'ipnh_address', u'esi_port_key', u'local_encap_type', u'remote_encap_type', u'learned_bridge_port_name', u'local_seq_id', u'remote_seq_id', u'local_l3_label', u'router_mac_address', u'mac_flush_requested', u'mac_flush_received', u'internal_label', u'resolved', u'local_is_static', u'remote_is_static'], name, value)
 
 
                         class EvpnInstance(Entity):
@@ -14018,6 +15968,8 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: encapsulation_xr
                             
                             	EVPN Instance transport encapsulation
@@ -14025,15 +15977,21 @@ class Evpn(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: bd_name
                             
                             	Bridge domain name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Service Type
                             	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -14066,7 +16024,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
 
 
                         class LocalEthernetSegmentIdentifier(Entity):
@@ -14079,6 +16038,8 @@ class Evpn(Entity):
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -14105,7 +16066,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, ['entry'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, [u'entry'], name, value)
+
 
 
                         class RemoteEthernetSegmentIdentifier(Entity):
@@ -14118,6 +16080,8 @@ class Evpn(Entity):
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -14144,7 +16108,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, ['entry'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, [u'entry'], name, value)
+
 
 
                         class PathBuffer(Entity):
@@ -14158,12 +16123,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: next_hop
                             
                             	Next\-hop IP address (v6 format)
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: output_label
                             
@@ -14172,12 +16141,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: srte_tunnel
                             
                             	Segment\-Routing Traffic Engineering Tunnel Interface Handle
                             	**type**\: str
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            	**config**\: False
                             
                             
 
@@ -14210,7 +16183,12 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac.PathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
+                                self._perform_setattr(Evpn.Active.EviDetail.EviChildren.Macs.Mac.PathBuffer, [u'tunnel_endpoint_id', u'next_hop', u'output_label', u'srte_tunnel'], name, value)
+
+
+
+
+
 
 
         class Teps(Entity):
@@ -14221,6 +16199,8 @@ class Evpn(Entity):
             
             	L2VPN EVPN TEP Entry
             	**type**\: list of  		 :py:class:`Tep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Teps.Tep>`
+            
+            	**config**\: False
             
             
 
@@ -14260,15 +16240,21 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: local_info
                 
                 	Local TEP Information
                 	**type**\:  :py:class:`LocalInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Teps.Tep.LocalInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: remote_info
                 
                 	Remote TEP Information
                 	**type**\:  :py:class:`RemoteInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.Teps.Tep.RemoteInfo>`
+                
+                	**config**\: False
                 
                 .. attribute:: tunnel_endpoint_id
                 
@@ -14277,12 +16263,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: type
                 
                 	EVPN Tunnel Endpoint Type
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: use_count
                 
@@ -14291,10 +16281,14 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: vrf_name
                 
                 	VRF Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: vrf_table_id
                 
@@ -14303,12 +16297,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: udp_port
                 
                 	UDP port
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -14355,7 +16353,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Active.Teps.Tep, ['tep_id', 'tunnel_endpoint_id', 'type', 'use_count', 'vrf_name', 'vrf_table_id', 'udp_port'], name, value)
+                    self._perform_setattr(Evpn.Active.Teps.Tep, ['tep_id', u'tunnel_endpoint_id', u'type', u'use_count', u'vrf_name', u'vrf_table_id', u'udp_port'], name, value)
 
 
                 class LocalInfo(Entity):
@@ -14369,6 +16367,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: encapsulation
                     
                     	EVPN Tunnel encapsulation
@@ -14376,12 +16376,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: ip
                     
                     	IP address (v6 format)
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -14411,7 +16415,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.Teps.Tep.LocalInfo, ['ethernet_vpn_id', 'encapsulation', 'ip'], name, value)
+                        self._perform_setattr(Evpn.Active.Teps.Tep.LocalInfo, [u'ethernet_vpn_id', u'encapsulation', u'ip'], name, value)
+
 
 
                 class RemoteInfo(Entity):
@@ -14425,6 +16430,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: encapsulation
                     
                     	EVPN Tunnel encapsulation
@@ -14432,12 +16439,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: ip
                     
                     	IP address (v6 format)
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -14467,7 +16478,10 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.Teps.Tep.RemoteInfo, ['ethernet_vpn_id', 'encapsulation', 'ip'], name, value)
+                        self._perform_setattr(Evpn.Active.Teps.Tep.RemoteInfo, [u'ethernet_vpn_id', u'encapsulation', u'ip'], name, value)
+
+
+
 
 
         class InternalLabels(Entity):
@@ -14478,6 +16492,8 @@ class Evpn(Entity):
             
             	L2VPN EVPN Internal Label
             	**type**\: list of  		 :py:class:`InternalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.InternalLabels.InternalLabel>`
+            
+            	**config**\: False
             
             
 
@@ -14517,12 +16533,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: encapsulation
                 
                 	Encap
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: esi1
                 
@@ -14531,12 +16551,16 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: esi2
                 
                 	ES id (part 2/5)
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                	**config**\: False
                 
                 .. attribute:: esi3
                 
@@ -14545,12 +16569,16 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: esi4
                 
                 	ES id (part 4/5)
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                	**config**\: False
                 
                 .. attribute:: esi5
                 
@@ -14559,6 +16587,8 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: ethernet_tag
                 
                 	Ethernet Tag ID
@@ -14566,10 +16596,14 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: evpn_instance
                 
                 	EVPN Instance summary information
                 	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.InternalLabels.InternalLabel.EvpnInstance>`
+                
+                	**config**\: False
                 
                 .. attribute:: esi
                 
@@ -14578,12 +16612,16 @@ class Evpn(Entity):
                 
                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                 
+                	**config**\: False
+                
                 .. attribute:: tag
                 
                 	Label Tag
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: internal_label
                 
@@ -14592,12 +16630,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: mac_num_paths
                 
                 	Number of items in the MAC path buffer
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: ead_num_paths
                 
@@ -14606,12 +16648,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: evi_num_paths
                 
                 	Number of items in the evi path buffer
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: sum_num_paths
                 
@@ -14620,6 +16666,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: sum_num_active_paths
                 
                 	Number of items in the sum path buffer that are Active Paths
@@ -14627,45 +16675,63 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: resolved
                 
                 	Internal Label has resolved per\-ES EAD and per\-EVI EAD or MAC routes
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ecmp_disable
                 
                 	ECMP Disable Per EVI Resolution
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: redundancy_single_active
                 
                 	Single\-active redundancy configured at remote ES
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: redundancy_single_flow_active
                 
                 	Single\-flow\-active redundancy at remote ES (MST\-AG)
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: mac_path_buffer
                 
                 	MAC Path list buffer
                 	**type**\: list of  		 :py:class:`MacPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.InternalLabels.InternalLabel.MacPathBuffer>`
+                
+                	**config**\: False
                 
                 .. attribute:: ead_path_buffer
                 
                 	EAD/ES Path list buffer
                 	**type**\: list of  		 :py:class:`EadPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.InternalLabels.InternalLabel.EadPathBuffer>`
                 
+                	**config**\: False
+                
                 .. attribute:: evi_path_buffer
                 
                 	EAD/EVI Path list buffer
                 	**type**\: list of  		 :py:class:`EviPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.InternalLabels.InternalLabel.EviPathBuffer>`
                 
+                	**config**\: False
+                
                 .. attribute:: summary_path_buffer
                 
                 	Summary Path list buffer
                 	**type**\: list of  		 :py:class:`SummaryPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.InternalLabels.InternalLabel.SummaryPathBuffer>`
+                
+                	**config**\: False
                 
                 
 
@@ -14739,7 +16805,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel, ['evi', 'encapsulation', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'esi', 'tag', 'internal_label', 'mac_num_paths', 'ead_num_paths', 'evi_num_paths', 'sum_num_paths', 'sum_num_active_paths', 'resolved', 'ecmp_disable', 'redundancy_single_active', 'redundancy_single_flow_active'], name, value)
+                    self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel, ['evi', 'encapsulation', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', u'esi', u'tag', u'internal_label', u'mac_num_paths', u'ead_num_paths', u'evi_num_paths', u'sum_num_paths', u'sum_num_active_paths', u'resolved', u'ecmp_disable', u'redundancy_single_active', u'redundancy_single_flow_active'], name, value)
 
 
                 class EvpnInstance(Entity):
@@ -14753,6 +16819,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: encapsulation_xr
                     
                     	EVPN Instance transport encapsulation
@@ -14760,15 +16828,21 @@ class Evpn(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: bd_name
                     
                     	Bridge domain name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: type
                     
                     	Service Type
                     	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -14801,7 +16875,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                        self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
 
 
                 class MacPathBuffer(Entity):
@@ -14815,12 +16890,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_hop
                     
                     	Next\-hop IP address (v6 format)
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_label
                     
@@ -14829,12 +16908,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: srte_tunnel
                     
                     	Segment\-Routing Traffic Engineering Tunnel Interface Handle
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                    
+                    	**config**\: False
                     
                     
 
@@ -14867,7 +16950,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel.MacPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
+                        self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel.MacPathBuffer, [u'tunnel_endpoint_id', u'next_hop', u'output_label', u'srte_tunnel'], name, value)
+
 
 
                 class EadPathBuffer(Entity):
@@ -14881,12 +16965,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_hop
                     
                     	Next\-hop IP address (v6 format)
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_label
                     
@@ -14895,12 +16983,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: srte_tunnel
                     
                     	Segment\-Routing Traffic Engineering Tunnel Interface Handle
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                    
+                    	**config**\: False
                     
                     
 
@@ -14933,7 +17025,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel.EadPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
+                        self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel.EadPathBuffer, [u'tunnel_endpoint_id', u'next_hop', u'output_label', u'srte_tunnel'], name, value)
+
 
 
                 class EviPathBuffer(Entity):
@@ -14947,12 +17040,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_hop
                     
                     	Next\-hop IP address (v6 format)
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_label
                     
@@ -14961,12 +17058,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: srte_tunnel
                     
                     	Segment\-Routing Traffic Engineering Tunnel Interface Handle
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                    
+                    	**config**\: False
                     
                     
 
@@ -14999,7 +17100,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel.EviPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
+                        self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel.EviPathBuffer, [u'tunnel_endpoint_id', u'next_hop', u'output_label', u'srte_tunnel'], name, value)
+
 
 
                 class SummaryPathBuffer(Entity):
@@ -15013,12 +17115,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_hop
                     
                     	Next\-hop IP address (v6 format)
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_label
                     
@@ -15027,12 +17133,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: srte_tunnel
                     
                     	Segment\-Routing Traffic Engineering Tunnel Interface Handle
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                    
+                    	**config**\: False
                     
                     
 
@@ -15065,7 +17175,10 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel.SummaryPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
+                        self._perform_setattr(Evpn.Active.InternalLabels.InternalLabel.SummaryPathBuffer, [u'tunnel_endpoint_id', u'next_hop', u'output_label', u'srte_tunnel'], name, value)
+
+
+
 
 
         class EthernetSegments(Entity):
@@ -15076,6 +17189,8 @@ class Evpn(Entity):
             
             	EVPN Ethernet\-Segment Entry
             	**type**\: list of  		 :py:class:`EthernetSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment>`
+            
+            	**config**\: False
             
             
 
@@ -15115,12 +17230,16 @@ class Evpn(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: esi1
                 
                 	ES id (part 1/5)
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                	**config**\: False
                 
                 .. attribute:: esi2
                 
@@ -15129,12 +17248,16 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: esi3
                 
                 	ES id (part 3/5)
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                	**config**\: False
                 
                 .. attribute:: esi4
                 
@@ -15143,6 +17266,8 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: esi5
                 
                 	ES id (part 5/5)
@@ -15150,15 +17275,21 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: esi_type
                 
                 	ESI Type
                 	**type**\:  :py:class:`L2vpnEvpnEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnEsi>`
                 
+                	**config**\: False
+                
                 .. attribute:: esi_system_identifier
                 
                 	ESI System Identifier
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: esi_port_key
                 
@@ -15167,6 +17298,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: esi_system_priority
                 
                 	ESI System Priority
@@ -15174,10 +17307,14 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ethernet_segment_name
                 
                 	Ethernet Segment Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: ethernet_segment_state
                 
@@ -15186,6 +17323,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: if_handle
                 
                 	Main port ifhandle
@@ -15193,10 +17332,14 @@ class Evpn(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: main_port_role
                 
                 	Main port redundancy group role
                 	**type**\:  :py:class:`L2vpnRgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnRgRole>`
+                
+                	**config**\: False
                 
                 .. attribute:: main_port_mac
                 
@@ -15205,12 +17348,16 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: num_up_p_ws
                 
                 	Number of PWs in Up state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: route_target
                 
@@ -15219,45 +17366,63 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: rt_origin
                 
                 	Origin of operational ES\-Import RT
                 	**type**\:  :py:class:`L2vpnEvpnRtOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnRtOrigin>`
+                
+                	**config**\: False
                 
                 .. attribute:: es_bgp_gates
                 
                 	ES BGP Gates
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: es_l2fib_gates
                 
                 	ES L2FIB Gates
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: mac_flushing_mode_config
                 
                 	Configured MAC Flushing mode
                 	**type**\:  :py:class:`L2vpnEvpnMfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnMfMode>`
                 
+                	**config**\: False
+                
                 .. attribute:: load_balance_mode_config
                 
                 	Configured load balancing mode
                 	**type**\:  :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
+                
+                	**config**\: False
                 
                 .. attribute:: load_balance_mode_is_default
                 
                 	Load balancing mode is default
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: load_balance_mode_oper
                 
                 	Operational load balancing mode
                 	**type**\:  :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
                 
+                	**config**\: False
+                
                 .. attribute:: force_single_home
                 
                 	Ethernet\-Segment forced to single home
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: source_mac_oper
                 
@@ -15266,10 +17431,14 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: source_mac_origin
                 
                 	Origin of operational source MAC address
                 	**type**\:  :py:class:`L2vpnEvpnSmacSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnSmacSrc>`
+                
+                	**config**\: False
                 
                 .. attribute:: peering_timer
                 
@@ -15277,6 +17446,8 @@ class Evpn(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -15287,6 +17458,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: recovery_timer
@@ -15295,6 +17468,8 @@ class Evpn(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -15305,6 +17480,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: carving_timer
@@ -15313,6 +17490,8 @@ class Evpn(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -15323,6 +17502,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: service_carving_mode
@@ -15330,15 +17511,21 @@ class Evpn(Entity):
                 	Service carving mode
                 	**type**\:  :py:class:`L2vpnEvpnScMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnScMode>`
                 
+                	**config**\: False
+                
                 .. attribute:: primary_services_input
                 
                 	Input string of Primary services ESI/I\-SIDs
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: secondary_services_input
                 
                 	Input string of Secondary services ESI/I\-SIDs
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: forwarder_ports
                 
@@ -15347,12 +17534,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: permanent_forwarder_ports
                 
                 	Count of Forwarders with permanent service
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: elected_forwarder_ports
                 
@@ -15361,12 +17552,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: not_elected_forwarder_ports
                 
                 	Count of Forwarders with not elected service
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: not_config_forwarder_ports
                 
@@ -15375,25 +17570,35 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: mp_protected
                 
                 	MP is protected and not under EVPN control
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: nve_anycast_vtep
                 
                 	Anycast VTEP mode on NVE main\-interface
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: nve_ingress_replication
                 
                 	Ingress\-Replication is configured on NVE main\-interface
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: local_split_horizon_group_label_valid
                 
                 	Local split horizon group label is valid
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: local_split_horizon_group_label
                 
@@ -15402,65 +17607,91 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ethernet_segment_identifier
                 
                 	Ethernet Segment id
                 	**type**\: list of  		 :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier>`
+                
+                	**config**\: False
                 
                 .. attribute:: primary_service
                 
                 	List of Primary services ESI/I\-SIDs
                 	**type**\: list of  		 :py:class:`PrimaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.PrimaryService>`
                 
+                	**config**\: False
+                
                 .. attribute:: secondary_service
                 
                 	List of Secondary services ESI/I\-SIDs
                 	**type**\: list of  		 :py:class:`SecondaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.SecondaryService>`
+                
+                	**config**\: False
                 
                 .. attribute:: service_carving_i_sidelected_result
                 
                 	Elected ISID service carving results
                 	**type**\: list of  		 :py:class:`ServiceCarvingISidelectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult>`
                 
+                	**config**\: False
+                
                 .. attribute:: service_carving_isid_not_elected_result
                 
                 	Not elected ISID service carving results
                 	**type**\: list of  		 :py:class:`ServiceCarvingIsidNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult>`
+                
+                	**config**\: False
                 
                 .. attribute:: service_carving_evi_elected_result
                 
                 	Elected EVI service carving results
                 	**type**\: list of  		 :py:class:`ServiceCarvingEviElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult>`
                 
+                	**config**\: False
+                
                 .. attribute:: service_carving_evi_not_elected_result
                 
                 	Not elected EVI service carving results
                 	**type**\: list of  		 :py:class:`ServiceCarvingEviNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult>`
+                
+                	**config**\: False
                 
                 .. attribute:: service_carving_vni_elected_result
                 
                 	Elected VNI service carving results
                 	**type**\: list of  		 :py:class:`ServiceCarvingVniElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult>`
                 
+                	**config**\: False
+                
                 .. attribute:: service_carving_vni_not_elected_result
                 
                 	Not elected VNI service carving results
                 	**type**\: list of  		 :py:class:`ServiceCarvingVniNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult>`
+                
+                	**config**\: False
                 
                 .. attribute:: next_hop
                 
                 	List of nexthop IPv6 addresses
                 	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.NextHop>`
                 
+                	**config**\: False
+                
                 .. attribute:: service_carving_vpws_permanent_result
                 
                 	Permanent EVPN VPWS service carving results
                 	**type**\: list of  		 :py:class:`ServiceCarvingVpwsPermanentResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult>`
                 
+                	**config**\: False
+                
                 .. attribute:: remote_split_horizon_group_label
                 
                 	Remote split horizon group labels
                 	**type**\: list of  		 :py:class:`RemoteSplitHorizonGroupLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel>`
+                
+                	**config**\: False
                 
                 
 
@@ -15590,7 +17821,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment, ['interface_name', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'esi_type', 'esi_system_identifier', 'esi_port_key', 'esi_system_priority', 'ethernet_segment_name', 'ethernet_segment_state', 'if_handle', 'main_port_role', 'main_port_mac', 'num_up_p_ws', 'route_target', 'rt_origin', 'es_bgp_gates', 'es_l2fib_gates', 'mac_flushing_mode_config', 'load_balance_mode_config', 'load_balance_mode_is_default', 'load_balance_mode_oper', 'force_single_home', 'source_mac_oper', 'source_mac_origin', 'peering_timer', 'peering_timer_left', 'recovery_timer', 'recovery_timer_left', 'carving_timer', 'carving_timer_left', 'service_carving_mode', 'primary_services_input', 'secondary_services_input', 'forwarder_ports', 'permanent_forwarder_ports', 'elected_forwarder_ports', 'not_elected_forwarder_ports', 'not_config_forwarder_ports', 'mp_protected', 'nve_anycast_vtep', 'nve_ingress_replication', 'local_split_horizon_group_label_valid', 'local_split_horizon_group_label'], name, value)
+                    self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment, ['interface_name', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', u'esi_type', u'esi_system_identifier', u'esi_port_key', u'esi_system_priority', u'ethernet_segment_name', u'ethernet_segment_state', u'if_handle', u'main_port_role', u'main_port_mac', u'num_up_p_ws', u'route_target', u'rt_origin', u'es_bgp_gates', u'es_l2fib_gates', u'mac_flushing_mode_config', u'load_balance_mode_config', u'load_balance_mode_is_default', u'load_balance_mode_oper', u'force_single_home', u'source_mac_oper', u'source_mac_origin', u'peering_timer', u'peering_timer_left', u'recovery_timer', u'recovery_timer_left', u'carving_timer', u'carving_timer_left', u'service_carving_mode', u'primary_services_input', u'secondary_services_input', u'forwarder_ports', u'permanent_forwarder_ports', u'elected_forwarder_ports', u'not_elected_forwarder_ports', u'not_config_forwarder_ports', u'mp_protected', u'nve_anycast_vtep', u'nve_ingress_replication', u'local_split_horizon_group_label_valid', u'local_split_horizon_group_label'], name, value)
 
 
                 class EthernetSegmentIdentifier(Entity):
@@ -15603,6 +17834,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -15629,7 +17862,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, [u'entry'], name, value)
+
 
 
                 class PrimaryService(Entity):
@@ -15642,6 +17876,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -15668,7 +17904,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.PrimaryService, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.PrimaryService, [u'entry'], name, value)
+
 
 
                 class SecondaryService(Entity):
@@ -15681,6 +17918,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -15707,7 +17946,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.SecondaryService, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.SecondaryService, [u'entry'], name, value)
+
 
 
                 class ServiceCarvingISidelectedResult(Entity):
@@ -15720,6 +17960,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -15746,7 +17988,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, [u'entry'], name, value)
+
 
 
                 class ServiceCarvingIsidNotElectedResult(Entity):
@@ -15759,6 +18002,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -15785,7 +18030,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, [u'entry'], name, value)
+
 
 
                 class ServiceCarvingEviElectedResult(Entity):
@@ -15798,6 +18044,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -15824,7 +18072,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, [u'entry'], name, value)
+
 
 
                 class ServiceCarvingEviNotElectedResult(Entity):
@@ -15837,6 +18086,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -15863,7 +18114,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, [u'entry'], name, value)
+
 
 
                 class ServiceCarvingVniElectedResult(Entity):
@@ -15876,6 +18128,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -15902,7 +18156,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult, [u'entry'], name, value)
+
 
 
                 class ServiceCarvingVniNotElectedResult(Entity):
@@ -15915,6 +18170,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -15941,7 +18198,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult, [u'entry'], name, value)
+
 
 
                 class NextHop(Entity):
@@ -15955,10 +18213,14 @@ class Evpn(Entity):
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: df_dont_prempt
                     
                     	DF Dont Premption
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: df_type
                     
@@ -15967,12 +18229,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: df_pref
                     
                     	DF Election Preference Set
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -16005,7 +18271,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.NextHop, ['next_hop', 'df_dont_prempt', 'df_type', 'df_pref'], name, value)
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.NextHop, [u'next_hop', u'df_dont_prempt', u'df_type', u'df_pref'], name, value)
+
 
 
                 class ServiceCarvingVpwsPermanentResult(Entity):
@@ -16019,10 +18286,14 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: type
                     
                     	Service Type
                     	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ethernet_tag
                     
@@ -16030,6 +18301,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -16060,7 +18333,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, ['vpn_id', 'type', 'ethernet_tag'], name, value)
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, [u'vpn_id', u'type', u'ethernet_tag'], name, value)
+
 
 
                 class RemoteSplitHorizonGroupLabel(Entity):
@@ -16074,12 +18348,16 @@ class Evpn(Entity):
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: label
                     
                     	Split horizon label associated with next\-hop address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -16108,7 +18386,10 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, ['next_hop', 'label'], name, value)
+                        self._perform_setattr(Evpn.Active.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, [u'next_hop', u'label'], name, value)
+
+
+
 
 
         class AcIds(Entity):
@@ -16119,6 +18400,8 @@ class Evpn(Entity):
             
             	EVPN AC ID table
             	**type**\: list of  		 :py:class:`AcId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.AcIds.AcId>`
+            
+            	**config**\: False
             
             
 
@@ -16158,6 +18441,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ac_id
                 
                 	AC ID
@@ -16165,10 +18450,14 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: evpn_instance
                 
                 	EVPN Instance summary information
                 	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Active.AcIds.AcId.EvpnInstance>`
+                
+                	**config**\: False
                 
                 .. attribute:: neighbor
                 
@@ -16176,6 +18465,8 @@ class Evpn(Entity):
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 
 
@@ -16210,7 +18501,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Active.AcIds.AcId, ['evi', 'ac_id', 'neighbor'], name, value)
+                    self._perform_setattr(Evpn.Active.AcIds.AcId, ['evi', 'ac_id', u'neighbor'], name, value)
 
 
                 class EvpnInstance(Entity):
@@ -16224,6 +18515,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: encapsulation_xr
                     
                     	EVPN Instance transport encapsulation
@@ -16231,15 +18524,21 @@ class Evpn(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: bd_name
                     
                     	Bridge domain name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: type
                     
                     	Service Type
                     	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -16272,7 +18571,11 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Active.AcIds.AcId.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                        self._perform_setattr(Evpn.Active.AcIds.AcId.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
+
+
+
 
 
     class Standby(Entity):
@@ -16284,55 +18587,77 @@ class Evpn(Entity):
         	EVPN Group Table
         	**type**\:  :py:class:`EvpnGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EvpnGroups>`
         
+        	**config**\: False
+        
         .. attribute:: remote_shgs
         
         	EVPN Remote SHG table
         	**type**\:  :py:class:`RemoteShgs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.RemoteShgs>`
+        
+        	**config**\: False
         
         .. attribute:: client
         
         	L2VPN EVPN Client
         	**type**\:  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Client>`
         
+        	**config**\: False
+        
         .. attribute:: igmps
         
         	EVPN IGMP table
         	**type**\:  :py:class:`Igmps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps>`
+        
+        	**config**\: False
         
         .. attribute:: evis
         
         	L2VPN EVPN EVI Table
         	**type**\:  :py:class:`Evis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Evis>`
         
+        	**config**\: False
+        
         .. attribute:: summary
         
         	L2VPN EVPN Summary
         	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Summary>`
+        
+        	**config**\: False
         
         .. attribute:: evi_detail
         
         	L2VPN EVI Detail Table
         	**type**\:  :py:class:`EviDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail>`
         
+        	**config**\: False
+        
         .. attribute:: teps
         
         	L2VPN EVPN TEP Table
         	**type**\:  :py:class:`Teps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Teps>`
+        
+        	**config**\: False
         
         .. attribute:: internal_labels
         
         	EVPN Internal Label Table
         	**type**\:  :py:class:`InternalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.InternalLabels>`
         
+        	**config**\: False
+        
         .. attribute:: ethernet_segments
         
         	EVPN Ethernet\-Segment Table
         	**type**\:  :py:class:`EthernetSegments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments>`
         
+        	**config**\: False
+        
         .. attribute:: ac_ids
         
         	EVPN AC ID table
         	**type**\:  :py:class:`AcIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.AcIds>`
+        
+        	**config**\: False
         
         
 
@@ -16412,6 +18737,8 @@ class Evpn(Entity):
             	EVPN Group information
             	**type**\: list of  		 :py:class:`EvpnGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EvpnGroups.EvpnGroup>`
             
+            	**config**\: False
+            
             
 
             """
@@ -16450,6 +18777,8 @@ class Evpn(Entity):
                 
                 	**range:** 1..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: group_id
                 
                 	EVPN Group ID
@@ -16457,20 +18786,28 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	EVPN Group State
                 	**type**\:  :py:class:`EvpnGrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.EvpnGrp>`
+                
+                	**config**\: False
                 
                 .. attribute:: core_interface
                 
                 	EVPN Group Core Interface table
                 	**type**\: list of  		 :py:class:`CoreInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EvpnGroups.EvpnGroup.CoreInterface>`
                 
+                	**config**\: False
+                
                 .. attribute:: access_interface
                 
                 	EVPN Access Core Interface table
                 	**type**\: list of  		 :py:class:`AccessInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EvpnGroups.EvpnGroup.AccessInterface>`
+                
+                	**config**\: False
                 
                 
 
@@ -16504,7 +18841,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Standby.EvpnGroups.EvpnGroup, ['group_number', 'group_id', 'state'], name, value)
+                    self._perform_setattr(Evpn.Standby.EvpnGroups.EvpnGroup, ['group_number', u'group_id', u'state'], name, value)
 
 
                 class CoreInterface(Entity):
@@ -16516,10 +18853,14 @@ class Evpn(Entity):
                     	Interface name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Interface State
                     	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.ImStateEnum>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -16547,7 +18888,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EvpnGroups.EvpnGroup.CoreInterface, ['interface_name', 'state'], name, value)
+                        self._perform_setattr(Evpn.Standby.EvpnGroups.EvpnGroup.CoreInterface, [u'interface_name', u'state'], name, value)
+
 
 
                 class AccessInterface(Entity):
@@ -16559,10 +18901,14 @@ class Evpn(Entity):
                     	Interface name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Interface State
                     	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.ImStateEnum>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -16590,7 +18936,10 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EvpnGroups.EvpnGroup.AccessInterface, ['interface_name', 'state'], name, value)
+                        self._perform_setattr(Evpn.Standby.EvpnGroups.EvpnGroup.AccessInterface, [u'interface_name', u'state'], name, value)
+
+
+
 
 
         class RemoteShgs(Entity):
@@ -16601,6 +18950,8 @@ class Evpn(Entity):
             
             	EVPN Remote SHG
             	**type**\: list of  		 :py:class:`RemoteShg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.RemoteShgs.RemoteShg>`
+            
+            	**config**\: False
             
             
 
@@ -16640,12 +18991,16 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: esi2
                 
                 	ES id (part 2/5)
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                	**config**\: False
                 
                 .. attribute:: esi3
                 
@@ -16654,12 +19009,16 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: esi4
                 
                 	ES id (part 4/5)
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                	**config**\: False
                 
                 .. attribute:: esi5
                 
@@ -16668,15 +19027,21 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: ethernet_segment_identifier
                 
                 	Ethernet Segment id
                 	**type**\: list of  		 :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.RemoteShgs.RemoteShg.EthernetSegmentIdentifier>`
                 
+                	**config**\: False
+                
                 .. attribute:: remote_split_horizon_group_label
                 
                 	Remote split horizon group labels
                 	**type**\: list of  		 :py:class:`RemoteSplitHorizonGroupLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel>`
+                
+                	**config**\: False
                 
                 
 
@@ -16728,6 +19093,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -16753,7 +19120,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.RemoteShgs.RemoteShg.EthernetSegmentIdentifier, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Standby.RemoteShgs.RemoteShg.EthernetSegmentIdentifier, [u'entry'], name, value)
+
 
 
                 class RemoteSplitHorizonGroupLabel(Entity):
@@ -16767,12 +19135,16 @@ class Evpn(Entity):
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: label
                     
                     	Split horizon label associated with next\-hop address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -16801,7 +19173,10 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel, ['next_hop', 'label'], name, value)
+                        self._perform_setattr(Evpn.Standby.RemoteShgs.RemoteShg.RemoteSplitHorizonGroupLabel, [u'next_hop', u'label'], name, value)
+
+
+
 
 
         class Client(Entity):
@@ -16830,6 +19205,7 @@ class Evpn(Entity):
                 self._is_frozen = True
 
 
+
         class Igmps(Entity):
             """
             EVPN IGMP table
@@ -16838,6 +19214,8 @@ class Evpn(Entity):
             
             	EVPN Remote
             	**type**\: list of  		 :py:class:`Igmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps.Igmp>`
+            
+            	**config**\: False
             
             
 
@@ -16877,6 +19255,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: bpxcid
                 
                 	BP xcid
@@ -16884,12 +19264,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: evibd
                 
                 	EVI/BD
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: src_ip
                 
@@ -16904,6 +19288,8 @@ class Evpn(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: grp_ip
                 
                 	Group IP Address
@@ -16917,12 +19303,16 @@ class Evpn(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: esi1
                 
                 	ES id (part 1/5)
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                	**config**\: False
                 
                 .. attribute:: esi2
                 
@@ -16931,12 +19321,16 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: esi3
                 
                 	ES id (part 3/5)
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                	**config**\: False
                 
                 .. attribute:: esi4
                 
@@ -16945,6 +19339,8 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: esi5
                 
                 	ES id (part 5/5)
@@ -16952,15 +19348,21 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: source_info
                 
                 	Source Info
                 	**type**\:  :py:class:`SourceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps.Igmp.SourceInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: ethernet_segment_name
                 
                 	Ethernet Segment Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: evi
                 
@@ -16969,6 +19371,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: bd_id
                 
                 	BD id
@@ -16976,10 +19380,14 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: route_type
                 
                 	Route Type
                 	**type**\:  :py:class:`EvpnIgmpMsg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.EvpnIgmpMsg>`
+                
+                	**config**\: False
                 
                 .. attribute:: source_addr
                 
@@ -16988,12 +19396,16 @@ class Evpn(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: group_addr
                 
                 	Group IP Address
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: ethernet_tag_id
                 
@@ -17002,15 +19414,21 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: igmp_version
                 
                 	IGMP Version
                 	**type**\:  :py:class:`EvpnIgmpVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.EvpnIgmpVersion>`
                 
+                	**config**\: False
+                
                 .. attribute:: igmp_group_type
                 
                 	IGMP Group Type
                 	**type**\:  :py:class:`EvpnIgmpGrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.EvpnIgmpGrp>`
+                
+                	**config**\: False
                 
                 .. attribute:: ma_x_response_time
                 
@@ -17019,20 +19437,28 @@ class Evpn(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: resolved
                 
                 	Resolved
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ethernet_segment_identifier
                 
                 	Ethernet Segment id
                 	**type**\: list of  		 :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps.Igmp.EthernetSegmentIdentifier>`
                 
+                	**config**\: False
+                
                 .. attribute:: next_hop
                 
                 	List of nexthop IPv6 addresses
                 	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps.Igmp.NextHop>`
+                
+                	**config**\: False
                 
                 
 
@@ -17106,7 +19532,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Standby.Igmps.Igmp, ['is_leave', 'bpxcid', 'evibd', 'src_ip', 'grp_ip', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_segment_name', 'evi', 'bd_id', 'route_type', 'source_addr', 'group_addr', 'ethernet_tag_id', 'igmp_version', 'igmp_group_type', 'ma_x_response_time', 'resolved'], name, value)
+                    self._perform_setattr(Evpn.Standby.Igmps.Igmp, ['is_leave', 'bpxcid', 'evibd', 'src_ip', 'grp_ip', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', u'ethernet_segment_name', u'evi', u'bd_id', u'route_type', u'source_addr', u'group_addr', u'ethernet_tag_id', u'igmp_version', u'igmp_group_type', u'ma_x_response_time', u'resolved'], name, value)
 
 
                 class SourceInfo(Entity):
@@ -17118,10 +19544,14 @@ class Evpn(Entity):
                     	local info
                     	**type**\:  :py:class:`LocalInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: type
                     
                     	Type
                     	**type**\:  :py:class:`EvpnIgmpSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.EvpnIgmpSource>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: remote_info
                     
@@ -17129,6 +19559,8 @@ class Evpn(Entity):
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -17161,7 +19593,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo, ['type', 'remote_info'], name, value)
+                        self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo, [u'type', u'remote_info'], name, value)
 
 
                     class LocalInfo(Entity):
@@ -17173,12 +19605,16 @@ class Evpn(Entity):
                         	Interface parameters
                         	**type**\:  :py:class:`Parameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: name
                         
                         	Interface name
                         	**type**\: str
                         
                         	**length:** 0..81
+                        
+                        	**config**\: False
                         
                         .. attribute:: mtu
                         
@@ -17187,12 +19623,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: payload_bytes
                         
                         	Payload bytes
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -17229,7 +19669,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo, ['name', 'mtu', 'payload_bytes'], name, value)
+                            self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo, [u'name', u'mtu', u'payload_bytes'], name, value)
 
 
                         class Parameters(Entity):
@@ -17241,40 +19681,56 @@ class Evpn(Entity):
                             	Ethernet
                             	**type**\:  :py:class:`Ethernet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Ethernet>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: vlan
                             
                             	VLAN
                             	**type**\:  :py:class:`Vlan <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: tdm
                             
                             	TDM
                             	**type**\:  :py:class:`Tdm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Tdm>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: atm
                             
                             	ATM
                             	**type**\:  :py:class:`Atm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Atm>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: fr
                             
                             	Frame Relay
                             	**type**\:  :py:class:`Fr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Fr>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: pseudowire_ether
                             
                             	PW Ether
                             	**type**\:  :py:class:`PseudowireEther <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: pseudowire_iw
                             
                             	PW IW
                             	**type**\:  :py:class:`PseudowireIw <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Type
                             	**type**\:  :py:class:`L2vpnInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnInterface>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -17329,7 +19785,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters, ['type'], name, value)
+                                self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters, [u'type'], name, value)
 
 
                             class Ethernet(Entity):
@@ -17342,6 +19798,8 @@ class Evpn(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -17368,7 +19826,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Ethernet, ['xconnect_tags'], name, value)
+                                    self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Ethernet, [u'xconnect_tags'], name, value)
+
 
 
                             class Vlan(Entity):
@@ -17382,12 +19841,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vlan_rewrite_tag
                                 
                                 	VLAN rewrite tag
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: simple_efp
                                 
@@ -17396,12 +19859,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: encapsulation_type
                                 
                                 	Encapsulation Type
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: outer_tag
                                 
@@ -17410,15 +19877,21 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rewrite_tag
                                 
                                 	Rewrite Tags
                                 	**type**\: list of  		 :py:class:`RewriteTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan.RewriteTag>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vlan_range
                                 
                                 	vlan range
                                 	**type**\: list of  		 :py:class:`VlanRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan.VlanRange>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -17456,7 +19929,7 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan, ['xconnect_tags', 'vlan_rewrite_tag', 'simple_efp', 'encapsulation_type', 'outer_tag'], name, value)
+                                    self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan, [u'xconnect_tags', u'vlan_rewrite_tag', u'simple_efp', u'encapsulation_type', u'outer_tag'], name, value)
 
 
                                 class RewriteTag(Entity):
@@ -17469,6 +19942,8 @@ class Evpn(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -17495,7 +19970,8 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan.RewriteTag, ['entry'], name, value)
+                                        self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan.RewriteTag, [u'entry'], name, value)
+
 
 
                                 class VlanRange(Entity):
@@ -17509,12 +19985,16 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: upper
                                     
                                     	Upper
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -17543,7 +20023,9 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan.VlanRange, ['lower', 'upper'], name, value)
+                                        self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Vlan.VlanRange, [u'lower', u'upper'], name, value)
+
+
 
 
                             class Tdm(Entity):
@@ -17555,10 +20037,14 @@ class Evpn(Entity):
                                 	TDM options
                                 	**type**\:  :py:class:`TdmOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Tdm.TdmOptions>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: timeslot_group
                                 
                                 	Timeslots separated by , or \- from 1 to 31. \: indicates individual timeslot and \- represents a range.E.g. 1\-3,5 represents timeslots 1, 2, 3, and 5
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: timeslot_rate
                                 
@@ -17567,12 +20053,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 	**units**\: kbit/s
                                 
                                 .. attribute:: tdm_mode
                                 
                                 	TDM mode
                                 	**type**\:  :py:class:`L2vpnTdmMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnTdmMode>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -17607,7 +20097,7 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Tdm, ['timeslot_group', 'timeslot_rate', 'tdm_mode'], name, value)
+                                    self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Tdm, [u'timeslot_group', u'timeslot_rate', u'tdm_mode'], name, value)
 
 
                                 class TdmOptions(Entity):
@@ -17621,6 +20111,8 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: byte
                                     
                                     .. attribute:: bit_rate
@@ -17630,6 +20122,8 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: kbit/s
                                     
                                     .. attribute:: rtp
@@ -17637,10 +20131,14 @@ class Evpn(Entity):
                                     	RTP header
                                     	**type**\:  :py:class:`L2vpnTdmRtpOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnTdmRtpOption>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: timestamp_mode
                                     
                                     	TDM Timestamping mode
                                     	**type**\:  :py:class:`L2vpnTimeStampMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnTimeStampMode>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: signalling_packets
                                     
@@ -17649,12 +20147,16 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: cas
                                     
                                     	CAS
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: rtp_header_payload_type
                                     
@@ -17663,6 +20165,8 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: timestamp_clock_freq
                                     
                                     	Timestamping clock frequency in units of 8Khz
@@ -17670,12 +20174,16 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ssrc
                                     
                                     	Synchronization Source identifier
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -17718,7 +20226,9 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Tdm.TdmOptions, ['payload_bytes', 'bit_rate', 'rtp', 'timestamp_mode', 'signalling_packets', 'cas', 'rtp_header_payload_type', 'timestamp_clock_freq', 'ssrc'], name, value)
+                                        self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Tdm.TdmOptions, [u'payload_bytes', u'bit_rate', u'rtp', u'timestamp_mode', u'signalling_packets', u'cas', u'rtp_header_payload_type', u'timestamp_clock_freq', u'ssrc'], name, value)
+
+
 
 
                             class Atm(Entity):
@@ -17732,6 +20242,8 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: maximum_number_cells_un_packed
                                 
                                 	Max number of cells unpacked
@@ -17739,10 +20251,14 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: atm_mode
                                 
                                 	ATM mode
                                 	**type**\:  :py:class:`L2vpnAtmMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAtmMode>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: vpi
                                 
@@ -17751,12 +20267,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vci
                                 
                                 	Virtual channel identifier
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -17791,7 +20311,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Atm, ['maximum_number_cells_packed', 'maximum_number_cells_un_packed', 'atm_mode', 'vpi', 'vci'], name, value)
+                                    self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Atm, [u'maximum_number_cells_packed', u'maximum_number_cells_un_packed', u'atm_mode', u'vpi', u'vci'], name, value)
+
 
 
                             class Fr(Entity):
@@ -17803,12 +20324,16 @@ class Evpn(Entity):
                                 	Frame Relay mode
                                 	**type**\:  :py:class:`L2vpnFrMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnFrMode>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dlci
                                 
                                 	Data\-link connection identifier
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -17837,7 +20362,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Fr, ['fr_mode', 'dlci'], name, value)
+                                    self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.Fr, [u'fr_mode', u'dlci'], name, value)
+
 
 
                             class PseudowireEther(Entity):
@@ -17849,10 +20375,14 @@ class Evpn(Entity):
                                 	Interface list data
                                 	**type**\:  :py:class:`InterfaceList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther.InterfaceList>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: is_valid
                                 
                                 	Is this Interface list valid
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: internal_label
                                 
@@ -17860,6 +20390,8 @@ class Evpn(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -17892,7 +20424,7 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther, ['is_valid', 'internal_label'], name, value)
+                                    self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther, [u'is_valid', u'internal_label'], name, value)
 
 
                                 class InterfaceList(Entity):
@@ -17906,6 +20438,8 @@ class Evpn(Entity):
                                     
                                     	**length:** 0..33
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: interface_list_id
                                     
                                     	Interface internal ID
@@ -17913,10 +20447,14 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: interface
                                     
                                     	Interfaces
                                     	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther.InterfaceList.Interface>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -17947,7 +20485,7 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther.InterfaceList, ['interface_list_name', 'interface_list_id'], name, value)
+                                        self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther.InterfaceList, [u'interface_list_name', u'interface_list_id'], name, value)
 
 
                                     class Interface(Entity):
@@ -17959,10 +20497,14 @@ class Evpn(Entity):
                                         	Interface name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: replicate_status
                                         
                                         	Replicate status
                                         	**type**\:  :py:class:`IflistRepStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.IflistRepStatus>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -17991,7 +20533,10 @@ class Evpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther.InterfaceList.Interface, ['interface_name', 'replicate_status'], name, value)
+                                            self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireEther.InterfaceList.Interface, [u'interface_name', u'replicate_status'], name, value)
+
+
+
 
 
                             class PseudowireIw(Entity):
@@ -18003,10 +20548,14 @@ class Evpn(Entity):
                                 	Interface list data
                                 	**type**\:  :py:class:`InterfaceList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw.InterfaceList>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: is_valid
                                 
                                 	Is this Interface list valid
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: internal_label
                                 
@@ -18014,6 +20563,8 @@ class Evpn(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -18046,7 +20597,7 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw, ['is_valid', 'internal_label'], name, value)
+                                    self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw, [u'is_valid', u'internal_label'], name, value)
 
 
                                 class InterfaceList(Entity):
@@ -18060,6 +20611,8 @@ class Evpn(Entity):
                                     
                                     	**length:** 0..33
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: interface_list_id
                                     
                                     	Interface internal ID
@@ -18067,10 +20620,14 @@ class Evpn(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: interface
                                     
                                     	Interfaces
                                     	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw.InterfaceList.Interface>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -18101,7 +20658,7 @@ class Evpn(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw.InterfaceList, ['interface_list_name', 'interface_list_id'], name, value)
+                                        self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw.InterfaceList, [u'interface_list_name', u'interface_list_id'], name, value)
 
 
                                     class Interface(Entity):
@@ -18113,10 +20670,14 @@ class Evpn(Entity):
                                         	Interface name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: replicate_status
                                         
                                         	Replicate status
                                         	**type**\:  :py:class:`IflistRepStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.IflistRepStatus>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -18145,7 +20706,13 @@ class Evpn(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw.InterfaceList.Interface, ['interface_name', 'replicate_status'], name, value)
+                                            self._perform_setattr(Evpn.Standby.Igmps.Igmp.SourceInfo.LocalInfo.Parameters.PseudowireIw.InterfaceList.Interface, [u'interface_name', u'replicate_status'], name, value)
+
+
+
+
+
+
 
 
                 class EthernetSegmentIdentifier(Entity):
@@ -18158,6 +20725,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -18184,7 +20753,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.Igmps.Igmp.EthernetSegmentIdentifier, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Standby.Igmps.Igmp.EthernetSegmentIdentifier, [u'entry'], name, value)
+
 
 
                 class NextHop(Entity):
@@ -18198,10 +20768,14 @@ class Evpn(Entity):
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: df_dont_prempt
                     
                     	DF Dont Premption
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: df_type
                     
@@ -18210,12 +20784,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: df_pref
                     
                     	DF Election Preference Set
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -18248,7 +20826,10 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.Igmps.Igmp.NextHop, ['next_hop', 'df_dont_prempt', 'df_type', 'df_pref'], name, value)
+                        self._perform_setattr(Evpn.Standby.Igmps.Igmp.NextHop, [u'next_hop', u'df_dont_prempt', u'df_type', u'df_pref'], name, value)
+
+
+
 
 
         class Evis(Entity):
@@ -18259,6 +20840,8 @@ class Evpn(Entity):
             
             	L2VPN EVPN EVI Entry
             	**type**\: list of  		 :py:class:`Evi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Evis.Evi>`
+            
+            	**config**\: False
             
             
 
@@ -18298,12 +20881,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: encapsulation
                 
                 	Encap
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: ethernet_vpn_id
                 
@@ -18312,6 +20899,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: encapsulation_xr
                 
                 	EVPN Instance transport encapsulation
@@ -18319,15 +20908,21 @@ class Evpn(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: bd_name
                 
                 	Bridge domain name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: type
                 
                 	Service Type
                 	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                
+                	**config**\: False
                 
                 
 
@@ -18364,7 +20959,9 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Standby.Evis.Evi, ['evi', 'encapsulation', 'ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                    self._perform_setattr(Evpn.Standby.Evis.Evi, ['evi', 'encapsulation', u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
+
 
 
         class Summary(Entity):
@@ -18378,12 +20975,16 @@ class Evpn(Entity):
             
             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: as_
             
             	BGP AS number
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ev_is
             
@@ -18392,12 +20993,16 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tunnel_endpoints
             
             	Number of Tunnel Endpoint DB Entries
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: local_mac_routes
             
@@ -18406,12 +21011,16 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: local_ipv4_mac_routes
             
             	Number of Local IPv4 MAC\-IP Routes
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: local_ipv6_mac_routes
             
@@ -18420,12 +21029,16 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: es_global_mac_routes
             
             	Number of ES\:Global MAC Routes
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: remote_mac_routes
             
@@ -18434,12 +21047,16 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: remote_soo_mac_routes
             
             	Number of Remote Soo MAC Routes
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: remote_ipv4_mac_routes
             
@@ -18448,12 +21065,16 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: remote_ipv6_mac_routes
             
             	Number of Remote IPv6 MAC\-IP Routes
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: local_imcast_routes
             
@@ -18462,12 +21083,16 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: remote_imcast_routes
             
             	Number of Remote IMCAST Routes
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: labels
             
@@ -18476,12 +21101,16 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: es_entries
             
             	Number of ES Entries in DB
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: neighbor_entries
             
@@ -18490,12 +21119,16 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: local_ead_routes
             
             	Number of Local EAD Entries in DB
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: remote_ead_routes
             
@@ -18504,6 +21137,8 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: global_source_mac
             
             	Global Source MAC Address
@@ -18511,12 +21146,16 @@ class Evpn(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: peering_time
             
             	EVPN ES Peering Time (seconds)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -18527,6 +21166,8 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: second
             
             .. attribute:: carving_time
@@ -18535,6 +21176,8 @@ class Evpn(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -18545,12 +21188,16 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mac_secure_move_interval
             
             	Interval to watch for subsequent mac moves before locking the MAC
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mac_secure_freeze_time
             
@@ -18559,6 +21206,8 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mac_secure_retry_count
             
             	Number of times to retry after a MAC un\-freezes
@@ -18566,10 +21215,14 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cost_out
             
             	EVPN Node Cost\-out
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: startup_cost_in_time
             
@@ -18578,6 +21231,8 @@ class Evpn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: minute
             
             .. attribute:: l2rib_throttle
@@ -18585,10 +21240,14 @@ class Evpn(Entity):
             	Send to L2RIB Throttled
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: logging_df_election_enabled
             
             	Logging EVPN Designated Forwarder changes enabled
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -18675,7 +21334,8 @@ class Evpn(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.Standby.Summary, ['router_id', 'as_', 'ev_is', 'tunnel_endpoints', 'local_mac_routes', 'local_ipv4_mac_routes', 'local_ipv6_mac_routes', 'es_global_mac_routes', 'remote_mac_routes', 'remote_soo_mac_routes', 'remote_ipv4_mac_routes', 'remote_ipv6_mac_routes', 'local_imcast_routes', 'remote_imcast_routes', 'labels', 'es_entries', 'neighbor_entries', 'local_ead_routes', 'remote_ead_routes', 'global_source_mac', 'peering_time', 'recovery_time', 'carving_time', 'mac_secure_move_count', 'mac_secure_move_interval', 'mac_secure_freeze_time', 'mac_secure_retry_count', 'cost_out', 'startup_cost_in_time', 'l2rib_throttle', 'logging_df_election_enabled'], name, value)
+                self._perform_setattr(Evpn.Standby.Summary, [u'router_id', u'as_', u'ev_is', u'tunnel_endpoints', u'local_mac_routes', u'local_ipv4_mac_routes', u'local_ipv6_mac_routes', u'es_global_mac_routes', u'remote_mac_routes', u'remote_soo_mac_routes', u'remote_ipv4_mac_routes', u'remote_ipv6_mac_routes', u'local_imcast_routes', u'remote_imcast_routes', u'labels', u'es_entries', u'neighbor_entries', u'local_ead_routes', u'remote_ead_routes', u'global_source_mac', u'peering_time', u'recovery_time', u'carving_time', u'mac_secure_move_count', u'mac_secure_move_interval', u'mac_secure_freeze_time', u'mac_secure_retry_count', u'cost_out', u'startup_cost_in_time', u'l2rib_throttle', u'logging_df_election_enabled'], name, value)
+
 
 
         class EviDetail(Entity):
@@ -18687,10 +21347,14 @@ class Evpn(Entity):
             	EVI BGP RT Detail Info Elements
             	**type**\:  :py:class:`Elements <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements>`
             
+            	**config**\: False
+            
             .. attribute:: evi_children
             
             	Container for all EVI detail info
             	**type**\:  :py:class:`EviChildren <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren>`
+            
+            	**config**\: False
             
             
 
@@ -18734,6 +21398,8 @@ class Evpn(Entity):
                 	EVI BGP RT Detail Info
                 	**type**\: list of  		 :py:class:`Element <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -18772,6 +21438,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: encapsulation
                     
                     	Encap
@@ -18779,30 +21447,42 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: evpn_instance
                     
                     	EVPN Instance summary information
                     	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.EvpnInstance>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: flow_label
                     
                     	Flow Label Information
                     	**type**\:  :py:class:`FlowLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.FlowLabel>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: rd_auto
                     
                     	Automatic Route Distingtuisher
                     	**type**\:  :py:class:`RdAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdAuto>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: rd_configured
                     
                     	Configured Route Distinguisher
                     	**type**\:  :py:class:`RdConfigured <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: rt_auto
                     
                     	Automatic Route Target
                     	**type**\:  :py:class:`RtAuto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: evi_xr
                     
@@ -18811,6 +21491,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: encapsulation_xr
                     
                     	EVPN Instance encapsulation
@@ -18818,20 +21500,28 @@ class Evpn(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: bd_name
                     
                     	Bridge domain name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: type
                     
                     	Service Type
                     	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	EVI description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: unicast_label
                     
@@ -18840,6 +21530,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: multicast_label
                     
                     	Multicast Label
@@ -18847,15 +21539,21 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: cw_disable
                     
                     	Control\-Word Disable
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: table_policy_name
                     
                     	Table\-policy Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: forward_class
                     
@@ -18864,50 +21562,70 @@ class Evpn(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: rt_import_block_set
                     
                     	Is Import RT None set
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: rt_export_block_set
                     
                     	Is Export RT None set
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: advertise_mac
                     
                     	Advertise MAC\-only routes on this EVI
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: advertise_bvi_mac
                     
                     	Advertise BVI MACs routes on this EVI
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: aliasing_disabled
                     
                     	Route Aliasing is disabled
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: unknown_unicast_flooding_disabled
                     
                     	Unknown\-unicast flooding is disabled
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: reoriginate_disabled
                     
                     	Route Re\-origination is disabled
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: stitching
                     
                     	EVPN Instance is Regular/Stitching side
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: multicast_source_connected
                     
                     	EVI is connected to multicast source
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -18994,7 +21712,7 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element, ['evi', 'encapsulation', 'evi_xr', 'encapsulation_xr', 'bd_name', 'type', 'description', 'unicast_label', 'multicast_label', 'cw_disable', 'table_policy_name', 'forward_class', 'rt_import_block_set', 'rt_export_block_set', 'advertise_mac', 'advertise_bvi_mac', 'aliasing_disabled', 'unknown_unicast_flooding_disabled', 'reoriginate_disabled', 'stitching', 'multicast_source_connected'], name, value)
+                        self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element, ['evi', 'encapsulation', u'evi_xr', u'encapsulation_xr', u'bd_name', u'type', u'description', u'unicast_label', u'multicast_label', u'cw_disable', u'table_policy_name', u'forward_class', u'rt_import_block_set', u'rt_export_block_set', u'advertise_mac', u'advertise_bvi_mac', u'aliasing_disabled', u'unknown_unicast_flooding_disabled', u'reoriginate_disabled', u'stitching', u'multicast_source_connected'], name, value)
 
 
                     class EvpnInstance(Entity):
@@ -19008,6 +21726,8 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: encapsulation_xr
                         
                         	EVPN Instance transport encapsulation
@@ -19015,15 +21735,21 @@ class Evpn(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: bd_name
                         
                         	Bridge domain name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	Service Type
                         	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -19056,7 +21782,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                            self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
 
 
                     class FlowLabel(Entity):
@@ -19068,10 +21795,14 @@ class Evpn(Entity):
                         	Static flow label
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: global_flow_label
                         
                         	Globally configured flow label
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -19100,7 +21831,8 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.FlowLabel, ['static_flow_label', 'global_flow_label'], name, value)
+                            self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.FlowLabel, [u'static_flow_label', u'global_flow_label'], name, value)
+
 
 
                     class RdAuto(Entity):
@@ -19112,25 +21844,35 @@ class Evpn(Entity):
                         	auto
                         	**type**\:  :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdAuto.Auto>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: two_byte_as
                         
                         	two byte as
                         	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdAuto.TwoByteAs>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: four_byte_as
                         
                         	four byte as
                         	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdAuto.FourByteAs>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: v4_addr
                         
                         	v4 addr
                         	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdAuto.V4Addr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: rd
                         
                         	RD
                         	**type**\:  :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -19173,7 +21915,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdAuto, ['rd'], name, value)
+                            self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdAuto, [u'rd'], name, value)
 
 
                         class Auto(Entity):
@@ -19187,12 +21929,16 @@ class Evpn(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: auto_index
                             
                             	Auto\-generated Index
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -19221,7 +21967,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdAuto.Auto, ['router_id', 'auto_index'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdAuto.Auto, [u'router_id', u'auto_index'], name, value)
+
 
 
                         class TwoByteAs(Entity):
@@ -19235,12 +21982,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: four_byte_index
                             
                             	4 Byte Index
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -19269,7 +22020,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdAuto.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdAuto.TwoByteAs, [u'two_byte_as', u'four_byte_index'], name, value)
+
 
 
                         class FourByteAs(Entity):
@@ -19283,12 +22035,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -19317,7 +22073,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdAuto.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdAuto.FourByteAs, [u'four_byte_as', u'two_byte_index'], name, value)
+
 
 
                         class V4Addr(Entity):
@@ -19331,12 +22088,16 @@ class Evpn(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -19365,7 +22126,9 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdAuto.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdAuto.V4Addr, [u'ipv4_address', u'two_byte_index'], name, value)
+
+
 
 
                     class RdConfigured(Entity):
@@ -19377,25 +22140,35 @@ class Evpn(Entity):
                         	auto
                         	**type**\:  :py:class:`Auto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured.Auto>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: two_byte_as
                         
                         	two byte as
                         	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured.TwoByteAs>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: four_byte_as
                         
                         	four byte as
                         	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured.FourByteAs>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: v4_addr
                         
                         	v4 addr
                         	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RdConfigured.V4Addr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: rd
                         
                         	RD
                         	**type**\:  :py:class:`L2vpnAdRd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRd>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -19438,7 +22211,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdConfigured, ['rd'], name, value)
+                            self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdConfigured, [u'rd'], name, value)
 
 
                         class Auto(Entity):
@@ -19452,12 +22225,16 @@ class Evpn(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: auto_index
                             
                             	Auto\-generated Index
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -19486,7 +22263,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.Auto, ['router_id', 'auto_index'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.Auto, [u'router_id', u'auto_index'], name, value)
+
 
 
                         class TwoByteAs(Entity):
@@ -19500,12 +22278,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: four_byte_index
                             
                             	4 Byte Index
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -19534,7 +22316,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.TwoByteAs, [u'two_byte_as', u'four_byte_index'], name, value)
+
 
 
                         class FourByteAs(Entity):
@@ -19548,12 +22331,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -19582,7 +22369,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.FourByteAs, [u'four_byte_as', u'two_byte_index'], name, value)
+
 
 
                         class V4Addr(Entity):
@@ -19596,12 +22384,16 @@ class Evpn(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -19630,7 +22422,9 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RdConfigured.V4Addr, [u'ipv4_address', u'two_byte_index'], name, value)
+
+
 
 
                     class RtAuto(Entity):
@@ -19642,25 +22436,35 @@ class Evpn(Entity):
                         	two byte as
                         	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: four_byte_as
                         
                         	four byte as
                         	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto.FourByteAs>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: v4_addr
                         
                         	v4 addr
                         	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto.V4Addr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: es_import
                         
                         	es import
                         	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: rt
                         
                         	RT
                         	**type**\:  :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -19703,7 +22507,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto, ['rt'], name, value)
+                            self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto, [u'rt'], name, value)
 
 
                         class TwoByteAs(Entity):
@@ -19717,12 +22521,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: four_byte_index
                             
                             	4 Byte Index
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -19751,7 +22559,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto.TwoByteAs, [u'two_byte_as', u'four_byte_index'], name, value)
+
 
 
                         class FourByteAs(Entity):
@@ -19765,12 +22574,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -19799,7 +22612,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto.FourByteAs, [u'four_byte_as', u'two_byte_index'], name, value)
+
 
 
                         class V4Addr(Entity):
@@ -19813,12 +22627,16 @@ class Evpn(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: two_byte_index
                             
                             	2 Byte Index
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -19847,7 +22665,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto.V4Addr, [u'ipv4_address', u'two_byte_index'], name, value)
+
 
 
                         class EsImport(Entity):
@@ -19861,12 +22680,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: low_bytes
                             
                             	Low 2 bytes of ES Import
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -19895,7 +22718,11 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport, ['high_bytes', 'low_bytes'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.Elements.Element.RtAuto.EsImport, [u'high_bytes', u'low_bytes'], name, value)
+
+
+
+
 
 
             class EviChildren(Entity):
@@ -19907,25 +22734,35 @@ class Evpn(Entity):
                 	EVPN Neighbor table
                 	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Neighbors>`
                 
+                	**config**\: False
+                
                 .. attribute:: ethernet_auto_discoveries
                 
                 	EVPN Ethernet Auto\-Discovery table
                 	**type**\:  :py:class:`EthernetAutoDiscoveries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries>`
+                
+                	**config**\: False
                 
                 .. attribute:: inclusive_multicasts
                 
                 	L2VPN EVPN IMCAST table
                 	**type**\:  :py:class:`InclusiveMulticasts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts>`
                 
+                	**config**\: False
+                
                 .. attribute:: route_targets
                 
                 	L2VPN EVPN EVI RT Child Table
                 	**type**\:  :py:class:`RouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets>`
                 
+                	**config**\: False
+                
                 .. attribute:: macs
                 
                 	L2VPN EVPN EVI MAC table
                 	**type**\:  :py:class:`Macs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs>`
+                
+                	**config**\: False
                 
                 
 
@@ -19981,6 +22818,8 @@ class Evpn(Entity):
                     	EVPN Neighbor table
                     	**type**\: list of  		 :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -20019,12 +22858,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: encapsulation
                         
                         	Encap
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: neighbor_ip
                         
@@ -20039,10 +22882,14 @@ class Evpn(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: evpn_instance
                         
                         	EVPN Instance summary information
                         	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: neighbor
                         
@@ -20050,6 +22897,8 @@ class Evpn(Entity):
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -20086,7 +22935,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor, ['evi', 'encapsulation', 'neighbor_ip', 'neighbor'], name, value)
+                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor, ['evi', 'encapsulation', 'neighbor_ip', u'neighbor'], name, value)
 
 
                         class EvpnInstance(Entity):
@@ -20100,6 +22949,8 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: encapsulation_xr
                             
                             	EVPN Instance transport encapsulation
@@ -20107,15 +22958,21 @@ class Evpn(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: bd_name
                             
                             	Bridge domain name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Service Type
                             	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -20148,7 +23005,10 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Neighbors.Neighbor.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
+
+
 
 
                 class EthernetAutoDiscoveries(Entity):
@@ -20159,6 +23019,8 @@ class Evpn(Entity):
                     
                     	EVPN Ethernet Auto\-Discovery Entry
                     	**type**\: list of  		 :py:class:`EthernetAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -20198,12 +23060,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: encapsulation
                         
                         	Encap
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: esi1
                         
@@ -20212,12 +23078,16 @@ class Evpn(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
+                        	**config**\: False
+                        
                         .. attribute:: esi2
                         
                         	ES id (part 2/5)
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
+                        
+                        	**config**\: False
                         
                         .. attribute:: esi3
                         
@@ -20226,12 +23096,16 @@ class Evpn(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
+                        	**config**\: False
+                        
                         .. attribute:: esi4
                         
                         	ES id (part 4/5)
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
+                        
+                        	**config**\: False
                         
                         .. attribute:: esi5
                         
@@ -20240,6 +23114,8 @@ class Evpn(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
+                        	**config**\: False
+                        
                         .. attribute:: ethernet_tag
                         
                         	Ethernet Tag ID
@@ -20247,10 +23123,14 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: evpn_instance
                         
                         	EVPN Instance summary information
                         	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ethernet_tag_xr
                         
@@ -20259,12 +23139,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: local_next_hop
                         
                         	Local nexthop IP
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: local_label
                         
@@ -20273,20 +23157,28 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_local_ead
                         
                         	Indication of EthernetAutoDiscovery Route is local
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: redundancy_single_active
                         
                         	Single\-active redundancy configured at remote EAD
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: redundancy_single_flow_active
                         
                         	Single\-flow\-active redundancy configured at remote EAD
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: num_paths
                         
@@ -20295,15 +23187,21 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ethernet_segment_identifier
                         
                         	Ethernet Segment id
                         	**type**\: list of  		 :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: path_buffer
                         
                         	Path List Buffer
                         	**type**\: list of  		 :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -20365,7 +23263,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['evi', 'encapsulation', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'ethernet_tag_xr', 'local_next_hop', 'local_label', 'is_local_ead', 'redundancy_single_active', 'redundancy_single_flow_active', 'num_paths'], name, value)
+                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery, ['evi', 'encapsulation', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', u'ethernet_tag_xr', u'local_next_hop', u'local_label', u'is_local_ead', u'redundancy_single_active', u'redundancy_single_flow_active', u'num_paths'], name, value)
 
 
                         class EvpnInstance(Entity):
@@ -20379,6 +23277,8 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: encapsulation_xr
                             
                             	EVPN Instance transport encapsulation
@@ -20386,15 +23286,21 @@ class Evpn(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: bd_name
                             
                             	Bridge domain name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Service Type
                             	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -20427,7 +23333,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
 
 
                         class EthernetSegmentIdentifier(Entity):
@@ -20440,6 +23347,8 @@ class Evpn(Entity):
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -20466,7 +23375,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier, ['entry'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.EthernetSegmentIdentifier, [u'entry'], name, value)
+
 
 
                         class PathBuffer(Entity):
@@ -20480,12 +23390,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: next_hop
                             
                             	Next\-hop IP address (v6 format)
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: output_label
                             
@@ -20494,12 +23408,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: srte_tunnel
                             
                             	Segment\-Routing Traffic Engineering Tunnel Interface Handle
                             	**type**\: str
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            	**config**\: False
                             
                             
 
@@ -20532,7 +23450,10 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.EthernetAutoDiscoveries.EthernetAutoDiscovery.PathBuffer, [u'tunnel_endpoint_id', u'next_hop', u'output_label', u'srte_tunnel'], name, value)
+
+
+
 
 
                 class InclusiveMulticasts(Entity):
@@ -20543,6 +23464,8 @@ class Evpn(Entity):
                     
                     	L2VPN EVPN IMCAST table
                     	**type**\: list of  		 :py:class:`InclusiveMulticast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -20582,6 +23505,8 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: encapsulation
                         
                         	Encap
@@ -20589,12 +23514,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ethernet_tag
                         
                         	Ethernet Tag
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: originating_ip
                         
@@ -20609,10 +23538,14 @@ class Evpn(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: evpn_instance
                         
                         	EVPN Instance summary information
                         	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ethernet_tag_xr
                         
@@ -20621,12 +23554,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: originating_ip_xr
                         
                         	Originating IP
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: tunnel_endpoint_id
                         
@@ -20635,12 +23572,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: next_hop
                         
                         	IP of nexthop
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: output_label
                         
@@ -20649,15 +23590,21 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_local_entry
                         
                         	Local entry
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_proxy_entry
                         
                         	Proxy entry
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: srte_policy
                         
@@ -20665,6 +23612,8 @@ class Evpn(Entity):
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        	**config**\: False
                         
                         
 
@@ -20717,7 +23666,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, ['evi', 'encapsulation', 'ethernet_tag', 'originating_ip', 'ethernet_tag_xr', 'originating_ip_xr', 'tunnel_endpoint_id', 'next_hop', 'output_label', 'is_local_entry', 'is_proxy_entry', 'srte_policy'], name, value)
+                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast, ['evi', 'encapsulation', 'ethernet_tag', 'originating_ip', u'ethernet_tag_xr', u'originating_ip_xr', u'tunnel_endpoint_id', u'next_hop', u'output_label', u'is_local_entry', u'is_proxy_entry', u'srte_policy'], name, value)
 
 
                         class EvpnInstance(Entity):
@@ -20731,6 +23680,8 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: encapsulation_xr
                             
                             	EVPN Instance transport encapsulation
@@ -20738,15 +23689,21 @@ class Evpn(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: bd_name
                             
                             	Bridge domain name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Service Type
                             	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -20779,7 +23736,10 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.InclusiveMulticasts.InclusiveMulticast.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
+
+
 
 
                 class RouteTargets(Entity):
@@ -20790,6 +23750,8 @@ class Evpn(Entity):
                     
                     	L2VPN EVPN EVI RT Table
                     	**type**\: list of  		 :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -20829,6 +23791,8 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: encapsulation
                         
                         	Encap
@@ -20836,15 +23800,21 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: role
                         
                         	Role of the route target
                         	**type**\:  :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetRole>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: format
                         
                         	Format of the route target
                         	**type**\:  :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.BgpRouteTargetFormat>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: as_
                         
@@ -20853,12 +23823,16 @@ class Evpn(Entity):
                         
                         	**range:** 1..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: as_index
                         
                         	RT AS Index
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: addr_index
                         
@@ -20867,6 +23841,8 @@ class Evpn(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: address
                         
                         	RT IPv4 Address
@@ -20874,25 +23850,35 @@ class Evpn(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: evpn_instance
                         
                         	EVPN Instance summary information
                         	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: route_target
                         
                         	Route Target
                         	**type**\:  :py:class:`RouteTarget_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: route_target_role
                         
                         	RT Role
                         	**type**\:  :py:class:`L2vpnAdRtRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRtRole>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: route_target_stitching
                         
                         	RT Stitching
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -20945,7 +23931,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget, ['evi', 'encapsulation', 'role', 'format', 'as_', 'as_index', 'addr_index', 'address', 'route_target_role', 'route_target_stitching'], name, value)
+                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget, ['evi', 'encapsulation', 'role', 'format', 'as_', 'as_index', 'addr_index', 'address', u'route_target_role', u'route_target_stitching'], name, value)
 
 
                         class EvpnInstance(Entity):
@@ -20959,6 +23945,8 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: encapsulation_xr
                             
                             	EVPN Instance transport encapsulation
@@ -20966,15 +23954,21 @@ class Evpn(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: bd_name
                             
                             	Bridge domain name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Service Type
                             	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -21007,7 +24001,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
 
 
                         class RouteTarget_(Entity):
@@ -21019,25 +24014,35 @@ class Evpn(Entity):
                             	two byte as
                             	**type**\:  :py:class:`TwoByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: four_byte_as
                             
                             	four byte as
                             	**type**\:  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: v4_addr
                             
                             	v4 addr
                             	**type**\:  :py:class:`V4Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: es_import
                             
                             	es import
                             	**type**\:  :py:class:`EsImport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: rt
                             
                             	RT
                             	**type**\:  :py:class:`L2vpnAdRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnAdRt>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -21080,7 +24085,7 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, ['rt'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_, [u'rt'], name, value)
 
 
                             class TwoByteAs(Entity):
@@ -21094,12 +24099,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: four_byte_index
                                 
                                 	4 Byte Index
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -21128,7 +24137,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, ['two_byte_as', 'four_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.TwoByteAs, [u'two_byte_as', u'four_byte_index'], name, value)
+
 
 
                             class FourByteAs(Entity):
@@ -21142,12 +24152,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -21176,7 +24190,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, ['four_byte_as', 'two_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.FourByteAs, [u'four_byte_as', u'two_byte_index'], name, value)
+
 
 
                             class V4Addr(Entity):
@@ -21190,12 +24205,16 @@ class Evpn(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: two_byte_index
                                 
                                 	2 Byte Index
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -21224,7 +24243,8 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, ['ipv4_address', 'two_byte_index'], name, value)
+                                    self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.V4Addr, [u'ipv4_address', u'two_byte_index'], name, value)
+
 
 
                             class EsImport(Entity):
@@ -21238,12 +24258,16 @@ class Evpn(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: low_bytes
                                 
                                 	Low 2 bytes of ES Import
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -21272,7 +24296,11 @@ class Evpn(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, ['high_bytes', 'low_bytes'], name, value)
+                                    self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.RouteTargets.RouteTarget.RouteTarget_.EsImport, [u'high_bytes', u'low_bytes'], name, value)
+
+
+
+
 
 
                 class Macs(Entity):
@@ -21283,6 +24311,8 @@ class Evpn(Entity):
                     
                     	L2VPN EVPN MAC table
                     	**type**\: list of  		 :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -21322,12 +24352,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: encapsulation
                         
                         	Encap
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: ethernet_tag
                         
@@ -21336,12 +24370,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: mac_address
                         
                         	MAC address
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        	**config**\: False
                         
                         .. attribute:: ip_address
                         
@@ -21356,10 +24394,14 @@ class Evpn(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: evpn_instance
                         
                         	EVPN Instance summary information
                         	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac.EvpnInstance>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ethernet_tag_xr
                         
@@ -21368,12 +24410,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: mac_address_xr
                         
                         	MAC address
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        	**config**\: False
                         
                         .. attribute:: ip_address_xr
                         
@@ -21382,12 +24428,16 @@ class Evpn(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: local_label
                         
                         	Associated local label
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: num_paths
                         
@@ -21396,20 +24446,28 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_local_mac
                         
                         	Indication of MAC being locally generated
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_proxy_entry
                         
                         	Proxy entry
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_remote_mac
                         
                         	Indication of MAC being remotely generated
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: soo_nexthop
                         
@@ -21418,12 +24476,16 @@ class Evpn(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipnh_address
                         
                         	IP nexthop address (v6 format)
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: esi_port_key
                         
@@ -21432,12 +24494,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: local_encap_type
                         
                         	Encap type of local MAC
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: remote_encap_type
                         
@@ -21446,10 +24512,14 @@ class Evpn(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: learned_bridge_port_name
                         
                         	Port the MAC was learned on
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: local_seq_id
                         
@@ -21458,12 +24528,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_seq_id
                         
                         	remote seq id
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: local_l3_label
                         
@@ -21472,12 +24546,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: router_mac_address
                         
                         	Router MAC address
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        	**config**\: False
                         
                         .. attribute:: mac_flush_requested
                         
@@ -21486,12 +24564,16 @@ class Evpn(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: mac_flush_received
                         
                         	Number of flushes received 
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: internal_label
                         
@@ -21500,35 +24582,49 @@ class Evpn(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: resolved
                         
                         	Internal Label has resolved per\-ES EAD and per\-EVI EAD or MAC routes
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: local_is_static
                         
                         	Indication if Local MAC is statically configured
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_is_static
                         
                         	Indication if Remote MAC is statically configured
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: local_ethernet_segment_identifier
                         
                         	Local Ethernet Segment id
                         	**type**\: list of  		 :py:class:`LocalEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_ethernet_segment_identifier
                         
                         	Remote Ethernet Segment id
                         	**type**\: list of  		 :py:class:`RemoteEthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: path_buffer
                         
                         	Path List Buffer
                         	**type**\: list of  		 :py:class:`PathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EviDetail.EviChildren.Macs.Mac.PathBuffer>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -21619,7 +24715,7 @@ class Evpn(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac, ['evi', 'encapsulation', 'ethernet_tag', 'mac_address', 'ip_address', 'ethernet_tag_xr', 'mac_address_xr', 'ip_address_xr', 'local_label', 'num_paths', 'is_local_mac', 'is_proxy_entry', 'is_remote_mac', 'soo_nexthop', 'ipnh_address', 'esi_port_key', 'local_encap_type', 'remote_encap_type', 'learned_bridge_port_name', 'local_seq_id', 'remote_seq_id', 'local_l3_label', 'router_mac_address', 'mac_flush_requested', 'mac_flush_received', 'internal_label', 'resolved', 'local_is_static', 'remote_is_static'], name, value)
+                            self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac, ['evi', 'encapsulation', 'ethernet_tag', 'mac_address', 'ip_address', u'ethernet_tag_xr', u'mac_address_xr', u'ip_address_xr', u'local_label', u'num_paths', u'is_local_mac', u'is_proxy_entry', u'is_remote_mac', u'soo_nexthop', u'ipnh_address', u'esi_port_key', u'local_encap_type', u'remote_encap_type', u'learned_bridge_port_name', u'local_seq_id', u'remote_seq_id', u'local_l3_label', u'router_mac_address', u'mac_flush_requested', u'mac_flush_received', u'internal_label', u'resolved', u'local_is_static', u'remote_is_static'], name, value)
 
 
                         class EvpnInstance(Entity):
@@ -21633,6 +24729,8 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: encapsulation_xr
                             
                             	EVPN Instance transport encapsulation
@@ -21640,15 +24738,21 @@ class Evpn(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: bd_name
                             
                             	Bridge domain name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Service Type
                             	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -21681,7 +24785,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
 
 
                         class LocalEthernetSegmentIdentifier(Entity):
@@ -21694,6 +24799,8 @@ class Evpn(Entity):
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -21720,7 +24827,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, ['entry'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.LocalEthernetSegmentIdentifier, [u'entry'], name, value)
+
 
 
                         class RemoteEthernetSegmentIdentifier(Entity):
@@ -21733,6 +24841,8 @@ class Evpn(Entity):
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -21759,7 +24869,8 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, ['entry'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.RemoteEthernetSegmentIdentifier, [u'entry'], name, value)
+
 
 
                         class PathBuffer(Entity):
@@ -21773,12 +24884,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: next_hop
                             
                             	Next\-hop IP address (v6 format)
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: output_label
                             
@@ -21787,12 +24902,16 @@ class Evpn(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: srte_tunnel
                             
                             	Segment\-Routing Traffic Engineering Tunnel Interface Handle
                             	**type**\: str
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            	**config**\: False
                             
                             
 
@@ -21825,7 +24944,12 @@ class Evpn(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.PathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
+                                self._perform_setattr(Evpn.Standby.EviDetail.EviChildren.Macs.Mac.PathBuffer, [u'tunnel_endpoint_id', u'next_hop', u'output_label', u'srte_tunnel'], name, value)
+
+
+
+
+
 
 
         class Teps(Entity):
@@ -21836,6 +24960,8 @@ class Evpn(Entity):
             
             	L2VPN EVPN TEP Entry
             	**type**\: list of  		 :py:class:`Tep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Teps.Tep>`
+            
+            	**config**\: False
             
             
 
@@ -21875,15 +25001,21 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: local_info
                 
                 	Local TEP Information
                 	**type**\:  :py:class:`LocalInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Teps.Tep.LocalInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: remote_info
                 
                 	Remote TEP Information
                 	**type**\:  :py:class:`RemoteInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.Teps.Tep.RemoteInfo>`
+                
+                	**config**\: False
                 
                 .. attribute:: tunnel_endpoint_id
                 
@@ -21892,12 +25024,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: type
                 
                 	EVPN Tunnel Endpoint Type
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: use_count
                 
@@ -21906,10 +25042,14 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: vrf_name
                 
                 	VRF Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: vrf_table_id
                 
@@ -21918,12 +25058,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: udp_port
                 
                 	UDP port
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -21970,7 +25114,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Standby.Teps.Tep, ['tep_id', 'tunnel_endpoint_id', 'type', 'use_count', 'vrf_name', 'vrf_table_id', 'udp_port'], name, value)
+                    self._perform_setattr(Evpn.Standby.Teps.Tep, ['tep_id', u'tunnel_endpoint_id', u'type', u'use_count', u'vrf_name', u'vrf_table_id', u'udp_port'], name, value)
 
 
                 class LocalInfo(Entity):
@@ -21984,6 +25128,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: encapsulation
                     
                     	EVPN Tunnel encapsulation
@@ -21991,12 +25137,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: ip
                     
                     	IP address (v6 format)
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -22026,7 +25176,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.Teps.Tep.LocalInfo, ['ethernet_vpn_id', 'encapsulation', 'ip'], name, value)
+                        self._perform_setattr(Evpn.Standby.Teps.Tep.LocalInfo, [u'ethernet_vpn_id', u'encapsulation', u'ip'], name, value)
+
 
 
                 class RemoteInfo(Entity):
@@ -22040,6 +25191,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: encapsulation
                     
                     	EVPN Tunnel encapsulation
@@ -22047,12 +25200,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: ip
                     
                     	IP address (v6 format)
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -22082,7 +25239,10 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.Teps.Tep.RemoteInfo, ['ethernet_vpn_id', 'encapsulation', 'ip'], name, value)
+                        self._perform_setattr(Evpn.Standby.Teps.Tep.RemoteInfo, [u'ethernet_vpn_id', u'encapsulation', u'ip'], name, value)
+
+
+
 
 
         class InternalLabels(Entity):
@@ -22093,6 +25253,8 @@ class Evpn(Entity):
             
             	L2VPN EVPN Internal Label
             	**type**\: list of  		 :py:class:`InternalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.InternalLabels.InternalLabel>`
+            
+            	**config**\: False
             
             
 
@@ -22132,12 +25294,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: encapsulation
                 
                 	Encap
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: esi1
                 
@@ -22146,12 +25312,16 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: esi2
                 
                 	ES id (part 2/5)
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                	**config**\: False
                 
                 .. attribute:: esi3
                 
@@ -22160,12 +25330,16 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: esi4
                 
                 	ES id (part 4/5)
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                	**config**\: False
                 
                 .. attribute:: esi5
                 
@@ -22174,6 +25348,8 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: ethernet_tag
                 
                 	Ethernet Tag ID
@@ -22181,10 +25357,14 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: evpn_instance
                 
                 	EVPN Instance summary information
                 	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.InternalLabels.InternalLabel.EvpnInstance>`
+                
+                	**config**\: False
                 
                 .. attribute:: esi
                 
@@ -22193,12 +25373,16 @@ class Evpn(Entity):
                 
                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                 
+                	**config**\: False
+                
                 .. attribute:: tag
                 
                 	Label Tag
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: internal_label
                 
@@ -22207,12 +25391,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: mac_num_paths
                 
                 	Number of items in the MAC path buffer
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: ead_num_paths
                 
@@ -22221,12 +25409,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: evi_num_paths
                 
                 	Number of items in the evi path buffer
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: sum_num_paths
                 
@@ -22235,6 +25427,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: sum_num_active_paths
                 
                 	Number of items in the sum path buffer that are Active Paths
@@ -22242,45 +25436,63 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: resolved
                 
                 	Internal Label has resolved per\-ES EAD and per\-EVI EAD or MAC routes
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ecmp_disable
                 
                 	ECMP Disable Per EVI Resolution
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: redundancy_single_active
                 
                 	Single\-active redundancy configured at remote ES
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: redundancy_single_flow_active
                 
                 	Single\-flow\-active redundancy at remote ES (MST\-AG)
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: mac_path_buffer
                 
                 	MAC Path list buffer
                 	**type**\: list of  		 :py:class:`MacPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.InternalLabels.InternalLabel.MacPathBuffer>`
+                
+                	**config**\: False
                 
                 .. attribute:: ead_path_buffer
                 
                 	EAD/ES Path list buffer
                 	**type**\: list of  		 :py:class:`EadPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.InternalLabels.InternalLabel.EadPathBuffer>`
                 
+                	**config**\: False
+                
                 .. attribute:: evi_path_buffer
                 
                 	EAD/EVI Path list buffer
                 	**type**\: list of  		 :py:class:`EviPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.InternalLabels.InternalLabel.EviPathBuffer>`
                 
+                	**config**\: False
+                
                 .. attribute:: summary_path_buffer
                 
                 	Summary Path list buffer
                 	**type**\: list of  		 :py:class:`SummaryPathBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.InternalLabels.InternalLabel.SummaryPathBuffer>`
+                
+                	**config**\: False
                 
                 
 
@@ -22354,7 +25566,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel, ['evi', 'encapsulation', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', 'esi', 'tag', 'internal_label', 'mac_num_paths', 'ead_num_paths', 'evi_num_paths', 'sum_num_paths', 'sum_num_active_paths', 'resolved', 'ecmp_disable', 'redundancy_single_active', 'redundancy_single_flow_active'], name, value)
+                    self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel, ['evi', 'encapsulation', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'ethernet_tag', u'esi', u'tag', u'internal_label', u'mac_num_paths', u'ead_num_paths', u'evi_num_paths', u'sum_num_paths', u'sum_num_active_paths', u'resolved', u'ecmp_disable', u'redundancy_single_active', u'redundancy_single_flow_active'], name, value)
 
 
                 class EvpnInstance(Entity):
@@ -22368,6 +25580,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: encapsulation_xr
                     
                     	EVPN Instance transport encapsulation
@@ -22375,15 +25589,21 @@ class Evpn(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: bd_name
                     
                     	Bridge domain name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: type
                     
                     	Service Type
                     	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -22416,7 +25636,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                        self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
 
 
                 class MacPathBuffer(Entity):
@@ -22430,12 +25651,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_hop
                     
                     	Next\-hop IP address (v6 format)
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_label
                     
@@ -22444,12 +25669,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: srte_tunnel
                     
                     	Segment\-Routing Traffic Engineering Tunnel Interface Handle
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                    
+                    	**config**\: False
                     
                     
 
@@ -22482,7 +25711,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel.MacPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
+                        self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel.MacPathBuffer, [u'tunnel_endpoint_id', u'next_hop', u'output_label', u'srte_tunnel'], name, value)
+
 
 
                 class EadPathBuffer(Entity):
@@ -22496,12 +25726,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_hop
                     
                     	Next\-hop IP address (v6 format)
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_label
                     
@@ -22510,12 +25744,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: srte_tunnel
                     
                     	Segment\-Routing Traffic Engineering Tunnel Interface Handle
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                    
+                    	**config**\: False
                     
                     
 
@@ -22548,7 +25786,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel.EadPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
+                        self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel.EadPathBuffer, [u'tunnel_endpoint_id', u'next_hop', u'output_label', u'srte_tunnel'], name, value)
+
 
 
                 class EviPathBuffer(Entity):
@@ -22562,12 +25801,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_hop
                     
                     	Next\-hop IP address (v6 format)
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_label
                     
@@ -22576,12 +25819,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: srte_tunnel
                     
                     	Segment\-Routing Traffic Engineering Tunnel Interface Handle
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                    
+                    	**config**\: False
                     
                     
 
@@ -22614,7 +25861,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel.EviPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
+                        self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel.EviPathBuffer, [u'tunnel_endpoint_id', u'next_hop', u'output_label', u'srte_tunnel'], name, value)
+
 
 
                 class SummaryPathBuffer(Entity):
@@ -22628,12 +25876,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_hop
                     
                     	Next\-hop IP address (v6 format)
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_label
                     
@@ -22642,12 +25894,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: srte_tunnel
                     
                     	Segment\-Routing Traffic Engineering Tunnel Interface Handle
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                    
+                    	**config**\: False
                     
                     
 
@@ -22680,7 +25936,10 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel.SummaryPathBuffer, ['tunnel_endpoint_id', 'next_hop', 'output_label', 'srte_tunnel'], name, value)
+                        self._perform_setattr(Evpn.Standby.InternalLabels.InternalLabel.SummaryPathBuffer, [u'tunnel_endpoint_id', u'next_hop', u'output_label', u'srte_tunnel'], name, value)
+
+
+
 
 
         class EthernetSegments(Entity):
@@ -22691,6 +25950,8 @@ class Evpn(Entity):
             
             	EVPN Ethernet\-Segment Entry
             	**type**\: list of  		 :py:class:`EthernetSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment>`
+            
+            	**config**\: False
             
             
 
@@ -22730,12 +25991,16 @@ class Evpn(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: esi1
                 
                 	ES id (part 1/5)
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                	**config**\: False
                 
                 .. attribute:: esi2
                 
@@ -22744,12 +26009,16 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: esi3
                 
                 	ES id (part 3/5)
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                	**config**\: False
                 
                 .. attribute:: esi4
                 
@@ -22758,6 +26027,8 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: esi5
                 
                 	ES id (part 5/5)
@@ -22765,15 +26036,21 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: esi_type
                 
                 	ESI Type
                 	**type**\:  :py:class:`L2vpnEvpnEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnEsi>`
                 
+                	**config**\: False
+                
                 .. attribute:: esi_system_identifier
                 
                 	ESI System Identifier
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: esi_port_key
                 
@@ -22782,6 +26059,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: esi_system_priority
                 
                 	ESI System Priority
@@ -22789,10 +26068,14 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ethernet_segment_name
                 
                 	Ethernet Segment Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: ethernet_segment_state
                 
@@ -22801,6 +26084,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: if_handle
                 
                 	Main port ifhandle
@@ -22808,10 +26093,14 @@ class Evpn(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: main_port_role
                 
                 	Main port redundancy group role
                 	**type**\:  :py:class:`L2vpnRgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnRgRole>`
+                
+                	**config**\: False
                 
                 .. attribute:: main_port_mac
                 
@@ -22820,12 +26109,16 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: num_up_p_ws
                 
                 	Number of PWs in Up state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: route_target
                 
@@ -22834,45 +26127,63 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: rt_origin
                 
                 	Origin of operational ES\-Import RT
                 	**type**\:  :py:class:`L2vpnEvpnRtOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnRtOrigin>`
+                
+                	**config**\: False
                 
                 .. attribute:: es_bgp_gates
                 
                 	ES BGP Gates
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: es_l2fib_gates
                 
                 	ES L2FIB Gates
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: mac_flushing_mode_config
                 
                 	Configured MAC Flushing mode
                 	**type**\:  :py:class:`L2vpnEvpnMfMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnMfMode>`
                 
+                	**config**\: False
+                
                 .. attribute:: load_balance_mode_config
                 
                 	Configured load balancing mode
                 	**type**\:  :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
+                
+                	**config**\: False
                 
                 .. attribute:: load_balance_mode_is_default
                 
                 	Load balancing mode is default
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: load_balance_mode_oper
                 
                 	Operational load balancing mode
                 	**type**\:  :py:class:`L2vpnEvpnLbMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnLbMode>`
                 
+                	**config**\: False
+                
                 .. attribute:: force_single_home
                 
                 	Ethernet\-Segment forced to single home
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: source_mac_oper
                 
@@ -22881,10 +26192,14 @@ class Evpn(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: source_mac_origin
                 
                 	Origin of operational source MAC address
                 	**type**\:  :py:class:`L2vpnEvpnSmacSrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnSmacSrc>`
+                
+                	**config**\: False
                 
                 .. attribute:: peering_timer
                 
@@ -22892,6 +26207,8 @@ class Evpn(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -22902,6 +26219,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: recovery_timer
@@ -22910,6 +26229,8 @@ class Evpn(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -22920,6 +26241,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: carving_timer
@@ -22928,6 +26251,8 @@ class Evpn(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -22938,6 +26263,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: service_carving_mode
@@ -22945,15 +26272,21 @@ class Evpn(Entity):
                 	Service carving mode
                 	**type**\:  :py:class:`L2vpnEvpnScMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpnScMode>`
                 
+                	**config**\: False
+                
                 .. attribute:: primary_services_input
                 
                 	Input string of Primary services ESI/I\-SIDs
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: secondary_services_input
                 
                 	Input string of Secondary services ESI/I\-SIDs
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: forwarder_ports
                 
@@ -22962,12 +26295,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: permanent_forwarder_ports
                 
                 	Count of Forwarders with permanent service
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: elected_forwarder_ports
                 
@@ -22976,12 +26313,16 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: not_elected_forwarder_ports
                 
                 	Count of Forwarders with not elected service
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: not_config_forwarder_ports
                 
@@ -22990,25 +26331,35 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: mp_protected
                 
                 	MP is protected and not under EVPN control
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: nve_anycast_vtep
                 
                 	Anycast VTEP mode on NVE main\-interface
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: nve_ingress_replication
                 
                 	Ingress\-Replication is configured on NVE main\-interface
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: local_split_horizon_group_label_valid
                 
                 	Local split horizon group label is valid
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: local_split_horizon_group_label
                 
@@ -23017,65 +26368,91 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ethernet_segment_identifier
                 
                 	Ethernet Segment id
                 	**type**\: list of  		 :py:class:`EthernetSegmentIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier>`
+                
+                	**config**\: False
                 
                 .. attribute:: primary_service
                 
                 	List of Primary services ESI/I\-SIDs
                 	**type**\: list of  		 :py:class:`PrimaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.PrimaryService>`
                 
+                	**config**\: False
+                
                 .. attribute:: secondary_service
                 
                 	List of Secondary services ESI/I\-SIDs
                 	**type**\: list of  		 :py:class:`SecondaryService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.SecondaryService>`
+                
+                	**config**\: False
                 
                 .. attribute:: service_carving_i_sidelected_result
                 
                 	Elected ISID service carving results
                 	**type**\: list of  		 :py:class:`ServiceCarvingISidelectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult>`
                 
+                	**config**\: False
+                
                 .. attribute:: service_carving_isid_not_elected_result
                 
                 	Not elected ISID service carving results
                 	**type**\: list of  		 :py:class:`ServiceCarvingIsidNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult>`
+                
+                	**config**\: False
                 
                 .. attribute:: service_carving_evi_elected_result
                 
                 	Elected EVI service carving results
                 	**type**\: list of  		 :py:class:`ServiceCarvingEviElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult>`
                 
+                	**config**\: False
+                
                 .. attribute:: service_carving_evi_not_elected_result
                 
                 	Not elected EVI service carving results
                 	**type**\: list of  		 :py:class:`ServiceCarvingEviNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult>`
+                
+                	**config**\: False
                 
                 .. attribute:: service_carving_vni_elected_result
                 
                 	Elected VNI service carving results
                 	**type**\: list of  		 :py:class:`ServiceCarvingVniElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult>`
                 
+                	**config**\: False
+                
                 .. attribute:: service_carving_vni_not_elected_result
                 
                 	Not elected VNI service carving results
                 	**type**\: list of  		 :py:class:`ServiceCarvingVniNotElectedResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult>`
+                
+                	**config**\: False
                 
                 .. attribute:: next_hop
                 
                 	List of nexthop IPv6 addresses
                 	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.NextHop>`
                 
+                	**config**\: False
+                
                 .. attribute:: service_carving_vpws_permanent_result
                 
                 	Permanent EVPN VPWS service carving results
                 	**type**\: list of  		 :py:class:`ServiceCarvingVpwsPermanentResult <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult>`
                 
+                	**config**\: False
+                
                 .. attribute:: remote_split_horizon_group_label
                 
                 	Remote split horizon group labels
                 	**type**\: list of  		 :py:class:`RemoteSplitHorizonGroupLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel>`
+                
+                	**config**\: False
                 
                 
 
@@ -23205,7 +26582,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment, ['interface_name', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', 'esi_type', 'esi_system_identifier', 'esi_port_key', 'esi_system_priority', 'ethernet_segment_name', 'ethernet_segment_state', 'if_handle', 'main_port_role', 'main_port_mac', 'num_up_p_ws', 'route_target', 'rt_origin', 'es_bgp_gates', 'es_l2fib_gates', 'mac_flushing_mode_config', 'load_balance_mode_config', 'load_balance_mode_is_default', 'load_balance_mode_oper', 'force_single_home', 'source_mac_oper', 'source_mac_origin', 'peering_timer', 'peering_timer_left', 'recovery_timer', 'recovery_timer_left', 'carving_timer', 'carving_timer_left', 'service_carving_mode', 'primary_services_input', 'secondary_services_input', 'forwarder_ports', 'permanent_forwarder_ports', 'elected_forwarder_ports', 'not_elected_forwarder_ports', 'not_config_forwarder_ports', 'mp_protected', 'nve_anycast_vtep', 'nve_ingress_replication', 'local_split_horizon_group_label_valid', 'local_split_horizon_group_label'], name, value)
+                    self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment, ['interface_name', 'esi1', 'esi2', 'esi3', 'esi4', 'esi5', u'esi_type', u'esi_system_identifier', u'esi_port_key', u'esi_system_priority', u'ethernet_segment_name', u'ethernet_segment_state', u'if_handle', u'main_port_role', u'main_port_mac', u'num_up_p_ws', u'route_target', u'rt_origin', u'es_bgp_gates', u'es_l2fib_gates', u'mac_flushing_mode_config', u'load_balance_mode_config', u'load_balance_mode_is_default', u'load_balance_mode_oper', u'force_single_home', u'source_mac_oper', u'source_mac_origin', u'peering_timer', u'peering_timer_left', u'recovery_timer', u'recovery_timer_left', u'carving_timer', u'carving_timer_left', u'service_carving_mode', u'primary_services_input', u'secondary_services_input', u'forwarder_ports', u'permanent_forwarder_ports', u'elected_forwarder_ports', u'not_elected_forwarder_ports', u'not_config_forwarder_ports', u'mp_protected', u'nve_anycast_vtep', u'nve_ingress_replication', u'local_split_horizon_group_label_valid', u'local_split_horizon_group_label'], name, value)
 
 
                 class EthernetSegmentIdentifier(Entity):
@@ -23218,6 +26595,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -23244,7 +26623,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.EthernetSegmentIdentifier, [u'entry'], name, value)
+
 
 
                 class PrimaryService(Entity):
@@ -23257,6 +26637,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -23283,7 +26665,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.PrimaryService, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.PrimaryService, [u'entry'], name, value)
+
 
 
                 class SecondaryService(Entity):
@@ -23296,6 +26679,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -23322,7 +26707,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.SecondaryService, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.SecondaryService, [u'entry'], name, value)
+
 
 
                 class ServiceCarvingISidelectedResult(Entity):
@@ -23335,6 +26721,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -23361,7 +26749,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingISidelectedResult, [u'entry'], name, value)
+
 
 
                 class ServiceCarvingIsidNotElectedResult(Entity):
@@ -23374,6 +26763,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -23400,7 +26791,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingIsidNotElectedResult, [u'entry'], name, value)
+
 
 
                 class ServiceCarvingEviElectedResult(Entity):
@@ -23413,6 +26805,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -23439,7 +26833,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviElectedResult, [u'entry'], name, value)
+
 
 
                 class ServiceCarvingEviNotElectedResult(Entity):
@@ -23452,6 +26847,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -23478,7 +26875,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingEviNotElectedResult, [u'entry'], name, value)
+
 
 
                 class ServiceCarvingVniElectedResult(Entity):
@@ -23491,6 +26889,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -23517,7 +26917,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVniElectedResult, [u'entry'], name, value)
+
 
 
                 class ServiceCarvingVniNotElectedResult(Entity):
@@ -23530,6 +26931,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -23556,7 +26959,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult, ['entry'], name, value)
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVniNotElectedResult, [u'entry'], name, value)
+
 
 
                 class NextHop(Entity):
@@ -23570,10 +26974,14 @@ class Evpn(Entity):
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: df_dont_prempt
                     
                     	DF Dont Premption
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: df_type
                     
@@ -23582,12 +26990,16 @@ class Evpn(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: df_pref
                     
                     	DF Election Preference Set
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -23620,7 +27032,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.NextHop, ['next_hop', 'df_dont_prempt', 'df_type', 'df_pref'], name, value)
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.NextHop, [u'next_hop', u'df_dont_prempt', u'df_type', u'df_pref'], name, value)
+
 
 
                 class ServiceCarvingVpwsPermanentResult(Entity):
@@ -23634,10 +27047,14 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: type
                     
                     	Service Type
                     	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ethernet_tag
                     
@@ -23645,6 +27062,8 @@ class Evpn(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -23675,7 +27094,8 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, ['vpn_id', 'type', 'ethernet_tag'], name, value)
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.ServiceCarvingVpwsPermanentResult, [u'vpn_id', u'type', u'ethernet_tag'], name, value)
+
 
 
                 class RemoteSplitHorizonGroupLabel(Entity):
@@ -23689,12 +27109,16 @@ class Evpn(Entity):
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: label
                     
                     	Split horizon label associated with next\-hop address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -23723,7 +27147,10 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, ['next_hop', 'label'], name, value)
+                        self._perform_setattr(Evpn.Standby.EthernetSegments.EthernetSegment.RemoteSplitHorizonGroupLabel, [u'next_hop', u'label'], name, value)
+
+
+
 
 
         class AcIds(Entity):
@@ -23734,6 +27161,8 @@ class Evpn(Entity):
             
             	EVPN AC ID table
             	**type**\: list of  		 :py:class:`AcId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.AcIds.AcId>`
+            
+            	**config**\: False
             
             
 
@@ -23773,6 +27202,8 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ac_id
                 
                 	AC ID
@@ -23780,10 +27211,14 @@ class Evpn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: evpn_instance
                 
                 	EVPN Instance summary information
                 	**type**\:  :py:class:`EvpnInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.Evpn.Standby.AcIds.AcId.EvpnInstance>`
+                
+                	**config**\: False
                 
                 .. attribute:: neighbor
                 
@@ -23791,6 +27226,8 @@ class Evpn(Entity):
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 
 
@@ -23825,7 +27262,7 @@ class Evpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.Standby.AcIds.AcId, ['evi', 'ac_id', 'neighbor'], name, value)
+                    self._perform_setattr(Evpn.Standby.AcIds.AcId, ['evi', 'ac_id', u'neighbor'], name, value)
 
 
                 class EvpnInstance(Entity):
@@ -23839,6 +27276,8 @@ class Evpn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: encapsulation_xr
                     
                     	EVPN Instance transport encapsulation
@@ -23846,15 +27285,21 @@ class Evpn(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: bd_name
                     
                     	Bridge domain name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: type
                     
                     	Service Type
                     	**type**\:  :py:class:`L2vpnEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper.L2vpnEvpn>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -23887,9 +27332,15 @@ class Evpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.Standby.AcIds.AcId.EvpnInstance, ['ethernet_vpn_id', 'encapsulation_xr', 'bd_name', 'type'], name, value)
+                        self._perform_setattr(Evpn.Standby.AcIds.AcId.EvpnInstance, [u'ethernet_vpn_id', u'encapsulation_xr', u'bd_name', u'type'], name, value)
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Evpn()
         return self._top_entity
+
+
 

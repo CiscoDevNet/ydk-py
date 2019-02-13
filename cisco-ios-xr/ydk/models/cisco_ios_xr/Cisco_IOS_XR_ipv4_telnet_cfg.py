@@ -98,9 +98,12 @@ class Ipv6Telnet(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv6Telnet.Client, ['source_interface'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Ipv6Telnet()
         return self._top_entity
+
+
 
 class Ipv4Telnet(Entity):
     """
@@ -178,7 +181,10 @@ class Ipv4Telnet(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv4Telnet.Client, ['source_interface'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Ipv4Telnet()
         return self._top_entity
+
+
 

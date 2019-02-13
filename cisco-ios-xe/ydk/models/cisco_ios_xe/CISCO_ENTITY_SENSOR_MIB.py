@@ -331,15 +331,21 @@ class CISCOENTITYSENSORMIB(Entity):
     	
     	**type**\:  :py:class:`EntSensorGlobalObjects <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.EntSensorGlobalObjects>`
     
+    	**config**\: False
+    
     .. attribute:: entsensorvaluetable
     
     	This table lists the type, scale, and present value of a sensor listed in the Entity\-MIB entPhysicalTable
     	**type**\:  :py:class:`EntSensorValueTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.EntSensorValueTable>`
     
+    	**config**\: False
+    
     .. attribute:: entsensorthresholdtable
     
     	This table lists the threshold severity, relation, and comparison value, for a sensor listed in the Entity\-MIB  entPhysicalTable
     	**type**\:  :py:class:`EntSensorThresholdTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.EntSensorThresholdTable>`
+    
+    	**config**\: False
     
     
 
@@ -387,6 +393,8 @@ class CISCOENTITYSENSORMIB(Entity):
         	This variable enables the generation of entSensorThresholdNotification globally on the device. If this object value is 'false', then no entSensorThresholdNotification will be generated on this device. If this object value is 'true', then whether a  entSensorThresholdNotification for a threshold will be generated or not depends on the instance value of entSensorThresholdNotificationEnable for that threshold
         	**type**\: bool
         
+        	**config**\: False
+        
         
 
         """
@@ -415,6 +423,7 @@ class CISCOENTITYSENSORMIB(Entity):
             self._perform_setattr(CISCOENTITYSENSORMIB.EntSensorGlobalObjects, ['entsensorthreshnotifglobalenable'], name, value)
 
 
+
     class EntSensorValueTable(Entity):
         """
         This table lists the type, scale, and present value
@@ -424,6 +433,8 @@ class CISCOENTITYSENSORMIB(Entity):
         
         	An entSensorValueTable entry describes the present reading of a sensor, the measurement units and scale, and sensor operational status
         	**type**\: list of  		 :py:class:`EntSensorValueEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.EntSensorValueTable.EntSensorValueEntry>`
+        
+        	**config**\: False
         
         
 
@@ -467,15 +478,21 @@ class CISCOENTITYSENSORMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: entsensortype
             
             	This variable indicates the type of data reported by the entSensorValue.  This variable is set by the agent at start\-up and the value does not change during operation
             	**type**\:  :py:class:`SensorDataType <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.SensorDataType>`
             
+            	**config**\: False
+            
             .. attribute:: entsensorscale
             
             	This variable indicates the exponent to apply to sensor values reported by entSensorValue.  This variable is set by the agent at start\-up and the value does not change during operation
             	**type**\:  :py:class:`SensorDataScale <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.SensorDataScale>`
+            
+            	**config**\: False
             
             .. attribute:: entsensorprecision
             
@@ -484,6 +501,8 @@ class CISCOENTITYSENSORMIB(Entity):
             
             	**range:** \-8..9
             
+            	**config**\: False
+            
             .. attribute:: entsensorvalue
             
             	This variable reports the most recent measurement seen by the sensor.  To correctly display or interpret this variable's value,  you must also know entSensorType, entSensorScale, and  entSensorPrecision.  However, you can compare entSensorValue with the threshold values given in entSensorThresholdTable without any semantic knowledge
@@ -491,10 +510,14 @@ class CISCOENTITYSENSORMIB(Entity):
             
             	**range:** \-1000000000..1073741823
             
+            	**config**\: False
+            
             .. attribute:: entsensorstatus
             
             	This variable indicates the present operational status of the sensor
             	**type**\:  :py:class:`SensorStatus <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.SensorStatus>`
+            
+            	**config**\: False
             
             .. attribute:: entsensorvaluetimestamp
             
@@ -503,12 +526,16 @@ class CISCOENTITYSENSORMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: entsensorvalueupdaterate
             
             	This variable indicates the rate that the agent updates entSensorValue
             	**type**\: int
             
             	**range:** 0..999999999
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -518,6 +545,8 @@ class CISCOENTITYSENSORMIB(Entity):
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             
 
@@ -563,6 +592,8 @@ class CISCOENTITYSENSORMIB(Entity):
                 self._perform_setattr(CISCOENTITYSENSORMIB.EntSensorValueTable.EntSensorValueEntry, ['entphysicalindex', 'entsensortype', 'entsensorscale', 'entsensorprecision', 'entsensorvalue', 'entsensorstatus', 'entsensorvaluetimestamp', 'entsensorvalueupdaterate', 'entsensormeasuredentity'], name, value)
 
 
+
+
     class EntSensorThresholdTable(Entity):
         """
         This table lists the threshold severity, relation, and
@@ -573,6 +604,8 @@ class CISCOENTITYSENSORMIB(Entity):
         
         	An entSensorThresholdTable entry describes the thresholds for a sensor\: the threshold severity, the threshold value, the relation, and the  evaluation of the threshold.  Only entities of type sensor(8) are listed in this table. Only pre\-configured thresholds are listed in this table.  Users can create sensor\-value monitoring instruments in different ways, such as RMON alarms, Expression\-MIB, etc.  Entries are created by the agent at system startup and FRU insertion.  Entries are deleted by the agent at FRU removal
         	**type**\: list of  		 :py:class:`EntSensorThresholdEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.CISCOENTITYSENSORMIB.EntSensorThresholdTable.EntSensorThresholdEntry>`
+        
+        	**config**\: False
         
         
 
@@ -627,6 +660,8 @@ class CISCOENTITYSENSORMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: entsensorthresholdindex  (key)
             
             	An index that uniquely identifies an entry in the entSensorThresholdTable. This index permits the same sensor to have several  different thresholds
@@ -634,15 +669,21 @@ class CISCOENTITYSENSORMIB(Entity):
             
             	**range:** 1..99999999
             
+            	**config**\: False
+            
             .. attribute:: entsensorthresholdseverity
             
             	This variable indicates the severity of this threshold
             	**type**\:  :py:class:`SensorThresholdSeverity <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.SensorThresholdSeverity>`
             
+            	**config**\: False
+            
             .. attribute:: entsensorthresholdrelation
             
             	This variable indicates the relation between sensor value (entSensorValue) and threshold value (entSensorThresholdValue),  required to trigger the alarm.  when evaluating the relation,  entSensorValue is on the left of entSensorThresholdRelation,  entSensorThresholdValue is on the right.   in pseudo\-code, the evaluation\-alarm mechanism is\:  ... if (entSensorStatus == ok) then     if (evaluate(entSensorValue, entSensorThresholdRelation,           entSensorThresholdValue))      then         if (entSensorThresholdNotificationEnable == true))          then             raise\_alarm(sensor's entPhysicalIndex);         endif     endif endif ..
             	**type**\:  :py:class:`SensorThresholdRelation <ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB.SensorThresholdRelation>`
+            
+            	**config**\: False
             
             .. attribute:: entsensorthresholdvalue
             
@@ -651,15 +692,21 @@ class CISCOENTITYSENSORMIB(Entity):
             
             	**range:** \-1000000000..1073741823
             
+            	**config**\: False
+            
             .. attribute:: entsensorthresholdevaluation
             
             	This variable indicates the result of the most recent evaluation of the threshold.  If the threshold condition is true, entSensorThresholdEvaluation  is true(1).  If the threshold condition is false,  entSensorThresholdEvaluation is false(2).  Thresholds are evaluated at the rate indicated by  entSensorValueUpdateRate
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: entsensorthresholdnotificationenable
             
             	This variable controls generation of entSensorThresholdNotification for this threshold.  When this variable is 'true', generation of  entSensorThresholdNotification is enabled for this threshold. When this variable is 'false',  generation of entSensorThresholdNotification is disabled for this threshold
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -700,7 +747,11 @@ class CISCOENTITYSENSORMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYSENSORMIB.EntSensorThresholdTable.EntSensorThresholdEntry, ['entphysicalindex', 'entsensorthresholdindex', 'entsensorthresholdseverity', 'entsensorthresholdrelation', 'entsensorthresholdvalue', 'entsensorthresholdevaluation', 'entsensorthresholdnotificationenable'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOENTITYSENSORMIB()
         return self._top_entity
+
+
 

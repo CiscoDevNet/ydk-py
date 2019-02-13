@@ -47,6 +47,8 @@ class BgpRib(Entity):
     	Enclosing container for address family list
     	**type**\:  :py:class:`AfiSafis <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis>`
     
+    	**config**\: False
+    
     
 
     """
@@ -85,6 +87,8 @@ class BgpRib(Entity):
         	list of afi\-safi types
         	**type**\: list of  		 :py:class:`AfiSafi <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi>`
         
+        	**config**\: False
+        
         
 
         """
@@ -121,15 +125,21 @@ class BgpRib(Entity):
             	AFI,SAFI
             	**type**\:  :py:class:`AFISAFITYPE <ydk.models.openconfig.openconfig_bgp_types.AFISAFITYPE>`
             
+            	**config**\: False
+            
             .. attribute:: ipv4_unicast
             
             	Routing tables for IPv4 unicast \-\- active when the afi\-safi name is ipv4\-unicast
             	**type**\:  :py:class:`Ipv4Unicast <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast>`
             
+            	**config**\: False
+            
             .. attribute:: ipv6_unicast
             
             	Routing tables for IPv6 unicast \-\- active when the afi\-safi name is ipv6\-unicast
             	**type**\:  :py:class:`Ipv6Unicast <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast>`
+            
+            	**config**\: False
             
             
 
@@ -177,10 +187,14 @@ class BgpRib(Entity):
                 	Main routing table on the router, containing best\-path selections for each prefix.  The loc\-rib may contain multiple routes for the same prefix (it is a read\-only, unkeyed list).  The best\-path leaf should be set to true for the route selected by the best\-path selection process. Note that multiple paths may be used or advertised even if only one path is marked as best, e.g., when using BGP add\-paths.  An implementation may choose to mark multiple paths in the RIB as best path by setting the flag to true for multiple entries
                 	**type**\:  :py:class:`LocRib <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib>`
                 
+                	**config**\: False
+                
                 .. attribute:: neighbors
                 
                 	Enclosing container for neighbor list
                 	**type**\:  :py:class:`Neighbors <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors>`
+                
+                	**config**\: False
                 
                 
 
@@ -234,10 +248,14 @@ class BgpRib(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: routes
                     
                     	Enclosing container for list of routes in the routing table
                     	**type**\:  :py:class:`Routes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -280,6 +298,8 @@ class BgpRib(Entity):
                         	List of routes in the table
                         	**type**\: list of  		 :py:class:`Route <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -317,15 +337,21 @@ class BgpRib(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                             
+                            	**config**\: False
+                            
                             .. attribute:: attributes
                             
                             	Base BGP route attributes associated with this route
                             	**type**\:  :py:class:`Attributes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.Attributes>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ext_attributes
                             
                             	Extended BGP route attributes associated with this route
                             	**type**\:  :py:class:`ExtAttributes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.ExtAttributes>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: last_modified_date
                             
@@ -334,6 +360,8 @@ class BgpRib(Entity):
                             
                             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                             
+                            	**config**\: False
+                            
                             .. attribute:: last_update_received
                             
                             	Timestamp of when the last BGP update message was received for this path / prefix
@@ -341,20 +369,28 @@ class BgpRib(Entity):
                             
                             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                             
+                            	**config**\: False
+                            
                             .. attribute:: valid_route
                             
                             	Indicates that the route is considered valid by the local router
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: invalid_reason
                             
                             	If the route is rejected as invalid, this indicates the reason
                             	**type**\:  :py:class:`INVALIDROUTEREASON <ydk.models.openconfig.openconfig_rib_bgp_types.INVALIDROUTEREASON>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: best_path
                             
                             	Current path was selected as the best path
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -410,15 +446,21 @@ class BgpRib(Entity):
                                 	BGP attribute defining the origin of the path information
                                 	**type**\:  :py:class:`BgpOriginAttrType <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrType>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: as_path
                                 
                                 	String representation of the BGP AS path attribute as concatenated AS path segments.  Each segment of the AS\_PATH should be formatted as follows based on the segment type (#### denotes a single AS number)\:   AS\_SEQ\: #### #### #####  AS\_SET\: { #### #### }  AS\_CONFED\_SEQUENCE\: ( #### #### )  AS\_CONFED\_SET\: [ #### #### ]  AS\_PATH segment types are described in RFC 5065.  In the Adj\-RIB\-In or Adj\-RIB\-Out, this leaf should show the received or sent AS\_PATH value, respectively.  For example, if the local router is not 4\-byte capable, this value should consist of 2\-octet ASNs or the AS\_TRANS (AS 23456) values received or sent in route updates.  In the Loc\-RIB, this leaf should reflect the effective AS path for the route, e.g., a 4\-octet value if the local router is 4\-octet capable
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: as4_path
                                 
                                 	This string represents the AS path encoded with 4\-octet AS numbers in the optional transitive AS4\_PATH attribute. This value is populated with the received or sent attribute in Adj\-RIB\-In or Adj\-RIB\-Out, respectively.  It should not be populated in Loc\-RIB since the Loc\-RIB is expected to store the effective AS\-Path in the as\-path leaf regardless of being 4\-octet or 2\-octet
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: next_hop
                                 
@@ -433,12 +475,16 @@ class BgpRib(Entity):
                                 
                                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: med
                                 
                                 	BGP multi\-exit discriminator attribute used in BGP route selection process
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: local_pref
                                 
@@ -447,15 +493,21 @@ class BgpRib(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: atomic_aggr
                                 
                                 	BGP attribute indicating that the prefix is an atomic aggregate, i.e., the peer selected a less specific route without selecting a more specific route that is included in it
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aggregator
                                 
                                 	BGP attribute indicating the prefix has been aggregated by the specified AS and router
                                 	**type**\:  :py:class:`Aggregator <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.Attributes.Aggregator>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: community
                                 
@@ -469,6 +521,8 @@ class BgpRib(Entity):
                                 		**type**\: list of str
                                 
                                 			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -527,6 +581,8 @@ class BgpRib(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: as4
                                     
                                     	AS number of the autnonomous system that performed the aggregation (4\-octet representation).  This value is populated if an upstream router is not 4\-octet capable. Its semantics are similar to the AS4\_PATH optional transitive attribute
@@ -534,12 +590,16 @@ class BgpRib(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: address
                                     
                                     	IP address of the router that performed the aggregation
                                     	**type**\: str
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -572,6 +632,8 @@ class BgpRib(Entity):
                                         self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.Attributes.Aggregator, ['as_', 'as4', 'address'], name, value)
 
 
+
+
                             class ExtAttributes(Entity):
                                 """
                                 Extended BGP route attributes associated with this
@@ -584,12 +646,16 @@ class BgpRib(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: cluster_list
                                 
                                 	Represents the reflection path that the route has passed
                                 	**type**\: list of str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ext_community
                                 
@@ -632,12 +698,16 @@ class BgpRib(Entity):
                                 
                                 			**pattern:** ^route\\\-origin\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aigp
                                 
                                 	BGP path attribute representing the accumulated IGP metric for the path
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: path_id
                                 
@@ -646,10 +716,14 @@ class BgpRib(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: unknown_attribute
                                 
                                 	This list contains received attributes that are unrecognized or unsupported by the local router.  The list may be empty
                                 	**type**\: list of  		 :py:class:`UnknownAttribute <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.ExtAttributes.UnknownAttribute>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -700,6 +774,8 @@ class BgpRib(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: attr_len
                                     
                                     	One or two octet attribute length field indicating the length of the attribute data in octets.  If the Extended Length attribute flag in the attribute type field is set, the length field is 2 octets, otherwise it is 1 octet
@@ -707,12 +783,16 @@ class BgpRib(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: attr_value
                                     
                                     	Raw attribute value data, not to exceed the length indicated in the attr\-len field.  The maximum length of the attribute data is 2^16\-1 per the max value of the attr\-len field (2 octets)
                                     	**type**\: str
                                     
                                     	**length:** 1..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -745,6 +825,11 @@ class BgpRib(Entity):
                                         self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.LocRib.Routes.Route.ExtAttributes.UnknownAttribute, ['attr_type', 'attr_len', 'attr_value'], name, value)
 
 
+
+
+
+
+
                 class Neighbors(Entity):
                     """
                     Enclosing container for neighbor list
@@ -753,6 +838,8 @@ class BgpRib(Entity):
                     
                     	List of neighbors (peers) of the local BGP speaker
                     	**type**\: list of  		 :py:class:`Neighbor <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -797,25 +884,35 @@ class BgpRib(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: adj_rib_in_pre
                         
                         	Per\-neighbor table containing the NLRI updates received from the neighbor before any local input policy rules or filters have been applied.  This can be considered the 'raw' updates from the neighbor
                         	**type**\:  :py:class:`AdjRibInPre <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: adj_rib_in_post
                         
                         	Per\-neighbor table containing the paths received from the neighbor that are eligible for best\-path selection after local input policy rules have been applied
                         	**type**\:  :py:class:`AdjRibInPost <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: adj_rib_out_pre
                         
                         	Per\-neighbor table containing paths eligble for sending (advertising) to the neighbor before output policy rules have been applied
                         	**type**\:  :py:class:`AdjRibOutPre <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: adj_rib_out_post
                         
                         	Per\-neighbor table containing paths eligble for sending (advertising) to the neighbor after output policy rules have been applied
                         	**type**\:  :py:class:`AdjRibOutPost <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -874,10 +971,14 @@ class BgpRib(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: routes
                             
                             	Enclosing container for list of routes in the routing table
                             	**type**\:  :py:class:`Routes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -920,6 +1021,8 @@ class BgpRib(Entity):
                                 	List of routes in the table
                                 	**type**\: list of  		 :py:class:`Route <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -957,15 +1060,21 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: attributes
                                     
                                     	Base BGP route attributes associated with this route
                                     	**type**\:  :py:class:`Attributes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ext_attributes
                                     
                                     	Extended BGP route attributes associated with this route
                                     	**type**\:  :py:class:`ExtAttributes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: last_modified_date
                                     
@@ -974,6 +1083,8 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_update_received
                                     
                                     	Timestamp of when the last BGP update message was received for this path / prefix
@@ -981,20 +1092,28 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: valid_route
                                     
                                     	Indicates that the route is considered valid by the local router
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: invalid_reason
                                     
                                     	If the route is rejected as invalid, this indicates the reason
                                     	**type**\:  :py:class:`INVALIDROUTEREASON <ydk.models.openconfig.openconfig_rib_bgp_types.INVALIDROUTEREASON>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: best_path
                                     
                                     	Current path was selected as the best path
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1050,15 +1169,21 @@ class BgpRib(Entity):
                                         	BGP attribute defining the origin of the path information
                                         	**type**\:  :py:class:`BgpOriginAttrType <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrType>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: as_path
                                         
                                         	String representation of the BGP AS path attribute as concatenated AS path segments.  Each segment of the AS\_PATH should be formatted as follows based on the segment type (#### denotes a single AS number)\:   AS\_SEQ\: #### #### #####  AS\_SET\: { #### #### }  AS\_CONFED\_SEQUENCE\: ( #### #### )  AS\_CONFED\_SET\: [ #### #### ]  AS\_PATH segment types are described in RFC 5065.  In the Adj\-RIB\-In or Adj\-RIB\-Out, this leaf should show the received or sent AS\_PATH value, respectively.  For example, if the local router is not 4\-byte capable, this value should consist of 2\-octet ASNs or the AS\_TRANS (AS 23456) values received or sent in route updates.  In the Loc\-RIB, this leaf should reflect the effective AS path for the route, e.g., a 4\-octet value if the local router is 4\-octet capable
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: as4_path
                                         
                                         	This string represents the AS path encoded with 4\-octet AS numbers in the optional transitive AS4\_PATH attribute. This value is populated with the received or sent attribute in Adj\-RIB\-In or Adj\-RIB\-Out, respectively.  It should not be populated in Loc\-RIB since the Loc\-RIB is expected to store the effective AS\-Path in the as\-path leaf regardless of being 4\-octet or 2\-octet
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: next_hop
                                         
@@ -1073,12 +1198,16 @@ class BgpRib(Entity):
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: med
                                         
                                         	BGP multi\-exit discriminator attribute used in BGP route selection process
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: local_pref
                                         
@@ -1087,15 +1216,21 @@ class BgpRib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: atomic_aggr
                                         
                                         	BGP attribute indicating that the prefix is an atomic aggregate, i.e., the peer selected a less specific route without selecting a more specific route that is included in it
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: aggregator
                                         
                                         	BGP attribute indicating the prefix has been aggregated by the specified AS and router
                                         	**type**\:  :py:class:`Aggregator <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes.Aggregator>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: community
                                         
@@ -1109,6 +1244,8 @@ class BgpRib(Entity):
                                         		**type**\: list of str
                                         
                                         			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1167,6 +1304,8 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: as4
                                             
                                             	AS number of the autnonomous system that performed the aggregation (4\-octet representation).  This value is populated if an upstream router is not 4\-octet capable. Its semantics are similar to the AS4\_PATH optional transitive attribute
@@ -1174,12 +1313,16 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: address
                                             
                                             	IP address of the router that performed the aggregation
                                             	**type**\: str
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1212,6 +1355,8 @@ class BgpRib(Entity):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes.Aggregator, ['as_', 'as4', 'address'], name, value)
 
 
+
+
                                     class ExtAttributes(Entity):
                                         """
                                         Extended BGP route attributes associated with this
@@ -1224,12 +1369,16 @@ class BgpRib(Entity):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: cluster_list
                                         
                                         	Represents the reflection path that the route has passed
                                         	**type**\: list of str
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: ext_community
                                         
@@ -1272,12 +1421,16 @@ class BgpRib(Entity):
                                         
                                         			**pattern:** ^route\\\-origin\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: aigp
                                         
                                         	BGP path attribute representing the accumulated IGP metric for the path
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: path_id
                                         
@@ -1286,10 +1439,14 @@ class BgpRib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unknown_attribute
                                         
                                         	This list contains received attributes that are unrecognized or unsupported by the local router.  The list may be empty
                                         	**type**\: list of  		 :py:class:`UnknownAttribute <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes.UnknownAttribute>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1340,6 +1497,8 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attr_len
                                             
                                             	One or two octet attribute length field indicating the length of the attribute data in octets.  If the Extended Length attribute flag in the attribute type field is set, the length field is 2 octets, otherwise it is 1 octet
@@ -1347,12 +1506,16 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attr_value
                                             
                                             	Raw attribute value data, not to exceed the length indicated in the attr\-len field.  The maximum length of the attribute data is 2^16\-1 per the max value of the attr\-len field (2 octets)
                                             	**type**\: str
                                             
                                             	**length:** 1..65535
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1385,6 +1548,11 @@ class BgpRib(Entity):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes.UnknownAttribute, ['attr_type', 'attr_len', 'attr_value'], name, value)
 
 
+
+
+
+
+
                         class AdjRibInPost(Entity):
                             """
                             Per\-neighbor table containing the paths received from
@@ -1398,10 +1566,14 @@ class BgpRib(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: routes
                             
                             	Enclosing container for list of routes in the routing table
                             	**type**\:  :py:class:`Routes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1444,6 +1616,8 @@ class BgpRib(Entity):
                                 	List of routes in the table
                                 	**type**\: list of  		 :py:class:`Route <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -1481,15 +1655,21 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: attributes
                                     
                                     	Base BGP route attributes associated with this route
                                     	**type**\:  :py:class:`Attributes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ext_attributes
                                     
                                     	Extended BGP route attributes associated with this route
                                     	**type**\:  :py:class:`ExtAttributes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: last_modified_date
                                     
@@ -1498,6 +1678,8 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_update_received
                                     
                                     	Timestamp of when the last BGP update message was received for this path / prefix
@@ -1505,20 +1687,28 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: valid_route
                                     
                                     	Indicates that the route is considered valid by the local router
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: invalid_reason
                                     
                                     	If the route is rejected as invalid, this indicates the reason
                                     	**type**\:  :py:class:`INVALIDROUTEREASON <ydk.models.openconfig.openconfig_rib_bgp_types.INVALIDROUTEREASON>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: best_path
                                     
                                     	Current path was selected as the best path
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1574,15 +1764,21 @@ class BgpRib(Entity):
                                         	BGP attribute defining the origin of the path information
                                         	**type**\:  :py:class:`BgpOriginAttrType <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrType>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: as_path
                                         
                                         	String representation of the BGP AS path attribute as concatenated AS path segments.  Each segment of the AS\_PATH should be formatted as follows based on the segment type (#### denotes a single AS number)\:   AS\_SEQ\: #### #### #####  AS\_SET\: { #### #### }  AS\_CONFED\_SEQUENCE\: ( #### #### )  AS\_CONFED\_SET\: [ #### #### ]  AS\_PATH segment types are described in RFC 5065.  In the Adj\-RIB\-In or Adj\-RIB\-Out, this leaf should show the received or sent AS\_PATH value, respectively.  For example, if the local router is not 4\-byte capable, this value should consist of 2\-octet ASNs or the AS\_TRANS (AS 23456) values received or sent in route updates.  In the Loc\-RIB, this leaf should reflect the effective AS path for the route, e.g., a 4\-octet value if the local router is 4\-octet capable
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: as4_path
                                         
                                         	This string represents the AS path encoded with 4\-octet AS numbers in the optional transitive AS4\_PATH attribute. This value is populated with the received or sent attribute in Adj\-RIB\-In or Adj\-RIB\-Out, respectively.  It should not be populated in Loc\-RIB since the Loc\-RIB is expected to store the effective AS\-Path in the as\-path leaf regardless of being 4\-octet or 2\-octet
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: next_hop
                                         
@@ -1597,12 +1793,16 @@ class BgpRib(Entity):
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: med
                                         
                                         	BGP multi\-exit discriminator attribute used in BGP route selection process
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: local_pref
                                         
@@ -1611,15 +1811,21 @@ class BgpRib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: atomic_aggr
                                         
                                         	BGP attribute indicating that the prefix is an atomic aggregate, i.e., the peer selected a less specific route without selecting a more specific route that is included in it
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: aggregator
                                         
                                         	BGP attribute indicating the prefix has been aggregated by the specified AS and router
                                         	**type**\:  :py:class:`Aggregator <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes.Aggregator>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: community
                                         
@@ -1633,6 +1839,8 @@ class BgpRib(Entity):
                                         		**type**\: list of str
                                         
                                         			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1691,6 +1899,8 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: as4
                                             
                                             	AS number of the autnonomous system that performed the aggregation (4\-octet representation).  This value is populated if an upstream router is not 4\-octet capable. Its semantics are similar to the AS4\_PATH optional transitive attribute
@@ -1698,12 +1908,16 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: address
                                             
                                             	IP address of the router that performed the aggregation
                                             	**type**\: str
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1736,6 +1950,8 @@ class BgpRib(Entity):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes.Aggregator, ['as_', 'as4', 'address'], name, value)
 
 
+
+
                                     class ExtAttributes(Entity):
                                         """
                                         Extended BGP route attributes associated with this
@@ -1748,12 +1964,16 @@ class BgpRib(Entity):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: cluster_list
                                         
                                         	Represents the reflection path that the route has passed
                                         	**type**\: list of str
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: ext_community
                                         
@@ -1796,12 +2016,16 @@ class BgpRib(Entity):
                                         
                                         			**pattern:** ^route\\\-origin\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: aigp
                                         
                                         	BGP path attribute representing the accumulated IGP metric for the path
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: path_id
                                         
@@ -1810,10 +2034,14 @@ class BgpRib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unknown_attribute
                                         
                                         	This list contains received attributes that are unrecognized or unsupported by the local router.  The list may be empty
                                         	**type**\: list of  		 :py:class:`UnknownAttribute <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes.UnknownAttribute>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1864,6 +2092,8 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attr_len
                                             
                                             	One or two octet attribute length field indicating the length of the attribute data in octets.  If the Extended Length attribute flag in the attribute type field is set, the length field is 2 octets, otherwise it is 1 octet
@@ -1871,12 +2101,16 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attr_value
                                             
                                             	Raw attribute value data, not to exceed the length indicated in the attr\-len field.  The maximum length of the attribute data is 2^16\-1 per the max value of the attr\-len field (2 octets)
                                             	**type**\: str
                                             
                                             	**length:** 1..65535
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1909,6 +2143,11 @@ class BgpRib(Entity):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes.UnknownAttribute, ['attr_type', 'attr_len', 'attr_value'], name, value)
 
 
+
+
+
+
+
                         class AdjRibOutPre(Entity):
                             """
                             Per\-neighbor table containing paths eligble for
@@ -1922,10 +2161,14 @@ class BgpRib(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: routes
                             
                             	Enclosing container for list of routes in the routing table
                             	**type**\:  :py:class:`Routes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1968,6 +2211,8 @@ class BgpRib(Entity):
                                 	List of routes in the table
                                 	**type**\: list of  		 :py:class:`Route <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -2005,15 +2250,21 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: attributes
                                     
                                     	Base BGP route attributes associated with this route
                                     	**type**\:  :py:class:`Attributes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ext_attributes
                                     
                                     	Extended BGP route attributes associated with this route
                                     	**type**\:  :py:class:`ExtAttributes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: last_modified_date
                                     
@@ -2022,6 +2273,8 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_update_received
                                     
                                     	Timestamp of when the last BGP update message was received for this path / prefix
@@ -2029,20 +2282,28 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: valid_route
                                     
                                     	Indicates that the route is considered valid by the local router
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: invalid_reason
                                     
                                     	If the route is rejected as invalid, this indicates the reason
                                     	**type**\:  :py:class:`INVALIDROUTEREASON <ydk.models.openconfig.openconfig_rib_bgp_types.INVALIDROUTEREASON>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: best_path
                                     
                                     	Current path was selected as the best path
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2098,15 +2359,21 @@ class BgpRib(Entity):
                                         	BGP attribute defining the origin of the path information
                                         	**type**\:  :py:class:`BgpOriginAttrType <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrType>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: as_path
                                         
                                         	String representation of the BGP AS path attribute as concatenated AS path segments.  Each segment of the AS\_PATH should be formatted as follows based on the segment type (#### denotes a single AS number)\:   AS\_SEQ\: #### #### #####  AS\_SET\: { #### #### }  AS\_CONFED\_SEQUENCE\: ( #### #### )  AS\_CONFED\_SET\: [ #### #### ]  AS\_PATH segment types are described in RFC 5065.  In the Adj\-RIB\-In or Adj\-RIB\-Out, this leaf should show the received or sent AS\_PATH value, respectively.  For example, if the local router is not 4\-byte capable, this value should consist of 2\-octet ASNs or the AS\_TRANS (AS 23456) values received or sent in route updates.  In the Loc\-RIB, this leaf should reflect the effective AS path for the route, e.g., a 4\-octet value if the local router is 4\-octet capable
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: as4_path
                                         
                                         	This string represents the AS path encoded with 4\-octet AS numbers in the optional transitive AS4\_PATH attribute. This value is populated with the received or sent attribute in Adj\-RIB\-In or Adj\-RIB\-Out, respectively.  It should not be populated in Loc\-RIB since the Loc\-RIB is expected to store the effective AS\-Path in the as\-path leaf regardless of being 4\-octet or 2\-octet
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: next_hop
                                         
@@ -2121,12 +2388,16 @@ class BgpRib(Entity):
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: med
                                         
                                         	BGP multi\-exit discriminator attribute used in BGP route selection process
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: local_pref
                                         
@@ -2135,15 +2406,21 @@ class BgpRib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: atomic_aggr
                                         
                                         	BGP attribute indicating that the prefix is an atomic aggregate, i.e., the peer selected a less specific route without selecting a more specific route that is included in it
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: aggregator
                                         
                                         	BGP attribute indicating the prefix has been aggregated by the specified AS and router
                                         	**type**\:  :py:class:`Aggregator <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes.Aggregator>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: community
                                         
@@ -2157,6 +2434,8 @@ class BgpRib(Entity):
                                         		**type**\: list of str
                                         
                                         			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2215,6 +2494,8 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: as4
                                             
                                             	AS number of the autnonomous system that performed the aggregation (4\-octet representation).  This value is populated if an upstream router is not 4\-octet capable. Its semantics are similar to the AS4\_PATH optional transitive attribute
@@ -2222,12 +2503,16 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: address
                                             
                                             	IP address of the router that performed the aggregation
                                             	**type**\: str
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -2260,6 +2545,8 @@ class BgpRib(Entity):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes.Aggregator, ['as_', 'as4', 'address'], name, value)
 
 
+
+
                                     class ExtAttributes(Entity):
                                         """
                                         Extended BGP route attributes associated with this
@@ -2272,12 +2559,16 @@ class BgpRib(Entity):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: cluster_list
                                         
                                         	Represents the reflection path that the route has passed
                                         	**type**\: list of str
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: ext_community
                                         
@@ -2320,12 +2611,16 @@ class BgpRib(Entity):
                                         
                                         			**pattern:** ^route\\\-origin\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: aigp
                                         
                                         	BGP path attribute representing the accumulated IGP metric for the path
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: path_id
                                         
@@ -2334,10 +2629,14 @@ class BgpRib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unknown_attribute
                                         
                                         	This list contains received attributes that are unrecognized or unsupported by the local router.  The list may be empty
                                         	**type**\: list of  		 :py:class:`UnknownAttribute <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes.UnknownAttribute>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2388,6 +2687,8 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attr_len
                                             
                                             	One or two octet attribute length field indicating the length of the attribute data in octets.  If the Extended Length attribute flag in the attribute type field is set, the length field is 2 octets, otherwise it is 1 octet
@@ -2395,12 +2696,16 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attr_value
                                             
                                             	Raw attribute value data, not to exceed the length indicated in the attr\-len field.  The maximum length of the attribute data is 2^16\-1 per the max value of the attr\-len field (2 octets)
                                             	**type**\: str
                                             
                                             	**length:** 1..65535
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -2433,6 +2738,11 @@ class BgpRib(Entity):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes.UnknownAttribute, ['attr_type', 'attr_len', 'attr_value'], name, value)
 
 
+
+
+
+
+
                         class AdjRibOutPost(Entity):
                             """
                             Per\-neighbor table containing paths eligble for
@@ -2446,10 +2756,14 @@ class BgpRib(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: routes
                             
                             	Enclosing container for list of routes in the routing table
                             	**type**\:  :py:class:`Routes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2492,6 +2806,8 @@ class BgpRib(Entity):
                                 	List of routes in the table
                                 	**type**\: list of  		 :py:class:`Route <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -2529,15 +2845,21 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: attributes
                                     
                                     	Base BGP route attributes associated with this route
                                     	**type**\:  :py:class:`Attributes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ext_attributes
                                     
                                     	Extended BGP route attributes associated with this route
                                     	**type**\:  :py:class:`ExtAttributes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: last_modified_date
                                     
@@ -2546,6 +2868,8 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_update_received
                                     
                                     	Timestamp of when the last BGP update message was received for this path / prefix
@@ -2553,20 +2877,28 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: valid_route
                                     
                                     	Indicates that the route is considered valid by the local router
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: invalid_reason
                                     
                                     	If the route is rejected as invalid, this indicates the reason
                                     	**type**\:  :py:class:`INVALIDROUTEREASON <ydk.models.openconfig.openconfig_rib_bgp_types.INVALIDROUTEREASON>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: best_path
                                     
                                     	Current path was selected as the best path
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2622,15 +2954,21 @@ class BgpRib(Entity):
                                         	BGP attribute defining the origin of the path information
                                         	**type**\:  :py:class:`BgpOriginAttrType <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrType>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: as_path
                                         
                                         	String representation of the BGP AS path attribute as concatenated AS path segments.  Each segment of the AS\_PATH should be formatted as follows based on the segment type (#### denotes a single AS number)\:   AS\_SEQ\: #### #### #####  AS\_SET\: { #### #### }  AS\_CONFED\_SEQUENCE\: ( #### #### )  AS\_CONFED\_SET\: [ #### #### ]  AS\_PATH segment types are described in RFC 5065.  In the Adj\-RIB\-In or Adj\-RIB\-Out, this leaf should show the received or sent AS\_PATH value, respectively.  For example, if the local router is not 4\-byte capable, this value should consist of 2\-octet ASNs or the AS\_TRANS (AS 23456) values received or sent in route updates.  In the Loc\-RIB, this leaf should reflect the effective AS path for the route, e.g., a 4\-octet value if the local router is 4\-octet capable
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: as4_path
                                         
                                         	This string represents the AS path encoded with 4\-octet AS numbers in the optional transitive AS4\_PATH attribute. This value is populated with the received or sent attribute in Adj\-RIB\-In or Adj\-RIB\-Out, respectively.  It should not be populated in Loc\-RIB since the Loc\-RIB is expected to store the effective AS\-Path in the as\-path leaf regardless of being 4\-octet or 2\-octet
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: next_hop
                                         
@@ -2645,12 +2983,16 @@ class BgpRib(Entity):
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: med
                                         
                                         	BGP multi\-exit discriminator attribute used in BGP route selection process
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: local_pref
                                         
@@ -2659,15 +3001,21 @@ class BgpRib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: atomic_aggr
                                         
                                         	BGP attribute indicating that the prefix is an atomic aggregate, i.e., the peer selected a less specific route without selecting a more specific route that is included in it
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: aggregator
                                         
                                         	BGP attribute indicating the prefix has been aggregated by the specified AS and router
                                         	**type**\:  :py:class:`Aggregator <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes.Aggregator>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: community
                                         
@@ -2681,6 +3029,8 @@ class BgpRib(Entity):
                                         		**type**\: list of str
                                         
                                         			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2739,6 +3089,8 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: as4
                                             
                                             	AS number of the autnonomous system that performed the aggregation (4\-octet representation).  This value is populated if an upstream router is not 4\-octet capable. Its semantics are similar to the AS4\_PATH optional transitive attribute
@@ -2746,12 +3098,16 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: address
                                             
                                             	IP address of the router that performed the aggregation
                                             	**type**\: str
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -2784,6 +3140,8 @@ class BgpRib(Entity):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes.Aggregator, ['as_', 'as4', 'address'], name, value)
 
 
+
+
                                     class ExtAttributes(Entity):
                                         """
                                         Extended BGP route attributes associated with this
@@ -2796,12 +3154,16 @@ class BgpRib(Entity):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: cluster_list
                                         
                                         	Represents the reflection path that the route has passed
                                         	**type**\: list of str
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: ext_community
                                         
@@ -2844,12 +3206,16 @@ class BgpRib(Entity):
                                         
                                         			**pattern:** ^route\\\-origin\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: aigp
                                         
                                         	BGP path attribute representing the accumulated IGP metric for the path
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: path_id
                                         
@@ -2858,10 +3224,14 @@ class BgpRib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unknown_attribute
                                         
                                         	This list contains received attributes that are unrecognized or unsupported by the local router.  The list may be empty
                                         	**type**\: list of  		 :py:class:`UnknownAttribute <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes.UnknownAttribute>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2912,6 +3282,8 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attr_len
                                             
                                             	One or two octet attribute length field indicating the length of the attribute data in octets.  If the Extended Length attribute flag in the attribute type field is set, the length field is 2 octets, otherwise it is 1 octet
@@ -2919,12 +3291,16 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attr_value
                                             
                                             	Raw attribute value data, not to exceed the length indicated in the attr\-len field.  The maximum length of the attribute data is 2^16\-1 per the max value of the attr\-len field (2 octets)
                                             	**type**\: str
                                             
                                             	**length:** 1..65535
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -2957,6 +3333,14 @@ class BgpRib(Entity):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv4Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes.UnknownAttribute, ['attr_type', 'attr_len', 'attr_value'], name, value)
 
 
+
+
+
+
+
+
+
+
             class Ipv6Unicast(Entity):
                 """
                 Routing tables for IPv6 unicast \-\- active when the
@@ -2967,10 +3351,14 @@ class BgpRib(Entity):
                 	Main routing table on the router, containing best\-path selections for each prefix.  The loc\-rib may contain multiple routes for the same prefix (it is a read\-only, unkeyed list).  The best\-path leaf should be set to true for the route selected by the best\-path selection process. Note that multiple paths may be used or advertised even if only one path is marked as best, e.g., when using BGP add\-paths.  An implementation may choose to mark multiple paths in the RIB as best path by setting the flag to true for multiple entries
                 	**type**\:  :py:class:`LocRib <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib>`
                 
+                	**config**\: False
+                
                 .. attribute:: neighbors
                 
                 	Enclosing container for neighbor list
                 	**type**\:  :py:class:`Neighbors <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors>`
+                
+                	**config**\: False
                 
                 
 
@@ -3024,10 +3412,14 @@ class BgpRib(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: routes
                     
                     	Enclosing container for list of routes in the routing table
                     	**type**\:  :py:class:`Routes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3070,6 +3462,8 @@ class BgpRib(Entity):
                         	List of routes in the table
                         	**type**\: list of  		 :py:class:`Route <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -3107,15 +3501,21 @@ class BgpRib(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                             
+                            	**config**\: False
+                            
                             .. attribute:: attributes
                             
                             	Base BGP route attributes associated with this route
                             	**type**\:  :py:class:`Attributes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.Attributes>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ext_attributes
                             
                             	Extended BGP route attributes associated with this route
                             	**type**\:  :py:class:`ExtAttributes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.ExtAttributes>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: last_modified_date
                             
@@ -3124,6 +3524,8 @@ class BgpRib(Entity):
                             
                             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                             
+                            	**config**\: False
+                            
                             .. attribute:: last_update_received
                             
                             	Timestamp of when the last BGP update message was received for this path / prefix
@@ -3131,20 +3533,28 @@ class BgpRib(Entity):
                             
                             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                             
+                            	**config**\: False
+                            
                             .. attribute:: valid_route
                             
                             	Indicates that the route is considered valid by the local router
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: invalid_reason
                             
                             	If the route is rejected as invalid, this indicates the reason
                             	**type**\:  :py:class:`INVALIDROUTEREASON <ydk.models.openconfig.openconfig_rib_bgp_types.INVALIDROUTEREASON>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: best_path
                             
                             	Current path was selected as the best path
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -3200,15 +3610,21 @@ class BgpRib(Entity):
                                 	BGP attribute defining the origin of the path information
                                 	**type**\:  :py:class:`BgpOriginAttrType <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrType>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: as_path
                                 
                                 	String representation of the BGP AS path attribute as concatenated AS path segments.  Each segment of the AS\_PATH should be formatted as follows based on the segment type (#### denotes a single AS number)\:   AS\_SEQ\: #### #### #####  AS\_SET\: { #### #### }  AS\_CONFED\_SEQUENCE\: ( #### #### )  AS\_CONFED\_SET\: [ #### #### ]  AS\_PATH segment types are described in RFC 5065.  In the Adj\-RIB\-In or Adj\-RIB\-Out, this leaf should show the received or sent AS\_PATH value, respectively.  For example, if the local router is not 4\-byte capable, this value should consist of 2\-octet ASNs or the AS\_TRANS (AS 23456) values received or sent in route updates.  In the Loc\-RIB, this leaf should reflect the effective AS path for the route, e.g., a 4\-octet value if the local router is 4\-octet capable
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: as4_path
                                 
                                 	This string represents the AS path encoded with 4\-octet AS numbers in the optional transitive AS4\_PATH attribute. This value is populated with the received or sent attribute in Adj\-RIB\-In or Adj\-RIB\-Out, respectively.  It should not be populated in Loc\-RIB since the Loc\-RIB is expected to store the effective AS\-Path in the as\-path leaf regardless of being 4\-octet or 2\-octet
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: next_hop
                                 
@@ -3223,12 +3639,16 @@ class BgpRib(Entity):
                                 
                                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: med
                                 
                                 	BGP multi\-exit discriminator attribute used in BGP route selection process
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: local_pref
                                 
@@ -3237,15 +3657,21 @@ class BgpRib(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: atomic_aggr
                                 
                                 	BGP attribute indicating that the prefix is an atomic aggregate, i.e., the peer selected a less specific route without selecting a more specific route that is included in it
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aggregator
                                 
                                 	BGP attribute indicating the prefix has been aggregated by the specified AS and router
                                 	**type**\:  :py:class:`Aggregator <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.Attributes.Aggregator>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: community
                                 
@@ -3259,6 +3685,8 @@ class BgpRib(Entity):
                                 		**type**\: list of str
                                 
                                 			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3317,6 +3745,8 @@ class BgpRib(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: as4
                                     
                                     	AS number of the autnonomous system that performed the aggregation (4\-octet representation).  This value is populated if an upstream router is not 4\-octet capable. Its semantics are similar to the AS4\_PATH optional transitive attribute
@@ -3324,12 +3754,16 @@ class BgpRib(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: address
                                     
                                     	IP address of the router that performed the aggregation
                                     	**type**\: str
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3362,6 +3796,8 @@ class BgpRib(Entity):
                                         self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.Attributes.Aggregator, ['as_', 'as4', 'address'], name, value)
 
 
+
+
                             class ExtAttributes(Entity):
                                 """
                                 Extended BGP route attributes associated with this
@@ -3374,12 +3810,16 @@ class BgpRib(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: cluster_list
                                 
                                 	Represents the reflection path that the route has passed
                                 	**type**\: list of str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ext_community
                                 
@@ -3422,12 +3862,16 @@ class BgpRib(Entity):
                                 
                                 			**pattern:** ^route\\\-origin\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aigp
                                 
                                 	BGP path attribute representing the accumulated IGP metric for the path
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: path_id
                                 
@@ -3436,10 +3880,14 @@ class BgpRib(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: unknown_attribute
                                 
                                 	This list contains received attributes that are unrecognized or unsupported by the local router.  The list may be empty
                                 	**type**\: list of  		 :py:class:`UnknownAttribute <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.ExtAttributes.UnknownAttribute>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3490,6 +3938,8 @@ class BgpRib(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: attr_len
                                     
                                     	One or two octet attribute length field indicating the length of the attribute data in octets.  If the Extended Length attribute flag in the attribute type field is set, the length field is 2 octets, otherwise it is 1 octet
@@ -3497,12 +3947,16 @@ class BgpRib(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: attr_value
                                     
                                     	Raw attribute value data, not to exceed the length indicated in the attr\-len field.  The maximum length of the attribute data is 2^16\-1 per the max value of the attr\-len field (2 octets)
                                     	**type**\: str
                                     
                                     	**length:** 1..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3535,6 +3989,11 @@ class BgpRib(Entity):
                                         self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.LocRib.Routes.Route.ExtAttributes.UnknownAttribute, ['attr_type', 'attr_len', 'attr_value'], name, value)
 
 
+
+
+
+
+
                 class Neighbors(Entity):
                     """
                     Enclosing container for neighbor list
@@ -3543,6 +4002,8 @@ class BgpRib(Entity):
                     
                     	List of neighbors (peers) of the local BGP speaker
                     	**type**\: list of  		 :py:class:`Neighbor <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3587,25 +4048,35 @@ class BgpRib(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: adj_rib_in_pre
                         
                         	Per\-neighbor table containing the NLRI updates received from the neighbor before any local input policy rules or filters have been applied.  This can be considered the 'raw' updates from the neighbor
                         	**type**\:  :py:class:`AdjRibInPre <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: adj_rib_in_post
                         
                         	Per\-neighbor table containing the paths received from the neighbor that are eligible for best\-path selection after local input policy rules have been applied
                         	**type**\:  :py:class:`AdjRibInPost <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: adj_rib_out_pre
                         
                         	Per\-neighbor table containing paths eligble for sending (advertising) to the neighbor before output policy rules have been applied
                         	**type**\:  :py:class:`AdjRibOutPre <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: adj_rib_out_post
                         
                         	Per\-neighbor table containing paths eligble for sending (advertising) to the neighbor after output policy rules have been applied
                         	**type**\:  :py:class:`AdjRibOutPost <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3664,10 +4135,14 @@ class BgpRib(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: routes
                             
                             	Enclosing container for list of routes in the routing table
                             	**type**\:  :py:class:`Routes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -3710,6 +4185,8 @@ class BgpRib(Entity):
                                 	List of routes in the table
                                 	**type**\: list of  		 :py:class:`Route <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -3747,15 +4224,21 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: attributes
                                     
                                     	Base BGP route attributes associated with this route
                                     	**type**\:  :py:class:`Attributes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ext_attributes
                                     
                                     	Extended BGP route attributes associated with this route
                                     	**type**\:  :py:class:`ExtAttributes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: last_modified_date
                                     
@@ -3764,6 +4247,8 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_update_received
                                     
                                     	Timestamp of when the last BGP update message was received for this path / prefix
@@ -3771,20 +4256,28 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: valid_route
                                     
                                     	Indicates that the route is considered valid by the local router
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: invalid_reason
                                     
                                     	If the route is rejected as invalid, this indicates the reason
                                     	**type**\:  :py:class:`INVALIDROUTEREASON <ydk.models.openconfig.openconfig_rib_bgp_types.INVALIDROUTEREASON>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: best_path
                                     
                                     	Current path was selected as the best path
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3840,15 +4333,21 @@ class BgpRib(Entity):
                                         	BGP attribute defining the origin of the path information
                                         	**type**\:  :py:class:`BgpOriginAttrType <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrType>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: as_path
                                         
                                         	String representation of the BGP AS path attribute as concatenated AS path segments.  Each segment of the AS\_PATH should be formatted as follows based on the segment type (#### denotes a single AS number)\:   AS\_SEQ\: #### #### #####  AS\_SET\: { #### #### }  AS\_CONFED\_SEQUENCE\: ( #### #### )  AS\_CONFED\_SET\: [ #### #### ]  AS\_PATH segment types are described in RFC 5065.  In the Adj\-RIB\-In or Adj\-RIB\-Out, this leaf should show the received or sent AS\_PATH value, respectively.  For example, if the local router is not 4\-byte capable, this value should consist of 2\-octet ASNs or the AS\_TRANS (AS 23456) values received or sent in route updates.  In the Loc\-RIB, this leaf should reflect the effective AS path for the route, e.g., a 4\-octet value if the local router is 4\-octet capable
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: as4_path
                                         
                                         	This string represents the AS path encoded with 4\-octet AS numbers in the optional transitive AS4\_PATH attribute. This value is populated with the received or sent attribute in Adj\-RIB\-In or Adj\-RIB\-Out, respectively.  It should not be populated in Loc\-RIB since the Loc\-RIB is expected to store the effective AS\-Path in the as\-path leaf regardless of being 4\-octet or 2\-octet
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: next_hop
                                         
@@ -3863,12 +4362,16 @@ class BgpRib(Entity):
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: med
                                         
                                         	BGP multi\-exit discriminator attribute used in BGP route selection process
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: local_pref
                                         
@@ -3877,15 +4380,21 @@ class BgpRib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: atomic_aggr
                                         
                                         	BGP attribute indicating that the prefix is an atomic aggregate, i.e., the peer selected a less specific route without selecting a more specific route that is included in it
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: aggregator
                                         
                                         	BGP attribute indicating the prefix has been aggregated by the specified AS and router
                                         	**type**\:  :py:class:`Aggregator <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes.Aggregator>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: community
                                         
@@ -3899,6 +4408,8 @@ class BgpRib(Entity):
                                         		**type**\: list of str
                                         
                                         			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3957,6 +4468,8 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: as4
                                             
                                             	AS number of the autnonomous system that performed the aggregation (4\-octet representation).  This value is populated if an upstream router is not 4\-octet capable. Its semantics are similar to the AS4\_PATH optional transitive attribute
@@ -3964,12 +4477,16 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: address
                                             
                                             	IP address of the router that performed the aggregation
                                             	**type**\: str
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -4002,6 +4519,8 @@ class BgpRib(Entity):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.Attributes.Aggregator, ['as_', 'as4', 'address'], name, value)
 
 
+
+
                                     class ExtAttributes(Entity):
                                         """
                                         Extended BGP route attributes associated with this
@@ -4014,12 +4533,16 @@ class BgpRib(Entity):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: cluster_list
                                         
                                         	Represents the reflection path that the route has passed
                                         	**type**\: list of str
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: ext_community
                                         
@@ -4062,12 +4585,16 @@ class BgpRib(Entity):
                                         
                                         			**pattern:** ^route\\\-origin\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: aigp
                                         
                                         	BGP path attribute representing the accumulated IGP metric for the path
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: path_id
                                         
@@ -4076,10 +4603,14 @@ class BgpRib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unknown_attribute
                                         
                                         	This list contains received attributes that are unrecognized or unsupported by the local router.  The list may be empty
                                         	**type**\: list of  		 :py:class:`UnknownAttribute <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes.UnknownAttribute>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4130,6 +4661,8 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attr_len
                                             
                                             	One or two octet attribute length field indicating the length of the attribute data in octets.  If the Extended Length attribute flag in the attribute type field is set, the length field is 2 octets, otherwise it is 1 octet
@@ -4137,12 +4670,16 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attr_value
                                             
                                             	Raw attribute value data, not to exceed the length indicated in the attr\-len field.  The maximum length of the attribute data is 2^16\-1 per the max value of the attr\-len field (2 octets)
                                             	**type**\: str
                                             
                                             	**length:** 1..65535
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -4175,6 +4712,11 @@ class BgpRib(Entity):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPre.Routes.Route.ExtAttributes.UnknownAttribute, ['attr_type', 'attr_len', 'attr_value'], name, value)
 
 
+
+
+
+
+
                         class AdjRibInPost(Entity):
                             """
                             Per\-neighbor table containing the paths received from
@@ -4188,10 +4730,14 @@ class BgpRib(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: routes
                             
                             	Enclosing container for list of routes in the routing table
                             	**type**\:  :py:class:`Routes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -4234,6 +4780,8 @@ class BgpRib(Entity):
                                 	List of routes in the table
                                 	**type**\: list of  		 :py:class:`Route <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -4271,15 +4819,21 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: attributes
                                     
                                     	Base BGP route attributes associated with this route
                                     	**type**\:  :py:class:`Attributes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ext_attributes
                                     
                                     	Extended BGP route attributes associated with this route
                                     	**type**\:  :py:class:`ExtAttributes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: last_modified_date
                                     
@@ -4288,6 +4842,8 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_update_received
                                     
                                     	Timestamp of when the last BGP update message was received for this path / prefix
@@ -4295,20 +4851,28 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: valid_route
                                     
                                     	Indicates that the route is considered valid by the local router
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: invalid_reason
                                     
                                     	If the route is rejected as invalid, this indicates the reason
                                     	**type**\:  :py:class:`INVALIDROUTEREASON <ydk.models.openconfig.openconfig_rib_bgp_types.INVALIDROUTEREASON>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: best_path
                                     
                                     	Current path was selected as the best path
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4364,15 +4928,21 @@ class BgpRib(Entity):
                                         	BGP attribute defining the origin of the path information
                                         	**type**\:  :py:class:`BgpOriginAttrType <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrType>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: as_path
                                         
                                         	String representation of the BGP AS path attribute as concatenated AS path segments.  Each segment of the AS\_PATH should be formatted as follows based on the segment type (#### denotes a single AS number)\:   AS\_SEQ\: #### #### #####  AS\_SET\: { #### #### }  AS\_CONFED\_SEQUENCE\: ( #### #### )  AS\_CONFED\_SET\: [ #### #### ]  AS\_PATH segment types are described in RFC 5065.  In the Adj\-RIB\-In or Adj\-RIB\-Out, this leaf should show the received or sent AS\_PATH value, respectively.  For example, if the local router is not 4\-byte capable, this value should consist of 2\-octet ASNs or the AS\_TRANS (AS 23456) values received or sent in route updates.  In the Loc\-RIB, this leaf should reflect the effective AS path for the route, e.g., a 4\-octet value if the local router is 4\-octet capable
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: as4_path
                                         
                                         	This string represents the AS path encoded with 4\-octet AS numbers in the optional transitive AS4\_PATH attribute. This value is populated with the received or sent attribute in Adj\-RIB\-In or Adj\-RIB\-Out, respectively.  It should not be populated in Loc\-RIB since the Loc\-RIB is expected to store the effective AS\-Path in the as\-path leaf regardless of being 4\-octet or 2\-octet
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: next_hop
                                         
@@ -4387,12 +4957,16 @@ class BgpRib(Entity):
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: med
                                         
                                         	BGP multi\-exit discriminator attribute used in BGP route selection process
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: local_pref
                                         
@@ -4401,15 +4975,21 @@ class BgpRib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: atomic_aggr
                                         
                                         	BGP attribute indicating that the prefix is an atomic aggregate, i.e., the peer selected a less specific route without selecting a more specific route that is included in it
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: aggregator
                                         
                                         	BGP attribute indicating the prefix has been aggregated by the specified AS and router
                                         	**type**\:  :py:class:`Aggregator <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes.Aggregator>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: community
                                         
@@ -4423,6 +5003,8 @@ class BgpRib(Entity):
                                         		**type**\: list of str
                                         
                                         			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4481,6 +5063,8 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: as4
                                             
                                             	AS number of the autnonomous system that performed the aggregation (4\-octet representation).  This value is populated if an upstream router is not 4\-octet capable. Its semantics are similar to the AS4\_PATH optional transitive attribute
@@ -4488,12 +5072,16 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: address
                                             
                                             	IP address of the router that performed the aggregation
                                             	**type**\: str
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -4526,6 +5114,8 @@ class BgpRib(Entity):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.Attributes.Aggregator, ['as_', 'as4', 'address'], name, value)
 
 
+
+
                                     class ExtAttributes(Entity):
                                         """
                                         Extended BGP route attributes associated with this
@@ -4538,12 +5128,16 @@ class BgpRib(Entity):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: cluster_list
                                         
                                         	Represents the reflection path that the route has passed
                                         	**type**\: list of str
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: ext_community
                                         
@@ -4586,12 +5180,16 @@ class BgpRib(Entity):
                                         
                                         			**pattern:** ^route\\\-origin\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: aigp
                                         
                                         	BGP path attribute representing the accumulated IGP metric for the path
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: path_id
                                         
@@ -4600,10 +5198,14 @@ class BgpRib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unknown_attribute
                                         
                                         	This list contains received attributes that are unrecognized or unsupported by the local router.  The list may be empty
                                         	**type**\: list of  		 :py:class:`UnknownAttribute <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes.UnknownAttribute>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4654,6 +5256,8 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attr_len
                                             
                                             	One or two octet attribute length field indicating the length of the attribute data in octets.  If the Extended Length attribute flag in the attribute type field is set, the length field is 2 octets, otherwise it is 1 octet
@@ -4661,12 +5265,16 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attr_value
                                             
                                             	Raw attribute value data, not to exceed the length indicated in the attr\-len field.  The maximum length of the attribute data is 2^16\-1 per the max value of the attr\-len field (2 octets)
                                             	**type**\: str
                                             
                                             	**length:** 1..65535
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -4699,6 +5307,11 @@ class BgpRib(Entity):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibInPost.Routes.Route.ExtAttributes.UnknownAttribute, ['attr_type', 'attr_len', 'attr_value'], name, value)
 
 
+
+
+
+
+
                         class AdjRibOutPre(Entity):
                             """
                             Per\-neighbor table containing paths eligble for
@@ -4712,10 +5325,14 @@ class BgpRib(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: routes
                             
                             	Enclosing container for list of routes in the routing table
                             	**type**\:  :py:class:`Routes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -4758,6 +5375,8 @@ class BgpRib(Entity):
                                 	List of routes in the table
                                 	**type**\: list of  		 :py:class:`Route <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -4795,15 +5414,21 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: attributes
                                     
                                     	Base BGP route attributes associated with this route
                                     	**type**\:  :py:class:`Attributes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ext_attributes
                                     
                                     	Extended BGP route attributes associated with this route
                                     	**type**\:  :py:class:`ExtAttributes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: last_modified_date
                                     
@@ -4812,6 +5437,8 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_update_received
                                     
                                     	Timestamp of when the last BGP update message was received for this path / prefix
@@ -4819,20 +5446,28 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: valid_route
                                     
                                     	Indicates that the route is considered valid by the local router
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: invalid_reason
                                     
                                     	If the route is rejected as invalid, this indicates the reason
                                     	**type**\:  :py:class:`INVALIDROUTEREASON <ydk.models.openconfig.openconfig_rib_bgp_types.INVALIDROUTEREASON>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: best_path
                                     
                                     	Current path was selected as the best path
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4888,15 +5523,21 @@ class BgpRib(Entity):
                                         	BGP attribute defining the origin of the path information
                                         	**type**\:  :py:class:`BgpOriginAttrType <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrType>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: as_path
                                         
                                         	String representation of the BGP AS path attribute as concatenated AS path segments.  Each segment of the AS\_PATH should be formatted as follows based on the segment type (#### denotes a single AS number)\:   AS\_SEQ\: #### #### #####  AS\_SET\: { #### #### }  AS\_CONFED\_SEQUENCE\: ( #### #### )  AS\_CONFED\_SET\: [ #### #### ]  AS\_PATH segment types are described in RFC 5065.  In the Adj\-RIB\-In or Adj\-RIB\-Out, this leaf should show the received or sent AS\_PATH value, respectively.  For example, if the local router is not 4\-byte capable, this value should consist of 2\-octet ASNs or the AS\_TRANS (AS 23456) values received or sent in route updates.  In the Loc\-RIB, this leaf should reflect the effective AS path for the route, e.g., a 4\-octet value if the local router is 4\-octet capable
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: as4_path
                                         
                                         	This string represents the AS path encoded with 4\-octet AS numbers in the optional transitive AS4\_PATH attribute. This value is populated with the received or sent attribute in Adj\-RIB\-In or Adj\-RIB\-Out, respectively.  It should not be populated in Loc\-RIB since the Loc\-RIB is expected to store the effective AS\-Path in the as\-path leaf regardless of being 4\-octet or 2\-octet
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: next_hop
                                         
@@ -4911,12 +5552,16 @@ class BgpRib(Entity):
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: med
                                         
                                         	BGP multi\-exit discriminator attribute used in BGP route selection process
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: local_pref
                                         
@@ -4925,15 +5570,21 @@ class BgpRib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: atomic_aggr
                                         
                                         	BGP attribute indicating that the prefix is an atomic aggregate, i.e., the peer selected a less specific route without selecting a more specific route that is included in it
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: aggregator
                                         
                                         	BGP attribute indicating the prefix has been aggregated by the specified AS and router
                                         	**type**\:  :py:class:`Aggregator <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes.Aggregator>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: community
                                         
@@ -4947,6 +5598,8 @@ class BgpRib(Entity):
                                         		**type**\: list of str
                                         
                                         			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5005,6 +5658,8 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: as4
                                             
                                             	AS number of the autnonomous system that performed the aggregation (4\-octet representation).  This value is populated if an upstream router is not 4\-octet capable. Its semantics are similar to the AS4\_PATH optional transitive attribute
@@ -5012,12 +5667,16 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: address
                                             
                                             	IP address of the router that performed the aggregation
                                             	**type**\: str
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -5050,6 +5709,8 @@ class BgpRib(Entity):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.Attributes.Aggregator, ['as_', 'as4', 'address'], name, value)
 
 
+
+
                                     class ExtAttributes(Entity):
                                         """
                                         Extended BGP route attributes associated with this
@@ -5062,12 +5723,16 @@ class BgpRib(Entity):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: cluster_list
                                         
                                         	Represents the reflection path that the route has passed
                                         	**type**\: list of str
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: ext_community
                                         
@@ -5110,12 +5775,16 @@ class BgpRib(Entity):
                                         
                                         			**pattern:** ^route\\\-origin\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: aigp
                                         
                                         	BGP path attribute representing the accumulated IGP metric for the path
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: path_id
                                         
@@ -5124,10 +5793,14 @@ class BgpRib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unknown_attribute
                                         
                                         	This list contains received attributes that are unrecognized or unsupported by the local router.  The list may be empty
                                         	**type**\: list of  		 :py:class:`UnknownAttribute <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes.UnknownAttribute>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5178,6 +5851,8 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attr_len
                                             
                                             	One or two octet attribute length field indicating the length of the attribute data in octets.  If the Extended Length attribute flag in the attribute type field is set, the length field is 2 octets, otherwise it is 1 octet
@@ -5185,12 +5860,16 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attr_value
                                             
                                             	Raw attribute value data, not to exceed the length indicated in the attr\-len field.  The maximum length of the attribute data is 2^16\-1 per the max value of the attr\-len field (2 octets)
                                             	**type**\: str
                                             
                                             	**length:** 1..65535
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -5223,6 +5902,11 @@ class BgpRib(Entity):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPre.Routes.Route.ExtAttributes.UnknownAttribute, ['attr_type', 'attr_len', 'attr_value'], name, value)
 
 
+
+
+
+
+
                         class AdjRibOutPost(Entity):
                             """
                             Per\-neighbor table containing paths eligble for
@@ -5236,10 +5920,14 @@ class BgpRib(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: routes
                             
                             	Enclosing container for list of routes in the routing table
                             	**type**\:  :py:class:`Routes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -5282,6 +5970,8 @@ class BgpRib(Entity):
                                 	List of routes in the table
                                 	**type**\: list of  		 :py:class:`Route <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -5319,15 +6009,21 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: attributes
                                     
                                     	Base BGP route attributes associated with this route
                                     	**type**\:  :py:class:`Attributes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ext_attributes
                                     
                                     	Extended BGP route attributes associated with this route
                                     	**type**\:  :py:class:`ExtAttributes <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: last_modified_date
                                     
@@ -5336,6 +6032,8 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_update_received
                                     
                                     	Timestamp of when the last BGP update message was received for this path / prefix
@@ -5343,20 +6041,28 @@ class BgpRib(Entity):
                                     
                                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: valid_route
                                     
                                     	Indicates that the route is considered valid by the local router
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: invalid_reason
                                     
                                     	If the route is rejected as invalid, this indicates the reason
                                     	**type**\:  :py:class:`INVALIDROUTEREASON <ydk.models.openconfig.openconfig_rib_bgp_types.INVALIDROUTEREASON>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: best_path
                                     
                                     	Current path was selected as the best path
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5412,15 +6118,21 @@ class BgpRib(Entity):
                                         	BGP attribute defining the origin of the path information
                                         	**type**\:  :py:class:`BgpOriginAttrType <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrType>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: as_path
                                         
                                         	String representation of the BGP AS path attribute as concatenated AS path segments.  Each segment of the AS\_PATH should be formatted as follows based on the segment type (#### denotes a single AS number)\:   AS\_SEQ\: #### #### #####  AS\_SET\: { #### #### }  AS\_CONFED\_SEQUENCE\: ( #### #### )  AS\_CONFED\_SET\: [ #### #### ]  AS\_PATH segment types are described in RFC 5065.  In the Adj\-RIB\-In or Adj\-RIB\-Out, this leaf should show the received or sent AS\_PATH value, respectively.  For example, if the local router is not 4\-byte capable, this value should consist of 2\-octet ASNs or the AS\_TRANS (AS 23456) values received or sent in route updates.  In the Loc\-RIB, this leaf should reflect the effective AS path for the route, e.g., a 4\-octet value if the local router is 4\-octet capable
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: as4_path
                                         
                                         	This string represents the AS path encoded with 4\-octet AS numbers in the optional transitive AS4\_PATH attribute. This value is populated with the received or sent attribute in Adj\-RIB\-In or Adj\-RIB\-Out, respectively.  It should not be populated in Loc\-RIB since the Loc\-RIB is expected to store the effective AS\-Path in the as\-path leaf regardless of being 4\-octet or 2\-octet
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: next_hop
                                         
@@ -5435,12 +6147,16 @@ class BgpRib(Entity):
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: med
                                         
                                         	BGP multi\-exit discriminator attribute used in BGP route selection process
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: local_pref
                                         
@@ -5449,15 +6165,21 @@ class BgpRib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: atomic_aggr
                                         
                                         	BGP attribute indicating that the prefix is an atomic aggregate, i.e., the peer selected a less specific route without selecting a more specific route that is included in it
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: aggregator
                                         
                                         	BGP attribute indicating the prefix has been aggregated by the specified AS and router
                                         	**type**\:  :py:class:`Aggregator <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes.Aggregator>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: community
                                         
@@ -5471,6 +6193,8 @@ class BgpRib(Entity):
                                         		**type**\: list of str
                                         
                                         			**pattern:** ^(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5529,6 +6253,8 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: as4
                                             
                                             	AS number of the autnonomous system that performed the aggregation (4\-octet representation).  This value is populated if an upstream router is not 4\-octet capable. Its semantics are similar to the AS4\_PATH optional transitive attribute
@@ -5536,12 +6262,16 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: address
                                             
                                             	IP address of the router that performed the aggregation
                                             	**type**\: str
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -5574,6 +6304,8 @@ class BgpRib(Entity):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.Attributes.Aggregator, ['as_', 'as4', 'address'], name, value)
 
 
+
+
                                     class ExtAttributes(Entity):
                                         """
                                         Extended BGP route attributes associated with this
@@ -5586,12 +6318,16 @@ class BgpRib(Entity):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: cluster_list
                                         
                                         	Represents the reflection path that the route has passed
                                         	**type**\: list of str
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: ext_community
                                         
@@ -5634,12 +6370,16 @@ class BgpRib(Entity):
                                         
                                         			**pattern:** ^route\\\-origin\:(429496729[0\-5]\|42949672[0\-8][0\-9]\|4294967[0\-1][0\-9]{2}\|429496[0\-6][0\-9]{3}\|42949[0\-5][0\-9]{4}\|4294[0\-8][0\-9]{5}\|429[0\-3][0\-9]{6}\|4[0\-1][0\-9]{7}\|[1\-3][0\-9]{9}\|[1\-9][0\-9]{1,8}\|[0\-9])\:(6553[0\-5]\|655[0\-2][0\-9]\|654[0\-9]{2}\|65[0\-4][0\-9]{2}\|6[0\-4][0\-9]{3}\|[1\-5][0\-9]{4}\|[1\-9][0\-9]{1,3}\|[0\-9])$
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: aigp
                                         
                                         	BGP path attribute representing the accumulated IGP metric for the path
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: path_id
                                         
@@ -5648,10 +6388,14 @@ class BgpRib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: unknown_attribute
                                         
                                         	This list contains received attributes that are unrecognized or unsupported by the local router.  The list may be empty
                                         	**type**\: list of  		 :py:class:`UnknownAttribute <ydk.models.openconfig.openconfig_rib_bgp.BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes.UnknownAttribute>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5702,6 +6446,8 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attr_len
                                             
                                             	One or two octet attribute length field indicating the length of the attribute data in octets.  If the Extended Length attribute flag in the attribute type field is set, the length field is 2 octets, otherwise it is 1 octet
@@ -5709,12 +6455,16 @@ class BgpRib(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: attr_value
                                             
                                             	Raw attribute value data, not to exceed the length indicated in the attr\-len field.  The maximum length of the attribute data is 2^16\-1 per the max value of the attr\-len field (2 octets)
                                             	**type**\: str
                                             
                                             	**length:** 1..65535
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -5746,7 +6496,19 @@ class BgpRib(Entity):
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(BgpRib.AfiSafis.AfiSafi.Ipv6Unicast.Neighbors.Neighbor.AdjRibOutPost.Routes.Route.ExtAttributes.UnknownAttribute, ['attr_type', 'attr_len', 'attr_value'], name, value)
 
+
+
+
+
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = BgpRib()
         return self._top_entity
+
+
 

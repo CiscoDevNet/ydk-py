@@ -22,25 +22,35 @@ class PIMMIB(Entity):
     	
     	**type**\:  :py:class:`Pim <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.Pim>`
     
+    	**config**\: False
+    
     .. attribute:: piminterfacetable
     
     	The (conceptual) table listing the router's PIM interfaces. IGMP and PIM are enabled on all interfaces listed in this table
     	**type**\:  :py:class:`PimInterfaceTable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimInterfaceTable>`
+    
+    	**config**\: False
     
     .. attribute:: pimneighbortable
     
     	The (conceptual) table listing the router's PIM neighbors
     	**type**\:  :py:class:`PimNeighborTable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimNeighborTable>`
     
+    	**config**\: False
+    
     .. attribute:: pimipmroutetable
     
     	The (conceptual) table listing PIM\-specific information on a subset of the rows of the ipMRouteTable defined in the IP Multicast MIB
     	**type**\:  :py:class:`PimIpMRouteTable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimIpMRouteTable>`
     
+    	**config**\: False
+    
     .. attribute:: pimrptable
     
     	The (conceptual) table listing PIM version 1 information for the Rendezvous Points (RPs) for IP multicast groups. This table is deprecated since its function is replaced by the pimRPSetTable for PIM version 2
     	**type**\:  :py:class:`PimRPTable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimRPTable>`
+    
+    	**config**\: False
     
     	**status**\: deprecated
     
@@ -49,20 +59,28 @@ class PIMMIB(Entity):
     	The (conceptual) table listing PIM information for candidate Rendezvous Points (RPs) for IP multicast groups. When the local router is the BSR, this information is obtained from received Candidate\-RP\-Advertisements.  When the local router is not the BSR, this information is obtained from received RP\-Set messages
     	**type**\:  :py:class:`PimRPSetTable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimRPSetTable>`
     
+    	**config**\: False
+    
     .. attribute:: pimipmroutenexthoptable
     
     	The (conceptual) table listing PIM\-specific information on a subset of the rows of the ipMRouteNextHopTable defined in the IP Multicast MIB
     	**type**\:  :py:class:`PimIpMRouteNextHopTable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimIpMRouteNextHopTable>`
+    
+    	**config**\: False
     
     .. attribute:: pimcandidaterptable
     
     	The (conceptual) table listing the IP multicast groups for which the local router is to advertise itself as a Candidate\-RP when the value of pimComponentCRPHoldTime is non\-zero.  If this table is empty, then the local router      will advertise itself as a Candidate\-RP for all groups (providing the value of pimComponentCRPHoldTime is non\- zero)
     	**type**\:  :py:class:`PimCandidateRPTable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimCandidateRPTable>`
     
+    	**config**\: False
+    
     .. attribute:: pimcomponenttable
     
     	The (conceptual) table containing objects specific to a PIM domain.  One row exists for each domain to which the router is connected.  A PIM\-SM domain is defined as an area of the network over which Bootstrap messages are forwarded. Typically, a PIM\-SM router will be a member of exactly one domain.  This table also supports, however, routers which may form a border between two PIM\-SM domains and do not forward Bootstrap messages between them
     	**type**\:  :py:class:`PimComponentTable <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimComponentTable>`
+    
+    	**config**\: False
     
     
 
@@ -136,6 +154,8 @@ class PIMMIB(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         	**units**\: seconds
         
         
@@ -163,7 +183,8 @@ class PIMMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PIMMIB.Pim, [u'pimjoinpruneinterval'], name, value)
+            self._perform_setattr(PIMMIB.Pim, ['pimjoinpruneinterval'], name, value)
+
 
 
     class PimInterfaceTable(Entity):
@@ -176,6 +197,8 @@ class PIMMIB(Entity):
         
         	An entry (conceptual row) in the pimInterfaceTable
         	**type**\: list of  		 :py:class:`PimInterfaceEntry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimInterfaceTable.PimInterfaceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -215,12 +238,16 @@ class PIMMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: piminterfaceaddress
             
             	The IP address of the PIM interface
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: piminterfacenetmask
             
@@ -229,10 +256,14 @@ class PIMMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: piminterfacemode
             
             	The configured mode of this PIM interface.  A value of sparseDense is only valid for PIMv1
             	**type**\:  :py:class:`PimInterfaceMode <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimInterfaceTable.PimInterfaceEntry.PimInterfaceMode>`
+            
+            	**config**\: False
             
             .. attribute:: piminterfacedr
             
@@ -241,12 +272,16 @@ class PIMMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: piminterfacehellointerval
             
             	The frequency at which PIM Hello messages are transmitted on this interface
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -255,12 +290,16 @@ class PIMMIB(Entity):
             	The status of this entry.  Creating the entry enables PIM on the interface; destroying the entry disables PIM on the interface
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: piminterfacejoinpruneinterval
             
             	The frequency at which PIM Join/Prune messages are transmitted on this PIM interface.  The default value of this object is the pimJoinPruneInterval
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -270,6 +309,8 @@ class PIMMIB(Entity):
             	**type**\: int
             
             	**range:** \-1..255
+            
+            	**config**\: False
             
             
 
@@ -312,7 +353,7 @@ class PIMMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.PimInterfaceTable.PimInterfaceEntry, [u'piminterfaceifindex', u'piminterfaceaddress', u'piminterfacenetmask', u'piminterfacemode', u'piminterfacedr', u'piminterfacehellointerval', u'piminterfacestatus', u'piminterfacejoinpruneinterval', u'piminterfacecbsrpreference'], name, value)
+                self._perform_setattr(PIMMIB.PimInterfaceTable.PimInterfaceEntry, ['piminterfaceifindex', 'piminterfaceaddress', 'piminterfacenetmask', 'piminterfacemode', 'piminterfacedr', 'piminterfacehellointerval', 'piminterfacestatus', 'piminterfacejoinpruneinterval', 'piminterfacecbsrpreference'], name, value)
 
             class PimInterfaceMode(Enum):
                 """
@@ -338,6 +379,8 @@ class PIMMIB(Entity):
 
 
 
+
+
     class PimNeighborTable(Entity):
         """
         The (conceptual) table listing the router's PIM neighbors.
@@ -346,6 +389,8 @@ class PIMMIB(Entity):
         
         	An entry (conceptual row) in the pimNeighborTable
         	**type**\: list of  		 :py:class:`PimNeighborEntry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimNeighborTable.PimNeighborEntry>`
+        
+        	**config**\: False
         
         
 
@@ -385,12 +430,16 @@ class PIMMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: pimneighborifindex
             
             	The value of ifIndex for the interface used to reach this PIM neighbor
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             .. attribute:: pimneighboruptime
             
@@ -399,6 +448,8 @@ class PIMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: pimneighborexpirytime
             
             	The minimum time remaining before this PIM neighbor will be aged out
@@ -406,10 +457,14 @@ class PIMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: pimneighbormode
             
             	The active PIM mode of this neighbor.  This object is deprecated for PIMv2 routers since all neighbors on the interface must be either dense or sparse as determined by the protocol running on the interface
             	**type**\:  :py:class:`PimNeighborMode <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimNeighborTable.PimNeighborEntry.PimNeighborMode>`
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -446,7 +501,7 @@ class PIMMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.PimNeighborTable.PimNeighborEntry, [u'pimneighboraddress', u'pimneighborifindex', u'pimneighboruptime', u'pimneighborexpirytime', u'pimneighbormode'], name, value)
+                self._perform_setattr(PIMMIB.PimNeighborTable.PimNeighborEntry, ['pimneighboraddress', 'pimneighborifindex', 'pimneighboruptime', 'pimneighborexpirytime', 'pimneighbormode'], name, value)
 
             class PimNeighborMode(Enum):
                 """
@@ -472,6 +527,8 @@ class PIMMIB(Entity):
 
 
 
+
+
     class PimIpMRouteTable(Entity):
         """
         The (conceptual) table listing PIM\-specific information on
@@ -482,6 +539,8 @@ class PIMMIB(Entity):
         
         	An entry (conceptual row) in the pimIpMRouteTable.  There is one entry per entry in the ipMRouteTable whose incoming interface is running PIM
         	**type**\: list of  		 :py:class:`PimIpMRouteEntry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimIpMRouteTable.PimIpMRouteEntry>`
+        
+        	**config**\: False
         
         
 
@@ -525,6 +584,8 @@ class PIMMIB(Entity):
             
             	**refers to**\:  :py:class:`ipmroutegroup <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteTable.IpMRouteEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ipmroutesource  (key)
             
             	
@@ -533,6 +594,8 @@ class PIMMIB(Entity):
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**refers to**\:  :py:class:`ipmroutesource <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteTable.IpMRouteEntry>`
+            
+            	**config**\: False
             
             .. attribute:: ipmroutesourcemask  (key)
             
@@ -543,12 +606,16 @@ class PIMMIB(Entity):
             
             	**refers to**\:  :py:class:`ipmroutesourcemask <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteTable.IpMRouteEntry>`
             
+            	**config**\: False
+            
             .. attribute:: pimipmrouteupstreamasserttimer
             
             	The time remaining before the router changes its upstream neighbor back to its RPF neighbor.  This timer is called the Assert timer in the PIM Sparse and Dense mode specification.      A value of 0 indicates that no Assert has changed the upstream neighbor away from the RPF neighbor
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: pimipmrouteassertmetric
             
@@ -557,6 +624,8 @@ class PIMMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: pimipmrouteassertmetricpref
             
             	The preference advertised by the assert winner on the upstream interface, or 0 if no such assert is in effect
@@ -564,10 +633,14 @@ class PIMMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: pimipmrouteassertrptbit
             
             	The value of the RPT\-bit advertised by the assert winner on the upstream interface, or false if no such assert is in effect
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: pimipmrouteflags
             
@@ -575,6 +648,8 @@ class PIMMIB(Entity):
             	**type**\: str
             
             	**length:** 1
+            
+            	**config**\: False
             
             
 
@@ -615,7 +690,9 @@ class PIMMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.PimIpMRouteTable.PimIpMRouteEntry, [u'ipmroutegroup', u'ipmroutesource', u'ipmroutesourcemask', u'pimipmrouteupstreamasserttimer', u'pimipmrouteassertmetric', u'pimipmrouteassertmetricpref', u'pimipmrouteassertrptbit', u'pimipmrouteflags'], name, value)
+                self._perform_setattr(PIMMIB.PimIpMRouteTable.PimIpMRouteEntry, ['ipmroutegroup', 'ipmroutesource', 'ipmroutesourcemask', 'pimipmrouteupstreamasserttimer', 'pimipmrouteassertmetric', 'pimipmrouteassertmetricpref', 'pimipmrouteassertrptbit', 'pimipmrouteflags'], name, value)
+
+
 
 
     class PimRPTable(Entity):
@@ -629,6 +706,8 @@ class PIMMIB(Entity):
         
         	An entry (conceptual row) in the pimRPTable.  There is one entry per RP address for each IP multicast group
         	**type**\: list of  		 :py:class:`PimRPEntry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimRPTable.PimRPEntry>`
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -671,6 +750,8 @@ class PIMMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: pimrpaddress  (key)
@@ -680,12 +761,16 @@ class PIMMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: pimrpstate
             
             	The state of the RP
             	**type**\:  :py:class:`PimRPState <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimRPTable.PimRPEntry.PimRPState>`
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -696,6 +781,8 @@ class PIMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: pimrplastchange
@@ -705,12 +792,16 @@ class PIMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: pimrprowstatus
             
             	The status of this row, by which new entries may be created, or old entries deleted from this table
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -749,7 +840,7 @@ class PIMMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.PimRPTable.PimRPEntry, [u'pimrpgroupaddress', u'pimrpaddress', u'pimrpstate', u'pimrpstatetimer', u'pimrplastchange', u'pimrprowstatus'], name, value)
+                self._perform_setattr(PIMMIB.PimRPTable.PimRPEntry, ['pimrpgroupaddress', 'pimrpaddress', 'pimrpstate', 'pimrpstatetimer', 'pimrplastchange', 'pimrprowstatus'], name, value)
 
             class PimRPState(Enum):
                 """
@@ -769,6 +860,8 @@ class PIMMIB(Entity):
 
 
 
+
+
     class PimRPSetTable(Entity):
         """
         The (conceptual) table listing PIM information for
@@ -782,6 +875,8 @@ class PIMMIB(Entity):
         
         	An entry (conceptual row) in the pimRPSetTable
         	**type**\: list of  		 :py:class:`PimRPSetEntry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimRPSetTable.PimRPSetEntry>`
+        
+        	**config**\: False
         
         
 
@@ -821,12 +916,16 @@ class PIMMIB(Entity):
             
             	**range:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: pimrpsetgroupaddress  (key)
             
             	The IP multicast group address which, when combined with pimRPSetGroupMask, gives the group prefix for which this entry contains information about the Candidate\-RP
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: pimrpsetgroupmask  (key)
             
@@ -835,6 +934,8 @@ class PIMMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: pimrpsetaddress  (key)
             
             	The IP address of the Candidate\-RP
@@ -842,12 +943,16 @@ class PIMMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: pimrpsetholdtime
             
             	The holdtime of a Candidate\-RP.  If the local router is not the BSR, this value is 0
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -857,6 +962,8 @@ class PIMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -893,7 +1000,9 @@ class PIMMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.PimRPSetTable.PimRPSetEntry, [u'pimrpsetcomponent', u'pimrpsetgroupaddress', u'pimrpsetgroupmask', u'pimrpsetaddress', u'pimrpsetholdtime', u'pimrpsetexpirytime'], name, value)
+                self._perform_setattr(PIMMIB.PimRPSetTable.PimRPSetEntry, ['pimrpsetcomponent', 'pimrpsetgroupaddress', 'pimrpsetgroupmask', 'pimrpsetaddress', 'pimrpsetholdtime', 'pimrpsetexpirytime'], name, value)
+
+
 
 
     class PimIpMRouteNextHopTable(Entity):
@@ -906,6 +1015,8 @@ class PIMMIB(Entity):
         
         	An entry (conceptual row) in the pimIpMRouteNextHopTable. There is one entry per entry in the ipMRouteNextHopTable whose interface is running PIM and whose ipMRouteNextHopState is pruned(1)
         	**type**\: list of  		 :py:class:`PimIpMRouteNextHopEntry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimIpMRouteNextHopTable.PimIpMRouteNextHopEntry>`
+        
+        	**config**\: False
         
         
 
@@ -950,6 +1061,8 @@ class PIMMIB(Entity):
             
             	**refers to**\:  :py:class:`ipmroutenexthopgroup <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteNextHopTable.IpMRouteNextHopEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ipmroutenexthopsource  (key)
             
             	
@@ -958,6 +1071,8 @@ class PIMMIB(Entity):
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
             	**refers to**\:  :py:class:`ipmroutenexthopsource <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteNextHopTable.IpMRouteNextHopEntry>`
+            
+            	**config**\: False
             
             .. attribute:: ipmroutenexthopsourcemask  (key)
             
@@ -968,6 +1083,8 @@ class PIMMIB(Entity):
             
             	**refers to**\:  :py:class:`ipmroutenexthopsourcemask <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteNextHopTable.IpMRouteNextHopEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ipmroutenexthopifindex  (key)
             
             	
@@ -976,6 +1093,8 @@ class PIMMIB(Entity):
             	**range:** 1..2147483647
             
             	**refers to**\:  :py:class:`ipmroutenexthopifindex <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteNextHopTable.IpMRouteNextHopEntry>`
+            
+            	**config**\: False
             
             .. attribute:: ipmroutenexthopaddress  (key)
             
@@ -986,10 +1105,14 @@ class PIMMIB(Entity):
             
             	**refers to**\:  :py:class:`ipmroutenexthopaddress <ydk.models.cisco_ios_xe.IPMROUTE_STD_MIB.IPMROUTESTDMIB.IpMRouteNextHopTable.IpMRouteNextHopEntry>`
             
+            	**config**\: False
+            
             .. attribute:: pimipmroutenexthopprunereason
             
             	This object indicates why the downstream interface was pruned, whether in response to a PIM prune message or due to PIM Assert processing
             	**type**\:  :py:class:`PimIpMRouteNextHopPruneReason <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimIpMRouteNextHopTable.PimIpMRouteNextHopEntry.PimIpMRouteNextHopPruneReason>`
+            
+            	**config**\: False
             
             
 
@@ -1026,7 +1149,7 @@ class PIMMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.PimIpMRouteNextHopTable.PimIpMRouteNextHopEntry, [u'ipmroutenexthopgroup', u'ipmroutenexthopsource', u'ipmroutenexthopsourcemask', u'ipmroutenexthopifindex', u'ipmroutenexthopaddress', u'pimipmroutenexthopprunereason'], name, value)
+                self._perform_setattr(PIMMIB.PimIpMRouteNextHopTable.PimIpMRouteNextHopEntry, ['ipmroutenexthopgroup', 'ipmroutenexthopsource', 'ipmroutenexthopsourcemask', 'ipmroutenexthopifindex', 'ipmroutenexthopaddress', 'pimipmroutenexthopprunereason'], name, value)
 
             class PimIpMRouteNextHopPruneReason(Enum):
                 """
@@ -1054,6 +1177,8 @@ class PIMMIB(Entity):
 
 
 
+
+
     class PimCandidateRPTable(Entity):
         """
         The (conceptual) table listing the IP multicast groups for
@@ -1073,6 +1198,8 @@ class PIMMIB(Entity):
         
         	An entry (conceptual row) in the pimCandidateRPTable
         	**type**\: list of  		 :py:class:`PimCandidateRPEntry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimCandidateRPTable.PimCandidateRPEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1112,12 +1239,16 @@ class PIMMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: pimcandidaterpgroupmask  (key)
             
             	The multicast group address mask which, when combined with pimCandidateRPGroupMask, identifies a group prefix for which the local router will advertise itself as a Candidate\-RP
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: pimcandidaterpaddress
             
@@ -1126,10 +1257,14 @@ class PIMMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: pimcandidaterprowstatus
             
             	The status of this row, by which new entries may be created, or old entries deleted from this table
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1162,7 +1297,9 @@ class PIMMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.PimCandidateRPTable.PimCandidateRPEntry, [u'pimcandidaterpgroupaddress', u'pimcandidaterpgroupmask', u'pimcandidaterpaddress', u'pimcandidaterprowstatus'], name, value)
+                self._perform_setattr(PIMMIB.PimCandidateRPTable.PimCandidateRPEntry, ['pimcandidaterpgroupaddress', 'pimcandidaterpgroupmask', 'pimcandidaterpaddress', 'pimcandidaterprowstatus'], name, value)
+
+
 
 
     class PimComponentTable(Entity):
@@ -1180,6 +1317,8 @@ class PIMMIB(Entity):
         
         	An entry (conceptual row) in the pimComponentTable
         	**type**\: list of  		 :py:class:`PimComponentEntry <ydk.models.cisco_ios_xe.PIM_MIB.PIMMIB.PimComponentTable.PimComponentEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1219,12 +1358,16 @@ class PIMMIB(Entity):
             
             	**range:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: pimcomponentbsraddress
             
             	The IP address of the bootstrap router (BSR) for the local PIM region
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: pimcomponentbsrexpirytime
             
@@ -1233,6 +1376,8 @@ class PIMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: pimcomponentcrpholdtime
             
             	The holdtime of the component when it is a candidate RP in the local domain.  The value of 0 is used to indicate that the local system is not a Candidate\-RP
@@ -1240,12 +1385,16 @@ class PIMMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: pimcomponentstatus
             
             	The status of this entry.  Creating the entry creates another protocol instance; destroying the entry disables a protocol instance
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1280,9 +1429,13 @@ class PIMMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.PimComponentTable.PimComponentEntry, [u'pimcomponentindex', u'pimcomponentbsraddress', u'pimcomponentbsrexpirytime', u'pimcomponentcrpholdtime', u'pimcomponentstatus'], name, value)
+                self._perform_setattr(PIMMIB.PimComponentTable.PimComponentEntry, ['pimcomponentindex', 'pimcomponentbsraddress', 'pimcomponentbsrexpirytime', 'pimcomponentcrpholdtime', 'pimcomponentstatus'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = PIMMIB()
         return self._top_entity
+
+
 

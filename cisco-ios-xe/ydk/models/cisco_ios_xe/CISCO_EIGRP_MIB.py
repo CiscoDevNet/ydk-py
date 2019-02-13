@@ -63,25 +63,35 @@ class CISCOEIGRPMIB(Entity):
     	This table contains information on those VPN's configured to run EIGRP.  The VPN creation on a router is independent of the routing protocol to be used over it.   A VPN is given a name and has a dedicated routing table associated with it.  This routing table is identified internally by a unique integer value
     	**type**\:  :py:class:`CEigrpVpnTable <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpVpnTable>`
     
+    	**config**\: False
+    
     .. attribute:: ceigrptraffstatstable
     
     	Table of EIGRP traffic statistics and information associated with all EIGRP autonomous systems
     	**type**\:  :py:class:`CEigrpTraffStatsTable <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpTraffStatsTable>`
+    
+    	**config**\: False
     
     .. attribute:: ceigrptopotable
     
     	The table of EIGRP routes and their associated attributes for an Autonomous System (AS) configured in a VPN is called a topology table.  All route entries in the topology table will be indexed by IP network type, IP network number and network mask (prefix) size
     	**type**\:  :py:class:`CEigrpTopoTable <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpTopoTable>`
     
+    	**config**\: False
+    
     .. attribute:: ceigrppeertable
     
     	The table of established EIGRP peers (neighbors) in the selected autonomous system.   Peers are indexed by their unique internal handle id, as well as the AS number and VPN id.   The peer entry is removed from the table if the peer is declared down
     	**type**\:  :py:class:`CEigrpPeerTable <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpPeerTable>`
     
+    	**config**\: False
+    
     .. attribute:: ceigrpinterfacetable
     
     	The table of interfaces over which EIGRP is running, and their associated statistics.   This table is independent of whether any peer adjacencies have been formed over the interfaces or not.   Interfaces running EIGRP are determined by whether their assigned IP addresses fall within configured EIGRP network statements
     	**type**\:  :py:class:`CEigrpInterfaceTable <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpInterfaceTable>`
+    
+    	**config**\: False
     
     
 
@@ -142,6 +152,8 @@ class CISCOEIGRPMIB(Entity):
         	Information relating to a single VPN which is configured to run EIGRP
         	**type**\: list of  		 :py:class:`CEigrpVpnEntry <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpVpnTable.CEigrpVpnEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -181,10 +193,14 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrpvpnname
             
             	The name given to the VPN
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -216,6 +232,8 @@ class CISCOEIGRPMIB(Entity):
                 self._perform_setattr(CISCOEIGRPMIB.CEigrpVpnTable.CEigrpVpnEntry, ['ceigrpvpnid', 'ceigrpvpnname'], name, value)
 
 
+
+
     class CEigrpTraffStatsTable(Entity):
         """
         Table of EIGRP traffic statistics and information
@@ -225,6 +243,8 @@ class CISCOEIGRPMIB(Entity):
         
         	The set of statistics and information for a single EIGRP Autonomous System
         	**type**\: list of  		 :py:class:`CEigrpTraffStatsEntry <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpTraffStatsTable.CEigrpTraffStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -267,12 +287,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**refers to**\:  :py:class:`ceigrpvpnid <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpVpnTable.CEigrpVpnEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ceigrpasnumber  (key)
             
             	The Autonomous System number which is unique integer per VPN
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ceigrpnbrcount
             
@@ -281,12 +305,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrphellossent
             
             	The total number Hello packets that have been sent to all EIGRP neighbors formed on all interfaces whose IP addresses fall under networks configured for the EIGRP AS
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ceigrphellosrcvd
             
@@ -295,12 +323,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrpupdatessent
             
             	The total number routing update packets that have been sent to all EIGRP neighbors formed on all interfaces whose IP addresses fall under networks configured for the EIGRP AS
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ceigrpupdatesrcvd
             
@@ -309,12 +341,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrpqueriessent
             
             	The total number alternate route query packets that have been sent to all EIGRP neighbors formed on all interfaces whose IP addresses fall under networks configured for the EIGRP AS
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ceigrpqueriesrcvd
             
@@ -323,12 +359,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrprepliessent
             
             	The total number query reply packets that have been sent to all EIGRP neighbors formed on all interfaces whose IP addresses fall under networks configured for the EIGRP AS
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ceigrprepliesrcvd
             
@@ -337,12 +377,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrpackssent
             
             	The total number packet acknowledgements that have been sent to all EIGRP neighbors formed on all interfaces whose IP addresses fall under networks configured for the EIGRP AS
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ceigrpacksrcvd
             
@@ -351,12 +395,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrpinputqhighmark
             
             	The highest number of EIGRP packets in the input queue waiting to be processed internally addressed to this AS
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ceigrpinputqdrops
             
@@ -365,12 +413,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrpsiaqueriessent
             
             	The total number of Stuck\-In\-Active (SIA) query packets sent to all EIGRP neighbors formed on all interfaces whose IP addresses fall under networks configured for the EIGRP AS
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ceigrpsiaqueriesrcvd
             
@@ -379,10 +431,14 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrpasrouteridtype
             
             	The format of the router\-id configured or automatically selected for the EIGRP AS
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: ceigrpasrouterid
             
@@ -391,12 +447,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ceigrptoporoutes
             
             	The total number of EIGRP derived routes currently existing in the topology table for the AS
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ceigrpheadserial
             
@@ -405,12 +465,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: ceigrpnextserial
             
             	The serial number that would be assigned to the next new or changed route in the topology table for the AS
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ceigrpxmitpendreplies
             
@@ -419,12 +483,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrpxmitdummies
             
             	A dummy is a temporary internal entity used as a place holder in the topology table for an AS. They are not transmitted in routing updates.  This is the total number currently in existence associated with the AS
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -500,6 +568,8 @@ class CISCOEIGRPMIB(Entity):
                 self._perform_setattr(CISCOEIGRPMIB.CEigrpTraffStatsTable.CEigrpTraffStatsEntry, ['ceigrpvpnid', 'ceigrpasnumber', 'ceigrpnbrcount', 'ceigrphellossent', 'ceigrphellosrcvd', 'ceigrpupdatessent', 'ceigrpupdatesrcvd', 'ceigrpqueriessent', 'ceigrpqueriesrcvd', 'ceigrprepliessent', 'ceigrprepliesrcvd', 'ceigrpackssent', 'ceigrpacksrcvd', 'ceigrpinputqhighmark', 'ceigrpinputqdrops', 'ceigrpsiaqueriessent', 'ceigrpsiaqueriesrcvd', 'ceigrpasrouteridtype', 'ceigrpasrouterid', 'ceigrptoporoutes', 'ceigrpheadserial', 'ceigrpnextserial', 'ceigrpxmitpendreplies', 'ceigrpxmitdummies'], name, value)
 
 
+
+
     class CEigrpTopoTable(Entity):
         """
         The table of EIGRP routes and their associated
@@ -512,6 +582,8 @@ class CISCOEIGRPMIB(Entity):
         
         	The entry for a single EIGRP topology table in the given AS
         	**type**\: list of  		 :py:class:`CEigrpTopoEntry <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpTopoTable.CEigrpTopoEntry>`
+        
+        	**config**\: False
         
         
 
@@ -554,6 +626,8 @@ class CISCOEIGRPMIB(Entity):
             
             	**refers to**\:  :py:class:`ceigrpvpnid <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpVpnTable.CEigrpVpnEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ceigrpasnumber  (key)
             
             	
@@ -563,10 +637,14 @@ class CISCOEIGRPMIB(Entity):
             
             	**refers to**\:  :py:class:`ceigrpasnumber <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpTraffStatsTable.CEigrpTraffStatsEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ceigrpdestnettype  (key)
             
             	The format of the destination IP network number for a single route in the topology table in the AS specified in cEigrpDestNet
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: ceigrpdestnet  (key)
             
@@ -575,6 +653,8 @@ class CISCOEIGRPMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ceigrpdestnetprefixlen  (key)
             
             	The prefix length associated with the destination IP network address for a single route in the topology table in the AS.  The format is governed by the object cEigrpDestNetType
@@ -582,15 +662,21 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..2040
             
+            	**config**\: False
+            
             .. attribute:: ceigrpactive
             
             	A value of true(1) indicates the route to the destination network has failed and an active (query) search for an alternative path is in progress.  A value of false(2) indicates the route is stable (passive)
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: ceigrpstuckinactive
             
             	A value of true(1) indicates that that this route which is in active state (cEigrpActive = true(1)) has not received any replies to queries for alternate paths, and a second EIGRP route query, called a stuck\-in\-active query, has now been sent
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: ceigrpdestsuccessors
             
@@ -599,6 +685,8 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrpfdistance
             
             	The feasibility (best) distance is the minimum distance from this router to the destination IP network in this topology entry.  The feasibility distance is used in determining the best successor for a path to the destination network
@@ -606,15 +694,21 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrprouteorigintype
             
             	This is a text string describing the internal origin of the EIGRP route represented by the topology entry
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: ceigrprouteoriginaddrtype
             
             	The format of the IP address defined as the origin of this topology route entry
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: ceigrprouteoriginaddr
             
@@ -623,10 +717,14 @@ class CISCOEIGRPMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ceigrpnexthopaddresstype
             
             	The format of the next hop IP address for the route represented by the topology entry
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: ceigrpnexthopaddress
             
@@ -635,10 +733,14 @@ class CISCOEIGRPMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ceigrpnexthopinterface
             
             	The interface through which the next hop IP address is reached to send network traffic to the destination network represented by the topology entry
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: ceigrpdistance
             
@@ -647,12 +749,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrpreportdistance
             
             	The computed distance to the destination network in the topology entry reported to this router by the originator of this route
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -714,6 +820,8 @@ class CISCOEIGRPMIB(Entity):
                 self._perform_setattr(CISCOEIGRPMIB.CEigrpTopoTable.CEigrpTopoEntry, ['ceigrpvpnid', 'ceigrpasnumber', 'ceigrpdestnettype', 'ceigrpdestnet', 'ceigrpdestnetprefixlen', 'ceigrpactive', 'ceigrpstuckinactive', 'ceigrpdestsuccessors', 'ceigrpfdistance', 'ceigrprouteorigintype', 'ceigrprouteoriginaddrtype', 'ceigrprouteoriginaddr', 'ceigrpnexthopaddresstype', 'ceigrpnexthopaddress', 'ceigrpnexthopinterface', 'ceigrpdistance', 'ceigrpreportdistance'], name, value)
 
 
+
+
     class CEigrpPeerTable(Entity):
         """
         The table of established EIGRP peers (neighbors) in the
@@ -726,6 +834,8 @@ class CISCOEIGRPMIB(Entity):
         
         	Statistics and operational parameters for a single peer in the AS
         	**type**\: list of  		 :py:class:`CEigrpPeerEntry <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpPeerTable.CEigrpPeerEntry>`
+        
+        	**config**\: False
         
         
 
@@ -768,6 +878,8 @@ class CISCOEIGRPMIB(Entity):
             
             	**refers to**\:  :py:class:`ceigrpvpnid <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpVpnTable.CEigrpVpnEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ceigrpasnumber  (key)
             
             	
@@ -777,6 +889,8 @@ class CISCOEIGRPMIB(Entity):
             
             	**refers to**\:  :py:class:`ceigrpasnumber <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpTraffStatsTable.CEigrpTraffStatsEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ceigrphandle  (key)
             
             	The unique internal identifier for the peer in the AS. This is a unique value among peer entries in a selected table
@@ -784,10 +898,14 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrppeeraddrtype
             
             	The format of the remote source IP address used by the peer to establish the EIGRP adjacency with this router
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: ceigrppeeraddr
             
@@ -796,12 +914,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ceigrppeerifindex
             
             	The ifIndex of the interface on this router through which this peer can be reached
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: ceigrpholdtime
             
@@ -810,6 +932,8 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: ceigrpuptime
@@ -817,12 +941,16 @@ class CISCOEIGRPMIB(Entity):
             	The elapsed time since the EIGRP adjacency was first established with the peer
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: ceigrpsrtt
             
             	The computed smooth round trip time for packets to and from the peer
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -833,6 +961,8 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: ceigrppktsenqueued
@@ -842,6 +972,8 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrplastseq
             
             	All transmitted EIGRP packets have a sequence number assigned. This is the sequence number of the last EIGRP packet sent to this peer
@@ -849,10 +981,14 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrpversion
             
             	The EIGRP version information reported by the remote peer
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: ceigrpretrans
             
@@ -861,12 +997,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrpretries
             
             	The number of times the current unacknowledged packet has been retried, i.e. resent to this peer to be acknowledged
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -924,6 +1064,8 @@ class CISCOEIGRPMIB(Entity):
                 self._perform_setattr(CISCOEIGRPMIB.CEigrpPeerTable.CEigrpPeerEntry, ['ceigrpvpnid', 'ceigrpasnumber', 'ceigrphandle', 'ceigrppeeraddrtype', 'ceigrppeeraddr', 'ceigrppeerifindex', 'ceigrpholdtime', 'ceigrpuptime', 'ceigrpsrtt', 'ceigrprto', 'ceigrppktsenqueued', 'ceigrplastseq', 'ceigrpversion', 'ceigrpretrans', 'ceigrpretries'], name, value)
 
 
+
+
     class CEigrpInterfaceTable(Entity):
         """
         The table of interfaces over which EIGRP is running, and
@@ -937,6 +1079,8 @@ class CISCOEIGRPMIB(Entity):
         
         	Information for a single interface running EIGRP in the AS and VPN
         	**type**\: list of  		 :py:class:`CEigrpInterfaceEntry <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpInterfaceTable.CEigrpInterfaceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -979,6 +1123,8 @@ class CISCOEIGRPMIB(Entity):
             
             	**refers to**\:  :py:class:`ceigrpvpnid <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpVpnTable.CEigrpVpnEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ceigrpasnumber  (key)
             
             	
@@ -987,6 +1133,8 @@ class CISCOEIGRPMIB(Entity):
             	**range:** 0..4294967295
             
             	**refers to**\:  :py:class:`ceigrpasnumber <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpTraffStatsTable.CEigrpTraffStatsEntry>`
+            
+            	**config**\: False
             
             .. attribute:: ifindex  (key)
             
@@ -997,12 +1145,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ceigrppeercount
             
             	The number of EIGRP adjacencies currently formed with peers reached through this interface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ceigrpxmitreliableq
             
@@ -1011,6 +1163,8 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrpxmitunreliableq
             
             	The number EIGRP of packets currently waiting in the unreliable transport (no acknowledgement required) transmission queue
@@ -1018,12 +1172,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrpmeansrtt
             
             	The average of all the computed smooth round trip time values for a packet to and from all peers established on this interface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -1034,6 +1192,8 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: ceigrppacingunreliable
@@ -1042,6 +1202,8 @@ class CISCOEIGRPMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -1052,6 +1214,8 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: ceigrppendingroutes
@@ -1061,12 +1225,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrphellointerval
             
             	The configured time interval between Hello packet transmissions for this interface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1077,12 +1245,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: ceigrpumcasts
             
             	The total number of unreliable (no acknowledgement required) EIGRP multicast packets sent on this interface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ceigrprmcasts
             
@@ -1091,12 +1263,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrpuucasts
             
             	The total number of unreliable (no acknowledgement required) EIGRP unicast packets sent on this interface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ceigrprucasts
             
@@ -1105,12 +1281,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrpmcastexcepts
             
             	The total number of EIGRP multicast exception transmissions that have occurred on this interface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ceigrpcrpkts
             
@@ -1119,12 +1299,16 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrpackssuppressed
             
             	The total number of individual EIGRP acknowledgement packets that have been suppressed and combined in an already enqueued outbound reliable packet on this interface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ceigrpretranssent
             
@@ -1133,6 +1317,8 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrpoosrvcd
             
             	The total number of out\-of\-sequence EIGRP packets received
@@ -1140,15 +1326,21 @@ class CISCOEIGRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ceigrpauthmode
             
             	The EIGRP authentication mode of the interface. none  \:  no authentication enabled on the interface md5   \:  MD5 authentication enabled on the interface
             	**type**\:  :py:class:`CEigrpAuthMode <ydk.models.cisco_ios_xe.CISCO_EIGRP_MIB.CISCOEIGRPMIB.CEigrpInterfaceTable.CEigrpInterfaceEntry.CEigrpAuthMode>`
             
+            	**config**\: False
+            
             .. attribute:: ceigrpauthkeychain
             
             	The name of the authentication key\-chain configured on this interface.   The key\-chain is a reference to which set of secret keys are to be accessed in order to determine which secret key string to use.  The key chain name is not the secret key string password and can also be used in other routing protocols, such as RIP and ISIS
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1244,7 +1436,11 @@ class CISCOEIGRPMIB(Entity):
                 md5 = Enum.YLeaf(2, "md5")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOEIGRPMIB()
         return self._top_entity
+
+
 

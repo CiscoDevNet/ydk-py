@@ -31,6 +31,7 @@ class Igrp(RoutingProtocol):
         super(Igrp, self).__init__(ns, pref, tag)
 
 
+
 class Nhrp(RoutingProtocol):
     """
     NHRP
@@ -44,6 +45,7 @@ class Nhrp(RoutingProtocol):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-routing-ext", pref="cisco-routing-ext", tag="cisco-routing-ext:nhrp"):
         super(Nhrp, self).__init__(ns, pref, tag)
+
 
 
 class Hsrp(RoutingProtocol):
@@ -61,6 +63,7 @@ class Hsrp(RoutingProtocol):
         super(Hsrp, self).__init__(ns, pref, tag)
 
 
+
 class Rip(RoutingProtocol):
     """
     RIP.
@@ -74,6 +77,7 @@ class Rip(RoutingProtocol):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-routing-ext", pref="cisco-routing-ext", tag="cisco-routing-ext:rip"):
         super(Rip, self).__init__(ns, pref, tag)
+
 
 
 class Bgp(RoutingProtocol):
@@ -91,6 +95,7 @@ class Bgp(RoutingProtocol):
         super(Bgp, self).__init__(ns, pref, tag)
 
 
+
 class Lisp(RoutingProtocol):
     """
     LISP
@@ -104,6 +109,7 @@ class Lisp(RoutingProtocol):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-routing-ext", pref="cisco-routing-ext", tag="cisco-routing-ext:lisp"):
         super(Lisp, self).__init__(ns, pref, tag)
+
 
 
 class Eigrp(RoutingProtocol):
@@ -121,6 +127,7 @@ class Eigrp(RoutingProtocol):
         super(Eigrp, self).__init__(ns, pref, tag)
 
 
+
 class IsIs(RoutingProtocol):
     """
     IS\-IS.
@@ -134,5 +141,6 @@ class IsIs(RoutingProtocol):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-routing-ext", pref="cisco-routing-ext", tag="cisco-routing-ext:is-is"):
         super(IsIs, self).__init__(ns, pref, tag)
+
 
 

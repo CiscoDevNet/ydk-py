@@ -30,6 +30,8 @@ class AsicErrors(Entity):
     	Asic errors for each available nodes
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class AsicErrors(Entity):
         
         	Asic error for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -106,10 +110,14 @@ class AsicErrors(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: asic_information
             
             	Asic on the node
             	**type**\: list of  		 :py:class:`AsicInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation>`
+            
+            	**config**\: False
             
             
 
@@ -152,15 +160,21 @@ class AsicErrors(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: all_instances
                 
                 	All asic instance on the node
                 	**type**\:  :py:class:`AllInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.AllInstances>`
                 
+                	**config**\: False
+                
                 .. attribute:: instances
                 
                 	All asic errors  on the node
                 	**type**\:  :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances>`
+                
+                	**config**\: False
                 
                 
 
@@ -206,6 +220,8 @@ class AsicErrors(Entity):
                     	Error path of all instances
                     	**type**\:  :py:class:`AllErrorPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -242,6 +258,8 @@ class AsicErrors(Entity):
                         
                         	Summary of all instances errors
                         	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -280,15 +298,21 @@ class AsicErrors(Entity):
                             	legacy client
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: cih_client
                             
                             	cih client
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: sum_data
                             
                             	sum data
                             	**type**\: list of  		 :py:class:`SumData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -332,12 +356,16 @@ class AsicErrors(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: crc_err_count
                                 
                                 	crc err count
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: sbe_err_count
                                 
@@ -346,12 +374,16 @@ class AsicErrors(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: mbe_err_count
                                 
                                 	mbe err count
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: par_err_count
                                 
@@ -360,12 +392,16 @@ class AsicErrors(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: gen_err_count
                                 
                                 	gen err count
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: reset_err_count
                                 
@@ -374,6 +410,8 @@ class AsicErrors(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: node_key
                                 
                                 	node key
@@ -381,15 +419,21 @@ class AsicErrors(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: err_count
                                 
                                 	err count
                                 	**type**\: list of  		 :py:class:`ErrCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.ErrCount>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: pcie_err_count
                                 
                                 	pcie err count
                                 	**type**\: list of  		 :py:class:`PcieErrCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.PcieErrCount>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -444,12 +488,16 @@ class AsicErrors(Entity):
                                     	name
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: count
                                     
                                     	count
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -480,6 +528,7 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.ErrCount, [u'name', u'count'], name, value)
 
 
+
                                 class PcieErrCount(Entity):
                                     """
                                     pcie err count
@@ -489,12 +538,16 @@ class AsicErrors(Entity):
                                     	name
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: count
                                     
                                     	count
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -525,6 +578,11 @@ class AsicErrors(Entity):
                                         self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.AllInstances.AllErrorPath.Summary.SumData.PcieErrCount, [u'name', u'count'], name, value)
 
 
+
+
+
+
+
                 class Instances(Entity):
                     """
                     All asic errors  on the node
@@ -533,6 +591,8 @@ class AsicErrors(Entity):
                     
                     	Particular asic instance on the node
                     	**type**\: list of  		 :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -571,10 +631,14 @@ class AsicErrors(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: error_path
                         
                         	Error path of the instances
                         	**type**\:  :py:class:`ErrorPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -616,255 +680,357 @@ class AsicErrors(Entity):
                             	Multiple bit soft error information
                             	**type**\:  :py:class:`MultipleBitSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: asic_error_generic_soft
                             
                             	Indirect hard error information
                             	**type**\:  :py:class:`AsicErrorGenericSoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: crc_hard_errors
                             
                             	CRC hard error information
                             	**type**\:  :py:class:`CrcHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: asic_error_sbe_soft
                             
                             	Indirect hard error information
                             	**type**\:  :py:class:`AsicErrorSbeSoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: hardware_soft_errors
                             
                             	Hardware soft error information
                             	**type**\:  :py:class:`HardwareSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: asic_error_crc_soft
                             
                             	Indirect hard error information
                             	**type**\:  :py:class:`AsicErrorCrcSoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: asic_error_parity_soft
                             
                             	Indirect hard error information
                             	**type**\:  :py:class:`AsicErrorParitySoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: io_soft_errors
                             
                             	IO soft error information
                             	**type**\:  :py:class:`IoSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: reset_soft_errors
                             
                             	Reset soft error information
                             	**type**\:  :py:class:`ResetSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: barrier_hard_errors
                             
                             	Barrier hard error information
                             	**type**\:  :py:class:`BarrierHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ucode_soft_errors
                             
                             	Ucode soft error information
                             	**type**\:  :py:class:`UcodeSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: asic_error_reset_hard
                             
                             	Indirect hard error information
                             	**type**\:  :py:class:`AsicErrorResetHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: single_bit_hard_errors
                             
                             	Single bit hard error information
                             	**type**\:  :py:class:`SingleBitHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: indirect_hard_errors
                             
                             	Indirect hard error information
                             	**type**\:  :py:class:`IndirectHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: outof_resource_soft
                             
                             	OOR thresh information
                             	**type**\:  :py:class:`OutofResourceSoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: crc_soft_errors
                             
                             	CRC soft error information
                             	**type**\:  :py:class:`CrcSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: time_out_hard_errors
                             
                             	Time out hard error information
                             	**type**\:  :py:class:`TimeOutHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: barrier_soft_errors
                             
                             	Barrier soft error information
                             	**type**\:  :py:class:`BarrierSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: asic_error_mbe_soft
                             
                             	Indirect hard error information
                             	**type**\:  :py:class:`AsicErrorMbeSoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: back_pressure_hard_errors
                             
                             	BP hard error information
                             	**type**\:  :py:class:`BackPressureHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: single_bit_soft_errors
                             
                             	Single bit soft error information
                             	**type**\:  :py:class:`SingleBitSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: indirect_soft_errors
                             
                             	Indirect soft error information
                             	**type**\:  :py:class:`IndirectSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: generic_hard_errors
                             
                             	Generic hard error information
                             	**type**\:  :py:class:`GenericHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: link_hard_errors
                             
                             	Link hard error information
                             	**type**\:  :py:class:`LinkHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: configuration_hard_errors
                             
                             	Configuration hard error information
                             	**type**\:  :py:class:`ConfigurationHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: instance_summary
                             
                             	Summary for a specific instance
                             	**type**\:  :py:class:`InstanceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: unexpected_hard_errors
                             
                             	Unexpected hard error information
                             	**type**\:  :py:class:`UnexpectedHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: time_out_soft_errors
                             
                             	Time out soft error information
                             	**type**\:  :py:class:`TimeOutSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: asic_error_generic_hard
                             
                             	Indirect hard error information
                             	**type**\:  :py:class:`AsicErrorGenericHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: parity_hard_errors
                             
                             	Parity hard error information
                             	**type**\:  :py:class:`ParityHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: descriptor_hard_errors
                             
                             	Descriptor hard error information
                             	**type**\:  :py:class:`DescriptorHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_hard_errors
                             
                             	Interface hard error information
                             	**type**\:  :py:class:`InterfaceHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: asic_error_sbe_hard
                             
                             	Indirect hard error information
                             	**type**\:  :py:class:`AsicErrorSbeHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: asic_error_crc_hard
                             
                             	Indirect hard error information
                             	**type**\:  :py:class:`AsicErrorCrcHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: asic_error_parity_hard
                             
                             	Indirect hard error information
                             	**type**\:  :py:class:`AsicErrorParityHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: asic_error_reset_soft
                             
                             	Indirect hard error information
                             	**type**\:  :py:class:`AsicErrorResetSoft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: back_pressure_soft_errors
                             
                             	BP soft error information
                             	**type**\:  :py:class:`BackPressureSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: generic_soft_errors
                             
                             	Generic soft error information
                             	**type**\:  :py:class:`GenericSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: link_soft_errors
                             
                             	Link soft error information
                             	**type**\:  :py:class:`LinkSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: configuration_soft_errors
                             
                             	Configuration soft error information
                             	**type**\:  :py:class:`ConfigurationSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: multiple_bit_hard_errors
                             
                             	Multiple bit hard error information
                             	**type**\:  :py:class:`MultipleBitHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: unexpected_soft_errors
                             
                             	Unexpected soft error information
                             	**type**\:  :py:class:`UnexpectedSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: outof_resource_hard
                             
                             	OOR thresh information
                             	**type**\:  :py:class:`OutofResourceHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: hardware_hard_errors
                             
                             	Hardware hard error information
                             	**type**\:  :py:class:`HardwareHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: parity_soft_errors
                             
                             	Parity soft error information
                             	**type**\:  :py:class:`ParitySoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: descriptor_soft_errors
                             
                             	Descriptor soft error information
                             	**type**\:  :py:class:`DescriptorSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: interface_soft_errors
                             
                             	Interface soft error information
                             	**type**\:  :py:class:`InterfaceSoftErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: io_hard_errors
                             
                             	IO hard error information
                             	**type**\:  :py:class:`IoHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: reset_hard_errors
                             
                             	Reset hard error information
                             	**type**\:  :py:class:`ResetHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ucode_hard_errors
                             
                             	UCode hard error information
                             	**type**\:  :py:class:`UcodeHardErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: asic_error_mbe_hard
                             
                             	Indirect hard error information
                             	**type**\:  :py:class:`AsicErrorMbeHard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1103,6 +1269,8 @@ class AsicErrors(Entity):
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -1138,10 +1306,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -1150,10 +1322,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -1162,12 +1338,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -1176,12 +1356,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -1190,12 +1374,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -1204,6 +1392,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -1211,15 +1401,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1282,6 +1478,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -1289,12 +1487,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1327,6 +1529,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -1338,12 +1541,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -1352,10 +1559,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -1363,6 +1574,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1399,6 +1612,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class AsicErrorGenericSoft(Entity):
                                 """
                                 Indirect hard error information
@@ -1407,6 +1623,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1443,10 +1661,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -1455,10 +1677,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -1467,12 +1693,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -1481,12 +1711,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -1495,12 +1729,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -1509,6 +1747,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -1516,15 +1756,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1587,6 +1833,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -1594,12 +1842,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1632,6 +1884,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -1643,12 +1896,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -1657,10 +1914,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -1668,6 +1929,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1704,6 +1967,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericSoft.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class CrcHardErrors(Entity):
                                 """
                                 CRC hard error information
@@ -1712,6 +1978,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1748,10 +2016,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -1760,10 +2032,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -1772,12 +2048,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -1786,12 +2066,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -1800,12 +2084,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -1814,6 +2102,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -1821,15 +2111,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1892,6 +2188,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -1899,12 +2197,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1937,6 +2239,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -1948,12 +2251,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -1962,10 +2269,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -1973,6 +2284,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2009,6 +2322,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class AsicErrorSbeSoft(Entity):
                                 """
                                 Indirect hard error information
@@ -2017,6 +2333,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2053,10 +2371,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -2065,10 +2387,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -2077,12 +2403,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -2091,12 +2421,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -2105,12 +2439,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -2119,6 +2457,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -2126,15 +2466,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2197,6 +2543,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -2204,12 +2552,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2242,6 +2594,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -2253,12 +2606,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -2267,10 +2624,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -2278,6 +2639,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2314,6 +2677,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeSoft.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class HardwareSoftErrors(Entity):
                                 """
                                 Hardware soft error information
@@ -2322,6 +2688,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2358,10 +2726,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -2370,10 +2742,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -2382,12 +2758,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -2396,12 +2776,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -2410,12 +2794,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -2424,6 +2812,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -2431,15 +2821,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2502,6 +2898,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -2509,12 +2907,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2547,6 +2949,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -2558,12 +2961,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -2572,10 +2979,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -2583,6 +2994,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2619,6 +3032,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class AsicErrorCrcSoft(Entity):
                                 """
                                 Indirect hard error information
@@ -2627,6 +3043,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2663,10 +3081,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -2675,10 +3097,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -2687,12 +3113,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -2701,12 +3131,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -2715,12 +3149,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -2729,6 +3167,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -2736,15 +3176,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2807,6 +3253,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -2814,12 +3262,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2852,6 +3304,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -2863,12 +3316,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -2877,10 +3334,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -2888,6 +3349,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2924,6 +3387,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcSoft.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class AsicErrorParitySoft(Entity):
                                 """
                                 Indirect hard error information
@@ -2932,6 +3398,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2968,10 +3436,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -2980,10 +3452,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -2992,12 +3468,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -3006,12 +3486,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -3020,12 +3504,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -3034,6 +3522,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -3041,15 +3531,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3112,6 +3608,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -3119,12 +3617,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3157,6 +3659,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -3168,12 +3671,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -3182,10 +3689,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -3193,6 +3704,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3229,6 +3742,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParitySoft.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class IoSoftErrors(Entity):
                                 """
                                 IO soft error information
@@ -3237,6 +3753,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3273,10 +3791,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -3285,10 +3807,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -3297,12 +3823,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -3311,12 +3841,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -3325,12 +3859,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -3339,6 +3877,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -3346,15 +3886,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3417,6 +3963,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -3424,12 +3972,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3462,6 +4014,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -3473,12 +4026,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -3487,10 +4044,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -3498,6 +4059,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3534,6 +4097,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class ResetSoftErrors(Entity):
                                 """
                                 Reset soft error information
@@ -3542,6 +4108,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3578,10 +4146,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -3590,10 +4162,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -3602,12 +4178,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -3616,12 +4196,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -3630,12 +4214,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -3644,6 +4232,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -3651,15 +4241,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3722,6 +4318,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -3729,12 +4327,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3767,6 +4369,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -3778,12 +4381,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -3792,10 +4399,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -3803,6 +4414,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3839,6 +4452,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class BarrierHardErrors(Entity):
                                 """
                                 Barrier hard error information
@@ -3847,6 +4463,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3883,10 +4501,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -3895,10 +4517,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -3907,12 +4533,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -3921,12 +4551,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -3935,12 +4569,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -3949,6 +4587,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -3956,15 +4596,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4027,6 +4673,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -4034,12 +4682,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4072,6 +4724,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -4083,12 +4736,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -4097,10 +4754,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -4108,6 +4769,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4144,6 +4807,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class UcodeSoftErrors(Entity):
                                 """
                                 Ucode soft error information
@@ -4152,6 +4818,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4188,10 +4856,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -4200,10 +4872,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -4212,12 +4888,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -4226,12 +4906,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -4240,12 +4924,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -4254,6 +4942,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -4261,15 +4951,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4332,6 +5028,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -4339,12 +5037,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4377,6 +5079,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -4388,12 +5091,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -4402,10 +5109,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -4413,6 +5124,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4449,6 +5162,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class AsicErrorResetHard(Entity):
                                 """
                                 Indirect hard error information
@@ -4457,6 +5173,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4493,10 +5211,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -4505,10 +5227,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -4517,12 +5243,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -4531,12 +5261,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -4545,12 +5279,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -4559,6 +5297,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -4566,15 +5306,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4637,6 +5383,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -4644,12 +5392,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4682,6 +5434,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -4693,12 +5446,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -4707,10 +5464,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -4718,6 +5479,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4754,6 +5517,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetHard.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class SingleBitHardErrors(Entity):
                                 """
                                 Single bit hard error information
@@ -4762,6 +5528,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4798,10 +5566,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -4810,10 +5582,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -4822,12 +5598,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -4836,12 +5616,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -4850,12 +5634,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -4864,6 +5652,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -4871,15 +5661,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4942,6 +5738,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -4949,12 +5747,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4987,6 +5789,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -4998,12 +5801,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -5012,10 +5819,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -5023,6 +5834,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5059,6 +5872,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class IndirectHardErrors(Entity):
                                 """
                                 Indirect hard error information
@@ -5067,6 +5883,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5103,10 +5921,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -5115,10 +5937,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -5127,12 +5953,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -5141,12 +5971,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -5155,12 +5989,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -5169,6 +6007,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -5176,15 +6016,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5247,6 +6093,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -5254,12 +6102,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5292,6 +6144,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -5303,12 +6156,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -5317,10 +6174,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -5328,6 +6189,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5364,6 +6227,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class OutofResourceSoft(Entity):
                                 """
                                 OOR thresh information
@@ -5372,6 +6238,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5408,10 +6276,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -5420,10 +6292,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -5432,12 +6308,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -5446,12 +6326,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -5460,12 +6344,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -5474,6 +6362,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -5481,15 +6371,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5552,6 +6448,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -5559,12 +6457,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5597,6 +6499,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -5608,12 +6511,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -5622,10 +6529,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -5633,6 +6544,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5669,6 +6582,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceSoft.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class CrcSoftErrors(Entity):
                                 """
                                 CRC soft error information
@@ -5677,6 +6593,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5713,10 +6631,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -5725,10 +6647,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -5737,12 +6663,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -5751,12 +6681,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -5765,12 +6699,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -5779,6 +6717,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -5786,15 +6726,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5857,6 +6803,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -5864,12 +6812,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5902,6 +6854,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -5913,12 +6866,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -5927,10 +6884,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -5938,6 +6899,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5974,6 +6937,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.CrcSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class TimeOutHardErrors(Entity):
                                 """
                                 Time out hard error information
@@ -5982,6 +6948,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6018,10 +6986,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -6030,10 +7002,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -6042,12 +7018,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -6056,12 +7036,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -6070,12 +7054,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -6084,6 +7072,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -6091,15 +7081,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6162,6 +7158,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -6169,12 +7167,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6207,6 +7209,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -6218,12 +7221,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -6232,10 +7239,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -6243,6 +7254,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6279,6 +7292,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class BarrierSoftErrors(Entity):
                                 """
                                 Barrier soft error information
@@ -6287,6 +7303,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6323,10 +7341,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -6335,10 +7357,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -6347,12 +7373,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -6361,12 +7391,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -6375,12 +7409,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -6389,6 +7427,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -6396,15 +7436,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6467,6 +7513,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -6474,12 +7522,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6512,6 +7564,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -6523,12 +7576,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -6537,10 +7594,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -6548,6 +7609,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6584,6 +7647,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BarrierSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class AsicErrorMbeSoft(Entity):
                                 """
                                 Indirect hard error information
@@ -6592,6 +7658,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6628,10 +7696,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -6640,10 +7712,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -6652,12 +7728,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -6666,12 +7746,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -6680,12 +7764,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -6694,6 +7782,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -6701,15 +7791,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6772,6 +7868,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -6779,12 +7877,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6817,6 +7919,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -6828,12 +7931,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -6842,10 +7949,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -6853,6 +7964,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6889,6 +8002,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeSoft.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class BackPressureHardErrors(Entity):
                                 """
                                 BP hard error information
@@ -6897,6 +8013,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6933,10 +8051,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -6945,10 +8067,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -6957,12 +8083,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -6971,12 +8101,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -6985,12 +8119,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -6999,6 +8137,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -7006,15 +8146,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7077,6 +8223,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -7084,12 +8232,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7122,6 +8274,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -7133,12 +8286,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -7147,10 +8304,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -7158,6 +8319,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7194,6 +8357,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class SingleBitSoftErrors(Entity):
                                 """
                                 Single bit soft error information
@@ -7202,6 +8368,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7238,10 +8406,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -7250,10 +8422,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -7262,12 +8438,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -7276,12 +8456,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -7290,12 +8474,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -7304,6 +8492,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -7311,15 +8501,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7382,6 +8578,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -7389,12 +8587,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7427,6 +8629,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -7438,12 +8641,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -7452,10 +8659,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -7463,6 +8674,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7499,6 +8712,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.SingleBitSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class IndirectSoftErrors(Entity):
                                 """
                                 Indirect soft error information
@@ -7507,6 +8723,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7543,10 +8761,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -7555,10 +8777,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -7567,12 +8793,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -7581,12 +8811,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -7595,12 +8829,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -7609,6 +8847,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -7616,15 +8856,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7687,6 +8933,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -7694,12 +8942,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7732,6 +8984,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -7743,12 +8996,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -7757,10 +9014,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -7768,6 +9029,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7804,6 +9067,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IndirectSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class GenericHardErrors(Entity):
                                 """
                                 Generic hard error information
@@ -7812,6 +9078,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7848,10 +9116,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -7860,10 +9132,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -7872,12 +9148,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -7886,12 +9166,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -7900,12 +9184,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -7914,6 +9202,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -7921,15 +9211,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7992,6 +9288,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -7999,12 +9297,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8037,6 +9339,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -8048,12 +9351,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -8062,10 +9369,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -8073,6 +9384,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8109,6 +9422,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class LinkHardErrors(Entity):
                                 """
                                 Link hard error information
@@ -8117,6 +9433,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8153,10 +9471,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -8165,10 +9487,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -8177,12 +9503,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -8191,12 +9521,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -8205,12 +9539,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -8219,6 +9557,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -8226,15 +9566,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -8297,6 +9643,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -8304,12 +9652,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8342,6 +9694,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -8353,12 +9706,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -8367,10 +9724,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -8378,6 +9739,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8414,6 +9777,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class ConfigurationHardErrors(Entity):
                                 """
                                 Configuration hard error information
@@ -8422,6 +9788,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8458,10 +9826,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -8470,10 +9842,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -8482,12 +9858,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -8496,12 +9876,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -8510,12 +9894,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -8524,6 +9912,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -8531,15 +9921,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -8602,6 +9998,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -8609,12 +10007,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8647,6 +10049,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -8658,12 +10061,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -8672,10 +10079,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -8683,6 +10094,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8719,6 +10132,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class InstanceSummary(Entity):
                                 """
                                 Summary for a specific instance
@@ -8728,15 +10144,21 @@ class AsicErrors(Entity):
                                 	legacy client
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: cih_client
                                 
                                 	cih client
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sum_data
                                 
                                 	sum data
                                 	**type**\: list of  		 :py:class:`SumData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8780,12 +10202,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: crc_err_count
                                     
                                     	crc err count
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sbe_err_count
                                     
@@ -8794,12 +10220,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: mbe_err_count
                                     
                                     	mbe err count
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: par_err_count
                                     
@@ -8808,12 +10238,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: gen_err_count
                                     
                                     	gen err count
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: reset_err_count
                                     
@@ -8822,6 +10256,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: node_key
                                     
                                     	node key
@@ -8829,15 +10265,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: err_count
                                     
                                     	err count
                                     	**type**\: list of  		 :py:class:`ErrCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.ErrCount>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pcie_err_count
                                     
                                     	pcie err count
                                     	**type**\: list of  		 :py:class:`PcieErrCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.PcieErrCount>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -8892,12 +10334,16 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: count
                                         
                                         	count
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8928,6 +10374,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.ErrCount, [u'name', u'count'], name, value)
 
 
+
                                     class PcieErrCount(Entity):
                                         """
                                         pcie err count
@@ -8937,12 +10384,16 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: count
                                         
                                         	count
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8973,6 +10424,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InstanceSummary.SumData.PcieErrCount, [u'name', u'count'], name, value)
 
 
+
+
+
                             class UnexpectedHardErrors(Entity):
                                 """
                                 Unexpected hard error information
@@ -8981,6 +10435,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9017,10 +10473,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -9029,10 +10489,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -9041,12 +10505,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -9055,12 +10523,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -9069,12 +10541,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -9083,6 +10559,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -9090,15 +10568,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -9161,6 +10645,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -9168,12 +10654,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -9206,6 +10696,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -9217,12 +10708,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -9231,10 +10726,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -9242,6 +10741,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -9278,6 +10779,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class TimeOutSoftErrors(Entity):
                                 """
                                 Time out soft error information
@@ -9286,6 +10790,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9322,10 +10828,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -9334,10 +10844,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -9346,12 +10860,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -9360,12 +10878,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -9374,12 +10896,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -9388,6 +10914,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -9395,15 +10923,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -9466,6 +11000,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -9473,12 +11009,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -9511,6 +11051,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -9522,12 +11063,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -9536,10 +11081,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -9547,6 +11096,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -9583,6 +11134,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.TimeOutSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class AsicErrorGenericHard(Entity):
                                 """
                                 Indirect hard error information
@@ -9591,6 +11145,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9627,10 +11183,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -9639,10 +11199,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -9651,12 +11215,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -9665,12 +11233,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -9679,12 +11251,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -9693,6 +11269,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -9700,15 +11278,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -9771,6 +11355,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -9778,12 +11364,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -9816,6 +11406,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -9827,12 +11418,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -9841,10 +11436,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -9852,6 +11451,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -9888,6 +11489,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorGenericHard.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class ParityHardErrors(Entity):
                                 """
                                 Parity hard error information
@@ -9896,6 +11500,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9932,10 +11538,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -9944,10 +11554,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -9956,12 +11570,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -9970,12 +11588,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -9984,12 +11606,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -9998,6 +11624,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -10005,15 +11633,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -10076,6 +11710,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -10083,12 +11719,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -10121,6 +11761,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -10132,12 +11773,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -10146,10 +11791,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -10157,6 +11806,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -10193,6 +11844,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParityHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class DescriptorHardErrors(Entity):
                                 """
                                 Descriptor hard error information
@@ -10201,6 +11855,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10237,10 +11893,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -10249,10 +11909,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -10261,12 +11925,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -10275,12 +11943,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -10289,12 +11961,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -10303,6 +11979,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -10310,15 +11988,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -10381,6 +12065,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -10388,12 +12074,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -10426,6 +12116,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -10437,12 +12128,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -10451,10 +12146,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -10462,6 +12161,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -10498,6 +12199,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class InterfaceHardErrors(Entity):
                                 """
                                 Interface hard error information
@@ -10506,6 +12210,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10542,10 +12248,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -10554,10 +12264,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -10566,12 +12280,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -10580,12 +12298,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -10594,12 +12316,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -10608,6 +12334,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -10615,15 +12343,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -10686,6 +12420,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -10693,12 +12429,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -10731,6 +12471,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -10742,12 +12483,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -10756,10 +12501,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -10767,6 +12516,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -10803,6 +12554,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class AsicErrorSbeHard(Entity):
                                 """
                                 Indirect hard error information
@@ -10811,6 +12565,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10847,10 +12603,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -10859,10 +12619,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -10871,12 +12635,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -10885,12 +12653,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -10899,12 +12671,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -10913,6 +12689,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -10920,15 +12698,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -10991,6 +12775,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -10998,12 +12784,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -11036,6 +12826,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -11047,12 +12838,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -11061,10 +12856,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -11072,6 +12871,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -11108,6 +12909,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorSbeHard.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class AsicErrorCrcHard(Entity):
                                 """
                                 Indirect hard error information
@@ -11116,6 +12920,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -11152,10 +12958,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -11164,10 +12974,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -11176,12 +12990,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -11190,12 +13008,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -11204,12 +13026,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -11218,6 +13044,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -11225,15 +13053,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -11296,6 +13130,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -11303,12 +13139,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -11341,6 +13181,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -11352,12 +13193,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -11366,10 +13211,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -11377,6 +13226,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -11413,6 +13264,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorCrcHard.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class AsicErrorParityHard(Entity):
                                 """
                                 Indirect hard error information
@@ -11421,6 +13275,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -11457,10 +13313,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -11469,10 +13329,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -11481,12 +13345,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -11495,12 +13363,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -11509,12 +13381,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -11523,6 +13399,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -11530,15 +13408,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -11601,6 +13485,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -11608,12 +13494,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -11646,6 +13536,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -11657,12 +13548,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -11671,10 +13566,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -11682,6 +13581,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -11718,6 +13619,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorParityHard.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class AsicErrorResetSoft(Entity):
                                 """
                                 Indirect hard error information
@@ -11726,6 +13630,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -11762,10 +13668,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -11774,10 +13684,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -11786,12 +13700,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -11800,12 +13718,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -11814,12 +13736,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -11828,6 +13754,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -11835,15 +13763,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -11906,6 +13840,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -11913,12 +13849,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -11951,6 +13891,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -11962,12 +13903,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -11976,10 +13921,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -11987,6 +13936,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -12023,6 +13974,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorResetSoft.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class BackPressureSoftErrors(Entity):
                                 """
                                 BP soft error information
@@ -12031,6 +13985,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -12067,10 +14023,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -12079,10 +14039,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -12091,12 +14055,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -12105,12 +14073,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -12119,12 +14091,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -12133,6 +14109,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -12140,15 +14118,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -12211,6 +14195,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -12218,12 +14204,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -12256,6 +14246,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -12267,12 +14258,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -12281,10 +14276,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -12292,6 +14291,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -12328,6 +14329,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.BackPressureSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class GenericSoftErrors(Entity):
                                 """
                                 Generic soft error information
@@ -12336,6 +14340,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -12372,10 +14378,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -12384,10 +14394,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -12396,12 +14410,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -12410,12 +14428,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -12424,12 +14446,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -12438,6 +14464,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -12445,15 +14473,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -12516,6 +14550,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -12523,12 +14559,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -12561,6 +14601,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -12572,12 +14613,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -12586,10 +14631,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -12597,6 +14646,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -12633,6 +14684,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.GenericSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class LinkSoftErrors(Entity):
                                 """
                                 Link soft error information
@@ -12641,6 +14695,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -12677,10 +14733,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -12689,10 +14749,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -12701,12 +14765,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -12715,12 +14783,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -12729,12 +14801,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -12743,6 +14819,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -12750,15 +14828,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -12821,6 +14905,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -12828,12 +14914,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -12866,6 +14956,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -12877,12 +14968,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -12891,10 +14986,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -12902,6 +15001,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -12938,6 +15039,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.LinkSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class ConfigurationSoftErrors(Entity):
                                 """
                                 Configuration soft error information
@@ -12946,6 +15050,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -12982,10 +15088,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -12994,10 +15104,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -13006,12 +15120,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -13020,12 +15138,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -13034,12 +15156,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -13048,6 +15174,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -13055,15 +15183,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -13126,6 +15260,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -13133,12 +15269,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -13171,6 +15311,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -13182,12 +15323,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -13196,10 +15341,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -13207,6 +15356,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -13243,6 +15394,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ConfigurationSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class MultipleBitHardErrors(Entity):
                                 """
                                 Multiple bit hard error information
@@ -13251,6 +15405,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13287,10 +15443,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -13299,10 +15459,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -13311,12 +15475,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -13325,12 +15493,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -13339,12 +15511,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -13353,6 +15529,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -13360,15 +15538,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -13431,6 +15615,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -13438,12 +15624,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -13476,6 +15666,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -13487,12 +15678,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -13501,10 +15696,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -13512,6 +15711,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -13548,6 +15749,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.MultipleBitHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class UnexpectedSoftErrors(Entity):
                                 """
                                 Unexpected soft error information
@@ -13556,6 +15760,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13592,10 +15798,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -13604,10 +15814,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -13616,12 +15830,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -13630,12 +15848,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -13644,12 +15866,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -13658,6 +15884,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -13665,15 +15893,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -13736,6 +15970,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -13743,12 +15979,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -13781,6 +16021,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -13792,12 +16033,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -13806,10 +16051,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -13817,6 +16066,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -13853,6 +16104,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UnexpectedSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class OutofResourceHard(Entity):
                                 """
                                 OOR thresh information
@@ -13861,6 +16115,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13897,10 +16153,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -13909,10 +16169,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -13921,12 +16185,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -13935,12 +16203,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -13949,12 +16221,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -13963,6 +16239,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -13970,15 +16248,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -14041,6 +16325,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -14048,12 +16334,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -14086,6 +16376,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -14097,12 +16388,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -14111,10 +16406,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -14122,6 +16421,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -14158,6 +16459,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.OutofResourceHard.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class HardwareHardErrors(Entity):
                                 """
                                 Hardware hard error information
@@ -14166,6 +16470,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -14202,10 +16508,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -14214,10 +16524,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -14226,12 +16540,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -14240,12 +16558,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -14254,12 +16576,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -14268,6 +16594,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -14275,15 +16603,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -14346,6 +16680,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -14353,12 +16689,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -14391,6 +16731,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -14402,12 +16743,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -14416,10 +16761,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -14427,6 +16776,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -14463,6 +16814,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.HardwareHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class ParitySoftErrors(Entity):
                                 """
                                 Parity soft error information
@@ -14471,6 +16825,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -14507,10 +16863,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -14519,10 +16879,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -14531,12 +16895,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -14545,12 +16913,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -14559,12 +16931,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -14573,6 +16949,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -14580,15 +16958,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -14651,6 +17035,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -14658,12 +17044,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -14696,6 +17086,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -14707,12 +17098,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -14721,10 +17116,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -14732,6 +17131,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -14768,6 +17169,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ParitySoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class DescriptorSoftErrors(Entity):
                                 """
                                 Descriptor soft error information
@@ -14776,6 +17180,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -14812,10 +17218,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -14824,10 +17234,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -14836,12 +17250,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -14850,12 +17268,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -14864,12 +17286,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -14878,6 +17304,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -14885,15 +17313,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -14956,6 +17390,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -14963,12 +17399,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -15001,6 +17441,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -15012,12 +17453,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -15026,10 +17471,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -15037,6 +17486,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -15073,6 +17524,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.DescriptorSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class InterfaceSoftErrors(Entity):
                                 """
                                 Interface soft error information
@@ -15081,6 +17535,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -15117,10 +17573,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -15129,10 +17589,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -15141,12 +17605,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -15155,12 +17623,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -15169,12 +17641,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -15183,6 +17659,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -15190,15 +17668,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -15261,6 +17745,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -15268,12 +17754,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -15306,6 +17796,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -15317,12 +17808,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -15331,10 +17826,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -15342,6 +17841,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -15378,6 +17879,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.InterfaceSoftErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class IoHardErrors(Entity):
                                 """
                                 IO hard error information
@@ -15386,6 +17890,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -15422,10 +17928,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -15434,10 +17944,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -15446,12 +17960,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -15460,12 +17978,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -15474,12 +17996,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -15488,6 +18014,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -15495,15 +18023,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -15566,6 +18100,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -15573,12 +18109,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -15611,6 +18151,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -15622,12 +18163,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -15636,10 +18181,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -15647,6 +18196,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -15683,6 +18234,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.IoHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class ResetHardErrors(Entity):
                                 """
                                 Reset hard error information
@@ -15691,6 +18245,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -15727,10 +18283,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -15739,10 +18299,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -15751,12 +18315,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -15765,12 +18333,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -15779,12 +18351,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -15793,6 +18369,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -15800,15 +18378,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -15871,6 +18455,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -15878,12 +18464,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -15916,6 +18506,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -15927,12 +18518,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -15941,10 +18536,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -15952,6 +18551,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -15988,6 +18589,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.ResetHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class UcodeHardErrors(Entity):
                                 """
                                 UCode hard error information
@@ -15996,6 +18600,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -16032,10 +18638,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -16044,10 +18654,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -16056,12 +18670,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -16070,12 +18688,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -16084,12 +18706,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -16098,6 +18724,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -16105,15 +18733,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -16176,6 +18810,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -16183,12 +18819,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -16221,6 +18861,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -16232,12 +18873,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -16246,10 +18891,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -16257,6 +18906,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -16293,6 +18944,9 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.UcodeHardErrors.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
 
+
+
+
                             class AsicErrorMbeHard(Entity):
                                 """
                                 Indirect hard error information
@@ -16301,6 +18955,8 @@ class AsicErrors(Entity):
                                 
                                 	Collection of errors
                                 	**type**\: list of  		 :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -16337,10 +18993,14 @@ class AsicErrors(Entity):
                                     	Name assigned to mem
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asic_info
                                     
                                     	Name of rack/board/asic
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: node_key
                                     
@@ -16349,10 +19009,14 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: alarm_on
                                     
                                     	High threshold crossed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_hi
                                     
@@ -16361,12 +19025,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_hi
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: thresh_lo
                                     
@@ -16375,12 +19043,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: period_lo
                                     
                                     	High period value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: count
                                     
@@ -16389,12 +19061,16 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: intr_type
                                     
                                     	Type of error
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: leaf_id
                                     
@@ -16403,6 +19079,8 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_cleared
                                     
                                     	Time  cleared
@@ -16410,15 +19088,21 @@ class AsicErrors(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: csrs_info
                                     
                                     	List of csrs\_info
                                     	**type**\: list of  		 :py:class:`CsrsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.CsrsInfo>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_err
                                     
                                     	Last Printable error information
                                     	**type**\: list of  		 :py:class:`LastErr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asic_errors_oper.AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.LastErr>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -16481,6 +19165,8 @@ class AsicErrors(Entity):
                                         	name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	address
@@ -16488,12 +19174,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: width
                                         
                                         	width
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -16526,6 +19216,7 @@ class AsicErrors(Entity):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.CsrsInfo, [u'name', u'address', u'width'], name, value)
 
 
+
                                     class LastErr(Entity):
                                         """
                                         Last Printable error information
@@ -16537,12 +19228,16 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: at_time_nsec
                                         
                                         	at time nsec
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: counter_val
                                         
@@ -16551,10 +19246,14 @@ class AsicErrors(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: error_desc
                                         
                                         	error desc
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: error_regval
                                         
@@ -16562,6 +19261,8 @@ class AsicErrors(Entity):
                                         	**type**\: list of int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -16597,7 +19298,18 @@ class AsicErrors(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(AsicErrors.Nodes.Node.AsicInformation.Instances.Instance.ErrorPath.AsicErrorMbeHard.Error.LastErr, [u'at_time', u'at_time_nsec', u'counter_val', u'error_desc', u'error_regval'], name, value)
 
+
+
+
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = AsicErrors()
         return self._top_entity
+
+
 

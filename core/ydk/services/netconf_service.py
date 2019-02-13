@@ -18,7 +18,7 @@ from ydk.errors import YServiceError as _YServiceError
 from ydk.errors.error_handler import handle_runtime_error as _handle_error
 
 from ydk.types import EntityCollection, Config
-from ydk.entity_utils import _read_entities
+from ydk.entity_utils import _read_entities, _get_top_level_entity, _get_child_entity_from_top
 
 class NetconfService(_NetconfService):
     """ Python wrapper for NetconfService
@@ -111,8 +111,11 @@ class NetconfService(_NetconfService):
         if isinstance(read_filter, EntityCollection):
             filters = read_filter.entities()
 
+        top_filters = _get_top_level_entity(filters, provider.get_session().get_root_schema())
         with _handle_error():
-            result = self._ns.get_config(provider, source, filters)
+            top_result = self._ns.get_config(provider, source, top_filters)
+        result = _get_child_entity_from_top(top_result, filters)
+
         if isinstance(read_filter, EntityCollection):
             result = Config(result)
         return result
@@ -129,8 +132,11 @@ class NetconfService(_NetconfService):
         if isinstance(read_filter, EntityCollection):
             filters = read_filter.entities()
 
+        top_filters = _get_top_level_entity(filters, provider.get_session().get_root_schema())
         with _handle_error():
-            result = self._ns.get(provider, filters)
+            top_result = self._ns.get(provider, top_filters)
+        result = _get_child_entity_from_top(top_result, filters)
+
         if isinstance(read_filter, EntityCollection):
             result = Config(result)
         return result
@@ -161,7 +167,7 @@ class NetconfService(_NetconfService):
             raise _YServiceError("provider and source/source_config cannot be None")
 
         with _handle_error():
-            if type(source) == Datastore:
+            if isinstance(source, Datastore):
                 return self._ns.validate(provider, source, url)
             elif source_config is not None:
                 return self._ns.validate(provider, source_config)

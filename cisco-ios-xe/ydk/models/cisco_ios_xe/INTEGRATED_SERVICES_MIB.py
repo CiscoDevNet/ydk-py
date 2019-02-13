@@ -44,15 +44,21 @@ class INTEGRATEDSERVICESMIB(Entity):
     	
     	**type**\:  :py:class:`IntSrvGenObjects <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.IntSrvGenObjects>`
     
+    	**config**\: False
+    
     .. attribute:: intsrvifattribtable
     
     	The reservable attributes of the system's  in\- terfaces
     	**type**\:  :py:class:`IntSrvIfAttribTable <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.IntSrvIfAttribTable>`
     
+    	**config**\: False
+    
     .. attribute:: intsrvflowtable
     
     	Information describing the reserved flows  us\- ing the system's interfaces
     	**type**\:  :py:class:`IntSrvFlowTable <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.IntSrvFlowTable>`
+    
+    	**config**\: False
     
     
 
@@ -102,6 +108,8 @@ class INTEGRATEDSERVICESMIB(Entity):
         
         	**range:** 0..2147483647
         
+        	**config**\: False
+        
         
 
         """
@@ -130,6 +138,7 @@ class INTEGRATEDSERVICESMIB(Entity):
             self._perform_setattr(INTEGRATEDSERVICESMIB.IntSrvGenObjects, [u'intsrvflownewindex'], name, value)
 
 
+
     class IntSrvIfAttribTable(Entity):
         """
         The reservable attributes of the system's  in\-
@@ -139,6 +148,8 @@ class INTEGRATEDSERVICESMIB(Entity):
         
         	The reservable attributes of  a  given  inter\- face
         	**type**\: list of  		 :py:class:`IntSrvIfAttribEntry <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.IntSrvIfAttribTable.IntSrvIfAttribEntry>`
+        
+        	**config**\: False
         
         
 
@@ -181,12 +192,16 @@ class INTEGRATEDSERVICESMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: intsrvifattriballocatedbits
             
             	The number of bits/second currently  allocated to reserved sessions on the interface
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**units**\: Bits per second
             
@@ -197,6 +212,8 @@ class INTEGRATEDSERVICESMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             	**units**\: Bits per second
             
             .. attribute:: intsrvifattriballocatedbuffer
@@ -205,6 +222,8 @@ class INTEGRATEDSERVICESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**units**\: Bytes
             
@@ -215,6 +234,8 @@ class INTEGRATEDSERVICESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: intsrvifattribpropagationdelay
             
             	The amount of propagation delay that this  in\- terface  introduces  in addition to that intro\- diced by bit propagation delays
@@ -222,12 +243,16 @@ class INTEGRATEDSERVICESMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**units**\: microseconds
             
             .. attribute:: intsrvifattribstatus
             
             	'active' on interfaces that are configured for RSVP
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -269,6 +294,8 @@ class INTEGRATEDSERVICESMIB(Entity):
                 self._perform_setattr(INTEGRATEDSERVICESMIB.IntSrvIfAttribTable.IntSrvIfAttribEntry, [u'ifindex', u'intsrvifattriballocatedbits', u'intsrvifattribmaxallocatedbits', u'intsrvifattriballocatedbuffer', u'intsrvifattribflows', u'intsrvifattribpropagationdelay', u'intsrvifattribstatus'], name, value)
 
 
+
+
     class IntSrvFlowTable(Entity):
         """
         Information describing the reserved flows  us\-
@@ -278,6 +305,8 @@ class INTEGRATEDSERVICESMIB(Entity):
         
         	Information describing the use of a given  in\- terface   by   a   given   flow.   The  counter intSrvFlowPoliced starts counting  at  the  in\- stallation of the flow
         	**type**\: list of  		 :py:class:`IntSrvFlowEntry <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.IntSrvFlowTable.IntSrvFlowEntry>`
+        
+        	**config**\: False
         
         
 
@@ -320,6 +349,8 @@ class INTEGRATEDSERVICESMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: intsrvflowtype
             
             	The type of session (IP4, IP6, IP6  with  flow information, etc)
@@ -327,10 +358,14 @@ class INTEGRATEDSERVICESMIB(Entity):
             
             	**range:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: intsrvflowowner
             
             	The process that installed this  flow  in  the queue policy database
             	**type**\:  :py:class:`IntSrvFlowOwner <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.INTEGRATEDSERVICESMIB.IntSrvFlowTable.IntSrvFlowEntry.IntSrvFlowOwner>`
+            
+            	**config**\: False
             
             .. attribute:: intsrvflowdestaddr
             
@@ -339,12 +374,16 @@ class INTEGRATEDSERVICESMIB(Entity):
             
             	**length:** 4..16
             
+            	**config**\: False
+            
             .. attribute:: intsrvflowsenderaddr
             
             	The source address of the sender  selected  by this  reservation.  The value of all zeroes in\- dicates 'all senders'.  This object may not  be changed  when the value of the RowStatus object is 'active'
             	**type**\: str
             
             	**length:** 4..16
+            
+            	**config**\: False
             
             .. attribute:: intsrvflowdestaddrlength
             
@@ -353,12 +392,16 @@ class INTEGRATEDSERVICESMIB(Entity):
             
             	**range:** 0..128
             
+            	**config**\: False
+            
             .. attribute:: intsrvflowsenderaddrlength
             
             	The length of the sender's  address  in  bits. This  is  the CIDR Prefix Length, which for IP4 hosts and multicast addresses is 32 bits.  This object may not be changed when the value of the RowStatus object is 'active'
             	**type**\: int
             
             	**range:** 0..128
+            
+            	**config**\: False
             
             .. attribute:: intsrvflowprotocol
             
@@ -367,12 +410,16 @@ class INTEGRATEDSERVICESMIB(Entity):
             
             	**range:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: intsrvflowdestport
             
             	The UDP or TCP port number used as a  destina\- tion  port for all senders in this session.  If the  IP   protocol   in   use,   specified   by intSrvResvFwdProtocol,  is 50 (ESP) or 51 (AH), this  represents  a  virtual  destination  port number.   A value of zero indicates that the IP protocol in use does not have ports.  This  ob\- ject  may  not be changed when the value of the RowStatus object is 'active'
             	**type**\: str
             
             	**length:** 2..4
+            
+            	**config**\: False
             
             .. attribute:: intsrvflowport
             
@@ -381,12 +428,16 @@ class INTEGRATEDSERVICESMIB(Entity):
             
             	**length:** 2..4
             
+            	**config**\: False
+            
             .. attribute:: intsrvflowflowid
             
             	The flow ID that  this  sender  is  using,  if this  is  an IPv6 session
             	**type**\: int
             
             	**range:** 0..16777215
+            
+            	**config**\: False
             
             .. attribute:: intsrvflowinterface
             
@@ -395,6 +446,8 @@ class INTEGRATEDSERVICESMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: intsrvflowifaddr
             
             	The IP Address on the ifEntry  on  which  this reservation  exists.  This is present primarily to support those interfaces which layer  multi\- ple IP Addresses on the interface
@@ -402,12 +455,16 @@ class INTEGRATEDSERVICESMIB(Entity):
             
             	**length:** 4..16
             
+            	**config**\: False
+            
             .. attribute:: intsrvflowrate
             
             	The Reserved Rate of the sender's data stream. If this is a Controlled Load service flow, this rate is derived from the Tspec  rate  parameter (r).   If  this  is  a Guaranteed service flow, this rate is derived from  the  Rspec  clearing rate parameter (R)
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**units**\: bits per second
             
@@ -418,6 +475,8 @@ class INTEGRATEDSERVICESMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             .. attribute:: intsrvflowweight
@@ -427,12 +486,16 @@ class INTEGRATEDSERVICESMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: intsrvflowqueue
             
             	The number of the queue used by this  traffic. Note  that the interpretation of this object is implementation\-specific,   as   implementations vary in their use of queue identifiers
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: intsrvflowmintu
             
@@ -441,12 +504,16 @@ class INTEGRATEDSERVICESMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: intsrvflowmaxtu
             
             	The maximum datagram size for this  flow  that will conform to the traffic specification. This value cannot exceed the MTU of the interface
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: intsrvflowbesteffort
             
@@ -455,6 +522,8 @@ class INTEGRATEDSERVICESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: intsrvflowpoliced
             
             	The number of packets policed since the incep\- tion of the flow's service
@@ -462,15 +531,21 @@ class INTEGRATEDSERVICESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: intsrvflowdiscard
             
             	If 'true', the flow  is  to  incur  loss  when traffic is policed.  If 'false', policed traff\- ic is treated as best effort traffic
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: intsrvflowservice
             
             	The QoS service being applied to this flow
             	**type**\:  :py:class:`QosService <ydk.models.cisco_ios_xe.INTEGRATED_SERVICES_MIB.QosService>`
+            
+            	**config**\: False
             
             .. attribute:: intsrvfloworder
             
@@ -479,10 +554,14 @@ class INTEGRATEDSERVICESMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: intsrvflowstatus
             
             	'active' for all active  flows.   This  object may be used to install static classifier infor\- mation, delete classifier information,  or  au\- thorize such
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -582,7 +661,11 @@ class INTEGRATEDSERVICESMIB(Entity):
                 management = Enum.YLeaf(3, "management")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = INTEGRATEDSERVICESMIB()
         return self._top_entity
+
+
 

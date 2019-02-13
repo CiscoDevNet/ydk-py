@@ -771,6 +771,10 @@ class MplsLdp(Entity):
                                         self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy, ['lsr_id', 'label_space_id', 'prefix_acl_name'], name, value)
 
 
+
+
+
+
                     class Local(Entity):
                         """
                         Configure local label policies and control
@@ -997,6 +1001,8 @@ class MplsLdp(Entity):
                                         self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy, ['lsr_id', 'label_space_id', 'prefix_acl_name'], name, value)
 
 
+
+
                             class PrefixAdvertisePolicies(Entity):
                                 """
                                 Configure prefix centric outbound label
@@ -1086,6 +1092,8 @@ class MplsLdp(Entity):
                                         self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PrefixAdvertisePolicies.PrefixAdvertisePolicy, ['prefix_acl_name', 'advertise_type', 'peer_acl_name'], name, value)
 
 
+
+
                             class ExplicitNull(Entity):
                                 """
                                 Configure advertisment of explicit\-null
@@ -1135,6 +1143,7 @@ class MplsLdp(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.ExplicitNull, ['explicit_null_type', 'prefix_acl_name', 'peer_acl_name'], name, value)
+
 
 
                             class Interfaces(Entity):
@@ -1212,6 +1221,9 @@ class MplsLdp(Entity):
                                         self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface, ['interface_name'], name, value)
 
 
+
+
+
                         class Allocate(Entity):
                             """
                             Control local label allocation for
@@ -1254,6 +1266,9 @@ class MplsLdp(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Label.Local.Allocate, ['allocation_type', 'prefix_acl_name'], name, value)
+
+
+
 
 
                 class Discovery(Entity):
@@ -1351,6 +1366,8 @@ class MplsLdp(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Discovery.TargetedHelloAccept, ['accept_type', 'peer_acl_name'], name, value)
+
+
 
 
                 class TrafficEngineering(Entity):
@@ -1510,6 +1527,10 @@ class MplsLdp(Entity):
                                     self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupIds.GroupId, ['mesh_group_id'], name, value)
 
 
+
+
+
+
                 class Neighbor(Entity):
                     """
                     Configuration related to Neighbors
@@ -1633,6 +1654,9 @@ class MplsLdp(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses.Address, ['ip_address', 'targeted'], name, value)
+
+
+
 
 
                 class RedistributionProtocol(Entity):
@@ -1768,6 +1792,7 @@ class MplsLdp(Entity):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As, ['as_xx', 'as_yy'], name, value)
 
 
+
                         class AdvertiseTo(Entity):
                             """
                             ACL containing list of neighbors for BGP
@@ -1810,6 +1835,11 @@ class MplsLdp(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.AdvertiseTo, ['type', 'peer_acl_name'], name, value)
+
+
+
+
+
 
 
         class Global(Entity):
@@ -1978,6 +2008,7 @@ class MplsLdp(Entity):
                         self._perform_setattr(MplsLdp.DefaultVrf.Global.Session.Protection, ['protection_type', 'peer_acl_name', 'duration'], name, value)
 
 
+
                 class DownstreamOnDemand(Entity):
                     """
                     ACL with the list of neighbors configured for
@@ -2021,6 +2052,8 @@ class MplsLdp(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand, ['type', 'peer_acl_name'], name, value)
+
+
 
 
             class Neighbor(Entity):
@@ -2221,6 +2254,9 @@ class MplsLdp(Entity):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId.Password, ['command_type', 'password'], name, value)
 
 
+
+
+
                 class DualStack(Entity):
                     """
                     Configuration related to neighbor transport
@@ -2355,6 +2391,10 @@ class MplsLdp(Entity):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer, ['ipv4'], name, value)
 
 
+
+
+
+
             class GracefulRestart(Entity):
                 """
                 Configuration for per\-VRF LDP Graceful Restart
@@ -2430,6 +2470,9 @@ class MplsLdp(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsLdp.DefaultVrf.Global.GracefulRestart.HelperPeer, ['maintain_on_local_reset'], name, value)
+
+
+
 
 
         class Interfaces(Entity):
@@ -2728,6 +2771,8 @@ class MplsLdp(Entity):
                                     self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress, ['address_type', 'address'], name, value)
 
 
+
+
                         class Igp(Entity):
                             """
                             LDP interface IGP configuration
@@ -2764,6 +2809,7 @@ class MplsLdp(Entity):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Igp, ['disable_auto_config'], name, value)
 
 
+
                         class Mldp(Entity):
                             """
                             Interface configuration parameters for mLDP
@@ -2798,6 +2844,9 @@ class MplsLdp(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Mldp, ['disable'], name, value)
+
+
+
 
 
                 class Global(Entity):
@@ -2956,6 +3005,8 @@ class MplsLdp(Entity):
                                 self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello, ['interval', 'dual_stack', 'hold_time'], name, value)
 
 
+
+
                     class Igp(Entity):
                         """
                         LDP IGP configuration
@@ -3112,6 +3163,14 @@ class MplsLdp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay.OnSessionUp, ['disable', 'timeout'], name, value)
+
+
+
+
+
+
+
+
 
 
     class Vrfs(Entity):
@@ -3369,6 +3428,8 @@ class MplsLdp(Entity):
                             self._perform_setattr(MplsLdp.Vrfs.Vrf.Global.Session.DownstreamOnDemand, ['type', 'peer_acl_name'], name, value)
 
 
+
+
                 class Neighbor(Entity):
                     """
                     Configuration related to Neighbors
@@ -3548,6 +3609,9 @@ class MplsLdp(Entity):
                                     self._perform_setattr(MplsLdp.Vrfs.Vrf.Global.Neighbor.DualStack.TransportConnection.Prefer, ['ipv4'], name, value)
 
 
+
+
+
                     class LdpIds(Entity):
                         """
                         Configuration related to Neighbors using LDP
@@ -3687,6 +3751,10 @@ class MplsLdp(Entity):
                                     self._perform_setattr(MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId.Password, ['command_type', 'password'], name, value)
 
 
+
+
+
+
                 class GracefulRestart(Entity):
                     """
                     Configuration for per\-VRF LDP Graceful
@@ -3760,6 +3828,9 @@ class MplsLdp(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsLdp.Vrfs.Vrf.Global.GracefulRestart.HelperPeer, ['maintain_on_local_reset'], name, value)
+
+
+
 
 
             class Afs(Entity):
@@ -3901,6 +3972,7 @@ class MplsLdp(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Discovery, ['transport_address'], name, value)
+
 
 
                     class Label(Entity):
@@ -4153,6 +4225,7 @@ class MplsLdp(Entity):
                                                 self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.PeerAcceptPolicyData, ['prefix_acl_name'], name, value)
 
 
+
                                         class LsrId(Entity):
                                             """
                                             keys\: lsr\-id
@@ -4198,6 +4271,11 @@ class MplsLdp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.LsrId, ['lsr_id', 'prefix_acl_name'], name, value)
+
+
+
+
+
 
 
                         class Local(Entity):
@@ -4453,6 +4531,7 @@ class MplsLdp(Entity):
                                                 self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.PeerAdvertisePolicyData, ['prefix_acl_name'], name, value)
 
 
+
                                         class LsrId(Entity):
                                             """
                                             keys\: lsr\-id
@@ -4498,6 +4577,9 @@ class MplsLdp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy.LsrId, ['lsr_id', 'prefix_acl_name'], name, value)
+
+
+
 
 
                                 class Interfaces(Entity):
@@ -4575,6 +4657,8 @@ class MplsLdp(Entity):
                                             self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.Interfaces.Interface, ['interface_name'], name, value)
 
 
+
+
                                 class ExplicitNull(Entity):
                                     """
                                     Configure advertisment of explicit\-null
@@ -4626,6 +4710,8 @@ class MplsLdp(Entity):
                                         self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Advertise.ExplicitNull, ['explicit_null_type', 'prefix_acl_name', 'peer_acl_name'], name, value)
 
 
+
+
                             class Allocate(Entity):
                                 """
                                 Control local label allocation for
@@ -4668,6 +4754,11 @@ class MplsLdp(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsLdp.Vrfs.Vrf.Afs.Af.Label.Local.Allocate, ['allocation_type', 'prefix_acl_name'], name, value)
+
+
+
+
+
 
 
             class Interfaces(Entity):
@@ -4938,6 +5029,14 @@ class MplsLdp(Entity):
                                         self._perform_setattr(MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress, ['address_type', 'address'], name, value)
 
 
+
+
+
+
+
+
+
+
     class Global(Entity):
         """
         Global configuration for MPLS LDP
@@ -5104,6 +5203,7 @@ class MplsLdp(Entity):
                 self._perform_setattr(MplsLdp.Global.EntropyLabel, ['enable'], name, value)
 
 
+
         class Session(Entity):
             """
             LDP Session parameters
@@ -5210,6 +5310,8 @@ class MplsLdp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsLdp.Global.Session.BackoffTime, ['initial_backoff_time', 'max_backoff_time'], name, value)
+
+
 
 
         class Igp(Entity):
@@ -5340,6 +5442,9 @@ class MplsLdp(Entity):
                         self._perform_setattr(MplsLdp.Global.Igp.Sync.Delay, ['on_session_up', 'on_proc_restart'], name, value)
 
 
+
+
+
         class EnableLogging(Entity):
             """
             Enable logging of events
@@ -5405,6 +5510,7 @@ class MplsLdp(Entity):
                 self._perform_setattr(MplsLdp.Global.EnableLogging, ['nsr', 'neighbor_changes', 'adjacency', 'session_protection', 'gr_session_changes'], name, value)
 
 
+
         class Signalling(Entity):
             """
             Configure LDP signalling parameters
@@ -5446,6 +5552,7 @@ class MplsLdp(Entity):
                 self._perform_setattr(MplsLdp.Global.Signalling, ['dscp'], name, value)
 
 
+
         class Nsr(Entity):
             """
             Configure LDP Non\-Stop Routing
@@ -5481,6 +5588,7 @@ class MplsLdp(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsLdp.Global.Nsr, ['enable'], name, value)
+
 
 
         class GracefulRestart(Entity):
@@ -5545,6 +5653,7 @@ class MplsLdp(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsLdp.Global.GracefulRestart, ['reconnect_timeout', 'enable', 'forwarding_hold_time'], name, value)
+
 
 
         class Discovery(Entity):
@@ -5665,6 +5774,7 @@ class MplsLdp(Entity):
                     self._perform_setattr(MplsLdp.Global.Discovery.LinkHello, ['interval', 'hold_time'], name, value)
 
 
+
             class TargetedHello(Entity):
                 """
                 LDP Targeted Hellos
@@ -5719,6 +5829,8 @@ class MplsLdp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsLdp.Global.Discovery.TargetedHello, ['interval', 'hold_time'], name, value)
+
+
 
 
         class Mldp(Entity):
@@ -6060,6 +6172,7 @@ class MplsLdp(Entity):
                                     self._perform_setattr(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.RecursiveForwarding, ['enable', 'policy'], name, value)
 
 
+
                             class MldpRecursiveFec(Entity):
                                 """
                                 MPLS mLDP Recursive FEC
@@ -6103,6 +6216,7 @@ class MplsLdp(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec, ['enable', 'policy'], name, value)
+
 
 
                             class NeighborPolicies(Entity):
@@ -6196,6 +6310,8 @@ class MplsLdp(Entity):
                                         self._perform_setattr(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies.NeighborPolicy, ['root_address', 'policy_mode', 'route_policy'], name, value)
 
 
+
+
                             class MoFrr(Entity):
                                 """
                                 MPLS mLDP MoFRR
@@ -6239,6 +6355,7 @@ class MplsLdp(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr, ['enable', 'policy'], name, value)
+
 
 
                             class MakeBeforeBreak(Entity):
@@ -6339,6 +6456,8 @@ class MplsLdp(Entity):
                                         self._perform_setattr(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling, ['forward_delay', 'delete_delay'], name, value)
 
 
+
+
                             class Csc(Entity):
                                 """
                                 MPLS mLDP CSC
@@ -6373,6 +6492,11 @@ class MplsLdp(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.Csc, ['enable'], name, value)
+
+
+
+
+
 
 
             class DefaultVrf(Entity):
@@ -6599,6 +6723,7 @@ class MplsLdp(Entity):
                                 self._perform_setattr(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.RecursiveForwarding, ['enable', 'policy'], name, value)
 
 
+
                         class MldpRecursiveFec(Entity):
                             """
                             MPLS mLDP Recursive FEC
@@ -6642,6 +6767,7 @@ class MplsLdp(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec, ['enable', 'policy'], name, value)
+
 
 
                         class NeighborPolicies(Entity):
@@ -6735,6 +6861,8 @@ class MplsLdp(Entity):
                                     self._perform_setattr(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.NeighborPolicies.NeighborPolicy, ['root_address', 'policy_mode', 'route_policy'], name, value)
 
 
+
+
                         class MoFrr(Entity):
                             """
                             MPLS mLDP MoFRR
@@ -6778,6 +6906,7 @@ class MplsLdp(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr, ['enable', 'policy'], name, value)
+
 
 
                         class MakeBeforeBreak(Entity):
@@ -6878,6 +7007,8 @@ class MplsLdp(Entity):
                                     self._perform_setattr(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling, ['forward_delay', 'delete_delay'], name, value)
 
 
+
+
                         class Csc(Entity):
                             """
                             MPLS mLDP CSC
@@ -6912,6 +7043,10 @@ class MplsLdp(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.Csc, ['enable'], name, value)
+
+
+
+
 
 
             class MldpGlobal(Entity):
@@ -6988,7 +7123,13 @@ class MplsLdp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsLdp.Global.Mldp.MldpGlobal.Logging, ['notifications'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = MplsLdp()
         return self._top_entity
+
+
 

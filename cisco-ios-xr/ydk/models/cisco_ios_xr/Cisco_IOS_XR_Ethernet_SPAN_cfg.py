@@ -327,7 +327,12 @@ class SpanMonitorSession(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(SpanMonitorSession.Sessions.Session.Destination, ['destination_type', 'destination_interface_name', 'destination_ipv4_address', 'destination_ipv6_address'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = SpanMonitorSession()
         return self._top_entity
+
+
 

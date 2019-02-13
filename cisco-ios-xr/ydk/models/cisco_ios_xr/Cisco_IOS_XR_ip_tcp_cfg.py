@@ -236,6 +236,7 @@ class IpTcp(Entity):
             self._perform_setattr(IpTcp.Directory, ['directoryname', 'max_debug_files', 'max_file_size_files'], name, value)
 
 
+
     class Throttle(Entity):
         """
         Throttle TCP receive buffer (in percentage)
@@ -289,6 +290,7 @@ class IpTcp(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(IpTcp.Throttle, ['tcpmin_throttle', 'tcpmaxthrottle'], name, value)
+
 
 
     class Ao(Entity):
@@ -523,6 +525,11 @@ class IpTcp(Entity):
                             self._perform_setattr(IpTcp.Ao.Keychains.Keychain.Keys.Key, ['key_id', 'send_id', 'receive_id'], name, value)
 
 
+
+
+
+
+
     class NumThread(Entity):
         """
         TCP InQueue and OutQueue threads
@@ -577,9 +584,12 @@ class IpTcp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(IpTcp.NumThread, ['tcp_in_q_threads', 'tcp_out_q_threads'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = IpTcp()
         return self._top_entity
+
+
 
 class Ip(Entity):
     """
@@ -894,6 +904,7 @@ class Ip(Entity):
 
 
 
+
                     class UdpSmallServers(Entity):
                         """
                         UDP small servers configuration
@@ -963,6 +974,9 @@ class Ip(Entity):
                             """
 
                             no_limit = Enum.YLeaf(0, "no-limit")
+
+
+
 
 
 
@@ -1193,6 +1207,8 @@ class Ip(Entity):
                                     self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Telnet.Tcp, ['access_list_name', 'maximum_server'], name, value)
 
 
+
+
                         class Tftp(Entity):
                             """
                             TFTP server configuration commands
@@ -1295,6 +1311,9 @@ class Ip(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv6.Tftp.Udp, ['access_list_name', 'maximum_server', 'home_directory', 'dscp_value'], name, value)
+
+
+
 
 
                     class Ipv4(Entity):
@@ -1431,6 +1450,8 @@ class Ip(Entity):
                                     self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Telnet.Tcp, ['access_list_name', 'maximum_server'], name, value)
 
 
+
+
                         class Tftp(Entity):
                             """
                             TFTP server configuration commands
@@ -1533,6 +1554,11 @@ class Ip(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ip.Cinetd.Services.Vrfs.Vrf.Ipv4.Tftp.Udp, ['access_list_name', 'maximum_server', 'home_directory', 'dscp_value'], name, value)
+
+
+
+
+
 
 
             class Ipv6(Entity):
@@ -1695,6 +1721,7 @@ class Ip(Entity):
 
 
 
+
                     class UdpSmallServers(Entity):
                         """
                         UDP small servers configuration
@@ -1764,6 +1791,11 @@ class Ip(Entity):
                             """
 
                             no_limit = Enum.YLeaf(0, "no-limit")
+
+
+
+
+
 
 
 
@@ -1937,7 +1969,13 @@ class Ip(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ip.ForwardProtocol.Udp.Ports.Port, ['port_id', 'enable'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Ip()
         return self._top_entity
+
+
 

@@ -227,6 +227,8 @@ class BridgeDomainConfig(Entity):
                 self._perform_setattr(BridgeDomainConfig.Global.Pbb, ['backbone_src_mac'], name, value)
 
 
+
+
     class BridgeGroups(Entity):
         """
         Collection of bridge\-groups.
@@ -306,6 +308,8 @@ class BridgeDomainConfig(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(BridgeDomainConfig.BridgeGroups.BridgeGroup, ['name'], name, value)
+
+
 
 
     class BridgeDomains(Entity):
@@ -741,6 +745,7 @@ class BridgeDomainConfig(Entity):
                             self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.SplitHorizonGroup, ['id'], name, value)
 
 
+
                     class Mac(Entity):
                         """
                         MAC features for bridge domain.
@@ -867,6 +872,7 @@ class BridgeDomainConfig(Entity):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Limit, [u'maximum', u'action', u'notification'], name, value)
 
 
+
                         class Aging(Entity):
                             """
                             MAC aging configurations.
@@ -916,6 +922,7 @@ class BridgeDomainConfig(Entity):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Aging, [u'time', u'type'], name, value)
 
 
+
                         class PortDown(Entity):
                             """
                             Port down event
@@ -952,6 +959,7 @@ class BridgeDomainConfig(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.PortDown, [u'flush'], name, value)
+
 
 
                         class Secure(Entity):
@@ -1008,6 +1016,8 @@ class BridgeDomainConfig(Entity):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Secure, [u'action', u'logging', 'enabled'], name, value)
 
 
+
+
                     class IgmpSnooping(Entity):
                         """
                         Enable IGMP snooping.
@@ -1044,6 +1054,7 @@ class BridgeDomainConfig(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.IgmpSnooping, [u'profile_name'], name, value)
+
 
 
                     class MldSnooping(Entity):
@@ -1084,6 +1095,7 @@ class BridgeDomainConfig(Entity):
                             self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.MldSnooping, [u'profile_name'], name, value)
 
 
+
                     class DhcpIpv4Snooping(Entity):
                         """
                         Enable DHCP IPv4 snooping.
@@ -1120,6 +1132,7 @@ class BridgeDomainConfig(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.DhcpIpv4Snooping, [u'profile_name'], name, value)
+
 
 
                     class Flooding(Entity):
@@ -1163,6 +1176,7 @@ class BridgeDomainConfig(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Flooding, [u'disabled', u'disabled_unknown_unicast'], name, value)
+
 
 
                     class StormControl(Entity):
@@ -1295,6 +1309,8 @@ class BridgeDomainConfig(Entity):
 
 
 
+
+
                     class DynamicArpInspection(Entity):
                         """
                         Dynamic ARP Inspection (DAI) configurations.
@@ -1401,6 +1417,8 @@ class BridgeDomainConfig(Entity):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.DynamicArpInspection.AddressValidation, [u'dst_mac', u'src_mac', u'ipv4'], name, value)
 
 
+
+
                     class IpSourceGuard(Entity):
                         """
                         IP source guard (IPSG) configurations.
@@ -1446,6 +1464,8 @@ class BridgeDomainConfig(Entity):
                             self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.IpSourceGuard, [u'logging', 'enable'], name, value)
 
 
+
+
                 class VfiMember(Entity):
                     """
                     List of Virtual Forrwarding Interfaces for current
@@ -1483,6 +1503,7 @@ class BridgeDomainConfig(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.VfiMember, ['interface'], name, value)
+
 
 
                 class AccessPwMember(Entity):
@@ -1568,6 +1589,7 @@ class BridgeDomainConfig(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.AccessPwIfMember, ['interface'], name, value)
+
 
 
                     class PwNeighborSpec(Entity):
@@ -1737,7 +1759,7 @@ class BridgeDomainConfig(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec, ['neighbor_ip_address', 'vc_id', 'pw_class_template', 'encap_type', 'tag_impose_vlan', 'source_ipv6'], name, value)
+                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec, [u'neighbor_ip_address', u'vc_id', u'pw_class_template', u'encap_type', u'tag_impose_vlan', u'source_ipv6'], name, value)
 
 
                         class StaticLabel(Entity):
@@ -1784,7 +1806,8 @@ class BridgeDomainConfig(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StaticLabel, ['local_label', 'remote_label'], name, value)
+                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StaticLabel, [u'local_label', u'remote_label'], name, value)
+
 
 
                         class SplitHorizonGroup(Entity):
@@ -1834,6 +1857,7 @@ class BridgeDomainConfig(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.SplitHorizonGroup, ['id'], name, value)
+
 
 
                         class Mac(Entity):
@@ -1962,6 +1986,7 @@ class BridgeDomainConfig(Entity):
                                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Limit, [u'maximum', u'action', u'notification'], name, value)
 
 
+
                             class Aging(Entity):
                                 """
                                 MAC aging configurations.
@@ -2011,6 +2036,7 @@ class BridgeDomainConfig(Entity):
                                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Aging, [u'time', u'type'], name, value)
 
 
+
                             class PortDown(Entity):
                                 """
                                 Port down event
@@ -2047,6 +2073,7 @@ class BridgeDomainConfig(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.PortDown, [u'flush'], name, value)
+
 
 
                             class Secure(Entity):
@@ -2103,6 +2130,8 @@ class BridgeDomainConfig(Entity):
                                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Secure, [u'action', u'logging', 'enabled'], name, value)
 
 
+
+
                         class IgmpSnooping(Entity):
                             """
                             Enable IGMP snooping.
@@ -2139,6 +2168,7 @@ class BridgeDomainConfig(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.IgmpSnooping, [u'profile_name'], name, value)
+
 
 
                         class MldSnooping(Entity):
@@ -2179,6 +2209,7 @@ class BridgeDomainConfig(Entity):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.MldSnooping, [u'profile_name'], name, value)
 
 
+
                         class DhcpIpv4Snooping(Entity):
                             """
                             Enable DHCP IPv4 snooping.
@@ -2215,6 +2246,7 @@ class BridgeDomainConfig(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.DhcpIpv4Snooping, [u'profile_name'], name, value)
+
 
 
                         class Flooding(Entity):
@@ -2258,6 +2290,7 @@ class BridgeDomainConfig(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Flooding, [u'disabled', u'disabled_unknown_unicast'], name, value)
+
 
 
                         class StormControl(Entity):
@@ -2390,6 +2423,8 @@ class BridgeDomainConfig(Entity):
 
 
 
+
+
                         class Backup(Entity):
                             """
                             Backup pseudo\-wire.
@@ -2449,7 +2484,11 @@ class BridgeDomainConfig(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Backup, ['neighbor_ip_address', 'vc_id', 'pw_class_template'], name, value)
+                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Backup, [u'neighbor_ip_address', u'vc_id', u'pw_class_template'], name, value)
+
+
+
+
 
 
             class Mac(Entity):
@@ -2597,6 +2636,7 @@ class BridgeDomainConfig(Entity):
                         self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Limit, [u'maximum', u'action', u'notification'], name, value)
 
 
+
                 class Aging(Entity):
                     """
                     MAC aging configurations.
@@ -2646,6 +2686,7 @@ class BridgeDomainConfig(Entity):
                         self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Aging, [u'time', u'type'], name, value)
 
 
+
                 class PortDown(Entity):
                     """
                     Port down event
@@ -2682,6 +2723,7 @@ class BridgeDomainConfig(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.PortDown, [u'flush'], name, value)
+
 
 
                 class Flooding(Entity):
@@ -2725,6 +2767,7 @@ class BridgeDomainConfig(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Flooding, [u'disabled', u'disabled_unknown_unicast'], name, value)
+
 
 
                 class Secure(Entity):
@@ -2775,6 +2818,7 @@ class BridgeDomainConfig(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Secure, [u'action', u'logging'], name, value)
+
 
 
                 class Static(Entity):
@@ -2857,6 +2901,9 @@ class BridgeDomainConfig(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Static.MacAddresses, [u'mac_addr', u'drop'], name, value)
+
+
+
 
 
             class DynamicArpInspection(Entity):
@@ -2961,6 +3008,8 @@ class BridgeDomainConfig(Entity):
                         self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.DynamicArpInspection.AddressValidation, [u'dst_mac', u'src_mac', u'ipv4'], name, value)
 
 
+
+
             class IpSourceGuard(Entity):
                 """
                 IP source guard (IPSG) configurations.
@@ -3000,6 +3049,7 @@ class BridgeDomainConfig(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.IpSourceGuard, [u'logging'], name, value)
+
 
 
             class StormControl(Entity):
@@ -3132,6 +3182,8 @@ class BridgeDomainConfig(Entity):
 
 
 
+
+
             class IgmpSnooping(Entity):
                 """
                 Enable IGMP snooping.
@@ -3175,6 +3227,7 @@ class BridgeDomainConfig(Entity):
                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.IgmpSnooping, [u'profile_name', 'disabled'], name, value)
 
 
+
             class MldSnooping(Entity):
                 """
                 Enable MLD snooping
@@ -3211,6 +3264,7 @@ class BridgeDomainConfig(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.MldSnooping, [u'profile_name'], name, value)
+
 
 
             class DhcpIpv4Snooping(Entity):
@@ -3250,9 +3304,14 @@ class BridgeDomainConfig(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.DhcpIpv4Snooping, [u'profile_name'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = BridgeDomainConfig()
         return self._top_entity
+
+
 
 class BridgeDomainState(Entity):
     """
@@ -3263,20 +3322,28 @@ class BridgeDomainState(Entity):
     	This container defines system capabilities for bridge domain
     	**type**\:  :py:class:`SystemCapabilities <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.SystemCapabilities>`
     
+    	**config**\: False
+    
     .. attribute:: module_capabilities
     
     	This container defines module capabilities for bridge domain
     	**type**\:  :py:class:`ModuleCapabilities <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.ModuleCapabilities>`
+    
+    	**config**\: False
     
     .. attribute:: bridge_domains
     
     	Bridge domain state data
     	**type**\:  :py:class:`BridgeDomains <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains>`
     
+    	**config**\: False
+    
     .. attribute:: mac_table
     
     	This list contains mac\-address entries for bridge domains
     	**type**\: list of  		 :py:class:`MacTable <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.MacTable>`
+    
+    	**config**\: False
     
     
 
@@ -3329,12 +3396,16 @@ class BridgeDomainState(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: max_ac_per_bd
         
         	Maximum number of attachment circuits per bridge\-domains
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: max_pw_per_bd
         
@@ -3343,12 +3414,16 @@ class BridgeDomainState(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: max_vfi_per_bd
         
         	Maximum number of virtual forwarding instances per bridge\-domains
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: max_sh_group_per_bd
         
@@ -3357,12 +3432,16 @@ class BridgeDomainState(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: max_interflex_if_per_bd
         
         	Maximum number of Interflex interfaces per bridge\-domains
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -3402,6 +3481,7 @@ class BridgeDomainState(Entity):
             self._perform_setattr(BridgeDomainState.SystemCapabilities, ['max_bd', 'max_ac_per_bd', 'max_pw_per_bd', 'max_vfi_per_bd', 'max_sh_group_per_bd', 'max_interflex_if_per_bd'], name, value)
 
 
+
     class ModuleCapabilities(Entity):
         """
         This container defines module capabilities for bridge
@@ -3411,6 +3491,8 @@ class BridgeDomainState(Entity):
         
         	Collection of capabillity statements for hardware module in the system
         	**type**\: list of  		 :py:class:`Modules <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.ModuleCapabilities.Modules>`
+        
+        	**config**\: False
         
         
 
@@ -3449,12 +3531,16 @@ class BridgeDomainState(Entity):
             	Name of the hardware module such as linecards, for which capability is described
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: max_mac_per_bd
             
             	Maximum number of MAC addresses per bridge\-domains supported by this module
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: max_pdd_edge_bd
             
@@ -3463,12 +3549,16 @@ class BridgeDomainState(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: max_bd
             
             	Maximum number of bridge\-domains suported
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: max_ac_per_bd
             
@@ -3477,12 +3567,16 @@ class BridgeDomainState(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: max_pw_per_bd
             
             	Maximum number of access pseudowires per bridge\-domains
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: max_vfi_per_bd
             
@@ -3491,12 +3585,16 @@ class BridgeDomainState(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: max_sh_group_per_bd
             
             	Maximum number of Split Horizon groups per bridge\-domains
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -3540,6 +3638,8 @@ class BridgeDomainState(Entity):
                 self._perform_setattr(BridgeDomainState.ModuleCapabilities.Modules, ['name', 'max_mac_per_bd', 'max_pdd_edge_bd', 'max_bd', 'max_ac_per_bd', 'max_pw_per_bd', 'max_vfi_per_bd', 'max_sh_group_per_bd'], name, value)
 
 
+
+
     class BridgeDomains(Entity):
         """
         Bridge domain state data.
@@ -3548,6 +3648,8 @@ class BridgeDomainState(Entity):
         
         	Collection of bridge\-domain state data
         	**type**\: list of  		 :py:class:`BridgeDomain <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain>`
+        
+        	**config**\: False
         
         
 
@@ -3585,12 +3687,16 @@ class BridgeDomainState(Entity):
             	Bridge domain name or number
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: bd_state
             
             	Bridge domain operational/admin status
             	**type**\:  :py:class:`BridgeDomainStateType <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainStateType>`
             
             	**mandatory**\: True
+            
+            	**config**\: False
             
             .. attribute:: create_time
             
@@ -3599,6 +3705,8 @@ class BridgeDomainState(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: last_status_change
             
             	Number of consecutive ticks since bridge\-domain status was changed last time
@@ -3606,20 +3714,28 @@ class BridgeDomainState(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mac_limit_reached
             
             	This leaf indicates if MAC address limit has been reached
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: p2mp_pw_disabled
             
             	Point to Mutipoint pseudowire state
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: members
             
             	Collection of bridge\-domain members
             	**type**\:  :py:class:`Members <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members>`
+            
+            	**config**\: False
             
             
 
@@ -3672,15 +3788,21 @@ class BridgeDomainState(Entity):
                 	List of attachment circuits for this bridge domains
                 	**type**\: list of  		 :py:class:`AcMember <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember>`
                 
+                	**config**\: False
+                
                 .. attribute:: vfi_member
                 
                 	Reference to an instance of Bridge domain Virtual Forwarding Instance (VFI) name
                 	**type**\: list of  		 :py:class:`VfiMember <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.VfiMember>`
                 
+                	**config**\: False
+                
                 .. attribute:: access_pw_member
                 
                 	Collection of access pseudowire members of the bridge domain
                 	**type**\: list of  		 :py:class:`AccessPwMember <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember>`
+                
+                	**config**\: False
                 
                 
 
@@ -3721,6 +3843,8 @@ class BridgeDomainState(Entity):
                     
                     	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: static_mac_count
                     
                     	Number of static MAC address configured on this bridge\-domain member interface
@@ -3728,20 +3852,28 @@ class BridgeDomainState(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: dai_stats
                     
                     	Dynamic ARP Inspection (DAI) statistics
                     	**type**\:  :py:class:`DaiStats <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.DaiStats>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipsg_stats
                     
                     	IPSG stats
                     	**type**\:  :py:class:`IpsgStats <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.IpsgStats>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: storm_control
                     
                     	Storm control statistics
                     	**type**\:  :py:class:`StormControl <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.StormControl>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3795,12 +3927,16 @@ class BridgeDomainState(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: byte_drops
                         
                         	Number of bytes dropped by interface due to DAI actions
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -3831,6 +3967,7 @@ class BridgeDomainState(Entity):
                             self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.DaiStats, ['packet_drops', 'byte_drops'], name, value)
 
 
+
                     class IpsgStats(Entity):
                         """
                         IPSG stats.
@@ -3842,12 +3979,16 @@ class BridgeDomainState(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: byte_drops
                         
                         	Number of bytes dropped by interface due to IPSG actions
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -3878,6 +4019,7 @@ class BridgeDomainState(Entity):
                             self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.IpsgStats, ['packet_drops', 'byte_drops'], name, value)
 
 
+
                     class StormControl(Entity):
                         """
                         Storm control statistics.
@@ -3886,6 +4028,8 @@ class BridgeDomainState(Entity):
                         
                         	Collection of packet drop statistics for ethernet traffic clasess
                         	**type**\: list of  		 :py:class:`DropCounter <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.StormControl.DropCounter>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3923,6 +4067,8 @@ class BridgeDomainState(Entity):
                             	Ethernet traffic class i.e. broadcast, multicast or unknown unicast
                             	**type**\:  :py:class:`EthTrafficClass <ydk.models.cisco_ios_xe.cisco_bridge_common.EthTrafficClass>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: packet_drops
                             
                             	The total number of dropped packets due to storm control violations
@@ -3930,12 +4076,16 @@ class BridgeDomainState(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: octate_drops
                             
                             	The total number of bytes of traffic dropped due to storm control violations
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -3968,6 +4118,9 @@ class BridgeDomainState(Entity):
                                 self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.StormControl.DropCounter, ['traffic_class', 'packet_drops', 'octate_drops'], name, value)
 
 
+
+
+
                 class VfiMember(Entity):
                     """
                     Reference to an instance of Bridge domain Virtual
@@ -3980,10 +4133,14 @@ class BridgeDomainState(Entity):
                     
                     	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: flooding
                     
                     	Flooding operational status
                     	**type**\:  :py:class:`Flooding <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.VfiMember.Flooding>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4025,6 +4182,8 @@ class BridgeDomainState(Entity):
                         	A collection of storm control threshold configuration entries
                         	**type**\: list of  		 :py:class:`Status <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.VfiMember.Flooding.Status>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -4061,10 +4220,14 @@ class BridgeDomainState(Entity):
                             	This leaf identifies a ethernet traffic type
                             	**type**\:  :py:class:`EthTrafficClass <ydk.models.cisco_ios_xe.cisco_bridge_common.EthTrafficClass>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: enabled
                             
                             	This leaf indicates if flooding is enabled for corresponding traffic class
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -4095,6 +4258,9 @@ class BridgeDomainState(Entity):
                                 self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.VfiMember.Flooding.Status, [u'traffic_class', u'enabled'], name, value)
 
 
+
+
+
                 class AccessPwMember(Entity):
                     """
                     Collection of access pseudowire members of the bridge
@@ -4115,6 +4281,8 @@ class BridgeDomainState(Entity):
                     
                     	**refers to**\:  :py:class:`vc_peer_address <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: vc_id  (key)
                     
                     	Reference to vc\-id of a pseudowire instance
@@ -4124,10 +4292,14 @@ class BridgeDomainState(Entity):
                     
                     	**refers to**\:  :py:class:`vc_id <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: flooding
                     
                     	Flooding operational status
                     	**type**\:  :py:class:`Flooding <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember.Flooding>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4159,7 +4331,7 @@ class BridgeDomainState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember, ['vc_peer_address', 'vc_id'], name, value)
+                        self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember, [u'vc_peer_address', u'vc_id'], name, value)
 
 
                     class Flooding(Entity):
@@ -4170,6 +4342,8 @@ class BridgeDomainState(Entity):
                         
                         	A collection of storm control threshold configuration entries
                         	**type**\: list of  		 :py:class:`Status <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember.Flooding.Status>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -4207,10 +4381,14 @@ class BridgeDomainState(Entity):
                             	This leaf identifies a ethernet traffic type
                             	**type**\:  :py:class:`EthTrafficClass <ydk.models.cisco_ios_xe.cisco_bridge_common.EthTrafficClass>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: enabled
                             
                             	This leaf indicates if flooding is enabled for corresponding traffic class
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -4241,6 +4419,12 @@ class BridgeDomainState(Entity):
                                 self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember.Flooding.Status, [u'traffic_class', u'enabled'], name, value)
 
 
+
+
+
+
+
+
     class MacTable(Entity):
         """
         This list contains mac\-address entries for bridge
@@ -4251,6 +4435,8 @@ class BridgeDomainState(Entity):
         	Bridge\-domain name where MAC entry is learnt
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: mac_address  (key)
         
         	MAC address
@@ -4258,10 +4444,14 @@ class BridgeDomainState(Entity):
         
         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
         
+        	**config**\: False
+        
         .. attribute:: mac_type
         
         	MAC address type
         	**type**\:  :py:class:`MacType <ydk.models.cisco_ios_xe.cisco_bridge_domain.BridgeDomainState.MacTable.MacType>`
+        
+        	**config**\: False
         
         .. attribute:: interface
         
@@ -4272,15 +4462,21 @@ class BridgeDomainState(Entity):
         
         	**mandatory**\: True
         
+        	**config**\: False
+        
         .. attribute:: secure_mac
         
         	Secure MAC address
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: ntfy_mac
         
         	TBD ?NTFY?
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: age
         
@@ -4289,10 +4485,14 @@ class BridgeDomainState(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: location
         
         	Linecard / Module where mac address was learnt
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -4356,9 +4556,12 @@ class BridgeDomainState(Entity):
             dynamic = Enum.YLeaf(1, "dynamic")
 
 
+
     def clone_ptr(self):
         self._top_entity = BridgeDomainState()
         return self._top_entity
+
+
 
 class ClearBridgeDomain(Entity):
     """
@@ -4457,6 +4660,7 @@ class ClearBridgeDomain(Entity):
             self._perform_setattr(ClearBridgeDomain.Input, ['all', 'bd_id', 'bg_id'], name, value)
 
 
+
     class Output(Entity):
         """
         
@@ -4493,9 +4697,12 @@ class ClearBridgeDomain(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBridgeDomain.Output, ['errstr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBridgeDomain()
         return self._top_entity
+
+
 
 class ClearMacAddress(Entity):
     """
@@ -4647,6 +4854,8 @@ class ClearMacAddress(Entity):
                 self._perform_setattr(ClearMacAddress.Input.BridgeDomain, ['bd_id', 'bg_id'], name, value)
 
 
+
+
     class Output(Entity):
         """
         
@@ -4683,9 +4892,12 @@ class ClearMacAddress(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearMacAddress.Output, ['errstr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearMacAddress()
         return self._top_entity
+
+
 
 class CreateParameterizedBridgeDomains(Entity):
     """
@@ -4832,6 +5044,8 @@ class CreateParameterizedBridgeDomains(Entity):
                 self._perform_setattr(CreateParameterizedBridgeDomains.Input.Member, ['interface'], name, value)
 
 
+
+
     class Output(Entity):
         """
         
@@ -4868,7 +5082,10 @@ class CreateParameterizedBridgeDomains(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CreateParameterizedBridgeDomains.Output, ['errstr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = CreateParameterizedBridgeDomains()
         return self._top_entity
+
+
 

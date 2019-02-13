@@ -69,10 +69,14 @@ class SystemTime(Entity):
     	System clock information
     	**type**\:  :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_oper.SystemTime.Clock>`
     
+    	**config**\: False
+    
     .. attribute:: uptime
     
     	System uptime information
     	**type**\:  :py:class:`Uptime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_oper.SystemTime.Uptime>`
+    
+    	**config**\: False
     
     
 
@@ -118,12 +122,16 @@ class SystemTime(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: month
         
         	Month [1..12]
         	**type**\: int
         
         	**range:** 0..255
+        
+        	**config**\: False
         
         .. attribute:: day
         
@@ -132,12 +140,16 @@ class SystemTime(Entity):
         
         	**range:** 0..255
         
+        	**config**\: False
+        
         .. attribute:: hour
         
         	Hour [0..23]
         	**type**\: int
         
         	**range:** 0..255
+        
+        	**config**\: False
         
         .. attribute:: minute
         
@@ -146,12 +158,16 @@ class SystemTime(Entity):
         
         	**range:** 0..255
         
+        	**config**\: False
+        
         .. attribute:: second
         
         	Second [0..60], use 60 for leap\-second
         	**type**\: int
         
         	**range:** 0..255
+        
+        	**config**\: False
         
         .. attribute:: millisecond
         
@@ -160,6 +176,8 @@ class SystemTime(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: wday
         
         	Week Day [0..6]
@@ -167,15 +185,21 @@ class SystemTime(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: time_zone
         
         	Time zone
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: time_source
         
         	Time source
         	**type**\:  :py:class:`TimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_oper.TimeSource>`
+        
+        	**config**\: False
         
         
 
@@ -220,7 +244,8 @@ class SystemTime(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SystemTime.Clock, ['year', 'month', 'day', 'hour', 'minute', 'second', 'millisecond', 'wday', 'time_zone', 'time_source'], name, value)
+            self._perform_setattr(SystemTime.Clock, [u'year', u'month', u'day', u'hour', u'minute', u'second', u'millisecond', u'wday', u'time_zone', u'time_source'], name, value)
+
 
 
     class Uptime(Entity):
@@ -232,12 +257,16 @@ class SystemTime(Entity):
         	Host name
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: uptime
         
         	Amount of time in seconds since this system     was last initialized
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: second
         
@@ -268,9 +297,12 @@ class SystemTime(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SystemTime.Uptime, ['host_name', 'uptime'], name, value)
+            self._perform_setattr(SystemTime.Uptime, [u'host_name', u'uptime'], name, value)
+
 
     def clone_ptr(self):
         self._top_entity = SystemTime()
         return self._top_entity
+
+
 

@@ -26,80 +26,112 @@ class SONETMIB(Entity):
     	
     	**type**\:  :py:class:`SonetMedium <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetMedium>`
     
+    	**config**\: False
+    
     .. attribute:: sonetmediumtable
     
     	The SONET/SDH Medium table
     	**type**\:  :py:class:`SonetMediumTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetMediumTable>`
+    
+    	**config**\: False
     
     .. attribute:: sonetsectioncurrenttable
     
     	The SONET/SDH Section Current table
     	**type**\:  :py:class:`SonetSectionCurrentTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetSectionCurrentTable>`
     
+    	**config**\: False
+    
     .. attribute:: sonetsectionintervaltable
     
     	The SONET/SDH Section Interval table
     	**type**\:  :py:class:`SonetSectionIntervalTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetSectionIntervalTable>`
+    
+    	**config**\: False
     
     .. attribute:: sonetlinecurrenttable
     
     	The SONET/SDH Line Current table
     	**type**\:  :py:class:`SonetLineCurrentTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetLineCurrentTable>`
     
+    	**config**\: False
+    
     .. attribute:: sonetlineintervaltable
     
     	The SONET/SDH Line Interval table
     	**type**\:  :py:class:`SonetLineIntervalTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetLineIntervalTable>`
+    
+    	**config**\: False
     
     .. attribute:: sonetfarendlinecurrenttable
     
     	The SONET/SDH Far End Line Current table
     	**type**\:  :py:class:`SonetFarEndLineCurrentTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndLineCurrentTable>`
     
+    	**config**\: False
+    
     .. attribute:: sonetfarendlineintervaltable
     
     	The SONET/SDH Far End Line Interval table
     	**type**\:  :py:class:`SonetFarEndLineIntervalTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndLineIntervalTable>`
+    
+    	**config**\: False
     
     .. attribute:: sonetpathcurrenttable
     
     	The SONET/SDH Path Current table
     	**type**\:  :py:class:`SonetPathCurrentTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetPathCurrentTable>`
     
+    	**config**\: False
+    
     .. attribute:: sonetpathintervaltable
     
     	The SONET/SDH Path Interval table
     	**type**\:  :py:class:`SonetPathIntervalTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetPathIntervalTable>`
+    
+    	**config**\: False
     
     .. attribute:: sonetfarendpathcurrenttable
     
     	The SONET/SDH Far End Path Current table
     	**type**\:  :py:class:`SonetFarEndPathCurrentTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndPathCurrentTable>`
     
+    	**config**\: False
+    
     .. attribute:: sonetfarendpathintervaltable
     
     	The SONET/SDH Far End Path Interval table
     	**type**\:  :py:class:`SonetFarEndPathIntervalTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndPathIntervalTable>`
+    
+    	**config**\: False
     
     .. attribute:: sonetvtcurrenttable
     
     	The SONET/SDH VT Current table
     	**type**\:  :py:class:`SonetVTCurrentTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetVTCurrentTable>`
     
+    	**config**\: False
+    
     .. attribute:: sonetvtintervaltable
     
     	The SONET/SDH VT Interval table
     	**type**\:  :py:class:`SonetVTIntervalTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetVTIntervalTable>`
+    
+    	**config**\: False
     
     .. attribute:: sonetfarendvtcurrenttable
     
     	The SONET/SDH Far End VT Current table
     	**type**\:  :py:class:`SonetFarEndVTCurrentTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndVTCurrentTable>`
     
+    	**config**\: False
+    
     .. attribute:: sonetfarendvtintervaltable
     
     	The SONET/SDH Far End VT Interval table
     	**type**\:  :py:class:`SonetFarEndVTIntervalTable <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndVTIntervalTable>`
+    
+    	**config**\: False
     
     
 
@@ -199,6 +231,8 @@ class SONETMIB(Entity):
         	An enumerated integer indicating which recognized set of SES thresholds that the agent uses for determining severely errored seconds and unavailable time.  other(1)   None of the following.  bellcore1991(2)   Bellcore TR\-NWT\-000253, 1991 [TR253], or   ANSI T1M1.3/93\-005R2, 1993 [T1M1.3].   See also Appendix B.  ansi1993(3)   ANSI T1.231, 1993 [T1.231a], or   Bellcore GR\-253\-CORE, Issue 2, 1995 [GR253]  itu1995(4)   ITU Recommendation G.826, 1995 [G.826]  ansi1997(5)   ANSI T1.231, 1997 [T1.231b]  If a manager changes the value of this object then the SES statistics collected prior to this change must be invalidated
         	**type**\:  :py:class:`SonetSESthresholdSet <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetMedium.SonetSESthresholdSet>`
         
+        	**config**\: False
+        
         
 
         """
@@ -224,7 +258,7 @@ class SONETMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SONETMIB.SonetMedium, [u'sonetsesthresholdset'], name, value)
+            self._perform_setattr(SONETMIB.SonetMedium, ['sonetsesthresholdset'], name, value)
 
         class SonetSESthresholdSet(Enum):
             """
@@ -294,6 +328,7 @@ class SONETMIB(Entity):
 
 
 
+
     class SonetMediumTable(Entity):
         """
         The SONET/SDH Medium table.
@@ -302,6 +337,8 @@ class SONETMIB(Entity):
         
         	An entry in the SONET/SDH Medium table
         	**type**\: list of  		 :py:class:`SonetMediumEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetMediumTable.SonetMediumEntry>`
+        
+        	**config**\: False
         
         
 
@@ -343,10 +380,14 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: sonetmediumtype
             
             	This variable identifies whether a SONET or a SDH signal is used across this interface
             	**type**\:  :py:class:`SonetMediumType <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetMediumTable.SonetMediumEntry.SonetMediumType>`
+            
+            	**config**\: False
             
             .. attribute:: sonetmediumtimeelapsed
             
@@ -355,6 +396,8 @@ class SONETMIB(Entity):
             
             	**range:** 1..900
             
+            	**config**\: False
+            
             .. attribute:: sonetmediumvalidintervals
             
             	The number of previous 15\-minute intervals for which data was collected. A SONET/SDH interface must be capable of supporting at least n intervals. The minimum value of n is 4. The default of n is 32. The maximum value of n is 96. The value will be <n> unless the measurement was (re\-)started within the last (<n>\*15) minutes, in which case the value will be the number of complete 15 minute intervals for which the agent has at least some data. In certain cases (e.g., in the case where the agent is a proxy) it is possible that some intervals are unavailable.  In this case, this interval is the maximum interval number for which data is available. 
@@ -362,15 +405,21 @@ class SONETMIB(Entity):
             
             	**range:** 0..96
             
+            	**config**\: False
+            
             .. attribute:: sonetmediumlinecoding
             
             	This variable describes the line coding for this interface. The B3ZS and CMI are used for electrical SONET/SDH signals (STS\-1 and STS\-3). The Non\-Return to Zero (NRZ) and the Return to Zero are used for optical SONET/SDH signals
             	**type**\:  :py:class:`SonetMediumLineCoding <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetMediumTable.SonetMediumEntry.SonetMediumLineCoding>`
             
+            	**config**\: False
+            
             .. attribute:: sonetmediumlinetype
             
             	This variable describes the line type for this interface. The line types are Short and Long Range Single Mode fiber or Multi\-Mode fiber interfaces, and coax and UTP for electrical interfaces.  The value sonetOther should be used when the Line Type is not one of the listed values
             	**type**\:  :py:class:`SonetMediumLineType <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetMediumTable.SonetMediumEntry.SonetMediumLineType>`
+            
+            	**config**\: False
             
             .. attribute:: sonetmediumcircuitidentifier
             
@@ -379,6 +428,8 @@ class SONETMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: sonetmediuminvalidintervals
             
             	The number of intervals in the range from 0 to sonetMediumValidIntervals for which no data is available. This object will typically be zero except in cases where the data for some intervals are not available (e.g., in proxy situations)
@@ -386,10 +437,14 @@ class SONETMIB(Entity):
             
             	**range:** 0..96
             
+            	**config**\: False
+            
             .. attribute:: sonetmediumloopbackconfig
             
             	The current loopback state of the SONET/SDH interface.  The values mean\:    sonetNoLoop      Not in the loopback state. A device that is not      capable of performing a loopback on this interface      shall always return this value.    sonetFacilityLoop      The received signal at this interface is looped back      out through the corresponding transmitter in the return      direction.    sonetTerminalLoop      The signal that is about to be transmitted is connected      to the associated incoming receiver.    sonetOtherLoop      Loopbacks that are not defined here
             	**type**\:  :py:class:`SonetMediumLoopbackConfig <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetMediumTable.SonetMediumEntry.SonetMediumLoopbackConfig>`
+            
+            	**config**\: False
             
             
 
@@ -432,7 +487,7 @@ class SONETMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.SonetMediumTable.SonetMediumEntry, [u'ifindex', u'sonetmediumtype', u'sonetmediumtimeelapsed', u'sonetmediumvalidintervals', u'sonetmediumlinecoding', u'sonetmediumlinetype', u'sonetmediumcircuitidentifier', u'sonetmediuminvalidintervals', u'sonetmediumloopbackconfig'], name, value)
+                self._perform_setattr(SONETMIB.SonetMediumTable.SonetMediumEntry, ['ifindex', 'sonetmediumtype', 'sonetmediumtimeelapsed', 'sonetmediumvalidintervals', 'sonetmediumlinecoding', 'sonetmediumlinetype', 'sonetmediumcircuitidentifier', 'sonetmediuminvalidintervals', 'sonetmediumloopbackconfig'], name, value)
 
             class SonetMediumLineCoding(Enum):
                 """
@@ -536,6 +591,8 @@ class SONETMIB(Entity):
 
 
 
+
+
     class SonetSectionCurrentTable(Entity):
         """
         The SONET/SDH Section Current table.
@@ -544,6 +601,8 @@ class SONETMIB(Entity):
         
         	An entry in the SONET/SDH Section Current table
         	**type**\: list of  		 :py:class:`SonetSectionCurrentEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetSectionCurrentTable.SonetSectionCurrentEntry>`
+        
+        	**config**\: False
         
         
 
@@ -585,12 +644,16 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: sonetsectioncurrentstatus
             
             	This variable indicates the status of the interface. The sonetSectionCurrentStatus is a bit map represented as a sum, therefore, it can represent multiple defects simultaneously. The sonetSectionNoDefect should be set if and only if no other flag is set.  The various bit positions are\:       1   sonetSectionNoDefect       2   sonetSectionLOS       4   sonetSectionLOF
             	**type**\: int
             
             	**range:** 1..6
+            
+            	**config**\: False
             
             .. attribute:: sonetsectioncurrentess
             
@@ -599,12 +662,16 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetsectioncurrentsess
             
             	The counter associated with the number of Severely Errored Seconds encountered by a SONET/SDH Section in the current 15 minute interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sonetsectioncurrentsefss
             
@@ -613,12 +680,16 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetsectioncurrentcvs
             
             	The counter associated with the number of Coding Violations encountered by a SONET/SDH Section in the current 15 minute interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -655,7 +726,9 @@ class SONETMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.SonetSectionCurrentTable.SonetSectionCurrentEntry, [u'ifindex', u'sonetsectioncurrentstatus', u'sonetsectioncurrentess', u'sonetsectioncurrentsess', u'sonetsectioncurrentsefss', u'sonetsectioncurrentcvs'], name, value)
+                self._perform_setattr(SONETMIB.SonetSectionCurrentTable.SonetSectionCurrentEntry, ['ifindex', 'sonetsectioncurrentstatus', 'sonetsectioncurrentess', 'sonetsectioncurrentsess', 'sonetsectioncurrentsefss', 'sonetsectioncurrentcvs'], name, value)
+
+
 
 
     class SonetSectionIntervalTable(Entity):
@@ -666,6 +739,8 @@ class SONETMIB(Entity):
         
         	An entry in the SONET/SDH Section Interval table
         	**type**\: list of  		 :py:class:`SonetSectionIntervalEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetSectionIntervalTable.SonetSectionIntervalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -707,12 +782,16 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: sonetsectionintervalnumber  (key)
             
             	A number between 1 and 96, which identifies the interval for which the set of statistics is available. The interval identified by 1 is the most recently completed 15 minute interval, and the interval identified by N is the interval immediately preceding the one identified by N\-1
             	**type**\: int
             
             	**range:** 1..96
+            
+            	**config**\: False
             
             .. attribute:: sonetsectionintervaless
             
@@ -721,12 +800,16 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetsectionintervalsess
             
             	The counter associated with the number of Severely Errored Seconds encountered by a SONET/SDH Section in a particular 15\-minute interval in the past 24 hours
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sonetsectionintervalsefss
             
@@ -735,6 +818,8 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetsectionintervalcvs
             
             	The counter associated with the number of Coding Violations encountered by a SONET/SDH Section in a particular 15\-minute interval in the past 24 hours
@@ -742,10 +827,14 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetsectionintervalvaliddata
             
             	This variable indicates if the data for this interval is valid
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -784,7 +873,9 @@ class SONETMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.SonetSectionIntervalTable.SonetSectionIntervalEntry, [u'ifindex', u'sonetsectionintervalnumber', u'sonetsectionintervaless', u'sonetsectionintervalsess', u'sonetsectionintervalsefss', u'sonetsectionintervalcvs', u'sonetsectionintervalvaliddata'], name, value)
+                self._perform_setattr(SONETMIB.SonetSectionIntervalTable.SonetSectionIntervalEntry, ['ifindex', 'sonetsectionintervalnumber', 'sonetsectionintervaless', 'sonetsectionintervalsess', 'sonetsectionintervalsefss', 'sonetsectionintervalcvs', 'sonetsectionintervalvaliddata'], name, value)
+
+
 
 
     class SonetLineCurrentTable(Entity):
@@ -795,6 +886,8 @@ class SONETMIB(Entity):
         
         	An entry in the SONET/SDH Line Current table
         	**type**\: list of  		 :py:class:`SonetLineCurrentEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetLineCurrentTable.SonetLineCurrentEntry>`
+        
+        	**config**\: False
         
         
 
@@ -836,12 +929,16 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: sonetlinecurrentstatus
             
             	This variable indicates the status of the interface. The sonetLineCurrentStatus is a bit map represented as a sum, therefore, it can represent multiple defects simultaneously. The sonetLineNoDefect should be set if and only if no other flag is set.  The various bit positions are\:  1   sonetLineNoDefect  2   sonetLineAIS  4   sonetLineRDI
             	**type**\: int
             
             	**range:** 1..6
+            
+            	**config**\: False
             
             .. attribute:: sonetlinecurrentess
             
@@ -850,12 +947,16 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetlinecurrentsess
             
             	The counter associated with the number of Severely Errored Seconds encountered by a SONET/SDH Line in the current 15 minute interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sonetlinecurrentcvs
             
@@ -864,12 +965,16 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetlinecurrentuass
             
             	The counter associated with the number of Unavailable Seconds encountered by a SONET/SDH Line in the current 15 minute interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -906,7 +1011,9 @@ class SONETMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.SonetLineCurrentTable.SonetLineCurrentEntry, [u'ifindex', u'sonetlinecurrentstatus', u'sonetlinecurrentess', u'sonetlinecurrentsess', u'sonetlinecurrentcvs', u'sonetlinecurrentuass'], name, value)
+                self._perform_setattr(SONETMIB.SonetLineCurrentTable.SonetLineCurrentEntry, ['ifindex', 'sonetlinecurrentstatus', 'sonetlinecurrentess', 'sonetlinecurrentsess', 'sonetlinecurrentcvs', 'sonetlinecurrentuass'], name, value)
+
+
 
 
     class SonetLineIntervalTable(Entity):
@@ -917,6 +1024,8 @@ class SONETMIB(Entity):
         
         	An entry in the SONET/SDH Line Interval table
         	**type**\: list of  		 :py:class:`SonetLineIntervalEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetLineIntervalTable.SonetLineIntervalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -958,12 +1067,16 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: sonetlineintervalnumber  (key)
             
             	A number between 1 and 96, which identifies the interval for which the set of statistics is available. The interval identified by 1 is the most recently completed 15 minute interval, and the interval identified by N is the interval immediately preceding the one identified by N\-1
             	**type**\: int
             
             	**range:** 1..96
+            
+            	**config**\: False
             
             .. attribute:: sonetlineintervaless
             
@@ -972,12 +1085,16 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetlineintervalsess
             
             	The counter associated with the number of Severely Errored Seconds encountered by a SONET/SDH Line in a particular 15\-minute interval in the past 24 hours
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sonetlineintervalcvs
             
@@ -986,6 +1103,8 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetlineintervaluass
             
             	The counter associated with the number of Unavailable Seconds encountered by a SONET/SDH Line in a particular 15\-minute interval in the past 24 hours
@@ -993,10 +1112,14 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetlineintervalvaliddata
             
             	This variable indicates if the data for this interval is valid
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -1035,7 +1158,9 @@ class SONETMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.SonetLineIntervalTable.SonetLineIntervalEntry, [u'ifindex', u'sonetlineintervalnumber', u'sonetlineintervaless', u'sonetlineintervalsess', u'sonetlineintervalcvs', u'sonetlineintervaluass', u'sonetlineintervalvaliddata'], name, value)
+                self._perform_setattr(SONETMIB.SonetLineIntervalTable.SonetLineIntervalEntry, ['ifindex', 'sonetlineintervalnumber', 'sonetlineintervaless', 'sonetlineintervalsess', 'sonetlineintervalcvs', 'sonetlineintervaluass', 'sonetlineintervalvaliddata'], name, value)
+
+
 
 
     class SonetFarEndLineCurrentTable(Entity):
@@ -1046,6 +1171,8 @@ class SONETMIB(Entity):
         
         	An entry in the SONET/SDH Far End Line Current table
         	**type**\: list of  		 :py:class:`SonetFarEndLineCurrentEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndLineCurrentTable.SonetFarEndLineCurrentEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1087,12 +1214,16 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendlinecurrentess
             
             	The counter associated with the number of Far End Errored Seconds encountered by a SONET/SDH interface in the current 15 minute interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sonetfarendlinecurrentsess
             
@@ -1101,6 +1232,8 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendlinecurrentcvs
             
             	The counter associated with the number of Far End Coding Violations reported via the far end block error count encountered by a SONET/SDH Medium/Section/Line interface in the current 15 minute interval
@@ -1108,12 +1241,16 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendlinecurrentuass
             
             	The counter associated with the number of Far End Unavailable Seconds encountered by a SONET/SDH Medium/Section/Line interface in the current 15 minute interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1148,7 +1285,9 @@ class SONETMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.SonetFarEndLineCurrentTable.SonetFarEndLineCurrentEntry, [u'ifindex', u'sonetfarendlinecurrentess', u'sonetfarendlinecurrentsess', u'sonetfarendlinecurrentcvs', u'sonetfarendlinecurrentuass'], name, value)
+                self._perform_setattr(SONETMIB.SonetFarEndLineCurrentTable.SonetFarEndLineCurrentEntry, ['ifindex', 'sonetfarendlinecurrentess', 'sonetfarendlinecurrentsess', 'sonetfarendlinecurrentcvs', 'sonetfarendlinecurrentuass'], name, value)
+
+
 
 
     class SonetFarEndLineIntervalTable(Entity):
@@ -1159,6 +1298,8 @@ class SONETMIB(Entity):
         
         	An entry in the SONET/SDH Far End Line Interval table
         	**type**\: list of  		 :py:class:`SonetFarEndLineIntervalEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndLineIntervalTable.SonetFarEndLineIntervalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1201,12 +1342,16 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendlineintervalnumber  (key)
             
             	A number between 1 and 96, which identifies the interval for which the set of statistics is available. The interval identified by 1 is the most recently completed 15 minute interval, and the interval identified by N is the interval immediately preceding the one identified by N\-1
             	**type**\: int
             
             	**range:** 1..96
+            
+            	**config**\: False
             
             .. attribute:: sonetfarendlineintervaless
             
@@ -1215,12 +1360,16 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendlineintervalsess
             
             	The counter associated with the number of Far End Severely Errored Seconds encountered by a SONET/SDH Line interface in a particular 15\-minute interval in the past 24 hours
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sonetfarendlineintervalcvs
             
@@ -1229,6 +1378,8 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendlineintervaluass
             
             	The counter associated with the number of Far End Unavailable Seconds encountered by a SONET/SDH Line interface in a particular 15\-minute interval in the past 24 hours
@@ -1236,10 +1387,14 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendlineintervalvaliddata
             
             	This variable indicates if the data for this interval is valid
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -1278,7 +1433,9 @@ class SONETMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.SonetFarEndLineIntervalTable.SonetFarEndLineIntervalEntry, [u'ifindex', u'sonetfarendlineintervalnumber', u'sonetfarendlineintervaless', u'sonetfarendlineintervalsess', u'sonetfarendlineintervalcvs', u'sonetfarendlineintervaluass', u'sonetfarendlineintervalvaliddata'], name, value)
+                self._perform_setattr(SONETMIB.SonetFarEndLineIntervalTable.SonetFarEndLineIntervalEntry, ['ifindex', 'sonetfarendlineintervalnumber', 'sonetfarendlineintervaless', 'sonetfarendlineintervalsess', 'sonetfarendlineintervalcvs', 'sonetfarendlineintervaluass', 'sonetfarendlineintervalvaliddata'], name, value)
+
+
 
 
     class SonetPathCurrentTable(Entity):
@@ -1289,6 +1446,8 @@ class SONETMIB(Entity):
         
         	An entry in the SONET/SDH Path Current table
         	**type**\: list of  		 :py:class:`SonetPathCurrentEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetPathCurrentTable.SonetPathCurrentEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1330,10 +1489,14 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: sonetpathcurrentwidth
             
             	A value that indicates the type of the SONET/SDH Path.  For SONET, the assigned types are the STS\-Nc SPEs, where N = 1, 3, 12, 24, 48, 192 and 768. STS\-1 is equal to 51.84 Mbps.  For SDH, the assigned types are the STM\-Nc VCs, where N = 1, 4, 16, 64 and 256
             	**type**\:  :py:class:`SonetPathCurrentWidth <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetPathCurrentTable.SonetPathCurrentEntry.SonetPathCurrentWidth>`
+            
+            	**config**\: False
             
             .. attribute:: sonetpathcurrentstatus
             
@@ -1342,12 +1505,16 @@ class SONETMIB(Entity):
             
             	**range:** 1..62
             
+            	**config**\: False
+            
             .. attribute:: sonetpathcurrentess
             
             	The counter associated with the number of Errored Seconds encountered by a SONET/SDH Path in the current 15 minute interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sonetpathcurrentsess
             
@@ -1356,12 +1523,16 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetpathcurrentcvs
             
             	The counter associated with the number of Coding Violations encountered by a SONET/SDH Path in the current 15 minute interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sonetpathcurrentuass
             
@@ -1370,25 +1541,35 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cspsonetpathpayload
             
             	Specifies the payload carried by the SONET/SDH Path. The payload specification corresponds to C2 (Signal Label) overhead byte in SONET/SDH Path Overhead\: unequipped(1)    \: Path is not provisioned to carry any payload. unspecified(2)   \: Path is carrying an unspecifed payload. ds3(3)           \: Path is carrying a DS3 path as payload. vt15vc11(4)      \: Path is carrying SONET\-VT1.5/SDH\-VC11 payload. vt2vc12(5)       \: Path is carrying SONET\-VT2/SDH\-VC12 as payload. atmCell(6)       \: Path is carrying ATM Cells as payload. hdlcFr(7)        \: Path is carrying Frame Relay (HDLC) payload. e3(8)            \: Path is carrying an E3 path as payload. vtStructured(9)  \: Path is carrying VTGs/TUG3s/TUG2s which may                    each carry a different payload.  A write operation on this object will result in update to C2 overhead byte in the Path Overhead
             	**type**\:  :py:class:`CspSonetPathPayload <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetPathCurrentTable.SonetPathCurrentEntry.CspSonetPathPayload>`
+            
+            	**config**\: False
             
             .. attribute:: csptributarymappingtype
             
             	This object represents the VT/VC mapping type. asynchronous\: In this mode, the channel structure of                DS1/E1 is neither visible nor preserved.  byteSynchronous\: In this mode, the DS0 signals inside                   the VT/VC can be found and extracted                   from the frame. The initial value is asynchronous(1)
             	**type**\:  :py:class:`CspTributaryMappingType <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetPathCurrentTable.SonetPathCurrentEntry.CspTributaryMappingType>`
             
+            	**config**\: False
+            
             .. attribute:: cspsignallingtransportmode
             
             	This object represents the mode used to transport DS0  Signalling information for T1 byteSynchronous mapping (GR253). In signallingTransferMode(2), the robbed\-bit signalling  is transferred to the VT header. In clearMode(3), only  the framing bit is transferred to the VT header.           The initial value is signallingTransferMode(2)  if csTributaryMappingType is byteSynchronous.  For asynchronous mapping, it is  notApplicable(1).  The value notApplicable(1) can not be set
             	**type**\:  :py:class:`CspSignallingTransportMode <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetPathCurrentTable.SonetPathCurrentEntry.CspSignallingTransportMode>`
             
+            	**config**\: False
+            
             .. attribute:: csptributarygroupingtype
             
             	This object represents the method used to group VCs into an STM\-1 signal. Applicable only to SDH.  au3Grouping\: STM1<\-AU\-3<\-TUG\-2<\-TU\-12<\-VC12 or              STM1<\-AU\-3<\-TUG\-2<\-TU\-11<\-VC11.  au4Grouping\: STM1<\-AU\-4<\-TUG\-3<\-TUG\-2<\-TU\-12<\-VC12 or              STM1<\-AU\-4<\-TUG\-3<\-TUG\-2<\-TU\-11<\-VC11.  The initial value is au3Grouping(2) for SDH and  notApplicable(1) for SONET
             	**type**\:  :py:class:`CspTributaryGroupingType <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetPathCurrentTable.SonetPathCurrentEntry.CspTributaryGroupingType>`
+            
+            	**config**\: False
             
             
 
@@ -1435,7 +1616,7 @@ class SONETMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.SonetPathCurrentTable.SonetPathCurrentEntry, [u'ifindex', u'sonetpathcurrentwidth', u'sonetpathcurrentstatus', u'sonetpathcurrentess', u'sonetpathcurrentsess', u'sonetpathcurrentcvs', u'sonetpathcurrentuass', 'cspsonetpathpayload', 'csptributarymappingtype', 'cspsignallingtransportmode', 'csptributarygroupingtype'], name, value)
+                self._perform_setattr(SONETMIB.SonetPathCurrentTable.SonetPathCurrentEntry, ['ifindex', 'sonetpathcurrentwidth', 'sonetpathcurrentstatus', 'sonetpathcurrentess', 'sonetpathcurrentsess', 'sonetpathcurrentcvs', 'sonetpathcurrentuass', 'cspsonetpathpayload', 'csptributarymappingtype', 'cspsignallingtransportmode', 'csptributarygroupingtype'], name, value)
 
             class CspSignallingTransportMode(Enum):
                 """
@@ -1661,6 +1842,8 @@ class SONETMIB(Entity):
 
 
 
+
+
     class SonetPathIntervalTable(Entity):
         """
         The SONET/SDH Path Interval table.
@@ -1669,6 +1852,8 @@ class SONETMIB(Entity):
         
         	An entry in the SONET/SDH Path Interval table
         	**type**\: list of  		 :py:class:`SonetPathIntervalEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetPathIntervalTable.SonetPathIntervalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1710,12 +1895,16 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: sonetpathintervalnumber  (key)
             
             	A number between 1 and 96, which identifies the interval for which the set of statistics is available. The interval identified by 1 is the most recently completed 15 minute interval, and the interval identified by N is the interval immediately preceding the one identified by N\-1
             	**type**\: int
             
             	**range:** 1..96
+            
+            	**config**\: False
             
             .. attribute:: sonetpathintervaless
             
@@ -1724,12 +1913,16 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetpathintervalsess
             
             	The counter associated with the number of Severely Errored Seconds encountered by a SONET/SDH Path in a particular 15\-minute interval in the past 24 hours
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sonetpathintervalcvs
             
@@ -1738,6 +1931,8 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetpathintervaluass
             
             	The counter associated with the number of Unavailable Seconds encountered by a Path in a particular 15\-minute interval in the past 24 hours
@@ -1745,10 +1940,14 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetpathintervalvaliddata
             
             	This variable indicates if the data for this interval is valid
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -1787,7 +1986,9 @@ class SONETMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.SonetPathIntervalTable.SonetPathIntervalEntry, [u'ifindex', u'sonetpathintervalnumber', u'sonetpathintervaless', u'sonetpathintervalsess', u'sonetpathintervalcvs', u'sonetpathintervaluass', u'sonetpathintervalvaliddata'], name, value)
+                self._perform_setattr(SONETMIB.SonetPathIntervalTable.SonetPathIntervalEntry, ['ifindex', 'sonetpathintervalnumber', 'sonetpathintervaless', 'sonetpathintervalsess', 'sonetpathintervalcvs', 'sonetpathintervaluass', 'sonetpathintervalvaliddata'], name, value)
+
+
 
 
     class SonetFarEndPathCurrentTable(Entity):
@@ -1798,6 +1999,8 @@ class SONETMIB(Entity):
         
         	An entry in the SONET/SDH Far End Path Current table
         	**type**\: list of  		 :py:class:`SonetFarEndPathCurrentEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndPathCurrentTable.SonetFarEndPathCurrentEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1839,12 +2042,16 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendpathcurrentess
             
             	The counter associated with the number of Far End Errored Seconds encountered by a SONET/SDH interface in the current 15 minute interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sonetfarendpathcurrentsess
             
@@ -1853,6 +2060,8 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendpathcurrentcvs
             
             	The counter associated with the number of Far End Coding Violations reported via the far end block error count encountered by a SONET/SDH Path interface in the current 15 minute interval
@@ -1860,12 +2069,16 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendpathcurrentuass
             
             	The counter associated with the number of Far End Unavailable Seconds encountered by a SONET/SDH Path interface in the current 15 minute interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1900,7 +2113,9 @@ class SONETMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.SonetFarEndPathCurrentTable.SonetFarEndPathCurrentEntry, [u'ifindex', u'sonetfarendpathcurrentess', u'sonetfarendpathcurrentsess', u'sonetfarendpathcurrentcvs', u'sonetfarendpathcurrentuass'], name, value)
+                self._perform_setattr(SONETMIB.SonetFarEndPathCurrentTable.SonetFarEndPathCurrentEntry, ['ifindex', 'sonetfarendpathcurrentess', 'sonetfarendpathcurrentsess', 'sonetfarendpathcurrentcvs', 'sonetfarendpathcurrentuass'], name, value)
+
+
 
 
     class SonetFarEndPathIntervalTable(Entity):
@@ -1911,6 +2126,8 @@ class SONETMIB(Entity):
         
         	An entry in the SONET/SDH Far End Path Interval table
         	**type**\: list of  		 :py:class:`SonetFarEndPathIntervalEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndPathIntervalTable.SonetFarEndPathIntervalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1953,12 +2170,16 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendpathintervalnumber  (key)
             
             	A number between 1 and 96, which identifies the interval for which the set of statistics is available. The interval identified by 1 is the most recently completed 15 minute interval, and the interval identified by N is the interval immediately preceding the one identified by N\-1
             	**type**\: int
             
             	**range:** 1..96
+            
+            	**config**\: False
             
             .. attribute:: sonetfarendpathintervaless
             
@@ -1967,12 +2188,16 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendpathintervalsess
             
             	The counter associated with the number of Far End Severely Errored Seconds encountered by a SONET/SDH Path interface in a particular 15\-minute interval in the past 24 hours
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sonetfarendpathintervalcvs
             
@@ -1981,6 +2206,8 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendpathintervaluass
             
             	The counter associated with the number of Far End Unavailable Seconds encountered by a SONET/SDH Path interface in a particular 15\-minute interval in the past 24 hours
@@ -1988,10 +2215,14 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendpathintervalvaliddata
             
             	This variable indicates if the data for this interval is valid
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -2030,7 +2261,9 @@ class SONETMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.SonetFarEndPathIntervalTable.SonetFarEndPathIntervalEntry, [u'ifindex', u'sonetfarendpathintervalnumber', u'sonetfarendpathintervaless', u'sonetfarendpathintervalsess', u'sonetfarendpathintervalcvs', u'sonetfarendpathintervaluass', u'sonetfarendpathintervalvaliddata'], name, value)
+                self._perform_setattr(SONETMIB.SonetFarEndPathIntervalTable.SonetFarEndPathIntervalEntry, ['ifindex', 'sonetfarendpathintervalnumber', 'sonetfarendpathintervaless', 'sonetfarendpathintervalsess', 'sonetfarendpathintervalcvs', 'sonetfarendpathintervaluass', 'sonetfarendpathintervalvaliddata'], name, value)
+
+
 
 
     class SonetVTCurrentTable(Entity):
@@ -2041,6 +2274,8 @@ class SONETMIB(Entity):
         
         	An entry in the SONET/SDH VT Current table
         	**type**\: list of  		 :py:class:`SonetVTCurrentEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetVTCurrentTable.SonetVTCurrentEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2082,10 +2317,14 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: sonetvtcurrentwidth
             
             	A value that indicates the type of the SONET VT and SDH VC.  Assigned widths are VT1.5/VC11, VT2/VC12, VT3, VT6/VC2, and VT6c
             	**type**\:  :py:class:`SonetVTCurrentWidth <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetVTCurrentTable.SonetVTCurrentEntry.SonetVTCurrentWidth>`
+            
+            	**config**\: False
             
             .. attribute:: sonetvtcurrentstatus
             
@@ -2094,12 +2333,16 @@ class SONETMIB(Entity):
             
             	**range:** 1..126
             
+            	**config**\: False
+            
             .. attribute:: sonetvtcurrentess
             
             	The counter associated with the number of Errored Seconds encountered by a SONET/SDH VT in the current 15 minute interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sonetvtcurrentsess
             
@@ -2108,6 +2351,8 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetvtcurrentcvs
             
             	The counter associated with the number of Coding Violations encountered by a SONET/SDH VT in the current 15 minute interval
@@ -2115,12 +2360,16 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetvtcurrentuass
             
             	The counter associated with the number of Unavailable Seconds encountered by a VT in the current 15 minute interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2159,7 +2408,7 @@ class SONETMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.SonetVTCurrentTable.SonetVTCurrentEntry, [u'ifindex', u'sonetvtcurrentwidth', u'sonetvtcurrentstatus', u'sonetvtcurrentess', u'sonetvtcurrentsess', u'sonetvtcurrentcvs', u'sonetvtcurrentuass'], name, value)
+                self._perform_setattr(SONETMIB.SonetVTCurrentTable.SonetVTCurrentEntry, ['ifindex', 'sonetvtcurrentwidth', 'sonetvtcurrentstatus', 'sonetvtcurrentess', 'sonetvtcurrentsess', 'sonetvtcurrentcvs', 'sonetvtcurrentuass'], name, value)
 
             class SonetVTCurrentWidth(Enum):
                 """
@@ -2195,6 +2444,8 @@ class SONETMIB(Entity):
 
 
 
+
+
     class SonetVTIntervalTable(Entity):
         """
         The SONET/SDH VT Interval table.
@@ -2203,6 +2454,8 @@ class SONETMIB(Entity):
         
         	An entry in the SONET/SDH VT Interval table
         	**type**\: list of  		 :py:class:`SonetVTIntervalEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetVTIntervalTable.SonetVTIntervalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2244,12 +2497,16 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: sonetvtintervalnumber  (key)
             
             	A number between 1 and 96, which identifies the interval for which the set of statistics is available. The interval identified by 1 is the most recently completed 15 minute interval, and the interval identified by N is the interval immediately preceding the one identified by N\-1
             	**type**\: int
             
             	**range:** 1..96
+            
+            	**config**\: False
             
             .. attribute:: sonetvtintervaless
             
@@ -2258,12 +2515,16 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetvtintervalsess
             
             	The counter associated with the number of Severely Errored Seconds encountered by a SONET/SDH VT in a particular 15\-minute interval in the past 24 hours
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sonetvtintervalcvs
             
@@ -2272,6 +2533,8 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetvtintervaluass
             
             	The counter associated with the number of Unavailable Seconds encountered by a VT in a particular 15\-minute interval in the past 24 hours
@@ -2279,10 +2542,14 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetvtintervalvaliddata
             
             	This variable indicates if the data for this interval is valid
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -2321,7 +2588,9 @@ class SONETMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.SonetVTIntervalTable.SonetVTIntervalEntry, [u'ifindex', u'sonetvtintervalnumber', u'sonetvtintervaless', u'sonetvtintervalsess', u'sonetvtintervalcvs', u'sonetvtintervaluass', u'sonetvtintervalvaliddata'], name, value)
+                self._perform_setattr(SONETMIB.SonetVTIntervalTable.SonetVTIntervalEntry, ['ifindex', 'sonetvtintervalnumber', 'sonetvtintervaless', 'sonetvtintervalsess', 'sonetvtintervalcvs', 'sonetvtintervaluass', 'sonetvtintervalvaliddata'], name, value)
+
+
 
 
     class SonetFarEndVTCurrentTable(Entity):
@@ -2332,6 +2601,8 @@ class SONETMIB(Entity):
         
         	An entry in the SONET/SDH Far End VT Current table
         	**type**\: list of  		 :py:class:`SonetFarEndVTCurrentEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndVTCurrentTable.SonetFarEndVTCurrentEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2373,12 +2644,16 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendvtcurrentess
             
             	The counter associated with the number of Far End Errored Seconds encountered by a SONET/SDH interface in the current 15 minute interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sonetfarendvtcurrentsess
             
@@ -2387,6 +2662,8 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendvtcurrentcvs
             
             	The counter associated with the number of Far End Coding Violations reported via the far end block error count encountered by a SONET/SDH VT interface in the current 15 minute interval
@@ -2394,12 +2671,16 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendvtcurrentuass
             
             	The counter associated with the number of Far End Unavailable Seconds encountered by a SONET/SDH VT interface in the current 15 minute interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2434,7 +2715,9 @@ class SONETMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.SonetFarEndVTCurrentTable.SonetFarEndVTCurrentEntry, [u'ifindex', u'sonetfarendvtcurrentess', u'sonetfarendvtcurrentsess', u'sonetfarendvtcurrentcvs', u'sonetfarendvtcurrentuass'], name, value)
+                self._perform_setattr(SONETMIB.SonetFarEndVTCurrentTable.SonetFarEndVTCurrentEntry, ['ifindex', 'sonetfarendvtcurrentess', 'sonetfarendvtcurrentsess', 'sonetfarendvtcurrentcvs', 'sonetfarendvtcurrentuass'], name, value)
+
+
 
 
     class SonetFarEndVTIntervalTable(Entity):
@@ -2445,6 +2728,8 @@ class SONETMIB(Entity):
         
         	An entry in the SONET/SDH Far End VT Interval table
         	**type**\: list of  		 :py:class:`SonetFarEndVTIntervalEntry <ydk.models.cisco_ios_xe.SONET_MIB.SONETMIB.SonetFarEndVTIntervalTable.SonetFarEndVTIntervalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2487,12 +2772,16 @@ class SONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendvtintervalnumber  (key)
             
             	A number between 1 and 96, which identifies the interval for which the set of statistics is available. The interval identified by 1 is the most recently completed 15 minute interval, and the interval identified by N is the interval immediately preceding the one identified by N\-1
             	**type**\: int
             
             	**range:** 1..96
+            
+            	**config**\: False
             
             .. attribute:: sonetfarendvtintervaless
             
@@ -2501,12 +2790,16 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendvtintervalsess
             
             	The counter associated with the number of Far End Severely Errored Seconds encountered by a SONET/SDH VT interface in a particular 15\-minute interval in the past 24 hours
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sonetfarendvtintervalcvs
             
@@ -2515,6 +2808,8 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendvtintervaluass
             
             	The counter associated with the number of Far End Unavailable Seconds encountered by a SONET/SDH VT interface in a particular 15\-minute interval in the past 24 hours
@@ -2522,10 +2817,14 @@ class SONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sonetfarendvtintervalvaliddata
             
             	This variable indicates if the data for this interval is valid
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -2564,9 +2863,13 @@ class SONETMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SONETMIB.SonetFarEndVTIntervalTable.SonetFarEndVTIntervalEntry, [u'ifindex', u'sonetfarendvtintervalnumber', u'sonetfarendvtintervaless', u'sonetfarendvtintervalsess', u'sonetfarendvtintervalcvs', u'sonetfarendvtintervaluass', u'sonetfarendvtintervalvaliddata'], name, value)
+                self._perform_setattr(SONETMIB.SonetFarEndVTIntervalTable.SonetFarEndVTIntervalEntry, ['ifindex', 'sonetfarendvtintervalnumber', 'sonetfarendvtintervaless', 'sonetfarendvtintervalsess', 'sonetfarendvtintervalcvs', 'sonetfarendvtintervaluass', 'sonetfarendvtintervalvaliddata'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = SONETMIB()
         return self._top_entity
+
+
 

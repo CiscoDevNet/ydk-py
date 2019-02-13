@@ -1301,6 +1301,8 @@ class Udp(Entity):
     	Node\-specific UDP operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -1338,6 +1340,8 @@ class Udp(Entity):
         
         	UDP operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -1377,10 +1381,14 @@ class Udp(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: statistics
             
             	Statistical UDP operational data for a node
             	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes.Node.Statistics>`
+            
+            	**config**\: False
             
             
 
@@ -1423,10 +1431,14 @@ class Udp(Entity):
                 	UDP Traffic statistics for IPv4
                 	**type**\:  :py:class:`Ipv4Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes.Node.Statistics.Ipv4Traffic>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv6_traffic
                 
                 	UDP Traffic statistics for IPv6
                 	**type**\:  :py:class:`Ipv6Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes.Node.Statistics.Ipv6Traffic>`
+                
+                	**config**\: False
                 
                 
 
@@ -1471,12 +1483,16 @@ class Udp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: udp_checksum_error_packets
                     
                     	UDP Checksum Errors
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: udp_no_port_packets
                     
@@ -1485,12 +1501,16 @@ class Udp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: udp_bad_length_packets
                     
                     	UDP bad length
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: udp_output_packets
                     
@@ -1499,12 +1519,16 @@ class Udp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: udp_dropped_packets
                     
                     	UDP drop for other reason
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1543,6 +1567,7 @@ class Udp(Entity):
                         self._perform_setattr(Udp.Nodes.Node.Statistics.Ipv4Traffic, ['udp_input_packets', 'udp_checksum_error_packets', 'udp_no_port_packets', 'udp_bad_length_packets', 'udp_output_packets', 'udp_dropped_packets'], name, value)
 
 
+
                 class Ipv6Traffic(Entity):
                     """
                     UDP Traffic statistics for IPv6
@@ -1554,12 +1579,16 @@ class Udp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: udp_checksum_error_packets
                     
                     	UDP Checksum Errors
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: udp_no_port_packets
                     
@@ -1568,12 +1597,16 @@ class Udp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: udp_bad_length_packets
                     
                     	UDP bad length
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: udp_output_packets
                     
@@ -1582,12 +1615,16 @@ class Udp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: udp_dropped_packets
                     
                     	UDP drop for other reason
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1625,9 +1662,15 @@ class Udp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Udp.Nodes.Node.Statistics.Ipv6Traffic, ['udp_input_packets', 'udp_checksum_error_packets', 'udp_no_port_packets', 'udp_bad_length_packets', 'udp_output_packets', 'udp_dropped_packets'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Udp()
         return self._top_entity
+
+
 
 class UdpConnection(Entity):
     """
@@ -1637,6 +1680,8 @@ class UdpConnection(Entity):
     
     	List of UDP connections nodes
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes>`
+    
+    	**config**\: False
     
     
 
@@ -1676,6 +1721,8 @@ class UdpConnection(Entity):
         	Information about a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node>`
         
+        	**config**\: False
+        
         
 
         """
@@ -1714,25 +1761,35 @@ class UdpConnection(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: statistics
             
             	Statistics of UDP connections
             	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics>`
+            
+            	**config**\: False
             
             .. attribute:: lpts
             
             	LPTS statistical data
             	**type**\:  :py:class:`Lpts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts>`
             
+            	**config**\: False
+            
             .. attribute:: pcb_details
             
             	Detail information for list of UDP connections 
             	**type**\:  :py:class:`PcbDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails>`
             
+            	**config**\: False
+            
             .. attribute:: pcb_briefs
             
             	Brief information for list of UDP connections
             	**type**\:  :py:class:`PcbBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs>`
+            
+            	**config**\: False
             
             
 
@@ -1787,15 +1844,21 @@ class UdpConnection(Entity):
                 	Table listing clients
                 	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Clients>`
                 
+                	**config**\: False
+                
                 .. attribute:: summary
                 
                 	Summary statistics across all UDP connections
                 	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Summary>`
                 
+                	**config**\: False
+                
                 .. attribute:: pcb_statistics
                 
                 	Table listing the UDP connections for which statistics are provided
                 	**type**\:  :py:class:`PcbStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics>`
+                
+                	**config**\: False
                 
                 
 
@@ -1842,6 +1905,8 @@ class UdpConnection(Entity):
                     	Describing Client ID
                     	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Clients.Client>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1879,12 +1944,16 @@ class UdpConnection(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: client_jid
                         
                         	Job ID of the transport client
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: client_name
                         
@@ -1893,12 +1962,16 @@ class UdpConnection(Entity):
                         
                         	**length:** 0..21
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_received_packets
                         
                         	Total IPv4 packets received from client
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: ipv4_sent_packets
                         
@@ -1907,6 +1980,8 @@ class UdpConnection(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6_received_packets
                         
                         	Total IPv6 packets received from app
@@ -1914,12 +1989,16 @@ class UdpConnection(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6_sent_packets
                         
                         	Total IPv6 packets sent to app
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1960,6 +2039,8 @@ class UdpConnection(Entity):
                             self._perform_setattr(UdpConnection.Nodes.Node.Statistics.Clients.Client, ['client_id', 'client_jid', 'client_name', 'ipv4_received_packets', 'ipv4_sent_packets', 'ipv6_received_packets', 'ipv6_sent_packets'], name, value)
 
 
+
+
                 class Summary(Entity):
                     """
                     Summary statistics across all UDP connections
@@ -1971,12 +2052,16 @@ class UdpConnection(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: received_no_port_packets
                     
                     	Packets received when no wild listener
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: received_bad_checksum_packets
                     
@@ -1985,12 +2070,16 @@ class UdpConnection(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: received_too_short_packets
                     
                     	Packets received is too short
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: received_drop_packets
                     
@@ -1999,12 +2088,16 @@ class UdpConnection(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: sent_total_packets
                     
                     	Total packets sent
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: sent_error_packets
                     
@@ -2013,12 +2106,16 @@ class UdpConnection(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: forward_broadcast_packets
                     
                     	Total forwarding broadcast packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: cloned_packets
                     
@@ -2027,12 +2124,16 @@ class UdpConnection(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: failed_clone_packets
                     
                     	Total failed cloned packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -2076,7 +2177,8 @@ class UdpConnection(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(UdpConnection.Nodes.Node.Statistics.Summary, ['received_total_packets', 'received_no_port_packets', 'received_bad_checksum_packets', 'received_too_short_packets', 'received_drop_packets', 'sent_total_packets', 'sent_error_packets', 'forward_broadcast_packets', 'cloned_packets', 'failed_clone_packets'], name, value)
+                        self._perform_setattr(UdpConnection.Nodes.Node.Statistics.Summary, [u'received_total_packets', u'received_no_port_packets', u'received_bad_checksum_packets', u'received_too_short_packets', u'received_drop_packets', u'sent_total_packets', u'sent_error_packets', u'forward_broadcast_packets', u'cloned_packets', u'failed_clone_packets'], name, value)
+
 
 
                 class PcbStatistics(Entity):
@@ -2088,6 +2190,8 @@ class UdpConnection(Entity):
                     
                     	Satistics associated with a particular PCB
                     	**type**\: list of  		 :py:class:`PcbStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2126,15 +2230,21 @@ class UdpConnection(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: send
                         
                         	UDP send statistics
                         	**type**\:  :py:class:`Send <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: receive
                         
                         	UDP receive statistics
                         	**type**\:  :py:class:`Receive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: vrf_id
                         
@@ -2143,10 +2253,14 @@ class UdpConnection(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_paw_socket
                         
                         	True if paw socket
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -2184,7 +2298,7 @@ class UdpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic, ['pcb_address', 'vrf_id', 'is_paw_socket'], name, value)
+                            self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic, ['pcb_address', u'vrf_id', u'is_paw_socket'], name, value)
 
 
                         class Send(Entity):
@@ -2198,6 +2312,8 @@ class UdpConnection(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             	**units**\: byte
                             
                             .. attribute:: received_xipc_pulses
@@ -2207,12 +2323,16 @@ class UdpConnection(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: sent_network_packets
                             
                             	Packets sent to network (v4/v6 IO)
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: sent_net_io_packets
                             
@@ -2221,6 +2341,8 @@ class UdpConnection(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: failed_queued_network_packets
                             
                             	Packets failed getting queued to network (v4/v6 IO)
@@ -2228,12 +2350,16 @@ class UdpConnection(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: failed_queued_net_io_packets
                             
                             	Packets failed getting queued to network (NetIO)
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2269,7 +2395,8 @@ class UdpConnection(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send, ['received_application_bytes', 'received_xipc_pulses', 'sent_network_packets', 'sent_net_io_packets', 'failed_queued_network_packets', 'failed_queued_net_io_packets'], name, value)
+                                self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send, [u'received_application_bytes', u'received_xipc_pulses', u'sent_network_packets', u'sent_net_io_packets', u'failed_queued_network_packets', u'failed_queued_net_io_packets'], name, value)
+
 
 
                         class Receive(Entity):
@@ -2283,12 +2410,16 @@ class UdpConnection(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: failed_queued_application_packets
                             
                             	Packets failed queued to application
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: queued_application_packets
                             
@@ -2297,6 +2428,8 @@ class UdpConnection(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: failed_queued_application_socket_packets
                             
                             	Packet that couldn't be queued to application.on socket
@@ -2304,12 +2437,16 @@ class UdpConnection(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: queued_application_socket_packets
                             
                             	Packets queued to application on socket
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -2343,7 +2480,11 @@ class UdpConnection(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive, ['received_network_packets', 'failed_queued_application_packets', 'queued_application_packets', 'failed_queued_application_socket_packets', 'queued_application_socket_packets'], name, value)
+                                self._perform_setattr(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive, [u'received_network_packets', u'failed_queued_application_packets', u'queued_application_packets', u'failed_queued_application_socket_packets', u'queued_application_socket_packets'], name, value)
+
+
+
+
 
 
             class Lpts(Entity):
@@ -2354,6 +2495,8 @@ class UdpConnection(Entity):
                 
                 	List of query options
                 	**type**\:  :py:class:`Queries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries>`
+                
+                	**config**\: False
                 
                 
 
@@ -2392,6 +2535,8 @@ class UdpConnection(Entity):
                     	Query option
                     	**type**\: list of  		 :py:class:`Query <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -2427,10 +2572,14 @@ class UdpConnection(Entity):
                         	Query option
                         	**type**\:  :py:class:`LptsPcbQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.LptsPcbQuery>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: pcbs
                         
                         	List of PCBs
                         	**type**\:  :py:class:`Pcbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2472,6 +2621,8 @@ class UdpConnection(Entity):
                             	A PCB information
                             	**type**\: list of  		 :py:class:`Pcb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -2509,20 +2660,28 @@ class UdpConnection(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: local_address
                                 
                                 	Local IP address
                                 	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: foreign_address
                                 
                                 	Remote IP address
                                 	**type**\:  :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: common
                                 
                                 	Common PCB information
                                 	**type**\:  :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: l4_protocol
                                 
@@ -2531,6 +2690,8 @@ class UdpConnection(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: local_port
                                 
                                 	Local port
@@ -2538,12 +2699,16 @@ class UdpConnection(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: foreign_port
                                 
                                 	Remote port
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2599,6 +2764,8 @@ class UdpConnection(Entity):
                                     	AFName
                                     	**type**\:  :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 address
@@ -2606,12 +2773,16 @@ class UdpConnection(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 address
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2644,6 +2815,7 @@ class UdpConnection(Entity):
                                         self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
+
                                 class ForeignAddress(Entity):
                                     """
                                     Remote IP address
@@ -2653,6 +2825,8 @@ class UdpConnection(Entity):
                                     	AFName
                                     	**type**\:  :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv4_address
                                     
                                     	IPv4 address
@@ -2660,12 +2834,16 @@ class UdpConnection(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 address
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2698,6 +2876,7 @@ class UdpConnection(Entity):
                                         self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
+
                                 class Common(Entity):
                                     """
                                     Common PCB information
@@ -2707,10 +2886,14 @@ class UdpConnection(Entity):
                                     	LPTS PCB information
                                     	**type**\:  :py:class:`LptsPcb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: af_name
                                     
                                     	Address Family
                                     	**type**\:  :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2752,15 +2935,21 @@ class UdpConnection(Entity):
                                         	Receive options
                                         	**type**\:  :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: lpts_flags
                                         
                                         	LPTS flags
                                         	**type**\:  :py:class:`LptsFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: accept_mask
                                         
                                         	AcceptMask
                                         	**type**\:  :py:class:`AcceptMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: ttl
                                         
@@ -2769,6 +2958,8 @@ class UdpConnection(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: flow_types_info
                                         
                                         	flow information
@@ -2776,10 +2967,14 @@ class UdpConnection(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: filter
                                         
                                         	Interface Filters
                                         	**type**\: list of  		 :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2833,10 +3028,14 @@ class UdpConnection(Entity):
                                             	Receive filter enabled
                                             	**type**\: bool
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: is_ip_sla
                                             
                                             	IP SLA
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -2867,6 +3066,7 @@ class UdpConnection(Entity):
                                                 self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options, ['is_receive_filter', 'is_ip_sla'], name, value)
 
 
+
                                         class LptsFlags(Entity):
                                             """
                                             LPTS flags
@@ -2876,15 +3076,21 @@ class UdpConnection(Entity):
                                             	PCB bound
                                             	**type**\: bool
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: is_local_address_ignore
                                             
                                             	Sent drop packets
                                             	**type**\: bool
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: is_ignore_vrf_filter
                                             
                                             	Ignore VRF Filter
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -2917,6 +3123,7 @@ class UdpConnection(Entity):
                                                 self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags, ['is_pcb_bound', 'is_local_address_ignore', 'is_ignore_vrf_filter'], name, value)
 
 
+
                                         class AcceptMask(Entity):
                                             """
                                             AcceptMask
@@ -2926,30 +3133,42 @@ class UdpConnection(Entity):
                                             	Set interface
                                             	**type**\: bool
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: is_packet_type
                                             
                                             	Set packet type
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: is_remote_address
                                             
                                             	Set Remote address
                                             	**type**\: bool
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: is_remote_port
                                             
                                             	Set Remote Port
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: is_local_address
                                             
                                             	Set Local Address
                                             	**type**\: bool
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: is_local_port
                                             
                                             	Set Local Port
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -2988,6 +3207,7 @@ class UdpConnection(Entity):
                                                 self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask, ['is_interface', 'is_packet_type', 'is_remote_address', 'is_remote_port', 'is_local_address', 'is_local_port'], name, value)
 
 
+
                                         class Filter(Entity):
                                             """
                                             Interface Filters
@@ -2997,15 +3217,21 @@ class UdpConnection(Entity):
                                             	Protocol\-specific packet type
                                             	**type**\:  :py:class:`PacketType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: remote_address
                                             
                                             	Remote address
                                             	**type**\:  :py:class:`RemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: local_address
                                             
                                             	Local address
                                             	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: interface_name
                                             
@@ -3014,12 +3240,16 @@ class UdpConnection(Entity):
                                             
                                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: remote_length
                                             
                                             	Remote address length
                                             	**type**\: int
                                             
                                             	**range:** 0..65535
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: local_length
                                             
@@ -3028,12 +3258,16 @@ class UdpConnection(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: receive_remote_port
                                             
                                             	Receive Remote port
                                             	**type**\: int
                                             
                                             	**range:** 0..65535
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: receive_local_port
                                             
@@ -3042,12 +3276,16 @@ class UdpConnection(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: priority
                                             
                                             	Priority
                                             	**type**\: int
                                             
                                             	**range:** 0..255
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: ttl
                                             
@@ -3056,12 +3294,16 @@ class UdpConnection(Entity):
                                             
                                             	**range:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: flow_types_info
                                             
                                             	flow information
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -3125,20 +3367,28 @@ class UdpConnection(Entity):
                                                 	Type
                                                 	**type**\:  :py:class:`Packet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Packet>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: icmp_message_type
                                                 
                                                 	ICMP message type
                                                 	**type**\:  :py:class:`MessageTypeIcmp_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmp_>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: icm_pv6_message_type
                                                 
                                                 	ICMPv6 message type
                                                 	**type**\:  :py:class:`MessageTypeIcmpv6_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmpv6_>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: igmp_message_type
                                                 
                                                 	IGMP message type
                                                 	**type**\:  :py:class:`MessageTypeIgmp_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIgmp_>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: message_id
                                                 
@@ -3146,6 +3396,8 @@ class UdpConnection(Entity):
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -3182,6 +3434,7 @@ class UdpConnection(Entity):
                                                     self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType, ['type', 'icmp_message_type', 'icm_pv6_message_type', 'igmp_message_type', 'message_id'], name, value)
 
 
+
                                             class RemoteAddress(Entity):
                                                 """
                                                 Remote address
@@ -3191,6 +3444,8 @@ class UdpConnection(Entity):
                                                 	AFName
                                                 	**type**\:  :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: ipv4_address
                                                 
                                                 	IPv4 address
@@ -3198,12 +3453,16 @@ class UdpConnection(Entity):
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: ipv6_address
                                                 
                                                 	IPv6 address
                                                 	**type**\: str
                                                 
                                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -3236,6 +3495,7 @@ class UdpConnection(Entity):
                                                     self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
+
                                             class LocalAddress(Entity):
                                                 """
                                                 Local address
@@ -3245,6 +3505,8 @@ class UdpConnection(Entity):
                                                 	AFName
                                                 	**type**\:  :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: ipv4_address
                                                 
                                                 	IPv4 address
@@ -3252,12 +3514,16 @@ class UdpConnection(Entity):
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: ipv6_address
                                                 
                                                 	IPv6 address
                                                 	**type**\: str
                                                 
                                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -3290,6 +3556,15 @@ class UdpConnection(Entity):
                                                     self._perform_setattr(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
+
+
+
+
+
+
+
+
+
             class PcbDetails(Entity):
                 """
                 Detail information for list of UDP connections
@@ -3299,6 +3574,8 @@ class UdpConnection(Entity):
                 
                 	Detail information about a UDP connection
                 	**type**\: list of  		 :py:class:`PcbDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail>`
+                
+                	**config**\: False
                 
                 
 
@@ -3337,20 +3614,28 @@ class UdpConnection(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_address
                     
                     	Local address
                     	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: foreign_address
                     
                     	Foreign address
                     	**type**\:  :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: af_name
                     
                     	Address family
                     	**type**\:  :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: local_process_id
                     
@@ -3359,12 +3644,16 @@ class UdpConnection(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_port
                     
                     	Local port
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: foreign_port
                     
@@ -3373,12 +3662,16 @@ class UdpConnection(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: receive_queue
                     
                     	Receive queue count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: send_queue
                     
@@ -3387,12 +3680,16 @@ class UdpConnection(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: vrf_id
                     
                     	VRF ID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -3440,7 +3737,7 @@ class UdpConnection(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail, ['pcb_address', 'af_name', 'local_process_id', 'local_port', 'foreign_port', 'receive_queue', 'send_queue', 'vrf_id'], name, value)
+                        self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail, ['pcb_address', u'af_name', u'local_process_id', u'local_port', u'foreign_port', u'receive_queue', u'send_queue', u'vrf_id'], name, value)
 
 
                     class LocalAddress(Entity):
@@ -3452,6 +3749,8 @@ class UdpConnection(Entity):
                         	AFName
                         	**type**\:  :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_address
                         
                         	IPv4 Address
@@ -3459,12 +3758,16 @@ class UdpConnection(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6_address
                         
                         	IPv6 Address
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -3494,7 +3797,8 @@ class UdpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                            self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+
 
 
                     class ForeignAddress(Entity):
@@ -3506,6 +3810,8 @@ class UdpConnection(Entity):
                         	AFName
                         	**type**\:  :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_address
                         
                         	IPv4 Address
@@ -3513,12 +3819,16 @@ class UdpConnection(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6_address
                         
                         	IPv6 Address
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -3548,7 +3858,10 @@ class UdpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                            self._perform_setattr(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+
+
+
 
 
             class PcbBriefs(Entity):
@@ -3559,6 +3872,8 @@ class UdpConnection(Entity):
                 
                 	Brief information about a UDP connection
                 	**type**\: list of  		 :py:class:`PcbBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief>`
+                
+                	**config**\: False
                 
                 
 
@@ -3597,20 +3912,28 @@ class UdpConnection(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_address
                     
                     	Local address
                     	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: foreign_address
                     
                     	Foreign address
                     	**type**\:  :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: af_name
                     
                     	Address family
                     	**type**\:  :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: local_port
                     
@@ -3619,12 +3942,16 @@ class UdpConnection(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: foreign_port
                     
                     	Foreign port
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: receive_queue
                     
@@ -3633,6 +3960,8 @@ class UdpConnection(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: send_queue
                     
                     	Send queue count
@@ -3640,12 +3969,16 @@ class UdpConnection(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: vrf_id
                     
                     	VRF ID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -3691,7 +4024,7 @@ class UdpConnection(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief, ['pcb_address', 'af_name', 'local_port', 'foreign_port', 'receive_queue', 'send_queue', 'vrf_id'], name, value)
+                        self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief, ['pcb_address', u'af_name', u'local_port', u'foreign_port', u'receive_queue', u'send_queue', u'vrf_id'], name, value)
 
 
                     class LocalAddress(Entity):
@@ -3703,6 +4036,8 @@ class UdpConnection(Entity):
                         	AFName
                         	**type**\:  :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_address
                         
                         	IPv4 Address
@@ -3710,12 +4045,16 @@ class UdpConnection(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6_address
                         
                         	IPv6 Address
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -3745,7 +4084,8 @@ class UdpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                            self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+
 
 
                     class ForeignAddress(Entity):
@@ -3757,6 +4097,8 @@ class UdpConnection(Entity):
                         	AFName
                         	**type**\:  :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_address
                         
                         	IPv4 Address
@@ -3764,12 +4106,16 @@ class UdpConnection(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6_address
                         
                         	IPv6 Address
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -3799,9 +4145,16 @@ class UdpConnection(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                            self._perform_setattr(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = UdpConnection()
         return self._top_entity
+
+
 

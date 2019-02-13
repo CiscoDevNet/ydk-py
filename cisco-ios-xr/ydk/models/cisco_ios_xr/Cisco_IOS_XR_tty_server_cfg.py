@@ -188,7 +188,7 @@ class Tty(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Tty.TtyLines.TtyLine, ['name'], name, value)
+                self._perform_setattr(Tty.TtyLines.TtyLine, [u'name'], name, value)
 
 
             class General(Entity):
@@ -252,7 +252,8 @@ class Tty(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Tty.TtyLines.TtyLine.General, ['length', 'absolute_timeout', 'width'], name, value)
+                    self._perform_setattr(Tty.TtyLines.TtyLine.General, [u'length', u'absolute_timeout', u'width'], name, value)
+
 
 
             class Telnet(Entity):
@@ -288,7 +289,8 @@ class Tty(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Tty.TtyLines.TtyLine.Telnet, ['transparent'], name, value)
+                    self._perform_setattr(Tty.TtyLines.TtyLine.Telnet, [u'transparent'], name, value)
+
 
 
             class Aaa(Entity):
@@ -385,7 +387,7 @@ class Tty(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Tty.TtyLines.TtyLine.Aaa, ['login_timeout', 'secret', 'password'], name, value)
+                    self._perform_setattr(Tty.TtyLines.TtyLine.Aaa, [u'login_timeout', u'secret', u'password'], name, value)
 
 
                 class UserGroups(Entity):
@@ -467,7 +469,9 @@ class Tty(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.TtyLines.TtyLine.Aaa.UserGroups.UserGroup, ['name', 'category'], name, value)
+                            self._perform_setattr(Tty.TtyLines.TtyLine.Aaa.UserGroups.UserGroup, [u'name', u'category'], name, value)
+
+
 
 
                 class Authorization(Entity):
@@ -517,7 +521,8 @@ class Tty(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Tty.TtyLines.TtyLine.Aaa.Authorization, ['exec_', 'event_manager', 'commands'], name, value)
+                        self._perform_setattr(Tty.TtyLines.TtyLine.Aaa.Authorization, [u'exec_', u'event_manager', u'commands'], name, value)
+
 
 
                 class Authentication(Entity):
@@ -553,7 +558,8 @@ class Tty(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Tty.TtyLines.TtyLine.Aaa.Authentication, ['login'], name, value)
+                        self._perform_setattr(Tty.TtyLines.TtyLine.Aaa.Authentication, [u'login'], name, value)
+
 
 
                 class Accounting(Entity):
@@ -596,7 +602,9 @@ class Tty(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Tty.TtyLines.TtyLine.Aaa.Accounting, ['exec_', 'commands'], name, value)
+                        self._perform_setattr(Tty.TtyLines.TtyLine.Aaa.Accounting, [u'exec_', u'commands'], name, value)
+
+
 
 
             class Exec(Entity):
@@ -642,7 +650,7 @@ class Tty(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Tty.TtyLines.TtyLine.Exec, ['time_stamp'], name, value)
+                    self._perform_setattr(Tty.TtyLines.TtyLine.Exec, [u'time_stamp'], name, value)
 
 
                 class Timeout(Entity):
@@ -700,7 +708,9 @@ class Tty(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Tty.TtyLines.TtyLine.Exec.Timeout, ['minutes', 'seconds'], name, value)
+                        self._perform_setattr(Tty.TtyLines.TtyLine.Exec.Timeout, [u'minutes', u'seconds'], name, value)
+
+
 
 
             class Connection(Entity):
@@ -894,6 +904,7 @@ class Tty(Entity):
                         self._perform_setattr(Tty.TtyLines.TtyLine.Connection.TransportInput, ['select', 'protocol1', 'protocol2', 'none'], name, value)
 
 
+
                 class TransportOutput(Entity):
                     """
                     Protocols to use for outgoing connections
@@ -958,6 +969,7 @@ class Tty(Entity):
                         self._perform_setattr(Tty.TtyLines.TtyLine.Connection.TransportOutput, ['select', 'protocol1', 'protocol2', 'none'], name, value)
 
 
+
                 class SessionTimeout(Entity):
                     """
                     Interval for closing connection when there is
@@ -1011,6 +1023,8 @@ class Tty(Entity):
                         self._perform_setattr(Tty.TtyLines.TtyLine.Connection.SessionTimeout, ['timeout', 'direction'], name, value)
 
 
+
+
             class ExecMode(Entity):
                 """
                 Exec Mode Pager  configurtion
@@ -1048,7 +1062,12 @@ class Tty(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Tty.TtyLines.TtyLine.ExecMode, ['pager'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Tty()
         return self._top_entity
+
+
 

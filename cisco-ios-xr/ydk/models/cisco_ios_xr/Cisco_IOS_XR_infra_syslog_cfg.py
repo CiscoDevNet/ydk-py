@@ -739,7 +739,7 @@ class SyslogService(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SyslogService.Timestamps, [u'enable'], name, value)
+            self._perform_setattr(SyslogService.Timestamps, ['enable'], name, value)
 
 
         class Log(Entity):
@@ -792,7 +792,7 @@ class SyslogService(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SyslogService.Timestamps.Log, [u'log_uptime', u'log_timestamp_disable'], name, value)
+                self._perform_setattr(SyslogService.Timestamps.Log, ['log_uptime', 'log_timestamp_disable'], name, value)
 
 
             class LogDatetime(Entity):
@@ -898,7 +898,10 @@ class SyslogService(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue, [u'time_stamp_value', u'msec', u'time_zone', u'year'], name, value)
+                        self._perform_setattr(SyslogService.Timestamps.Log.LogDatetime.LogDatetimeValue, ['time_stamp_value', 'msec', 'time_zone', 'year'], name, value)
+
+
+
 
 
         class Debug(Entity):
@@ -951,7 +954,7 @@ class SyslogService(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SyslogService.Timestamps.Debug, [u'debug_timestamp_disable', u'debug_uptime'], name, value)
+                self._perform_setattr(SyslogService.Timestamps.Debug, ['debug_timestamp_disable', 'debug_uptime'], name, value)
 
 
             class DebugDatetime(Entity):
@@ -1057,11 +1060,17 @@ class SyslogService(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue, [u'time_stamp_value', u'msec', u'time_zone', u'year'], name, value)
+                        self._perform_setattr(SyslogService.Timestamps.Debug.DebugDatetime.DatetimeValue, ['time_stamp_value', 'msec', 'time_zone', 'year'], name, value)
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = SyslogService()
         return self._top_entity
+
+
 
 class Syslog(Entity):
     """
@@ -1151,6 +1160,11 @@ class Syslog(Entity):
     	Suppress consecutive duplicate messages
     	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
+    .. attribute:: alarm_logger
+    
+    	Alarm Logger Properties
+    	**type**\:  :py:class:`AlarmLogger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger>`
+    
     .. attribute:: correlator
     
     	Configure properties of the event correlator
@@ -1160,11 +1174,6 @@ class Syslog(Entity):
     
     	Configure properties of the syslog/alarm suppression
     	**type**\:  :py:class:`Suppression <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.Suppression>`
-    
-    .. attribute:: alarm_logger
-    
-    	Alarm Logger Properties
-    	**type**\:  :py:class:`AlarmLogger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger>`
     
     
 
@@ -1182,7 +1191,7 @@ class Syslog(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("monitor-logging", ("monitor_logging", Syslog.MonitorLogging)), ("history-logging", ("history_logging", Syslog.HistoryLogging)), ("logging-facilities", ("logging_facilities", Syslog.LoggingFacilities)), ("trap-logging", ("trap_logging", Syslog.TrapLogging)), ("buffered-logging", ("buffered_logging", Syslog.BufferedLogging)), ("host-server", ("host_server", Syslog.HostServer)), ("console-logging", ("console_logging", Syslog.ConsoleLogging)), ("files", ("files", Syslog.Files)), ("ipv4", ("ipv4", Syslog.Ipv4)), ("archive", ("archive", Syslog.Archive)), ("ipv6", ("ipv6", Syslog.Ipv6)), ("source-interface-table", ("source_interface_table", Syslog.SourceInterfaceTable)), ("Cisco-IOS-XR-infra-correlator-cfg:correlator", ("correlator", Syslog.Correlator)), ("Cisco-IOS-XR-infra-correlator-cfg:suppression", ("suppression", Syslog.Suppression)), ("Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger", ("alarm_logger", Syslog.AlarmLogger))])
+        self._child_classes = OrderedDict([("monitor-logging", ("monitor_logging", Syslog.MonitorLogging)), ("history-logging", ("history_logging", Syslog.HistoryLogging)), ("logging-facilities", ("logging_facilities", Syslog.LoggingFacilities)), ("trap-logging", ("trap_logging", Syslog.TrapLogging)), ("buffered-logging", ("buffered_logging", Syslog.BufferedLogging)), ("host-server", ("host_server", Syslog.HostServer)), ("console-logging", ("console_logging", Syslog.ConsoleLogging)), ("files", ("files", Syslog.Files)), ("ipv4", ("ipv4", Syslog.Ipv4)), ("archive", ("archive", Syslog.Archive)), ("ipv6", ("ipv6", Syslog.Ipv6)), ("source-interface-table", ("source_interface_table", Syslog.SourceInterfaceTable)), ("Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger", ("alarm_logger", Syslog.AlarmLogger)), ("Cisco-IOS-XR-infra-correlator-cfg:correlator", ("correlator", Syslog.Correlator)), ("Cisco-IOS-XR-infra-correlator-cfg:suppression", ("suppression", Syslog.Suppression))])
         self._leafs = OrderedDict([
             ('host_name_prefix', (YLeaf(YType.str, 'host-name-prefix'), ['str'])),
             ('local_log_file_size', (YLeaf(YType.uint32, 'local-log-file-size'), ['int'])),
@@ -1242,6 +1251,10 @@ class Syslog(Entity):
         self.source_interface_table.parent = self
         self._children_name_map["source_interface_table"] = "source-interface-table"
 
+        self.alarm_logger = Syslog.AlarmLogger()
+        self.alarm_logger.parent = self
+        self._children_name_map["alarm_logger"] = "Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger"
+
         self.correlator = Syslog.Correlator()
         self.correlator.parent = self
         self._children_name_map["correlator"] = "Cisco-IOS-XR-infra-correlator-cfg:correlator"
@@ -1249,15 +1262,11 @@ class Syslog(Entity):
         self.suppression = Syslog.Suppression()
         self.suppression.parent = self
         self._children_name_map["suppression"] = "Cisco-IOS-XR-infra-correlator-cfg:suppression"
-
-        self.alarm_logger = Syslog.AlarmLogger()
-        self.alarm_logger.parent = self
-        self._children_name_map["alarm_logger"] = "Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog"
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Syslog, [u'host_name_prefix', u'local_log_file_size', u'enable_console_logging', u'suppress_duplicates'], name, value)
+        self._perform_setattr(Syslog, ['host_name_prefix', 'local_log_file_size', 'enable_console_logging', 'suppress_duplicates'], name, value)
 
 
     class MonitorLogging(Entity):
@@ -1305,7 +1314,7 @@ class Syslog(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Syslog.MonitorLogging, [u'logging_level'], name, value)
+            self._perform_setattr(Syslog.MonitorLogging, ['logging_level'], name, value)
 
 
         class MonitorDiscriminator(Entity):
@@ -1377,7 +1386,9 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.MonitorLogging.MonitorDiscriminator, [u'match2', u'nomatch1', u'match1', u'nomatch3', u'match3', u'nomatch2'], name, value)
+                self._perform_setattr(Syslog.MonitorLogging.MonitorDiscriminator, ['match2', 'nomatch1', 'match1', 'nomatch3', 'match3', 'nomatch2'], name, value)
+
+
 
 
     class HistoryLogging(Entity):
@@ -1427,7 +1438,8 @@ class Syslog(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Syslog.HistoryLogging, [u'history_size', u'logging_level'], name, value)
+            self._perform_setattr(Syslog.HistoryLogging, ['history_size', 'logging_level'], name, value)
+
 
 
     class LoggingFacilities(Entity):
@@ -1466,7 +1478,8 @@ class Syslog(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Syslog.LoggingFacilities, [u'facility_level'], name, value)
+            self._perform_setattr(Syslog.LoggingFacilities, ['facility_level'], name, value)
+
 
 
     class TrapLogging(Entity):
@@ -1505,7 +1518,8 @@ class Syslog(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Syslog.TrapLogging, [u'logging_level'], name, value)
+            self._perform_setattr(Syslog.TrapLogging, ['logging_level'], name, value)
+
 
 
     class BufferedLogging(Entity):
@@ -1564,7 +1578,7 @@ class Syslog(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Syslog.BufferedLogging, [u'logging_level', u'buffer_size'], name, value)
+            self._perform_setattr(Syslog.BufferedLogging, ['logging_level', 'buffer_size'], name, value)
 
 
         class BufferedDiscriminator(Entity):
@@ -1636,7 +1650,9 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.BufferedLogging.BufferedDiscriminator, [u'match2', u'nomatch1', u'match1', u'nomatch3', u'match3', u'nomatch2'], name, value)
+                self._perform_setattr(Syslog.BufferedLogging.BufferedDiscriminator, ['match2', 'nomatch1', 'match1', 'nomatch3', 'match3', 'nomatch2'], name, value)
+
+
 
 
     class HostServer(Entity):
@@ -1776,7 +1792,7 @@ class Syslog(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Syslog.HostServer.Vrfs.Vrf, [u'vrf_name'], name, value)
+                    self._perform_setattr(Syslog.HostServer.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
                 class Ipv6s(Entity):
@@ -1870,7 +1886,7 @@ class Syslog(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6, [u'address'], name, value)
+                            self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6, ['address'], name, value)
 
 
                         class Ipv6SeverityPort(Entity):
@@ -1924,7 +1940,8 @@ class Syslog(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityPort, [u'severity', u'port'], name, value)
+                                self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityPort, ['severity', 'port'], name, value)
+
 
 
                         class Ipv6SeverityLevels(Entity):
@@ -1997,7 +2014,11 @@ class Syslog(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel, [u'severity'], name, value)
+                                    self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv6s.Ipv6.Ipv6SeverityLevels.Ipv6SeverityLevel, ['severity'], name, value)
+
+
+
+
 
 
                 class Hosts(Entity):
@@ -2089,7 +2110,7 @@ class Syslog(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Hosts.Host, [u'host_name'], name, value)
+                            self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Hosts.Host, ['host_name'], name, value)
 
 
                         class HostNameSeverities(Entity):
@@ -2162,7 +2183,9 @@ class Syslog(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities.HostNameSeverity, [u'severity'], name, value)
+                                    self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostNameSeverities.HostNameSeverity, ['severity'], name, value)
+
+
 
 
                         class HostSeverityPort(Entity):
@@ -2216,7 +2239,10 @@ class Syslog(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort, [u'severity', u'port'], name, value)
+                                self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Hosts.Host.HostSeverityPort, ['severity', 'port'], name, value)
+
+
+
 
 
                 class Ipv4s(Entity):
@@ -2310,7 +2336,7 @@ class Syslog(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4, [u'address'], name, value)
+                            self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4, ['address'], name, value)
 
 
                         class Ipv4SeverityLevels(Entity):
@@ -2383,7 +2409,9 @@ class Syslog(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel, [u'severity'], name, value)
+                                    self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityLevels.Ipv4SeverityLevel, ['severity'], name, value)
+
+
 
 
                         class Ipv4SeverityPort(Entity):
@@ -2437,7 +2465,13 @@ class Syslog(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityPort, [u'severity', u'port'], name, value)
+                                self._perform_setattr(Syslog.HostServer.Vrfs.Vrf.Ipv4s.Ipv4.Ipv4SeverityPort, ['severity', 'port'], name, value)
+
+
+
+
+
+
 
 
     class ConsoleLogging(Entity):
@@ -2485,7 +2519,7 @@ class Syslog(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Syslog.ConsoleLogging, [u'logging_level'], name, value)
+            self._perform_setattr(Syslog.ConsoleLogging, ['logging_level'], name, value)
 
 
         class ConsoleDiscriminator(Entity):
@@ -2557,7 +2591,9 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.ConsoleLogging.ConsoleDiscriminator, [u'match2', u'nomatch1', u'match1', u'nomatch3', u'match3', u'nomatch2'], name, value)
+                self._perform_setattr(Syslog.ConsoleLogging.ConsoleDiscriminator, ['match2', 'nomatch1', 'match1', 'nomatch3', 'match3', 'nomatch2'], name, value)
+
+
 
 
     class Files(Entity):
@@ -2650,7 +2686,7 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.Files.File, [u'file_name'], name, value)
+                self._perform_setattr(Syslog.Files.File, ['file_name'], name, value)
 
 
             class FileSpecification(Entity):
@@ -2708,7 +2744,8 @@ class Syslog(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Syslog.Files.File.FileSpecification, [u'path', u'max_file_size', u'severity'], name, value)
+                    self._perform_setattr(Syslog.Files.File.FileSpecification, ['path', 'max_file_size', 'severity'], name, value)
+
 
 
             class FileLogDiscriminator(Entity):
@@ -2779,7 +2816,10 @@ class Syslog(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Syslog.Files.File.FileLogDiscriminator, [u'nomatch2', u'match3', u'nomatch3', u'match1', u'nomatch1', u'match2'], name, value)
+                    self._perform_setattr(Syslog.Files.File.FileLogDiscriminator, ['nomatch2', 'match3', 'nomatch3', 'match1', 'nomatch1', 'match2'], name, value)
+
+
+
 
 
     class Ipv4(Entity):
@@ -2911,7 +2951,8 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.Ipv4.Dscp, [u'type', u'unused', u'value'], name, value)
+                self._perform_setattr(Syslog.Ipv4.Dscp, ['type', 'unused', 'value'], name, value)
+
 
 
         class Tos(Entity):
@@ -2974,7 +3015,8 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.Ipv4.Tos, [u'type', u'precedence', u'dscp'], name, value)
+                self._perform_setattr(Syslog.Ipv4.Tos, ['type', 'precedence', 'dscp'], name, value)
+
 
 
         class Precedence(Entity):
@@ -3044,7 +3086,9 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.Ipv4.Precedence, [u'type', u'value', u'unused'], name, value)
+                self._perform_setattr(Syslog.Ipv4.Precedence, ['type', 'value', 'unused'], name, value)
+
+
 
 
     class Archive(Entity):
@@ -3133,7 +3177,8 @@ class Syslog(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Syslog.Archive, [u'size', u'file_size', u'device', u'threshold', u'frequency', u'severity', u'length'], name, value)
+            self._perform_setattr(Syslog.Archive, ['size', 'file_size', 'device', 'threshold', 'frequency', 'severity', 'length'], name, value)
+
 
 
     class Ipv6(Entity):
@@ -3265,7 +3310,8 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.Ipv6.Dscp, [u'type', u'unused', u'value'], name, value)
+                self._perform_setattr(Syslog.Ipv6.Dscp, ['type', 'unused', 'value'], name, value)
+
 
 
         class TrafficClass(Entity):
@@ -3328,7 +3374,8 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.Ipv6.TrafficClass, [u'type', u'precedence', u'dscp'], name, value)
+                self._perform_setattr(Syslog.Ipv6.TrafficClass, ['type', 'precedence', 'dscp'], name, value)
+
 
 
         class Precedence(Entity):
@@ -3398,7 +3445,9 @@ class Syslog(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.Ipv6.Precedence, [u'type', u'value', u'unused'], name, value)
+                self._perform_setattr(Syslog.Ipv6.Precedence, ['type', 'value', 'unused'], name, value)
+
+
 
 
     class SourceInterfaceTable(Entity):
@@ -3521,7 +3570,7 @@ class Syslog(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue, [u'src_interface_name_value'], name, value)
+                    self._perform_setattr(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue, ['src_interface_name_value'], name, value)
 
 
                 class SourceInterfaceVrfs(Entity):
@@ -3594,7 +3643,183 @@ class Syslog(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs.SourceInterfaceVrf, [u'vrf_name'], name, value)
+                            self._perform_setattr(Syslog.SourceInterfaceTable.SourceInterfaceValues.SourceInterfaceValue.SourceInterfaceVrfs.SourceInterfaceVrf, ['vrf_name'], name, value)
+
+
+
+
+
+
+
+    class AlarmLogger(Entity):
+        """
+        Alarm Logger Properties
+        
+        .. attribute:: alarm_filter_strings
+        
+        	List of filter strings
+        	**type**\:  :py:class:`AlarmFilterStrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger.AlarmFilterStrings>`
+        
+        .. attribute:: pre_config_suppression
+        
+        	Suppress events from a card/VM till its configuration is complete
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+        
+        .. attribute:: severity_level
+        
+        	Log all events with equal or higher (lower level) severity than this
+        	**type**\:  :py:class:`AlarmLoggerSeverityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_datatypes.AlarmLoggerSeverityLevel>`
+        
+        .. attribute:: pre_config_suppression_timeout
+        
+        	Timeout (in minutes) for pre\-config events suppression (default 15)
+        	**type**\: int
+        
+        	**range:** 1..60
+        
+        	**units**\: minute
+        
+        	**default value**\: 15
+        
+        .. attribute:: buffer_size
+        
+        	Set size of the local event buffer
+        	**type**\: int
+        
+        	**range:** 1024..1024000
+        
+        .. attribute:: source_location
+        
+        	Enable alarm source location in message text
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+        
+        .. attribute:: threshold
+        
+        	Configure threshold (%) for capacity alarm
+        	**type**\: int
+        
+        	**range:** 10..100
+        
+        	**default value**\: 90
+        
+        
+
+        """
+
+        _prefix = 'infra-alarm-logger-cfg'
+        _revision = '2017-02-23'
+
+        def __init__(self):
+            super(Syslog.AlarmLogger, self).__init__()
+
+            self.yang_name = "alarm-logger"
+            self.yang_parent_name = "syslog"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("alarm-filter-strings", ("alarm_filter_strings", Syslog.AlarmLogger.AlarmFilterStrings))])
+            self._leafs = OrderedDict([
+                ('pre_config_suppression', (YLeaf(YType.empty, 'pre-config-suppression'), ['Empty'])),
+                ('severity_level', (YLeaf(YType.enumeration, 'severity-level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_datatypes', 'AlarmLoggerSeverityLevel', '')])),
+                ('pre_config_suppression_timeout', (YLeaf(YType.uint32, 'pre-config-suppression-timeout'), ['int'])),
+                ('buffer_size', (YLeaf(YType.uint32, 'buffer-size'), ['int'])),
+                ('source_location', (YLeaf(YType.empty, 'source-location'), ['Empty'])),
+                ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+            ])
+            self.pre_config_suppression = None
+            self.severity_level = None
+            self.pre_config_suppression_timeout = None
+            self.buffer_size = None
+            self.source_location = None
+            self.threshold = None
+
+            self.alarm_filter_strings = Syslog.AlarmLogger.AlarmFilterStrings()
+            self.alarm_filter_strings.parent = self
+            self._children_name_map["alarm_filter_strings"] = "alarm-filter-strings"
+            self._segment_path = lambda: "Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Syslog.AlarmLogger, ['pre_config_suppression', 'severity_level', 'pre_config_suppression_timeout', 'buffer_size', 'source_location', 'threshold'], name, value)
+
+
+        class AlarmFilterStrings(Entity):
+            """
+            List of filter strings
+            
+            .. attribute:: alarm_filter_string
+            
+            	Match string to filter alarms
+            	**type**\: list of  		 :py:class:`AlarmFilterString <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString>`
+            
+            
+
+            """
+
+            _prefix = 'infra-alarm-logger-cfg'
+            _revision = '2017-02-23'
+
+            def __init__(self):
+                super(Syslog.AlarmLogger.AlarmFilterStrings, self).__init__()
+
+                self.yang_name = "alarm-filter-strings"
+                self.yang_parent_name = "alarm-logger"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("alarm-filter-string", ("alarm_filter_string", Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString))])
+                self._leafs = OrderedDict()
+
+                self.alarm_filter_string = YList(self)
+                self._segment_path = lambda: "alarm-filter-strings"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.AlarmLogger.AlarmFilterStrings, [], name, value)
+
+
+            class AlarmFilterString(Entity):
+                """
+                Match string to filter alarms
+                
+                .. attribute:: filter_string  (key)
+                
+                	Filter String
+                	**type**\: str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                
+
+                """
+
+                _prefix = 'infra-alarm-logger-cfg'
+                _revision = '2017-02-23'
+
+                def __init__(self):
+                    super(Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString, self).__init__()
+
+                    self.yang_name = "alarm-filter-string"
+                    self.yang_parent_name = "alarm-filter-strings"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['filter_string']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('filter_string', (YLeaf(YType.str, 'filter-string'), ['str'])),
+                    ])
+                    self.filter_string = None
+                    self._segment_path = lambda: "alarm-filter-string" + "[filter-string='" + str(self.filter_string) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger/alarm-filter-strings/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString, ['filter_string'], name, value)
+
+
+
 
 
     class Correlator(Entity):
@@ -4022,6 +4247,7 @@ class Syslog(Entity):
                         self._perform_setattr(Syslog.Correlator.Rules.Rule.Definition, ['timeout', 'category_name_entry1', 'group_name_entry1', 'message_code_entry1', 'category_name_entry2', 'group_name_entry2', 'message_code_entry2', 'category_name_entry3', 'group_name_entry3', 'message_code_entry3', 'category_name_entry4', 'group_name_entry4', 'message_code_entry4', 'category_name_entry5', 'group_name_entry5', 'message_code_entry5', 'category_name_entry6', 'group_name_entry6', 'message_code_entry6', 'category_name_entry7', 'group_name_entry7', 'message_code_entry7', 'category_name_entry8', 'group_name_entry8', 'message_code_entry8', 'category_name_entry9', 'group_name_entry9', 'message_code_entry9', 'category_name_entry10', 'group_name_entry10', 'message_code_entry10'], name, value)
 
 
+
                 class NonStateful(Entity):
                     """
                     The Non\-Stateful Rule Type
@@ -4183,6 +4409,8 @@ class Syslog(Entity):
                                 self._perform_setattr(Syslog.Correlator.Rules.Rule.NonStateful.NonRootCauses.NonRootCause, ['category', 'group', 'message_code'], name, value)
 
 
+
+
                     class RootCause(Entity):
                         """
                         The root cause
@@ -4231,6 +4459,8 @@ class Syslog(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Syslog.Correlator.Rules.Rule.NonStateful.RootCause, ['category', 'group', 'message_code'], name, value)
+
+
 
 
                 class Stateful(Entity):
@@ -4408,6 +4638,8 @@ class Syslog(Entity):
                                 self._perform_setattr(Syslog.Correlator.Rules.Rule.Stateful.NonRootCauses.NonRootCause, ['category', 'group', 'message_code'], name, value)
 
 
+
+
                     class RootCause(Entity):
                         """
                         The root cause
@@ -4456,6 +4688,8 @@ class Syslog(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Syslog.Correlator.Rules.Rule.Stateful.RootCause, ['category', 'group', 'message_code'], name, value)
+
+
 
 
                 class ApplyTo(Entity):
@@ -4549,6 +4783,7 @@ class Syslog(Entity):
                             self._perform_setattr(Syslog.Correlator.Rules.Rule.ApplyTo.Contexts, ['context'], name, value)
 
 
+
                     class Locations(Entity):
                         """
                         Apply rule to a specified list of Locations
@@ -4585,6 +4820,8 @@ class Syslog(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Syslog.Correlator.Rules.Rule.ApplyTo.Locations, ['location'], name, value)
+
+
 
 
                 class AppliedTo(Entity):
@@ -4714,6 +4951,8 @@ class Syslog(Entity):
                                 self._perform_setattr(Syslog.Correlator.Rules.Rule.AppliedTo.Contexts.Context, ['context'], name, value)
 
 
+
+
                     class Locations(Entity):
                         """
                         Table of configured locations to apply
@@ -4785,6 +5024,11 @@ class Syslog(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Syslog.Correlator.Rules.Rule.AppliedTo.Locations.Location, ['location'], name, value)
+
+
+
+
+
 
 
         class RuleSets(Entity):
@@ -4953,6 +5197,8 @@ class Syslog(Entity):
                             self._perform_setattr(Syslog.Correlator.RuleSets.RuleSet.Rulenames.Rulename, ['rulename'], name, value)
 
 
+
+
                 class AppliedTo(Entity):
                     """
                     Applied to the Rule or Ruleset
@@ -5080,6 +5326,8 @@ class Syslog(Entity):
                                 self._perform_setattr(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Contexts.Context, ['context'], name, value)
 
 
+
+
                     class Locations(Entity):
                         """
                         Table of configured locations to apply
@@ -5151,6 +5399,12 @@ class Syslog(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Syslog.Correlator.RuleSets.RuleSet.AppliedTo.Locations.Location, ['location'], name, value)
+
+
+
+
+
+
 
 
     class Suppression(Entity):
@@ -5410,6 +5664,9 @@ class Syslog(Entity):
                                 self._perform_setattr(Syslog.Suppression.Rules.Rule.AppliedTo.Sources.Source, ['source'], name, value)
 
 
+
+
+
                 class AlarmCauses(Entity):
                     """
                     Causes of alarms to be suppressed
@@ -5502,174 +5759,13 @@ class Syslog(Entity):
                             self._perform_setattr(Syslog.Suppression.Rules.Rule.AlarmCauses.AlarmCause, ['category', 'group', 'code'], name, value)
 
 
-    class AlarmLogger(Entity):
-        """
-        Alarm Logger Properties
-        
-        .. attribute:: alarm_filter_strings
-        
-        	List of filter strings
-        	**type**\:  :py:class:`AlarmFilterStrings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger.AlarmFilterStrings>`
-        
-        .. attribute:: pre_config_suppression
-        
-        	Suppress events from a card/VM till its configuration is complete
-        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: severity_level
-        
-        	Log all events with equal or higher (lower level) severity than this
-        	**type**\:  :py:class:`AlarmLoggerSeverityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_datatypes.AlarmLoggerSeverityLevel>`
-        
-        .. attribute:: pre_config_suppression_timeout
-        
-        	Timeout (in minutes) for pre\-config events suppression (default 15)
-        	**type**\: int
-        
-        	**range:** 1..60
-        
-        	**units**\: minute
-        
-        	**default value**\: 15
-        
-        .. attribute:: buffer_size
-        
-        	Set size of the local event buffer
-        	**type**\: int
-        
-        	**range:** 1024..1024000
-        
-        .. attribute:: source_location
-        
-        	Enable alarm source location in message text
-        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: threshold
-        
-        	Configure threshold (%) for capacity alarm
-        	**type**\: int
-        
-        	**range:** 10..100
-        
-        	**default value**\: 90
-        
-        
-
-        """
-
-        _prefix = 'infra-alarm-logger-cfg'
-        _revision = '2017-02-23'
-
-        def __init__(self):
-            super(Syslog.AlarmLogger, self).__init__()
-
-            self.yang_name = "alarm-logger"
-            self.yang_parent_name = "syslog"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([("alarm-filter-strings", ("alarm_filter_strings", Syslog.AlarmLogger.AlarmFilterStrings))])
-            self._leafs = OrderedDict([
-                ('pre_config_suppression', (YLeaf(YType.empty, 'pre-config-suppression'), ['Empty'])),
-                ('severity_level', (YLeaf(YType.enumeration, 'severity-level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_datatypes', 'AlarmLoggerSeverityLevel', '')])),
-                ('pre_config_suppression_timeout', (YLeaf(YType.uint32, 'pre-config-suppression-timeout'), ['int'])),
-                ('buffer_size', (YLeaf(YType.uint32, 'buffer-size'), ['int'])),
-                ('source_location', (YLeaf(YType.empty, 'source-location'), ['Empty'])),
-                ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
-            ])
-            self.pre_config_suppression = None
-            self.severity_level = None
-            self.pre_config_suppression_timeout = None
-            self.buffer_size = None
-            self.source_location = None
-            self.threshold = None
-
-            self.alarm_filter_strings = Syslog.AlarmLogger.AlarmFilterStrings()
-            self.alarm_filter_strings.parent = self
-            self._children_name_map["alarm_filter_strings"] = "alarm-filter-strings"
-            self._segment_path = lambda: "Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger"
-            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Syslog.AlarmLogger, ['pre_config_suppression', 'severity_level', 'pre_config_suppression_timeout', 'buffer_size', 'source_location', 'threshold'], name, value)
 
 
-        class AlarmFilterStrings(Entity):
-            """
-            List of filter strings
-            
-            .. attribute:: alarm_filter_string
-            
-            	Match string to filter alarms
-            	**type**\: list of  		 :py:class:`AlarmFilterString <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_cfg.Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString>`
-            
-            
 
-            """
-
-            _prefix = 'infra-alarm-logger-cfg'
-            _revision = '2017-02-23'
-
-            def __init__(self):
-                super(Syslog.AlarmLogger.AlarmFilterStrings, self).__init__()
-
-                self.yang_name = "alarm-filter-strings"
-                self.yang_parent_name = "alarm-logger"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("alarm-filter-string", ("alarm_filter_string", Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString))])
-                self._leafs = OrderedDict()
-
-                self.alarm_filter_string = YList(self)
-                self._segment_path = lambda: "alarm-filter-strings"
-                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.AlarmLogger.AlarmFilterStrings, [], name, value)
-
-
-            class AlarmFilterString(Entity):
-                """
-                Match string to filter alarms
-                
-                .. attribute:: filter_string  (key)
-                
-                	Filter String
-                	**type**\: str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                
-
-                """
-
-                _prefix = 'infra-alarm-logger-cfg'
-                _revision = '2017-02-23'
-
-                def __init__(self):
-                    super(Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString, self).__init__()
-
-                    self.yang_name = "alarm-filter-string"
-                    self.yang_parent_name = "alarm-filter-strings"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = ['filter_string']
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('filter_string', (YLeaf(YType.str, 'filter-string'), ['str'])),
-                    ])
-                    self.filter_string = None
-                    self._segment_path = lambda: "alarm-filter-string" + "[filter-string='" + str(self.filter_string) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-cfg:syslog/Cisco-IOS-XR-infra-alarm-logger-cfg:alarm-logger/alarm-filter-strings/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Syslog.AlarmLogger.AlarmFilterStrings.AlarmFilterString, ['filter_string'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Syslog()
         return self._top_entity
+
+
 

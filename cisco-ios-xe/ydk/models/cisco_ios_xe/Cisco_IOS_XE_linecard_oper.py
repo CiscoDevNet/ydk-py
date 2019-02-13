@@ -25,6 +25,8 @@ class LinecardOperData(Entity):
     	List of linecard instances, keyed by slot
     	**type**\: list of  		 :py:class:`Linecard <ydk.models.cisco_ios_xe.Cisco_IOS_XE_linecard_oper.LinecardOperData.Linecard>`
     
+    	**config**\: False
+    
     
 
     """
@@ -61,10 +63,14 @@ class LinecardOperData(Entity):
         	Physical location description of the linecard
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: power_admin_state
         
         	Power provided to the linecard\: Enabled/Disabled
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -95,7 +101,10 @@ class LinecardOperData(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(LinecardOperData.Linecard, ['name', 'power_admin_state'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = LinecardOperData()
         return self._top_entity
+
+
 

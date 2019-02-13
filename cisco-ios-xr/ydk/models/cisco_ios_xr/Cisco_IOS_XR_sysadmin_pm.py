@@ -131,6 +131,8 @@ class Processes(Entity):
     	
     	**type**\: list of  		 :py:class:`AllLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.Processes.AllLocations>`
     
+    	**config**\: False
+    
     
 
     """
@@ -167,6 +169,8 @@ class Processes(Entity):
         	
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: ip_addr
         
         	IP address of the location
@@ -180,6 +184,8 @@ class Processes(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: pcbs
         
         	Total number of process control blocks
@@ -187,10 +193,14 @@ class Processes(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: name
         
         	
         	**type**\: list of  		 :py:class:`Name <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.Processes.AllLocations.Name>`
+        
+        	**config**\: False
         
         
 
@@ -235,6 +245,8 @@ class Processes(Entity):
             	Name of the process
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: instance_id  (key)
             
             	Instance identifier
@@ -242,20 +254,28 @@ class Processes(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: path
             
             	Process path
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: startup_file
             
             	Process startup file
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: startup_mode
             
             	When is a process started
             	**type**\:  :py:class:`StartupMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.StartupMode>`
+            
+            	**config**\: False
             
             .. attribute:: heart_beat_timeout
             
@@ -264,10 +284,14 @@ class Processes(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: last_heart_beat_time
             
             	How long ago last heart beat was detected
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: max_restarts
             
@@ -276,6 +300,8 @@ class Processes(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: respawn_reset_timer
             
             	Respawn reset timer in min
@@ -283,25 +309,35 @@ class Processes(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mandatory
             
             	Mandatory process
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: maint_mode
             
             	Should run during maintenance mode
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: args
             
             	Process arguments
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: proc_state
             
             	State of the process
             	**type**\:  :py:class:`ProcessState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.ProcessState>`
+            
+            	**config**\: False
             
             .. attribute:: pid
             
@@ -310,15 +346,21 @@ class Processes(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: proc_aborted
             
             	Whether the processes ever aborted
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: exit_status
             
             	Last exit status/info of the process
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: respawns
             
@@ -327,25 +369,35 @@ class Processes(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: start_time
             
             	Last start date and time
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: ready_time
             
             	Time for ready from start\-time
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: last_exit_time
             
             	Last exit date and time
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: services
             
             	
             	**type**\: list of  		 :py:class:`Services <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.Processes.AllLocations.Name.Services>`
+            
+            	**config**\: False
             
             
 
@@ -423,40 +475,56 @@ class Processes(Entity):
                 	Name of the service
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: scope
                 
                 	Scope of the service
                 	**type**\:  :py:class:`ServiceScope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.ServiceScope>`
+                
+                	**config**\: False
                 
                 .. attribute:: redundancy
                 
                 	Service redundancy support
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: ha_ready
                 
                 	Standby ready for HA
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: service_state
                 
                 	State of the service
                 	**type**\:  :py:class:`ServiceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.ServiceState>`
                 
+                	**config**\: False
+                
                 .. attribute:: ha_role
                 
                 	Service role
                 	**type**\:  :py:class:`ServiceRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.ServiceRole>`
+                
+                	**config**\: False
                 
                 .. attribute:: new_ha_role
                 
                 	New service role, different if PM in process of assigning
                 	**type**\:  :py:class:`ServiceRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.ServiceRole>`
                 
+                	**config**\: False
+                
                 .. attribute:: selected
                 
                 	Service seleted to run on the node
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ip1
                 
@@ -471,6 +539,8 @@ class Processes(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ip2
                 
                 	Second IP address in the selection
@@ -484,20 +554,28 @@ class Processes(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: svc_start_time
                 
                 	Last start date and time
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: svc_ready_time
                 
                 	Time it took to get ready since start time
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: svc_haready_time
                 
                 	Time it took to get HA\-ready since start time
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -549,9 +627,14 @@ class Processes(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Processes.AllLocations.Name.Services, ['service_name', 'scope', 'redundancy', 'ha_ready', 'service_state', 'ha_role', 'new_ha_role', 'selected', 'ip1', 'ip2', 'svc_start_time', 'svc_ready_time', 'svc_haready_time'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Processes()
         return self._top_entity
+
+
 
 class ProcessManager(Entity):
     """
@@ -561,6 +644,8 @@ class ProcessManager(Entity):
     
     	
     	**type**\: list of  		 :py:class:`AllLocationsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.ProcessManager.AllLocationsInfo>`
+    
+    	**config**\: False
     
     
 
@@ -598,6 +683,8 @@ class ProcessManager(Entity):
         	
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: ip_addr_info
         
         	IP address of the location
@@ -611,30 +698,42 @@ class ProcessManager(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: pm_start_time
         
         	Last start date and time for PM
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: mand_proc_down
         
         	PM in mandatory process down state
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: vmm_capi_up
         
         	Status of CAPI with vm\-manager
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: wdmon_capi_up
         
         	Status of CAPI with wdmon
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: wdmon_capi_timestamp
         
         	Date and time of last wdmon CAPI connection establish
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: wdmon_num_capi_connects
         
@@ -642,6 +741,8 @@ class ProcessManager(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -684,9 +785,12 @@ class ProcessManager(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ProcessManager.AllLocationsInfo, ['location_info', 'ip_addr_info', 'pm_start_time', 'mand_proc_down', 'vmm_capi_up', 'wdmon_capi_up', 'wdmon_capi_timestamp', 'wdmon_num_capi_connects'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ProcessManager()
         return self._top_entity
+
+
 
 class Pm(Entity):
     """
@@ -696,6 +800,8 @@ class Pm(Entity):
     
     	
     	**type**\:  :py:class:`Pm_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.Pm.Pm_>`
+    
+    	**config**\: False
     
     
 
@@ -735,6 +841,8 @@ class Pm(Entity):
         	show traceable processes
         	**type**\: list of  		 :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.Pm.Pm_.Trace>`
         
+        	**config**\: False
+        
         
 
         """
@@ -771,10 +879,14 @@ class Pm(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.Pm.Pm_.Trace.Location>`
+            
+            	**config**\: False
             
             
 
@@ -815,10 +927,14 @@ class Pm(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: all_options
                 
                 	
                 	**type**\: list of  		 :py:class:`AllOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.Pm.Pm_.Trace.Location.AllOptions>`
+                
+                	**config**\: False
                 
                 
 
@@ -858,10 +974,14 @@ class Pm(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: trace_blocks
                     
                     	
                     	**type**\: list of  		 :py:class:`TraceBlocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm.Pm.Pm_.Trace.Location.AllOptions.TraceBlocks>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -901,6 +1021,8 @@ class Pm(Entity):
                         	Trace output block
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -927,7 +1049,14 @@ class Pm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pm.Pm_.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Pm()
         return self._top_entity
+
+
 

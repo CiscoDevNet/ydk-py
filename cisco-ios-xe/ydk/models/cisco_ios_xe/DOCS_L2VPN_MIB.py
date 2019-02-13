@@ -60,65 +60,91 @@ class DOCSL2VPNMIB(Entity):
     	Table indexed by the octet string DocsL2vpnIdentifier that  provides the local agent's internally assigned docsL2vpnIdx  value for that DocsL2vpnIdentifier value. The mapping of   DocsL2vpnIdentifier to docsL2vpnIdx is 1\-1. The agent   must instantiate a row in both docsL2vpnIndexToIdTable and  docsL2vpnIdToIndexTable for each known L2VPN Identifier
     	**type**\:  :py:class:`DocsL2vpnIdToIndexTable <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnIdToIndexTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsl2vpnindextoidtable
     
     	Table indexed by agent's local docsL2vpnIdx that provides  the global L2VPN Identifier. The mapping of docsL2vpnIdx to  DocsL2vpnIdentifier is 1\-1. The agent must instantiate a   row in both docsL2vpnIndexToIdTable and   docsL2vpnIdToIndexTable for each known L2VPN
     	**type**\:  :py:class:`DocsL2vpnIndexToIdTable <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnIndexToIdTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsl2vpncmtable
     
     	This table describes L2VPN per\-CM information that  is in common with all L2VPNs for the CM, regardless  of forwarding mode
     	**type**\:  :py:class:`DocsL2vpnCmTable <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnCmTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsl2vpnvpncmtable
     
     	This table describes the operation of L2VPN forwarding  on each CM
     	**type**\:  :py:class:`DocsL2vpnVpnCmTable <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnVpnCmTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsl2vpnvpncmstatstable
     
     	This table contains statistics for forwarding of   packets to and from a CM on each VPN
     	**type**\:  :py:class:`DocsL2vpnVpnCmStatsTable <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnVpnCmStatsTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsl2vpnportstatustable
     
     	This table displays summary information for the  run\-time state of each VPN that is currently operating   on each bridge port
     	**type**\:  :py:class:`DocsL2vpnPortStatusTable <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnPortStatusTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsl2vpnsfstatustable
     
     	This table displays SF\-specific L2VPN forwarding status   for each upstream service flow configured with a per\-SF    L2VPN Encoding.    Objects which were signaled in a per\-SF L2VPN Encoding but   apply for the entire CM are shown in the    docsL2vpnVpnCmTable
     	**type**\:  :py:class:`DocsL2vpnSfStatusTable <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnSfStatusTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsl2vpnpktclasstable
     
     	This table provides the L2VPN\-specific objects for  packet classifiers that apply to only L2VPN traffic.   The indices of this table are a subset of the  indices of classifiers in docsQosPktClassTable
     	**type**\:  :py:class:`DocsL2vpnPktClassTable <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnPktClassTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsl2vpncmnsitable
     
     	This table describes the NSI configuration for a single  CM when operating in point\-to\-point forwarding mode for an  L2VPN
     	**type**\:  :py:class:`DocsL2vpnCmNsiTable <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnCmNsiTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsl2vpncmvpncpetable
     
     	This table is a list of CPEs, indexed by the VPNs on a   Cable Modem
     	**type**\:  :py:class:`DocsL2vpnCmVpnCpeTable <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnCmVpnCpeTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsl2vpnvpncmcpetable
     
     	This table contains a list of bridging CPEs, indexed by  L2VPN Index and the corresponding CMs on that VPN
     	**type**\:  :py:class:`DocsL2vpnVpnCmCpeTable <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnVpnCmCpeTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsl2vpndot1qtpfdbexttable
     
     	This table contains packet counters for   Unicast MAC Addresses within a VPN
     	**type**\:  :py:class:`DocsL2vpnDot1qTpFdbExtTable <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnDot1qTpFdbExtTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsl2vpndot1qtpgroupexttable
     
     	This table contains packet counters for   Multicast MAC Addresses within a VPN
     	**type**\:  :py:class:`DocsL2vpnDot1qTpGroupExtTable <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnDot1qTpGroupExtTable>`
+    
+    	**config**\: False
     
     
 
@@ -211,6 +237,8 @@ class DOCSL2VPNMIB(Entity):
         	Maps a DocsL2vpnIdentifier octet string into the local   agent's locally assigned docsL2vpnIdx value
         	**type**\: list of  		 :py:class:`DocsL2vpnIdToIndexEntry <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnIdToIndexTable.DocsL2vpnIdToIndexEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -248,12 +276,16 @@ class DOCSL2VPNMIB(Entity):
             	An externally configured octet string that identifies an  L2VPN
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpnidtoindexidx
             
             	An internally assigned index value for a known L2VPN
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -282,7 +314,9 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnIdToIndexTable.DocsL2vpnIdToIndexEntry, ['docsl2vpnid', 'docsl2vpnidtoindexidx'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnIdToIndexTable.DocsL2vpnIdToIndexEntry, [u'docsl2vpnid', u'docsl2vpnidtoindexidx'], name, value)
+
+
 
 
     class DocsL2vpnIndexToIdTable(Entity):
@@ -297,6 +331,8 @@ class DOCSL2VPNMIB(Entity):
         
         	Provides the L2VPN Identifier for each locally\-assigned   L2vpn Index
         	**type**\: list of  		 :py:class:`DocsL2vpnIndexToIdEntry <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnIndexToIdTable.DocsL2vpnIndexToIdEntry>`
+        
+        	**config**\: False
         
         
 
@@ -337,10 +373,14 @@ class DOCSL2VPNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpnindextoidid
             
             	An administered octet string that externally identifies an  L2VPN
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -369,7 +409,9 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnIndexToIdTable.DocsL2vpnIndexToIdEntry, ['docsl2vpnidx', 'docsl2vpnindextoidid'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnIndexToIdTable.DocsL2vpnIndexToIdEntry, [u'docsl2vpnidx', u'docsl2vpnindextoidid'], name, value)
+
+
 
 
     class DocsL2vpnCmTable(Entity):
@@ -382,6 +424,8 @@ class DOCSL2VPNMIB(Entity):
         
         	An entry is indexed by Cable Modem Index that  describes L2VPN information for a single CM that is in  common with all L2VPNs implemented by the CM,  regardless of the L2VPN forwarding mode.   An entry in this table is created for every CM that   registers with a forwarding L2VPN encoding
         	**type**\: list of  		 :py:class:`DocsL2vpnCmEntry <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnCmTable.DocsL2vpnCmEntry>`
+        
+        	**config**\: False
         
         
 
@@ -429,25 +473,35 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`docsifcmtscmstatusindex <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsCmStatusTable.DocsIfCmtsCmStatusEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpncmcompliantcapability
             
             	This object reports whether an L2VPN forwarding CM is  compliant with the DOCSIS L2VPN specification, as reported  in the L2VPN Capability encoding in the CM's registration  request message.   If the capability encoding was omitted, this object must  report the value false(2)
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsl2vpncmdutfilteringcapability
             
             	This object reports whether an L2VPN forwarding CM is  capable of Downstream Unencrypted Traffic (DUT) Filtering,  as reported in the CM's registration request message.   If the capability encoding was omitted, this object must  report the value false(2)
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpncmdutcmim
             
             	This object reports the value configured in a per\-CM   L2VPN Encoding for Downstream Unencrypted Traffic (DUT)  Cable Modem Interface Mask (CMIM).    The DUT CMIM is a bit string with a '1' for each bit   position K for an internal or external CM interface with   ifIndex K to which the CM permits DUT to be forwarded. A CM  capable of DUT filtering MUST discard DUT to interfaces  with a '0' in the DUT CMIM.    If a CM's top\-level registration request L2VPN Encoding  contained no DUT CMIM subtype, this object is reported  with its default value of a '1' in bit position 0   (corresponding to the eCM's own 'self' host) and a '1' in   each bit position K for which an eSAFE interface exists at  ifIndex K. In other words, the default DUT CMIM includes   the eCM and all eSAFE interfaces.   This value is reported independently of whether the CM is  actually capable of performing DUT filtering
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpncmdhcpsnooping
             
             	This object reports the value of the Enable DHCP Snooping  subtype of a top\-level L2VPN Encoding.    It has the syntax of a CM Interface List bitmask and  represents a set of CM MAC bridge interfaces   corresponding to eSAFE hosts for which the CMTS is enabled   to snoop DHCP traffic in order to learn the eSAFE host MAC  address on that interface.     Only bits corresponding to eSAFE host MAC addresses may be  validly set in this object, including cpe(1) for ePS  and the eSAFE interfaces in bits positions 16 through 31
             	**type**\:  :py:class:`DocsL2vpnIfList <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DocsL2vpnIfList>`
+            
+            	**config**\: False
             
             
 
@@ -482,7 +536,9 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnCmTable.DocsL2vpnCmEntry, ['docsifcmtscmstatusindex', 'docsl2vpncmcompliantcapability', 'docsl2vpncmdutfilteringcapability', 'docsl2vpncmdutcmim', 'docsl2vpncmdhcpsnooping'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnCmTable.DocsL2vpnCmEntry, [u'docsifcmtscmstatusindex', u'docsl2vpncmcompliantcapability', u'docsl2vpncmdutfilteringcapability', u'docsl2vpncmdutcmim', u'docsl2vpncmdhcpsnooping'], name, value)
+
+
 
 
     class DocsL2vpnVpnCmTable(Entity):
@@ -494,6 +550,8 @@ class DOCSL2VPNMIB(Entity):
         
         	An entry is indexed by VPN ID and Cable Modem Index that  describes the operation of L2VPN forwarding for a single  L2VPN on a single CM
         	**type**\: list of  		 :py:class:`DocsL2vpnVpnCmEntry <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnVpnCmTable.DocsL2vpnVpnCmEntry>`
+        
+        	**config**\: False
         
         
 
@@ -537,6 +595,8 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`docsl2vpnidx <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnIndexToIdTable.DocsL2vpnIndexToIdEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtscmstatusindex  (key)
             
             	
@@ -546,10 +606,14 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`docsifcmtscmstatusindex <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsCmStatusTable.DocsIfCmtsCmStatusEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpnvpncmcmim
             
             	A Cable Modem Interface Mask represents a set of   MAC bridge interfaces within the CM. This object  represents the CMIM within a forwarding per\-SF L2VPN   encoding, which specifies a set of CM MAC bridge   interfaces to which L2VPN forwarding is restricted.   If the CMIM Subtype is omitted from a forwarding  per\-SF encoding, its default value includes only  cpePrimary(1) and cableMac(2), which can be encoded  with a single octet with the value 0x60
             	**type**\:  :py:class:`DocsL2vpnIfList <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DocsL2vpnIfList>`
+            
+            	**config**\: False
             
             .. attribute:: docsl2vpnvpncmindividualsaid
             
@@ -558,10 +622,14 @@ class DOCSL2VPNMIB(Entity):
             
             	**range:** 0..16383
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpnvpncmvendorspecific
             
             	This object encodes the concatenation of all Vendor   Specific Subtype encodings that appeared in any   registration per\-CM L2VPN Encoding associated with this   entry
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -596,7 +664,9 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnVpnCmTable.DocsL2vpnVpnCmEntry, ['docsl2vpnidx', 'docsifcmtscmstatusindex', 'docsl2vpnvpncmcmim', 'docsl2vpnvpncmindividualsaid', 'docsl2vpnvpncmvendorspecific'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnVpnCmTable.DocsL2vpnVpnCmEntry, [u'docsl2vpnidx', u'docsifcmtscmstatusindex', u'docsl2vpnvpncmcmim', u'docsl2vpnvpncmindividualsaid', u'docsl2vpnvpncmvendorspecific'], name, value)
+
+
 
 
     class DocsL2vpnVpnCmStatsTable(Entity):
@@ -608,6 +678,8 @@ class DOCSL2VPNMIB(Entity):
         
         	An entry is indexed by VPN ID and Cable Modem Index
         	**type**\: list of  		 :py:class:`DocsL2vpnVpnCmStatsEntry <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnVpnCmStatsTable.DocsL2vpnVpnCmStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -649,6 +721,8 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`docsl2vpnidx <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnIndexToIdTable.DocsL2vpnIndexToIdEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtscmstatusindex  (key)
             
             	
@@ -658,12 +732,16 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`docsifcmtscmstatusindex <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsCmStatusTable.DocsIfCmtsCmStatusEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpnvpncmstatsupstreampkts
             
             	The number of L2vpn\-forwarded packets received  from this instance's Cable Modem on  this instance's L2VPN
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsl2vpnvpncmstatsupstreambytes
             
@@ -672,12 +750,16 @@ class DOCSL2VPNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpnvpncmstatsupstreamdiscards
             
             	The number of L2\-forwarded packets   discarded from this instance's   Cable Modem on this instance's VPN
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsl2vpnvpncmstatsdownstreampkts
             
@@ -686,6 +768,8 @@ class DOCSL2VPNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpnvpncmstatsdownstreambytes
             
             	The number of L2\-forwarded bytes  transmitted to this instance's  Cable Modem on this instance's VPN
@@ -693,12 +777,16 @@ class DOCSL2VPNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpnvpncmstatsdownstreamdiscards
             
             	The number of L2\-forwarded packets that were discarded   before they could be transmitted to this instance's   Cable Modem on this instance's VPN
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -739,7 +827,9 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnVpnCmStatsTable.DocsL2vpnVpnCmStatsEntry, ['docsl2vpnidx', 'docsifcmtscmstatusindex', 'docsl2vpnvpncmstatsupstreampkts', 'docsl2vpnvpncmstatsupstreambytes', 'docsl2vpnvpncmstatsupstreamdiscards', 'docsl2vpnvpncmstatsdownstreampkts', 'docsl2vpnvpncmstatsdownstreambytes', 'docsl2vpnvpncmstatsdownstreamdiscards'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnVpnCmStatsTable.DocsL2vpnVpnCmStatsEntry, [u'docsl2vpnidx', u'docsifcmtscmstatusindex', u'docsl2vpnvpncmstatsupstreampkts', u'docsl2vpnvpncmstatsupstreambytes', u'docsl2vpnvpncmstatsupstreamdiscards', u'docsl2vpnvpncmstatsdownstreampkts', u'docsl2vpnvpncmstatsdownstreambytes', u'docsl2vpnvpncmstatsdownstreamdiscards'], name, value)
+
+
 
 
     class DocsL2vpnPortStatusTable(Entity):
@@ -752,6 +842,8 @@ class DOCSL2VPNMIB(Entity):
         
         	Information specific to the operation of L2VPN forwarding  on a particular CMTS 'bridge port'. A CMTS 'bridge port'   may be defined by the CMTS vendor, but is advantageously a  single DOCSIS MAC Domain
         	**type**\: list of  		 :py:class:`DocsL2vpnPortStatusEntry <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnPortStatusTable.DocsL2vpnPortStatusEntry>`
+        
+        	**config**\: False
         
         
 
@@ -796,6 +888,8 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1dbaseport <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpnidx  (key)
             
             	
@@ -805,12 +899,16 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`docsl2vpnidx <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnIndexToIdTable.DocsL2vpnIndexToIdEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpnportstatusgroupsaid
             
             	The Group SAID associated with this VPN on a   particular CMTS MAC domain. This SAID is used to encrypt  all downstream flooded bridge traffic sent to CMs on   this VPN and CMTS MAC domain bridge port.    A value of '0' means there is no associated Group SAID for  this VPN and bridge port, e.g., if the L2VPN uses  point\-to\-point individual SAIDs only for forwarding.   A bridge port that is not a CMTS MAC  domain will report a value of '0'
             	**type**\: int
             
             	**range:** 0..16383
+            
+            	**config**\: False
             
             
 
@@ -841,7 +939,9 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnPortStatusTable.DocsL2vpnPortStatusEntry, ['dot1dbaseport', 'docsl2vpnidx', 'docsl2vpnportstatusgroupsaid'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnPortStatusTable.DocsL2vpnPortStatusEntry, [u'dot1dbaseport', u'docsl2vpnidx', u'docsl2vpnportstatusgroupsaid'], name, value)
+
+
 
 
     class DocsL2vpnSfStatusTable(Entity):
@@ -858,6 +958,8 @@ class DOCSL2VPNMIB(Entity):
         
         	SF\-specific L2VPN forwarding status information for each  upstream service flow configured with a per\-SF L2VPN   Encoding. The ifIndex is of type docsCableMacLayer(127)
         	**type**\: list of  		 :py:class:`DocsL2vpnSfStatusEntry <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnSfStatusTable.DocsL2vpnSfStatusEntry>`
+        
+        	**config**\: False
         
         
 
@@ -901,6 +1003,8 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowid  (key)
             
             	
@@ -910,10 +1014,14 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`docsqosserviceflowid <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosServiceFlowTable.DocsQosServiceFlowEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpnsfstatusl2vpnid
             
             	This object represents the value of the L2VPN Identifier  subtype of a per\-SF L2VPN Encoding
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: docsl2vpnsfstatusingressuserpriority
             
@@ -922,10 +1030,14 @@ class DOCSL2VPNMIB(Entity):
             
             	**range:** 0..7
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpnsfstatusvendorspecific
             
             	This object provides the set of configured Vendor Specific  subtypes within a per\-SF L2VPN Encoding for a CM. If no   Vendor Specific subtype was specified, this object is a   zero length octet string. If one or more Vendor Specific   subtype parameters was specified, this object represents   the concatenation of all such subtypes
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -960,7 +1072,9 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnSfStatusTable.DocsL2vpnSfStatusEntry, ['ifindex', 'docsqosserviceflowid', 'docsl2vpnsfstatusl2vpnid', 'docsl2vpnsfstatusingressuserpriority', 'docsl2vpnsfstatusvendorspecific'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnSfStatusTable.DocsL2vpnSfStatusEntry, [u'ifindex', u'docsqosserviceflowid', u'docsl2vpnsfstatusl2vpnid', u'docsl2vpnsfstatusingressuserpriority', u'docsl2vpnsfstatusvendorspecific'], name, value)
+
+
 
 
     class DocsL2vpnPktClassTable(Entity):
@@ -974,6 +1088,8 @@ class DOCSL2VPNMIB(Entity):
         
         	An entry in this table extends a single row  of docsQosPktClassTable for a rule that applies only to  downstream L2VPN forwarded packets.  The index ifIndex is an ifType of docsCableMaclayer(127)
         	**type**\: list of  		 :py:class:`DocsL2vpnPktClassEntry <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnPktClassTable.DocsL2vpnPktClassEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1018,6 +1134,8 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsqosserviceflowid  (key)
             
             	
@@ -1026,6 +1144,8 @@ class DOCSL2VPNMIB(Entity):
             	**range:** 1..4294967295
             
             	**refers to**\:  :py:class:`docsqosserviceflowid <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosServiceFlowTable.DocsQosServiceFlowEntry>`
+            
+            	**config**\: False
             
             .. attribute:: docsqospktclassid  (key)
             
@@ -1036,10 +1156,14 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`docsqospktclassid <ydk.models.cisco_ios_xe.DOCS_QOS_MIB.DOCSQOSMIB.DocsQosPktClassTable.DocsQosPktClassEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpnpktclassl2vpnid
             
             	The locally assigned L2VPN index corresponding to the VPN  Identifier subtype of a Downstream Classifier L2VPN   Encoding
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: docsl2vpnpktclassuserprirangelow
             
@@ -1048,6 +1172,8 @@ class DOCSL2VPNMIB(Entity):
             
             	**range:** 0..7
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpnpktclassuserprirangehigh
             
             	The higher priority of the user Priority Range subtype  of a Downstream Classifier L2VPN Encoding. If the subtype  was omitted, this object has value 7
@@ -1055,15 +1181,21 @@ class DOCSL2VPNMIB(Entity):
             
             	**range:** 0..7
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpnpktclasscmim
             
             	The Cable Modem Interface Mask (CMIM) signaled in a   Packet Classifier Encoding.  In a Downstream Packet   Classifier Encoding, a specified CMIM value restricts the   classifier to match packets with a Destination MAC address  corresponding to the interfaces indicated in the CMIM mask.  The eCM self and any eSAFE interface bits correspond to  the individual eCM and eSAFE host MAC addresses.   In an Upstream Packet Classifier encoding, a specified CMIM  value restricts the classifier to match packets with an   ingress bridge port interface matching the bits in the   CMIM value.   If the CMIM subtype was omitted, this object should be   reported as a zero length octet string
             	**type**\:  :py:class:`DocsL2vpnIfList <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DocsL2vpnIfList>`
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpnpktclassvendorspecific
             
             	This object provides the set of configured   Vendor Specific subtypes within a Packet Classifier   Encoding for a CM. If no Vendor Specific subtype was   specified, this object is a zero length octet string.   If one or more Vendor Specific subtype parameters was   specified, this object represents the concatenation of all  such subtypes
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1104,7 +1236,9 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnPktClassTable.DocsL2vpnPktClassEntry, ['ifindex', 'docsqosserviceflowid', 'docsqospktclassid', 'docsl2vpnpktclassl2vpnid', 'docsl2vpnpktclassuserprirangelow', 'docsl2vpnpktclassuserprirangehigh', 'docsl2vpnpktclasscmim', 'docsl2vpnpktclassvendorspecific'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnPktClassTable.DocsL2vpnPktClassEntry, [u'ifindex', u'docsqosserviceflowid', u'docsqospktclassid', u'docsl2vpnpktclassl2vpnid', u'docsl2vpnpktclassuserprirangelow', u'docsl2vpnpktclassuserprirangehigh', u'docsl2vpnpktclasscmim', u'docsl2vpnpktclassvendorspecific'], name, value)
+
+
 
 
     class DocsL2vpnCmNsiTable(Entity):
@@ -1117,6 +1251,8 @@ class DOCSL2VPNMIB(Entity):
         
         	An entry indexed by VPN ID and Cable Modem Index that  describes the point\-to\-point forwarding between a single  NSI encapsulation and a single CM. This table is   implemented only for a CM forwarding an L2VPN on a   point\-to\-point basis. It is associated with a single   per\-CM L2VPN encoding
         	**type**\: list of  		 :py:class:`DocsL2vpnCmNsiEntry <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnCmNsiTable.DocsL2vpnCmNsiEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1163,6 +1299,8 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`docsl2vpnidx <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnIndexToIdTable.DocsL2vpnIndexToIdEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtscmstatusindex  (key)
             
             	
@@ -1172,30 +1310,42 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`docsifcmtscmstatusindex <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsCmStatusTable.DocsIfCmtsCmStatusEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpncmnsiencapsubtype
             
             	The General Encapsulation Information (GEI) subtype of the  Network System Interface (NSI) encapsulation configured  for the CM
             	**type**\:  :py:class:`DocsNsiEncapSubtype <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DocsNsiEncapSubtype>`
+            
+            	**config**\: False
             
             .. attribute:: docsl2vpncmnsiencapvalue
             
             	The encapsulation value for L2VPN forwarded packets on NSI  ports
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpncmnsiagi
             
             	This object is the configuration of any Attachment Group   Identifier subtype in the per\-SF L2VPN Encoding   represented by this row. If the subtype was omitted, this   object's value is a zero length string
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: docsl2vpncmnsisaii
             
             	This object is the configuration of any Source   Attachment Individual ID subtype in the L2VPN Encoding   represented by this row. If the subtype was omitted, this  object's value is a zero length string
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpncmnsitaii
             
             	This object is the configuration of any Target  Attachment Individual ID subtype in the L2VPN Encoding  represented by this row. If the subtype was omitted, this  object's value is a zero length string
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1234,7 +1384,9 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnCmNsiTable.DocsL2vpnCmNsiEntry, ['docsl2vpnidx', 'docsifcmtscmstatusindex', 'docsl2vpncmnsiencapsubtype', 'docsl2vpncmnsiencapvalue', 'docsl2vpncmnsiagi', 'docsl2vpncmnsisaii', 'docsl2vpncmnsitaii'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnCmNsiTable.DocsL2vpnCmNsiEntry, [u'docsl2vpnidx', u'docsifcmtscmstatusindex', u'docsl2vpncmnsiencapsubtype', u'docsl2vpncmnsiencapvalue', u'docsl2vpncmnsiagi', u'docsl2vpncmnsisaii', u'docsl2vpncmnsitaii'], name, value)
+
+
 
 
     class DocsL2vpnCmVpnCpeTable(Entity):
@@ -1246,6 +1398,8 @@ class DOCSL2VPNMIB(Entity):
         
         	This table is a list of CPEs, indexed by the VPNs on a   Cable Modem
         	**type**\: list of  		 :py:class:`DocsL2vpnCmVpnCpeEntry <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnCmVpnCpeTable.DocsL2vpnCmVpnCpeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1288,6 +1442,8 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`docsifcmtscmstatusindex <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsCmStatusTable.DocsIfCmtsCmStatusEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpnidx  (key)
             
             	
@@ -1297,12 +1453,16 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`docsl2vpnidx <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnIndexToIdTable.DocsL2vpnIndexToIdEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpncmvpncpemacaddress  (key)
             
             	The Customer Premise Equipment (CPE) Mac Address  that is attached to this instances Cable Modem  and bridging on this instance's VPN Id
             	**type**\: str
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+            
+            	**config**\: False
             
             
 
@@ -1333,7 +1493,9 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnCmVpnCpeTable.DocsL2vpnCmVpnCpeEntry, ['docsifcmtscmstatusindex', 'docsl2vpnidx', 'docsl2vpncmvpncpemacaddress'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnCmVpnCpeTable.DocsL2vpnCmVpnCpeEntry, [u'docsifcmtscmstatusindex', u'docsl2vpnidx', u'docsl2vpncmvpncpemacaddress'], name, value)
+
+
 
 
     class DocsL2vpnVpnCmCpeTable(Entity):
@@ -1345,6 +1507,8 @@ class DOCSL2VPNMIB(Entity):
         
         	This table contains a list of bridging CPEs, indexed by  VPN and the corresponding CMs on that VPN
         	**type**\: list of  		 :py:class:`DocsL2vpnVpnCmCpeEntry <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnVpnCmCpeTable.DocsL2vpnVpnCmCpeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1387,6 +1551,8 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`docsl2vpnidx <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnIndexToIdTable.DocsL2vpnIndexToIdEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtscmstatusindex  (key)
             
             	
@@ -1396,12 +1562,16 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`docsifcmtscmstatusindex <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsCmStatusTable.DocsIfCmtsCmStatusEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpnvpncmcpemacaddress  (key)
             
             	The Customer Premise Equipment (CPE) Mac Address  that is attached to this instances Cable Modem  and bridging on this instance's L2vpn Index
             	**type**\: str
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+            
+            	**config**\: False
             
             
 
@@ -1432,7 +1602,9 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnVpnCmCpeTable.DocsL2vpnVpnCmCpeEntry, ['docsl2vpnidx', 'docsifcmtscmstatusindex', 'docsl2vpnvpncmcpemacaddress'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnVpnCmCpeTable.DocsL2vpnVpnCmCpeEntry, [u'docsl2vpnidx', u'docsifcmtscmstatusindex', u'docsl2vpnvpncmcpemacaddress'], name, value)
+
+
 
 
     class DocsL2vpnDot1qTpFdbExtTable(Entity):
@@ -1444,6 +1616,8 @@ class DOCSL2VPNMIB(Entity):
         
         	This table extends the dot1qTpFdbTable only for RF network  bridge port entries.  It is implemented by an agent only  if the agent implements dot1qTpFdbTable for RF network  bridge ports
         	**type**\: list of  		 :py:class:`DocsL2vpnDot1qTpFdbExtEntry <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnDot1qTpFdbExtTable.DocsL2vpnDot1qTpFdbExtEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1488,6 +1662,8 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1qfdbid <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qFdbTable.Dot1qFdbEntry>`
             
+            	**config**\: False
+            
             .. attribute:: dot1qtpfdbaddress  (key)
             
             	
@@ -1497,6 +1673,8 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1qtpfdbaddress <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qTpFdbTable.Dot1qTpFdbEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpndot1qtpfdbexttransmitpkts
             
             	The number of packets where the Destination   MAC Address matched this instance   dot1qTpFdbAddress and packet was bridged on  a VPN, where the VPN ID matched this   instance's dot1qFdbId
@@ -1504,12 +1682,16 @@ class DOCSL2VPNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpndot1qtpfdbextreceivepkts
             
             	The number of packets where the Source MAC   Address matched this instance dot1qTpFdbAddress  and the packet was bridged on a VPN,  where the docsL2vpnIdx matched this instance's   dot1qFdbId
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1542,7 +1724,9 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnDot1qTpFdbExtTable.DocsL2vpnDot1qTpFdbExtEntry, ['dot1qfdbid', 'dot1qtpfdbaddress', 'docsl2vpndot1qtpfdbexttransmitpkts', 'docsl2vpndot1qtpfdbextreceivepkts'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnDot1qTpFdbExtTable.DocsL2vpnDot1qTpFdbExtEntry, [u'dot1qfdbid', u'dot1qtpfdbaddress', u'docsl2vpndot1qtpfdbexttransmitpkts', u'docsl2vpndot1qtpfdbextreceivepkts'], name, value)
+
+
 
 
     class DocsL2vpnDot1qTpGroupExtTable(Entity):
@@ -1554,6 +1738,8 @@ class DOCSL2VPNMIB(Entity):
         
         	This table extends the dot1qTpGroupTable only for RF   Network bridge port entries.  It is implemented by an agent  Only if the agent implements dot1qTpGroupTable for RF   network bridge ports
         	**type**\: list of  		 :py:class:`DocsL2vpnDot1qTpGroupExtEntry <ydk.models.cisco_ios_xe.DOCS_L2VPN_MIB.DOCSL2VPNMIB.DocsL2vpnDot1qTpGroupExtTable.DocsL2vpnDot1qTpGroupExtEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1598,6 +1784,8 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1qvlanindex <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qVlanCurrentTable.Dot1qVlanCurrentEntry>`
             
+            	**config**\: False
+            
             .. attribute:: dot1qtpgroupaddress  (key)
             
             	
@@ -1607,6 +1795,8 @@ class DOCSL2VPNMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1qtpgroupaddress <ydk.models.cisco_ios_xe.Q_BRIDGE_MIB.QBRIDGEMIB.Dot1qTpGroupTable.Dot1qTpGroupEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpndot1qtpgroupexttransmitpkts
             
             	The number of packets where the Destination   MAC Address matched this instance   dot1qTpGroupAddress and packet was bridged on  a VPN, where the docsL2vpnIdx matched this   instance's dot1qVlanIndex
@@ -1614,12 +1804,16 @@ class DOCSL2VPNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsl2vpndot1qtpgroupextreceivepkts
             
             	The number of packets where the Source MAC   Address matched this instance dot1qTpGroupAddress  and the packet was bridged on a VPN,  where the docsL2vpnIdx matched this instance's   dot1qVlanIndex
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1652,9 +1846,13 @@ class DOCSL2VPNMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnDot1qTpGroupExtTable.DocsL2vpnDot1qTpGroupExtEntry, ['dot1qvlanindex', 'dot1qtpgroupaddress', 'docsl2vpndot1qtpgroupexttransmitpkts', 'docsl2vpndot1qtpgroupextreceivepkts'], name, value)
+                self._perform_setattr(DOCSL2VPNMIB.DocsL2vpnDot1qTpGroupExtTable.DocsL2vpnDot1qTpGroupExtEntry, [u'dot1qvlanindex', u'dot1qtpgroupaddress', u'docsl2vpndot1qtpgroupexttransmitpkts', u'docsl2vpndot1qtpgroupextreceivepkts'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = DOCSL2VPNMIB()
         return self._top_entity
+
+
 

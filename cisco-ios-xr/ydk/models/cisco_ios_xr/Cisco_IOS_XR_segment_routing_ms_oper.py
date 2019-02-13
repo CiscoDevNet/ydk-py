@@ -154,15 +154,21 @@ class Srms(Entity):
     	IP prefix to SID mappings
     	**type**\:  :py:class:`Mapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping>`
     
+    	**config**\: False
+    
     .. attribute:: adjacency_sid
     
     	Adjacency SID
     	**type**\:  :py:class:`AdjacencySid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.AdjacencySid>`
     
+    	**config**\: False
+    
     .. attribute:: policy
     
     	Policy operational data
     	**type**\:  :py:class:`Policy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy>`
+    
+    	**config**\: False
     
     
 
@@ -210,10 +216,14 @@ class Srms(Entity):
         	IPv4 prefix to SID mappings
         	**type**\:  :py:class:`MappingIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv4>`
         
+        	**config**\: False
+        
         .. attribute:: mapping_ipv6
         
         	IPv6 prefix to SID mappings
         	**type**\:  :py:class:`MappingIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv6>`
+        
+        	**config**\: False
         
         
 
@@ -257,6 +267,8 @@ class Srms(Entity):
             	IP prefix to SID mapping item. It's not possible to list all of the IP prefix to SID mappings, as the set of valid prefixes could be very large. Instead, SID map information must be retrieved individually for each prefix of interest
             	**type**\: list of  		 :py:class:`MappingMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv4.MappingMi>`
             
+            	**config**\: False
+            
             
 
             """
@@ -299,6 +311,8 @@ class Srms(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: prefix
                 
                 	Prefix
@@ -306,15 +320,21 @@ class Srms(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: addr
                 
                 	addr
                 	**type**\:  :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv4.MappingMi.Addr>`
                 
+                	**config**\: False
+                
                 .. attribute:: src
                 
                 	src
                 	**type**\:  :py:class:`SrmsMiSrcEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB>`
+                
+                	**config**\: False
                 
                 .. attribute:: router
                 
@@ -323,12 +343,16 @@ class Srms(Entity):
                 
                 	**length:** 0..30
                 
+                	**config**\: False
+                
                 .. attribute:: area
                 
                 	Area (OSPF) or Level (ISIS)
                 	**type**\: str
                 
                 	**length:** 0..30
+                
+                	**config**\: False
                 
                 .. attribute:: prefix_xr
                 
@@ -337,12 +361,16 @@ class Srms(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: sid_start
                 
                 	Starting SID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: sid_count
                 
@@ -351,12 +379,16 @@ class Srms(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: last_prefix
                 
                 	Last IP Prefix
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: last_sid_index
                 
@@ -365,10 +397,14 @@ class Srms(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: flag_attached
                 
                 	Attached flag
                 	**type**\:  :py:class:`SrmsMiFlagEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEB>`
+                
+                	**config**\: False
                 
                 
 
@@ -431,6 +467,8 @@ class Srms(Entity):
                     	AF
                     	**type**\:  :py:class:`SrmsMiAfEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEB>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4
                     
                     	IPv4
@@ -438,12 +476,16 @@ class Srms(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -477,6 +519,9 @@ class Srms(Entity):
                         self._perform_setattr(Srms.Mapping.MappingIpv4.MappingMi.Addr, [u'af', u'ipv4', u'ipv6'], name, value)
 
 
+
+
+
         class MappingIpv6(Entity):
             """
             IPv6 prefix to SID mappings
@@ -485,6 +530,8 @@ class Srms(Entity):
             
             	IP prefix to SID mapping item. It's not possible to list all of the IP prefix to SID mappings, as the set of valid prefixes could be very large. Instead, SID map information must be retrieved individually for each prefix of interest
             	**type**\: list of  		 :py:class:`MappingMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv6.MappingMi>`
+            
+            	**config**\: False
             
             
 
@@ -528,6 +575,8 @@ class Srms(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: prefix
                 
                 	Prefix
@@ -535,15 +584,21 @@ class Srms(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: addr
                 
                 	addr
                 	**type**\:  :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv6.MappingMi.Addr>`
                 
+                	**config**\: False
+                
                 .. attribute:: src
                 
                 	src
                 	**type**\:  :py:class:`SrmsMiSrcEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB>`
+                
+                	**config**\: False
                 
                 .. attribute:: router
                 
@@ -552,12 +607,16 @@ class Srms(Entity):
                 
                 	**length:** 0..30
                 
+                	**config**\: False
+                
                 .. attribute:: area
                 
                 	Area (OSPF) or Level (ISIS)
                 	**type**\: str
                 
                 	**length:** 0..30
+                
+                	**config**\: False
                 
                 .. attribute:: prefix_xr
                 
@@ -566,12 +625,16 @@ class Srms(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: sid_start
                 
                 	Starting SID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: sid_count
                 
@@ -580,12 +643,16 @@ class Srms(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: last_prefix
                 
                 	Last IP Prefix
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: last_sid_index
                 
@@ -594,10 +661,14 @@ class Srms(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: flag_attached
                 
                 	Attached flag
                 	**type**\:  :py:class:`SrmsMiFlagEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEB>`
+                
+                	**config**\: False
                 
                 
 
@@ -660,6 +731,8 @@ class Srms(Entity):
                     	AF
                     	**type**\:  :py:class:`SrmsMiAfEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEB>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4
                     
                     	IPv4
@@ -667,12 +740,16 @@ class Srms(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -706,6 +783,10 @@ class Srms(Entity):
                         self._perform_setattr(Srms.Mapping.MappingIpv6.MappingMi.Addr, [u'af', u'ipv4', u'ipv6'], name, value)
 
 
+
+
+
+
     class AdjacencySid(Entity):
         """
         Adjacency SID
@@ -714,6 +795,8 @@ class Srms(Entity):
         
         	L2 Adjacency Option
         	**type**\:  :py:class:`L2Adjacency <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.AdjacencySid.L2Adjacency>`
+        
+        	**config**\: False
         
         
 
@@ -753,6 +836,8 @@ class Srms(Entity):
             	Interface directory
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.AdjacencySid.L2Adjacency.Interfaces>`
             
+            	**config**\: False
+            
             
 
             """
@@ -790,6 +875,8 @@ class Srms(Entity):
                 
                 	Segment Routing Adjacency SID Interface
                 	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.AdjacencySid.L2Adjacency.Interfaces.Interface>`
+                
+                	**config**\: False
                 
                 
 
@@ -829,10 +916,14 @@ class Srms(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: address_family
                     
                     	address family container
                     	**type**\:  :py:class:`AddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -875,10 +966,14 @@ class Srms(Entity):
                         	IP version 4
                         	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IP version 6
                         	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -921,6 +1016,8 @@ class Srms(Entity):
                             	SID record
                             	**type**\: list of  		 :py:class:`SidRecord <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -956,6 +1053,8 @@ class Srms(Entity):
                                 	SID type
                                 	**type**\:  :py:class:`SidTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SidTypeEnum>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sid_value
                                 
                                 	SID value
@@ -963,10 +1062,14 @@ class Srms(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: nexthop_address
                                 
                                 	Nexthop address
                                 	**type**\:  :py:class:`NexthopAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord.NexthopAddress>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: interface_name
                                 
@@ -975,12 +1078,16 @@ class Srms(Entity):
                                 
                                 	**length:** 0..64
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sid_value_xr
                                 
                                 	SID Value
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: sid_type_xr
                                 
@@ -989,6 +1096,8 @@ class Srms(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: address_family
                                 
                                 	Interface address family
@@ -996,10 +1105,14 @@ class Srms(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: has_nexthop
                                 
                                 	Has nexthop
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: interface_count
                                 
@@ -1008,12 +1121,16 @@ class Srms(Entity):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: interface_delete_count
                                 
                                 	Interface delete count
                                 	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1059,7 +1176,7 @@ class Srms(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord, ['sid_type', 'sid_value', u'interface_name', u'sid_value_xr', u'sid_type_xr', u'address_family', u'has_nexthop', u'interface_count', u'interface_delete_count'], name, value)
+                                    self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord, ['sid_type', 'sid_value', 'interface_name', 'sid_value_xr', 'sid_type_xr', 'address_family', 'has_nexthop', 'interface_count', 'interface_delete_count'], name, value)
 
 
                                 class NexthopAddress(Entity):
@@ -1071,6 +1188,8 @@ class Srms(Entity):
                                     	AF
                                     	**type**\:  :py:class:`SrmsAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsAf>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv4
                                     
                                     	IPv4
@@ -1078,12 +1197,16 @@ class Srms(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv6
                                     
                                     	IPv6
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1113,7 +1236,10 @@ class Srms(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord.NexthopAddress, [u'af', u'ipv4', u'ipv6'], name, value)
+                                        self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord.NexthopAddress, ['af', 'ipv4', 'ipv6'], name, value)
+
+
+
 
 
                         class Ipv6(Entity):
@@ -1124,6 +1250,8 @@ class Srms(Entity):
                             
                             	SID record
                             	**type**\: list of  		 :py:class:`SidRecord <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1160,6 +1288,8 @@ class Srms(Entity):
                                 	SID type
                                 	**type**\:  :py:class:`SidTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SidTypeEnum>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sid_value
                                 
                                 	SID value
@@ -1167,10 +1297,14 @@ class Srms(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: nexthop_address
                                 
                                 	Nexthop address
                                 	**type**\:  :py:class:`NexthopAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord.NexthopAddress>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: interface_name
                                 
@@ -1179,12 +1313,16 @@ class Srms(Entity):
                                 
                                 	**length:** 0..64
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sid_value_xr
                                 
                                 	SID Value
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: sid_type_xr
                                 
@@ -1193,6 +1331,8 @@ class Srms(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: address_family
                                 
                                 	Interface address family
@@ -1200,10 +1340,14 @@ class Srms(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: has_nexthop
                                 
                                 	Has nexthop
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: interface_count
                                 
@@ -1212,12 +1356,16 @@ class Srms(Entity):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: interface_delete_count
                                 
                                 	Interface delete count
                                 	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1263,7 +1411,7 @@ class Srms(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord, ['sid_type', 'sid_value', u'interface_name', u'sid_value_xr', u'sid_type_xr', u'address_family', u'has_nexthop', u'interface_count', u'interface_delete_count'], name, value)
+                                    self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord, ['sid_type', 'sid_value', 'interface_name', 'sid_value_xr', 'sid_type_xr', 'address_family', 'has_nexthop', 'interface_count', 'interface_delete_count'], name, value)
 
 
                                 class NexthopAddress(Entity):
@@ -1275,6 +1423,8 @@ class Srms(Entity):
                                     	AF
                                     	**type**\:  :py:class:`SrmsAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsAf>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv4
                                     
                                     	IPv4
@@ -1282,12 +1432,16 @@ class Srms(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv6
                                     
                                     	IPv6
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1317,7 +1471,15 @@ class Srms(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord.NexthopAddress, [u'af', u'ipv4', u'ipv6'], name, value)
+                                        self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord.NexthopAddress, ['af', 'ipv4', 'ipv6'], name, value)
+
+
+
+
+
+
+
+
 
 
     class Policy(Entity):
@@ -1329,10 +1491,14 @@ class Srms(Entity):
         	IPv4 policy operational data
         	**type**\:  :py:class:`PolicyIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4>`
         
+        	**config**\: False
+        
         .. attribute:: policy_ipv6
         
         	IPv6 policy operational data
         	**type**\:  :py:class:`PolicyIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6>`
+        
+        	**config**\: False
         
         
 
@@ -1376,10 +1542,14 @@ class Srms(Entity):
             	IPv4 backup policy operational data
             	**type**\:  :py:class:`PolicyIpv4Backup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Backup>`
             
+            	**config**\: False
+            
             .. attribute:: policy_ipv4_active
             
             	IPv4 active policy operational data
             	**type**\:  :py:class:`PolicyIpv4Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Active>`
+            
+            	**config**\: False
             
             
 
@@ -1423,6 +1593,8 @@ class Srms(Entity):
                 	Mapping Item
                 	**type**\: list of  		 :py:class:`PolicyMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1461,15 +1633,21 @@ class Srms(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: addr
                     
                     	addr
                     	**type**\:  :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: src
                     
                     	src
                     	**type**\:  :py:class:`SrmsMiSrcEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: router
                     
@@ -1478,12 +1656,16 @@ class Srms(Entity):
                     
                     	**length:** 0..30
                     
+                    	**config**\: False
+                    
                     .. attribute:: area
                     
                     	Area (OSPF) or Level (ISIS)
                     	**type**\: str
                     
                     	**length:** 0..30
+                    
+                    	**config**\: False
                     
                     .. attribute:: prefix_xr
                     
@@ -1492,12 +1674,16 @@ class Srms(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: sid_start
                     
                     	Starting SID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: sid_count
                     
@@ -1506,12 +1692,16 @@ class Srms(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_prefix
                     
                     	Last IP Prefix
                     	**type**\: str
                     
                     	**length:** 0..50
+                    
+                    	**config**\: False
                     
                     .. attribute:: last_sid_index
                     
@@ -1520,10 +1710,14 @@ class Srms(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: flag_attached
                     
                     	Attached flag
                     	**type**\:  :py:class:`SrmsMiFlagEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEB>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1584,6 +1778,8 @@ class Srms(Entity):
                         	AF
                         	**type**\:  :py:class:`SrmsMiAfEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEB>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4
@@ -1591,12 +1787,16 @@ class Srms(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -1629,6 +1829,9 @@ class Srms(Entity):
                             self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr, [u'af', u'ipv4', u'ipv6'], name, value)
 
 
+
+
+
             class PolicyIpv4Active(Entity):
                 """
                 IPv4 active policy operational data
@@ -1637,6 +1840,8 @@ class Srms(Entity):
                 
                 	Mapping Item
                 	**type**\: list of  		 :py:class:`PolicyMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi>`
+                
+                	**config**\: False
                 
                 
 
@@ -1676,15 +1881,21 @@ class Srms(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: addr
                     
                     	addr
                     	**type**\:  :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: src
                     
                     	src
                     	**type**\:  :py:class:`SrmsMiSrcEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: router
                     
@@ -1693,12 +1904,16 @@ class Srms(Entity):
                     
                     	**length:** 0..30
                     
+                    	**config**\: False
+                    
                     .. attribute:: area
                     
                     	Area (OSPF) or Level (ISIS)
                     	**type**\: str
                     
                     	**length:** 0..30
+                    
+                    	**config**\: False
                     
                     .. attribute:: prefix_xr
                     
@@ -1707,12 +1922,16 @@ class Srms(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: sid_start
                     
                     	Starting SID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: sid_count
                     
@@ -1721,12 +1940,16 @@ class Srms(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_prefix
                     
                     	Last IP Prefix
                     	**type**\: str
                     
                     	**length:** 0..50
+                    
+                    	**config**\: False
                     
                     .. attribute:: last_sid_index
                     
@@ -1735,10 +1958,14 @@ class Srms(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: flag_attached
                     
                     	Attached flag
                     	**type**\:  :py:class:`SrmsMiFlagEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEB>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1799,6 +2026,8 @@ class Srms(Entity):
                         	AF
                         	**type**\:  :py:class:`SrmsMiAfEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEB>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4
@@ -1806,12 +2035,16 @@ class Srms(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -1844,6 +2077,10 @@ class Srms(Entity):
                             self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr, [u'af', u'ipv4', u'ipv6'], name, value)
 
 
+
+
+
+
         class PolicyIpv6(Entity):
             """
             IPv6 policy operational data
@@ -1853,10 +2090,14 @@ class Srms(Entity):
             	IPv6 backup policy operational data
             	**type**\:  :py:class:`PolicyIpv6Backup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup>`
             
+            	**config**\: False
+            
             .. attribute:: policy_ipv6_active
             
             	IPv6 active policy operational data
             	**type**\:  :py:class:`PolicyIpv6Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Active>`
+            
+            	**config**\: False
             
             
 
@@ -1900,6 +2141,8 @@ class Srms(Entity):
                 	Mapping Item
                 	**type**\: list of  		 :py:class:`PolicyMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1938,15 +2181,21 @@ class Srms(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: addr
                     
                     	addr
                     	**type**\:  :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: src
                     
                     	src
                     	**type**\:  :py:class:`SrmsMiSrcEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: router
                     
@@ -1955,12 +2204,16 @@ class Srms(Entity):
                     
                     	**length:** 0..30
                     
+                    	**config**\: False
+                    
                     .. attribute:: area
                     
                     	Area (OSPF) or Level (ISIS)
                     	**type**\: str
                     
                     	**length:** 0..30
+                    
+                    	**config**\: False
                     
                     .. attribute:: prefix_xr
                     
@@ -1969,12 +2222,16 @@ class Srms(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: sid_start
                     
                     	Starting SID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: sid_count
                     
@@ -1983,12 +2240,16 @@ class Srms(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_prefix
                     
                     	Last IP Prefix
                     	**type**\: str
                     
                     	**length:** 0..50
+                    
+                    	**config**\: False
                     
                     .. attribute:: last_sid_index
                     
@@ -1997,10 +2258,14 @@ class Srms(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: flag_attached
                     
                     	Attached flag
                     	**type**\:  :py:class:`SrmsMiFlagEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEB>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2061,6 +2326,8 @@ class Srms(Entity):
                         	AF
                         	**type**\:  :py:class:`SrmsMiAfEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEB>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4
@@ -2068,12 +2335,16 @@ class Srms(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -2106,6 +2377,9 @@ class Srms(Entity):
                             self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr, [u'af', u'ipv4', u'ipv6'], name, value)
 
 
+
+
+
             class PolicyIpv6Active(Entity):
                 """
                 IPv6 active policy operational data
@@ -2114,6 +2388,8 @@ class Srms(Entity):
                 
                 	Mapping Item
                 	**type**\: list of  		 :py:class:`PolicyMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi>`
+                
+                	**config**\: False
                 
                 
 
@@ -2153,15 +2429,21 @@ class Srms(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: addr
                     
                     	addr
                     	**type**\:  :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: src
                     
                     	src
                     	**type**\:  :py:class:`SrmsMiSrcEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: router
                     
@@ -2170,12 +2452,16 @@ class Srms(Entity):
                     
                     	**length:** 0..30
                     
+                    	**config**\: False
+                    
                     .. attribute:: area
                     
                     	Area (OSPF) or Level (ISIS)
                     	**type**\: str
                     
                     	**length:** 0..30
+                    
+                    	**config**\: False
                     
                     .. attribute:: prefix_xr
                     
@@ -2184,12 +2470,16 @@ class Srms(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: sid_start
                     
                     	Starting SID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: sid_count
                     
@@ -2198,12 +2488,16 @@ class Srms(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_prefix
                     
                     	Last IP Prefix
                     	**type**\: str
                     
                     	**length:** 0..50
+                    
+                    	**config**\: False
                     
                     .. attribute:: last_sid_index
                     
@@ -2212,10 +2506,14 @@ class Srms(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: flag_attached
                     
                     	Attached flag
                     	**type**\:  :py:class:`SrmsMiFlagEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEB>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2276,6 +2574,8 @@ class Srms(Entity):
                         	AF
                         	**type**\:  :py:class:`SrmsMiAfEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEB>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4
@@ -2283,12 +2583,16 @@ class Srms(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -2320,9 +2624,16 @@ class Srms(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr, [u'af', u'ipv4', u'ipv6'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Srms()
         return self._top_entity
+
+
 
 class Srlb(Entity):
     """
@@ -2332,6 +2643,8 @@ class Srlb(Entity):
     
     	SRLB Inconsistencies
     	**type**\:  :py:class:`SrlbInconsistency <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srlb.SrlbInconsistency>`
+    
+    	**config**\: False
     
     
 
@@ -2373,12 +2686,16 @@ class Srlb(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: end_srlb_range
         
         	End label of Segment Routing Local Block range
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -2407,9 +2724,12 @@ class Srlb(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Srlb.SrlbInconsistency, [u'start_srlb_range', u'end_srlb_range'], name, value)
+            self._perform_setattr(Srlb.SrlbInconsistency, ['start_srlb_range', 'end_srlb_range'], name, value)
+
 
     def clone_ptr(self):
         self._top_entity = Srlb()
         return self._top_entity
+
+
 

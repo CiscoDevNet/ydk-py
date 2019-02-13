@@ -91,6 +91,8 @@ class PppData(Entity):
     	A list of the PPP information
     	**type**\: list of  		 :py:class:`PppInterface <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ppp_oper.PppData.PppInterface>`
     
+    	**config**\: False
+    
     .. attribute:: ppp_statistics
     
     	The PPP statistics
@@ -98,12 +100,16 @@ class PppData(Entity):
     
     	**presence node**\: True
     
+    	**config**\: False
+    
     .. attribute:: pppoe
     
     	The PPPoE operation information
     	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ppp_oper.PppData.Pppoe>`
     
     	**presence node**\: True
+    
+    	**config**\: False
     
     
 
@@ -147,10 +153,14 @@ class PppData(Entity):
         	Ifname of Physical Access (Parent) Interface 
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: ppp_va
         
         	List of PPPoE sessions on ifname Physical access interface
         	**type**\: list of  		 :py:class:`PppVa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ppp_oper.PppData.PppInterface.PppVa>`
+        
+        	**config**\: False
         
         
 
@@ -191,10 +201,14 @@ class PppData(Entity):
             	PPP Virtual Access Interface Name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: vrf_name
             
             	VRF of Virtual Access Interface
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: interface_ip
             
@@ -209,6 +223,8 @@ class PppData(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: gateway_ip
             
             	Gateway IP Address assigned/negotiated by PPP
@@ -221,6 +237,8 @@ class PppData(Entity):
             		**type**\: str
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: primary_dns_ip
             
@@ -235,6 +253,8 @@ class PppData(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: secondary_dns_ip
             
             	Secondary DNS IP Address assigned/negotiated by PPP
@@ -248,6 +268,8 @@ class PppData(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: mtu
             
             	MTU for PPP interface
@@ -255,10 +277,14 @@ class PppData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: auth_type
             
             	Authentication type for PPP interface
             	**type**\:  :py:class:`PppIosAuthType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ppp_oper.PppIosAuthType>`
+            
+            	**config**\: False
             
             
 
@@ -301,6 +327,8 @@ class PppData(Entity):
                 self._perform_setattr(PppData.PppInterface.PppVa, ['va_ifname', 'vrf_name', 'interface_ip', 'gateway_ip', 'primary_dns_ip', 'secondary_dns_ip', 'mtu', 'auth_type'], name, value)
 
 
+
+
     class PppStatistics(Entity):
         """
         The PPP statistics
@@ -312,6 +340,8 @@ class PppData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ppp_ipcp_pkts
         
         	number of PPP NCP/IPCP pkts
@@ -319,12 +349,16 @@ class PppData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ppp_ccp_pkts
         
         	number of PPP CCP pkts
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -361,6 +395,7 @@ class PppData(Entity):
             self._perform_setattr(PppData.PppStatistics, ['ppp_lcp_pkts', 'ppp_ipcp_pkts', 'ppp_ccp_pkts'], name, value)
 
 
+
     class Pppoe(Entity):
         """
         The PPPoE operation information
@@ -370,10 +405,14 @@ class PppData(Entity):
         	The current PPPoE role
         	**type**\:  :py:class:`PppoeOperationalRole <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ppp_oper.PppoeOperationalRole>`
         
+        	**config**\: False
+        
         .. attribute:: pppoe_session_list
         
         	PPPoE session list
         	**type**\: list of  		 :py:class:`PppoeSessionList <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ppp_oper.PppData.Pppoe.PppoeSessionList>`
+        
+        	**config**\: False
         
         .. attribute:: pppoe_statistics
         
@@ -381,6 +420,8 @@ class PppData(Entity):
         	**type**\:  :py:class:`PppoeStatistics <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ppp_oper.PppData.Pppoe.PppoeStatistics>`
         
         	**presence node**\: True
+        
+        	**config**\: False
         
         
 
@@ -427,10 +468,14 @@ class PppData(Entity):
             	Ifname of Physical Access (Parent) Interface
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: session
             
             	List of PPPoE session on ifname Physical access interface
             	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ppp_oper.PppData.Pppoe.PppoeSessionList.Session>`
+            
+            	**config**\: False
             
             
 
@@ -473,12 +518,16 @@ class PppData(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: lmac
                 
                 	Local MAC Address
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                	**config**\: False
                 
                 .. attribute:: rmac
                 
@@ -487,15 +536,21 @@ class PppData(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: va_ifname
                 
                 	Ifname of Virtual Access Interface
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: vrf_name
                 
                 	VRF of Virtual Access Interface 
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: dot1q_qinq_outer_vlan
                 
@@ -504,6 +559,8 @@ class PppData(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: dot1q_qinq_inner_vlan
                 
                 	PPPoE session VLAN/QinQ ID  Inner VLAN ID (QinQ) (if valid)
@@ -511,10 +568,14 @@ class PppData(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: service_name
                 
                 	PPPoE service tag name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: in_packet
                 
@@ -523,12 +584,16 @@ class PppData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_packet
                 
                 	Number of packets sent over session
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: in_bytes
                 
@@ -537,12 +602,16 @@ class PppData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: out_bytes
                 
                 	Number of bytes sent over session
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -593,6 +662,8 @@ class PppData(Entity):
                     self._perform_setattr(PppData.Pppoe.PppoeSessionList.Session, ['session_id', 'lmac', 'rmac', 'va_ifname', 'vrf_name', 'dot1q_qinq_outer_vlan', 'dot1q_qinq_inner_vlan', 'service_name', 'in_packet', 'out_packet', 'in_bytes', 'out_bytes'], name, value)
 
 
+
+
         class PppoeStatistics(Entity):
             """
             PPPoE statistics
@@ -604,12 +675,16 @@ class PppData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: pppoe_pado_pkts
             
             	PPPoE active discovery offer pkts
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: pppoe_padr_pkts
             
@@ -618,12 +693,16 @@ class PppData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: pppoe_pads_pkts
             
             	PPPoE active discovery session pkts
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: pppoe_padt_pkts
             
@@ -632,12 +711,16 @@ class PppData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: invalid_discovery_pkts
             
             	PPPoE invalid discovery pkts
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -679,7 +762,11 @@ class PppData(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(PppData.Pppoe.PppoeStatistics, ['pppoe_padi_pkts', 'pppoe_pado_pkts', 'pppoe_padr_pkts', 'pppoe_pads_pkts', 'pppoe_padt_pkts', 'invalid_discovery_pkts'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = PppData()
         return self._top_entity
+
+
 

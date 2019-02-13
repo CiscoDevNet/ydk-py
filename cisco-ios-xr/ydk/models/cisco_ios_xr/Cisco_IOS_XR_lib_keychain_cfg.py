@@ -350,6 +350,7 @@ class Keychains(Entity):
                 self._perform_setattr(Keychains.Keychain.AcceptTolerance, ['value', 'infinite'], name, value)
 
 
+
         class MacsecKeychain(Entity):
             """
             Name of the key chain for MACSec
@@ -654,6 +655,7 @@ class Keychains(Entity):
                             self._perform_setattr(Keychains.Keychain.MacsecKeychain.MacsecKeys.MacsecKey.MacsecLifetime, ['start_hour', 'start_minutes', 'start_seconds', 'start_date', 'start_month', 'start_year', 'life_time', 'infinite_flag', 'end_hour', 'end_minutes', 'end_seconds', 'end_date', 'end_month', 'end_year'], name, value)
 
 
+
                     class MacsecKeyString(Entity):
                         """
                         Configure a clear text/encrypted Key string
@@ -714,6 +716,10 @@ class Keychains(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Keychains.Keychain.MacsecKeychain.MacsecKeys.MacsecKey.MacsecKeyString, ['string', 'cryptographic_algorithm', 'encryption_type'], name, value)
+
+
+
+
 
 
         class Keys(Entity):
@@ -999,6 +1005,7 @@ class Keychains(Entity):
                         self._perform_setattr(Keychains.Keychain.Keys.Key.AcceptLifetime, ['start_hour', 'start_minutes', 'start_seconds', 'start_date', 'start_month', 'start_year', 'life_time', 'infinite_flag', 'end_hour', 'end_minutes', 'end_seconds', 'end_date', 'end_month', 'end_year'], name, value)
 
 
+
                 class SendLifetime(Entity):
                     """
                     Configure a Send Lifetime
@@ -1172,7 +1179,13 @@ class Keychains(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Keychains.Keychain.Keys.Key.SendLifetime, ['start_hour', 'start_minutes', 'start_seconds', 'start_date', 'start_month', 'start_year', 'life_time', 'infinite_flag', 'end_hour', 'end_minutes', 'end_seconds', 'end_date', 'end_month', 'end_year'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Keychains()
         return self._top_entity
+
+
 

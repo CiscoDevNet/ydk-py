@@ -21,6 +21,8 @@ class Wdmon(Entity):
     	show traceable processes
     	**type**\: list of  		 :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_wdmon.Wdmon.Trace>`
     
+    	**config**\: False
+    
     
 
     """
@@ -57,10 +59,14 @@ class Wdmon(Entity):
         	
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: location
         
         	
         	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_wdmon.Wdmon.Trace.Location>`
+        
+        	**config**\: False
         
         
 
@@ -101,10 +107,14 @@ class Wdmon(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: all_options
             
             	
             	**type**\: list of  		 :py:class:`AllOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_wdmon.Wdmon.Trace.Location.AllOptions>`
+            
+            	**config**\: False
             
             
 
@@ -144,10 +154,14 @@ class Wdmon(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: trace_blocks
                 
                 	
                 	**type**\: list of  		 :py:class:`TraceBlocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_wdmon.Wdmon.Trace.Location.AllOptions.TraceBlocks>`
+                
+                	**config**\: False
                 
                 
 
@@ -187,6 +201,8 @@ class Wdmon(Entity):
                     	Trace output block
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -213,9 +229,15 @@ class Wdmon(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Wdmon.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Wdmon()
         return self._top_entity
+
+
 
 class WdmonInfo(Entity):
     """
@@ -225,6 +247,8 @@ class WdmonInfo(Entity):
     
     	
     	**type**\: list of  		 :py:class:`AllLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_wdmon.WdmonInfo.AllLocations>`
+    
+    	**config**\: False
     
     
 
@@ -262,15 +286,21 @@ class WdmonInfo(Entity):
         	
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: start_timestamp
         
         	Last start date and time for wdmon
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: hushd_timeout
         
         	wdmon/Calv/Hushd liveness timeout
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: calv_restart_timeout
         
@@ -279,40 +309,56 @@ class WdmonInfo(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: hushd_wd_action_disable
         
         	Hushd WD expire action disable or not
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: hushd_wd_action_timestamp
         
         	Last Hushd WD expire action date and time
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: hushd_capi_up
         
         	Hushd CAPI up or not
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: hushd_pending_resp
         
         	Any pending response from Hushd
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: hushd_stop_punching
         
         	Hushd HB punching stopped
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: hushd_capi_up_timestamp
         
         	Last Hushd CAPI up date and time
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: hushd_last_hb_resp
         
         	How long ago was last HB response from Hushd
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: hushd_num_capi_connects
         
@@ -321,15 +367,21 @@ class WdmonInfo(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: wds_action_disable
         
         	wdmon client timeout action disabled or not
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: wds_action_timestamp
         
         	Last wdmon client timeout action date and time
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: wds_restart_timeout
         
@@ -338,6 +390,8 @@ class WdmonInfo(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: wds_liveness_timeout
         
         	wdmon client liveness timeout
@@ -345,10 +399,14 @@ class WdmonInfo(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: wds_client_up
         
         	wdmon client is up or not
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: wds_client_pid
         
@@ -357,15 +415,21 @@ class WdmonInfo(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: wds_client_up_timestamp
         
         	Last wdmon client connect date and time
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: wds_client_last_hb
         
         	How long ago was last HB from wdmon client
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: wds_client_num_connects
         
@@ -374,12 +438,16 @@ class WdmonInfo(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: wds_num_liveness_timeout
         
         	Total number of client liveness timeouts
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: wds_num_restart_timeout
         
@@ -388,10 +456,14 @@ class WdmonInfo(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: wds_client_reported_status
         
         	Status reported by wdmon client
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -466,7 +538,10 @@ class WdmonInfo(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(WdmonInfo.AllLocations, ['location', 'start_timestamp', 'hushd_timeout', 'calv_restart_timeout', 'hushd_wd_action_disable', 'hushd_wd_action_timestamp', 'hushd_capi_up', 'hushd_pending_resp', 'hushd_stop_punching', 'hushd_capi_up_timestamp', 'hushd_last_hb_resp', 'hushd_num_capi_connects', 'wds_action_disable', 'wds_action_timestamp', 'wds_restart_timeout', 'wds_liveness_timeout', 'wds_client_up', 'wds_client_pid', 'wds_client_up_timestamp', 'wds_client_last_hb', 'wds_client_num_connects', 'wds_num_liveness_timeout', 'wds_num_restart_timeout', 'wds_client_reported_status'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = WdmonInfo()
         return self._top_entity
+
+
 

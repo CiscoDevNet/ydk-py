@@ -26,6 +26,8 @@ class VM(Entity):
     	
     	**type**\: list of  		 :py:class:`AllLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_vm_mgr.VM.AllLocations>`
     
+    	**config**\: False
+    
     
 
     """
@@ -62,10 +64,14 @@ class VM(Entity):
         	
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: all_uiids
         
         	
         	**type**\: list of  		 :py:class:`AllUiids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_vm_mgr.VM.AllLocations.AllUiids>`
+        
+        	**config**\: False
         
         
 
@@ -106,45 +112,63 @@ class VM(Entity):
             	Unique Immutable ID
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: id
             
             	ID of the VM
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: status
             
             	Status of the VM
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: ipaddr
             
             	CE IP address
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: hb_interval_s
             
             	Heartbeat interval sec
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: hb_interval_ns
             
             	Heartbeat interval nsec
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: last_hb_sent
             
             	Last heartbeat sent
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: last_hb_rec
             
             	Last heartbeat received
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: role
             
             	ISSU role
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -188,7 +212,11 @@ class VM(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(VM.AllLocations.AllUiids, ['uiid', 'id', 'status', 'ipaddr', 'hb_interval_s', 'hb_interval_ns', 'last_hb_sent', 'last_hb_rec', 'role'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = VM()
         return self._top_entity
+
+
 

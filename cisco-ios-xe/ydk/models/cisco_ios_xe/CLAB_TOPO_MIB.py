@@ -23,10 +23,14 @@ class CLABTOPOMIB(Entity):
     	This object defines the cable HFC plant Fiber Nodes known at a CMTS. This object supports the creation and deletion of multiple instances
     	**type**\:  :py:class:`ClabTopoFiberNodeCfgTable <ydk.models.cisco_ios_xe.CLAB_TOPO_MIB.CLABTOPOMIB.ClabTopoFiberNodeCfgTable>`
     
+    	**config**\: False
+    
     .. attribute:: clabtopochfncfgtable
     
     	This object defines the RF topology by defining the connectivity of a CMTS's downstream and upstream channels to the fiber nodes. Each instance of this object describes connectivity of one downstream or upstream channel with a single fiber node. This object supports the creation and deletion of multiple instances
     	**type**\:  :py:class:`ClabTopoChFnCfgTable <ydk.models.cisco_ios_xe.CLAB_TOPO_MIB.CLABTOPOMIB.ClabTopoChFnCfgTable>`
+    
+    	**config**\: False
     
     
 
@@ -73,6 +77,8 @@ class CLABTOPOMIB(Entity):
         	The conceptual row of clabTopoFiberNodeCfg. The CMTS persists all instances of FiberNodeCfg across reinitializations
         	**type**\: list of  		 :py:class:`ClabTopoFiberNodeCfgEntry <ydk.models.cisco_ios_xe.CLAB_TOPO_MIB.CLABTOPOMIB.ClabTopoFiberNodeCfgTable.ClabTopoFiberNodeCfgEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -113,15 +119,21 @@ class CLABTOPOMIB(Entity):
             
             	**length:** 1..16
             
+            	**config**\: False
+            
             .. attribute:: clabtopofibernodecfgnodedescr
             
             	Administratively configured human\-readable description of the fiber node
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: clabtopofibernodecfgrowstatus
             
             	The status of this instance
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -155,6 +167,8 @@ class CLABTOPOMIB(Entity):
                 self._perform_setattr(CLABTOPOMIB.ClabTopoFiberNodeCfgTable.ClabTopoFiberNodeCfgEntry, [u'clabtopofibernodecfgnodename', u'clabtopofibernodecfgnodedescr', u'clabtopofibernodecfgrowstatus'], name, value)
 
 
+
+
     class ClabTopoChFnCfgTable(Entity):
         """
         This object defines the RF topology by defining the
@@ -169,6 +183,8 @@ class CLABTOPOMIB(Entity):
         
         	The conceptual row of clabTopoChFnCfg. The CMTS persists all instances of ChFnCfg across reinitializations
         	**type**\: list of  		 :py:class:`ClabTopoChFnCfgEntry <ydk.models.cisco_ios_xe.CLAB_TOPO_MIB.CLABTOPOMIB.ClabTopoChFnCfgTable.ClabTopoChFnCfgEntry>`
+        
+        	**config**\: False
         
         
 
@@ -212,6 +228,8 @@ class CLABTOPOMIB(Entity):
             
             	**refers to**\:  :py:class:`clabtopofibernodecfgnodename <ydk.models.cisco_ios_xe.CLAB_TOPO_MIB.CLABTOPOMIB.ClabTopoFiberNodeCfgTable.ClabTopoFiberNodeCfgEntry>`
             
+            	**config**\: False
+            
             .. attribute:: clabtopochfncfgchifindex  (key)
             
             	This key represents the interface index of an upstream or downstream channel associated with this fiber node. In the upstream direction, only ifIndices docsCableUpstream channels are reflected
@@ -219,10 +237,14 @@ class CLABTOPOMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: clabtopochfncfgrowstatus
             
             	The status of this instance
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -255,7 +277,11 @@ class CLABTOPOMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CLABTOPOMIB.ClabTopoChFnCfgTable.ClabTopoChFnCfgEntry, [u'clabtopofibernodecfgnodename', u'clabtopochfncfgchifindex', u'clabtopochfncfgrowstatus'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CLABTOPOMIB()
         return self._top_entity
+
+
 

@@ -472,6 +472,8 @@ class MacAccounting(Entity):
     	MAC accounting interface table in MIB lexicographic order
     	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.MacAccounting.Interfaces>`
     
+    	**config**\: False
+    
     
 
     """
@@ -510,6 +512,8 @@ class MacAccounting(Entity):
         
         	Operational data and statistics for an interface configured with MAC accounting enabled
         	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.MacAccounting.Interfaces.Interface>`
+        
+        	**config**\: False
         
         
 
@@ -551,20 +555,28 @@ class MacAccounting(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	MAC accounting state for the interface
             	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.MacAccounting.Interfaces.Interface.State>`
+            
+            	**config**\: False
             
             .. attribute:: ingress_statistic
             
             	Ingress MAC accounting statistics
             	**type**\: list of  		 :py:class:`IngressStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.MacAccounting.Interfaces.Interface.IngressStatistic>`
             
+            	**config**\: False
+            
             .. attribute:: egress_statistic
             
             	Egress MAC accounting statistics
             	**type**\: list of  		 :py:class:`EgressStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.MacAccounting.Interfaces.Interface.EgressStatistic>`
+            
+            	**config**\: False
             
             
 
@@ -610,10 +622,14 @@ class MacAccounting(Entity):
                 	MAC accounting on on ingress
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: is_egress_enabled
                 
                 	MAC accounting on on egress
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: number_available_ingress
                 
@@ -622,6 +638,8 @@ class MacAccounting(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: number_available_egress
                 
                 	MAC accounting entries available on egress
@@ -629,12 +647,16 @@ class MacAccounting(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: number_available_on_node
                 
                 	MAC accountng entries available across the node
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -668,7 +690,8 @@ class MacAccounting(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MacAccounting.Interfaces.Interface.State, [u'is_ingress_enabled', u'is_egress_enabled', u'number_available_ingress', u'number_available_egress', u'number_available_on_node'], name, value)
+                    self._perform_setattr(MacAccounting.Interfaces.Interface.State, ['is_ingress_enabled', 'is_egress_enabled', 'number_available_ingress', 'number_available_egress', 'number_available_on_node'], name, value)
+
 
 
             class IngressStatistic(Entity):
@@ -682,6 +705,8 @@ class MacAccounting(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: packets
                 
                 	Number of packets counted
@@ -689,12 +714,16 @@ class MacAccounting(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Number of bytes counted
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -726,7 +755,8 @@ class MacAccounting(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MacAccounting.Interfaces.Interface.IngressStatistic, [u'mac_address', u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MacAccounting.Interfaces.Interface.IngressStatistic, ['mac_address', 'packets', 'bytes'], name, value)
+
 
 
             class EgressStatistic(Entity):
@@ -740,6 +770,8 @@ class MacAccounting(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: packets
                 
                 	Number of packets counted
@@ -747,12 +779,16 @@ class MacAccounting(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes
                 
                 	Number of bytes counted
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -784,11 +820,16 @@ class MacAccounting(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MacAccounting.Interfaces.Interface.EgressStatistic, [u'mac_address', u'packets', u'bytes'], name, value)
+                    self._perform_setattr(MacAccounting.Interfaces.Interface.EgressStatistic, ['mac_address', 'packets', 'bytes'], name, value)
+
+
+
 
     def clone_ptr(self):
         self._top_entity = MacAccounting()
         return self._top_entity
+
+
 
 class Vlan(Entity):
     """
@@ -798,6 +839,8 @@ class Vlan(Entity):
     
     	Per node VLAN operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes>`
+    
+    	**config**\: False
     
     
 
@@ -837,6 +880,8 @@ class Vlan(Entity):
         	The VLAN operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node>`
         
+        	**config**\: False
+        
         
 
         """
@@ -875,20 +920,28 @@ class Vlan(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: trunks
             
             	VLAN trunk table (specific to this node)
             	**type**\:  :py:class:`Trunks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks>`
+            
+            	**config**\: False
             
             .. attribute:: interfaces
             
             	VLAN interface table (specific to this node)
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces>`
             
+            	**config**\: False
+            
             .. attribute:: tag_allocations
             
             	VLAN tag allocation table (specific to this node)
             	**type**\:  :py:class:`TagAllocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations>`
+            
+            	**config**\: False
             
             
 
@@ -939,6 +992,8 @@ class Vlan(Entity):
                 	Operational data for trunk interfaces configured with VLANs
                 	**type**\: list of  		 :py:class:`Trunk <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -977,20 +1032,28 @@ class Vlan(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: layer2_sub_interfaces
                     
                     	Layer 2 Transport Subinterfaces
                     	**type**\:  :py:class:`Layer2SubInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: layer3_sub_interfaces
                     
                     	Layer 3 Terminated Subinterfaces
                     	**type**\:  :py:class:`Layer3SubInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: vlan_switched
                     
                     	VLAN\-Switched information
                     	**type**\:  :py:class:`VlanSwitched <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_xr
                     
@@ -999,10 +1062,14 @@ class Vlan(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Interface state
                     	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnum>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: mtu
                     
@@ -1011,10 +1078,14 @@ class Vlan(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: qinq_outer_ether_type
                     
                     	QinQ Outer Tag Ether Type
                     	**type**\:  :py:class:`VlanQinqOuterEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.VlanQinqOuterEtype>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: dot1ad_count
                     
@@ -1023,6 +1094,8 @@ class Vlan(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: untagged_interface
                     
                     	Interface/Sub\-interface handling untagged frames
@@ -1030,10 +1103,14 @@ class Vlan(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: mac_filtering
                     
                     	IEEE 802.1Q/802.1ad multicast MAC address filtering
                     	**type**\:  :py:class:`EthFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthFiltering>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1085,7 +1162,7 @@ class Vlan(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk, ['interface', 'interface_xr', 'state', 'mtu', 'qinq_outer_ether_type', 'dot1ad_count', 'untagged_interface', 'mac_filtering'], name, value)
+                        self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk, ['interface', u'interface_xr', u'state', u'mtu', u'qinq_outer_ether_type', u'dot1ad_count', u'untagged_interface', u'mac_filtering'], name, value)
 
 
                     class Layer2SubInterfaces(Entity):
@@ -1097,12 +1174,16 @@ class Vlan(Entity):
                         	Numbers of subinterfaces up, down or administratively shut down
                         	**type**\:  :py:class:`StateCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_count
                         
                         	Total number of Layer 2 subinterfaces configured
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: dot1q_count
                         
@@ -1111,12 +1192,16 @@ class Vlan(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: qin_q_count
                         
                         	Number of double tagged subinterfaces with explicit inner tag
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: qin_any_count
                         
@@ -1125,12 +1210,16 @@ class Vlan(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: untagged_count
                         
                         	Number of subinterfaces without VLAN tag configuration
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1168,7 +1257,7 @@ class Vlan(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces, ['total_count', 'dot1q_count', 'qin_q_count', 'qin_any_count', 'untagged_count'], name, value)
+                            self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces, [u'total_count', u'dot1q_count', u'qin_q_count', u'qin_any_count', u'untagged_count'], name, value)
 
 
                         class StateCounters(Entity):
@@ -1183,6 +1272,8 @@ class Vlan(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: down
                             
                             	Number of subinterfaces which are down
@@ -1190,12 +1281,16 @@ class Vlan(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: admin_down
                             
                             	Number of subinterfaces which are administrativelyshutdown
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1225,7 +1320,9 @@ class Vlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters, ['up', 'down', 'admin_down'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters, [u'up', u'down', u'admin_down'], name, value)
+
+
 
 
                     class Layer3SubInterfaces(Entity):
@@ -1237,12 +1334,16 @@ class Vlan(Entity):
                         	Numbers of subinterfaces up, down or administratively shut down
                         	**type**\:  :py:class:`StateCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_count
                         
                         	Total number of Layer 3 subinterfaces configured
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: dot1q_count
                         
@@ -1251,12 +1352,16 @@ class Vlan(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: qin_q_count
                         
                         	Number of double tagged subinterfaces
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: untagged_count
                         
@@ -1265,12 +1370,16 @@ class Vlan(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: native_vlan
                         
                         	Native VLAN ID configured on trunk
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -1308,7 +1417,7 @@ class Vlan(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces, ['total_count', 'dot1q_count', 'qin_q_count', 'untagged_count', 'native_vlan'], name, value)
+                            self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces, [u'total_count', u'dot1q_count', u'qin_q_count', u'untagged_count', u'native_vlan'], name, value)
 
 
                         class StateCounters(Entity):
@@ -1323,6 +1432,8 @@ class Vlan(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: down
                             
                             	Number of subinterfaces which are down
@@ -1330,12 +1441,16 @@ class Vlan(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: admin_down
                             
                             	Number of subinterfaces which are administrativelyshutdown
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1365,7 +1480,9 @@ class Vlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters, ['up', 'down', 'admin_down'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters, [u'up', u'down', u'admin_down'], name, value)
+
+
 
 
                     class VlanSwitched(Entity):
@@ -1377,10 +1494,14 @@ class Vlan(Entity):
                         	VLAN\-Switched Trunk VLAN ranges
                         	**type**\:  :py:class:`TrunkVlanRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: mode
                         
                         	VLAN\-Switched mode
                         	**type**\:  :py:class:`VlanSwitchedMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.VlanSwitchedMode>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: access_vlan
                         
@@ -1388,6 +1509,8 @@ class Vlan(Entity):
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -1419,7 +1542,7 @@ class Vlan(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched, ['mode', 'access_vlan'], name, value)
+                            self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched, [u'mode', u'access_vlan'], name, value)
 
 
                         class TrunkVlanRanges(Entity):
@@ -1431,10 +1554,14 @@ class Vlan(Entity):
                             	VLAN tags for locally\-sourced traffic
                             	**type**\:  :py:class:`LocalTrafficStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: payload_ethertype
                             
                             	Payload Ethertype to match
                             	**type**\:  :py:class:`EfpPayloadEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpPayloadEtype>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: tags_popped
                             
@@ -1443,20 +1570,28 @@ class Vlan(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_exact_match
                             
                             	Whether the packet must match the encapsulation exactly, with no further inner tags
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_native_vlan
                             
                             	Whether this represents the native VLAN on the port
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_native_preserving
                             
                             	Whether the native VLAN is customer\-tag preserving
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: source_mac_match
                             
@@ -1465,6 +1600,8 @@ class Vlan(Entity):
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
+                            	**config**\: False
+                            
                             .. attribute:: destination_mac_match
                             
                             	The destination MAC address to match on ingress
@@ -1472,15 +1609,21 @@ class Vlan(Entity):
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
+                            	**config**\: False
+                            
                             .. attribute:: tags_to_match
                             
                             	Tags to match on ingress packets
                             	**type**\: list of  		 :py:class:`TagsToMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: pushe
                             
                             	VLAN tags pushed on egress
                             	**type**\: list of  		 :py:class:`Pushe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.Pushe>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1525,7 +1668,7 @@ class Vlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges, ['payload_ethertype', 'tags_popped', 'is_exact_match', 'is_native_vlan', 'is_native_preserving', 'source_mac_match', 'destination_mac_match'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges, [u'payload_ethertype', u'tags_popped', u'is_exact_match', u'is_native_vlan', u'is_native_preserving', u'source_mac_match', u'destination_mac_match'], name, value)
 
 
                             class LocalTrafficStack(Entity):
@@ -1536,6 +1679,8 @@ class Vlan(Entity):
                                 
                                 	VLAN tags for locally\-sourced traffic
                                 	**type**\: list of  		 :py:class:`LocalTrafficTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1572,12 +1717,16 @@ class Vlan(Entity):
                                     	Ethertype of tag
                                     	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: vlan_id
                                     
                                     	VLAN Id
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1605,7 +1754,9 @@ class Vlan(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
+                                        self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag, [u'ethertype', u'vlan_id'], name, value)
+
+
 
 
                             class TagsToMatch(Entity):
@@ -1617,15 +1768,21 @@ class Vlan(Entity):
                                 	Ethertype of tag to match
                                 	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: priority
                                 
                                 	Priority to match
                                 	**type**\:  :py:class:`EfpTagPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagPriority>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vlan_range
                                 
                                 	VLAN Ids to match
                                 	**type**\: list of  		 :py:class:`VlanRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1655,7 +1812,7 @@ class Vlan(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch, ['ethertype', 'priority'], name, value)
+                                    self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch, [u'ethertype', u'priority'], name, value)
 
 
                                 class VlanRange(Entity):
@@ -1669,12 +1826,16 @@ class Vlan(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: vlan_id_high
                                     
                                     	VLAN ID High
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1702,7 +1863,9 @@ class Vlan(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
+                                        self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange, [u'vlan_id_low', u'vlan_id_high'], name, value)
+
+
 
 
                             class Pushe(Entity):
@@ -1714,12 +1877,16 @@ class Vlan(Entity):
                                 	Ethertype of tag
                                 	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vlan_id
                                 
                                 	VLAN Id
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1747,7 +1914,12 @@ class Vlan(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.Pushe, ['ethertype', 'vlan_id'], name, value)
+                                    self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.Pushe, [u'ethertype', u'vlan_id'], name, value)
+
+
+
+
+
 
 
             class Interfaces(Entity):
@@ -1758,6 +1930,8 @@ class Vlan(Entity):
                 
                 	Operational data for a sub\-interface configured with VLANs
                 	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface>`
+                
+                	**config**\: False
                 
                 
 
@@ -1797,10 +1971,14 @@ class Vlan(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: encapsulation_details
                     
                     	Encapsulation type and tag stack
                     	**type**\:  :py:class:`EncapsulationDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_xr
                     
@@ -1809,6 +1987,8 @@ class Vlan(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: parent_interface
                     
                     	Parent interface
@@ -1816,15 +1996,21 @@ class Vlan(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: service
                     
                     	Service type
                     	**type**\:  :py:class:`VlanService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.VlanService>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Interface state
                     	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnum>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: mtu
                     
@@ -1833,12 +2019,16 @@ class Vlan(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: switched_mtu
                     
                     	L2 switched MTU
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -1880,7 +2070,7 @@ class Vlan(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface, ['interface', 'interface_xr', 'parent_interface', 'service', 'state', 'mtu', 'switched_mtu'], name, value)
+                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface, ['interface', u'interface_xr', u'parent_interface', u'service', u'state', u'mtu', u'switched_mtu'], name, value)
 
 
                     class EncapsulationDetails(Entity):
@@ -1892,20 +2082,28 @@ class Vlan(Entity):
                         	Stack value
                         	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: service_instance_details
                         
                         	Service Instance encapsulation
                         	**type**\:  :py:class:`ServiceInstanceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: dot1ad_dot1q_stack
                         
                         	802.1ad 802.1Q stack value
                         	**type**\:  :py:class:`Dot1adDot1qStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1adDot1qStack>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: vlan_encapsulation
                         
                         	VLANEncapsulation
                         	**type**\:  :py:class:`VlanEncaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.VlanEncaps>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: tag
                         
@@ -1914,12 +2112,16 @@ class Vlan(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: outer_tag
                         
                         	Outer tag value
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: native_tag
                         
@@ -1928,12 +2130,16 @@ class Vlan(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: dot1ad_tag
                         
                         	802.1ad tag value
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: dot1ad_native_tag
                         
@@ -1942,12 +2148,16 @@ class Vlan(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: dot1ad_outer_tag
                         
                         	802.1ad Outer tag value
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -1997,7 +2207,7 @@ class Vlan(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails, ['vlan_encapsulation', 'tag', 'outer_tag', 'native_tag', 'dot1ad_tag', 'dot1ad_native_tag', 'dot1ad_outer_tag'], name, value)
+                            self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails, [u'vlan_encapsulation', u'tag', u'outer_tag', u'native_tag', u'dot1ad_tag', u'dot1ad_native_tag', u'dot1ad_outer_tag'], name, value)
 
 
                         class Stack(Entity):
@@ -2011,12 +2221,16 @@ class Vlan(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: second_tag
                             
                             	Second tag value
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -2044,7 +2258,8 @@ class Vlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack, ['outer_tag', 'second_tag'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack, [u'outer_tag', u'second_tag'], name, value)
+
 
 
                         class ServiceInstanceDetails(Entity):
@@ -2056,10 +2271,14 @@ class Vlan(Entity):
                             	VLAN tags for locally\-sourced traffic
                             	**type**\:  :py:class:`LocalTrafficStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: payload_ethertype
                             
                             	Payload Ethertype to match
                             	**type**\:  :py:class:`EfpPayloadEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpPayloadEtype>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: tags_popped
                             
@@ -2068,20 +2287,28 @@ class Vlan(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_exact_match
                             
                             	Whether the packet must match the encapsulation exactly, with no further inner tags
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_native_vlan
                             
                             	Whether this represents the native VLAN on the port
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_native_preserving
                             
                             	Whether the native VLAN is customer\-tag preserving
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: source_mac_match
                             
@@ -2090,6 +2317,8 @@ class Vlan(Entity):
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
+                            	**config**\: False
+                            
                             .. attribute:: destination_mac_match
                             
                             	The destination MAC address to match on ingress
@@ -2097,15 +2326,21 @@ class Vlan(Entity):
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
+                            	**config**\: False
+                            
                             .. attribute:: tags_to_match
                             
                             	Tags to match on ingress packets
                             	**type**\: list of  		 :py:class:`TagsToMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: pushe
                             
                             	VLAN tags pushed on egress
                             	**type**\: list of  		 :py:class:`Pushe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2150,7 +2385,7 @@ class Vlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails, ['payload_ethertype', 'tags_popped', 'is_exact_match', 'is_native_vlan', 'is_native_preserving', 'source_mac_match', 'destination_mac_match'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails, [u'payload_ethertype', u'tags_popped', u'is_exact_match', u'is_native_vlan', u'is_native_preserving', u'source_mac_match', u'destination_mac_match'], name, value)
 
 
                             class LocalTrafficStack(Entity):
@@ -2161,6 +2396,8 @@ class Vlan(Entity):
                                 
                                 	VLAN tags for locally\-sourced traffic
                                 	**type**\: list of  		 :py:class:`LocalTrafficTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2197,12 +2434,16 @@ class Vlan(Entity):
                                     	Ethertype of tag
                                     	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: vlan_id
                                     
                                     	VLAN Id
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2230,7 +2471,9 @@ class Vlan(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
+                                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, [u'ethertype', u'vlan_id'], name, value)
+
+
 
 
                             class TagsToMatch(Entity):
@@ -2242,15 +2485,21 @@ class Vlan(Entity):
                                 	Ethertype of tag to match
                                 	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: priority
                                 
                                 	Priority to match
                                 	**type**\:  :py:class:`EfpTagPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagPriority>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vlan_range
                                 
                                 	VLAN Ids to match
                                 	**type**\: list of  		 :py:class:`VlanRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2280,7 +2529,7 @@ class Vlan(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, ['ethertype', 'priority'], name, value)
+                                    self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, [u'ethertype', u'priority'], name, value)
 
 
                                 class VlanRange(Entity):
@@ -2294,12 +2543,16 @@ class Vlan(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: vlan_id_high
                                     
                                     	VLAN ID High
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2327,7 +2580,9 @@ class Vlan(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
+                                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, [u'vlan_id_low', u'vlan_id_high'], name, value)
+
+
 
 
                             class Pushe(Entity):
@@ -2339,12 +2594,16 @@ class Vlan(Entity):
                                 	Ethertype of tag
                                 	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vlan_id
                                 
                                 	VLAN Id
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2372,7 +2631,9 @@ class Vlan(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe, ['ethertype', 'vlan_id'], name, value)
+                                    self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe, [u'ethertype', u'vlan_id'], name, value)
+
+
 
 
                         class Dot1adDot1qStack(Entity):
@@ -2386,12 +2647,16 @@ class Vlan(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: second_tag
                             
                             	Second tag value
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -2419,7 +2684,11 @@ class Vlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1adDot1qStack, ['outer_tag', 'second_tag'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1adDot1qStack, [u'outer_tag', u'second_tag'], name, value)
+
+
+
+
 
 
             class TagAllocations(Entity):
@@ -2431,6 +2700,8 @@ class Vlan(Entity):
                 
                 	Operational data for a sub\-interface configured with VLANs
                 	**type**\: list of  		 :py:class:`TagAllocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation>`
+                
+                	**config**\: False
                 
                 
 
@@ -2470,12 +2741,16 @@ class Vlan(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: first_tag
                     
                     	The first (outermost) tag
                     	**type**\: int
                     
                     	**range:** 1..4094
+                    
+                    	**config**\: False
                     
                     .. attribute:: second_tag
                     
@@ -2488,10 +2763,14 @@ class Vlan(Entity):
                     
                     			**range:** 1..4096
                     
+                    	**config**\: False
+                    
                     .. attribute:: encapsulation_details
                     
                     	Encapsulation type and tag stack
                     	**type**\:  :py:class:`EncapsulationDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_xr
                     
@@ -2500,6 +2779,8 @@ class Vlan(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: parent_interface
                     
                     	Parent interface
@@ -2507,15 +2788,21 @@ class Vlan(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: service
                     
                     	Service type
                     	**type**\:  :py:class:`VlanService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.VlanService>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Interface state
                     	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnum>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: mtu
                     
@@ -2524,12 +2811,16 @@ class Vlan(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: switched_mtu
                     
                     	L2 switched MTU
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -2575,7 +2866,7 @@ class Vlan(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation, ['interface', 'first_tag', 'second_tag', 'interface_xr', 'parent_interface', 'service', 'state', 'mtu', 'switched_mtu'], name, value)
+                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation, ['interface', 'first_tag', 'second_tag', u'interface_xr', u'parent_interface', u'service', u'state', u'mtu', u'switched_mtu'], name, value)
 
 
                     class EncapsulationDetails(Entity):
@@ -2587,20 +2878,28 @@ class Vlan(Entity):
                         	Stack value
                         	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: service_instance_details
                         
                         	Service Instance encapsulation
                         	**type**\:  :py:class:`ServiceInstanceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: dot1ad_dot1q_stack
                         
                         	802.1ad 802.1Q stack value
                         	**type**\:  :py:class:`Dot1adDot1qStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1adDot1qStack>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: vlan_encapsulation
                         
                         	VLANEncapsulation
                         	**type**\:  :py:class:`VlanEncaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.VlanEncaps>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: tag
                         
@@ -2609,12 +2908,16 @@ class Vlan(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: outer_tag
                         
                         	Outer tag value
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: native_tag
                         
@@ -2623,12 +2926,16 @@ class Vlan(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: dot1ad_tag
                         
                         	802.1ad tag value
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: dot1ad_native_tag
                         
@@ -2637,12 +2944,16 @@ class Vlan(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: dot1ad_outer_tag
                         
                         	802.1ad Outer tag value
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -2692,7 +3003,7 @@ class Vlan(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails, ['vlan_encapsulation', 'tag', 'outer_tag', 'native_tag', 'dot1ad_tag', 'dot1ad_native_tag', 'dot1ad_outer_tag'], name, value)
+                            self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails, [u'vlan_encapsulation', u'tag', u'outer_tag', u'native_tag', u'dot1ad_tag', u'dot1ad_native_tag', u'dot1ad_outer_tag'], name, value)
 
 
                         class Stack(Entity):
@@ -2706,12 +3017,16 @@ class Vlan(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: second_tag
                             
                             	Second tag value
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -2739,7 +3054,8 @@ class Vlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack, ['outer_tag', 'second_tag'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack, [u'outer_tag', u'second_tag'], name, value)
+
 
 
                         class ServiceInstanceDetails(Entity):
@@ -2751,10 +3067,14 @@ class Vlan(Entity):
                             	VLAN tags for locally\-sourced traffic
                             	**type**\:  :py:class:`LocalTrafficStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: payload_ethertype
                             
                             	Payload Ethertype to match
                             	**type**\:  :py:class:`EfpPayloadEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpPayloadEtype>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: tags_popped
                             
@@ -2763,20 +3083,28 @@ class Vlan(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_exact_match
                             
                             	Whether the packet must match the encapsulation exactly, with no further inner tags
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_native_vlan
                             
                             	Whether this represents the native VLAN on the port
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_native_preserving
                             
                             	Whether the native VLAN is customer\-tag preserving
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: source_mac_match
                             
@@ -2785,6 +3113,8 @@ class Vlan(Entity):
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
+                            	**config**\: False
+                            
                             .. attribute:: destination_mac_match
                             
                             	The destination MAC address to match on ingress
@@ -2792,15 +3122,21 @@ class Vlan(Entity):
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
+                            	**config**\: False
+                            
                             .. attribute:: tags_to_match
                             
                             	Tags to match on ingress packets
                             	**type**\: list of  		 :py:class:`TagsToMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: pushe
                             
                             	VLAN tags pushed on egress
                             	**type**\: list of  		 :py:class:`Pushe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2845,7 +3181,7 @@ class Vlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails, ['payload_ethertype', 'tags_popped', 'is_exact_match', 'is_native_vlan', 'is_native_preserving', 'source_mac_match', 'destination_mac_match'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails, [u'payload_ethertype', u'tags_popped', u'is_exact_match', u'is_native_vlan', u'is_native_preserving', u'source_mac_match', u'destination_mac_match'], name, value)
 
 
                             class LocalTrafficStack(Entity):
@@ -2856,6 +3192,8 @@ class Vlan(Entity):
                                 
                                 	VLAN tags for locally\-sourced traffic
                                 	**type**\: list of  		 :py:class:`LocalTrafficTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2892,12 +3230,16 @@ class Vlan(Entity):
                                     	Ethertype of tag
                                     	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: vlan_id
                                     
                                     	VLAN Id
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2925,7 +3267,9 @@ class Vlan(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
+                                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, [u'ethertype', u'vlan_id'], name, value)
+
+
 
 
                             class TagsToMatch(Entity):
@@ -2937,15 +3281,21 @@ class Vlan(Entity):
                                 	Ethertype of tag to match
                                 	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: priority
                                 
                                 	Priority to match
                                 	**type**\:  :py:class:`EfpTagPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagPriority>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vlan_range
                                 
                                 	VLAN Ids to match
                                 	**type**\: list of  		 :py:class:`VlanRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2975,7 +3325,7 @@ class Vlan(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, ['ethertype', 'priority'], name, value)
+                                    self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, [u'ethertype', u'priority'], name, value)
 
 
                                 class VlanRange(Entity):
@@ -2989,12 +3339,16 @@ class Vlan(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: vlan_id_high
                                     
                                     	VLAN ID High
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3022,7 +3376,9 @@ class Vlan(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
+                                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, [u'vlan_id_low', u'vlan_id_high'], name, value)
+
+
 
 
                             class Pushe(Entity):
@@ -3034,12 +3390,16 @@ class Vlan(Entity):
                                 	Ethertype of tag
                                 	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vlan_id
                                 
                                 	VLAN Id
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3067,7 +3427,9 @@ class Vlan(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe, ['ethertype', 'vlan_id'], name, value)
+                                    self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe, [u'ethertype', u'vlan_id'], name, value)
+
+
 
 
                         class Dot1adDot1qStack(Entity):
@@ -3081,12 +3443,16 @@ class Vlan(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: second_tag
                             
                             	Second tag value
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -3114,11 +3480,19 @@ class Vlan(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1adDot1qStack, ['outer_tag', 'second_tag'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1adDot1qStack, [u'outer_tag', u'second_tag'], name, value)
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Vlan()
         return self._top_entity
+
+
 
 class EthernetEncapsulation(Entity):
     """
@@ -3128,6 +3502,8 @@ class EthernetEncapsulation(Entity):
     
     	Per node Ethernet encapsulation operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes>`
+    
+    	**config**\: False
     
     
 
@@ -3166,6 +3542,8 @@ class EthernetEncapsulation(Entity):
         
         	The Ethernet encaps operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -3206,10 +3584,14 @@ class EthernetEncapsulation(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: unicast_mac_filters
             
             	Unicast MAC filter table (specific to this node)
             	**type**\:  :py:class:`UnicastMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes.Node.UnicastMacFilters>`
+            
+            	**config**\: False
             
             
 
@@ -3253,6 +3635,8 @@ class EthernetEncapsulation(Entity):
                 	Operational data for interface with MAC filters configured
                 	**type**\: list of  		 :py:class:`UnicastMacFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -3291,10 +3675,14 @@ class EthernetEncapsulation(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: unicast_filter
                     
                     	Unicast MAC filter information
                     	**type**\: list of  		 :py:class:`UnicastFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3336,10 +3724,14 @@ class EthernetEncapsulation(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
+                        	**config**\: False
+                        
                         .. attribute:: mode
                         
                         	Unicast MAC mode
                         	**type**\:  :py:class:`EthCapsUcastMacMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthCapsUcastMacMode>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3367,9 +3759,16 @@ class EthernetEncapsulation(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter, [u'mac_address', u'mode'], name, value)
+                            self._perform_setattr(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter, ['mac_address', 'mode'], name, value)
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = EthernetEncapsulation()
         return self._top_entity
+
+
 

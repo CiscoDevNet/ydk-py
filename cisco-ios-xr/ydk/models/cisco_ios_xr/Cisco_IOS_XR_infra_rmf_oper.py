@@ -30,10 +30,14 @@ class Redundancy(Entity):
     	Location show information
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes>`
     
+    	**config**\: False
+    
     .. attribute:: summary
     
     	Redundancy Summary of Nodes
     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Summary>`
+    
+    	**config**\: False
     
     
 
@@ -77,6 +81,8 @@ class Redundancy(Entity):
         	Redundancy Node Information
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node>`
         
+        	**config**\: False
+        
         
 
         """
@@ -115,30 +121,42 @@ class Redundancy(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: redundancy
             
             	Row information
             	**type**\:  :py:class:`Redundancy_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node.Redundancy_>`
+            
+            	**config**\: False
             
             .. attribute:: log
             
             	Reload and boot logs
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: active_reboot_reason
             
             	Active node reload
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: standby_reboot_reason
             
             	Standby node reload
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: err_log
             
             	Error Log
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -177,7 +195,7 @@ class Redundancy(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Redundancy.Nodes.Node, ['node_id', u'log', u'active_reboot_reason', u'standby_reboot_reason', u'err_log'], name, value)
+                self._perform_setattr(Redundancy.Nodes.Node, ['node_id', 'log', 'active_reboot_reason', 'standby_reboot_reason', 'err_log'], name, value)
 
 
             class Redundancy_(Entity):
@@ -189,25 +207,35 @@ class Redundancy(Entity):
                 	Active node name R/S/I
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: standby
                 
                 	Standby node name R/S/I
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: ha_state
                 
                 	High Availability state Ready/Not Ready
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: nsr_state
                 
                 	NSR state Configured/Not Configured
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: groupinfo
                 
                 	groupinfo
                 	**type**\: list of  		 :py:class:`Groupinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node.Redundancy_.Groupinfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -241,7 +269,7 @@ class Redundancy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Redundancy.Nodes.Node.Redundancy_, [u'active', u'standby', u'ha_state', u'nsr_state'], name, value)
+                    self._perform_setattr(Redundancy.Nodes.Node.Redundancy_, ['active', 'standby', 'ha_state', 'nsr_state'], name, value)
 
 
                 class Groupinfo(Entity):
@@ -253,20 +281,28 @@ class Redundancy(Entity):
                     	Active
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: standby
                     
                     	Standby
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: ha_state
                     
                     	HAState
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: nsr_state
                     
                     	NSRState
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -298,7 +334,11 @@ class Redundancy(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Redundancy.Nodes.Node.Redundancy_.Groupinfo, [u'active', u'standby', u'ha_state', u'nsr_state'], name, value)
+                        self._perform_setattr(Redundancy.Nodes.Node.Redundancy_.Groupinfo, ['active', 'standby', 'ha_state', 'nsr_state'], name, value)
+
+
+
+
 
 
     class Summary(Entity):
@@ -310,10 +350,14 @@ class Redundancy(Entity):
         	Error Log
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: red_pair
         
         	Redundancy Pair
         	**type**\: list of  		 :py:class:`RedPair <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Summary.RedPair>`
+        
+        	**config**\: False
         
         
 
@@ -342,7 +386,7 @@ class Redundancy(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Redundancy.Summary, [u'err_log'], name, value)
+            self._perform_setattr(Redundancy.Summary, ['err_log'], name, value)
 
 
         class RedPair(Entity):
@@ -354,25 +398,35 @@ class Redundancy(Entity):
             	Active node name R/S/I
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: standby
             
             	Standby node name R/S/I
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: ha_state
             
             	High Availability state Ready/Not Ready
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: nsr_state
             
             	NSR state Configured/Not Configured
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: groupinfo
             
             	groupinfo
             	**type**\: list of  		 :py:class:`Groupinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Summary.RedPair.Groupinfo>`
+            
+            	**config**\: False
             
             
 
@@ -407,7 +461,7 @@ class Redundancy(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Redundancy.Summary.RedPair, [u'active', u'standby', u'ha_state', u'nsr_state'], name, value)
+                self._perform_setattr(Redundancy.Summary.RedPair, ['active', 'standby', 'ha_state', 'nsr_state'], name, value)
 
 
             class Groupinfo(Entity):
@@ -419,20 +473,28 @@ class Redundancy(Entity):
                 	Active
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: standby
                 
                 	Standby
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: ha_state
                 
                 	HAState
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: nsr_state
                 
                 	NSRState
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -465,9 +527,14 @@ class Redundancy(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Redundancy.Summary.RedPair.Groupinfo, [u'active', u'standby', u'ha_state', u'nsr_state'], name, value)
+                    self._perform_setattr(Redundancy.Summary.RedPair.Groupinfo, ['active', 'standby', 'ha_state', 'nsr_state'], name, value)
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Redundancy()
         return self._top_entity
+
+
 

@@ -45,6 +45,8 @@ class SNMPFRAMEWORKMIB(Entity):
     	
     	**type**\:  :py:class:`SnmpEngine <ydk.models.cisco_ios_xr.SNMP_FRAMEWORK_MIB.SNMPFRAMEWORKMIB.SnmpEngine>`
     
+    	**config**\: False
+    
     
 
     """
@@ -85,12 +87,16 @@ class SNMPFRAMEWORKMIB(Entity):
         
         	**pattern:** (([0\-9a\-fA\-F]){2}(\:([0\-9a\-fA\-F]){2})\*)?
         
+        	**config**\: False
+        
         .. attribute:: snmpengineboots
         
         	
         	**type**\: int
         
         	**range:** 1..2147483647
+        
+        	**config**\: False
         
         .. attribute:: snmpenginetime
         
@@ -99,12 +105,16 @@ class SNMPFRAMEWORKMIB(Entity):
         
         	**range:** 0..2147483647
         
+        	**config**\: False
+        
         .. attribute:: snmpenginemaxmessagesize
         
         	
         	**type**\: int
         
         	**range:** 484..2147483647
+        
+        	**config**\: False
         
         
 
@@ -137,9 +147,12 @@ class SNMPFRAMEWORKMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SNMPFRAMEWORKMIB.SnmpEngine, ['snmpengineid', 'snmpengineboots', 'snmpenginetime', 'snmpenginemaxmessagesize'], name, value)
+            self._perform_setattr(SNMPFRAMEWORKMIB.SnmpEngine, [u'snmpengineid', u'snmpengineboots', u'snmpenginetime', u'snmpenginemaxmessagesize'], name, value)
+
 
     def clone_ptr(self):
         self._top_entity = SNMPFRAMEWORKMIB()
         return self._top_entity
+
+
 

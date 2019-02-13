@@ -138,6 +138,8 @@ class SubscriberDatabase(Entity):
     	List of nodes for which subscriber data is collected
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper.SubscriberDatabase.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -177,6 +179,8 @@ class SubscriberDatabase(Entity):
         	Subscriber data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper.SubscriberDatabase.Nodes.Node>`
         
+        	**config**\: False
+        
         
 
         """
@@ -215,20 +219,28 @@ class SubscriberDatabase(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: association
             
             	Subscriber data for associated templates
             	**type**\:  :py:class:`Association <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper.SubscriberDatabase.Nodes.Node.Association>`
+            
+            	**config**\: False
             
             .. attribute:: summary
             
             	Subscriber data for associated templates
             	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper.SubscriberDatabase.Nodes.Node.Summary>`
             
+            	**config**\: False
+            
             .. attribute:: session
             
             	Subscriber management session information
             	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper.SubscriberDatabase.Nodes.Node.Session>`
+            
+            	**config**\: False
             
             
 
@@ -279,6 +291,8 @@ class SubscriberDatabase(Entity):
                 	List of associated subscriber labels
                 	**type**\:  :py:class:`Labels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper.SubscriberDatabase.Nodes.Node.Association.Labels>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -315,6 +329,8 @@ class SubscriberDatabase(Entity):
                     
                     	Association for a given subscriber label
                     	**type**\: list of  		 :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper.SubscriberDatabase.Nodes.Node.Association.Labels.Label>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -353,10 +369,14 @@ class SubscriberDatabase(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
+                        	**config**\: False
+                        
                         .. attribute:: template
                         
                         	Subdb template
                         	**type**\:  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper.SubscriberDatabase.Nodes.Node.Association.Labels.Label.Template>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: interface_name
                         
@@ -365,6 +385,8 @@ class SubscriberDatabase(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: associations
                         
                         	Association count which reflects number of entries in AssociatedTemplates
@@ -372,12 +394,16 @@ class SubscriberDatabase(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: varlist_id
                         
                         	Varlist Id
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -413,7 +439,7 @@ class SubscriberDatabase(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberDatabase.Nodes.Node.Association.Labels.Label, ['subscriber_label', 'interface_name', 'associations', 'varlist_id'], name, value)
+                            self._perform_setattr(SubscriberDatabase.Nodes.Node.Association.Labels.Label, ['subscriber_label', u'interface_name', u'associations', u'varlist_id'], name, value)
 
 
                         class Template(Entity):
@@ -424,6 +450,8 @@ class SubscriberDatabase(Entity):
                             
                             	Associated templates
                             	**type**\: list of  		 :py:class:`AssociatedTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper.SubscriberDatabase.Nodes.Node.Association.Labels.Label.Template.AssociatedTemplate>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -460,6 +488,8 @@ class SubscriberDatabase(Entity):
                                 	Template type
                                 	**type**\:  :py:class:`SubdbObjectTypeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper.SubdbObjectTypeData>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: template_name
                                 
                                 	Template name
@@ -467,12 +497,16 @@ class SubscriberDatabase(Entity):
                                 
                                 	**length:** 0..65
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: varlist
                                 
                                 	Varlist
                                 	**type**\: str
                                 
                                 	**length:** 0..1000
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -502,7 +536,12 @@ class SubscriberDatabase(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(SubscriberDatabase.Nodes.Node.Association.Labels.Label.Template.AssociatedTemplate, ['template_type', 'template_name', 'varlist'], name, value)
+                                    self._perform_setattr(SubscriberDatabase.Nodes.Node.Association.Labels.Label.Template.AssociatedTemplate, [u'template_type', u'template_name', u'varlist'], name, value)
+
+
+
+
+
 
 
             class Summary(Entity):
@@ -516,12 +555,16 @@ class SubscriberDatabase(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: assoc_db_associations
                 
                 	Number of Associations in Association DB
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: derived_db_entries
                 
@@ -530,12 +573,16 @@ class SubscriberDatabase(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: config_db_entries
                 
                 	Number of Entries in Configuration DB
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: interface_db_entries
                 
@@ -544,12 +591,16 @@ class SubscriberDatabase(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: num_ipsub_dhcp
                 
                 	Number of IPSUB DHCP subscribers
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: num_ipsub_inband
                 
@@ -558,12 +609,16 @@ class SubscriberDatabase(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: num_pppoe
                 
                 	Number of PPPOE subscribers
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: subdb_obj_counts_by_type
                 
@@ -572,6 +627,8 @@ class SubscriberDatabase(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: num_subscribers_in_state
                 
                 	Number of subscribers in the various states
@@ -579,12 +636,16 @@ class SubscriberDatabase(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: num_transitions_through_state
                 
                 	Cumulative number of transitions through the various states
                 	**type**\: list of int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -633,6 +694,7 @@ class SubscriberDatabase(Entity):
                     self._perform_setattr(SubscriberDatabase.Nodes.Node.Summary, [u'assoc_db_entries', u'assoc_db_associations', u'derived_db_entries', u'config_db_entries', u'interface_db_entries', u'num_ipsub_dhcp', u'num_ipsub_inband', u'num_pppoe', u'subdb_obj_counts_by_type', u'num_subscribers_in_state', u'num_transitions_through_state'], name, value)
 
 
+
             class Session(Entity):
                 """
                 Subscriber management session information
@@ -641,6 +703,8 @@ class SubscriberDatabase(Entity):
                 
                 	Subscriber management list of subscriber labels
                 	**type**\:  :py:class:`Labels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper.SubscriberDatabase.Nodes.Node.Session.Labels>`
+                
+                	**config**\: False
                 
                 
 
@@ -680,6 +744,8 @@ class SubscriberDatabase(Entity):
                     	Session information for a subscriber label
                     	**type**\: list of  		 :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper.SubscriberDatabase.Nodes.Node.Session.Labels.Label>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -717,10 +783,14 @@ class SubscriberDatabase(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
+                        	**config**\: False
+                        
                         .. attribute:: session_state
                         
                         	Subscriber session state
                         	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper.SessionState>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: activate_request_id
                         
@@ -729,12 +799,16 @@ class SubscriberDatabase(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: transaction_id
                         
                         	Transaction identifier associated with a particular 'produce\_done' or 'produce\_all\_done' request  default value is 0xffffffff which represents 'None'
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: produce_done_request_id
                         
@@ -743,10 +817,14 @@ class SubscriberDatabase(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: destroy_req_received
                         
                         	Flags indicating if a destroy request is received
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: destroy_request_id
                         
@@ -755,65 +833,91 @@ class SubscriberDatabase(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_config_changed
                         
                         	Is true if configuration change due to template change only and not due to a produce done request
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_creator_gone
                         
                         	Is true if the creator of the connection is destroyed
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_delete_notify_done
                         
                         	Is true if the deleted features have all been notified and all 'apply done' ack messages have been received
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: add_modify_done
                         
                         	Is true if added/modified features have all been notified and all 'apply done' ack messages have been received
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_rollback_needed
                         
                         	Is true if the subscriber should be rolled back to the configuration prior to this transaction when all the outstanding  backend programming interface requests are replied
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_rollback_in_progress
                         
                         	Is true if subscriber's configuration is being rolled back
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_server_restart_apply
                         
                         	Is true if the subscriber's configuration is being applied due to subscriber database server restart
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_rollback_performed
                         
                         	Is true if rollback has previously been performed for this subscriber
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: repl_pending
                         
                         	Flags indicating if there is pending replication
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: activate_timer_running
                         
                         	Flags indicating if activate timer is running
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: apply_timer_running
                         
                         	Flags indicating if apply timer is running
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: event_queue_size
                         
                         	the current size of the event queue
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: restarts
                         
@@ -822,12 +926,16 @@ class SubscriberDatabase(Entity):
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: template_interface_id
                         
                         	Template Interface Identifier
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -893,9 +1001,16 @@ class SubscriberDatabase(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberDatabase.Nodes.Node.Session.Labels.Label, ['subscriber_label', 'session_state', 'activate_request_id', 'transaction_id', 'produce_done_request_id', 'destroy_req_received', 'destroy_request_id', 'is_config_changed', 'is_creator_gone', 'is_delete_notify_done', 'add_modify_done', 'is_rollback_needed', 'is_rollback_in_progress', 'is_server_restart_apply', 'is_rollback_performed', 'repl_pending', 'activate_timer_running', 'apply_timer_running', 'event_queue_size', 'restarts', 'template_interface_id'], name, value)
+                            self._perform_setattr(SubscriberDatabase.Nodes.Node.Session.Labels.Label, ['subscriber_label', u'session_state', u'activate_request_id', u'transaction_id', u'produce_done_request_id', u'destroy_req_received', u'destroy_request_id', u'is_config_changed', u'is_creator_gone', u'is_delete_notify_done', u'add_modify_done', u'is_rollback_needed', u'is_rollback_in_progress', u'is_server_restart_apply', u'is_rollback_performed', u'repl_pending', u'activate_timer_running', u'apply_timer_running', u'event_queue_size', u'restarts', u'template_interface_id'], name, value)
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = SubscriberDatabase()
         return self._top_entity
+
+
 

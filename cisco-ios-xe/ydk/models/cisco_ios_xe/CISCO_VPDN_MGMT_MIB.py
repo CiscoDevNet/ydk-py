@@ -192,25 +192,35 @@ class CISCOVPDNMGMTMIB(Entity):
     	
     	**type**\:  :py:class:`CiscoVpdnMgmtMIBNotifs <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CiscoVpdnMgmtMIBNotifs>`
     
+    	**config**\: False
+    
     .. attribute:: cvpdnsysteminfo
     
     	
     	**type**\:  :py:class:`CvpdnSystemInfo <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnSystemInfo>`
+    
+    	**config**\: False
     
     .. attribute:: cvpdnmultilinkinfo
     
     	
     	**type**\:  :py:class:`CvpdnMultilinkInfo <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnMultilinkInfo>`
     
+    	**config**\: False
+    
     .. attribute:: cvpdnsystemtable
     
     	Table of information about the VPDN system for all tunnel types
     	**type**\:  :py:class:`CvpdnSystemTable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnSystemTable>`
     
+    	**config**\: False
+    
     .. attribute:: cvpdntunneltable
     
     	Table of information about the active VPDN tunnels
     	**type**\:  :py:class:`CvpdnTunnelTable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelTable>`
+    
+    	**config**\: False
     
     	**status**\: obsolete
     
@@ -219,10 +229,14 @@ class CISCOVPDNMGMTMIB(Entity):
     	Table of information about the active VPDN tunnels.  An entry is added to the table when a new tunnel is initiated and removed from the table when the tunnel is terminated
     	**type**\:  :py:class:`CvpdnTunnelAttrTable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelAttrTable>`
     
+    	**config**\: False
+    
     .. attribute:: cvpdntunnelsessiontable
     
     	Table of information about individual user sessions within the active tunnels.  Entry is added to the table when new user session is initiated and be removed from the table when the user session is terminated
     	**type**\:  :py:class:`CvpdnTunnelSessionTable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelSessionTable>`
+    
+    	**config**\: False
     
     	**status**\: obsolete
     
@@ -231,25 +245,35 @@ class CISCOVPDNMGMTMIB(Entity):
     	Table of information about individual sessions within the active tunnels.  An entry is added to the table when a new session is initiated and removed from the table when the session is terminated
     	**type**\:  :py:class:`CvpdnSessionAttrTable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnSessionAttrTable>`
     
+    	**config**\: False
+    
     .. attribute:: cvpdnusertofailhistinfotable
     
     	Table of the record of failure objects which can be referenced by an user name.  Only a name that has a valid item in the Cisco IOS VPDN failure history table will yield a valid entry in this table.  The table has a maximum size of 50 entries.  Only the newest 50 entries will be kept in the table
     	**type**\:  :py:class:`CvpdnUserToFailHistInfoTable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnUserToFailHistInfoTable>`
+    
+    	**config**\: False
     
     .. attribute:: cvpdntemplatetable
     
     	Table of information about the VPDN templates.  The VPDN template is a grouping mechanism that allows configuration settings to be shared among multiple VPDN groups.  One such setting is a limit on the number of active sessions across all VPDN groups associated with the template.  The template table allows customers to monitor template\-wide information such as tracking the allocation of sessions across templates
     	**type**\:  :py:class:`CvpdnTemplateTable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTemplateTable>`
     
+    	**config**\: False
+    
     .. attribute:: cvpdnbundletable
     
     	Table that describes the multilink PPP attributes of the active VPDN sessions
     	**type**\:  :py:class:`CvpdnBundleTable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnBundleTable>`
     
+    	**config**\: False
+    
     .. attribute:: cvpdnbundlechildtable
     
     	A table that exposes the containment relationship between a multilink PPP bundle and a VPDN tunnel
     	**type**\:  :py:class:`CvpdnBundleChildTable <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnBundleChildTable>`
+    
+    	**config**\: False
     
     
 
@@ -335,10 +359,14 @@ class CISCOVPDNMGMTMIB(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: cvpdnnotifsessionevent
         
         	Indicates the event that generated the L2X session notification.  The events are represented as follows\:  up\:     Session has come up.  down\:   Session has gone down.  pwUp\:   Pseudowire associated with this          session has come up.  pwDown\: Pseudowire associated with this          session has gone down
         	**type**\:  :py:class:`CvpdnNotifSessionEvent <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CiscoVpdnMgmtMIBNotifs.CvpdnNotifSessionEvent>`
+        
+        	**config**\: False
         
         
 
@@ -411,6 +439,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
 
 
+
     class CvpdnSystemInfo(Entity):
         """
         
@@ -421,6 +450,8 @@ class CISCOVPDNMGMTMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: tunnels
         
@@ -433,6 +464,8 @@ class CISCOVPDNMGMTMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: users
         
         	**status**\: obsolete
@@ -444,6 +477,8 @@ class CISCOVPDNMGMTMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: attempts
         
         	**status**\: obsolete
@@ -453,10 +488,14 @@ class CISCOVPDNMGMTMIB(Entity):
         	Indicates whether Layer 2 VPN session notifications are enabled
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: cvpdnsystemclearsessions
         
         	Clears all the sessions in a given tunnel type.  When reading this object, the value of 'none' will always be returned.  When setting these values, the following operations will be performed\:      none\: no operation.      all\:  clears all the sessions in all the tunnels.      l2f\:  clears all the L2F sessions.      l2tp\: clears all the L2TP sessions.      pptp\: clears all the PPTP sessions
         	**type**\:  :py:class:`CvpdnSystemClearSessions <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnSystemInfo.CvpdnSystemClearSessions>`
+        
+        	**config**\: False
         
         
 
@@ -541,6 +580,7 @@ class CISCOVPDNMGMTMIB(Entity):
 
 
 
+
     class CvpdnMultilinkInfo(Entity):
         """
         
@@ -552,12 +592,16 @@ class CISCOVPDNMGMTMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: cvpdnbundleswithtwolinks
         
         	The total number of bundles comprised of two links
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: cvpdnbundleswithmorethantwolinks
         
@@ -566,12 +610,16 @@ class CISCOVPDNMGMTMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: cvpdnbundlelastchanged
         
         	The value of the sysUpTime object when the contents of cvpdnBundleTable last changed
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -607,6 +655,7 @@ class CISCOVPDNMGMTMIB(Entity):
             self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnMultilinkInfo, ['cvpdnbundleswithonelink', 'cvpdnbundleswithtwolinks', 'cvpdnbundleswithmorethantwolinks', 'cvpdnbundlelastchanged'], name, value)
 
 
+
     class CvpdnSystemTable(Entity):
         """
         Table of information about the VPDN system for all tunnel
@@ -616,6 +665,8 @@ class CISCOVPDNMGMTMIB(Entity):
         
         	An entry in the table, containing information about a single type of VPDN tunnel
         	**type**\: list of  		 :py:class:`CvpdnSystemEntry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnSystemTable.CvpdnSystemEntry>`
+        
+        	**config**\: False
         
         
 
@@ -654,12 +705,16 @@ class CISCOVPDNMGMTMIB(Entity):
             	The tunnel type.  This is the tunnel protocol
             	**type**\:  :py:class:`TunnelType <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.TunnelType>`
             
+            	**config**\: False
+            
             .. attribute:: cvpdnsystemtunneltotal
             
             	The total number of VPDN tunnels that are currently active of this tunnel type
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: tunnels
             
@@ -670,6 +725,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: sessions
             
             .. attribute:: cvpdnsystemdenieduserstotal
@@ -678,6 +735,8 @@ class CISCOVPDNMGMTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: attempts
             
@@ -688,6 +747,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: attempts
             
             .. attribute:: cvpdnsystemsuccessconnreq
@@ -697,6 +758,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: attempts
             
             .. attribute:: cvpdnsystemfailedconnreq
@@ -705,6 +768,8 @@ class CISCOVPDNMGMTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: attempts
             
@@ -748,6 +813,8 @@ class CISCOVPDNMGMTMIB(Entity):
                 self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnSystemTable.CvpdnSystemEntry, ['cvpdnsystemtunneltype', 'cvpdnsystemtunneltotal', 'cvpdnsystemsessiontotal', 'cvpdnsystemdenieduserstotal', 'cvpdnsysteminitialconnreq', 'cvpdnsystemsuccessconnreq', 'cvpdnsystemfailedconnreq'], name, value)
 
 
+
+
     class CvpdnTunnelTable(Entity):
         """
         Table of information about the active VPDN tunnels.
@@ -756,6 +823,8 @@ class CISCOVPDNMGMTMIB(Entity):
         
         	An entry in the table, containing information about a single active VPDN tunnel
         	**type**\: list of  		 :py:class:`CvpdnTunnelEntry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelTable.CvpdnTunnelEntry>`
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -798,6 +867,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: cvpdntunnelremotetunnelid
@@ -806,6 +877,8 @@ class CISCOVPDNMGMTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -816,6 +889,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: cvpdntunnelremotename
@@ -824,6 +899,8 @@ class CISCOVPDNMGMTMIB(Entity):
             	**type**\: str
             
             	**length:** 1..255
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -834,12 +911,16 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: cvpdntunnellocalinitconnection
             
             	This object indicates whether the tunnel was generated locally or not
             	**type**\: bool
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -848,12 +929,16 @@ class CISCOVPDNMGMTMIB(Entity):
             	The cause which originated an active VPDN tunnel.  The tunnel can be projected via domain name, DNIS or a stack group (SGBP)
             	**type**\:  :py:class:`CvpdnTunnelOrigCause <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelTable.CvpdnTunnelEntry.CvpdnTunnelOrigCause>`
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: cvpdntunnelstate
             
             	The current state of an active VPDN tunnel.  Each state code is explained below\:         unknown\: The current state of the tunnel is                 unknown.         opening\: The tunnel has just been instigated and                 is pending for a remote end reply to                 complete the process.         open\:    The tunnel is active.         closing\: The tunnel has just been shut down and                 is pending for the remote end to reply                 to complete the process
             	**type**\:  :py:class:`CvpdnTunnelState <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelTable.CvpdnTunnelEntry.CvpdnTunnelState>`
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -863,6 +948,8 @@ class CISCOVPDNMGMTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: sessions
             
@@ -875,6 +962,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: calls
             
             	**status**\: obsolete
@@ -884,12 +973,16 @@ class CISCOVPDNMGMTMIB(Entity):
             	A VPDN tunnel can be put into a soft shut state to prevent any new user session to be added.  This object specifies whether this tunnel has been soft shut
             	**type**\: bool
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: cvpdntunnelnetworkservicetype
             
             	The type of network service used in the active tunnel. For now it is IP only
             	**type**\:  :py:class:`CvpdnTunnelNetworkServiceType <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelTable.CvpdnTunnelEntry.CvpdnTunnelNetworkServiceType>`
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -900,6 +993,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: cvpdntunnelsourceipaddress
@@ -909,6 +1004,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: cvpdntunnelremoteipaddress
@@ -917,6 +1014,8 @@ class CISCOVPDNMGMTMIB(Entity):
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1061,6 +1160,8 @@ class CISCOVPDNMGMTMIB(Entity):
 
 
 
+
+
     class CvpdnTunnelAttrTable(Entity):
         """
         Table of information about the active VPDN tunnels.  An
@@ -1071,6 +1172,8 @@ class CISCOVPDNMGMTMIB(Entity):
         
         	An entry in the table, containing information about a single active VPDN tunnel
         	**type**\: list of  		 :py:class:`CvpdnTunnelAttrEntry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelAttrTable.CvpdnTunnelAttrEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1109,12 +1212,16 @@ class CISCOVPDNMGMTMIB(Entity):
             	
             	**type**\:  :py:class:`TunnelType <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.TunnelType>`
             
+            	**config**\: False
+            
             .. attribute:: cvpdntunnelattrtunnelid  (key)
             
             	The Tunnel ID of an active VPDN tunnel.  If this end is the instigator of the tunnel, the ID is the TS tunnel ID, otherwise it is the NAS tunnel ID.  Two distinct tunnels with the same tunnel ID may exist, but with different tunnel types
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: cvpdntunnelattrremotetunnelid
             
@@ -1123,12 +1230,16 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: cvpdntunnelattrlocalname
             
             	The local name of an active VPDN tunnel.  It will be the NAS name of the tunnel if the system serves as the NAS, or the TS name of the tunnel if the system serves as the tunnel server.  Typically, the local name is the configured host name of the system
             	**type**\: str
             
             	**length:** 1..255
+            
+            	**config**\: False
             
             .. attribute:: cvpdntunnelattrremotename
             
@@ -1137,6 +1248,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: cvpdntunnelattrremoteendpointname
             
             	The remote end point name of an active VPDN tunnel.  This name is either the domain name or the DNIS that this tunnel is projected with
@@ -1144,20 +1257,28 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: cvpdntunnelattrlocalinitconnection
             
             	This object indicates whether the tunnel was originated locally or not.  If it's true, the tunnel was originated locally
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cvpdntunnelattrorigcause
             
             	The cause which originated an active VPDN tunnel.  The tunnel can be projected via domain name, DNIS, stack group, or L2 Xconnect
             	**type**\:  :py:class:`CvpdnTunnelAttrOrigCause <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelAttrTable.CvpdnTunnelAttrEntry.CvpdnTunnelAttrOrigCause>`
             
+            	**config**\: False
+            
             .. attribute:: cvpdntunnelattrstate
             
             	The current state of an active VPDN tunnel. Tunnels of type l2f will have states with the 'l2f' prefix. Tunnels of type l2tp will have states with the 'l2tp' prefix. Tunnels of type pptp will have states with the 'pptp' prefix.  Each state code is explained below\:      unknown\:            The current state of the tunnel is                         unknown.      l2fOpening\:         The tunnel has just been initiated                         and is pending for a remote end                         reply to complete the process.      l2fOpenWait\:        This end received a tunnel open                         request from the remote end and is                         waiting for the tunnel to be                         established.      l2fOpen\:            The tunnel is active.      l2fClosing\:         This end received a tunnel close                         request.      l2fCloseWait\:       The tunnel has just been shut down                         and is pending for the remote end                         to reply to complete the process.      l2tpIdle\:           No tunnel is initiated yet.      l2tpWaitCtlReply\:   The tunnel has been initiated and                         is pending for a remote end reply                         to complete the process.      l2tpEstablished\:    The tunnel is active.      l2tpShuttingDown\:   The tunnel is in progress of                         shutting down.      l2tpNoSessionLeft\:  There is no session left in the                         tunnel.      pptpIdle\:           No tunnel is initiated yet.      pptpWaitConnect\:    The tunnel is waiting for a TCP                         connection.      pptpWaitCtlRequest\: The tunnel has been initiated and                         is pending for a remote end                         request.      pptpWaitCtlReply\:   The tunnel has been initiated and                         is pending for a remote end reply.      pptpEstablished\:    The tunnel is active.      pptpWaitStopReply\:  The tunnel is being shut down and                         is pending for a remote end reply.      pptpTerminal\:       The tunnel has been shut down
             	**type**\:  :py:class:`CvpdnTunnelAttrState <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelAttrTable.CvpdnTunnelAttrEntry.CvpdnTunnelAttrState>`
+            
+            	**config**\: False
             
             .. attribute:: cvpdntunnelattractivesessions
             
@@ -1165,6 +1286,8 @@ class CISCOVPDNMGMTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: sessions
             
@@ -1175,6 +1298,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: calls
             
             .. attribute:: cvpdntunnelattrsoftshut
@@ -1182,10 +1307,14 @@ class CISCOVPDNMGMTMIB(Entity):
             	A VPDN tunnel can be put into a soft shut state to prevent any new session to be added.  This object specifies whether this tunnel has been soft shut.  If its true, it has been soft shut
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cvpdntunnelattrnetworkservicetype
             
             	The type of network service used in the active tunnel
             	**type**\:  :py:class:`CvpdnTunnelAttrNetworkServiceType <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelAttrTable.CvpdnTunnelAttrEntry.CvpdnTunnelAttrNetworkServiceType>`
+            
+            	**config**\: False
             
             .. attribute:: cvpdntunnelattrlocalipaddress
             
@@ -1193,6 +1322,8 @@ class CISCOVPDNMGMTMIB(Entity):
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -1203,6 +1334,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: cvpdntunnelattrremoteipaddress
@@ -1212,12 +1345,16 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: cvpdntunnelattrlocalinetaddresstype
             
             	Indicates the type of address contained in cvpdnTunnelAttrLocalInetAddress
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cvpdntunnelattrlocalinetaddress
             
@@ -1226,10 +1363,14 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cvpdntunnelattrsourceinetaddresstype
             
             	Indicates the type of address contained in cvpdnTunnelAttrSourceInetAddress
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cvpdntunnelattrsourceinetaddress
             
@@ -1238,10 +1379,14 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cvpdntunnelattrremoteinetaddresstype
             
             	Indicates the type of address contained in cvpdnTunnelAttrRemoteInetAddress
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cvpdntunnelattrremoteinetaddress
             
@@ -1249,6 +1394,8 @@ class CISCOVPDNMGMTMIB(Entity):
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             
 
@@ -1527,6 +1674,8 @@ class CISCOVPDNMGMTMIB(Entity):
 
 
 
+
+
     class CvpdnTunnelSessionTable(Entity):
         """
         Table of information about individual user sessions
@@ -1538,6 +1687,8 @@ class CISCOVPDNMGMTMIB(Entity):
         
         	An entry in the table, containing information about a single user session within the tunnel
         	**type**\: list of  		 :py:class:`CvpdnTunnelSessionEntry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelSessionTable.CvpdnTunnelSessionEntry>`
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -1582,6 +1733,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**refers to**\:  :py:class:`cvpdntunneltunnelid <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelTable.CvpdnTunnelEntry>`
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: cvpdntunnelsessionid  (key)
@@ -1590,6 +1743,8 @@ class CISCOVPDNMGMTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1600,12 +1755,16 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: cvpdntunnelsessionstate
             
             	The current state of an active user session.  Each state code is explained below\:      unknown\:          The current state of the tunnel's                       session is unknown.      opening\:          The user session has just been                       initiated through a tunnel and is                       pending for the remote end reply                       to complete the process.      open\:             The user session is active.      closing\:          The user session has just been                       closed and is pending for the                       remote end reply to complete the                       process.      waitingForTunnel\: The user session is in this state                       when the tunnel which this session                       is going through is still in                       CLOSED state.  It waits for the                       tunnel to become OPEN before the                       session is allow to be fully                       established
             	**type**\:  :py:class:`CvpdnTunnelSessionState <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelSessionTable.CvpdnTunnelSessionEntry.CvpdnTunnelSessionState>`
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1616,6 +1775,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: cvpdntunnelsessionpacketsout
@@ -1624,6 +1785,8 @@ class CISCOVPDNMGMTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -1636,6 +1799,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             	**status**\: obsolete
@@ -1646,6 +1811,8 @@ class CISCOVPDNMGMTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -1658,6 +1825,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             	**status**\: obsolete
@@ -1667,12 +1836,16 @@ class CISCOVPDNMGMTMIB(Entity):
             	The type of physical devices that this user session is attached to for the local end of the tunnel.  The meaning of each device type is explained below\:      other\:              Any device that has not been                         defined.      asyncInternalModem\: Modem Pool device of an access                         server.      async\:              A regular asynchronous serial                         interface.      sync\:               A regular synchronous serial                         interface.      bchan\:              An ISDN call.      xdsl\:               Future application with xDSL                         devices.      cable\:              Future application with Cable                         modem devices
             	**type**\:  :py:class:`CvpdnTunnelSessionDeviceType <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelSessionTable.CvpdnTunnelSessionEntry.CvpdnTunnelSessionDeviceType>`
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: cvpdntunnelsessiondevicecallerid
             
             	The incoming caller identification of the user.  It is the originating number that called into the device that initiates the user session.  This object can be empty since not all dial device can provide caller ID information
             	**type**\: str
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1683,12 +1856,16 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: cvpdntunnelsessionmultilink
             
             	This object indicates whether the session is part of a multilink or not
             	**type**\: bool
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1699,6 +1876,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: cvpdntunnelsessionmodemportindex
@@ -1707,6 +1886,8 @@ class CISCOVPDNMGMTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1717,6 +1898,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: cvpdntunnelsessionds1portindex
@@ -1725,6 +1908,8 @@ class CISCOVPDNMGMTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1735,6 +1920,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: cvpdntunnelsessionmodemcallstarttime
@@ -1744,6 +1931,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: cvpdntunnelsessionmodemcallstartindex
@@ -1752,6 +1941,8 @@ class CISCOVPDNMGMTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1959,6 +2150,8 @@ class CISCOVPDNMGMTMIB(Entity):
 
 
 
+
+
     class CvpdnSessionAttrTable(Entity):
         """
         Table of information about individual sessions within the
@@ -1970,6 +2163,8 @@ class CISCOVPDNMGMTMIB(Entity):
         
         	An entry in the table, containing information about a single session within the tunnel
         	**type**\: list of  		 :py:class:`CvpdnSessionAttrEntry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnSessionAttrTable.CvpdnSessionAttrEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2008,6 +2203,8 @@ class CISCOVPDNMGMTMIB(Entity):
             	
             	**type**\:  :py:class:`TunnelType <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.TunnelType>`
             
+            	**config**\: False
+            
             .. attribute:: cvpdntunnelattrtunnelid  (key)
             
             	
@@ -2017,12 +2214,16 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**refers to**\:  :py:class:`cvpdntunnelattrtunnelid <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTunnelAttrTable.CvpdnTunnelAttrEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cvpdnsessionattrsessionid  (key)
             
             	The ID of an active VPDN session
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: cvpdnsessionattrusername
             
@@ -2031,10 +2232,14 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: cvpdnsessionattrstate
             
             	The current state of a tunnel session. L2F tunnel sessions will have states with the 'l2f' prefix. L2TP tunnel sessions will have states with the 'l2tp' prefix.  Each state code is explained below\:      unknown\:             The current state of the tunnel's                          session is unknown.      l2fOpening\:          The session has just been                          initiated through a tunnel and is                          pending for the remote end reply                          to complete the process.      l2fOpen\:             The session is active.      l2fCloseWait\:        The session has just been closed                          and is pending for the remote end                          reply to complete the process.      l2fWaitingForTunnel\: The session is in this state when                          the tunnel which this session is                          going through is still in CLOSED                          state.  It waits for the tunnel to                          become OPEN before the session is                          allowed to be fully established.      l2tpIdle\:            No session is initiated yet.      l2tpWaitingTunnel\:   The session is waiting for the                          tunnel to be established.      l2tpWaitReply\:       The session has been initiated and                          is pending for the remote end                          reply to complete the process.      l2tpWaitConnect\:     This end has acknowledged a                          connection request and is waiting                          for the remote end to connect.      l2tpEstablished\:     The session is active.      l2tpShuttingDown\:    The session is in progress of                          shutting down.      pptpWaitVAccess\:     The session is waiting for the                          creation of a virtual access                          interface.      pptpPacEstablished\:  The session is active.      pptpWaitTunnel\:      The session is waiting for the                          tunnel to be established.      pptpWaitOCRP\:        The session has been initiated and                          is pending for the remote end                          reply to complete the process.      pptpPnsEstablished\:  The session is active.      pptpWaitCallDisc\:    Session shutdown is in progress
             	**type**\:  :py:class:`CvpdnSessionAttrState <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnSessionAttrTable.CvpdnSessionAttrEntry.CvpdnSessionAttrState>`
+            
+            	**config**\: False
             
             .. attribute:: cvpdnsessionattrcallduration
             
@@ -2043,12 +2248,16 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cvpdnsessionattrpacketsout
             
             	The total number of output packets through this active session
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -2059,6 +2268,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             .. attribute:: cvpdnsessionattrpacketsin
@@ -2067,6 +2278,8 @@ class CISCOVPDNMGMTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -2077,6 +2290,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             .. attribute:: cvpdnsessionattrdevicetype
@@ -2084,10 +2299,14 @@ class CISCOVPDNMGMTMIB(Entity):
             	The type of physical devices that this session is attached to for the local end of the tunnel.  The meaning of each device type is explained below\:      other\:              Any device that has not been                         defined.      asyncInternalModem\: Modem Pool device of an access                         server.      async\:              A regular asynchronous serial                         interface.      sync\:               A regular synchronous serial                         interface.      bchan\:              An ISDN call.      xdsl\:               xDSL interface.      cable\:              cable modem interface
             	**type**\:  :py:class:`CvpdnSessionAttrDeviceType <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnSessionAttrTable.CvpdnSessionAttrEntry.CvpdnSessionAttrDeviceType>`
             
+            	**config**\: False
+            
             .. attribute:: cvpdnsessionattrdevicecallerid
             
             	The incoming caller identification of the user.  It is the originating number that called into the device that initiates the session.  This object can be empty since not all dial devices can provide caller ID information
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: cvpdnsessionattrdevicephyid
             
@@ -2096,10 +2315,14 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cvpdnsessionattrmultilink
             
             	This object indicates whether the session is part of a multilink PPP bundle, even if there is only one link or session in the bundle.  If it is multilink PPP, the value is true
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cvpdnsessionattrmodemslotindex
             
@@ -2108,12 +2331,16 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cvpdnsessionattrmodemportindex
             
             	The Modem Pool database port index if it is associated with this session.  Only a session with a device of type 'asyncInternalModem' will have a valid value for this object; otherwise, it is not instantiated
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cvpdnsessionattrds1slotindex
             
@@ -2122,12 +2349,16 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cvpdnsessionattrds1portindex
             
             	The DS1 database port index if it is associated with this session.  Only a session with a device of type 'asyncInternalModem' will have a valid value for this object; otherwise it is not instantiated
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cvpdnsessionattrds1channelindex
             
@@ -2136,12 +2367,16 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cvpdnsessionattrmodemcallstarttime
             
             	The start time of the current modem call.  Only a session with a device of type 'asyncInternalModem' will have a valid value for this object; otherwise, it is not instantiated
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cvpdnsessionattrmodemcallstartindex
             
@@ -2150,6 +2385,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cvpdnsessionattrvirtualcircuitid
             
             	The virtual circuit ID of an active Layer 2 VPN session
@@ -2157,12 +2394,16 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cvpdnsessionattrsentpktsdropped
             
             	The total number of dropped packets that could not be sent into this active session
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -2173,6 +2414,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: cvpdnsessionattrmultilinkbundle
@@ -2182,12 +2425,16 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cvpdnsessionattrmultilinkifindex
             
             	This object specifies the ifIndex of the multilink bundle to which this session belongs.  The value of this object is only valid when the value of cvpdnSessionAttrMultilink is 'true'.  If the value of cvpdnSessionAttrMultilink is 'false', then the value of this object will be zero
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             
 
@@ -2501,6 +2748,8 @@ class CISCOVPDNMGMTMIB(Entity):
 
 
 
+
+
     class CvpdnUserToFailHistInfoTable(Entity):
         """
         Table of the record of failure objects which can be
@@ -2514,6 +2763,8 @@ class CISCOVPDNMGMTMIB(Entity):
         
         	An entry in the table, containing failure history relevant to an user name
         	**type**\: list of  		 :py:class:`CvpdnUserToFailHistInfoEntry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnUserToFailHistInfoTable.CvpdnUserToFailHistInfoEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2554,12 +2805,16 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: cvpdnunametofailhisttunnelid  (key)
             
             	The Tunnel ID for this failure entry.  If it is the instigator of the tunnel, the ID is the TS tunnel ID, otherwise it is the NAS tunnel ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cvpdnunametofailhistuserid
             
@@ -2568,20 +2823,28 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cvpdnunametofailhistlocalinitconn
             
             	This object indicates whether the tunnel in which the failure occurred was generated locally or not
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cvpdnunametofailhistlocalname
             
             	The local name of the VPDN tunnel in which the failure occurred.  It will be the NAS name of the tunnel if the system serves as the NAS, or the TS name of the tunnel if the system serves as the tunnel server.  The local name is the configured host name of the system.  This object can be empty if the failure occurred prior to successful tunnel projection, thus no source name will be available
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: cvpdnunametofailhistremotename
             
             	The remote name of the VPDN tunnel in which the failure occurred.  It will be the tunnel server name of the tunnel if the system is a NAS, or the NAS name of the tunnel if the system serves as the tunnel server.  This object can be empty if the failure occurred prior to successful tunnel projection, thus no source name will be available
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: cvpdnunametofailhistsourceip
             
@@ -2589,6 +2852,8 @@ class CISCOVPDNMGMTMIB(Entity):
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2599,6 +2864,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: cvpdnunametofailhistcount
@@ -2607,6 +2874,8 @@ class CISCOVPDNMGMTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: failures
             
@@ -2617,12 +2886,16 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cvpdnunametofailhistfailtype
             
             	The type of failure for the current failure record.  It comes in a form of a an ASCII string which describes the type of failure
             	**type**\: str
             
             	**length:** 1..255
+            
+            	**config**\: False
             
             .. attribute:: cvpdnunametofailhistfailreason
             
@@ -2631,10 +2904,14 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: cvpdnunametofailhistsourceinettype
             
             	Indicates the type of address contained in cvpdnUnameToFailHistSourceInetAddr
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cvpdnunametofailhistsourceinetaddr
             
@@ -2643,10 +2920,14 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cvpdnunametofailhistdestinettype
             
             	Indicates the type of address contained in cvpdnUnameToFailHistDestInetAddr
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cvpdnunametofailhistdestinetaddr
             
@@ -2654,6 +2935,8 @@ class CISCOVPDNMGMTMIB(Entity):
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             
 
@@ -2713,6 +2996,8 @@ class CISCOVPDNMGMTMIB(Entity):
                 self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnUserToFailHistInfoTable.CvpdnUserToFailHistInfoEntry, ['cvpdnunametofailhistuname', 'cvpdnunametofailhisttunnelid', 'cvpdnunametofailhistuserid', 'cvpdnunametofailhistlocalinitconn', 'cvpdnunametofailhistlocalname', 'cvpdnunametofailhistremotename', 'cvpdnunametofailhistsourceip', 'cvpdnunametofailhistdestip', 'cvpdnunametofailhistcount', 'cvpdnunametofailhistfailtime', 'cvpdnunametofailhistfailtype', 'cvpdnunametofailhistfailreason', 'cvpdnunametofailhistsourceinettype', 'cvpdnunametofailhistsourceinetaddr', 'cvpdnunametofailhistdestinettype', 'cvpdnunametofailhistdestinetaddr'], name, value)
 
 
+
+
     class CvpdnTemplateTable(Entity):
         """
         Table of information about the VPDN templates.  The
@@ -2728,6 +3013,8 @@ class CISCOVPDNMGMTMIB(Entity):
         
         	An entry in the table, containing information about a single VPDN template
         	**type**\: list of  		 :py:class:`CvpdnTemplateEntry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnTemplateTable.CvpdnTemplateEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2768,12 +3055,16 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: cvpdntemplateactivesessions
             
             	The total number of active session in all groups associated with the template
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: sessions
             
@@ -2807,6 +3098,8 @@ class CISCOVPDNMGMTMIB(Entity):
                 self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnTemplateTable.CvpdnTemplateEntry, ['cvpdntemplatename', 'cvpdntemplateactivesessions'], name, value)
 
 
+
+
     class CvpdnBundleTable(Entity):
         """
         Table that describes the multilink PPP attributes of the
@@ -2816,6 +3109,8 @@ class CISCOVPDNMGMTMIB(Entity):
         
         	An entry in this table represents an active multilink PPP bundle that belongs to a VPDN tunnel
         	**type**\: list of  		 :py:class:`CvpdnBundleEntry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnBundleTable.CvpdnBundleEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2856,6 +3151,8 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**length:** 1..64
             
+            	**config**\: False
+            
             .. attribute:: cvpdnbundlelinkcount
             
             	The total number of active links in a multilink PPP bundle associated with a VPDN tunnel
@@ -2863,12 +3160,16 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: links
             
             .. attribute:: cvpdnbundleendpointtype
             
             	The multilink PPP bundle discriminator type associated with a VPDN tunnel.  The value of this object represents the type of discriminator used in cvpdnBundleEndpoint.      none\:        No endpoint discriminator was supplied, the                  default value is being used.      hostname\:    The router's hostname is being used as                  discriminator.      string\:      User specified string is being used as                  discriminator.      macAddress\:  A MAC address as defined by the MacAddress                  textual convention is being used as                  discriminator.      ipV4Address\: An IP address as defined by the                  InetAddressIPv4 textual convention is being                  used as discriminator.      ipV6Address\: An IP address as defined by the                  InetAddressIPv6 textual convention is being                  used as discriminator.      phone\:       The PSTN phone number is being used as                  discriminator.      magicNumber\: A magic number is being used as                  discriminator
             	**type**\:  :py:class:`CvpdnBundleEndpointType <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnBundleTable.CvpdnBundleEntry.CvpdnBundleEndpointType>`
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2879,10 +3180,14 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cvpdnbundlepeeripaddrtype
             
             	Indicates the type of address contained in cvpdnBundlePeerIpAddr
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cvpdnbundlepeeripaddr
             
@@ -2891,10 +3196,14 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cvpdnbundleendpointclass
             
             	The multilink PPP bundle discriminator class associated with a VPDN tunnel.  The value of this object represents the type of discriminator used in cvpdnBundleEndpoint
             	**type**\:  :py:class:`EndpointClass <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.EndpointClass>`
+            
+            	**config**\: False
             
             
 
@@ -3019,6 +3328,8 @@ class CISCOVPDNMGMTMIB(Entity):
 
 
 
+
+
     class CvpdnBundleChildTable(Entity):
         """
         A table that exposes the containment relationship between a
@@ -3028,6 +3339,8 @@ class CISCOVPDNMGMTMIB(Entity):
         
         	An entry in this table represents a session that belongs to a VPDN tunnel and to a multilink PPP bundle
         	**type**\: list of  		 :py:class:`CvpdnBundleChildEntry <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnBundleChildTable.CvpdnBundleChildEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3070,10 +3383,14 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**refers to**\:  :py:class:`cvpdnbundlename <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CISCOVPDNMGMTMIB.CvpdnBundleTable.CvpdnBundleEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cvpdnbundlechildtunneltype  (key)
             
             	The tunnel type.  This is the tunnel protocol of an active VPDN session that is associated with a multilink PPP bundle
             	**type**\:  :py:class:`TunnelType <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.TunnelType>`
+            
+            	**config**\: False
             
             .. attribute:: cvpdnbundlechildtunnelid  (key)
             
@@ -3082,12 +3399,16 @@ class CISCOVPDNMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cvpdnbundlechildsessionid  (key)
             
             	The ID of an active VPDN session that is associated with a multilink PPP bundle
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -3122,7 +3443,11 @@ class CISCOVPDNMGMTMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOVPDNMGMTMIB.CvpdnBundleChildTable.CvpdnBundleChildEntry, ['cvpdnbundlename', 'cvpdnbundlechildtunneltype', 'cvpdnbundlechildtunnelid', 'cvpdnbundlechildsessionid'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOVPDNMGMTMIB()
         return self._top_entity
+
+
 

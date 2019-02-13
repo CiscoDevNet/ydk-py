@@ -270,6 +270,8 @@ class Ipv6NodeDiscovery(Entity):
     	IPv6 node discovery list of nodes
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -307,6 +309,8 @@ class Ipv6NodeDiscovery(Entity):
         
         	IPv6 node discovery operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -347,40 +351,56 @@ class Ipv6NodeDiscovery(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: neighbor_interfaces
             
             	IPv6 node discovery list of neighbor interfaces
             	**type**\:  :py:class:`NeighborInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces>`
+            
+            	**config**\: False
             
             .. attribute:: neighbor_summary
             
             	IPv6 Neighbor summary
             	**type**\:  :py:class:`NeighborSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary>`
             
+            	**config**\: False
+            
             .. attribute:: bundle_nodes
             
             	IPv6 ND list of bundle nodes for a specific node
             	**type**\:  :py:class:`BundleNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleNodes>`
+            
+            	**config**\: False
             
             .. attribute:: bundle_interfaces
             
             	IPv6 ND list of bundle interfaces for a specific node
             	**type**\:  :py:class:`BundleInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces>`
             
+            	**config**\: False
+            
             .. attribute:: interfaces
             
             	IPv6 node discovery list of interfaces for a specific node
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.Interfaces>`
+            
+            	**config**\: False
             
             .. attribute:: nd_virtual_routers
             
             	IPv6 ND virtual router information for a specific interface
             	**type**\:  :py:class:`NdVirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters>`
             
+            	**config**\: False
+            
             .. attribute:: slaac_interfaces
             
             	IPv6 ND list of SLAAC MGMT interfaces for a specific node
             	**type**\:  :py:class:`SlaacInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces>`
+            
+            	**config**\: False
             
             
 
@@ -448,6 +468,8 @@ class Ipv6NodeDiscovery(Entity):
                 	IPv6 node discovery neighbor interface
                 	**type**\: list of  		 :py:class:`NeighborInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -485,10 +507,14 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: host_addresses
                     
                     	IPv6 node discovery list of neighbor host addresses
                     	**type**\:  :py:class:`HostAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -531,6 +557,8 @@ class Ipv6NodeDiscovery(Entity):
                         	IPv6 Neighbor detailed information
                         	**type**\: list of  		 :py:class:`HostAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -568,15 +596,21 @@ class Ipv6NodeDiscovery(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: last_reached_time
                             
                             	Last time of reachability
                             	**type**\:  :py:class:`LastReachedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reachability_state
                             
                             	Current state
                             	**type**\:  :py:class:`Ipv6NdShState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShState>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: link_layer_address
                             
@@ -585,25 +619,35 @@ class Ipv6NodeDiscovery(Entity):
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
+                            	**config**\: False
+                            
                             .. attribute:: encapsulation
                             
                             	Preferred media encap type
                             	**type**\:  :py:class:`Ipv6NdMediaEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdMediaEncap>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: selected_encapsulation
                             
                             	Selected media encap
                             	**type**\:  :py:class:`Ipv6NdMediaEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdMediaEncap>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: origin_encapsulation
                             
                             	Neighbor origin
                             	**type**\:  :py:class:`Ipv6NdNeighborOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdNeighborOrigin>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_name
                             
                             	Interface name
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: location
                             
@@ -612,10 +656,14 @@ class Ipv6NodeDiscovery(Entity):
                             
                             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_router
                             
                             	IsRouter
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: serg_flags
                             
@@ -624,12 +672,16 @@ class Ipv6NodeDiscovery(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: vrfid
                             
                             	VRF name for this entry
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -679,7 +731,7 @@ class Ipv6NodeDiscovery(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress, ['host_address', u'reachability_state', u'link_layer_address', u'encapsulation', u'selected_encapsulation', u'origin_encapsulation', u'interface_name', u'location', u'is_router', u'serg_flags', u'vrfid'], name, value)
+                                self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress, ['host_address', 'reachability_state', 'link_layer_address', 'encapsulation', 'selected_encapsulation', 'origin_encapsulation', 'interface_name', 'location', 'is_router', 'serg_flags', 'vrfid'], name, value)
 
 
                             class LastReachedTime(Entity):
@@ -692,6 +744,8 @@ class Ipv6NodeDiscovery(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 	**units**\: second
                                 
@@ -719,7 +773,12 @@ class Ipv6NodeDiscovery(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime, [u'seconds'], name, value)
+                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborInterfaces.NeighborInterface.HostAddresses.HostAddress.LastReachedTime, ['seconds'], name, value)
+
+
+
+
+
 
 
             class NeighborSummary(Entity):
@@ -731,15 +790,21 @@ class Ipv6NodeDiscovery(Entity):
                 	Multicast neighbor summary
                 	**type**\:  :py:class:`Multicast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast>`
                 
+                	**config**\: False
+                
                 .. attribute:: static
                 
                 	Static neighbor summary
                 	**type**\:  :py:class:`Static <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static>`
                 
+                	**config**\: False
+                
                 .. attribute:: dynamic
                 
                 	Dynamic neighbor summary
                 	**type**\:  :py:class:`Dynamic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic>`
+                
+                	**config**\: False
                 
                 .. attribute:: total_neighbor_entries
                 
@@ -747,6 +812,8 @@ class Ipv6NodeDiscovery(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -784,7 +851,7 @@ class Ipv6NodeDiscovery(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary, [u'total_neighbor_entries'], name, value)
+                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary, ['total_neighbor_entries'], name, value)
 
 
                 class Multicast(Entity):
@@ -798,12 +865,16 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: reachable_entries
                     
                     	Total reachable entries
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: stale_entries
                     
@@ -812,12 +883,16 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: delayed_entries
                     
                     	Total delayed entries
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: probe_entries
                     
@@ -826,6 +901,8 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: deleted_entries
                     
                     	Total deleted entries
@@ -833,12 +910,16 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: subtotal_neighbor_entries
                     
                     	Total number of entries
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -876,7 +957,8 @@ class Ipv6NodeDiscovery(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast, [u'incomplete_entries', u'reachable_entries', u'stale_entries', u'delayed_entries', u'probe_entries', u'deleted_entries', u'subtotal_neighbor_entries'], name, value)
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Multicast, ['incomplete_entries', 'reachable_entries', 'stale_entries', 'delayed_entries', 'probe_entries', 'deleted_entries', 'subtotal_neighbor_entries'], name, value)
+
 
 
                 class Static(Entity):
@@ -890,12 +972,16 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: reachable_entries
                     
                     	Total reachable entries
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: stale_entries
                     
@@ -904,12 +990,16 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: delayed_entries
                     
                     	Total delayed entries
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: probe_entries
                     
@@ -918,6 +1008,8 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: deleted_entries
                     
                     	Total deleted entries
@@ -925,12 +1017,16 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: subtotal_neighbor_entries
                     
                     	Total number of entries
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -968,7 +1064,8 @@ class Ipv6NodeDiscovery(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static, [u'incomplete_entries', u'reachable_entries', u'stale_entries', u'delayed_entries', u'probe_entries', u'deleted_entries', u'subtotal_neighbor_entries'], name, value)
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Static, ['incomplete_entries', 'reachable_entries', 'stale_entries', 'delayed_entries', 'probe_entries', 'deleted_entries', 'subtotal_neighbor_entries'], name, value)
+
 
 
                 class Dynamic(Entity):
@@ -982,12 +1079,16 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: reachable_entries
                     
                     	Total reachable entries
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: stale_entries
                     
@@ -996,12 +1097,16 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: delayed_entries
                     
                     	Total delayed entries
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: probe_entries
                     
@@ -1010,6 +1115,8 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: deleted_entries
                     
                     	Total deleted entries
@@ -1017,12 +1124,16 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: subtotal_neighbor_entries
                     
                     	Total number of entries
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1060,7 +1171,9 @@ class Ipv6NodeDiscovery(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic, [u'incomplete_entries', u'reachable_entries', u'stale_entries', u'delayed_entries', u'probe_entries', u'deleted_entries', u'subtotal_neighbor_entries'], name, value)
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NeighborSummary.Dynamic, ['incomplete_entries', 'reachable_entries', 'stale_entries', 'delayed_entries', 'probe_entries', 'deleted_entries', 'subtotal_neighbor_entries'], name, value)
+
+
 
 
             class BundleNodes(Entity):
@@ -1072,6 +1185,8 @@ class Ipv6NodeDiscovery(Entity):
                 
                 	IPv6 ND operational data for a specific bundle node
                 	**type**\: list of  		 :py:class:`BundleNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode>`
+                
+                	**config**\: False
                 
                 
 
@@ -1111,10 +1226,14 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
+                    	**config**\: False
+                    
                     .. attribute:: age
                     
                     	Uptime of node (secs)
                     	**type**\:  :py:class:`Age <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: group_id
                     
@@ -1123,10 +1242,14 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: process_name
                     
                     	Process Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: sent_sequence_number
                     
@@ -1135,6 +1258,8 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: received_sequence_number
                     
                     	Received sequence num
@@ -1142,10 +1267,14 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	State
                     	**type**\:  :py:class:`Ipv6NdBndlState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdBndlState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: state_changes
                     
@@ -1154,6 +1283,8 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: sent_packets
                     
                     	Total packet sends
@@ -1161,12 +1292,16 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: received_packets
                     
                     	Total packet receives
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1212,7 +1347,7 @@ class Ipv6NodeDiscovery(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode, ['node_name', u'group_id', u'process_name', u'sent_sequence_number', u'received_sequence_number', u'state', u'state_changes', u'sent_packets', u'received_packets'], name, value)
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode, ['node_name', 'group_id', 'process_name', 'sent_sequence_number', 'received_sequence_number', 'state', 'state_changes', 'sent_packets', 'received_packets'], name, value)
 
 
                     class Age(Entity):
@@ -1225,6 +1360,8 @@ class Ipv6NodeDiscovery(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -1252,7 +1389,10 @@ class Ipv6NodeDiscovery(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age, [u'seconds'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleNodes.BundleNode.Age, ['seconds'], name, value)
+
+
+
 
 
             class BundleInterfaces(Entity):
@@ -1264,6 +1404,8 @@ class Ipv6NodeDiscovery(Entity):
                 
                 	IPv6 ND operational data for a specific bundler interface
                 	**type**\: list of  		 :py:class:`BundleInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface>`
+                
+                	**config**\: False
                 
                 
 
@@ -1303,15 +1445,21 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: nd_parameters
                     
                     	ND interface parameters
                     	**type**\:  :py:class:`NdParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_address
                     
                     	Link local address
                     	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: parent_interface_name
                     
@@ -1320,12 +1468,16 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: iftype
                     
                     	Interface type
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: mtu
                     
@@ -1334,12 +1486,16 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: etype
                     
                     	etype
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: vlan_tag
                     
@@ -1348,12 +1504,16 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: mac_addr_size
                     
                     	mac address size
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: mac_addr
                     
@@ -1362,20 +1522,28 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_interface_enabled
                     
                     	If true, interface is enabled
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: is_ipv6_enabled
                     
                     	If true, IPv6 is enabled
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_mpls_enabled
                     
                     	If true, MPLS is enabled
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: member_link
                     
@@ -1384,15 +1552,21 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: global_address
                     
                     	List of ND global addresses
                     	**type**\: list of  		 :py:class:`GlobalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: member_node
                     
                     	List of member nodes
                     	**type**\: list of  		 :py:class:`MemberNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1451,7 +1625,7 @@ class Ipv6NodeDiscovery(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface, ['interface_name', u'parent_interface_name', u'iftype', u'mtu', u'etype', u'vlan_tag', u'mac_addr_size', u'mac_addr', u'is_interface_enabled', u'is_ipv6_enabled', u'is_mpls_enabled', u'member_link'], name, value)
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface, ['interface_name', 'parent_interface_name', 'iftype', 'mtu', 'etype', 'vlan_tag', 'mac_addr_size', 'mac_addr', 'is_interface_enabled', 'is_ipv6_enabled', 'is_mpls_enabled', 'member_link'], name, value)
 
 
                     class NdParameters(Entity):
@@ -1463,6 +1637,8 @@ class Ipv6NodeDiscovery(Entity):
                         	If true, DAD (D.. A.. D..) is enabled otherwise it is disabled
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: dad_attempts
                         
                         	DAD attempt count
@@ -1470,30 +1646,42 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_icm_pv6_redirect
                         
                         	ICMP redirect flag
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_dhcp_managed
                         
                         	Flag used for utilising DHCP
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_route_address_managed
                         
                         	Flag used to manage routable address
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_suppressed
                         
                         	Suppress flag
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: send_unicast_ra
                         
                         	unicast RA send flag
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: nd_retransmit_interval
                         
@@ -1502,12 +1690,16 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: nd_min_transmit_interval
                         
                         	ND router advertisement minimum transmit interval in sec
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: nd_max_transmit_interval
                         
@@ -1516,12 +1708,16 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: nd_advertisement_lifetime
                         
                         	ND router advertisement life time in sec
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: nd_reachable_time
                         
@@ -1530,12 +1726,16 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: nd_cache_limit
                         
                         	Completed adjacency limit per interface
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: complete_protocol_count
                         
@@ -1544,12 +1744,16 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: complete_glean_count
                         
                         	Completed GLEAN entry count
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: incomplete_protocol_count
                         
@@ -1558,12 +1762,16 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: incomplete_glean_count
                         
                         	Incomplete GLEAN entry count
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: dropped_protocol_req_count
                         
@@ -1572,12 +1780,16 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: dropped_glean_req_count
                         
                         	Dropped GLEAN entry lequest count
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1639,7 +1851,8 @@ class Ipv6NodeDiscovery(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters, [u'is_dad_enabled', u'dad_attempts', u'is_icm_pv6_redirect', u'is_dhcp_managed', u'is_route_address_managed', u'is_suppressed', u'send_unicast_ra', u'nd_retransmit_interval', u'nd_min_transmit_interval', u'nd_max_transmit_interval', u'nd_advertisement_lifetime', u'nd_reachable_time', u'nd_cache_limit', u'complete_protocol_count', u'complete_glean_count', u'incomplete_protocol_count', u'incomplete_glean_count', u'dropped_protocol_req_count', u'dropped_glean_req_count'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.NdParameters, ['is_dad_enabled', 'dad_attempts', 'is_icm_pv6_redirect', 'is_dhcp_managed', 'is_route_address_managed', 'is_suppressed', 'send_unicast_ra', 'nd_retransmit_interval', 'nd_min_transmit_interval', 'nd_max_transmit_interval', 'nd_advertisement_lifetime', 'nd_reachable_time', 'nd_cache_limit', 'complete_protocol_count', 'complete_glean_count', 'incomplete_protocol_count', 'incomplete_glean_count', 'dropped_protocol_req_count', 'dropped_glean_req_count'], name, value)
+
 
 
                     class LocalAddress(Entity):
@@ -1653,6 +1866,8 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: valid_lifetime
                         
                         	Valid lifetime of a Prefix
@@ -1660,12 +1875,16 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: pref_lifetime
                         
                         	Preffered lifetime of a Prefix
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1695,7 +1914,8 @@ class Ipv6NodeDiscovery(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress, [u'ipv6_address', u'valid_lifetime', u'pref_lifetime'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.LocalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime'], name, value)
+
 
 
                     class GlobalAddress(Entity):
@@ -1709,6 +1929,8 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: valid_lifetime
                         
                         	Valid lifetime of a Prefix
@@ -1716,12 +1938,16 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: pref_lifetime
                         
                         	Preffered lifetime of a Prefix
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1751,7 +1977,8 @@ class Ipv6NodeDiscovery(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress, [u'ipv6_address', u'valid_lifetime', u'pref_lifetime'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.GlobalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime'], name, value)
+
 
 
                     class MemberNode(Entity):
@@ -1765,12 +1992,16 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_links
                         
                         	Number of links on the node
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1798,7 +2029,10 @@ class Ipv6NodeDiscovery(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode, [u'node_name', u'total_links'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.BundleInterfaces.BundleInterface.MemberNode, ['node_name', 'total_links'], name, value)
+
+
+
 
 
             class Interfaces(Entity):
@@ -1810,6 +2044,8 @@ class Ipv6NodeDiscovery(Entity):
                 
                 	IPv6  node discovery operational data for a specific node and interface
                 	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface>`
+                
+                	**config**\: False
                 
                 
 
@@ -1849,10 +2085,14 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_dad_enabled
                     
                     	If true, DAD (D.. A.. D..) is enabled otherwise it is disabled
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: dad_attempts
                     
@@ -1861,30 +2101,42 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_icm_pv6_redirect
                     
                     	ICMP redirect flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: is_dhcp_managed
                     
                     	Flag used for utilising DHCP
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_route_address_managed
                     
                     	Flag used to manage routable address
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: is_suppressed
                     
                     	Suppress flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: send_unicast_ra
                     
                     	unicast RA send flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: nd_retransmit_interval
                     
@@ -1893,12 +2145,16 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: nd_min_transmit_interval
                     
                     	ND router advertisement minimum transmit interval in sec
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: nd_max_transmit_interval
                     
@@ -1907,12 +2163,16 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: nd_advertisement_lifetime
                     
                     	ND router advertisement life time in sec
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: nd_reachable_time
                     
@@ -1921,12 +2181,16 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: nd_cache_limit
                     
                     	Completed adjacency limit per interface
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: complete_protocol_count
                     
@@ -1935,12 +2199,16 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: complete_glean_count
                     
                     	Completed GLEAN entry count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: incomplete_protocol_count
                     
@@ -1949,12 +2217,16 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: incomplete_glean_count
                     
                     	Incomplete GLEAN entry count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: dropped_protocol_req_count
                     
@@ -1963,12 +2235,16 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: dropped_glean_req_count
                     
                     	Dropped GLEAN entry lequest count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -2032,7 +2308,9 @@ class Ipv6NodeDiscovery(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface, ['interface_name', u'is_dad_enabled', u'dad_attempts', u'is_icm_pv6_redirect', u'is_dhcp_managed', u'is_route_address_managed', u'is_suppressed', u'send_unicast_ra', u'nd_retransmit_interval', u'nd_min_transmit_interval', u'nd_max_transmit_interval', u'nd_advertisement_lifetime', u'nd_reachable_time', u'nd_cache_limit', u'complete_protocol_count', u'complete_glean_count', u'incomplete_protocol_count', u'incomplete_glean_count', u'dropped_protocol_req_count', u'dropped_glean_req_count'], name, value)
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.Interfaces.Interface, ['interface_name', 'is_dad_enabled', 'dad_attempts', 'is_icm_pv6_redirect', 'is_dhcp_managed', 'is_route_address_managed', 'is_suppressed', 'send_unicast_ra', 'nd_retransmit_interval', 'nd_min_transmit_interval', 'nd_max_transmit_interval', 'nd_advertisement_lifetime', 'nd_reachable_time', 'nd_cache_limit', 'complete_protocol_count', 'complete_glean_count', 'incomplete_protocol_count', 'incomplete_glean_count', 'dropped_protocol_req_count', 'dropped_glean_req_count'], name, value)
+
+
 
 
             class NdVirtualRouters(Entity):
@@ -2044,6 +2322,8 @@ class Ipv6NodeDiscovery(Entity):
                 
                 	IPv6 ND virtual  router operational data for a specific interface
                 	**type**\: list of  		 :py:class:`NdVirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter>`
+                
+                	**config**\: False
                 
                 
 
@@ -2083,10 +2363,14 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_address
                     
                     	Link local address
                     	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: link_layer_address
                     
@@ -2095,6 +2379,8 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: context
                     
                     	Virtual Router ID
@@ -2102,15 +2388,21 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	VR state
                     	**type**\:  :py:class:`Ipv6NdShVrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShVrState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: flags
                     
                     	VR Flags
                     	**type**\:  :py:class:`Ipv6NdShVrFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NdShVrFlags>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: vr_gl_addr_ct
                     
@@ -2119,10 +2411,14 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: vr_global_address
                     
                     	List of ND global addresses
                     	**type**\: list of  		 :py:class:`VrGlobalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2164,7 +2460,7 @@ class Ipv6NodeDiscovery(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter, ['interface_name', u'link_layer_address', u'context', u'state', u'flags', u'vr_gl_addr_ct'], name, value)
+                        self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter, ['interface_name', 'link_layer_address', 'context', 'state', 'flags', 'vr_gl_addr_ct'], name, value)
 
 
                     class LocalAddress(Entity):
@@ -2178,6 +2474,8 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: valid_lifetime
                         
                         	Valid lifetime of a Prefix
@@ -2185,12 +2483,16 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: pref_lifetime
                         
                         	Preffered lifetime of a Prefix
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2220,7 +2522,8 @@ class Ipv6NodeDiscovery(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress, [u'ipv6_address', u'valid_lifetime', u'pref_lifetime'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.LocalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime'], name, value)
+
 
 
                     class VrGlobalAddress(Entity):
@@ -2234,6 +2537,8 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: valid_lifetime
                         
                         	Valid lifetime of a Prefix
@@ -2241,12 +2546,16 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: pref_lifetime
                         
                         	Preffered lifetime of a Prefix
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2276,7 +2585,10 @@ class Ipv6NodeDiscovery(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress, [u'ipv6_address', u'valid_lifetime', u'pref_lifetime'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.NdVirtualRouters.NdVirtualRouter.VrGlobalAddress, ['ipv6_address', 'valid_lifetime', 'pref_lifetime'], name, value)
+
+
+
 
 
             class SlaacInterfaces(Entity):
@@ -2288,6 +2600,8 @@ class Ipv6NodeDiscovery(Entity):
                 
                 	IPv6 ND operational data for a specific slaac interface
                 	**type**\: list of  		 :py:class:`SlaacInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface>`
+                
+                	**config**\: False
                 
                 
 
@@ -2327,10 +2641,14 @@ class Ipv6NodeDiscovery(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: router_advert_detail
                     
                     	IPv6 ND operational data for a specific slaac interface
                     	**type**\:  :py:class:`RouterAdvertDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2375,10 +2693,14 @@ class Ipv6NodeDiscovery(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: ra
                         
                         	slaac db
                         	**type**\: list of  		 :py:class:`Ra <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2406,7 +2728,7 @@ class Ipv6NodeDiscovery(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail, [u'idb'], name, value)
+                            self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail, ['idb'], name, value)
 
 
                         class Ra(Entity):
@@ -2418,15 +2740,21 @@ class Ipv6NodeDiscovery(Entity):
                             	elapsedRATime
                             	**type**\:  :py:class:`ElapsedRaTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reachable_time
                             
                             	reachabletime
                             	**type**\:  :py:class:`ReachableTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: retrans_time
                             
                             	retranstime
                             	**type**\:  :py:class:`RetransTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: address
                             
@@ -2435,12 +2763,16 @@ class Ipv6NodeDiscovery(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: hops
                             
                             	hops
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: flags
                             
@@ -2449,12 +2781,16 @@ class Ipv6NodeDiscovery(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: life_time
                             
                             	lifetime
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: mtu
                             
@@ -2463,10 +2799,14 @@ class Ipv6NodeDiscovery(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: err_msg
                             
                             	errmsg
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: vrf_id
                             
@@ -2475,12 +2815,16 @@ class Ipv6NodeDiscovery(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: u6_tbl_id
                             
                             	tbl id
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: rib_protoid
                             
@@ -2489,10 +2833,14 @@ class Ipv6NodeDiscovery(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: default_router
                             
                             	router
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: reachability
                             
@@ -2501,10 +2849,14 @@ class Ipv6NodeDiscovery(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: prefix_q
                             
                             	Prefix Queue
                             	**type**\: list of  		 :py:class:`PrefixQ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_oper.Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.PrefixQ>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2564,7 +2916,7 @@ class Ipv6NodeDiscovery(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra, [u'address', u'hops', u'flags', u'life_time', u'mtu', u'err_msg', u'vrf_id', u'u6_tbl_id', u'rib_protoid', u'default_router', u'reachability'], name, value)
+                                self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra, ['address', 'hops', 'flags', 'life_time', 'mtu', 'err_msg', 'vrf_id', 'u6_tbl_id', 'rib_protoid', 'default_router', 'reachability'], name, value)
 
 
                             class ElapsedRaTime(Entity):
@@ -2577,6 +2929,8 @@ class Ipv6NodeDiscovery(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 	**units**\: second
                                 
@@ -2604,7 +2958,8 @@ class Ipv6NodeDiscovery(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime, [u'seconds'], name, value)
+                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ElapsedRaTime, ['seconds'], name, value)
+
 
 
                             class ReachableTime(Entity):
@@ -2617,6 +2972,8 @@ class Ipv6NodeDiscovery(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 	**units**\: second
                                 
@@ -2644,7 +3001,8 @@ class Ipv6NodeDiscovery(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime, [u'seconds'], name, value)
+                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.ReachableTime, ['seconds'], name, value)
+
 
 
                             class RetransTime(Entity):
@@ -2657,6 +3015,8 @@ class Ipv6NodeDiscovery(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 	**units**\: second
                                 
@@ -2684,7 +3044,8 @@ class Ipv6NodeDiscovery(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime, [u'seconds'], name, value)
+                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.RetransTime, ['seconds'], name, value)
+
 
 
                             class PrefixQ(Entity):
@@ -2698,12 +3059,16 @@ class Ipv6NodeDiscovery(Entity):
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: eui64
                                 
                                 	IPv6 Auto generated address
                                 	**type**\: str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: valid_life_time
                                 
@@ -2712,12 +3077,16 @@ class Ipv6NodeDiscovery(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: preferred_life_time
                                 
                                 	Preferred Life Time
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: prefix_len
                                 
@@ -2726,6 +3095,8 @@ class Ipv6NodeDiscovery(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: flags
                                 
                                 	IPv6 Address Specific Flags
@@ -2733,12 +3104,16 @@ class Ipv6NodeDiscovery(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: pfx_flags
                                 
                                 	Prefix Address Specific Flags
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2776,9 +3151,18 @@ class Ipv6NodeDiscovery(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.PrefixQ, [u'prefix_address', u'eui64', u'valid_life_time', u'preferred_life_time', u'prefix_len', u'flags', u'pfx_flags'], name, value)
+                                    self._perform_setattr(Ipv6NodeDiscovery.Nodes.Node.SlaacInterfaces.SlaacInterface.RouterAdvertDetail.Ra.PrefixQ, ['prefix_address', 'eui64', 'valid_life_time', 'preferred_life_time', 'prefix_len', 'flags', 'pfx_flags'], name, value)
+
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Ipv6NodeDiscovery()
         return self._top_entity
+
+
 

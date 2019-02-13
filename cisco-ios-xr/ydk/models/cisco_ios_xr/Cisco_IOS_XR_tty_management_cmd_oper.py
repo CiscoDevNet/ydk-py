@@ -30,6 +30,8 @@ class ShowUsers(Entity):
     	Show users statistics
     	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_cmd_oper.ShowUsers.Sessions>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class ShowUsers(Entity):
         
         	Show users statistics
         	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_cmd_oper.ShowUsers.Sessions.Session>`
+        
+        	**config**\: False
         
         
 
@@ -106,35 +110,49 @@ class ShowUsers(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: line
             
             	Line Number
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: user
             
             	User Name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: service
             
             	Service Name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: conns
             
             	No. of Connections
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: idle_string
             
             	Idle Time
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	location
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -173,9 +191,13 @@ class ShowUsers(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ShowUsers.Sessions.Session, ['session_id', u'line', u'user', u'service', u'conns', u'idle_string', u'location'], name, value)
+                self._perform_setattr(ShowUsers.Sessions.Session, ['session_id', 'line', 'user', 'service', 'conns', 'idle_string', 'location'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = ShowUsers()
         return self._top_entity
+
+
 

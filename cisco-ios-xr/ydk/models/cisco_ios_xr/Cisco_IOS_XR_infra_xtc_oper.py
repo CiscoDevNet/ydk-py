@@ -540,15 +540,21 @@ class PceLspData(Entity):
     	Tunnel database in XTC
     	**type**\:  :py:class:`TunnelInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelInfos>`
     
+    	**config**\: False
+    
     .. attribute:: lsp_summary
     
     	LSP summary database in XTC
     	**type**\:  :py:class:`LspSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.LspSummary>`
     
+    	**config**\: False
+    
     .. attribute:: tunnel_detail_infos
     
     	Detailed tunnel database in XTC
     	**type**\:  :py:class:`TunnelDetailInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos>`
+    
+    	**config**\: False
     
     
 
@@ -596,6 +602,8 @@ class PceLspData(Entity):
         	Tunnel information
         	**type**\: list of  		 :py:class:`TunnelInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelInfos.TunnelInfo>`
         
+        	**config**\: False
+        
         
 
         """
@@ -640,6 +648,8 @@ class PceLspData(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: plsp_id  (key)
             
             	PCEP LSP ID
@@ -647,25 +657,35 @@ class PceLspData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tunnel_name  (key)
             
             	Tunnel name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: pcc_address
             
             	PCC address
             	**type**\:  :py:class:`PccAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelInfos.TunnelInfo.PccAddress>`
             
+            	**config**\: False
+            
             .. attribute:: tunnel_name_xr
             
             	Tunnel Name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: brief_lsp_information
             
             	Brief LSP information
             	**type**\: list of  		 :py:class:`BriefLspInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation>`
+            
+            	**config**\: False
             
             
 
@@ -716,6 +736,8 @@ class PceLspData(Entity):
                 	AFName
                 	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4
                 
                 	IPv4 address type
@@ -723,12 +745,16 @@ class PceLspData(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv6
                 
                 	IPv6 address type
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 
 
@@ -761,6 +787,7 @@ class PceLspData(Entity):
                     self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.PccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
             class BriefLspInformation(Entity):
                 """
                 Brief LSP information
@@ -770,10 +797,14 @@ class PceLspData(Entity):
                 	Source address
                 	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: destination_address
                 
                 	Destination address
                 	**type**\:  :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.DestinationAddress>`
+                
+                	**config**\: False
                 
                 .. attribute:: tunnel_id
                 
@@ -782,12 +813,16 @@ class PceLspData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lspid
                 
                 	LSP ID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: binding_sid
                 
@@ -796,20 +831,28 @@ class PceLspData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_setup_type
                 
                 	LSP Setup Type
                 	**type**\:  :py:class:`LspSetup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.LspSetup>`
+                
+                	**config**\: False
                 
                 .. attribute:: operational_state
                 
                 	Operational state
                 	**type**\:  :py:class:`PcepLspState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PcepLspState>`
                 
+                	**config**\: False
+                
                 .. attribute:: administrative_state
                 
                 	Admin state
                 	**type**\:  :py:class:`LspState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.LspState>`
+                
+                	**config**\: False
                 
                 .. attribute:: msd
                 
@@ -817,6 +860,8 @@ class PceLspData(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -874,6 +919,8 @@ class PceLspData(Entity):
                     	AFName
                     	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4
                     
                     	IPv4 address type
@@ -881,12 +928,16 @@ class PceLspData(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -919,6 +970,7 @@ class PceLspData(Entity):
                         self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class DestinationAddress(Entity):
                     """
                     Destination address
@@ -928,6 +980,8 @@ class PceLspData(Entity):
                     	AFName
                     	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4
                     
                     	IPv4 address type
@@ -935,12 +989,16 @@ class PceLspData(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -973,6 +1031,10 @@ class PceLspData(Entity):
                         self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.DestinationAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
+
+
+
     class LspSummary(Entity):
         """
         LSP summary database in XTC
@@ -982,10 +1044,14 @@ class PceLspData(Entity):
         	Summary for all peers
         	**type**\:  :py:class:`AllLsPs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.LspSummary.AllLsPs>`
         
+        	**config**\: False
+        
         .. attribute:: peer_ls_ps_info
         
         	Number of LSPs for specific peer
         	**type**\: list of  		 :py:class:`PeerLsPsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.LspSummary.PeerLsPsInfo>`
+        
+        	**config**\: False
         
         
 
@@ -1029,12 +1095,16 @@ class PceLspData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: up_ls_ps
             
             	Number of operational LSPs
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: admin_up_ls_ps
             
@@ -1043,6 +1113,8 @@ class PceLspData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sr_ls_ps
             
             	Number of LSPs with Segment routing setup type
@@ -1050,12 +1122,16 @@ class PceLspData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rsvp_ls_ps
             
             	Number of LSPs with RSVP setup type
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1093,6 +1169,7 @@ class PceLspData(Entity):
                 self._perform_setattr(PceLspData.LspSummary.AllLsPs, [u'all_ls_ps', u'up_ls_ps', u'admin_up_ls_ps', u'sr_ls_ps', u'rsvp_ls_ps'], name, value)
 
 
+
         class PeerLsPsInfo(Entity):
             """
             Number of LSPs for specific peer
@@ -1102,10 +1179,14 @@ class PceLspData(Entity):
             	Number of LSPs for specific peer
             	**type**\:  :py:class:`LspSummary_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.LspSummary.PeerLsPsInfo.LspSummary_>`
             
+            	**config**\: False
+            
             .. attribute:: peer_address
             
             	Peer address
             	**type**\:  :py:class:`PeerAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.LspSummary.PeerLsPsInfo.PeerAddress>`
+            
+            	**config**\: False
             
             
 
@@ -1151,12 +1232,16 @@ class PceLspData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: up_ls_ps
                 
                 	Number of operational LSPs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: admin_up_ls_ps
                 
@@ -1165,6 +1250,8 @@ class PceLspData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: sr_ls_ps
                 
                 	Number of LSPs with Segment routing setup type
@@ -1172,12 +1259,16 @@ class PceLspData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: rsvp_ls_ps
                 
                 	Number of LSPs with RSVP setup type
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1215,6 +1306,7 @@ class PceLspData(Entity):
                     self._perform_setattr(PceLspData.LspSummary.PeerLsPsInfo.LspSummary_, [u'all_ls_ps', u'up_ls_ps', u'admin_up_ls_ps', u'sr_ls_ps', u'rsvp_ls_ps'], name, value)
 
 
+
             class PeerAddress(Entity):
                 """
                 Peer address
@@ -1224,6 +1316,8 @@ class PceLspData(Entity):
                 	AFName
                 	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4
                 
                 	IPv4 address type
@@ -1231,12 +1325,16 @@ class PceLspData(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv6
                 
                 	IPv6 address type
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 
 
@@ -1270,6 +1368,9 @@ class PceLspData(Entity):
                     self._perform_setattr(PceLspData.LspSummary.PeerLsPsInfo.PeerAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
+
+
     class TunnelDetailInfos(Entity):
         """
         Detailed tunnel database in XTC
@@ -1278,6 +1379,8 @@ class PceLspData(Entity):
         
         	Detailed tunnel information
         	**type**\: list of  		 :py:class:`TunnelDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo>`
+        
+        	**config**\: False
         
         
 
@@ -1323,6 +1426,8 @@ class PceLspData(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: plsp_id  (key)
             
             	PCEP LSP ID
@@ -1330,30 +1435,42 @@ class PceLspData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tunnel_name  (key)
             
             	Tunnel name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: pcc_address
             
             	PCC address
             	**type**\:  :py:class:`PccAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.PccAddress>`
             
+            	**config**\: False
+            
             .. attribute:: private_lsp_information
             
             	Private LSP information
             	**type**\:  :py:class:`PrivateLspInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation>`
+            
+            	**config**\: False
             
             .. attribute:: tunnel_name_xr
             
             	Tunnel Name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: xtc_controlled
             
             	Allow XTC reoptimizations
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: color
             
@@ -1362,10 +1479,14 @@ class PceLspData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: detail_lsp_information
             
             	Detail LSP information
             	**type**\: list of  		 :py:class:`DetailLspInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation>`
+            
+            	**config**\: False
             
             
 
@@ -1424,6 +1545,8 @@ class PceLspData(Entity):
                 	AFName
                 	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4
                 
                 	IPv4 address type
@@ -1431,12 +1554,16 @@ class PceLspData(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv6
                 
                 	IPv6 address type
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 
 
@@ -1469,6 +1596,7 @@ class PceLspData(Entity):
                     self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
             class PrivateLspInformation(Entity):
                 """
                 Private LSP information
@@ -1477,6 +1605,8 @@ class PceLspData(Entity):
                 
                 	LSP Event buffer
                 	**type**\: list of  		 :py:class:`EventBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer>`
+                
+                	**config**\: False
                 
                 
 
@@ -1515,10 +1645,14 @@ class PceLspData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: event_message
                     
                     	Event message
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: time_stamp
                     
@@ -1526,6 +1660,8 @@ class PceLspData(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1558,6 +1694,8 @@ class PceLspData(Entity):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer, [u'event_id', u'event_message', u'time_stamp'], name, value)
 
 
+
+
             class DetailLspInformation(Entity):
                 """
                 Detail LSP information
@@ -1567,45 +1705,63 @@ class PceLspData(Entity):
                 	Brief LSP information
                 	**type**\:  :py:class:`BriefLspInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: er_os
                 
                 	Paths
                 	**type**\:  :py:class:`ErOs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs>`
+                
+                	**config**\: False
                 
                 .. attribute:: lsppcep_information
                 
                 	PCEP related LSP information
                 	**type**\:  :py:class:`LsppcepInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_association_info
                 
                 	LSP association information
                 	**type**\:  :py:class:`LspAssociationInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo>`
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_attributes
                 
                 	LSP attributes
                 	**type**\:  :py:class:`LspAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes>`
                 
+                	**config**\: False
+                
                 .. attribute:: sub_delegated_pce
                 
                 	Sub delegated PCE
                 	**type**\:  :py:class:`SubDelegatedPce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.SubDelegatedPce>`
+                
+                	**config**\: False
                 
                 .. attribute:: state_sync_pce
                 
                 	State\-sync PCE
                 	**type**\:  :py:class:`StateSyncPce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.StateSyncPce>`
                 
+                	**config**\: False
+                
                 .. attribute:: reporting_pcc_address
                 
                 	Reporting PCC address
                 	**type**\:  :py:class:`ReportingPccAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ReportingPccAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: signaled_bandwidth_specified
                 
                 	True if router notifies signal bandwidth
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: signaled_bandwidth
                 
@@ -1614,10 +1770,14 @@ class PceLspData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: actual_bandwidth_specified
                 
                 	True if router notifies actual bandwidth
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: actual_bandwidth
                 
@@ -1626,12 +1786,16 @@ class PceLspData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_role
                 
                 	LSP Role
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: computing_pce
                 
@@ -1640,6 +1804,8 @@ class PceLspData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: srlg_info
                 
                 	List of SLRGs used by LSP
@@ -1647,10 +1813,14 @@ class PceLspData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: rro
                 
                 	RRO
                 	**type**\: list of  		 :py:class:`Rro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro>`
+                
+                	**config**\: False
                 
                 
 
@@ -1734,10 +1904,14 @@ class PceLspData(Entity):
                     	Source address
                     	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: destination_address
                     
                     	Destination address
                     	**type**\:  :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.DestinationAddress>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: tunnel_id
                     
@@ -1746,12 +1920,16 @@ class PceLspData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: lspid
                     
                     	LSP ID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: binding_sid
                     
@@ -1760,20 +1938,28 @@ class PceLspData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: lsp_setup_type
                     
                     	LSP Setup Type
                     	**type**\:  :py:class:`LspSetup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.LspSetup>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: operational_state
                     
                     	Operational state
                     	**type**\:  :py:class:`PcepLspState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PcepLspState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: administrative_state
                     
                     	Admin state
                     	**type**\:  :py:class:`LspState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.LspState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: msd
                     
@@ -1781,6 +1967,8 @@ class PceLspData(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1838,6 +2026,8 @@ class PceLspData(Entity):
                         	AFName
                         	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4 address type
@@ -1845,12 +2035,16 @@ class PceLspData(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -1883,6 +2077,7 @@ class PceLspData(Entity):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
                     class DestinationAddress(Entity):
                         """
                         Destination address
@@ -1892,6 +2087,8 @@ class PceLspData(Entity):
                         	AFName
                         	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4 address type
@@ -1899,12 +2096,16 @@ class PceLspData(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -1937,6 +2138,8 @@ class PceLspData(Entity):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.DestinationAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
+
                 class ErOs(Entity):
                     """
                     Paths
@@ -1948,12 +2151,16 @@ class PceLspData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: reported_metric_value
                     
                     	Reported Metric Value
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: computed_metric_type
                     
@@ -1962,12 +2169,16 @@ class PceLspData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: computed_metric_value
                     
                     	Computed Metric Value
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: computed_hop_list_time
                     
@@ -1976,25 +2187,35 @@ class PceLspData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: reported_rsvp_path
                     
                     	Reported RSVP path
                     	**type**\: list of  		 :py:class:`ReportedRsvpPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: reported_sr_path
                     
                     	Reported SR path
                     	**type**\: list of  		 :py:class:`ReportedSrPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: computed_rsvp_path
                     
                     	Computed RSVP path
                     	**type**\: list of  		 :py:class:`ComputedRsvpPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: computed_sr_path
                     
                     	Computed SR path
                     	**type**\: list of  		 :py:class:`ComputedSrPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2047,6 +2268,8 @@ class PceLspData(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -2074,6 +2297,7 @@ class PceLspData(Entity):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath, [u'hop_address'], name, value)
 
 
+
                     class ReportedSrPath(Entity):
                         """
                         Reported SR path
@@ -2083,15 +2307,21 @@ class PceLspData(Entity):
                         	Local Address
                         	**type**\:  :py:class:`LocalAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.LocalAddr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_addr
                         
                         	Remote Address
                         	**type**\:  :py:class:`RemoteAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.RemoteAddr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: sid_type
                         
                         	SID type
                         	**type**\:  :py:class:`PceSrSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceSrSid>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: mpls_label
                         
@@ -2099,6 +2329,8 @@ class PceLspData(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2146,6 +2378,8 @@ class PceLspData(Entity):
                             	AFName
                             	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4
                             
                             	IPv4 address type
@@ -2153,12 +2387,16 @@ class PceLspData(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv6
                             
                             	IPv6 address type
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -2191,6 +2429,7 @@ class PceLspData(Entity):
                                 self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.LocalAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
                         class RemoteAddr(Entity):
                             """
                             Remote Address
@@ -2200,6 +2439,8 @@ class PceLspData(Entity):
                             	AFName
                             	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4
                             
                             	IPv4 address type
@@ -2207,12 +2448,16 @@ class PceLspData(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv6
                             
                             	IPv6 address type
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -2245,6 +2490,8 @@ class PceLspData(Entity):
                                 self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.RemoteAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
+
                     class ComputedRsvpPath(Entity):
                         """
                         Computed RSVP path
@@ -2255,6 +2502,8 @@ class PceLspData(Entity):
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -2283,6 +2532,7 @@ class PceLspData(Entity):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath, [u'hop_address'], name, value)
 
 
+
                     class ComputedSrPath(Entity):
                         """
                         Computed SR path
@@ -2292,15 +2542,21 @@ class PceLspData(Entity):
                         	Local Address
                         	**type**\:  :py:class:`LocalAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.LocalAddr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_addr
                         
                         	Remote Address
                         	**type**\:  :py:class:`RemoteAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.RemoteAddr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: sid_type
                         
                         	SID type
                         	**type**\:  :py:class:`PceSrSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceSrSid>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: mpls_label
                         
@@ -2308,6 +2564,8 @@ class PceLspData(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2355,6 +2613,8 @@ class PceLspData(Entity):
                             	AFName
                             	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4
                             
                             	IPv4 address type
@@ -2362,12 +2622,16 @@ class PceLspData(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv6
                             
                             	IPv6 address type
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -2400,6 +2664,7 @@ class PceLspData(Entity):
                                 self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.LocalAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
                         class RemoteAddr(Entity):
                             """
                             Remote Address
@@ -2409,6 +2674,8 @@ class PceLspData(Entity):
                             	AFName
                             	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4
                             
                             	IPv4 address type
@@ -2416,12 +2683,16 @@ class PceLspData(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv6
                             
                             	IPv6 address type
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -2454,6 +2725,9 @@ class PceLspData(Entity):
                                 self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.RemoteAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
+
+
                 class LsppcepInformation(Entity):
                     """
                     PCEP related LSP information
@@ -2463,6 +2737,8 @@ class PceLspData(Entity):
                     	RSVP error info
                     	**type**\:  :py:class:`RsvpError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: pcepid
                     
                     	PCE protocol identifier
@@ -2470,25 +2746,35 @@ class PceLspData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: pcep_flag_d
                     
                     	PCEP LSP delegation flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: pcep_flag_s
                     
                     	PCEP LSP state\-sync flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: pcep_flag_r
                     
                     	PCEP LSP remove flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: pcep_flag_a
                     
                     	PCEP LSP admin flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: pcep_flag_o
                     
@@ -2497,12 +2783,16 @@ class PceLspData(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: pcep_flag_c
                     
                     	PCEP LSP initiated flag
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -2558,12 +2848,16 @@ class PceLspData(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: error_flags
                         
                         	RSVP error flags
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: error_code
                         
@@ -2572,12 +2866,16 @@ class PceLspData(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: error_value
                         
                         	RSVP error value
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -2612,6 +2910,8 @@ class PceLspData(Entity):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError, [u'node_address', u'error_flags', u'error_code', u'error_value'], name, value)
 
 
+
+
                 class LspAssociationInfo(Entity):
                     """
                     LSP association information
@@ -2621,6 +2921,8 @@ class PceLspData(Entity):
                     	Association Source
                     	**type**\:  :py:class:`AssociationSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo.AssociationSource>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: association_type
                     
                     	Association Type
@@ -2628,12 +2930,16 @@ class PceLspData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: association_id
                     
                     	Association ID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -2677,6 +2983,8 @@ class PceLspData(Entity):
                         	AFName
                         	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4 address type
@@ -2684,12 +2992,16 @@ class PceLspData(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -2722,6 +3034,8 @@ class PceLspData(Entity):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo.AssociationSource, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
+
                 class LspAttributes(Entity):
                     """
                     LSP attributes
@@ -2733,12 +3047,16 @@ class PceLspData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: affinity_include_any
                     
                     	Affinity include any
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: affinity_include_all
                     
@@ -2747,12 +3065,16 @@ class PceLspData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: setup_priority
                     
                     	Setup Priority
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: hold_priority
                     
@@ -2761,10 +3083,14 @@ class PceLspData(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_protection
                     
                     	True, if local protection is desired
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -2803,6 +3129,7 @@ class PceLspData(Entity):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes, [u'affinity_exclude_any', u'affinity_include_any', u'affinity_include_all', u'setup_priority', u'hold_priority', u'local_protection'], name, value)
 
 
+
                 class SubDelegatedPce(Entity):
                     """
                     Sub delegated PCE
@@ -2812,6 +3139,8 @@ class PceLspData(Entity):
                     	AFName
                     	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4
                     
                     	IPv4 address type
@@ -2819,12 +3148,16 @@ class PceLspData(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -2857,6 +3190,7 @@ class PceLspData(Entity):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.SubDelegatedPce, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class StateSyncPce(Entity):
                     """
                     State\-sync PCE
@@ -2866,6 +3200,8 @@ class PceLspData(Entity):
                     	AFName
                     	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4
                     
                     	IPv4 address type
@@ -2873,12 +3209,16 @@ class PceLspData(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -2911,6 +3251,7 @@ class PceLspData(Entity):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.StateSyncPce, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class ReportingPccAddress(Entity):
                     """
                     Reporting PCC address
@@ -2920,6 +3261,8 @@ class PceLspData(Entity):
                     	AFName
                     	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4
                     
                     	IPv4 address type
@@ -2927,12 +3270,16 @@ class PceLspData(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -2965,6 +3312,7 @@ class PceLspData(Entity):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ReportingPccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class Rro(Entity):
                     """
                     RRO
@@ -2974,10 +3322,14 @@ class PceLspData(Entity):
                     	Segment Routing RRO info
                     	**type**\:  :py:class:`SrRro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: rro_type
                     
                     	RRO Type
                     	**type**\:  :py:class:`PceRro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceRro>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4_address
                     
@@ -2986,6 +3338,8 @@ class PceLspData(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: mpls_label
                     
                     	MPLS label of RRO
@@ -2993,12 +3347,16 @@ class PceLspData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: flags
                     
                     	RRO Flags
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -3046,15 +3404,21 @@ class PceLspData(Entity):
                         	Local Address
                         	**type**\:  :py:class:`LocalAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.LocalAddr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_addr
                         
                         	Remote Address
                         	**type**\:  :py:class:`RemoteAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.RemoteAddr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: sid_type
                         
                         	SID type
                         	**type**\:  :py:class:`PceSrSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceSrSid>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: mpls_label
                         
@@ -3062,6 +3426,8 @@ class PceLspData(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3109,6 +3475,8 @@ class PceLspData(Entity):
                             	AFName
                             	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4
                             
                             	IPv4 address type
@@ -3116,12 +3484,16 @@ class PceLspData(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv6
                             
                             	IPv6 address type
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -3154,6 +3526,7 @@ class PceLspData(Entity):
                                 self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.LocalAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
                         class RemoteAddr(Entity):
                             """
                             Remote Address
@@ -3163,6 +3536,8 @@ class PceLspData(Entity):
                             	AFName
                             	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4
                             
                             	IPv4 address type
@@ -3170,12 +3545,16 @@ class PceLspData(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv6
                             
                             	IPv6 address type
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -3207,9 +3586,17 @@ class PceLspData(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.RemoteAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = PceLspData()
         return self._top_entity
+
+
 
 class PcePeer(Entity):
     """
@@ -3220,10 +3607,14 @@ class PcePeer(Entity):
     	Detailed peers database in XTC
     	**type**\:  :py:class:`PeerDetailInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PcePeer.PeerDetailInfos>`
     
+    	**config**\: False
+    
     .. attribute:: peer_infos
     
     	Peers database in XTC
     	**type**\:  :py:class:`PeerInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PcePeer.PeerInfos>`
+    
+    	**config**\: False
     
     
 
@@ -3266,6 +3657,8 @@ class PcePeer(Entity):
         
         	Detailed PCE peer information
         	**type**\: list of  		 :py:class:`PeerDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PcePeer.PeerDetailInfos.PeerDetailInfo>`
+        
+        	**config**\: False
         
         
 
@@ -3311,20 +3704,28 @@ class PcePeer(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: peer_address_xr
             
             	Peer address
             	**type**\:  :py:class:`PeerAddressXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PcePeer.PeerDetailInfos.PeerDetailInfo.PeerAddressXr>`
+            
+            	**config**\: False
             
             .. attribute:: detail_pcep_information
             
             	Detailed PCE protocol information
             	**type**\:  :py:class:`DetailPcepInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation>`
             
+            	**config**\: False
+            
             .. attribute:: peer_protocol
             
             	Protocol between PCE and peer
             	**type**\:  :py:class:`PceProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceProto>`
+            
+            	**config**\: False
             
             .. attribute:: max_sid_depth
             
@@ -3332,6 +3733,8 @@ class PcePeer(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -3382,6 +3785,8 @@ class PcePeer(Entity):
                 	AFName
                 	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4
                 
                 	IPv4 address type
@@ -3389,12 +3794,16 @@ class PcePeer(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv6
                 
                 	IPv6 address type
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 
 
@@ -3427,6 +3836,7 @@ class PcePeer(Entity):
                     self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.PeerAddressXr, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
             class DetailPcepInformation(Entity):
                 """
                 Detailed PCE protocol information
@@ -3436,25 +3846,35 @@ class PcePeer(Entity):
                 	Brief PCE protocol information
                 	**type**\:  :py:class:`BriefPcepInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: last_error_rx
                 
                 	Last PCError received
                 	**type**\:  :py:class:`LastErrorRx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx>`
+                
+                	**config**\: False
                 
                 .. attribute:: last_error_tx
                 
                 	Last PCError sent
                 	**type**\:  :py:class:`LastErrorTx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx>`
                 
+                	**config**\: False
+                
                 .. attribute:: error
                 
                 	Error (for display only)
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: speaker_id
                 
                 	Speaker Entity ID
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: pcep_up_time
                 
@@ -3463,6 +3883,8 @@ class PcePeer(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: keepalives
                 
                 	Keepalive count
@@ -3470,15 +3892,21 @@ class PcePeer(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: md5_enabled
                 
                 	MD5 Authentication Enabled
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: keychain_enabled
                 
                 	Keychain based Authentication Enabled
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: negotiated_local_keepalive
                 
@@ -3487,12 +3915,16 @@ class PcePeer(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: negotiated_remote_keepalive
                 
                 	Negotiated KA
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: negotiated_dead_time
                 
@@ -3501,12 +3933,16 @@ class PcePeer(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pce_request_rx
                 
                 	PCEReq Rx
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: pce_request_tx
                 
@@ -3515,12 +3951,16 @@ class PcePeer(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pce_reply_rx
                 
                 	PCERep Rx
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: pce_reply_tx
                 
@@ -3529,12 +3969,16 @@ class PcePeer(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pce_error_rx
                 
                 	PCEErr Rx
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: pce_error_tx
                 
@@ -3543,12 +3987,16 @@ class PcePeer(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pce_open_tx
                 
                 	PCEOpen Tx
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: pce_open_rx
                 
@@ -3557,12 +4005,16 @@ class PcePeer(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pce_report_rx
                 
                 	PCERpt Rx
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: pce_report_tx
                 
@@ -3571,12 +4023,16 @@ class PcePeer(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pce_update_rx
                 
                 	PCEUpd Rx
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: pce_update_tx
                 
@@ -3585,12 +4041,16 @@ class PcePeer(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pce_initiate_rx
                 
                 	PCEInit Rx
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: pce_initiate_tx
                 
@@ -3599,12 +4059,16 @@ class PcePeer(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pce_keepalive_tx
                 
                 	PCE Keepalive Tx
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: pce_keepalive_rx
                 
@@ -3613,12 +4077,16 @@ class PcePeer(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: local_session_id
                 
                 	Local PCEP session ID
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: remote_session_id
                 
@@ -3627,12 +4095,16 @@ class PcePeer(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: minimum_keepalive_interval
                 
                 	Minimum keepalive interval for the peer
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: maximum_dead_interval
                 
@@ -3641,12 +4113,16 @@ class PcePeer(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: max_sid_depth
                 
                 	Maximum number of labels the peer can impose
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 
 
@@ -3754,40 +4230,56 @@ class PcePeer(Entity):
                     	PCEP State
                     	**type**\:  :py:class:`PcepState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PcepState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: stateful
                     
                     	Stateful
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: capability_update
                     
                     	Update capability
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: capability_instantiate
                     
                     	Instantiation capability
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: capability_segment_routing
                     
                     	Segment Routing capability
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: capability_triggered_sync
                     
                     	Triggered Synchronization capability
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: capability_db_version
                     
                     	DB version capability
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: capability_delta_sync
                     
                     	Delta Synchronization capability
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -3830,6 +4322,7 @@ class PcePeer(Entity):
                         self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation, [u'pcep_state', u'stateful', u'capability_update', u'capability_instantiate', u'capability_segment_routing', u'capability_triggered_sync', u'capability_db_version', u'capability_delta_sync'], name, value)
 
 
+
                 class LastErrorRx(Entity):
                     """
                     Last PCError received
@@ -3841,12 +4334,16 @@ class PcePeer(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: pc_error_value
                     
                     	PCEP Error Value
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -3877,6 +4374,7 @@ class PcePeer(Entity):
                         self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx, [u'pc_error_type', u'pc_error_value'], name, value)
 
 
+
                 class LastErrorTx(Entity):
                     """
                     Last PCError sent
@@ -3888,12 +4386,16 @@ class PcePeer(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: pc_error_value
                     
                     	PCEP Error Value
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -3924,6 +4426,10 @@ class PcePeer(Entity):
                         self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx, [u'pc_error_type', u'pc_error_value'], name, value)
 
 
+
+
+
+
     class PeerInfos(Entity):
         """
         Peers database in XTC
@@ -3932,6 +4438,8 @@ class PcePeer(Entity):
         
         	PCE peer information
         	**type**\: list of  		 :py:class:`PeerInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PcePeer.PeerInfos.PeerInfo>`
+        
+        	**config**\: False
         
         
 
@@ -3977,20 +4485,28 @@ class PcePeer(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: peer_address_xr
             
             	Peer address
             	**type**\:  :py:class:`PeerAddressXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PcePeer.PeerInfos.PeerInfo.PeerAddressXr>`
+            
+            	**config**\: False
             
             .. attribute:: brief_pcep_information
             
             	PCE protocol information
             	**type**\:  :py:class:`BriefPcepInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PcePeer.PeerInfos.PeerInfo.BriefPcepInformation>`
             
+            	**config**\: False
+            
             .. attribute:: peer_protocol
             
             	Protocol between PCE and peer
             	**type**\:  :py:class:`PceProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceProto>`
+            
+            	**config**\: False
             
             
 
@@ -4039,6 +4555,8 @@ class PcePeer(Entity):
                 	AFName
                 	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4
                 
                 	IPv4 address type
@@ -4046,12 +4564,16 @@ class PcePeer(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv6
                 
                 	IPv6 address type
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 
 
@@ -4084,6 +4606,7 @@ class PcePeer(Entity):
                     self._perform_setattr(PcePeer.PeerInfos.PeerInfo.PeerAddressXr, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
             class BriefPcepInformation(Entity):
                 """
                 PCE protocol information
@@ -4093,40 +4616,56 @@ class PcePeer(Entity):
                 	PCEP State
                 	**type**\:  :py:class:`PcepState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PcepState>`
                 
+                	**config**\: False
+                
                 .. attribute:: stateful
                 
                 	Stateful
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: capability_update
                 
                 	Update capability
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: capability_instantiate
                 
                 	Instantiation capability
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: capability_segment_routing
                 
                 	Segment Routing capability
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: capability_triggered_sync
                 
                 	Triggered Synchronization capability
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: capability_db_version
                 
                 	DB version capability
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: capability_delta_sync
                 
                 	Delta Synchronization capability
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -4168,9 +4707,14 @@ class PcePeer(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PcePeer.PeerInfos.PeerInfo.BriefPcepInformation, [u'pcep_state', u'stateful', u'capability_update', u'capability_instantiate', u'capability_segment_routing', u'capability_triggered_sync', u'capability_db_version', u'capability_delta_sync'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = PcePeer()
         return self._top_entity
+
+
 
 class PceTopology(Entity):
     """
@@ -4181,15 +4725,21 @@ class PceTopology(Entity):
     	Node summary database in XTC
     	**type**\:  :py:class:`TopologySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologySummary>`
     
+    	**config**\: False
+    
     .. attribute:: topology_nodes
     
     	Node database in XTC
     	**type**\:  :py:class:`TopologyNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes>`
     
+    	**config**\: False
+    
     .. attribute:: prefix_infos
     
     	Prefixes database in XTC
     	**type**\:  :py:class:`PrefixInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos>`
+    
+    	**config**\: False
     
     
 
@@ -4237,12 +4787,16 @@ class PceTopology(Entity):
         	Statistics on topology update
         	**type**\:  :py:class:`StatsTopologyUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologySummary.StatsTopologyUpdate>`
         
+        	**config**\: False
+        
         .. attribute:: nodes
         
         	Number of PCE nodes
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: lookup_nodes
         
@@ -4251,12 +4805,16 @@ class PceTopology(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: prefixes
         
         	Number of prefixes
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: prefix_sids
         
@@ -4265,12 +4823,16 @@ class PceTopology(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: regular_prefix_sids
         
         	Number of reguar prefix SIDs
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: strict_prefix_sids
         
@@ -4279,12 +4841,16 @@ class PceTopology(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: links
         
         	Number of links
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: epe_links
         
@@ -4293,12 +4859,16 @@ class PceTopology(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: adjacency_sids
         
         	Number of total adjacency SIDs
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: epesids
         
@@ -4307,12 +4877,16 @@ class PceTopology(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: protected_adjacency_sids
         
         	Number of protected adjacency SIDs
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: un_protected_adjacency_sids
         
@@ -4321,10 +4895,14 @@ class PceTopology(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: topology_consistent
         
         	True if topology is consistent
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -4393,12 +4971,16 @@ class PceTopology(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: num_nodes_deleted
             
             	Number of nodes deleted
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: num_links_added
             
@@ -4407,12 +4989,16 @@ class PceTopology(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: num_links_deleted
             
             	Number of links deleted
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: num_prefixes_added
             
@@ -4421,12 +5007,16 @@ class PceTopology(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: num_prefixes_deleted
             
             	Number of prefixes deleted
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -4466,6 +5056,8 @@ class PceTopology(Entity):
                 self._perform_setattr(PceTopology.TopologySummary.StatsTopologyUpdate, [u'num_nodes_added', u'num_nodes_deleted', u'num_links_added', u'num_links_deleted', u'num_prefixes_added', u'num_prefixes_deleted'], name, value)
 
 
+
+
     class TopologyNodes(Entity):
         """
         Node database in XTC
@@ -4474,6 +5066,8 @@ class PceTopology(Entity):
         
         	Node information
         	**type**\: list of  		 :py:class:`TopologyNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode>`
+        
+        	**config**\: False
         
         
 
@@ -4513,10 +5107,14 @@ class PceTopology(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: node_protocol_identifier
             
             	Node protocol identifier
             	**type**\:  :py:class:`NodeProtocolIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier>`
+            
+            	**config**\: False
             
             .. attribute:: node_identifier_xr
             
@@ -4525,25 +5123,35 @@ class PceTopology(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: overload
             
             	Node Overload Bit
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: prefixe
             
             	Prefixes
             	**type**\: list of  		 :py:class:`Prefixe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Prefixe>`
             
+            	**config**\: False
+            
             .. attribute:: ipv4_link
             
             	IPv4 Link information
             	**type**\: list of  		 :py:class:`Ipv4Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link>`
             
+            	**config**\: False
+            
             .. attribute:: ipv6_link
             
             	IPv6 Link information
             	**type**\: list of  		 :py:class:`Ipv6Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link>`
+            
+            	**config**\: False
             
             
 
@@ -4594,10 +5202,14 @@ class PceTopology(Entity):
                 	Node Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4_bgp_router_id_set
                 
                 	True if IPv4 BGP router ID is set
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ipv4_bgp_router_id
                 
@@ -4606,10 +5218,14 @@ class PceTopology(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4te_router_id_set
                 
                 	True if IPv4 TE router ID is set
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ipv4te_router_id
                 
@@ -4618,15 +5234,21 @@ class PceTopology(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: igp_information
                 
                 	IGP information
                 	**type**\: list of  		 :py:class:`IgpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: srgb_information
                 
                 	SRGB information
                 	**type**\: list of  		 :py:class:`SrgbInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation>`
+                
+                	**config**\: False
                 
                 
 
@@ -4675,12 +5297,16 @@ class PceTopology(Entity):
                     	Link\-state node identifier
                     	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_identifier
                     
                     	Domain identifier
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -4722,6 +5348,8 @@ class PceTopology(Entity):
                         	IGP\-specific information
                         	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: autonomous_system_number
                         
                         	Autonomous System Number
@@ -4729,12 +5357,16 @@ class PceTopology(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ls_identifier
                         
                         	Link\-State identifier
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4778,20 +5410,28 @@ class PceTopology(Entity):
                             	ISIS information
                             	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospf
                             
                             	OSPF information
                             	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: bgp
                             
                             	BGP information
                             	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: igp_id
                             
                             	IGP ID
                             	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -4841,12 +5481,16 @@ class PceTopology(Entity):
                                 	ISIS system ID
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: level
                                 
                                 	ISIS level
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4877,6 +5521,7 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                             class Ospf(Entity):
                                 """
                                 OSPF information
@@ -4888,12 +5533,16 @@ class PceTopology(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: area
                                 
                                 	OSPF area
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4924,6 +5573,7 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                             class Bgp(Entity):
                                 """
                                 BGP information
@@ -4935,12 +5585,16 @@ class PceTopology(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: confed_asn
                                 
                                 	Confederation ASN
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4971,6 +5625,10 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
                 class SrgbInformation(Entity):
                     """
                     SRGB information
@@ -4980,12 +5638,16 @@ class PceTopology(Entity):
                     	Link\-state node identifier
                     	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: start
                     
                     	SRGB start
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: size
                     
@@ -4994,12 +5656,16 @@ class PceTopology(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_identifier
                     
                     	Domain identifier
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -5045,6 +5711,8 @@ class PceTopology(Entity):
                         	IGP\-specific information
                         	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: autonomous_system_number
                         
                         	Autonomous System Number
@@ -5052,12 +5720,16 @@ class PceTopology(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ls_identifier
                         
                         	Link\-State identifier
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5101,20 +5773,28 @@ class PceTopology(Entity):
                             	ISIS information
                             	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospf
                             
                             	OSPF information
                             	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: bgp
                             
                             	BGP information
                             	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: igp_id
                             
                             	IGP ID
                             	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -5164,12 +5844,16 @@ class PceTopology(Entity):
                                 	ISIS system ID
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: level
                                 
                                 	ISIS level
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5200,6 +5884,7 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                             class Ospf(Entity):
                                 """
                                 OSPF information
@@ -5211,12 +5896,16 @@ class PceTopology(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: area
                                 
                                 	OSPF area
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5247,6 +5936,7 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                             class Bgp(Entity):
                                 """
                                 BGP information
@@ -5258,12 +5948,16 @@ class PceTopology(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: confed_asn
                                 
                                 	Confederation ASN
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5294,6 +5988,11 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
+
             class Prefixe(Entity):
                 """
                 Prefixes
@@ -5303,10 +6002,14 @@ class PceTopology(Entity):
                 	Prefix SID
                 	**type**\:  :py:class:`PfxSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid>`
                 
+                	**config**\: False
+                
                 .. attribute:: node_id
                 
                 	Link\-state node identifier
                 	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId>`
+                
+                	**config**\: False
                 
                 .. attribute:: domain_identifier
                 
@@ -5314,6 +6017,8 @@ class PceTopology(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -5359,10 +6064,14 @@ class PceTopology(Entity):
                     	Prefix
                     	**type**\:  :py:class:`SidPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sid_type
                     
                     	SID Type
                     	**type**\:  :py:class:`Sid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Sid>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: mpls_label
                     
@@ -5371,35 +6080,49 @@ class PceTopology(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rflag
                     
                     	R Flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: nflag
                     
                     	N Flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: pflag
                     
                     	P Flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: eflag
                     
                     	E Flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: vflag
                     
                     	V Flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: lflag
                     
                     	L Flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -5455,6 +6178,8 @@ class PceTopology(Entity):
                         	AFName
                         	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4 address type
@@ -5462,12 +6187,16 @@ class PceTopology(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -5500,6 +6229,8 @@ class PceTopology(Entity):
                             self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
+
                 class NodeId(Entity):
                     """
                     Link\-state node identifier
@@ -5509,6 +6240,8 @@ class PceTopology(Entity):
                     	IGP\-specific information
                     	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: autonomous_system_number
                     
                     	Autonomous System Number
@@ -5516,12 +6249,16 @@ class PceTopology(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: ls_identifier
                     
                     	Link\-State identifier
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -5565,20 +6302,28 @@ class PceTopology(Entity):
                         	ISIS information
                         	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ospf
                         
                         	OSPF information
                         	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: bgp
                         
                         	BGP information
                         	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: igp_id
                         
                         	IGP ID
                         	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5628,12 +6373,16 @@ class PceTopology(Entity):
                             	ISIS system ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: level
                             
                             	ISIS level
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -5664,6 +6413,7 @@ class PceTopology(Entity):
                                 self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                         class Ospf(Entity):
                             """
                             OSPF information
@@ -5675,12 +6425,16 @@ class PceTopology(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: area
                             
                             	OSPF area
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -5711,6 +6465,7 @@ class PceTopology(Entity):
                                 self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                         class Bgp(Entity):
                             """
                             BGP information
@@ -5722,12 +6477,16 @@ class PceTopology(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: confed_asn
                             
                             	Confederation ASN
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -5758,6 +6517,10 @@ class PceTopology(Entity):
                                 self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
             class Ipv4Link(Entity):
                 """
                 IPv4 Link information
@@ -5767,15 +6530,21 @@ class PceTopology(Entity):
                 	Local node IGP information
                 	**type**\:  :py:class:`LocalIgpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: remote_node_protocol_identifier
                 
                 	Remote node protocol identifier
                 	**type**\:  :py:class:`RemoteNodeProtocolIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier>`
                 
+                	**config**\: False
+                
                 .. attribute:: performance_metrics
                 
                 	Performance metrics
                 	**type**\:  :py:class:`PerformanceMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_ipv4_address
                 
@@ -5784,12 +6553,16 @@ class PceTopology(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: remote_ipv4_address
                 
                 	Remote IPv4 address
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: igp_metric
                 
@@ -5798,12 +6571,16 @@ class PceTopology(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: te_metric
                 
                 	TE Metric
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: maximum_link_bandwidth
                 
@@ -5812,12 +6589,16 @@ class PceTopology(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: max_reservable_bandwidth
                 
                 	Max Reservable bandwidth
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: administrative_groups
                 
@@ -5826,6 +6607,8 @@ class PceTopology(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: srlgs
                 
                 	SRLG Values
@@ -5833,10 +6616,14 @@ class PceTopology(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: adjacency_sid
                 
                 	Adjacency SIDs
                 	**type**\: list of  		 :py:class:`AdjacencySid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid>`
+                
+                	**config**\: False
                 
                 
 
@@ -5902,12 +6689,16 @@ class PceTopology(Entity):
                     	Link\-state node identifier
                     	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_identifier
                     
                     	Domain identifier
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -5949,6 +6740,8 @@ class PceTopology(Entity):
                         	IGP\-specific information
                         	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: autonomous_system_number
                         
                         	Autonomous System Number
@@ -5956,12 +6749,16 @@ class PceTopology(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ls_identifier
                         
                         	Link\-State identifier
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -6005,20 +6802,28 @@ class PceTopology(Entity):
                             	ISIS information
                             	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospf
                             
                             	OSPF information
                             	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: bgp
                             
                             	BGP information
                             	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: igp_id
                             
                             	IGP ID
                             	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -6068,12 +6873,16 @@ class PceTopology(Entity):
                                 	ISIS system ID
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: level
                                 
                                 	ISIS level
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6104,6 +6913,7 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                             class Ospf(Entity):
                                 """
                                 OSPF information
@@ -6115,12 +6925,16 @@ class PceTopology(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: area
                                 
                                 	OSPF area
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6151,6 +6965,7 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                             class Bgp(Entity):
                                 """
                                 BGP information
@@ -6162,12 +6977,16 @@ class PceTopology(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: confed_asn
                                 
                                 	Confederation ASN
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6198,6 +7017,10 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
                 class RemoteNodeProtocolIdentifier(Entity):
                     """
                     Remote node protocol identifier
@@ -6207,10 +7030,14 @@ class PceTopology(Entity):
                     	Node Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4_bgp_router_id_set
                     
                     	True if IPv4 BGP router ID is set
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4_bgp_router_id
                     
@@ -6219,10 +7046,14 @@ class PceTopology(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4te_router_id_set
                     
                     	True if IPv4 TE router ID is set
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4te_router_id
                     
@@ -6231,15 +7062,21 @@ class PceTopology(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: igp_information
                     
                     	IGP information
                     	**type**\: list of  		 :py:class:`IgpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: srgb_information
                     
                     	SRGB information
                     	**type**\: list of  		 :py:class:`SrgbInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -6288,12 +7125,16 @@ class PceTopology(Entity):
                         	Link\-state node identifier
                         	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: domain_identifier
                         
                         	Domain identifier
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -6335,6 +7176,8 @@ class PceTopology(Entity):
                             	IGP\-specific information
                             	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: autonomous_system_number
                             
                             	Autonomous System Number
@@ -6342,12 +7185,16 @@ class PceTopology(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ls_identifier
                             
                             	Link\-State identifier
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -6391,20 +7238,28 @@ class PceTopology(Entity):
                                 	ISIS information
                                 	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ospf
                                 
                                 	OSPF information
                                 	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: bgp
                                 
                                 	BGP information
                                 	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: igp_id
                                 
                                 	IGP ID
                                 	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6454,12 +7309,16 @@ class PceTopology(Entity):
                                     	ISIS system ID
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: level
                                     
                                     	ISIS level
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6490,6 +7349,7 @@ class PceTopology(Entity):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                                 class Ospf(Entity):
                                     """
                                     OSPF information
@@ -6501,12 +7361,16 @@ class PceTopology(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: area
                                     
                                     	OSPF area
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6537,6 +7401,7 @@ class PceTopology(Entity):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                                 class Bgp(Entity):
                                     """
                                     BGP information
@@ -6548,12 +7413,16 @@ class PceTopology(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: confed_asn
                                     
                                     	Confederation ASN
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6584,6 +7453,10 @@ class PceTopology(Entity):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
                     class SrgbInformation(Entity):
                         """
                         SRGB information
@@ -6593,12 +7466,16 @@ class PceTopology(Entity):
                         	Link\-state node identifier
                         	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: start
                         
                         	SRGB start
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: size
                         
@@ -6607,12 +7484,16 @@ class PceTopology(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: domain_identifier
                         
                         	Domain identifier
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -6658,6 +7539,8 @@ class PceTopology(Entity):
                             	IGP\-specific information
                             	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: autonomous_system_number
                             
                             	Autonomous System Number
@@ -6665,12 +7548,16 @@ class PceTopology(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ls_identifier
                             
                             	Link\-State identifier
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -6714,20 +7601,28 @@ class PceTopology(Entity):
                                 	ISIS information
                                 	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ospf
                                 
                                 	OSPF information
                                 	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: bgp
                                 
                                 	BGP information
                                 	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: igp_id
                                 
                                 	IGP ID
                                 	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6777,12 +7672,16 @@ class PceTopology(Entity):
                                     	ISIS system ID
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: level
                                     
                                     	ISIS level
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6813,6 +7712,7 @@ class PceTopology(Entity):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                                 class Ospf(Entity):
                                     """
                                     OSPF information
@@ -6824,12 +7724,16 @@ class PceTopology(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: area
                                     
                                     	OSPF area
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6860,6 +7764,7 @@ class PceTopology(Entity):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                                 class Bgp(Entity):
                                     """
                                     BGP information
@@ -6871,12 +7776,16 @@ class PceTopology(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: confed_asn
                                     
                                     	Confederation ASN
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6907,6 +7816,11 @@ class PceTopology(Entity):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
+
                 class PerformanceMetrics(Entity):
                     """
                     Performance metrics
@@ -6917,6 +7831,8 @@ class PceTopology(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -6945,6 +7861,7 @@ class PceTopology(Entity):
                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics, [u'unidirectional_min_delay'], name, value)
 
 
+
                 class AdjacencySid(Entity):
                     """
                     Adjacency SIDs
@@ -6954,10 +7871,14 @@ class PceTopology(Entity):
                     	Prefix
                     	**type**\:  :py:class:`SidPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sid_type
                     
                     	SID Type
                     	**type**\:  :py:class:`Sid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Sid>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: mpls_label
                     
@@ -6966,35 +7887,49 @@ class PceTopology(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rflag
                     
                     	R Flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: nflag
                     
                     	N Flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: pflag
                     
                     	P Flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: eflag
                     
                     	E Flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: vflag
                     
                     	V Flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: lflag
                     
                     	L Flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -7050,6 +7985,8 @@ class PceTopology(Entity):
                         	AFName
                         	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4 address type
@@ -7057,12 +7994,16 @@ class PceTopology(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -7095,6 +8036,9 @@ class PceTopology(Entity):
                             self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
+
+
             class Ipv6Link(Entity):
                 """
                 IPv6 Link information
@@ -7104,10 +8048,14 @@ class PceTopology(Entity):
                 	Local node IGP information
                 	**type**\:  :py:class:`LocalIgpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: remote_node_protocol_identifier
                 
                 	Remote node protocol identifier
                 	**type**\:  :py:class:`RemoteNodeProtocolIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_ipv6_address
                 
@@ -7116,12 +8064,16 @@ class PceTopology(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: remote_ipv6_address
                 
                 	Remote IPv6 address
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: igp_metric
                 
@@ -7130,12 +8082,16 @@ class PceTopology(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: te_metric
                 
                 	TE Metric
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: maximum_link_bandwidth
                 
@@ -7144,6 +8100,8 @@ class PceTopology(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: max_reservable_bandwidth
                 
                 	Max Reservable bandwidth
@@ -7151,10 +8109,14 @@ class PceTopology(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: adjacency_sid
                 
                 	Adjacency SIDs
                 	**type**\: list of  		 :py:class:`AdjacencySid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid>`
+                
+                	**config**\: False
                 
                 
 
@@ -7212,12 +8174,16 @@ class PceTopology(Entity):
                     	Link\-state node identifier
                     	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_identifier
                     
                     	Domain identifier
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -7259,6 +8225,8 @@ class PceTopology(Entity):
                         	IGP\-specific information
                         	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: autonomous_system_number
                         
                         	Autonomous System Number
@@ -7266,12 +8234,16 @@ class PceTopology(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ls_identifier
                         
                         	Link\-State identifier
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -7315,20 +8287,28 @@ class PceTopology(Entity):
                             	ISIS information
                             	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospf
                             
                             	OSPF information
                             	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: bgp
                             
                             	BGP information
                             	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: igp_id
                             
                             	IGP ID
                             	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -7378,12 +8358,16 @@ class PceTopology(Entity):
                                 	ISIS system ID
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: level
                                 
                                 	ISIS level
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7414,6 +8398,7 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                             class Ospf(Entity):
                                 """
                                 OSPF information
@@ -7425,12 +8410,16 @@ class PceTopology(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: area
                                 
                                 	OSPF area
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7461,6 +8450,7 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                             class Bgp(Entity):
                                 """
                                 BGP information
@@ -7472,12 +8462,16 @@ class PceTopology(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: confed_asn
                                 
                                 	Confederation ASN
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7508,6 +8502,10 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
                 class RemoteNodeProtocolIdentifier(Entity):
                     """
                     Remote node protocol identifier
@@ -7517,10 +8515,14 @@ class PceTopology(Entity):
                     	Node Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4_bgp_router_id_set
                     
                     	True if IPv4 BGP router ID is set
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4_bgp_router_id
                     
@@ -7529,10 +8531,14 @@ class PceTopology(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4te_router_id_set
                     
                     	True if IPv4 TE router ID is set
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4te_router_id
                     
@@ -7541,15 +8547,21 @@ class PceTopology(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: igp_information
                     
                     	IGP information
                     	**type**\: list of  		 :py:class:`IgpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: srgb_information
                     
                     	SRGB information
                     	**type**\: list of  		 :py:class:`SrgbInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -7598,12 +8610,16 @@ class PceTopology(Entity):
                         	Link\-state node identifier
                         	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: domain_identifier
                         
                         	Domain identifier
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -7645,6 +8661,8 @@ class PceTopology(Entity):
                             	IGP\-specific information
                             	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: autonomous_system_number
                             
                             	Autonomous System Number
@@ -7652,12 +8670,16 @@ class PceTopology(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ls_identifier
                             
                             	Link\-State identifier
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -7701,20 +8723,28 @@ class PceTopology(Entity):
                                 	ISIS information
                                 	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ospf
                                 
                                 	OSPF information
                                 	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: bgp
                                 
                                 	BGP information
                                 	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: igp_id
                                 
                                 	IGP ID
                                 	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7764,12 +8794,16 @@ class PceTopology(Entity):
                                     	ISIS system ID
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: level
                                     
                                     	ISIS level
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7800,6 +8834,7 @@ class PceTopology(Entity):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                                 class Ospf(Entity):
                                     """
                                     OSPF information
@@ -7811,12 +8846,16 @@ class PceTopology(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: area
                                     
                                     	OSPF area
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7847,6 +8886,7 @@ class PceTopology(Entity):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                                 class Bgp(Entity):
                                     """
                                     BGP information
@@ -7858,12 +8898,16 @@ class PceTopology(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: confed_asn
                                     
                                     	Confederation ASN
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7894,6 +8938,10 @@ class PceTopology(Entity):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
                     class SrgbInformation(Entity):
                         """
                         SRGB information
@@ -7903,12 +8951,16 @@ class PceTopology(Entity):
                         	Link\-state node identifier
                         	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: start
                         
                         	SRGB start
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: size
                         
@@ -7917,12 +8969,16 @@ class PceTopology(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: domain_identifier
                         
                         	Domain identifier
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -7968,6 +9024,8 @@ class PceTopology(Entity):
                             	IGP\-specific information
                             	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: autonomous_system_number
                             
                             	Autonomous System Number
@@ -7975,12 +9033,16 @@ class PceTopology(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ls_identifier
                             
                             	Link\-State identifier
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -8024,20 +9086,28 @@ class PceTopology(Entity):
                                 	ISIS information
                                 	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ospf
                                 
                                 	OSPF information
                                 	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: bgp
                                 
                                 	BGP information
                                 	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: igp_id
                                 
                                 	IGP ID
                                 	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8087,12 +9157,16 @@ class PceTopology(Entity):
                                     	ISIS system ID
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: level
                                     
                                     	ISIS level
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -8123,6 +9197,7 @@ class PceTopology(Entity):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                                 class Ospf(Entity):
                                     """
                                     OSPF information
@@ -8134,12 +9209,16 @@ class PceTopology(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: area
                                     
                                     	OSPF area
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -8170,6 +9249,7 @@ class PceTopology(Entity):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                                 class Bgp(Entity):
                                     """
                                     BGP information
@@ -8181,12 +9261,16 @@ class PceTopology(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: confed_asn
                                     
                                     	Confederation ASN
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -8217,6 +9301,11 @@ class PceTopology(Entity):
                                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
+
                 class AdjacencySid(Entity):
                     """
                     Adjacency SIDs
@@ -8226,10 +9315,14 @@ class PceTopology(Entity):
                     	Prefix
                     	**type**\:  :py:class:`SidPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sid_type
                     
                     	SID Type
                     	**type**\:  :py:class:`Sid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Sid>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: mpls_label
                     
@@ -8238,35 +9331,49 @@ class PceTopology(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rflag
                     
                     	R Flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: nflag
                     
                     	N Flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: pflag
                     
                     	P Flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: eflag
                     
                     	E Flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: vflag
                     
                     	V Flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: lflag
                     
                     	L Flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -8322,6 +9429,8 @@ class PceTopology(Entity):
                         	AFName
                         	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4 address type
@@ -8329,12 +9438,16 @@ class PceTopology(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -8367,6 +9480,11 @@ class PceTopology(Entity):
                             self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
+
+
+
+
     class PrefixInfos(Entity):
         """
         Prefixes database in XTC
@@ -8375,6 +9493,8 @@ class PceTopology(Entity):
         
         	PCE prefix information
         	**type**\: list of  		 :py:class:`PrefixInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo>`
+        
+        	**config**\: False
         
         
 
@@ -8414,10 +9534,14 @@ class PceTopology(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: node_protocol_identifier
             
             	Node protocol identifier
             	**type**\:  :py:class:`NodeProtocolIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier>`
+            
+            	**config**\: False
             
             .. attribute:: node_identifier_xr
             
@@ -8426,10 +9550,14 @@ class PceTopology(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: address
             
             	Prefix address
             	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.Address>`
+            
+            	**config**\: False
             
             
 
@@ -8476,10 +9604,14 @@ class PceTopology(Entity):
                 	Node Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4_bgp_router_id_set
                 
                 	True if IPv4 BGP router ID is set
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ipv4_bgp_router_id
                 
@@ -8488,10 +9620,14 @@ class PceTopology(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4te_router_id_set
                 
                 	True if IPv4 TE router ID is set
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ipv4te_router_id
                 
@@ -8500,15 +9636,21 @@ class PceTopology(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: igp_information
                 
                 	IGP information
                 	**type**\: list of  		 :py:class:`IgpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: srgb_information
                 
                 	SRGB information
                 	**type**\: list of  		 :py:class:`SrgbInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation>`
+                
+                	**config**\: False
                 
                 
 
@@ -8557,12 +9699,16 @@ class PceTopology(Entity):
                     	Link\-state node identifier
                     	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_identifier
                     
                     	Domain identifier
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -8604,6 +9750,8 @@ class PceTopology(Entity):
                         	IGP\-specific information
                         	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: autonomous_system_number
                         
                         	Autonomous System Number
@@ -8611,12 +9759,16 @@ class PceTopology(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ls_identifier
                         
                         	Link\-State identifier
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8660,20 +9812,28 @@ class PceTopology(Entity):
                             	ISIS information
                             	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospf
                             
                             	OSPF information
                             	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: bgp
                             
                             	BGP information
                             	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: igp_id
                             
                             	IGP ID
                             	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -8723,12 +9883,16 @@ class PceTopology(Entity):
                                 	ISIS system ID
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: level
                                 
                                 	ISIS level
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8759,6 +9923,7 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                             class Ospf(Entity):
                                 """
                                 OSPF information
@@ -8770,12 +9935,16 @@ class PceTopology(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: area
                                 
                                 	OSPF area
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8806,6 +9975,7 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                             class Bgp(Entity):
                                 """
                                 BGP information
@@ -8817,12 +9987,16 @@ class PceTopology(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: confed_asn
                                 
                                 	Confederation ASN
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8853,6 +10027,10 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
                 class SrgbInformation(Entity):
                     """
                     SRGB information
@@ -8862,12 +10040,16 @@ class PceTopology(Entity):
                     	Link\-state node identifier
                     	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: start
                     
                     	SRGB start
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: size
                     
@@ -8876,12 +10058,16 @@ class PceTopology(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_identifier
                     
                     	Domain identifier
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -8927,6 +10113,8 @@ class PceTopology(Entity):
                         	IGP\-specific information
                         	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: autonomous_system_number
                         
                         	Autonomous System Number
@@ -8934,12 +10122,16 @@ class PceTopology(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ls_identifier
                         
                         	Link\-State identifier
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8983,20 +10175,28 @@ class PceTopology(Entity):
                             	ISIS information
                             	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospf
                             
                             	OSPF information
                             	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: bgp
                             
                             	BGP information
                             	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: igp_id
                             
                             	IGP ID
                             	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -9046,12 +10246,16 @@ class PceTopology(Entity):
                                 	ISIS system ID
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: level
                                 
                                 	ISIS level
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9082,6 +10286,7 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                             class Ospf(Entity):
                                 """
                                 OSPF information
@@ -9093,12 +10298,16 @@ class PceTopology(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: area
                                 
                                 	OSPF area
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9129,6 +10338,7 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                             class Bgp(Entity):
                                 """
                                 BGP information
@@ -9140,12 +10350,16 @@ class PceTopology(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: confed_asn
                                 
                                 	Confederation ASN
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9176,6 +10390,11 @@ class PceTopology(Entity):
                                     self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
+
             class Address(Entity):
                 """
                 Prefix address
@@ -9184,6 +10403,8 @@ class PceTopology(Entity):
                 
                 	Prefix IP address
                 	**type**\:  :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.Address.Ip>`
+                
+                	**config**\: False
                 
                 
 
@@ -9222,6 +10443,8 @@ class PceTopology(Entity):
                     	AFName
                     	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4
                     
                     	IPv4 address type
@@ -9229,12 +10452,16 @@ class PceTopology(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -9266,9 +10493,15 @@ class PceTopology(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.Address.Ip, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = PceTopology()
         return self._top_entity
+
+
 
 class Pce(Entity):
     """
@@ -9279,55 +10512,77 @@ class Pce(Entity):
     	PCE Verification events in XTC
     	**type**\:  :py:class:`VerificationEvents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.VerificationEvents>`
     
+    	**config**\: False
+    
     .. attribute:: association_infos
     
     	Associaition database in XTC
     	**type**\:  :py:class:`AssociationInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.AssociationInfos>`
+    
+    	**config**\: False
     
     .. attribute:: cspf
     
     	CSPF path info
     	**type**\:  :py:class:`Cspf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.Cspf>`
     
+    	**config**\: False
+    
     .. attribute:: topology_summary
     
     	Node summary database in XTC
     	**type**\:  :py:class:`TopologySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologySummary>`
+    
+    	**config**\: False
     
     .. attribute:: tunnel_infos
     
     	Tunnel database in XTC
     	**type**\:  :py:class:`TunnelInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelInfos>`
     
+    	**config**\: False
+    
     .. attribute:: peer_detail_infos
     
     	Detailed peers database in XTC
     	**type**\:  :py:class:`PeerDetailInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PeerDetailInfos>`
+    
+    	**config**\: False
     
     .. attribute:: topology_nodes
     
     	Node database in XTC
     	**type**\:  :py:class:`TopologyNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes>`
     
+    	**config**\: False
+    
     .. attribute:: prefix_infos
     
     	Prefixes database in XTC
     	**type**\:  :py:class:`PrefixInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos>`
+    
+    	**config**\: False
     
     .. attribute:: lsp_summary
     
     	LSP summary database in XTC
     	**type**\:  :py:class:`LspSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.LspSummary>`
     
+    	**config**\: False
+    
     .. attribute:: peer_infos
     
     	Peers database in XTC
     	**type**\:  :py:class:`PeerInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PeerInfos>`
     
+    	**config**\: False
+    
     .. attribute:: tunnel_detail_infos
     
     	Detailed tunnel database in XTC
     	**type**\:  :py:class:`TunnelDetailInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos>`
+    
+    	**config**\: False
     
     
 
@@ -9407,6 +10662,8 @@ class Pce(Entity):
         	PCE single verification event
         	**type**\: list of  		 :py:class:`VerificationEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.VerificationEvents.VerificationEvent>`
         
+        	**config**\: False
+        
         
 
         """
@@ -9445,6 +10702,8 @@ class Pce(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: event_id
             
             	Event ID in range 1 \- 0xFFFFFFFF. 0 is invalid
@@ -9452,10 +10711,14 @@ class Pce(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: event_message
             
             	Event message
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: time_stamp
             
@@ -9463,6 +10726,8 @@ class Pce(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -9498,6 +10763,8 @@ class Pce(Entity):
                 self._perform_setattr(Pce.VerificationEvents.VerificationEvent, ['event_idx', u'event_id', u'event_message', u'time_stamp'], name, value)
 
 
+
+
     class AssociationInfos(Entity):
         """
         Associaition database in XTC
@@ -9506,6 +10773,8 @@ class Pce(Entity):
         
         	PCE Association information
         	**type**\: list of  		 :py:class:`AssociationInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.AssociationInfos.AssociationInfo>`
+        
+        	**config**\: False
         
         
 
@@ -9545,10 +10814,14 @@ class Pce(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: type
             
             	Type
             	**type**\:  :py:class:`PceAsso <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAsso>`
+            
+            	**config**\: False
             
             .. attribute:: sub_id
             
@@ -9563,10 +10836,14 @@ class Pce(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: association_source
             
             	Association Source
             	**type**\:  :py:class:`AssociationSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.AssociationInfos.AssociationInfo.AssociationSource>`
+            
+            	**config**\: False
             
             .. attribute:: association_type
             
@@ -9575,6 +10852,8 @@ class Pce(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: association_id
             
             	Association ID
@@ -9582,10 +10861,14 @@ class Pce(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: strict
             
             	Association Strict Mode
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: status
             
@@ -9594,6 +10877,8 @@ class Pce(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: headends_swapped
             
             	Headends Swapped
@@ -9601,10 +10886,14 @@ class Pce(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: association_lsp
             
             	Association LSP Info
             	**type**\: list of  		 :py:class:`AssociationLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.AssociationInfos.AssociationInfo.AssociationLsp>`
+            
+            	**config**\: False
             
             
 
@@ -9663,6 +10952,8 @@ class Pce(Entity):
                 	AFName
                 	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4
                 
                 	IPv4 address type
@@ -9670,12 +10961,16 @@ class Pce(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv6
                 
                 	IPv6 address type
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 
 
@@ -9708,6 +11003,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.AssociationInfos.AssociationInfo.AssociationSource, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
             class AssociationLsp(Entity):
                 """
                 Association LSP Info
@@ -9717,12 +11013,16 @@ class Pce(Entity):
                 	PCC address
                 	**type**\:  :py:class:`PccAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.AssociationInfos.AssociationInfo.AssociationLsp.PccAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: tunnel_id
                 
                 	Tunnel ID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: lspid
                 
@@ -9731,15 +11031,21 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tunnel_name
                 
                 	Tunnel Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: pce_based
                 
                 	PCE Based
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: plsp_id
                 
@@ -9747,6 +11053,8 @@ class Pce(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -9796,6 +11104,8 @@ class Pce(Entity):
                     	AFName
                     	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4
                     
                     	IPv4 address type
@@ -9803,12 +11113,16 @@ class Pce(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -9841,6 +11155,10 @@ class Pce(Entity):
                         self._perform_setattr(Pce.AssociationInfos.AssociationInfo.AssociationLsp.PccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
+
+
+
     class Cspf(Entity):
         """
         CSPF path info
@@ -9849,6 +11167,8 @@ class Pce(Entity):
         
         	This table models the path calculation capabilities in XTC.A GET operation for the complete table will return no entries
         	**type**\:  :py:class:`CspfPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.Cspf.CspfPaths>`
+        
+        	**config**\: False
         
         
 
@@ -9890,6 +11210,8 @@ class Pce(Entity):
             	A GET operation on this class returns the path 
             	**type**\: list of  		 :py:class:`CspfPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.Cspf.CspfPaths.CspfPath>`
             
+            	**config**\: False
+            
             
 
             """
@@ -9929,6 +11251,8 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: source1  (key)
                 
                 	Source of path 1
@@ -9941,6 +11265,8 @@ class Pce(Entity):
                 		**type**\: str
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: destination1  (key)
                 
@@ -9955,12 +11281,16 @@ class Pce(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: metric_type  (key)
                 
                 	Metric type
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: source2  (key)
                 
@@ -9975,6 +11305,8 @@ class Pce(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: destination2  (key)
                 
                 	Destination of path 2
@@ -9988,12 +11320,16 @@ class Pce(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: disjoint_level  (key)
                 
                 	Disjointness level
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: disjoint_strict  (key)
                 
@@ -10002,6 +11338,8 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: shortest_path  (key)
                 
                 	Whether path 1 or 2 should be shortest
@@ -10009,15 +11347,21 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: headends_swapped
                 
                 	Headends swapped
                 	**type**\:  :py:class:`PceHeadendSwap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceHeadendSwap>`
                 
+                	**config**\: False
+                
                 .. attribute:: cspf_result
                 
                 	CSPF Result
                 	**type**\:  :py:class:`PceCspfRc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceCspfRc>`
+                
+                	**config**\: False
                 
                 .. attribute:: iterations_done
                 
@@ -10026,10 +11370,14 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: output_path
                 
                 	Output PCE paths
                 	**type**\: list of  		 :py:class:`OutputPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.Cspf.CspfPaths.CspfPath.OutputPath>`
+                
+                	**config**\: False
                 
                 
 
@@ -10092,10 +11440,14 @@ class Pce(Entity):
                     	Source of path
                     	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.Cspf.CspfPaths.CspfPath.OutputPath.Source>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: destination
                     
                     	Destination of path
                     	**type**\:  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.Cspf.CspfPaths.CspfPath.OutputPath.Destination>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: cost
                     
@@ -10104,10 +11456,14 @@ class Pce(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: hops
                     
                     	Hop addresses
                     	**type**\: list of  		 :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.Cspf.CspfPaths.CspfPath.OutputPath.Hops>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -10155,6 +11511,8 @@ class Pce(Entity):
                         	AFName
                         	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4 address type
@@ -10162,12 +11520,16 @@ class Pce(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -10200,6 +11562,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath.OutputPath.Source, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
                     class Destination(Entity):
                         """
                         Destination of path
@@ -10209,6 +11572,8 @@ class Pce(Entity):
                         	AFName
                         	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4 address type
@@ -10216,12 +11581,16 @@ class Pce(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -10254,6 +11623,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath.OutputPath.Destination, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
                     class Hops(Entity):
                         """
                         Hop addresses
@@ -10265,6 +11635,8 @@ class Pce(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_prefix
                         
                         	IPv4 prefix
@@ -10272,12 +11644,16 @@ class Pce(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6_prefix
                         
                         	IPv6 prefix
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -10310,6 +11686,11 @@ class Pce(Entity):
                             self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath.OutputPath.Hops, [u'address_family', u'ipv4_prefix', u'ipv6_prefix'], name, value)
 
 
+
+
+
+
+
     class TopologySummary(Entity):
         """
         Node summary database in XTC
@@ -10319,12 +11700,16 @@ class Pce(Entity):
         	Statistics on topology update
         	**type**\:  :py:class:`StatsTopologyUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologySummary.StatsTopologyUpdate>`
         
+        	**config**\: False
+        
         .. attribute:: nodes
         
         	Number of PCE nodes
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: lookup_nodes
         
@@ -10333,12 +11718,16 @@ class Pce(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: prefixes
         
         	Number of prefixes
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: prefix_sids
         
@@ -10347,12 +11736,16 @@ class Pce(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: regular_prefix_sids
         
         	Number of reguar prefix SIDs
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: strict_prefix_sids
         
@@ -10361,12 +11754,16 @@ class Pce(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: links
         
         	Number of links
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: epe_links
         
@@ -10375,12 +11772,16 @@ class Pce(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: adjacency_sids
         
         	Number of total adjacency SIDs
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: epesids
         
@@ -10389,12 +11790,16 @@ class Pce(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: protected_adjacency_sids
         
         	Number of protected adjacency SIDs
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: un_protected_adjacency_sids
         
@@ -10403,10 +11808,14 @@ class Pce(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: topology_consistent
         
         	True if topology is consistent
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -10475,12 +11884,16 @@ class Pce(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: num_nodes_deleted
             
             	Number of nodes deleted
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: num_links_added
             
@@ -10489,12 +11902,16 @@ class Pce(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: num_links_deleted
             
             	Number of links deleted
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: num_prefixes_added
             
@@ -10503,12 +11920,16 @@ class Pce(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: num_prefixes_deleted
             
             	Number of prefixes deleted
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -10548,6 +11969,8 @@ class Pce(Entity):
                 self._perform_setattr(Pce.TopologySummary.StatsTopologyUpdate, [u'num_nodes_added', u'num_nodes_deleted', u'num_links_added', u'num_links_deleted', u'num_prefixes_added', u'num_prefixes_deleted'], name, value)
 
 
+
+
     class TunnelInfos(Entity):
         """
         Tunnel database in XTC
@@ -10556,6 +11979,8 @@ class Pce(Entity):
         
         	Tunnel information
         	**type**\: list of  		 :py:class:`TunnelInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelInfos.TunnelInfo>`
+        
+        	**config**\: False
         
         
 
@@ -10601,6 +12026,8 @@ class Pce(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: plsp_id  (key)
             
             	PCEP LSP ID
@@ -10608,25 +12035,35 @@ class Pce(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tunnel_name  (key)
             
             	Tunnel name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: pcc_address
             
             	PCC address
             	**type**\:  :py:class:`PccAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelInfos.TunnelInfo.PccAddress>`
             
+            	**config**\: False
+            
             .. attribute:: tunnel_name_xr
             
             	Tunnel Name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: brief_lsp_information
             
             	Brief LSP information
             	**type**\: list of  		 :py:class:`BriefLspInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelInfos.TunnelInfo.BriefLspInformation>`
+            
+            	**config**\: False
             
             
 
@@ -10677,6 +12114,8 @@ class Pce(Entity):
                 	AFName
                 	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4
                 
                 	IPv4 address type
@@ -10684,12 +12123,16 @@ class Pce(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv6
                 
                 	IPv6 address type
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 
 
@@ -10722,6 +12165,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.TunnelInfos.TunnelInfo.PccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
             class BriefLspInformation(Entity):
                 """
                 Brief LSP information
@@ -10731,10 +12175,14 @@ class Pce(Entity):
                 	Source address
                 	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: destination_address
                 
                 	Destination address
                 	**type**\:  :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelInfos.TunnelInfo.BriefLspInformation.DestinationAddress>`
+                
+                	**config**\: False
                 
                 .. attribute:: tunnel_id
                 
@@ -10743,12 +12191,16 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lspid
                 
                 	LSP ID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: binding_sid
                 
@@ -10757,20 +12209,28 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_setup_type
                 
                 	LSP Setup Type
                 	**type**\:  :py:class:`LspSetup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.LspSetup>`
+                
+                	**config**\: False
                 
                 .. attribute:: operational_state
                 
                 	Operational state
                 	**type**\:  :py:class:`PcepLspState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PcepLspState>`
                 
+                	**config**\: False
+                
                 .. attribute:: administrative_state
                 
                 	Admin state
                 	**type**\:  :py:class:`LspState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.LspState>`
+                
+                	**config**\: False
                 
                 .. attribute:: msd
                 
@@ -10778,6 +12238,8 @@ class Pce(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -10835,6 +12297,8 @@ class Pce(Entity):
                     	AFName
                     	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4
                     
                     	IPv4 address type
@@ -10842,12 +12306,16 @@ class Pce(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -10880,6 +12348,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class DestinationAddress(Entity):
                     """
                     Destination address
@@ -10889,6 +12358,8 @@ class Pce(Entity):
                     	AFName
                     	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4
                     
                     	IPv4 address type
@@ -10896,12 +12367,16 @@ class Pce(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -10934,6 +12409,10 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TunnelInfos.TunnelInfo.BriefLspInformation.DestinationAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
+
+
+
     class PeerDetailInfos(Entity):
         """
         Detailed peers database in XTC
@@ -10942,6 +12421,8 @@ class Pce(Entity):
         
         	Detailed PCE peer information
         	**type**\: list of  		 :py:class:`PeerDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PeerDetailInfos.PeerDetailInfo>`
+        
+        	**config**\: False
         
         
 
@@ -10987,20 +12468,28 @@ class Pce(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: peer_address_xr
             
             	Peer address
             	**type**\:  :py:class:`PeerAddressXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PeerDetailInfos.PeerDetailInfo.PeerAddressXr>`
+            
+            	**config**\: False
             
             .. attribute:: detail_pcep_information
             
             	Detailed PCE protocol information
             	**type**\:  :py:class:`DetailPcepInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation>`
             
+            	**config**\: False
+            
             .. attribute:: peer_protocol
             
             	Protocol between PCE and peer
             	**type**\:  :py:class:`PceProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceProto>`
+            
+            	**config**\: False
             
             .. attribute:: max_sid_depth
             
@@ -11008,6 +12497,8 @@ class Pce(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -11058,6 +12549,8 @@ class Pce(Entity):
                 	AFName
                 	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4
                 
                 	IPv4 address type
@@ -11065,12 +12558,16 @@ class Pce(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv6
                 
                 	IPv6 address type
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 
 
@@ -11103,6 +12600,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.PeerAddressXr, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
             class DetailPcepInformation(Entity):
                 """
                 Detailed PCE protocol information
@@ -11112,25 +12610,35 @@ class Pce(Entity):
                 	Brief PCE protocol information
                 	**type**\:  :py:class:`BriefPcepInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: last_error_rx
                 
                 	Last PCError received
                 	**type**\:  :py:class:`LastErrorRx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx>`
+                
+                	**config**\: False
                 
                 .. attribute:: last_error_tx
                 
                 	Last PCError sent
                 	**type**\:  :py:class:`LastErrorTx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx>`
                 
+                	**config**\: False
+                
                 .. attribute:: error
                 
                 	Error (for display only)
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: speaker_id
                 
                 	Speaker Entity ID
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: pcep_up_time
                 
@@ -11139,6 +12647,8 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: keepalives
                 
                 	Keepalive count
@@ -11146,15 +12656,21 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: md5_enabled
                 
                 	MD5 Authentication Enabled
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: keychain_enabled
                 
                 	Keychain based Authentication Enabled
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: negotiated_local_keepalive
                 
@@ -11163,12 +12679,16 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: negotiated_remote_keepalive
                 
                 	Negotiated KA
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: negotiated_dead_time
                 
@@ -11177,12 +12697,16 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pce_request_rx
                 
                 	PCEReq Rx
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: pce_request_tx
                 
@@ -11191,12 +12715,16 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pce_reply_rx
                 
                 	PCERep Rx
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: pce_reply_tx
                 
@@ -11205,12 +12733,16 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pce_error_rx
                 
                 	PCEErr Rx
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: pce_error_tx
                 
@@ -11219,12 +12751,16 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pce_open_tx
                 
                 	PCEOpen Tx
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: pce_open_rx
                 
@@ -11233,12 +12769,16 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pce_report_rx
                 
                 	PCERpt Rx
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: pce_report_tx
                 
@@ -11247,12 +12787,16 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pce_update_rx
                 
                 	PCEUpd Rx
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: pce_update_tx
                 
@@ -11261,12 +12805,16 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pce_initiate_rx
                 
                 	PCEInit Rx
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: pce_initiate_tx
                 
@@ -11275,12 +12823,16 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pce_keepalive_tx
                 
                 	PCE Keepalive Tx
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: pce_keepalive_rx
                 
@@ -11289,12 +12841,16 @@ class Pce(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: local_session_id
                 
                 	Local PCEP session ID
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: remote_session_id
                 
@@ -11303,12 +12859,16 @@ class Pce(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: minimum_keepalive_interval
                 
                 	Minimum keepalive interval for the peer
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: maximum_dead_interval
                 
@@ -11317,12 +12877,16 @@ class Pce(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: max_sid_depth
                 
                 	Maximum number of labels the peer can impose
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 
 
@@ -11430,40 +12994,56 @@ class Pce(Entity):
                     	PCEP State
                     	**type**\:  :py:class:`PcepState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PcepState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: stateful
                     
                     	Stateful
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: capability_update
                     
                     	Update capability
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: capability_instantiate
                     
                     	Instantiation capability
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: capability_segment_routing
                     
                     	Segment Routing capability
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: capability_triggered_sync
                     
                     	Triggered Synchronization capability
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: capability_db_version
                     
                     	DB version capability
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: capability_delta_sync
                     
                     	Delta Synchronization capability
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -11506,6 +13086,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation, [u'pcep_state', u'stateful', u'capability_update', u'capability_instantiate', u'capability_segment_routing', u'capability_triggered_sync', u'capability_db_version', u'capability_delta_sync'], name, value)
 
 
+
                 class LastErrorRx(Entity):
                     """
                     Last PCError received
@@ -11517,12 +13098,16 @@ class Pce(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: pc_error_value
                     
                     	PCEP Error Value
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -11553,6 +13138,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx, [u'pc_error_type', u'pc_error_value'], name, value)
 
 
+
                 class LastErrorTx(Entity):
                     """
                     Last PCError sent
@@ -11564,12 +13150,16 @@ class Pce(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: pc_error_value
                     
                     	PCEP Error Value
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -11600,6 +13190,10 @@ class Pce(Entity):
                         self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx, [u'pc_error_type', u'pc_error_value'], name, value)
 
 
+
+
+
+
     class TopologyNodes(Entity):
         """
         Node database in XTC
@@ -11608,6 +13202,8 @@ class Pce(Entity):
         
         	Node information
         	**type**\: list of  		 :py:class:`TopologyNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode>`
+        
+        	**config**\: False
         
         
 
@@ -11647,10 +13243,14 @@ class Pce(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: node_protocol_identifier
             
             	Node protocol identifier
             	**type**\:  :py:class:`NodeProtocolIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier>`
+            
+            	**config**\: False
             
             .. attribute:: node_identifier_xr
             
@@ -11659,25 +13259,35 @@ class Pce(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: overload
             
             	Node Overload Bit
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: prefixe
             
             	Prefixes
             	**type**\: list of  		 :py:class:`Prefixe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Prefixe>`
             
+            	**config**\: False
+            
             .. attribute:: ipv4_link
             
             	IPv4 Link information
             	**type**\: list of  		 :py:class:`Ipv4Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link>`
             
+            	**config**\: False
+            
             .. attribute:: ipv6_link
             
             	IPv6 Link information
             	**type**\: list of  		 :py:class:`Ipv6Link <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link>`
+            
+            	**config**\: False
             
             
 
@@ -11728,10 +13338,14 @@ class Pce(Entity):
                 	Node Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4_bgp_router_id_set
                 
                 	True if IPv4 BGP router ID is set
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ipv4_bgp_router_id
                 
@@ -11740,10 +13354,14 @@ class Pce(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4te_router_id_set
                 
                 	True if IPv4 TE router ID is set
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ipv4te_router_id
                 
@@ -11752,15 +13370,21 @@ class Pce(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: igp_information
                 
                 	IGP information
                 	**type**\: list of  		 :py:class:`IgpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: srgb_information
                 
                 	SRGB information
                 	**type**\: list of  		 :py:class:`SrgbInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation>`
+                
+                	**config**\: False
                 
                 
 
@@ -11809,12 +13433,16 @@ class Pce(Entity):
                     	Link\-state node identifier
                     	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_identifier
                     
                     	Domain identifier
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -11856,6 +13484,8 @@ class Pce(Entity):
                         	IGP\-specific information
                         	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: autonomous_system_number
                         
                         	Autonomous System Number
@@ -11863,12 +13493,16 @@ class Pce(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ls_identifier
                         
                         	Link\-State identifier
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -11912,20 +13546,28 @@ class Pce(Entity):
                             	ISIS information
                             	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospf
                             
                             	OSPF information
                             	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: bgp
                             
                             	BGP information
                             	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: igp_id
                             
                             	IGP ID
                             	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -11975,12 +13617,16 @@ class Pce(Entity):
                                 	ISIS system ID
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: level
                                 
                                 	ISIS level
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -12011,6 +13657,7 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                             class Ospf(Entity):
                                 """
                                 OSPF information
@@ -12022,12 +13669,16 @@ class Pce(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: area
                                 
                                 	OSPF area
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -12058,6 +13709,7 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                             class Bgp(Entity):
                                 """
                                 BGP information
@@ -12069,12 +13721,16 @@ class Pce(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: confed_asn
                                 
                                 	Confederation ASN
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -12105,6 +13761,10 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
                 class SrgbInformation(Entity):
                     """
                     SRGB information
@@ -12114,12 +13774,16 @@ class Pce(Entity):
                     	Link\-state node identifier
                     	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: start
                     
                     	SRGB start
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: size
                     
@@ -12128,12 +13792,16 @@ class Pce(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_identifier
                     
                     	Domain identifier
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -12179,6 +13847,8 @@ class Pce(Entity):
                         	IGP\-specific information
                         	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: autonomous_system_number
                         
                         	Autonomous System Number
@@ -12186,12 +13856,16 @@ class Pce(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ls_identifier
                         
                         	Link\-State identifier
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -12235,20 +13909,28 @@ class Pce(Entity):
                             	ISIS information
                             	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospf
                             
                             	OSPF information
                             	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: bgp
                             
                             	BGP information
                             	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: igp_id
                             
                             	IGP ID
                             	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -12298,12 +13980,16 @@ class Pce(Entity):
                                 	ISIS system ID
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: level
                                 
                                 	ISIS level
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -12334,6 +14020,7 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                             class Ospf(Entity):
                                 """
                                 OSPF information
@@ -12345,12 +14032,16 @@ class Pce(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: area
                                 
                                 	OSPF area
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -12381,6 +14072,7 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                             class Bgp(Entity):
                                 """
                                 BGP information
@@ -12392,12 +14084,16 @@ class Pce(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: confed_asn
                                 
                                 	Confederation ASN
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -12428,6 +14124,11 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
+
             class Prefixe(Entity):
                 """
                 Prefixes
@@ -12437,10 +14138,14 @@ class Pce(Entity):
                 	Prefix SID
                 	**type**\:  :py:class:`PfxSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid>`
                 
+                	**config**\: False
+                
                 .. attribute:: node_id
                 
                 	Link\-state node identifier
                 	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Prefixe.NodeId>`
+                
+                	**config**\: False
                 
                 .. attribute:: domain_identifier
                 
@@ -12448,6 +14153,8 @@ class Pce(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -12493,10 +14200,14 @@ class Pce(Entity):
                     	Prefix
                     	**type**\:  :py:class:`SidPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sid_type
                     
                     	SID Type
                     	**type**\:  :py:class:`Sid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Sid>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: mpls_label
                     
@@ -12505,35 +14216,49 @@ class Pce(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rflag
                     
                     	R Flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: nflag
                     
                     	N Flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: pflag
                     
                     	P Flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: eflag
                     
                     	E Flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: vflag
                     
                     	V Flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: lflag
                     
                     	L Flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -12589,6 +14314,8 @@ class Pce(Entity):
                         	AFName
                         	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4 address type
@@ -12596,12 +14323,16 @@ class Pce(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -12634,6 +14365,8 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
+
                 class NodeId(Entity):
                     """
                     Link\-state node identifier
@@ -12643,6 +14376,8 @@ class Pce(Entity):
                     	IGP\-specific information
                     	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: autonomous_system_number
                     
                     	Autonomous System Number
@@ -12650,12 +14385,16 @@ class Pce(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: ls_identifier
                     
                     	Link\-State identifier
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -12699,20 +14438,28 @@ class Pce(Entity):
                         	ISIS information
                         	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ospf
                         
                         	OSPF information
                         	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: bgp
                         
                         	BGP information
                         	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: igp_id
                         
                         	IGP ID
                         	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -12762,12 +14509,16 @@ class Pce(Entity):
                             	ISIS system ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: level
                             
                             	ISIS level
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -12798,6 +14549,7 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                         class Ospf(Entity):
                             """
                             OSPF information
@@ -12809,12 +14561,16 @@ class Pce(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: area
                             
                             	OSPF area
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -12845,6 +14601,7 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                         class Bgp(Entity):
                             """
                             BGP information
@@ -12856,12 +14613,16 @@ class Pce(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: confed_asn
                             
                             	Confederation ASN
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -12892,6 +14653,10 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
             class Ipv4Link(Entity):
                 """
                 IPv4 Link information
@@ -12901,15 +14666,21 @@ class Pce(Entity):
                 	Local node IGP information
                 	**type**\:  :py:class:`LocalIgpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: remote_node_protocol_identifier
                 
                 	Remote node protocol identifier
                 	**type**\:  :py:class:`RemoteNodeProtocolIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier>`
                 
+                	**config**\: False
+                
                 .. attribute:: performance_metrics
                 
                 	Performance metrics
                 	**type**\:  :py:class:`PerformanceMetrics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_ipv4_address
                 
@@ -12918,12 +14689,16 @@ class Pce(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: remote_ipv4_address
                 
                 	Remote IPv4 address
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: igp_metric
                 
@@ -12932,12 +14707,16 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: te_metric
                 
                 	TE Metric
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: maximum_link_bandwidth
                 
@@ -12946,12 +14725,16 @@ class Pce(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: max_reservable_bandwidth
                 
                 	Max Reservable bandwidth
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: administrative_groups
                 
@@ -12960,6 +14743,8 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: srlgs
                 
                 	SRLG Values
@@ -12967,10 +14752,14 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: adjacency_sid
                 
                 	Adjacency SIDs
                 	**type**\: list of  		 :py:class:`AdjacencySid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid>`
+                
+                	**config**\: False
                 
                 
 
@@ -13036,12 +14825,16 @@ class Pce(Entity):
                     	Link\-state node identifier
                     	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_identifier
                     
                     	Domain identifier
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -13083,6 +14876,8 @@ class Pce(Entity):
                         	IGP\-specific information
                         	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: autonomous_system_number
                         
                         	Autonomous System Number
@@ -13090,12 +14885,16 @@ class Pce(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ls_identifier
                         
                         	Link\-State identifier
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -13139,20 +14938,28 @@ class Pce(Entity):
                             	ISIS information
                             	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospf
                             
                             	OSPF information
                             	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: bgp
                             
                             	BGP information
                             	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: igp_id
                             
                             	IGP ID
                             	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -13202,12 +15009,16 @@ class Pce(Entity):
                                 	ISIS system ID
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: level
                                 
                                 	ISIS level
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13238,6 +15049,7 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                             class Ospf(Entity):
                                 """
                                 OSPF information
@@ -13249,12 +15061,16 @@ class Pce(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: area
                                 
                                 	OSPF area
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13285,6 +15101,7 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                             class Bgp(Entity):
                                 """
                                 BGP information
@@ -13296,12 +15113,16 @@ class Pce(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: confed_asn
                                 
                                 	Confederation ASN
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13332,6 +15153,10 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
                 class RemoteNodeProtocolIdentifier(Entity):
                     """
                     Remote node protocol identifier
@@ -13341,10 +15166,14 @@ class Pce(Entity):
                     	Node Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4_bgp_router_id_set
                     
                     	True if IPv4 BGP router ID is set
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4_bgp_router_id
                     
@@ -13353,10 +15182,14 @@ class Pce(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4te_router_id_set
                     
                     	True if IPv4 TE router ID is set
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4te_router_id
                     
@@ -13365,15 +15198,21 @@ class Pce(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: igp_information
                     
                     	IGP information
                     	**type**\: list of  		 :py:class:`IgpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: srgb_information
                     
                     	SRGB information
                     	**type**\: list of  		 :py:class:`SrgbInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -13422,12 +15261,16 @@ class Pce(Entity):
                         	Link\-state node identifier
                         	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: domain_identifier
                         
                         	Domain identifier
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -13469,6 +15312,8 @@ class Pce(Entity):
                             	IGP\-specific information
                             	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: autonomous_system_number
                             
                             	Autonomous System Number
@@ -13476,12 +15321,16 @@ class Pce(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ls_identifier
                             
                             	Link\-State identifier
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -13525,20 +15374,28 @@ class Pce(Entity):
                                 	ISIS information
                                 	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ospf
                                 
                                 	OSPF information
                                 	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: bgp
                                 
                                 	BGP information
                                 	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: igp_id
                                 
                                 	IGP ID
                                 	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13588,12 +15445,16 @@ class Pce(Entity):
                                     	ISIS system ID
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: level
                                     
                                     	ISIS level
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -13624,6 +15485,7 @@ class Pce(Entity):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                                 class Ospf(Entity):
                                     """
                                     OSPF information
@@ -13635,12 +15497,16 @@ class Pce(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: area
                                     
                                     	OSPF area
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -13671,6 +15537,7 @@ class Pce(Entity):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                                 class Bgp(Entity):
                                     """
                                     BGP information
@@ -13682,12 +15549,16 @@ class Pce(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: confed_asn
                                     
                                     	Confederation ASN
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -13718,6 +15589,10 @@ class Pce(Entity):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
                     class SrgbInformation(Entity):
                         """
                         SRGB information
@@ -13727,12 +15602,16 @@ class Pce(Entity):
                         	Link\-state node identifier
                         	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: start
                         
                         	SRGB start
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: size
                         
@@ -13741,12 +15620,16 @@ class Pce(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: domain_identifier
                         
                         	Domain identifier
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -13792,6 +15675,8 @@ class Pce(Entity):
                             	IGP\-specific information
                             	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: autonomous_system_number
                             
                             	Autonomous System Number
@@ -13799,12 +15684,16 @@ class Pce(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ls_identifier
                             
                             	Link\-State identifier
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -13848,20 +15737,28 @@ class Pce(Entity):
                                 	ISIS information
                                 	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ospf
                                 
                                 	OSPF information
                                 	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: bgp
                                 
                                 	BGP information
                                 	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: igp_id
                                 
                                 	IGP ID
                                 	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13911,12 +15808,16 @@ class Pce(Entity):
                                     	ISIS system ID
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: level
                                     
                                     	ISIS level
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -13947,6 +15848,7 @@ class Pce(Entity):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                                 class Ospf(Entity):
                                     """
                                     OSPF information
@@ -13958,12 +15860,16 @@ class Pce(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: area
                                     
                                     	OSPF area
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -13994,6 +15900,7 @@ class Pce(Entity):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                                 class Bgp(Entity):
                                     """
                                     BGP information
@@ -14005,12 +15912,16 @@ class Pce(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: confed_asn
                                     
                                     	Confederation ASN
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -14041,6 +15952,11 @@ class Pce(Entity):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
+
                 class PerformanceMetrics(Entity):
                     """
                     Performance metrics
@@ -14051,6 +15967,8 @@ class Pce(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -14079,6 +15997,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics, [u'unidirectional_min_delay'], name, value)
 
 
+
                 class AdjacencySid(Entity):
                     """
                     Adjacency SIDs
@@ -14088,10 +16007,14 @@ class Pce(Entity):
                     	Prefix
                     	**type**\:  :py:class:`SidPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sid_type
                     
                     	SID Type
                     	**type**\:  :py:class:`Sid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Sid>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: mpls_label
                     
@@ -14100,35 +16023,49 @@ class Pce(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rflag
                     
                     	R Flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: nflag
                     
                     	N Flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: pflag
                     
                     	P Flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: eflag
                     
                     	E Flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: vflag
                     
                     	V Flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: lflag
                     
                     	L Flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -14184,6 +16121,8 @@ class Pce(Entity):
                         	AFName
                         	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4 address type
@@ -14191,12 +16130,16 @@ class Pce(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -14229,6 +16172,9 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
+
+
             class Ipv6Link(Entity):
                 """
                 IPv6 Link information
@@ -14238,10 +16184,14 @@ class Pce(Entity):
                 	Local node IGP information
                 	**type**\:  :py:class:`LocalIgpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: remote_node_protocol_identifier
                 
                 	Remote node protocol identifier
                 	**type**\:  :py:class:`RemoteNodeProtocolIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_ipv6_address
                 
@@ -14250,12 +16200,16 @@ class Pce(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: remote_ipv6_address
                 
                 	Remote IPv6 address
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: igp_metric
                 
@@ -14264,12 +16218,16 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: te_metric
                 
                 	TE Metric
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: maximum_link_bandwidth
                 
@@ -14278,6 +16236,8 @@ class Pce(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: max_reservable_bandwidth
                 
                 	Max Reservable bandwidth
@@ -14285,10 +16245,14 @@ class Pce(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: adjacency_sid
                 
                 	Adjacency SIDs
                 	**type**\: list of  		 :py:class:`AdjacencySid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid>`
+                
+                	**config**\: False
                 
                 
 
@@ -14346,12 +16310,16 @@ class Pce(Entity):
                     	Link\-state node identifier
                     	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_identifier
                     
                     	Domain identifier
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -14393,6 +16361,8 @@ class Pce(Entity):
                         	IGP\-specific information
                         	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: autonomous_system_number
                         
                         	Autonomous System Number
@@ -14400,12 +16370,16 @@ class Pce(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ls_identifier
                         
                         	Link\-State identifier
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -14449,20 +16423,28 @@ class Pce(Entity):
                             	ISIS information
                             	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospf
                             
                             	OSPF information
                             	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: bgp
                             
                             	BGP information
                             	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: igp_id
                             
                             	IGP ID
                             	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -14512,12 +16494,16 @@ class Pce(Entity):
                                 	ISIS system ID
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: level
                                 
                                 	ISIS level
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -14548,6 +16534,7 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                             class Ospf(Entity):
                                 """
                                 OSPF information
@@ -14559,12 +16546,16 @@ class Pce(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: area
                                 
                                 	OSPF area
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -14595,6 +16586,7 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                             class Bgp(Entity):
                                 """
                                 BGP information
@@ -14606,12 +16598,16 @@ class Pce(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: confed_asn
                                 
                                 	Confederation ASN
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -14642,6 +16638,10 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
                 class RemoteNodeProtocolIdentifier(Entity):
                     """
                     Remote node protocol identifier
@@ -14651,10 +16651,14 @@ class Pce(Entity):
                     	Node Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4_bgp_router_id_set
                     
                     	True if IPv4 BGP router ID is set
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4_bgp_router_id
                     
@@ -14663,10 +16667,14 @@ class Pce(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4te_router_id_set
                     
                     	True if IPv4 TE router ID is set
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4te_router_id
                     
@@ -14675,15 +16683,21 @@ class Pce(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: igp_information
                     
                     	IGP information
                     	**type**\: list of  		 :py:class:`IgpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: srgb_information
                     
                     	SRGB information
                     	**type**\: list of  		 :py:class:`SrgbInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -14732,12 +16746,16 @@ class Pce(Entity):
                         	Link\-state node identifier
                         	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: domain_identifier
                         
                         	Domain identifier
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -14779,6 +16797,8 @@ class Pce(Entity):
                             	IGP\-specific information
                             	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: autonomous_system_number
                             
                             	Autonomous System Number
@@ -14786,12 +16806,16 @@ class Pce(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ls_identifier
                             
                             	Link\-State identifier
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -14835,20 +16859,28 @@ class Pce(Entity):
                                 	ISIS information
                                 	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ospf
                                 
                                 	OSPF information
                                 	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: bgp
                                 
                                 	BGP information
                                 	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: igp_id
                                 
                                 	IGP ID
                                 	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -14898,12 +16930,16 @@ class Pce(Entity):
                                     	ISIS system ID
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: level
                                     
                                     	ISIS level
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -14934,6 +16970,7 @@ class Pce(Entity):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                                 class Ospf(Entity):
                                     """
                                     OSPF information
@@ -14945,12 +16982,16 @@ class Pce(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: area
                                     
                                     	OSPF area
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -14981,6 +17022,7 @@ class Pce(Entity):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                                 class Bgp(Entity):
                                     """
                                     BGP information
@@ -14992,12 +17034,16 @@ class Pce(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: confed_asn
                                     
                                     	Confederation ASN
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -15028,6 +17074,10 @@ class Pce(Entity):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
                     class SrgbInformation(Entity):
                         """
                         SRGB information
@@ -15037,12 +17087,16 @@ class Pce(Entity):
                         	Link\-state node identifier
                         	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: start
                         
                         	SRGB start
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: size
                         
@@ -15051,12 +17105,16 @@ class Pce(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: domain_identifier
                         
                         	Domain identifier
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -15102,6 +17160,8 @@ class Pce(Entity):
                             	IGP\-specific information
                             	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: autonomous_system_number
                             
                             	Autonomous System Number
@@ -15109,12 +17169,16 @@ class Pce(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ls_identifier
                             
                             	Link\-State identifier
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -15158,20 +17222,28 @@ class Pce(Entity):
                                 	ISIS information
                                 	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ospf
                                 
                                 	OSPF information
                                 	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: bgp
                                 
                                 	BGP information
                                 	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: igp_id
                                 
                                 	IGP ID
                                 	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -15221,12 +17293,16 @@ class Pce(Entity):
                                     	ISIS system ID
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: level
                                     
                                     	ISIS level
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -15257,6 +17333,7 @@ class Pce(Entity):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                                 class Ospf(Entity):
                                     """
                                     OSPF information
@@ -15268,12 +17345,16 @@ class Pce(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: area
                                     
                                     	OSPF area
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -15304,6 +17385,7 @@ class Pce(Entity):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                                 class Bgp(Entity):
                                     """
                                     BGP information
@@ -15315,12 +17397,16 @@ class Pce(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: confed_asn
                                     
                                     	Confederation ASN
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -15351,6 +17437,11 @@ class Pce(Entity):
                                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
+
                 class AdjacencySid(Entity):
                     """
                     Adjacency SIDs
@@ -15360,10 +17451,14 @@ class Pce(Entity):
                     	Prefix
                     	**type**\:  :py:class:`SidPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sid_type
                     
                     	SID Type
                     	**type**\:  :py:class:`Sid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Sid>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: mpls_label
                     
@@ -15372,35 +17467,49 @@ class Pce(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rflag
                     
                     	R Flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: nflag
                     
                     	N Flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: pflag
                     
                     	P Flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: eflag
                     
                     	E Flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: vflag
                     
                     	V Flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: lflag
                     
                     	L Flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -15456,6 +17565,8 @@ class Pce(Entity):
                         	AFName
                         	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4 address type
@@ -15463,12 +17574,16 @@ class Pce(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -15501,6 +17616,11 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
+
+
+
+
     class PrefixInfos(Entity):
         """
         Prefixes database in XTC
@@ -15509,6 +17629,8 @@ class Pce(Entity):
         
         	PCE prefix information
         	**type**\: list of  		 :py:class:`PrefixInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo>`
+        
+        	**config**\: False
         
         
 
@@ -15548,10 +17670,14 @@ class Pce(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: node_protocol_identifier
             
             	Node protocol identifier
             	**type**\:  :py:class:`NodeProtocolIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier>`
+            
+            	**config**\: False
             
             .. attribute:: node_identifier_xr
             
@@ -15560,10 +17686,14 @@ class Pce(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: address
             
             	Prefix address
             	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.Address>`
+            
+            	**config**\: False
             
             
 
@@ -15610,10 +17740,14 @@ class Pce(Entity):
                 	Node Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4_bgp_router_id_set
                 
                 	True if IPv4 BGP router ID is set
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ipv4_bgp_router_id
                 
@@ -15622,10 +17756,14 @@ class Pce(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4te_router_id_set
                 
                 	True if IPv4 TE router ID is set
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ipv4te_router_id
                 
@@ -15634,15 +17772,21 @@ class Pce(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: igp_information
                 
                 	IGP information
                 	**type**\: list of  		 :py:class:`IgpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: srgb_information
                 
                 	SRGB information
                 	**type**\: list of  		 :py:class:`SrgbInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation>`
+                
+                	**config**\: False
                 
                 
 
@@ -15691,12 +17835,16 @@ class Pce(Entity):
                     	Link\-state node identifier
                     	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_identifier
                     
                     	Domain identifier
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -15738,6 +17886,8 @@ class Pce(Entity):
                         	IGP\-specific information
                         	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: autonomous_system_number
                         
                         	Autonomous System Number
@@ -15745,12 +17895,16 @@ class Pce(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ls_identifier
                         
                         	Link\-State identifier
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -15794,20 +17948,28 @@ class Pce(Entity):
                             	ISIS information
                             	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospf
                             
                             	OSPF information
                             	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: bgp
                             
                             	BGP information
                             	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: igp_id
                             
                             	IGP ID
                             	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -15857,12 +18019,16 @@ class Pce(Entity):
                                 	ISIS system ID
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: level
                                 
                                 	ISIS level
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -15893,6 +18059,7 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                             class Ospf(Entity):
                                 """
                                 OSPF information
@@ -15904,12 +18071,16 @@ class Pce(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: area
                                 
                                 	OSPF area
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -15940,6 +18111,7 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                             class Bgp(Entity):
                                 """
                                 BGP information
@@ -15951,12 +18123,16 @@ class Pce(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: confed_asn
                                 
                                 	Confederation ASN
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -15987,6 +18163,10 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
                 class SrgbInformation(Entity):
                     """
                     SRGB information
@@ -15996,12 +18176,16 @@ class Pce(Entity):
                     	Link\-state node identifier
                     	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: start
                     
                     	SRGB start
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: size
                     
@@ -16010,12 +18194,16 @@ class Pce(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_identifier
                     
                     	Domain identifier
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -16061,6 +18249,8 @@ class Pce(Entity):
                         	IGP\-specific information
                         	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: autonomous_system_number
                         
                         	Autonomous System Number
@@ -16068,12 +18258,16 @@ class Pce(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ls_identifier
                         
                         	Link\-State identifier
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -16117,20 +18311,28 @@ class Pce(Entity):
                             	ISIS information
                             	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospf
                             
                             	OSPF information
                             	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: bgp
                             
                             	BGP information
                             	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: igp_id
                             
                             	IGP ID
                             	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -16180,12 +18382,16 @@ class Pce(Entity):
                                 	ISIS system ID
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: level
                                 
                                 	ISIS level
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -16216,6 +18422,7 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
+
                             class Ospf(Entity):
                                 """
                                 OSPF information
@@ -16227,12 +18434,16 @@ class Pce(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: area
                                 
                                 	OSPF area
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -16263,6 +18474,7 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
+
                             class Bgp(Entity):
                                 """
                                 BGP information
@@ -16274,12 +18486,16 @@ class Pce(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: confed_asn
                                 
                                 	Confederation ASN
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -16310,6 +18526,11 @@ class Pce(Entity):
                                     self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
+
+
+
+
+
             class Address(Entity):
                 """
                 Prefix address
@@ -16318,6 +18539,8 @@ class Pce(Entity):
                 
                 	Prefix IP address
                 	**type**\:  :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.Address.Ip>`
+                
+                	**config**\: False
                 
                 
 
@@ -16356,6 +18579,8 @@ class Pce(Entity):
                     	AFName
                     	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4
                     
                     	IPv4 address type
@@ -16363,12 +18588,16 @@ class Pce(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -16401,6 +18630,10 @@ class Pce(Entity):
                         self._perform_setattr(Pce.PrefixInfos.PrefixInfo.Address.Ip, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
+
+
+
     class LspSummary(Entity):
         """
         LSP summary database in XTC
@@ -16410,10 +18643,14 @@ class Pce(Entity):
         	Summary for all peers
         	**type**\:  :py:class:`AllLsPs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.LspSummary.AllLsPs>`
         
+        	**config**\: False
+        
         .. attribute:: peer_ls_ps_info
         
         	Number of LSPs for specific peer
         	**type**\: list of  		 :py:class:`PeerLsPsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.LspSummary.PeerLsPsInfo>`
+        
+        	**config**\: False
         
         
 
@@ -16457,12 +18694,16 @@ class Pce(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: up_ls_ps
             
             	Number of operational LSPs
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: admin_up_ls_ps
             
@@ -16471,6 +18712,8 @@ class Pce(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sr_ls_ps
             
             	Number of LSPs with Segment routing setup type
@@ -16478,12 +18721,16 @@ class Pce(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rsvp_ls_ps
             
             	Number of LSPs with RSVP setup type
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -16521,6 +18768,7 @@ class Pce(Entity):
                 self._perform_setattr(Pce.LspSummary.AllLsPs, [u'all_ls_ps', u'up_ls_ps', u'admin_up_ls_ps', u'sr_ls_ps', u'rsvp_ls_ps'], name, value)
 
 
+
         class PeerLsPsInfo(Entity):
             """
             Number of LSPs for specific peer
@@ -16530,10 +18778,14 @@ class Pce(Entity):
             	Number of LSPs for specific peer
             	**type**\:  :py:class:`LspSummary_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.LspSummary.PeerLsPsInfo.LspSummary_>`
             
+            	**config**\: False
+            
             .. attribute:: peer_address
             
             	Peer address
             	**type**\:  :py:class:`PeerAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.LspSummary.PeerLsPsInfo.PeerAddress>`
+            
+            	**config**\: False
             
             
 
@@ -16579,12 +18831,16 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: up_ls_ps
                 
                 	Number of operational LSPs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: admin_up_ls_ps
                 
@@ -16593,6 +18849,8 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: sr_ls_ps
                 
                 	Number of LSPs with Segment routing setup type
@@ -16600,12 +18858,16 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: rsvp_ls_ps
                 
                 	Number of LSPs with RSVP setup type
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -16643,6 +18905,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.LspSummary.PeerLsPsInfo.LspSummary_, [u'all_ls_ps', u'up_ls_ps', u'admin_up_ls_ps', u'sr_ls_ps', u'rsvp_ls_ps'], name, value)
 
 
+
             class PeerAddress(Entity):
                 """
                 Peer address
@@ -16652,6 +18915,8 @@ class Pce(Entity):
                 	AFName
                 	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4
                 
                 	IPv4 address type
@@ -16659,12 +18924,16 @@ class Pce(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv6
                 
                 	IPv6 address type
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 
 
@@ -16698,6 +18967,9 @@ class Pce(Entity):
                     self._perform_setattr(Pce.LspSummary.PeerLsPsInfo.PeerAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
+
+
     class PeerInfos(Entity):
         """
         Peers database in XTC
@@ -16706,6 +18978,8 @@ class Pce(Entity):
         
         	PCE peer information
         	**type**\: list of  		 :py:class:`PeerInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PeerInfos.PeerInfo>`
+        
+        	**config**\: False
         
         
 
@@ -16751,20 +19025,28 @@ class Pce(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: peer_address_xr
             
             	Peer address
             	**type**\:  :py:class:`PeerAddressXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PeerInfos.PeerInfo.PeerAddressXr>`
+            
+            	**config**\: False
             
             .. attribute:: brief_pcep_information
             
             	PCE protocol information
             	**type**\:  :py:class:`BriefPcepInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PeerInfos.PeerInfo.BriefPcepInformation>`
             
+            	**config**\: False
+            
             .. attribute:: peer_protocol
             
             	Protocol between PCE and peer
             	**type**\:  :py:class:`PceProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceProto>`
+            
+            	**config**\: False
             
             
 
@@ -16813,6 +19095,8 @@ class Pce(Entity):
                 	AFName
                 	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4
                 
                 	IPv4 address type
@@ -16820,12 +19104,16 @@ class Pce(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv6
                 
                 	IPv6 address type
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 
 
@@ -16858,6 +19146,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.PeerInfos.PeerInfo.PeerAddressXr, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
             class BriefPcepInformation(Entity):
                 """
                 PCE protocol information
@@ -16867,40 +19156,56 @@ class Pce(Entity):
                 	PCEP State
                 	**type**\:  :py:class:`PcepState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PcepState>`
                 
+                	**config**\: False
+                
                 .. attribute:: stateful
                 
                 	Stateful
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: capability_update
                 
                 	Update capability
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: capability_instantiate
                 
                 	Instantiation capability
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: capability_segment_routing
                 
                 	Segment Routing capability
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: capability_triggered_sync
                 
                 	Triggered Synchronization capability
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: capability_db_version
                 
                 	DB version capability
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: capability_delta_sync
                 
                 	Delta Synchronization capability
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -16943,6 +19248,9 @@ class Pce(Entity):
                     self._perform_setattr(Pce.PeerInfos.PeerInfo.BriefPcepInformation, [u'pcep_state', u'stateful', u'capability_update', u'capability_instantiate', u'capability_segment_routing', u'capability_triggered_sync', u'capability_db_version', u'capability_delta_sync'], name, value)
 
 
+
+
+
     class TunnelDetailInfos(Entity):
         """
         Detailed tunnel database in XTC
@@ -16951,6 +19259,8 @@ class Pce(Entity):
         
         	Detailed tunnel information
         	**type**\: list of  		 :py:class:`TunnelDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo>`
+        
+        	**config**\: False
         
         
 
@@ -16996,6 +19306,8 @@ class Pce(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: plsp_id  (key)
             
             	PCEP LSP ID
@@ -17003,30 +19315,42 @@ class Pce(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tunnel_name  (key)
             
             	Tunnel name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: pcc_address
             
             	PCC address
             	**type**\:  :py:class:`PccAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.PccAddress>`
             
+            	**config**\: False
+            
             .. attribute:: private_lsp_information
             
             	Private LSP information
             	**type**\:  :py:class:`PrivateLspInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation>`
+            
+            	**config**\: False
             
             .. attribute:: tunnel_name_xr
             
             	Tunnel Name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: xtc_controlled
             
             	Allow XTC reoptimizations
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: color
             
@@ -17035,10 +19359,14 @@ class Pce(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: detail_lsp_information
             
             	Detail LSP information
             	**type**\: list of  		 :py:class:`DetailLspInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation>`
+            
+            	**config**\: False
             
             
 
@@ -17097,6 +19425,8 @@ class Pce(Entity):
                 	AFName
                 	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4
                 
                 	IPv4 address type
@@ -17104,12 +19434,16 @@ class Pce(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv6
                 
                 	IPv6 address type
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 
 
@@ -17142,6 +19476,7 @@ class Pce(Entity):
                     self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.PccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
             class PrivateLspInformation(Entity):
                 """
                 Private LSP information
@@ -17150,6 +19485,8 @@ class Pce(Entity):
                 
                 	LSP Event buffer
                 	**type**\: list of  		 :py:class:`EventBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer>`
+                
+                	**config**\: False
                 
                 
 
@@ -17188,10 +19525,14 @@ class Pce(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: event_message
                     
                     	Event message
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: time_stamp
                     
@@ -17199,6 +19540,8 @@ class Pce(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -17231,6 +19574,8 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer, [u'event_id', u'event_message', u'time_stamp'], name, value)
 
 
+
+
             class DetailLspInformation(Entity):
                 """
                 Detail LSP information
@@ -17240,45 +19585,63 @@ class Pce(Entity):
                 	Brief LSP information
                 	**type**\:  :py:class:`BriefLspInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: er_os
                 
                 	Paths
                 	**type**\:  :py:class:`ErOs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs>`
+                
+                	**config**\: False
                 
                 .. attribute:: lsppcep_information
                 
                 	PCEP related LSP information
                 	**type**\:  :py:class:`LsppcepInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_association_info
                 
                 	LSP association information
                 	**type**\:  :py:class:`LspAssociationInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo>`
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_attributes
                 
                 	LSP attributes
                 	**type**\:  :py:class:`LspAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes>`
                 
+                	**config**\: False
+                
                 .. attribute:: sub_delegated_pce
                 
                 	Sub delegated PCE
                 	**type**\:  :py:class:`SubDelegatedPce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.SubDelegatedPce>`
+                
+                	**config**\: False
                 
                 .. attribute:: state_sync_pce
                 
                 	State\-sync PCE
                 	**type**\:  :py:class:`StateSyncPce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.StateSyncPce>`
                 
+                	**config**\: False
+                
                 .. attribute:: reporting_pcc_address
                 
                 	Reporting PCC address
                 	**type**\:  :py:class:`ReportingPccAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ReportingPccAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: signaled_bandwidth_specified
                 
                 	True if router notifies signal bandwidth
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: signaled_bandwidth
                 
@@ -17287,10 +19650,14 @@ class Pce(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: actual_bandwidth_specified
                 
                 	True if router notifies actual bandwidth
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: actual_bandwidth
                 
@@ -17299,12 +19666,16 @@ class Pce(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_role
                 
                 	LSP Role
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: computing_pce
                 
@@ -17313,6 +19684,8 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: srlg_info
                 
                 	List of SLRGs used by LSP
@@ -17320,10 +19693,14 @@ class Pce(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: rro
                 
                 	RRO
                 	**type**\: list of  		 :py:class:`Rro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro>`
+                
+                	**config**\: False
                 
                 
 
@@ -17407,10 +19784,14 @@ class Pce(Entity):
                     	Source address
                     	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: destination_address
                     
                     	Destination address
                     	**type**\:  :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.DestinationAddress>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: tunnel_id
                     
@@ -17419,12 +19800,16 @@ class Pce(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: lspid
                     
                     	LSP ID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: binding_sid
                     
@@ -17433,20 +19818,28 @@ class Pce(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: lsp_setup_type
                     
                     	LSP Setup Type
                     	**type**\:  :py:class:`LspSetup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.LspSetup>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: operational_state
                     
                     	Operational state
                     	**type**\:  :py:class:`PcepLspState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PcepLspState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: administrative_state
                     
                     	Admin state
                     	**type**\:  :py:class:`LspState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.LspState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: msd
                     
@@ -17454,6 +19847,8 @@ class Pce(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -17511,6 +19906,8 @@ class Pce(Entity):
                         	AFName
                         	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4 address type
@@ -17518,12 +19915,16 @@ class Pce(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -17556,6 +19957,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
                     class DestinationAddress(Entity):
                         """
                         Destination address
@@ -17565,6 +19967,8 @@ class Pce(Entity):
                         	AFName
                         	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4 address type
@@ -17572,12 +19976,16 @@ class Pce(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -17610,6 +20018,8 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.DestinationAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
+
                 class ErOs(Entity):
                     """
                     Paths
@@ -17621,12 +20031,16 @@ class Pce(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: reported_metric_value
                     
                     	Reported Metric Value
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: computed_metric_type
                     
@@ -17635,12 +20049,16 @@ class Pce(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: computed_metric_value
                     
                     	Computed Metric Value
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: computed_hop_list_time
                     
@@ -17649,25 +20067,35 @@ class Pce(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: reported_rsvp_path
                     
                     	Reported RSVP path
                     	**type**\: list of  		 :py:class:`ReportedRsvpPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: reported_sr_path
                     
                     	Reported SR path
                     	**type**\: list of  		 :py:class:`ReportedSrPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: computed_rsvp_path
                     
                     	Computed RSVP path
                     	**type**\: list of  		 :py:class:`ComputedRsvpPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: computed_sr_path
                     
                     	Computed SR path
                     	**type**\: list of  		 :py:class:`ComputedSrPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -17720,6 +20148,8 @@ class Pce(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -17747,6 +20177,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath, [u'hop_address'], name, value)
 
 
+
                     class ReportedSrPath(Entity):
                         """
                         Reported SR path
@@ -17756,15 +20187,21 @@ class Pce(Entity):
                         	Local Address
                         	**type**\:  :py:class:`LocalAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.LocalAddr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_addr
                         
                         	Remote Address
                         	**type**\:  :py:class:`RemoteAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.RemoteAddr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: sid_type
                         
                         	SID type
                         	**type**\:  :py:class:`PceSrSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceSrSid>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: mpls_label
                         
@@ -17772,6 +20209,8 @@ class Pce(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -17819,6 +20258,8 @@ class Pce(Entity):
                             	AFName
                             	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4
                             
                             	IPv4 address type
@@ -17826,12 +20267,16 @@ class Pce(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv6
                             
                             	IPv6 address type
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -17864,6 +20309,7 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.LocalAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
                         class RemoteAddr(Entity):
                             """
                             Remote Address
@@ -17873,6 +20319,8 @@ class Pce(Entity):
                             	AFName
                             	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4
                             
                             	IPv4 address type
@@ -17880,12 +20328,16 @@ class Pce(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv6
                             
                             	IPv6 address type
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -17918,6 +20370,8 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.RemoteAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
+
                     class ComputedRsvpPath(Entity):
                         """
                         Computed RSVP path
@@ -17928,6 +20382,8 @@ class Pce(Entity):
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -17956,6 +20412,7 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath, [u'hop_address'], name, value)
 
 
+
                     class ComputedSrPath(Entity):
                         """
                         Computed SR path
@@ -17965,15 +20422,21 @@ class Pce(Entity):
                         	Local Address
                         	**type**\:  :py:class:`LocalAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.LocalAddr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_addr
                         
                         	Remote Address
                         	**type**\:  :py:class:`RemoteAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.RemoteAddr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: sid_type
                         
                         	SID type
                         	**type**\:  :py:class:`PceSrSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceSrSid>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: mpls_label
                         
@@ -17981,6 +20444,8 @@ class Pce(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -18028,6 +20493,8 @@ class Pce(Entity):
                             	AFName
                             	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4
                             
                             	IPv4 address type
@@ -18035,12 +20502,16 @@ class Pce(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv6
                             
                             	IPv6 address type
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -18073,6 +20544,7 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.LocalAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
                         class RemoteAddr(Entity):
                             """
                             Remote Address
@@ -18082,6 +20554,8 @@ class Pce(Entity):
                             	AFName
                             	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4
                             
                             	IPv4 address type
@@ -18089,12 +20563,16 @@ class Pce(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv6
                             
                             	IPv6 address type
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -18127,6 +20605,9 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.RemoteAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
+
+
                 class LsppcepInformation(Entity):
                     """
                     PCEP related LSP information
@@ -18136,6 +20617,8 @@ class Pce(Entity):
                     	RSVP error info
                     	**type**\:  :py:class:`RsvpError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: pcepid
                     
                     	PCE protocol identifier
@@ -18143,25 +20626,35 @@ class Pce(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: pcep_flag_d
                     
                     	PCEP LSP delegation flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: pcep_flag_s
                     
                     	PCEP LSP state\-sync flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: pcep_flag_r
                     
                     	PCEP LSP remove flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: pcep_flag_a
                     
                     	PCEP LSP admin flag
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: pcep_flag_o
                     
@@ -18170,12 +20663,16 @@ class Pce(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: pcep_flag_c
                     
                     	PCEP LSP initiated flag
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -18231,12 +20728,16 @@ class Pce(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: error_flags
                         
                         	RSVP error flags
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: error_code
                         
@@ -18245,12 +20746,16 @@ class Pce(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: error_value
                         
                         	RSVP error value
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -18285,6 +20790,8 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError, [u'node_address', u'error_flags', u'error_code', u'error_value'], name, value)
 
 
+
+
                 class LspAssociationInfo(Entity):
                     """
                     LSP association information
@@ -18294,6 +20801,8 @@ class Pce(Entity):
                     	Association Source
                     	**type**\:  :py:class:`AssociationSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo.AssociationSource>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: association_type
                     
                     	Association Type
@@ -18301,12 +20810,16 @@ class Pce(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: association_id
                     
                     	Association ID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -18350,6 +20863,8 @@ class Pce(Entity):
                         	AFName
                         	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4 address type
@@ -18357,12 +20872,16 @@ class Pce(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -18395,6 +20914,8 @@ class Pce(Entity):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo.AssociationSource, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
+
                 class LspAttributes(Entity):
                     """
                     LSP attributes
@@ -18406,12 +20927,16 @@ class Pce(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: affinity_include_any
                     
                     	Affinity include any
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: affinity_include_all
                     
@@ -18420,12 +20945,16 @@ class Pce(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: setup_priority
                     
                     	Setup Priority
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: hold_priority
                     
@@ -18434,10 +20963,14 @@ class Pce(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_protection
                     
                     	True, if local protection is desired
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -18476,6 +21009,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes, [u'affinity_exclude_any', u'affinity_include_any', u'affinity_include_all', u'setup_priority', u'hold_priority', u'local_protection'], name, value)
 
 
+
                 class SubDelegatedPce(Entity):
                     """
                     Sub delegated PCE
@@ -18485,6 +21019,8 @@ class Pce(Entity):
                     	AFName
                     	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4
                     
                     	IPv4 address type
@@ -18492,12 +21028,16 @@ class Pce(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -18530,6 +21070,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.SubDelegatedPce, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class StateSyncPce(Entity):
                     """
                     State\-sync PCE
@@ -18539,6 +21080,8 @@ class Pce(Entity):
                     	AFName
                     	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4
                     
                     	IPv4 address type
@@ -18546,12 +21089,16 @@ class Pce(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -18584,6 +21131,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.StateSyncPce, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class ReportingPccAddress(Entity):
                     """
                     Reporting PCC address
@@ -18593,6 +21141,8 @@ class Pce(Entity):
                     	AFName
                     	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4
                     
                     	IPv4 address type
@@ -18600,12 +21150,16 @@ class Pce(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -18638,6 +21192,7 @@ class Pce(Entity):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ReportingPccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class Rro(Entity):
                     """
                     RRO
@@ -18647,10 +21202,14 @@ class Pce(Entity):
                     	Segment Routing RRO info
                     	**type**\:  :py:class:`SrRro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: rro_type
                     
                     	RRO Type
                     	**type**\:  :py:class:`PceRro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceRro>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4_address
                     
@@ -18659,6 +21218,8 @@ class Pce(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: mpls_label
                     
                     	MPLS label of RRO
@@ -18666,12 +21227,16 @@ class Pce(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: flags
                     
                     	RRO Flags
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -18719,15 +21284,21 @@ class Pce(Entity):
                         	Local Address
                         	**type**\:  :py:class:`LocalAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.LocalAddr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_addr
                         
                         	Remote Address
                         	**type**\:  :py:class:`RemoteAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.RemoteAddr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: sid_type
                         
                         	SID type
                         	**type**\:  :py:class:`PceSrSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceSrSid>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: mpls_label
                         
@@ -18735,6 +21306,8 @@ class Pce(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -18782,6 +21355,8 @@ class Pce(Entity):
                             	AFName
                             	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4
                             
                             	IPv4 address type
@@ -18789,12 +21364,16 @@ class Pce(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv6
                             
                             	IPv6 address type
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -18827,6 +21406,7 @@ class Pce(Entity):
                                 self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.LocalAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
+
                         class RemoteAddr(Entity):
                             """
                             Remote Address
@@ -18836,6 +21416,8 @@ class Pce(Entity):
                             	AFName
                             	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4
                             
                             	IPv4 address type
@@ -18843,12 +21425,16 @@ class Pce(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv6
                             
                             	IPv6 address type
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -18880,7 +21466,15 @@ class Pce(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.RemoteAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Pce()
         return self._top_entity
+
+
 

@@ -78,6 +78,8 @@ class Cdp(Entity):
     	Per node CDP operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -115,6 +117,8 @@ class Cdp(Entity):
         
         	The CDP operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -154,20 +158,28 @@ class Cdp(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: neighbors
             
             	The CDP neighbor tables on this node
             	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors>`
+            
+            	**config**\: False
             
             .. attribute:: statistics
             
             	The CDP traffic statistics for this node
             	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Statistics>`
             
+            	**config**\: False
+            
             .. attribute:: interfaces
             
             	The table of interfaces on which CDP is running on this node
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Interfaces>`
+            
+            	**config**\: False
             
             
 
@@ -218,15 +230,21 @@ class Cdp(Entity):
                 	The detailed CDP neighbor table
                 	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details>`
                 
+                	**config**\: False
+                
                 .. attribute:: devices
                 
                 	The detailed CDP neighbor table
                 	**type**\:  :py:class:`Devices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices>`
                 
+                	**config**\: False
+                
                 .. attribute:: summaries
                 
                 	The CDP neighbor summary table
                 	**type**\:  :py:class:`Summaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries>`
+                
+                	**config**\: False
                 
                 
 
@@ -273,6 +291,8 @@ class Cdp(Entity):
                     	Detailed information about a CDP neighbor entry
                     	**type**\: list of  		 :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -311,15 +331,21 @@ class Cdp(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: device_id
                         
                         	The neighboring device identifier
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: cdp_neighbor
                         
                         	cdp neighbor
                         	**type**\: list of  		 :py:class:`CdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -361,6 +387,8 @@ class Cdp(Entity):
                             	Detailed neighbor info
                             	**type**\:  :py:class:`Detail_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: receiving_interface_name
                             
                             	Interface the neighbor entry was received on 
@@ -368,15 +396,21 @@ class Cdp(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: device_id
                             
                             	Device identifier
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: port_id
                             
                             	Outgoing port identifier
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: header_version
                             
@@ -385,6 +419,8 @@ class Cdp(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: hold_time
                             
                             	Remaining hold time
@@ -392,15 +428,21 @@ class Cdp(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: capabilities
                             
                             	Capabilities
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: platform
                             
                             	Platform type
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -442,7 +484,7 @@ class Cdp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor, ['receiving_interface_name', 'device_id', 'port_id', 'header_version', 'hold_time', 'capabilities', 'platform'], name, value)
+                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor, [u'receiving_interface_name', u'device_id', u'port_id', u'header_version', u'hold_time', u'capabilities', u'platform'], name, value)
 
 
                             class Detail_(Entity):
@@ -454,20 +496,28 @@ class Cdp(Entity):
                                 	List of network addresses 
                                 	**type**\:  :py:class:`NetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: protocol_hello_list
                                 
                                 	List of protocol hello entries
                                 	**type**\:  :py:class:`ProtocolHelloList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: version
                                 
                                 	Version TLV
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vtp_domain
                                 
                                 	VTP domain
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: native_vlan
                                 
@@ -476,15 +526,21 @@ class Cdp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: duplex
                                 
                                 	Duplex setting
                                 	**type**\:  :py:class:`CdpDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpDuplex>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: system_name
                                 
                                 	SysName
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -526,7 +582,7 @@ class Cdp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_, ['version', 'vtp_domain', 'native_vlan', 'duplex', 'system_name'], name, value)
+                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_, [u'version', u'vtp_domain', u'native_vlan', u'duplex', u'system_name'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -537,6 +593,8 @@ class Cdp(Entity):
                                     
                                     	cdp addr entry
                                     	**type**\: list of  		 :py:class:`CdpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -572,6 +630,8 @@ class Cdp(Entity):
                                         
                                         	Network layer address
                                         	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry.Address>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -610,6 +670,8 @@ class Cdp(Entity):
                                             	AddressType
                                             	**type**\:  :py:class:`CdpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpL3AddrProtocol>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 address
@@ -617,12 +679,16 @@ class Cdp(Entity):
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 address
                                             	**type**\: str
                                             
                                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -652,7 +718,10 @@ class Cdp(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
+                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry.Address, [u'address_type', u'ipv4_address', u'ipv6_address'], name, value)
+
+
+
 
 
                                 class ProtocolHelloList(Entity):
@@ -663,6 +732,8 @@ class Cdp(Entity):
                                     
                                     	cdp prot hello entry
                                     	**type**\: list of  		 :py:class:`CdpProtHelloEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList.CdpProtHelloEntry>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -701,6 +772,8 @@ class Cdp(Entity):
                                         
                                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -725,7 +798,13 @@ class Cdp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList.CdpProtHelloEntry, ['hello_message'], name, value)
+                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList.CdpProtHelloEntry, [u'hello_message'], name, value)
+
+
+
+
+
+
 
 
                 class Devices(Entity):
@@ -736,6 +815,8 @@ class Cdp(Entity):
                     
                     	Detailed information about a CDP neighbor entry
                     	**type**\: list of  		 :py:class:`Device <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -773,10 +854,14 @@ class Cdp(Entity):
                         	The neighboring device identifier
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: cdp_neighbor
                         
                         	cdp neighbor
                         	**type**\: list of  		 :py:class:`CdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -816,6 +901,8 @@ class Cdp(Entity):
                             	Detailed neighbor info
                             	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: receiving_interface_name
                             
                             	Interface the neighbor entry was received on 
@@ -823,15 +910,21 @@ class Cdp(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: device_id
                             
                             	Device identifier
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: port_id
                             
                             	Outgoing port identifier
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: header_version
                             
@@ -840,6 +933,8 @@ class Cdp(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: hold_time
                             
                             	Remaining hold time
@@ -847,15 +942,21 @@ class Cdp(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: capabilities
                             
                             	Capabilities
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: platform
                             
                             	Platform type
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -897,7 +998,7 @@ class Cdp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor, ['receiving_interface_name', 'device_id', 'port_id', 'header_version', 'hold_time', 'capabilities', 'platform'], name, value)
+                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor, [u'receiving_interface_name', u'device_id', u'port_id', u'header_version', u'hold_time', u'capabilities', u'platform'], name, value)
 
 
                             class Detail(Entity):
@@ -909,20 +1010,28 @@ class Cdp(Entity):
                                 	List of network addresses 
                                 	**type**\:  :py:class:`NetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: protocol_hello_list
                                 
                                 	List of protocol hello entries
                                 	**type**\:  :py:class:`ProtocolHelloList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: version
                                 
                                 	Version TLV
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vtp_domain
                                 
                                 	VTP domain
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: native_vlan
                                 
@@ -931,15 +1040,21 @@ class Cdp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: duplex
                                 
                                 	Duplex setting
                                 	**type**\:  :py:class:`CdpDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpDuplex>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: system_name
                                 
                                 	SysName
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -981,7 +1096,7 @@ class Cdp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail, ['version', 'vtp_domain', 'native_vlan', 'duplex', 'system_name'], name, value)
+                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail, [u'version', u'vtp_domain', u'native_vlan', u'duplex', u'system_name'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -992,6 +1107,8 @@ class Cdp(Entity):
                                     
                                     	cdp addr entry
                                     	**type**\: list of  		 :py:class:`CdpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1027,6 +1144,8 @@ class Cdp(Entity):
                                         
                                         	Network layer address
                                         	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1065,6 +1184,8 @@ class Cdp(Entity):
                                             	AddressType
                                             	**type**\:  :py:class:`CdpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpL3AddrProtocol>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 address
@@ -1072,12 +1193,16 @@ class Cdp(Entity):
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 address
                                             	**type**\: str
                                             
                                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1107,7 +1232,10 @@ class Cdp(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
+                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, [u'address_type', u'ipv4_address', u'ipv6_address'], name, value)
+
+
+
 
 
                                 class ProtocolHelloList(Entity):
@@ -1118,6 +1246,8 @@ class Cdp(Entity):
                                     
                                     	cdp prot hello entry
                                     	**type**\: list of  		 :py:class:`CdpProtHelloEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1156,6 +1286,8 @@ class Cdp(Entity):
                                         
                                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -1180,7 +1312,13 @@ class Cdp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, ['hello_message'], name, value)
+                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, [u'hello_message'], name, value)
+
+
+
+
+
+
 
 
                 class Summaries(Entity):
@@ -1191,6 +1329,8 @@ class Cdp(Entity):
                     
                     	Brief information about a CDP neighbor entry
                     	**type**\: list of  		 :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1229,15 +1369,21 @@ class Cdp(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: device_id
                         
                         	The neighboring device identifier
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: cdp_neighbor
                         
                         	cdp neighbor
                         	**type**\: list of  		 :py:class:`CdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1279,6 +1425,8 @@ class Cdp(Entity):
                             	Detailed neighbor info
                             	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: receiving_interface_name
                             
                             	Interface the neighbor entry was received on 
@@ -1286,15 +1434,21 @@ class Cdp(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: device_id
                             
                             	Device identifier
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: port_id
                             
                             	Outgoing port identifier
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: header_version
                             
@@ -1303,6 +1457,8 @@ class Cdp(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: hold_time
                             
                             	Remaining hold time
@@ -1310,15 +1466,21 @@ class Cdp(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: capabilities
                             
                             	Capabilities
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: platform
                             
                             	Platform type
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -1360,7 +1522,7 @@ class Cdp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor, ['receiving_interface_name', 'device_id', 'port_id', 'header_version', 'hold_time', 'capabilities', 'platform'], name, value)
+                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor, [u'receiving_interface_name', u'device_id', u'port_id', u'header_version', u'hold_time', u'capabilities', u'platform'], name, value)
 
 
                             class Detail(Entity):
@@ -1372,20 +1534,28 @@ class Cdp(Entity):
                                 	List of network addresses 
                                 	**type**\:  :py:class:`NetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: protocol_hello_list
                                 
                                 	List of protocol hello entries
                                 	**type**\:  :py:class:`ProtocolHelloList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: version
                                 
                                 	Version TLV
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vtp_domain
                                 
                                 	VTP domain
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: native_vlan
                                 
@@ -1394,15 +1564,21 @@ class Cdp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: duplex
                                 
                                 	Duplex setting
                                 	**type**\:  :py:class:`CdpDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpDuplex>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: system_name
                                 
                                 	SysName
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1444,7 +1620,7 @@ class Cdp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail, ['version', 'vtp_domain', 'native_vlan', 'duplex', 'system_name'], name, value)
+                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail, [u'version', u'vtp_domain', u'native_vlan', u'duplex', u'system_name'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -1455,6 +1631,8 @@ class Cdp(Entity):
                                     
                                     	cdp addr entry
                                     	**type**\: list of  		 :py:class:`CdpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1490,6 +1668,8 @@ class Cdp(Entity):
                                         
                                         	Network layer address
                                         	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1528,6 +1708,8 @@ class Cdp(Entity):
                                             	AddressType
                                             	**type**\:  :py:class:`CdpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.CdpL3AddrProtocol>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 address
@@ -1535,12 +1717,16 @@ class Cdp(Entity):
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 address
                                             	**type**\: str
                                             
                                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1570,7 +1756,10 @@ class Cdp(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
+                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, [u'address_type', u'ipv4_address', u'ipv6_address'], name, value)
+
+
+
 
 
                                 class ProtocolHelloList(Entity):
@@ -1581,6 +1770,8 @@ class Cdp(Entity):
                                     
                                     	cdp prot hello entry
                                     	**type**\: list of  		 :py:class:`CdpProtHelloEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1619,6 +1810,8 @@ class Cdp(Entity):
                                         
                                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -1643,7 +1836,14 @@ class Cdp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, ['hello_message'], name, value)
+                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, [u'hello_message'], name, value)
+
+
+
+
+
+
+
 
 
             class Statistics(Entity):
@@ -1657,12 +1857,16 @@ class Cdp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: received_packets_v1
                 
                 	Received v1 packets
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: received_packets_v2
                 
@@ -1671,12 +1875,16 @@ class Cdp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: transmitted_packets
                 
                 	Transmitted packets
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: transmitted_packets_v1
                 
@@ -1685,12 +1893,16 @@ class Cdp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: transmitted_packets_v2
                 
                 	Transmitted v2 packets
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: header_errors
                 
@@ -1699,12 +1911,16 @@ class Cdp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: checksum_errors
                 
                 	Checksum errors
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: encapsulation_errors
                 
@@ -1713,12 +1929,16 @@ class Cdp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: bad_packet_errors
                 
                 	Bad packet received and dropped
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: out_of_memory_errors
                 
@@ -1727,12 +1947,16 @@ class Cdp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: truncated_packet_errors
                 
                 	Truncated messages
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: header_version_errors
                 
@@ -1741,12 +1965,16 @@ class Cdp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: open_file_errors
                 
                 	Cannot open file
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1798,7 +2026,8 @@ class Cdp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cdp.Nodes.Node.Statistics, ['received_packets', 'received_packets_v1', 'received_packets_v2', 'transmitted_packets', 'transmitted_packets_v1', 'transmitted_packets_v2', 'header_errors', 'checksum_errors', 'encapsulation_errors', 'bad_packet_errors', 'out_of_memory_errors', 'truncated_packet_errors', 'header_version_errors', 'open_file_errors'], name, value)
+                    self._perform_setattr(Cdp.Nodes.Node.Statistics, [u'received_packets', u'received_packets_v1', u'received_packets_v2', u'transmitted_packets', u'transmitted_packets_v1', u'transmitted_packets_v2', u'header_errors', u'checksum_errors', u'encapsulation_errors', u'bad_packet_errors', u'out_of_memory_errors', u'truncated_packet_errors', u'header_version_errors', u'open_file_errors'], name, value)
+
 
 
             class Interfaces(Entity):
@@ -1810,6 +2039,8 @@ class Cdp(Entity):
                 
                 	Operational data for an interface on which CDP is running
                 	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper.Cdp.Nodes.Node.Interfaces.Interface>`
+                
+                	**config**\: False
                 
                 
 
@@ -1849,12 +2080,16 @@ class Cdp(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_handle
                     
                     	Interface
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                    
+                    	**config**\: False
                     
                     .. attribute:: basecaps_state
                     
@@ -1863,6 +2098,8 @@ class Cdp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: cdp_protocol_state
                     
                     	CDP protocol state
@@ -1870,10 +2107,14 @@ class Cdp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_encaps
                     
                     	Interface encapsulation
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1907,9 +2148,15 @@ class Cdp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cdp.Nodes.Node.Interfaces.Interface, ['interface_name', 'interface_handle', 'basecaps_state', 'cdp_protocol_state', 'interface_encaps'], name, value)
+                        self._perform_setattr(Cdp.Nodes.Node.Interfaces.Interface, ['interface_name', u'interface_handle', u'basecaps_state', u'cdp_protocol_state', u'interface_encaps'], name, value)
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Cdp()
         return self._top_entity
+
+
 

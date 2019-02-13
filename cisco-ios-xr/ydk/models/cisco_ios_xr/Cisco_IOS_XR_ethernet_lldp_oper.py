@@ -51,10 +51,14 @@ class Lldp(Entity):
     	Global LLDP data
     	**type**\:  :py:class:`GlobalLldp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.GlobalLldp>`
     
+    	**config**\: False
+    
     .. attribute:: nodes
     
     	Per node LLDP operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes>`
+    
+    	**config**\: False
     
     
 
@@ -98,6 +102,8 @@ class Lldp(Entity):
         	The LLDP Global Information of this box
         	**type**\:  :py:class:`LldpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.GlobalLldp.LldpInfo>`
         
+        	**config**\: False
+        
         
 
         """
@@ -136,6 +142,8 @@ class Lldp(Entity):
             	Chassis identifier
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: chassis_id_sub_type
             
             	Chassis ID sub type
@@ -143,10 +151,14 @@ class Lldp(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: system_name
             
             	System Name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: timer
             
@@ -155,6 +167,8 @@ class Lldp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: hold_time
             
             	Length  of time  (in sec)that receiver must keep thispacket
@@ -162,12 +176,16 @@ class Lldp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: re_init
             
             	Delay (in sec) for LLDPinitialization on anyinterface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -207,6 +225,8 @@ class Lldp(Entity):
                 self._perform_setattr(Lldp.GlobalLldp.LldpInfo, [u'chassis_id', u'chassis_id_sub_type', u'system_name', u'timer', u'hold_time', u're_init'], name, value)
 
 
+
+
     class Nodes(Entity):
         """
         Per node LLDP operational data
@@ -215,6 +235,8 @@ class Lldp(Entity):
         
         	The LLDP operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -254,20 +276,28 @@ class Lldp(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: neighbors
             
             	The LLDP neighbor tables on this node
             	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors>`
+            
+            	**config**\: False
             
             .. attribute:: interfaces
             
             	The table of interfaces on which LLDP is running on this node
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces>`
             
+            	**config**\: False
+            
             .. attribute:: statistics
             
             	The LLDP traffic statistics for this node
             	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Statistics>`
+            
+            	**config**\: False
             
             
 
@@ -318,15 +348,21 @@ class Lldp(Entity):
                 	The detailed LLDP neighbor table on this device
                 	**type**\:  :py:class:`Devices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices>`
                 
+                	**config**\: False
+                
                 .. attribute:: details
                 
                 	The detailed LLDP neighbor table
                 	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details>`
                 
+                	**config**\: False
+                
                 .. attribute:: summaries
                 
                 	The LLDP neighbor summary table
                 	**type**\:  :py:class:`Summaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries>`
+                
+                	**config**\: False
                 
                 
 
@@ -374,6 +410,8 @@ class Lldp(Entity):
                     	Detailed information about a LLDP neighbor entry
                     	**type**\: list of  		 :py:class:`Device <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -410,6 +448,8 @@ class Lldp(Entity):
                         	The neighboring device identifier
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: interface_name
                         
                         	The interface name
@@ -417,10 +457,14 @@ class Lldp(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: lldp_neighbor
                         
                         	lldp neighbor
                         	**type**\: list of  		 :py:class:`LldpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -462,10 +506,14 @@ class Lldp(Entity):
                             	Detailed neighbor info
                             	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: mib
                             
                             	MIB nieghbor info
                             	**type**\:  :py:class:`Mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: receiving_interface_name
                             
@@ -474,6 +522,8 @@ class Lldp(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: receiving_parent_interface_name
                             
                             	Parent Interface the neighbor entry was received on 
@@ -481,20 +531,28 @@ class Lldp(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: device_id
                             
                             	Device identifier
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: chassis_id
                             
                             	Chassis id
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: port_id_detail
                             
                             	Outgoing port identifier
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: header_version
                             
@@ -503,6 +561,8 @@ class Lldp(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: hold_time
                             
                             	Remaining hold time
@@ -510,15 +570,21 @@ class Lldp(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: enabled_capabilities
                             
                             	Enabled Capabilities
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: platform
                             
                             	Platform type
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -568,7 +634,7 @@ class Lldp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor, ['receiving_interface_name', 'receiving_parent_interface_name', 'device_id', 'chassis_id', 'port_id_detail', 'header_version', 'hold_time', 'enabled_capabilities', 'platform'], name, value)
+                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor, [u'receiving_interface_name', u'receiving_parent_interface_name', u'device_id', u'chassis_id', u'port_id_detail', u'header_version', u'hold_time', u'enabled_capabilities', u'platform'], name, value)
 
 
                             class Detail(Entity):
@@ -580,6 +646,8 @@ class Lldp(Entity):
                                 	Management Addresses
                                 	**type**\:  :py:class:`NetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: peer_mac_address
                                 
                                 	Peer Mac Address
@@ -587,20 +655,28 @@ class Lldp(Entity):
                                 
                                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: port_description
                                 
                                 	Port Description
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: system_name
                                 
                                 	System Name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: system_description
                                 
                                 	System Description
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: time_remaining
                                 
@@ -609,25 +685,35 @@ class Lldp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: system_capabilities
                                 
                                 	System Capabilities
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: enabled_capabilities
                                 
                                 	Enabled Capabilities
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: auto_negotiation
                                 
                                 	Auto Negotiation
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: physical_media_capabilities
                                 
                                 	Physical media capabilities
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: media_attachment_unit_type
                                 
@@ -636,12 +722,16 @@ class Lldp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: port_vlan_id
                                 
                                 	Vlan ID
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -691,7 +781,7 @@ class Lldp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail, ['peer_mac_address', 'port_description', 'system_name', 'system_description', 'time_remaining', 'system_capabilities', 'enabled_capabilities', 'auto_negotiation', 'physical_media_capabilities', 'media_attachment_unit_type', 'port_vlan_id'], name, value)
+                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail, [u'peer_mac_address', u'port_description', u'system_name', u'system_description', u'time_remaining', u'system_capabilities', u'enabled_capabilities', u'auto_negotiation', u'physical_media_capabilities', u'media_attachment_unit_type', u'port_vlan_id'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -702,6 +792,8 @@ class Lldp(Entity):
                                     
                                     	lldp addr entry
                                     	**type**\: list of  		 :py:class:`LldpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -738,6 +830,8 @@ class Lldp(Entity):
                                         	Network layer address
                                         	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: ma_subtype
                                         
                                         	MA sub type
@@ -745,12 +839,16 @@ class Lldp(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: if_num
                                         
                                         	Interface num
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -782,7 +880,7 @@ class Lldp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry, ['ma_subtype', 'if_num'], name, value)
+                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry, [u'ma_subtype', u'if_num'], name, value)
 
 
                                         class Address(Entity):
@@ -794,6 +892,8 @@ class Lldp(Entity):
                                             	AddressType
                                             	**type**\:  :py:class:`LldpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocol>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 address
@@ -801,12 +901,16 @@ class Lldp(Entity):
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 address
                                             	**type**\: str
                                             
                                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -836,7 +940,11 @@ class Lldp(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
+                                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address, [u'address_type', u'ipv4_address', u'ipv6_address'], name, value)
+
+
+
+
 
 
                             class Mib(Entity):
@@ -848,10 +956,14 @@ class Lldp(Entity):
                                 	Unknown TLV list
                                 	**type**\:  :py:class:`UnknownTlvList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: org_def_tlv_list
                                 
                                 	Org Def TLV list
                                 	**type**\:  :py:class:`OrgDefTlvList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: rem_time_mark
                                 
@@ -860,12 +972,16 @@ class Lldp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rem_local_port_num
                                 
                                 	LldpPortNumber
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: rem_index
                                 
@@ -874,12 +990,16 @@ class Lldp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: chassis_id_sub_type
                                 
                                 	Chassis ID sub type
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: chassis_id_len
                                 
@@ -888,12 +1008,16 @@ class Lldp(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: port_id_sub_type
                                 
                                 	Port ID sub type
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: port_id_len
                                 
@@ -902,12 +1026,16 @@ class Lldp(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: combined_capabilities
                                 
                                 	Supported and combined cpabilities
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -955,7 +1083,7 @@ class Lldp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib, ['rem_time_mark', 'rem_local_port_num', 'rem_index', 'chassis_id_sub_type', 'chassis_id_len', 'port_id_sub_type', 'port_id_len', 'combined_capabilities'], name, value)
+                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib, [u'rem_time_mark', u'rem_local_port_num', u'rem_index', u'chassis_id_sub_type', u'chassis_id_len', u'port_id_sub_type', u'port_id_len', u'combined_capabilities'], name, value)
 
 
                                 class UnknownTlvList(Entity):
@@ -966,6 +1094,8 @@ class Lldp(Entity):
                                     
                                     	lldp unknown tlv entry
                                     	**type**\: list of  		 :py:class:`LldpUnknownTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1004,12 +1134,16 @@ class Lldp(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tlv_value
                                         
                                         	Unknown TLV payload
                                         	**type**\: str
                                         
                                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1037,7 +1171,9 @@ class Lldp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, ['tlv_type', 'tlv_value'], name, value)
+                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, [u'tlv_type', u'tlv_value'], name, value)
+
+
 
 
                                 class OrgDefTlvList(Entity):
@@ -1048,6 +1184,8 @@ class Lldp(Entity):
                                     
                                     	lldp org def tlv entry
                                     	**type**\: list of  		 :py:class:`LldpOrgDefTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1086,12 +1224,16 @@ class Lldp(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tlv_subtype
                                         
                                         	Org Def TLV subtype
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: tlv_info_indes
                                         
@@ -1100,12 +1242,16 @@ class Lldp(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tlv_value
                                         
                                         	Org Def TLV payload
                                         	**type**\: str
                                         
                                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1137,7 +1283,13 @@ class Lldp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, ['oui', 'tlv_subtype', 'tlv_info_indes', 'tlv_value'], name, value)
+                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, [u'oui', u'tlv_subtype', u'tlv_info_indes', u'tlv_value'], name, value)
+
+
+
+
+
+
 
 
                 class Details(Entity):
@@ -1148,6 +1300,8 @@ class Lldp(Entity):
                     
                     	Detailed information about a LLDP neighbor entry
                     	**type**\: list of  		 :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1187,15 +1341,21 @@ class Lldp(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: device_id
                         
                         	The neighboring device identifier
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: lldp_neighbor
                         
                         	lldp neighbor
                         	**type**\: list of  		 :py:class:`LldpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1237,10 +1397,14 @@ class Lldp(Entity):
                             	Detailed neighbor info
                             	**type**\:  :py:class:`Detail_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: mib
                             
                             	MIB nieghbor info
                             	**type**\:  :py:class:`Mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: receiving_interface_name
                             
@@ -1249,6 +1413,8 @@ class Lldp(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: receiving_parent_interface_name
                             
                             	Parent Interface the neighbor entry was received on 
@@ -1256,20 +1422,28 @@ class Lldp(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: device_id
                             
                             	Device identifier
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: chassis_id
                             
                             	Chassis id
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: port_id_detail
                             
                             	Outgoing port identifier
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: header_version
                             
@@ -1278,6 +1452,8 @@ class Lldp(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: hold_time
                             
                             	Remaining hold time
@@ -1285,15 +1461,21 @@ class Lldp(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: enabled_capabilities
                             
                             	Enabled Capabilities
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: platform
                             
                             	Platform type
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -1343,7 +1525,7 @@ class Lldp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor, ['receiving_interface_name', 'receiving_parent_interface_name', 'device_id', 'chassis_id', 'port_id_detail', 'header_version', 'hold_time', 'enabled_capabilities', 'platform'], name, value)
+                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor, [u'receiving_interface_name', u'receiving_parent_interface_name', u'device_id', u'chassis_id', u'port_id_detail', u'header_version', u'hold_time', u'enabled_capabilities', u'platform'], name, value)
 
 
                             class Detail_(Entity):
@@ -1355,6 +1537,8 @@ class Lldp(Entity):
                                 	Management Addresses
                                 	**type**\:  :py:class:`NetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: peer_mac_address
                                 
                                 	Peer Mac Address
@@ -1362,20 +1546,28 @@ class Lldp(Entity):
                                 
                                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: port_description
                                 
                                 	Port Description
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: system_name
                                 
                                 	System Name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: system_description
                                 
                                 	System Description
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: time_remaining
                                 
@@ -1384,25 +1576,35 @@ class Lldp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: system_capabilities
                                 
                                 	System Capabilities
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: enabled_capabilities
                                 
                                 	Enabled Capabilities
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: auto_negotiation
                                 
                                 	Auto Negotiation
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: physical_media_capabilities
                                 
                                 	Physical media capabilities
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: media_attachment_unit_type
                                 
@@ -1411,12 +1613,16 @@ class Lldp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: port_vlan_id
                                 
                                 	Vlan ID
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1466,7 +1672,7 @@ class Lldp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_, ['peer_mac_address', 'port_description', 'system_name', 'system_description', 'time_remaining', 'system_capabilities', 'enabled_capabilities', 'auto_negotiation', 'physical_media_capabilities', 'media_attachment_unit_type', 'port_vlan_id'], name, value)
+                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_, [u'peer_mac_address', u'port_description', u'system_name', u'system_description', u'time_remaining', u'system_capabilities', u'enabled_capabilities', u'auto_negotiation', u'physical_media_capabilities', u'media_attachment_unit_type', u'port_vlan_id'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -1477,6 +1683,8 @@ class Lldp(Entity):
                                     
                                     	lldp addr entry
                                     	**type**\: list of  		 :py:class:`LldpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1513,6 +1721,8 @@ class Lldp(Entity):
                                         	Network layer address
                                         	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry.Address>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: ma_subtype
                                         
                                         	MA sub type
@@ -1520,12 +1730,16 @@ class Lldp(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: if_num
                                         
                                         	Interface num
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1557,7 +1771,7 @@ class Lldp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry, ['ma_subtype', 'if_num'], name, value)
+                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry, [u'ma_subtype', u'if_num'], name, value)
 
 
                                         class Address(Entity):
@@ -1569,6 +1783,8 @@ class Lldp(Entity):
                                             	AddressType
                                             	**type**\:  :py:class:`LldpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocol>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 address
@@ -1576,12 +1792,16 @@ class Lldp(Entity):
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 address
                                             	**type**\: str
                                             
                                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1611,7 +1831,11 @@ class Lldp(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
+                                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry.Address, [u'address_type', u'ipv4_address', u'ipv6_address'], name, value)
+
+
+
+
 
 
                             class Mib(Entity):
@@ -1623,10 +1847,14 @@ class Lldp(Entity):
                                 	Unknown TLV list
                                 	**type**\:  :py:class:`UnknownTlvList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: org_def_tlv_list
                                 
                                 	Org Def TLV list
                                 	**type**\:  :py:class:`OrgDefTlvList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: rem_time_mark
                                 
@@ -1635,12 +1863,16 @@ class Lldp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rem_local_port_num
                                 
                                 	LldpPortNumber
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: rem_index
                                 
@@ -1649,12 +1881,16 @@ class Lldp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: chassis_id_sub_type
                                 
                                 	Chassis ID sub type
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: chassis_id_len
                                 
@@ -1663,12 +1899,16 @@ class Lldp(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: port_id_sub_type
                                 
                                 	Port ID sub type
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: port_id_len
                                 
@@ -1677,12 +1917,16 @@ class Lldp(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: combined_capabilities
                                 
                                 	Supported and combined cpabilities
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1730,7 +1974,7 @@ class Lldp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib, ['rem_time_mark', 'rem_local_port_num', 'rem_index', 'chassis_id_sub_type', 'chassis_id_len', 'port_id_sub_type', 'port_id_len', 'combined_capabilities'], name, value)
+                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib, [u'rem_time_mark', u'rem_local_port_num', u'rem_index', u'chassis_id_sub_type', u'chassis_id_len', u'port_id_sub_type', u'port_id_len', u'combined_capabilities'], name, value)
 
 
                                 class UnknownTlvList(Entity):
@@ -1741,6 +1985,8 @@ class Lldp(Entity):
                                     
                                     	lldp unknown tlv entry
                                     	**type**\: list of  		 :py:class:`LldpUnknownTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1779,12 +2025,16 @@ class Lldp(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tlv_value
                                         
                                         	Unknown TLV payload
                                         	**type**\: str
                                         
                                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1812,7 +2062,9 @@ class Lldp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, ['tlv_type', 'tlv_value'], name, value)
+                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, [u'tlv_type', u'tlv_value'], name, value)
+
+
 
 
                                 class OrgDefTlvList(Entity):
@@ -1823,6 +2075,8 @@ class Lldp(Entity):
                                     
                                     	lldp org def tlv entry
                                     	**type**\: list of  		 :py:class:`LldpOrgDefTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1861,12 +2115,16 @@ class Lldp(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tlv_subtype
                                         
                                         	Org Def TLV subtype
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: tlv_info_indes
                                         
@@ -1875,12 +2133,16 @@ class Lldp(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tlv_value
                                         
                                         	Org Def TLV payload
                                         	**type**\: str
                                         
                                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1912,7 +2174,13 @@ class Lldp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, ['oui', 'tlv_subtype', 'tlv_info_indes', 'tlv_value'], name, value)
+                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, [u'oui', u'tlv_subtype', u'tlv_info_indes', u'tlv_value'], name, value)
+
+
+
+
+
+
 
 
                 class Summaries(Entity):
@@ -1923,6 +2191,8 @@ class Lldp(Entity):
                     
                     	Brief information about a LLDP neighbor entry
                     	**type**\: list of  		 :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1962,15 +2232,21 @@ class Lldp(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: device_id
                         
                         	The neighboring device identifier
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: lldp_neighbor
                         
                         	lldp neighbor
                         	**type**\: list of  		 :py:class:`LldpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2012,10 +2288,14 @@ class Lldp(Entity):
                             	Detailed neighbor info
                             	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: mib
                             
                             	MIB nieghbor info
                             	**type**\:  :py:class:`Mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: receiving_interface_name
                             
@@ -2024,6 +2304,8 @@ class Lldp(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: receiving_parent_interface_name
                             
                             	Parent Interface the neighbor entry was received on 
@@ -2031,20 +2313,28 @@ class Lldp(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: device_id
                             
                             	Device identifier
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: chassis_id
                             
                             	Chassis id
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: port_id_detail
                             
                             	Outgoing port identifier
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: header_version
                             
@@ -2053,6 +2343,8 @@ class Lldp(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: hold_time
                             
                             	Remaining hold time
@@ -2060,15 +2352,21 @@ class Lldp(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: enabled_capabilities
                             
                             	Enabled Capabilities
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: platform
                             
                             	Platform type
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -2118,7 +2416,7 @@ class Lldp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor, ['receiving_interface_name', 'receiving_parent_interface_name', 'device_id', 'chassis_id', 'port_id_detail', 'header_version', 'hold_time', 'enabled_capabilities', 'platform'], name, value)
+                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor, [u'receiving_interface_name', u'receiving_parent_interface_name', u'device_id', u'chassis_id', u'port_id_detail', u'header_version', u'hold_time', u'enabled_capabilities', u'platform'], name, value)
 
 
                             class Detail(Entity):
@@ -2130,6 +2428,8 @@ class Lldp(Entity):
                                 	Management Addresses
                                 	**type**\:  :py:class:`NetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: peer_mac_address
                                 
                                 	Peer Mac Address
@@ -2137,20 +2437,28 @@ class Lldp(Entity):
                                 
                                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: port_description
                                 
                                 	Port Description
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: system_name
                                 
                                 	System Name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: system_description
                                 
                                 	System Description
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: time_remaining
                                 
@@ -2159,25 +2467,35 @@ class Lldp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: system_capabilities
                                 
                                 	System Capabilities
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: enabled_capabilities
                                 
                                 	Enabled Capabilities
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: auto_negotiation
                                 
                                 	Auto Negotiation
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: physical_media_capabilities
                                 
                                 	Physical media capabilities
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: media_attachment_unit_type
                                 
@@ -2186,12 +2504,16 @@ class Lldp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: port_vlan_id
                                 
                                 	Vlan ID
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2241,7 +2563,7 @@ class Lldp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail, ['peer_mac_address', 'port_description', 'system_name', 'system_description', 'time_remaining', 'system_capabilities', 'enabled_capabilities', 'auto_negotiation', 'physical_media_capabilities', 'media_attachment_unit_type', 'port_vlan_id'], name, value)
+                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail, [u'peer_mac_address', u'port_description', u'system_name', u'system_description', u'time_remaining', u'system_capabilities', u'enabled_capabilities', u'auto_negotiation', u'physical_media_capabilities', u'media_attachment_unit_type', u'port_vlan_id'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -2252,6 +2574,8 @@ class Lldp(Entity):
                                     
                                     	lldp addr entry
                                     	**type**\: list of  		 :py:class:`LldpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2288,6 +2612,8 @@ class Lldp(Entity):
                                         	Network layer address
                                         	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: ma_subtype
                                         
                                         	MA sub type
@@ -2295,12 +2621,16 @@ class Lldp(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: if_num
                                         
                                         	Interface num
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2332,7 +2662,7 @@ class Lldp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry, ['ma_subtype', 'if_num'], name, value)
+                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry, [u'ma_subtype', u'if_num'], name, value)
 
 
                                         class Address(Entity):
@@ -2344,6 +2674,8 @@ class Lldp(Entity):
                                             	AddressType
                                             	**type**\:  :py:class:`LldpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocol>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ipv4_address
                                             
                                             	IPv4 address
@@ -2351,12 +2683,16 @@ class Lldp(Entity):
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ipv6_address
                                             
                                             	IPv6 address
                                             	**type**\: str
                                             
                                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -2386,7 +2722,11 @@ class Lldp(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
+                                                self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address, [u'address_type', u'ipv4_address', u'ipv6_address'], name, value)
+
+
+
+
 
 
                             class Mib(Entity):
@@ -2398,10 +2738,14 @@ class Lldp(Entity):
                                 	Unknown TLV list
                                 	**type**\:  :py:class:`UnknownTlvList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: org_def_tlv_list
                                 
                                 	Org Def TLV list
                                 	**type**\:  :py:class:`OrgDefTlvList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: rem_time_mark
                                 
@@ -2410,12 +2754,16 @@ class Lldp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rem_local_port_num
                                 
                                 	LldpPortNumber
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: rem_index
                                 
@@ -2424,12 +2772,16 @@ class Lldp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: chassis_id_sub_type
                                 
                                 	Chassis ID sub type
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: chassis_id_len
                                 
@@ -2438,12 +2790,16 @@ class Lldp(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: port_id_sub_type
                                 
                                 	Port ID sub type
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: port_id_len
                                 
@@ -2452,12 +2808,16 @@ class Lldp(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: combined_capabilities
                                 
                                 	Supported and combined cpabilities
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2505,7 +2865,7 @@ class Lldp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib, ['rem_time_mark', 'rem_local_port_num', 'rem_index', 'chassis_id_sub_type', 'chassis_id_len', 'port_id_sub_type', 'port_id_len', 'combined_capabilities'], name, value)
+                                    self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib, [u'rem_time_mark', u'rem_local_port_num', u'rem_index', u'chassis_id_sub_type', u'chassis_id_len', u'port_id_sub_type', u'port_id_len', u'combined_capabilities'], name, value)
 
 
                                 class UnknownTlvList(Entity):
@@ -2516,6 +2876,8 @@ class Lldp(Entity):
                                     
                                     	lldp unknown tlv entry
                                     	**type**\: list of  		 :py:class:`LldpUnknownTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2554,12 +2916,16 @@ class Lldp(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tlv_value
                                         
                                         	Unknown TLV payload
                                         	**type**\: str
                                         
                                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2587,7 +2953,9 @@ class Lldp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, ['tlv_type', 'tlv_value'], name, value)
+                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, [u'tlv_type', u'tlv_value'], name, value)
+
+
 
 
                                 class OrgDefTlvList(Entity):
@@ -2598,6 +2966,8 @@ class Lldp(Entity):
                                     
                                     	lldp org def tlv entry
                                     	**type**\: list of  		 :py:class:`LldpOrgDefTlvEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2636,12 +3006,16 @@ class Lldp(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tlv_subtype
                                         
                                         	Org Def TLV subtype
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: tlv_info_indes
                                         
@@ -2650,12 +3024,16 @@ class Lldp(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tlv_value
                                         
                                         	Org Def TLV payload
                                         	**type**\: str
                                         
                                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2687,7 +3065,14 @@ class Lldp(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, ['oui', 'tlv_subtype', 'tlv_info_indes', 'tlv_value'], name, value)
+                                            self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, [u'oui', u'tlv_subtype', u'tlv_info_indes', u'tlv_value'], name, value)
+
+
+
+
+
+
+
 
 
             class Interfaces(Entity):
@@ -2699,6 +3084,8 @@ class Lldp(Entity):
                 
                 	Operational data for an interface on which LLDP is running
                 	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface>`
+                
+                	**config**\: False
                 
                 
 
@@ -2738,10 +3125,14 @@ class Lldp(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_network_addresses
                     
                     	Local Management Addresses
                     	**type**\:  :py:class:`LocalNetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_name_xr
                     
@@ -2750,12 +3141,16 @@ class Lldp(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_enabled
                     
                     	TX Enabled
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: rx_enabled
                     
@@ -2764,15 +3159,21 @@ class Lldp(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_state
                     
                     	TX State
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: rx_state
                     
                     	RX State
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: if_index
                     
@@ -2781,10 +3182,14 @@ class Lldp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: port_id
                     
                     	Outgoing port identifier
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: port_id_sub_type
                     
@@ -2793,10 +3198,14 @@ class Lldp(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: port_description
                     
                     	Port Description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -2844,7 +3253,7 @@ class Lldp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Lldp.Nodes.Node.Interfaces.Interface, ['interface_name', 'interface_name_xr', 'tx_enabled', 'rx_enabled', 'tx_state', 'rx_state', 'if_index', 'port_id', 'port_id_sub_type', 'port_description'], name, value)
+                        self._perform_setattr(Lldp.Nodes.Node.Interfaces.Interface, ['interface_name', u'interface_name_xr', u'tx_enabled', u'rx_enabled', u'tx_state', u'rx_state', u'if_index', u'port_id', u'port_id_sub_type', u'port_description'], name, value)
 
 
                     class LocalNetworkAddresses(Entity):
@@ -2855,6 +3264,8 @@ class Lldp(Entity):
                         
                         	lldp addr entry
                         	**type**\: list of  		 :py:class:`LldpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2891,6 +3302,8 @@ class Lldp(Entity):
                             	Network layer address
                             	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ma_subtype
                             
                             	MA sub type
@@ -2898,12 +3311,16 @@ class Lldp(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: if_num
                             
                             	Interface num
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2935,7 +3352,7 @@ class Lldp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry, ['ma_subtype', 'if_num'], name, value)
+                                self._perform_setattr(Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry, [u'ma_subtype', u'if_num'], name, value)
 
 
                             class Address(Entity):
@@ -2947,6 +3364,8 @@ class Lldp(Entity):
                                 	AddressType
                                 	**type**\:  :py:class:`LldpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper.LldpL3AddrProtocol>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv4_address
                                 
                                 	IPv4 address
@@ -2954,12 +3373,16 @@ class Lldp(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv6_address
                                 
                                 	IPv6 address
                                 	**type**\: str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2989,7 +3412,12 @@ class Lldp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
+                                    self._perform_setattr(Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address, [u'address_type', u'ipv4_address', u'ipv6_address'], name, value)
+
+
+
+
+
 
 
             class Statistics(Entity):
@@ -3003,12 +3431,16 @@ class Lldp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: aged_out_entries
                 
                 	Aged out entries
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: discarded_packets
                 
@@ -3017,12 +3449,16 @@ class Lldp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: bad_packets
                 
                 	Bad packet received and dropped
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: received_packets
                 
@@ -3031,12 +3467,16 @@ class Lldp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: discarded_tl_vs
                 
                 	Discarded TLVs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: unrecognized_tl_vs
                 
@@ -3045,12 +3485,16 @@ class Lldp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_of_memory_errors
                 
                 	Out\-of\-memory conditions
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: encapsulation_errors
                 
@@ -3059,6 +3503,8 @@ class Lldp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: queue_overflow_errors
                 
                 	Queue overflows
@@ -3066,12 +3512,16 @@ class Lldp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: table_overflow_errors
                 
                 	Table overflows
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -3117,9 +3567,14 @@ class Lldp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lldp.Nodes.Node.Statistics, ['transmitted_packets', 'aged_out_entries', 'discarded_packets', 'bad_packets', 'received_packets', 'discarded_tl_vs', 'unrecognized_tl_vs', 'out_of_memory_errors', 'encapsulation_errors', 'queue_overflow_errors', 'table_overflow_errors'], name, value)
+                    self._perform_setattr(Lldp.Nodes.Node.Statistics, [u'transmitted_packets', u'aged_out_entries', u'discarded_packets', u'bad_packets', u'received_packets', u'discarded_tl_vs', u'unrecognized_tl_vs', u'out_of_memory_errors', u'encapsulation_errors', u'queue_overflow_errors', u'table_overflow_errors'], name, value)
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Lldp()
         return self._top_entity
+
+
 

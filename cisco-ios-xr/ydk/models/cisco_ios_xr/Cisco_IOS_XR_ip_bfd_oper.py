@@ -307,270 +307,378 @@ class Bfd(Entity):
     	Table of brief information about all Label BFD sessions in the System
     	**type**\:  :py:class:`LabelSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionBriefs>`
     
+    	**config**\: False
+    
     .. attribute:: ipv4bf_do_mplste_tail_summary
     
     	Summary information of IPv4 BFD over MPLS\-TE Tail
     	**type**\:  :py:class:`Ipv4bfDoMplsteTailSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSummary>`
+    
+    	**config**\: False
     
     .. attribute:: ipv6_single_hop_counters
     
     	IPv6 single hop Counters
     	**type**\:  :py:class:`Ipv6SingleHopCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopCounters>`
     
+    	**config**\: False
+    
     .. attribute:: counters
     
     	IPv4 Counters
     	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Counters>`
+    
+    	**config**\: False
     
     .. attribute:: client_details
     
     	Table of detailed information about BFD clients
     	**type**\:  :py:class:`ClientDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.ClientDetails>`
     
+    	**config**\: False
+    
     .. attribute:: ipv4_single_hop_summary
     
     	Summary information of BFD IPv4 singlehop sessions
     	**type**\:  :py:class:`Ipv4SingleHopSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSummary>`
+    
+    	**config**\: False
     
     .. attribute:: ipv6_single_hop_summary
     
     	Summary information of BFD IPv6 singlehop sessions
     	**type**\:  :py:class:`Ipv6SingleHopSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSummary>`
     
+    	**config**\: False
+    
     .. attribute:: label_multi_paths
     
     	Label multipath
     	**type**\:  :py:class:`LabelMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelMultiPaths>`
+    
+    	**config**\: False
     
     .. attribute:: ipv4_multi_hop_session_details
     
     	Table of detailed information about all IPv4 multihop BFD sessions in the System 
     	**type**\:  :py:class:`Ipv4MultiHopSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails>`
     
+    	**config**\: False
+    
     .. attribute:: ipv4_single_hop_session_details
     
     	Table of detailed information about all IPv4 singlehop BFD sessions in the System 
     	**type**\:  :py:class:`Ipv4SingleHopSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails>`
+    
+    	**config**\: False
     
     .. attribute:: ipv4_multi_hop_session_briefs
     
     	Table of brief information about all IPv4 multihop BFD sessions in the System
     	**type**\:  :py:class:`Ipv4MultiHopSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionBriefs>`
     
+    	**config**\: False
+    
     .. attribute:: generic_summaries
     
     	Generic summary information about BFD location
     	**type**\:  :py:class:`GenericSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.GenericSummaries>`
+    
+    	**config**\: False
     
     .. attribute:: ipv6_single_hop_multi_paths
     
     	IPv6 single hop multipath
     	**type**\:  :py:class:`Ipv6SingleHopMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopMultiPaths>`
     
+    	**config**\: False
+    
     .. attribute:: ipv4_single_hop_node_location_summaries
     
     	Table of summary information about BFD IPv4 singlehop sessions per location
     	**type**\:  :py:class:`Ipv4SingleHopNodeLocationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopNodeLocationSummaries>`
+    
+    	**config**\: False
     
     .. attribute:: label_summary
     
     	Summary information of Label BFD
     	**type**\:  :py:class:`LabelSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSummary>`
     
+    	**config**\: False
+    
     .. attribute:: ipv4bf_do_mplste_head_session_briefs
     
     	Table of brief information about all IPv4 BFD over MPLS\-TE Head sessions in the System
     	**type**\:  :py:class:`Ipv4bfDoMplsteHeadSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionBriefs>`
+    
+    	**config**\: False
     
     .. attribute:: ipv4bf_do_mplste_tail_session_details
     
     	Table of detailed information about all IPv4 BFD over MPLS\-TE Tail sessions in the System
     	**type**\:  :py:class:`Ipv4bfDoMplsteTailSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails>`
     
+    	**config**\: False
+    
     .. attribute:: ipv4_multi_hop_node_location_summaries
     
     	Table of summary information about BFD IPv4 multihop sessions per location
     	**type**\:  :py:class:`Ipv4MultiHopNodeLocationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopNodeLocationSummaries>`
+    
+    	**config**\: False
     
     .. attribute:: ipv4bf_do_mplste_tail_session_briefs
     
     	Table of brief information about all IPv4 BFD over MPLS\-TE Tail sessions in the System
     	**type**\:  :py:class:`Ipv4bfDoMplsteTailSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionBriefs>`
     
+    	**config**\: False
+    
     .. attribute:: ipv6_multi_hop_node_location_summaries
     
     	Table of summary information about BFD IPv6 multihop sessions per location
     	**type**\:  :py:class:`Ipv6MultiHopNodeLocationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopNodeLocationSummaries>`
+    
+    	**config**\: False
     
     .. attribute:: ipv4_multi_hop_summary
     
     	Summary information of BFD IPv4 multihop sessions
     	**type**\:  :py:class:`Ipv4MultiHopSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSummary>`
     
+    	**config**\: False
+    
     .. attribute:: ipv4_single_hop_counters
     
     	IPv4 single hop Counters
     	**type**\:  :py:class:`Ipv4SingleHopCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopCounters>`
+    
+    	**config**\: False
     
     .. attribute:: ipv6_multi_hop_session_details
     
     	Table of detailed information about all IPv6 multihop BFD sessions in the System 
     	**type**\:  :py:class:`Ipv6MultiHopSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails>`
     
+    	**config**\: False
+    
     .. attribute:: ipv6_multi_hop_multi_paths
     
     	IPv6 multi hop multipath
     	**type**\:  :py:class:`Ipv6MultiHopMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopMultiPaths>`
+    
+    	**config**\: False
     
     .. attribute:: ipv4bf_do_mplste_head_counters
     
     	IPv4 BFD over MPLS\-TE Counters
     	**type**\:  :py:class:`Ipv4bfDoMplsteHeadCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadCounters>`
     
+    	**config**\: False
+    
     .. attribute:: session_mibs
     
     	BFD session MIB database
     	**type**\:  :py:class:`SessionMibs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionMibs>`
+    
+    	**config**\: False
     
     .. attribute:: ipv6_multi_hop_summary
     
     	Summary information of BFD IPv6 multihop sessions
     	**type**\:  :py:class:`Ipv6MultiHopSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSummary>`
     
+    	**config**\: False
+    
     .. attribute:: label_summary_nodes
     
     	Table of summary about Label BFD sessions for location
     	**type**\:  :py:class:`LabelSummaryNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSummaryNodes>`
+    
+    	**config**\: False
     
     .. attribute:: ipv6_multi_hop_session_briefs
     
     	Table of brief information about all IPv6 multihop BFD sessions in the System
     	**type**\:  :py:class:`Ipv6MultiHopSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionBriefs>`
     
+    	**config**\: False
+    
     .. attribute:: session_briefs
     
     	Table of brief information about singlehop IPv4 BFD sessions in the System
     	**type**\:  :py:class:`SessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionBriefs>`
+    
+    	**config**\: False
     
     .. attribute:: ipv6_single_hop_node_location_summaries
     
     	Table of summary information about BFD IPv6 singlehop sessions per location
     	**type**\:  :py:class:`Ipv6SingleHopNodeLocationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopNodeLocationSummaries>`
     
+    	**config**\: False
+    
     .. attribute:: summary
     
     	Summary information of BFD IPv4 singlehop sessions
     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Summary>`
+    
+    	**config**\: False
     
     .. attribute:: ipv4bfd_mplste_tail_node_summaries
     
     	Table of summary about IPv4 TE tail BFD sessions for location
     	**type**\:  :py:class:`Ipv4bfdMplsteTailNodeSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfdMplsteTailNodeSummaries>`
     
+    	**config**\: False
+    
     .. attribute:: ipv4_single_hop_location_summaries
     
     	Table of summary information about IPv4 singlehop BFD sessions for location
     	**type**\:  :py:class:`Ipv4SingleHopLocationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopLocationSummaries>`
+    
+    	**config**\: False
     
     .. attribute:: ipv4bfd_mplste_head_summary_nodes
     
     	Table of summary about IPv4 TE head BFD sessions for location
     	**type**\:  :py:class:`Ipv4bfdMplsteHeadSummaryNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfdMplsteHeadSummaryNodes>`
     
+    	**config**\: False
+    
     .. attribute:: label_session_details
     
     	Table of detailed information about all Label BFD sessions in the System 
     	**type**\:  :py:class:`LabelSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails>`
+    
+    	**config**\: False
     
     .. attribute:: ipv6_single_hop_session_details
     
     	Table of detailed information about all IPv6 singlehop BFD sessions in the System 
     	**type**\:  :py:class:`Ipv6SingleHopSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails>`
     
+    	**config**\: False
+    
     .. attribute:: ipv4_multi_hop_counters
     
     	IPv4 multiple hop Counters
     	**type**\:  :py:class:`Ipv4MultiHopCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopCounters>`
+    
+    	**config**\: False
     
     .. attribute:: session_details
     
     	Table of detailed information about IPv4 singlehop BFD sessions in the System 
     	**type**\:  :py:class:`SessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails>`
     
+    	**config**\: False
+    
     .. attribute:: ipv4_single_hop_multi_paths
     
     	IPv4 single hop multipath
     	**type**\:  :py:class:`Ipv4SingleHopMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopMultiPaths>`
+    
+    	**config**\: False
     
     .. attribute:: ipv4_single_hop_session_briefs
     
     	Table of brief information about all IPv4 singlehop BFD sessions in the System
     	**type**\:  :py:class:`Ipv4SingleHopSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionBriefs>`
     
+    	**config**\: False
+    
     .. attribute:: ipv6_multi_hop_counters
     
     	IPv6 multiple hop Counters
     	**type**\:  :py:class:`Ipv6MultiHopCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopCounters>`
+    
+    	**config**\: False
     
     .. attribute:: ipv6_single_hop_location_summaries
     
     	Table of summary information about BFD IPv6 singlehop sessions per location
     	**type**\:  :py:class:`Ipv6SingleHopLocationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopLocationSummaries>`
     
+    	**config**\: False
+    
     .. attribute:: label_counters
     
     	Label Counters
     	**type**\:  :py:class:`LabelCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelCounters>`
+    
+    	**config**\: False
     
     .. attribute:: ipv4bf_do_mplste_head_session_details
     
     	Table of detailed information about all IPv4 BFD over MPLS\-TE Head sessions in the System
     	**type**\:  :py:class:`Ipv4bfDoMplsteHeadSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails>`
     
+    	**config**\: False
+    
     .. attribute:: relation_briefs
     
     	Table of brief information about all BFD relations in the System
     	**type**\:  :py:class:`RelationBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationBriefs>`
+    
+    	**config**\: False
     
     .. attribute:: client_briefs
     
     	Table of Brief information about BFD clients
     	**type**\:  :py:class:`ClientBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.ClientBriefs>`
     
+    	**config**\: False
+    
     .. attribute:: ipv4bf_do_mplste_head_multi_paths
     
     	IPv4 BFD over MPLS\-TE Head multipath
     	**type**\:  :py:class:`Ipv4bfDoMplsteHeadMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadMultiPaths>`
+    
+    	**config**\: False
     
     .. attribute:: relation_details
     
     	Table of detail information about all BFD relations in the System
     	**type**\:  :py:class:`RelationDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails>`
     
+    	**config**\: False
+    
     .. attribute:: ipv4bf_do_mplste_tail_counters
     
     	IPv4 BFD over MPLS\-TE Counters
     	**type**\:  :py:class:`Ipv4bfDoMplsteTailCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailCounters>`
+    
+    	**config**\: False
     
     .. attribute:: ipv6_single_hop_session_briefs
     
     	Table of brief information about all IPv6 singlehop BFD sessions in the System
     	**type**\:  :py:class:`Ipv6SingleHopSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionBriefs>`
     
+    	**config**\: False
+    
     .. attribute:: ipv4bf_do_mplste_tail_multi_paths
     
     	IPv4 BFD over MPLS\-TE Tail multipath
     	**type**\:  :py:class:`Ipv4bfDoMplsteTailMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailMultiPaths>`
+    
+    	**config**\: False
     
     .. attribute:: ipv4_multi_hop_multi_paths
     
     	IPv4 multi\-hop multipath
     	**type**\:  :py:class:`Ipv4MultiHopMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopMultiPaths>`
     
+    	**config**\: False
+    
     .. attribute:: ipv4bf_do_mplste_head_summary
     
     	Summary information of IPv4 BFD over MPLS\-TE Head
     	**type**\:  :py:class:`Ipv4bfDoMplsteHeadSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSummary>`
+    
+    	**config**\: False
     
     
 
@@ -823,6 +931,8 @@ class Bfd(Entity):
         	Brief information for a single Label BFD session
         	**type**\: list of  		 :py:class:`LabelSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionBriefs.LabelSessionBrief>`
         
+        	**config**\: False
+        
         
 
         """
@@ -862,12 +972,16 @@ class Bfd(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: incoming_label
             
             	Incoming Label
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: location
             
@@ -876,10 +990,14 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: status_brief_information
             
             	Brief Status Information
             	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation>`
+            
+            	**config**\: False
             
             .. attribute:: node_id
             
@@ -888,20 +1006,28 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	State
             	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+            
+            	**config**\: False
             
             .. attribute:: session_type
             
             	Session type
             	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
             
+            	**config**\: False
+            
             .. attribute:: session_subtype
             
             	Session subtype
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: session_flags
             
@@ -909,6 +1035,8 @@ class Bfd(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -965,10 +1093,14 @@ class Bfd(Entity):
                 	Async Interval and Detect Multiplier Information
                 	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
                 
+                	**config**\: False
+                
                 .. attribute:: echo_interval_multiplier
                 
                 	Echo Interval and Detect Multiplier Information
                 	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
+                
+                	**config**\: False
                 
                 
 
@@ -1014,6 +1146,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: negotiated_local_transmit_interval
@@ -1022,6 +1156,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -1032,6 +1168,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -1040,6 +1178,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1075,6 +1215,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
                 class EchoIntervalMultiplier(Entity):
                     """
                     Echo Interval and Detect Multiplier Information
@@ -1086,6 +1227,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_time
@@ -1095,6 +1238,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -1103,6 +1248,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1136,6 +1283,10 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
+
+
+
     class Ipv4bfDoMplsteTailSummary(Entity):
         """
         Summary information of IPv4 BFD over MPLS\-TE
@@ -1145,6 +1296,8 @@ class Bfd(Entity):
         
         	Statistics of states for sessions
         	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSummary.SessionState>`
+        
+        	**config**\: False
         
         
 
@@ -1186,12 +1339,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: down_count
             
             	Number of sessions in down state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: up_count
             
@@ -1200,12 +1357,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: unknown_count
             
             	Number of sessions in unknown state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1241,6 +1402,8 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
 
 
+
+
     class Ipv6SingleHopCounters(Entity):
         """
         IPv6 single hop Counters
@@ -1249,6 +1412,8 @@ class Bfd(Entity):
         
         	Table of IPv6 single hop Packet counters
         	**type**\:  :py:class:`Ipv6SingleHopPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopCounters.Ipv6SingleHopPacketCounters>`
+        
+        	**config**\: False
         
         
 
@@ -1288,6 +1453,8 @@ class Bfd(Entity):
             	Interface IPv6 single hop Packet counters
             	**type**\: list of  		 :py:class:`Ipv6SingleHopPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopCounters.Ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter>`
             
+            	**config**\: False
+            
             
 
             """
@@ -1326,12 +1493,16 @@ class Bfd(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: location
                 
                 	Location
                 	**type**\: str
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                
+                	**config**\: False
                 
                 .. attribute:: hello_transmit_count
                 
@@ -1340,12 +1511,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: hello_receive_count
                 
                 	Number of Hellos received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: echo_transmit_count
                 
@@ -1354,6 +1529,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: echo_receive_count
                 
                 	Number of echo packets received
@@ -1361,10 +1538,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: display_type
                 
                 	Packet Display Type
                 	**type**\:  :py:class:`BfdMgmtPktDisplay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplay>`
+                
+                	**config**\: False
                 
                 
 
@@ -1406,6 +1587,9 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv6SingleHopCounters.Ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter, ['interface_name', 'location', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
 
 
+
+
+
     class Counters(Entity):
         """
         IPv4 Counters
@@ -1414,6 +1598,8 @@ class Bfd(Entity):
         
         	Table of IPv4 Packet counters
         	**type**\:  :py:class:`PacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Counters.PacketCounters>`
+        
+        	**config**\: False
         
         
 
@@ -1453,6 +1639,8 @@ class Bfd(Entity):
             	Interface IPv4 Packet counters
             	**type**\: list of  		 :py:class:`PacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Counters.PacketCounters.PacketCounter>`
             
+            	**config**\: False
+            
             
 
             """
@@ -1491,12 +1679,16 @@ class Bfd(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: location
                 
                 	Location
                 	**type**\: str
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                
+                	**config**\: False
                 
                 .. attribute:: hello_transmit_count
                 
@@ -1505,12 +1697,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: hello_receive_count
                 
                 	Number of Hellos received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: echo_transmit_count
                 
@@ -1519,6 +1715,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: echo_receive_count
                 
                 	Number of echo packets received
@@ -1526,10 +1724,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: display_type
                 
                 	Packet Display Type
                 	**type**\:  :py:class:`BfdMgmtPktDisplay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplay>`
+                
+                	**config**\: False
                 
                 
 
@@ -1571,6 +1773,9 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Counters.PacketCounters.PacketCounter, ['interface_name', 'location', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
 
 
+
+
+
     class ClientDetails(Entity):
         """
         Table of detailed information about BFD clients
@@ -1579,6 +1784,8 @@ class Bfd(Entity):
         
         	Detailed information of client
         	**type**\: list of  		 :py:class:`ClientDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.ClientDetails.ClientDetail>`
+        
+        	**config**\: False
         
         
 
@@ -1618,15 +1825,21 @@ class Bfd(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: brief
             
             	Brief client information
             	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.ClientDetails.ClientDetail.Brief>`
             
+            	**config**\: False
+            
             .. attribute:: flags
             
             	The BFD Client Flags
             	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.ClientDetails.ClientDetail.Flags>`
+            
+            	**config**\: False
             
             .. attribute:: recreate_time
             
@@ -1634,6 +1847,8 @@ class Bfd(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -1686,6 +1901,8 @@ class Bfd(Entity):
                 
                 	**length:** 0..257
                 
+                	**config**\: False
+                
                 .. attribute:: node_id
                 
                 	Location where client resides
@@ -1693,12 +1910,16 @@ class Bfd(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: session_count
                 
                 	Number of sessions created by this client
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1731,6 +1952,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.ClientDetails.ClientDetail.Brief, [u'name_xr', u'node_id', u'session_count'], name, value)
 
 
+
             class Flags(Entity):
                 """
                 The BFD Client Flags
@@ -1742,12 +1964,16 @@ class Bfd(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: is_recreate_state
                 
                 	Client is in Recreate State
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**config**\: False
                 
                 
 
@@ -1778,6 +2004,9 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.ClientDetails.ClientDetail.Flags, [u'is_zombie_state', u'is_recreate_state'], name, value)
 
 
+
+
+
     class Ipv4SingleHopSummary(Entity):
         """
         Summary information of BFD IPv4 singlehop
@@ -1787,6 +2016,8 @@ class Bfd(Entity):
         
         	Statistics of states for sessions
         	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSummary.SessionState>`
+        
+        	**config**\: False
         
         
 
@@ -1828,12 +2059,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: down_count
             
             	Number of sessions in down state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: up_count
             
@@ -1842,12 +2077,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: unknown_count
             
             	Number of sessions in unknown state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1883,6 +2122,8 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4SingleHopSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
 
 
+
+
     class Ipv6SingleHopSummary(Entity):
         """
         Summary information of BFD IPv6 singlehop
@@ -1892,6 +2133,8 @@ class Bfd(Entity):
         
         	Statistics of states for sessions
         	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSummary.SessionState>`
+        
+        	**config**\: False
         
         
 
@@ -1933,12 +2176,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: down_count
             
             	Number of sessions in down state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: up_count
             
@@ -1947,12 +2194,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: unknown_count
             
             	Number of sessions in unknown state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1988,6 +2239,8 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv6SingleHopSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
 
 
+
+
     class LabelMultiPaths(Entity):
         """
         Label multipath
@@ -1996,6 +2249,8 @@ class Bfd(Entity):
         
         	Label multipath table
         	**type**\: list of  		 :py:class:`LabelMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelMultiPaths.LabelMultiPath>`
+        
+        	**config**\: False
         
         
 
@@ -2035,12 +2290,16 @@ class Bfd(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: incoming_label
             
             	Incoming Label
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: location
             
@@ -2049,15 +2308,21 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: session_subtype
             
             	Session subtype
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	State
             	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+            
+            	**config**\: False
             
             .. attribute:: local_discriminator
             
@@ -2066,12 +2331,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: node_id
             
             	Location where session is housed
             	**type**\: str
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            
+            	**config**\: False
             
             .. attribute:: incoming_label_xr
             
@@ -2080,12 +2349,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: session_interface_name
             
             	Interface name
             	**type**\: str
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+            
+            	**config**\: False
             
             
 
@@ -2131,6 +2404,8 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.LabelMultiPaths.LabelMultiPath, ['interface_name', 'incoming_label', 'location', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
 
 
+
+
     class Ipv4MultiHopSessionDetails(Entity):
         """
         Table of detailed information about all IPv4
@@ -2140,6 +2415,8 @@ class Bfd(Entity):
         
         	Detailed information for a single IPv4 multihop BFD session
         	**type**\: list of  		 :py:class:`Ipv4MultiHopSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail>`
+        
+        	**config**\: False
         
         
 
@@ -2186,6 +2463,8 @@ class Bfd(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: destination_address
             
             	Destination Address
@@ -2199,12 +2478,16 @@ class Bfd(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	Location
             	**type**\: str
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            
+            	**config**\: False
             
             .. attribute:: vrf_name
             
@@ -2213,30 +2496,42 @@ class Bfd(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: status_information
             
             	Session status information
             	**type**\:  :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation>`
+            
+            	**config**\: False
             
             .. attribute:: mp_download_state
             
             	MP Dowload State
             	**type**\:  :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState>`
             
+            	**config**\: False
+            
             .. attribute:: lsp_ping_info
             
             	LSP Ping Info
             	**type**\:  :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo>`
+            
+            	**config**\: False
             
             .. attribute:: owner_information
             
             	Client applications owning the session
             	**type**\: list of  		 :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.OwnerInformation>`
             
+            	**config**\: False
+            
             .. attribute:: association_information
             
             	Association session information
             	**type**\: list of  		 :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation>`
+            
+            	**config**\: False
             
             
 
@@ -2296,60 +2591,84 @@ class Bfd(Entity):
                 	Source address
                 	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.SourceAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: last_state_change
                 
                 	Time since last state change
                 	**type**\:  :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.LastStateChange>`
+                
+                	**config**\: False
                 
                 .. attribute:: transmit_packet
                 
                 	Transmit Packet
                 	**type**\:  :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.TransmitPacket>`
                 
+                	**config**\: False
+                
                 .. attribute:: receive_packet
                 
                 	Receive Packet
                 	**type**\:  :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.ReceivePacket>`
+                
+                	**config**\: False
                 
                 .. attribute:: status_brief_information
                 
                 	Brief Status Information
                 	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: async_transmit_statistics
                 
                 	Statistics of Interval between Async Packets Transmitted (in milli\-seconds)
                 	**type**\:  :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: async_receive_statistics
                 
                 	Statistics of Interval between Async Packets Received (in milli\-seconds)
                 	**type**\:  :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: echo_transmit_statistics
                 
                 	Statistics of Interval between Echo Packets Transmitted (in milli\-seconds)
                 	**type**\:  :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: echo_received_statistics
                 
                 	Statistics of Interval between Echo Packets Received (in milli\-seconds)
                 	**type**\:  :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: sessiontype
                 
                 	Session type
                 	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
+                
+                	**config**\: False
                 
                 .. attribute:: session_subtype
                 
                 	Session subtype
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	State
                 	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_discriminator
                 
@@ -2358,12 +2677,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: remote_discriminator
                 
                 	Session's Remote discriminator
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: to_up_state_count
                 
@@ -2372,12 +2695,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: desired_minimum_echo_transmit_interval
                 
                 	Desired minimum echo transmit interval in milli\-seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -2388,6 +2715,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: latency_number
@@ -2397,12 +2726,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: latency_minimum
                 
                 	Minimum value of Latency (in micro\-seconds)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: microsecond
                 
@@ -2413,6 +2746,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: microsecond
                 
                 .. attribute:: latency_average
@@ -2421,6 +2756,8 @@ class Bfd(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: microsecond
                 
@@ -2431,12 +2768,16 @@ class Bfd(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: internal_label
                 
                 	Internal Label
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -2537,12 +2878,16 @@ class Bfd(Entity):
                     	AFI
                     	**type**\:  :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: dummy
                     
                     	No Address
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4
                     
@@ -2551,12 +2896,16 @@ class Bfd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -2592,6 +2941,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class LastStateChange(Entity):
                     """
                     Time since last state change
@@ -2603,6 +2953,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: day
                     
                     .. attribute:: hours
@@ -2611,6 +2963,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     	**units**\: hour
                     
@@ -2621,6 +2975,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     	**units**\: minute
                     
                     .. attribute:: seconds
@@ -2629,6 +2985,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -2666,6 +3024,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
 
 
+
                 class TransmitPacket(Entity):
                     """
                     Transmit Packet
@@ -2677,10 +3036,14 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: diagnostic
                     
                     	Diagnostic
                     	**type**\:  :py:class:`BfdMgmtSessionDiag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiag>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ihear_you
                     
@@ -2689,10 +3052,14 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	State (v1)
                     	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: demand
                     
@@ -2701,12 +3068,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: poll
                     
                     	Poll bit
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: final
                     
@@ -2715,12 +3086,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: control_plane_independent
                     
                     	BFD implementation does not share fate with its control plane
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: authentication_present
                     
@@ -2729,12 +3104,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: length
                     
@@ -2743,12 +3122,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: my_discriminator
                     
                     	My Discriminator
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: your_discriminator
                     
@@ -2757,12 +3140,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: desired_minimum_transmit_interval
                     
                     	Desired minimum transmit interval in micro\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -2773,6 +3160,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: required_minimum_echo_receive_interval
@@ -2781,6 +3170,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -2842,6 +3233,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
 
 
+
                 class ReceivePacket(Entity):
                     """
                     Receive Packet
@@ -2853,10 +3245,14 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: diagnostic
                     
                     	Diagnostic
                     	**type**\:  :py:class:`BfdMgmtSessionDiag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiag>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ihear_you
                     
@@ -2865,10 +3261,14 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	State (v1)
                     	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: demand
                     
@@ -2877,12 +3277,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: poll
                     
                     	Poll bit
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: final
                     
@@ -2891,12 +3295,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: control_plane_independent
                     
                     	BFD implementation does not share fate with its control plane
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: authentication_present
                     
@@ -2905,12 +3313,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: length
                     
@@ -2919,12 +3331,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: my_discriminator
                     
                     	My Discriminator
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: your_discriminator
                     
@@ -2933,12 +3349,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: desired_minimum_transmit_interval
                     
                     	Desired minimum transmit interval in micro\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -2949,6 +3369,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: required_minimum_echo_receive_interval
@@ -2957,6 +3379,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -3018,6 +3442,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
 
 
+
                 class StatusBriefInformation(Entity):
                     """
                     Brief Status Information
@@ -3027,10 +3452,14 @@ class Bfd(Entity):
                     	Async Interval and Detect Multiplier Information
                     	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: echo_interval_multiplier
                     
                     	Echo Interval and Detect Multiplier Information
                     	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3076,6 +3505,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: negotiated_local_transmit_interval
@@ -3084,6 +3515,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: microsecond
                         
@@ -3094,6 +3527,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_multiplier
@@ -3102,6 +3537,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3137,6 +3574,7 @@ class Bfd(Entity):
                             self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
                     class EchoIntervalMultiplier(Entity):
                         """
                         Echo Interval and Detect Multiplier Information
@@ -3148,6 +3586,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_time
@@ -3157,6 +3597,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_multiplier
@@ -3165,6 +3607,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3198,6 +3642,8 @@ class Bfd(Entity):
                             self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
+
                 class AsyncTransmitStatistics(Entity):
                     """
                     Statistics of Interval between Async Packets
@@ -3210,12 +3656,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -3226,6 +3676,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -3235,6 +3687,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -3243,6 +3697,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -3282,6 +3738,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class AsyncReceiveStatistics(Entity):
                     """
                     Statistics of Interval between Async Packets
@@ -3294,12 +3751,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -3310,6 +3771,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -3319,6 +3782,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -3327,6 +3792,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -3366,6 +3833,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class EchoTransmitStatistics(Entity):
                     """
                     Statistics of Interval between Echo Packets
@@ -3378,12 +3846,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -3394,6 +3866,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -3403,6 +3877,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -3411,6 +3887,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -3450,6 +3928,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class EchoReceivedStatistics(Entity):
                     """
                     Statistics of Interval between Echo Packets
@@ -3462,12 +3941,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -3478,6 +3961,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -3487,6 +3972,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -3495,6 +3982,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -3534,6 +4023,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
+
             class MpDownloadState(Entity):
                 """
                 MP Dowload State
@@ -3543,10 +4034,14 @@ class Bfd(Entity):
                 	Change time
                 	**type**\:  :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState.ChangeTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: mp_download_state
                 
                 	MP Download State
                 	**type**\:  :py:class:`BfdMpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadState>`
+                
+                	**config**\: False
                 
                 
 
@@ -3591,6 +4086,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -3599,6 +4096,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -3632,6 +4131,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
+
             class LspPingInfo(Entity):
                 """
                 LSP Ping Info
@@ -3641,15 +4142,21 @@ class Bfd(Entity):
                 	LSP Ping last sent time
                 	**type**\:  :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_error_time
                 
                 	LSP Ping last error time
                 	**type**\:  :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_time
                 
                 	LSP Ping last received time
                 	**type**\:  :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime>`
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_tx_count
                 
@@ -3658,6 +4165,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_error_count
                 
                 	LSP Ping Tx error count
@@ -3665,15 +4174,21 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_rc
                 
                 	LSP Ping Tx last result
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_error_rc
                 
                 	LSP Ping Tx last error
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_rx_last_discr
                 
@@ -3682,12 +4197,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_count
                 
                 	LSP Ping numer of times received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_rx_last_code
                 
@@ -3696,6 +4215,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_subcode
                 
                 	LSP Ping Rx Last Subcode
@@ -3703,10 +4224,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_output
                 
                 	LSP Ping Rx Last Output
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -3775,6 +4300,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -3783,6 +4310,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -3816,6 +4345,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class LspPingTxLastErrorTime(Entity):
                     """
                     LSP Ping last error time
@@ -3827,6 +4357,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -3835,6 +4367,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -3868,6 +4402,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class LspPingRxLastTime(Entity):
                     """
                     LSP Ping last received time
@@ -3879,6 +4414,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -3887,6 +4424,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -3920,6 +4459,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
+
             class OwnerInformation(Entity):
                 """
                 Client applications owning the session
@@ -3931,6 +4472,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: microsecond
                 
                 .. attribute:: detection_multiplier
@@ -3940,12 +4483,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: adjusted_interval
                 
                 	Adjusted minimum transmit interval in milli\-seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -3956,12 +4503,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: name
                 
                 	Client process name
                 	**type**\: str
                 
                 	**length:** 0..257
+                
+                	**config**\: False
                 
                 
 
@@ -3999,6 +4550,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
 
 
+
             class AssociationInformation(Entity):
                 """
                 Association session information
@@ -4008,6 +4560,8 @@ class Bfd(Entity):
                 	IPv4/v6 dest address
                 	**type**\:  :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.IpDestinationAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_name
                 
                 	Session Interface Name
@@ -4015,10 +4569,14 @@ class Bfd(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: sessiontype
                 
                 	Session type
                 	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_discriminator
                 
@@ -4027,10 +4585,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: owner_information
                 
                 	Client applications owning the session
                 	**type**\: list of  		 :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.OwnerInformation>`
+                
+                	**config**\: False
                 
                 
 
@@ -4079,12 +4641,16 @@ class Bfd(Entity):
                     	AFI
                     	**type**\:  :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: dummy
                     
                     	No Address
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4
                     
@@ -4093,12 +4659,16 @@ class Bfd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -4134,6 +4704,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class OwnerInformation(Entity):
                     """
                     Client applications owning the session
@@ -4145,6 +4716,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -4154,12 +4727,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: adjusted_interval
                     
                     	Adjusted minimum transmit interval in milli\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -4170,12 +4747,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	Client process name
                     	**type**\: str
                     
                     	**length:** 0..257
+                    
+                    	**config**\: False
                     
                     
 
@@ -4213,6 +4794,10 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
 
 
+
+
+
+
     class Ipv4SingleHopSessionDetails(Entity):
         """
         Table of detailed information about all IPv4
@@ -4222,6 +4807,8 @@ class Bfd(Entity):
         
         	Detailed information for a single IPv4 singlehop BFD session
         	**type**\: list of  		 :py:class:`Ipv4SingleHopSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail>`
+        
+        	**config**\: False
         
         
 
@@ -4262,12 +4849,16 @@ class Bfd(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: destination_address
             
             	Destination Address
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: location
             
@@ -4276,30 +4867,42 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: status_information
             
             	Session status information
             	**type**\:  :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation>`
+            
+            	**config**\: False
             
             .. attribute:: mp_download_state
             
             	MP Dowload State
             	**type**\:  :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState>`
             
+            	**config**\: False
+            
             .. attribute:: lsp_ping_info
             
             	LSP Ping Info
             	**type**\:  :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo>`
+            
+            	**config**\: False
             
             .. attribute:: owner_information
             
             	Client applications owning the session
             	**type**\: list of  		 :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.OwnerInformation>`
             
+            	**config**\: False
+            
             .. attribute:: association_information
             
             	Association session information
             	**type**\: list of  		 :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation>`
+            
+            	**config**\: False
             
             
 
@@ -4357,60 +4960,84 @@ class Bfd(Entity):
                 	Source address
                 	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.SourceAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: last_state_change
                 
                 	Time since last state change
                 	**type**\:  :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.LastStateChange>`
+                
+                	**config**\: False
                 
                 .. attribute:: transmit_packet
                 
                 	Transmit Packet
                 	**type**\:  :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.TransmitPacket>`
                 
+                	**config**\: False
+                
                 .. attribute:: receive_packet
                 
                 	Receive Packet
                 	**type**\:  :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.ReceivePacket>`
+                
+                	**config**\: False
                 
                 .. attribute:: status_brief_information
                 
                 	Brief Status Information
                 	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: async_transmit_statistics
                 
                 	Statistics of Interval between Async Packets Transmitted (in milli\-seconds)
                 	**type**\:  :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: async_receive_statistics
                 
                 	Statistics of Interval between Async Packets Received (in milli\-seconds)
                 	**type**\:  :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: echo_transmit_statistics
                 
                 	Statistics of Interval between Echo Packets Transmitted (in milli\-seconds)
                 	**type**\:  :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: echo_received_statistics
                 
                 	Statistics of Interval between Echo Packets Received (in milli\-seconds)
                 	**type**\:  :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: sessiontype
                 
                 	Session type
                 	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
+                
+                	**config**\: False
                 
                 .. attribute:: session_subtype
                 
                 	Session subtype
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	State
                 	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_discriminator
                 
@@ -4419,12 +5046,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: remote_discriminator
                 
                 	Session's Remote discriminator
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: to_up_state_count
                 
@@ -4433,12 +5064,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: desired_minimum_echo_transmit_interval
                 
                 	Desired minimum echo transmit interval in milli\-seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -4449,6 +5084,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: latency_number
@@ -4458,12 +5095,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: latency_minimum
                 
                 	Minimum value of Latency (in micro\-seconds)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: microsecond
                 
@@ -4474,6 +5115,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: microsecond
                 
                 .. attribute:: latency_average
@@ -4482,6 +5125,8 @@ class Bfd(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: microsecond
                 
@@ -4492,12 +5137,16 @@ class Bfd(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: internal_label
                 
                 	Internal Label
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -4598,12 +5247,16 @@ class Bfd(Entity):
                     	AFI
                     	**type**\:  :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: dummy
                     
                     	No Address
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4
                     
@@ -4612,12 +5265,16 @@ class Bfd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -4653,6 +5310,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class LastStateChange(Entity):
                     """
                     Time since last state change
@@ -4664,6 +5322,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: day
                     
                     .. attribute:: hours
@@ -4672,6 +5332,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     	**units**\: hour
                     
@@ -4682,6 +5344,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     	**units**\: minute
                     
                     .. attribute:: seconds
@@ -4690,6 +5354,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -4727,6 +5393,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
 
 
+
                 class TransmitPacket(Entity):
                     """
                     Transmit Packet
@@ -4738,10 +5405,14 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: diagnostic
                     
                     	Diagnostic
                     	**type**\:  :py:class:`BfdMgmtSessionDiag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiag>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ihear_you
                     
@@ -4750,10 +5421,14 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	State (v1)
                     	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: demand
                     
@@ -4762,12 +5437,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: poll
                     
                     	Poll bit
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: final
                     
@@ -4776,12 +5455,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: control_plane_independent
                     
                     	BFD implementation does not share fate with its control plane
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: authentication_present
                     
@@ -4790,12 +5473,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: length
                     
@@ -4804,12 +5491,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: my_discriminator
                     
                     	My Discriminator
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: your_discriminator
                     
@@ -4818,12 +5509,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: desired_minimum_transmit_interval
                     
                     	Desired minimum transmit interval in micro\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -4834,6 +5529,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: required_minimum_echo_receive_interval
@@ -4842,6 +5539,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -4903,6 +5602,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
 
 
+
                 class ReceivePacket(Entity):
                     """
                     Receive Packet
@@ -4914,10 +5614,14 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: diagnostic
                     
                     	Diagnostic
                     	**type**\:  :py:class:`BfdMgmtSessionDiag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiag>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ihear_you
                     
@@ -4926,10 +5630,14 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	State (v1)
                     	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: demand
                     
@@ -4938,12 +5646,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: poll
                     
                     	Poll bit
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: final
                     
@@ -4952,12 +5664,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: control_plane_independent
                     
                     	BFD implementation does not share fate with its control plane
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: authentication_present
                     
@@ -4966,12 +5682,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: length
                     
@@ -4980,12 +5700,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: my_discriminator
                     
                     	My Discriminator
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: your_discriminator
                     
@@ -4994,12 +5718,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: desired_minimum_transmit_interval
                     
                     	Desired minimum transmit interval in micro\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -5010,6 +5738,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: required_minimum_echo_receive_interval
@@ -5018,6 +5748,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -5079,6 +5811,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
 
 
+
                 class StatusBriefInformation(Entity):
                     """
                     Brief Status Information
@@ -5088,10 +5821,14 @@ class Bfd(Entity):
                     	Async Interval and Detect Multiplier Information
                     	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: echo_interval_multiplier
                     
                     	Echo Interval and Detect Multiplier Information
                     	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5137,6 +5874,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: negotiated_local_transmit_interval
@@ -5145,6 +5884,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: microsecond
                         
@@ -5155,6 +5896,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_multiplier
@@ -5163,6 +5906,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5198,6 +5943,7 @@ class Bfd(Entity):
                             self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
                     class EchoIntervalMultiplier(Entity):
                         """
                         Echo Interval and Detect Multiplier Information
@@ -5209,6 +5955,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_time
@@ -5218,6 +5966,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_multiplier
@@ -5226,6 +5976,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5259,6 +6011,8 @@ class Bfd(Entity):
                             self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
+
                 class AsyncTransmitStatistics(Entity):
                     """
                     Statistics of Interval between Async Packets
@@ -5271,12 +6025,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -5287,6 +6045,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -5296,6 +6056,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -5304,6 +6066,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -5343,6 +6107,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class AsyncReceiveStatistics(Entity):
                     """
                     Statistics of Interval between Async Packets
@@ -5355,12 +6120,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -5371,6 +6140,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -5380,6 +6151,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -5388,6 +6161,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -5427,6 +6202,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class EchoTransmitStatistics(Entity):
                     """
                     Statistics of Interval between Echo Packets
@@ -5439,12 +6215,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -5455,6 +6235,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -5464,6 +6246,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -5472,6 +6256,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -5511,6 +6297,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class EchoReceivedStatistics(Entity):
                     """
                     Statistics of Interval between Echo Packets
@@ -5523,12 +6310,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -5539,6 +6330,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -5548,6 +6341,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -5556,6 +6351,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -5595,6 +6392,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
+
             class MpDownloadState(Entity):
                 """
                 MP Dowload State
@@ -5604,10 +6403,14 @@ class Bfd(Entity):
                 	Change time
                 	**type**\:  :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState.ChangeTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: mp_download_state
                 
                 	MP Download State
                 	**type**\:  :py:class:`BfdMpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadState>`
+                
+                	**config**\: False
                 
                 
 
@@ -5652,6 +6455,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -5660,6 +6465,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -5693,6 +6500,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
+
             class LspPingInfo(Entity):
                 """
                 LSP Ping Info
@@ -5702,15 +6511,21 @@ class Bfd(Entity):
                 	LSP Ping last sent time
                 	**type**\:  :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_error_time
                 
                 	LSP Ping last error time
                 	**type**\:  :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_time
                 
                 	LSP Ping last received time
                 	**type**\:  :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime>`
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_tx_count
                 
@@ -5719,6 +6534,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_error_count
                 
                 	LSP Ping Tx error count
@@ -5726,15 +6543,21 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_rc
                 
                 	LSP Ping Tx last result
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_error_rc
                 
                 	LSP Ping Tx last error
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_rx_last_discr
                 
@@ -5743,12 +6566,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_count
                 
                 	LSP Ping numer of times received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_rx_last_code
                 
@@ -5757,6 +6584,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_subcode
                 
                 	LSP Ping Rx Last Subcode
@@ -5764,10 +6593,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_output
                 
                 	LSP Ping Rx Last Output
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -5836,6 +6669,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -5844,6 +6679,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -5877,6 +6714,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class LspPingTxLastErrorTime(Entity):
                     """
                     LSP Ping last error time
@@ -5888,6 +6726,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -5896,6 +6736,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -5929,6 +6771,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class LspPingRxLastTime(Entity):
                     """
                     LSP Ping last received time
@@ -5940,6 +6783,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -5948,6 +6793,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -5981,6 +6828,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
+
             class OwnerInformation(Entity):
                 """
                 Client applications owning the session
@@ -5992,6 +6841,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: microsecond
                 
                 .. attribute:: detection_multiplier
@@ -6001,12 +6852,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: adjusted_interval
                 
                 	Adjusted minimum transmit interval in milli\-seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -6017,12 +6872,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: name
                 
                 	Client process name
                 	**type**\: str
                 
                 	**length:** 0..257
+                
+                	**config**\: False
                 
                 
 
@@ -6060,6 +6919,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
 
 
+
             class AssociationInformation(Entity):
                 """
                 Association session information
@@ -6069,6 +6929,8 @@ class Bfd(Entity):
                 	IPv4/v6 dest address
                 	**type**\:  :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.IpDestinationAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_name
                 
                 	Session Interface Name
@@ -6076,10 +6938,14 @@ class Bfd(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: sessiontype
                 
                 	Session type
                 	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_discriminator
                 
@@ -6088,10 +6954,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: owner_information
                 
                 	Client applications owning the session
                 	**type**\: list of  		 :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.OwnerInformation>`
+                
+                	**config**\: False
                 
                 
 
@@ -6140,12 +7010,16 @@ class Bfd(Entity):
                     	AFI
                     	**type**\:  :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: dummy
                     
                     	No Address
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4
                     
@@ -6154,12 +7028,16 @@ class Bfd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -6195,6 +7073,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class OwnerInformation(Entity):
                     """
                     Client applications owning the session
@@ -6206,6 +7085,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -6215,12 +7096,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: adjusted_interval
                     
                     	Adjusted minimum transmit interval in milli\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -6231,12 +7116,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	Client process name
                     	**type**\: str
                     
                     	**length:** 0..257
+                    
+                    	**config**\: False
                     
                     
 
@@ -6274,6 +7163,10 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
 
 
+
+
+
+
     class Ipv4MultiHopSessionBriefs(Entity):
         """
         Table of brief information about all IPv4
@@ -6283,6 +7176,8 @@ class Bfd(Entity):
         
         	Brief information for a single IPv4 multihop BFD session
         	**type**\: list of  		 :py:class:`Ipv4MultiHopSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief>`
+        
+        	**config**\: False
         
         
 
@@ -6323,12 +7218,16 @@ class Bfd(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: destination_address
             
             	Destination Address
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: location
             
@@ -6337,6 +7236,8 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: vrf_name
             
             	VRF name
@@ -6344,10 +7245,14 @@ class Bfd(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: status_brief_information
             
             	Brief Status Information
             	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation>`
+            
+            	**config**\: False
             
             .. attribute:: node_id
             
@@ -6356,20 +7261,28 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	State
             	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+            
+            	**config**\: False
             
             .. attribute:: session_type
             
             	Session type
             	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
             
+            	**config**\: False
+            
             .. attribute:: session_subtype
             
             	Session subtype
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: session_flags
             
@@ -6377,6 +7290,8 @@ class Bfd(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -6435,10 +7350,14 @@ class Bfd(Entity):
                 	Async Interval and Detect Multiplier Information
                 	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
                 
+                	**config**\: False
+                
                 .. attribute:: echo_interval_multiplier
                 
                 	Echo Interval and Detect Multiplier Information
                 	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
+                
+                	**config**\: False
                 
                 
 
@@ -6484,6 +7403,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: negotiated_local_transmit_interval
@@ -6492,6 +7413,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -6502,6 +7425,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -6510,6 +7435,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -6545,6 +7472,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
                 class EchoIntervalMultiplier(Entity):
                     """
                     Echo Interval and Detect Multiplier Information
@@ -6556,6 +7484,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_time
@@ -6565,6 +7495,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -6573,6 +7505,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -6606,6 +7540,10 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
+
+
+
     class GenericSummaries(Entity):
         """
         Generic summary information about BFD location
@@ -6614,6 +7552,8 @@ class Bfd(Entity):
         
         	Generic summary information for bfd location table
         	**type**\: list of  		 :py:class:`GenericSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.GenericSummaries.GenericSummary>`
+        
+        	**config**\: False
         
         
 
@@ -6654,12 +7594,16 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: node_id
             
             	Node ID
             	**type**\: str
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            
+            	**config**\: False
             
             .. attribute:: pps_allocated_value
             
@@ -6668,12 +7612,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ppsmp_allocated_value
             
             	Allocated MP PPS value
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: pps_max_value
             
@@ -6682,12 +7630,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ppsmp_max_value
             
             	Max MP PPS value
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: total_session_number
             
@@ -6696,12 +7648,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mp_session_number
             
             	MP Session Number
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: max_session_number
             
@@ -6710,12 +7666,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: pps_all_percentage
             
             	All PPS percentage
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: percentage
             
@@ -6725,6 +7685,8 @@ class Bfd(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: percentage
             
@@ -6776,6 +7738,8 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.GenericSummaries.GenericSummary, ['location', u'node_id', u'pps_allocated_value', u'ppsmp_allocated_value', u'pps_max_value', u'ppsmp_max_value', u'total_session_number', u'mp_session_number', u'max_session_number', u'pps_all_percentage', u'ppsmp_percentage'], name, value)
 
 
+
+
     class Ipv6SingleHopMultiPaths(Entity):
         """
         IPv6 single hop multipath
@@ -6784,6 +7748,8 @@ class Bfd(Entity):
         
         	IPv6 single hop multipath table
         	**type**\: list of  		 :py:class:`Ipv6SingleHopMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath>`
+        
+        	**config**\: False
         
         
 
@@ -6823,6 +7789,8 @@ class Bfd(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: destination_address
             
             	Destination address
@@ -6836,6 +7804,8 @@ class Bfd(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	Location
@@ -6843,15 +7813,21 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: session_subtype
             
             	Session subtype
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	State
             	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+            
+            	**config**\: False
             
             .. attribute:: local_discriminator
             
@@ -6860,12 +7836,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: node_id
             
             	Location where session is housed
             	**type**\: str
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            
+            	**config**\: False
             
             .. attribute:: incoming_label_xr
             
@@ -6874,12 +7854,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: session_interface_name
             
             	Interface name
             	**type**\: str
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+            
+            	**config**\: False
             
             
 
@@ -6925,6 +7909,8 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath, ['interface_name', 'destination_address', 'location', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
 
 
+
+
     class Ipv4SingleHopNodeLocationSummaries(Entity):
         """
         Table of summary information about BFD IPv4
@@ -6934,6 +7920,8 @@ class Bfd(Entity):
         
         	Summary information for BFD IPv4 singlehop sessions for location
         	**type**\: list of  		 :py:class:`Ipv4SingleHopNodeLocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary>`
+        
+        	**config**\: False
         
         
 
@@ -6974,10 +7962,14 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: session_state
             
             	Statistics of states for sessions
             	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary.SessionState>`
+            
+            	**config**\: False
             
             
 
@@ -7022,12 +8014,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: up_count
                 
                 	Number of sessions in up state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: down_count
                 
@@ -7036,12 +8032,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: unknown_count
                 
                 	Number of sessions in unknown state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: retry_count
                 
@@ -7050,12 +8050,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: standby_count
                 
                 	Number of sessions in standby state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -7094,6 +8098,9 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
 
 
+
+
+
     class LabelSummary(Entity):
         """
         Summary information of Label BFD
@@ -7102,6 +8109,8 @@ class Bfd(Entity):
         
         	Statistics of states for sessions
         	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSummary.SessionState>`
+        
+        	**config**\: False
         
         
 
@@ -7143,12 +8152,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: down_count
             
             	Number of sessions in down state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: up_count
             
@@ -7157,12 +8170,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: unknown_count
             
             	Number of sessions in unknown state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -7198,6 +8215,8 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.LabelSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
 
 
+
+
     class Ipv4bfDoMplsteHeadSessionBriefs(Entity):
         """
         Table of brief information about all IPv4 BFD
@@ -7207,6 +8226,8 @@ class Bfd(Entity):
         
         	Brief information for a single IPv4 BFD over MPLS\-TE Head session
         	**type**\: list of  		 :py:class:`Ipv4bfDoMplsteHeadSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief>`
+        
+        	**config**\: False
         
         
 
@@ -7247,12 +8268,16 @@ class Bfd(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: vrf_name
             
             	VRF name
             	**type**\: str
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            
+            	**config**\: False
             
             .. attribute:: incoming_label
             
@@ -7261,12 +8286,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: fe_ctype
             
             	FEC Type
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: fec_subgroup_id
             
@@ -7275,12 +8304,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: feclspid
             
             	FEC LSP ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: fec_tunnel_id
             
@@ -7289,12 +8322,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: fec_extended_tunnel_id
             
             	FEC Extended Tunnel ID
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: fec_source
             
@@ -7303,12 +8340,16 @@ class Bfd(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: fec_destination
             
             	FEC Destination
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: fecp2mpid
             
@@ -7317,12 +8358,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: fec_subgroup_originator
             
             	FEC Subgroup originator
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: fec_ctype
             
@@ -7331,6 +8376,8 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	Location
@@ -7338,10 +8385,14 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: status_brief_information
             
             	Brief Status Information
             	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation>`
+            
+            	**config**\: False
             
             .. attribute:: node_id
             
@@ -7350,20 +8401,28 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	State
             	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+            
+            	**config**\: False
             
             .. attribute:: session_type
             
             	Session type
             	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
             
+            	**config**\: False
+            
             .. attribute:: session_subtype
             
             	Session subtype
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: session_flags
             
@@ -7371,6 +8430,8 @@ class Bfd(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -7449,10 +8510,14 @@ class Bfd(Entity):
                 	Async Interval and Detect Multiplier Information
                 	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
                 
+                	**config**\: False
+                
                 .. attribute:: echo_interval_multiplier
                 
                 	Echo Interval and Detect Multiplier Information
                 	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
+                
+                	**config**\: False
                 
                 
 
@@ -7498,6 +8563,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: negotiated_local_transmit_interval
@@ -7506,6 +8573,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -7516,6 +8585,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -7524,6 +8595,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -7559,6 +8632,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
                 class EchoIntervalMultiplier(Entity):
                     """
                     Echo Interval and Detect Multiplier Information
@@ -7570,6 +8644,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_time
@@ -7579,6 +8655,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -7587,6 +8665,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -7620,6 +8700,10 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
+
+
+
     class Ipv4bfDoMplsteTailSessionDetails(Entity):
         """
         Table of detailed information about all IPv4 BFD
@@ -7629,6 +8713,8 @@ class Bfd(Entity):
         
         	Detailed information for a single IPv4 BFD over MPLS\-TE Tail session
         	**type**\: list of  		 :py:class:`Ipv4bfDoMplsteTailSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail>`
+        
+        	**config**\: False
         
         
 
@@ -7669,12 +8755,16 @@ class Bfd(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: incoming_label
             
             	Incoming Label
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: fe_ctype
             
@@ -7683,12 +8773,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: fec_subgroup_id
             
             	FEC Subgroup ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: feclspid
             
@@ -7697,12 +8791,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: fec_tunnel_id
             
             	FEC Tunnel ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: fec_extended_tunnel_id
             
@@ -7711,12 +8809,16 @@ class Bfd(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: fec_source
             
             	FEC Source
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: fec_destination
             
@@ -7725,12 +8827,16 @@ class Bfd(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: fecp2mpid
             
             	FEC P2MP ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: fec_subgroup_originator
             
@@ -7739,12 +8845,16 @@ class Bfd(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: fec_ctype
             
             	FEC C Type
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: location
             
@@ -7753,30 +8863,42 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: status_information
             
             	Session status information
             	**type**\:  :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation>`
+            
+            	**config**\: False
             
             .. attribute:: mp_download_state
             
             	MP Dowload State
             	**type**\:  :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.MpDownloadState>`
             
+            	**config**\: False
+            
             .. attribute:: lsp_ping_info
             
             	LSP Ping Info
             	**type**\:  :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo>`
+            
+            	**config**\: False
             
             .. attribute:: owner_information
             
             	Client applications owning the session
             	**type**\: list of  		 :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.OwnerInformation>`
             
+            	**config**\: False
+            
             .. attribute:: association_information
             
             	Association session information
             	**type**\: list of  		 :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation>`
+            
+            	**config**\: False
             
             
 
@@ -7854,60 +8976,84 @@ class Bfd(Entity):
                 	Source address
                 	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.SourceAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: last_state_change
                 
                 	Time since last state change
                 	**type**\:  :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.LastStateChange>`
+                
+                	**config**\: False
                 
                 .. attribute:: transmit_packet
                 
                 	Transmit Packet
                 	**type**\:  :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.TransmitPacket>`
                 
+                	**config**\: False
+                
                 .. attribute:: receive_packet
                 
                 	Receive Packet
                 	**type**\:  :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.ReceivePacket>`
+                
+                	**config**\: False
                 
                 .. attribute:: status_brief_information
                 
                 	Brief Status Information
                 	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: async_transmit_statistics
                 
                 	Statistics of Interval between Async Packets Transmitted (in milli\-seconds)
                 	**type**\:  :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.AsyncTransmitStatistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: async_receive_statistics
                 
                 	Statistics of Interval between Async Packets Received (in milli\-seconds)
                 	**type**\:  :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.AsyncReceiveStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: echo_transmit_statistics
                 
                 	Statistics of Interval between Echo Packets Transmitted (in milli\-seconds)
                 	**type**\:  :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.EchoTransmitStatistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: echo_received_statistics
                 
                 	Statistics of Interval between Echo Packets Received (in milli\-seconds)
                 	**type**\:  :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.EchoReceivedStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: sessiontype
                 
                 	Session type
                 	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
+                
+                	**config**\: False
                 
                 .. attribute:: session_subtype
                 
                 	Session subtype
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	State
                 	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_discriminator
                 
@@ -7916,12 +9062,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: remote_discriminator
                 
                 	Session's Remote discriminator
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: to_up_state_count
                 
@@ -7930,12 +9080,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: desired_minimum_echo_transmit_interval
                 
                 	Desired minimum echo transmit interval in milli\-seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -7946,6 +9100,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: latency_number
@@ -7955,12 +9111,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: latency_minimum
                 
                 	Minimum value of Latency (in micro\-seconds)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: microsecond
                 
@@ -7971,6 +9131,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: microsecond
                 
                 .. attribute:: latency_average
@@ -7979,6 +9141,8 @@ class Bfd(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: microsecond
                 
@@ -7989,12 +9153,16 @@ class Bfd(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: internal_label
                 
                 	Internal Label
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -8095,12 +9263,16 @@ class Bfd(Entity):
                     	AFI
                     	**type**\:  :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: dummy
                     
                     	No Address
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4
                     
@@ -8109,12 +9281,16 @@ class Bfd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -8150,6 +9326,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class LastStateChange(Entity):
                     """
                     Time since last state change
@@ -8161,6 +9338,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: day
                     
                     .. attribute:: hours
@@ -8169,6 +9348,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     	**units**\: hour
                     
@@ -8179,6 +9360,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     	**units**\: minute
                     
                     .. attribute:: seconds
@@ -8187,6 +9370,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -8224,6 +9409,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
 
 
+
                 class TransmitPacket(Entity):
                     """
                     Transmit Packet
@@ -8235,10 +9421,14 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: diagnostic
                     
                     	Diagnostic
                     	**type**\:  :py:class:`BfdMgmtSessionDiag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiag>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ihear_you
                     
@@ -8247,10 +9437,14 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	State (v1)
                     	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: demand
                     
@@ -8259,12 +9453,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: poll
                     
                     	Poll bit
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: final
                     
@@ -8273,12 +9471,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: control_plane_independent
                     
                     	BFD implementation does not share fate with its control plane
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: authentication_present
                     
@@ -8287,12 +9489,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: length
                     
@@ -8301,12 +9507,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: my_discriminator
                     
                     	My Discriminator
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: your_discriminator
                     
@@ -8315,12 +9525,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: desired_minimum_transmit_interval
                     
                     	Desired minimum transmit interval in micro\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -8331,6 +9545,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: required_minimum_echo_receive_interval
@@ -8339,6 +9555,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -8400,6 +9618,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
 
 
+
                 class ReceivePacket(Entity):
                     """
                     Receive Packet
@@ -8411,10 +9630,14 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: diagnostic
                     
                     	Diagnostic
                     	**type**\:  :py:class:`BfdMgmtSessionDiag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiag>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ihear_you
                     
@@ -8423,10 +9646,14 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	State (v1)
                     	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: demand
                     
@@ -8435,12 +9662,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: poll
                     
                     	Poll bit
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: final
                     
@@ -8449,12 +9680,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: control_plane_independent
                     
                     	BFD implementation does not share fate with its control plane
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: authentication_present
                     
@@ -8463,12 +9698,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: length
                     
@@ -8477,12 +9716,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: my_discriminator
                     
                     	My Discriminator
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: your_discriminator
                     
@@ -8491,12 +9734,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: desired_minimum_transmit_interval
                     
                     	Desired minimum transmit interval in micro\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -8507,6 +9754,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: required_minimum_echo_receive_interval
@@ -8515,6 +9764,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -8576,6 +9827,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
 
 
+
                 class StatusBriefInformation(Entity):
                     """
                     Brief Status Information
@@ -8585,10 +9837,14 @@ class Bfd(Entity):
                     	Async Interval and Detect Multiplier Information
                     	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: echo_interval_multiplier
                     
                     	Echo Interval and Detect Multiplier Information
                     	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -8634,6 +9890,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: negotiated_local_transmit_interval
@@ -8642,6 +9900,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: microsecond
                         
@@ -8652,6 +9912,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_multiplier
@@ -8660,6 +9922,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8695,6 +9959,7 @@ class Bfd(Entity):
                             self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
                     class EchoIntervalMultiplier(Entity):
                         """
                         Echo Interval and Detect Multiplier Information
@@ -8706,6 +9971,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_time
@@ -8715,6 +9982,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_multiplier
@@ -8723,6 +9992,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8756,6 +10027,8 @@ class Bfd(Entity):
                             self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
+
                 class AsyncTransmitStatistics(Entity):
                     """
                     Statistics of Interval between Async Packets
@@ -8768,12 +10041,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -8784,6 +10061,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -8793,6 +10072,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -8801,6 +10082,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -8840,6 +10123,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class AsyncReceiveStatistics(Entity):
                     """
                     Statistics of Interval between Async Packets
@@ -8852,12 +10136,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -8868,6 +10156,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -8877,6 +10167,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -8885,6 +10177,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -8924,6 +10218,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class EchoTransmitStatistics(Entity):
                     """
                     Statistics of Interval between Echo Packets
@@ -8936,12 +10231,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -8952,6 +10251,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -8961,6 +10262,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -8969,6 +10272,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -9008,6 +10313,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class EchoReceivedStatistics(Entity):
                     """
                     Statistics of Interval between Echo Packets
@@ -9020,12 +10326,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -9036,6 +10346,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -9045,6 +10357,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -9053,6 +10367,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -9092,6 +10408,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
+
             class MpDownloadState(Entity):
                 """
                 MP Dowload State
@@ -9101,10 +10419,14 @@ class Bfd(Entity):
                 	Change time
                 	**type**\:  :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.MpDownloadState.ChangeTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: mp_download_state
                 
                 	MP Download State
                 	**type**\:  :py:class:`BfdMpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadState>`
+                
+                	**config**\: False
                 
                 
 
@@ -9149,6 +10471,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -9157,6 +10481,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -9190,6 +10516,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
+
             class LspPingInfo(Entity):
                 """
                 LSP Ping Info
@@ -9199,15 +10527,21 @@ class Bfd(Entity):
                 	LSP Ping last sent time
                 	**type**\:  :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_error_time
                 
                 	LSP Ping last error time
                 	**type**\:  :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_time
                 
                 	LSP Ping last received time
                 	**type**\:  :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingRxLastTime>`
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_tx_count
                 
@@ -9216,6 +10550,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_error_count
                 
                 	LSP Ping Tx error count
@@ -9223,15 +10559,21 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_rc
                 
                 	LSP Ping Tx last result
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_error_rc
                 
                 	LSP Ping Tx last error
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_rx_last_discr
                 
@@ -9240,12 +10582,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_count
                 
                 	LSP Ping numer of times received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_rx_last_code
                 
@@ -9254,6 +10600,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_subcode
                 
                 	LSP Ping Rx Last Subcode
@@ -9261,10 +10609,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_output
                 
                 	LSP Ping Rx Last Output
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -9333,6 +10685,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -9341,6 +10695,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -9374,6 +10730,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class LspPingTxLastErrorTime(Entity):
                     """
                     LSP Ping last error time
@@ -9385,6 +10742,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -9393,6 +10752,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -9426,6 +10787,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class LspPingRxLastTime(Entity):
                     """
                     LSP Ping last received time
@@ -9437,6 +10799,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -9445,6 +10809,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -9478,6 +10844,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
+
             class OwnerInformation(Entity):
                 """
                 Client applications owning the session
@@ -9489,6 +10857,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: microsecond
                 
                 .. attribute:: detection_multiplier
@@ -9498,12 +10868,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: adjusted_interval
                 
                 	Adjusted minimum transmit interval in milli\-seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -9514,12 +10888,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: name
                 
                 	Client process name
                 	**type**\: str
                 
                 	**length:** 0..257
+                
+                	**config**\: False
                 
                 
 
@@ -9557,6 +10935,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
 
 
+
             class AssociationInformation(Entity):
                 """
                 Association session information
@@ -9566,6 +10945,8 @@ class Bfd(Entity):
                 	IPv4/v6 dest address
                 	**type**\:  :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation.IpDestinationAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_name
                 
                 	Session Interface Name
@@ -9573,10 +10954,14 @@ class Bfd(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: sessiontype
                 
                 	Session type
                 	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_discriminator
                 
@@ -9585,10 +10970,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: owner_information
                 
                 	Client applications owning the session
                 	**type**\: list of  		 :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation.OwnerInformation>`
+                
+                	**config**\: False
                 
                 
 
@@ -9637,12 +11026,16 @@ class Bfd(Entity):
                     	AFI
                     	**type**\:  :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: dummy
                     
                     	No Address
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4
                     
@@ -9651,12 +11044,16 @@ class Bfd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -9692,6 +11089,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class OwnerInformation(Entity):
                     """
                     Client applications owning the session
@@ -9703,6 +11101,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -9712,12 +11112,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: adjusted_interval
                     
                     	Adjusted minimum transmit interval in milli\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -9728,12 +11132,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	Client process name
                     	**type**\: str
                     
                     	**length:** 0..257
+                    
+                    	**config**\: False
                     
                     
 
@@ -9771,6 +11179,10 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
 
 
+
+
+
+
     class Ipv4MultiHopNodeLocationSummaries(Entity):
         """
         Table of summary information about BFD IPv4
@@ -9780,6 +11192,8 @@ class Bfd(Entity):
         
         	Summary information for BFD IPv4 multihop sessions for location
         	**type**\: list of  		 :py:class:`Ipv4MultiHopNodeLocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary>`
+        
+        	**config**\: False
         
         
 
@@ -9820,10 +11234,14 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: session_state
             
             	Statistics of states for sessions
             	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary.SessionState>`
+            
+            	**config**\: False
             
             
 
@@ -9868,12 +11286,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: up_count
                 
                 	Number of sessions in up state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: down_count
                 
@@ -9882,12 +11304,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: unknown_count
                 
                 	Number of sessions in unknown state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: retry_count
                 
@@ -9896,12 +11322,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: standby_count
                 
                 	Number of sessions in standby state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -9940,6 +11370,9 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
 
 
+
+
+
     class Ipv4bfDoMplsteTailSessionBriefs(Entity):
         """
         Table of brief information about all IPv4 BFD
@@ -9949,6 +11382,8 @@ class Bfd(Entity):
         
         	Brief information for a single IPv4 BFD over MPLS\-TE session
         	**type**\: list of  		 :py:class:`Ipv4bfDoMplsteTailSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief>`
+        
+        	**config**\: False
         
         
 
@@ -9989,12 +11424,16 @@ class Bfd(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: incoming_label
             
             	Incoming Label
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: fe_ctype
             
@@ -10003,12 +11442,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: fec_subgroup_id
             
             	FEC Subgroup ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: feclspid
             
@@ -10017,12 +11460,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: fec_tunnel_id
             
             	FEC Tunnel ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: fec_extended_tunnel_id
             
@@ -10031,12 +11478,16 @@ class Bfd(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: fec_source
             
             	FEC Source
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: fec_destination
             
@@ -10045,12 +11496,16 @@ class Bfd(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: fecp2mpid
             
             	FEC P2MP ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: fec_subgroup_originator
             
@@ -10059,12 +11514,16 @@ class Bfd(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: fec_ctype
             
             	FEC C Type
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: location
             
@@ -10073,10 +11532,14 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: status_brief_information
             
             	Brief Status Information
             	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation>`
+            
+            	**config**\: False
             
             .. attribute:: node_id
             
@@ -10085,20 +11548,28 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	State
             	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+            
+            	**config**\: False
             
             .. attribute:: session_type
             
             	Session type
             	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
             
+            	**config**\: False
+            
             .. attribute:: session_subtype
             
             	Session subtype
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: session_flags
             
@@ -10106,6 +11577,8 @@ class Bfd(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -10182,10 +11655,14 @@ class Bfd(Entity):
                 	Async Interval and Detect Multiplier Information
                 	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
                 
+                	**config**\: False
+                
                 .. attribute:: echo_interval_multiplier
                 
                 	Echo Interval and Detect Multiplier Information
                 	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
+                
+                	**config**\: False
                 
                 
 
@@ -10231,6 +11708,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: negotiated_local_transmit_interval
@@ -10239,6 +11718,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -10249,6 +11730,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -10257,6 +11740,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -10292,6 +11777,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
                 class EchoIntervalMultiplier(Entity):
                     """
                     Echo Interval and Detect Multiplier Information
@@ -10303,6 +11789,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_time
@@ -10312,6 +11800,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -10320,6 +11810,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -10353,6 +11845,10 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
+
+
+
     class Ipv6MultiHopNodeLocationSummaries(Entity):
         """
         Table of summary information about BFD IPv6
@@ -10362,6 +11858,8 @@ class Bfd(Entity):
         
         	Summary information for BFD IPv6 multihop sessions for location
         	**type**\: list of  		 :py:class:`Ipv6MultiHopNodeLocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary>`
+        
+        	**config**\: False
         
         
 
@@ -10402,10 +11900,14 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: session_state
             
             	Statistics of states for sessions
             	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary.SessionState>`
+            
+            	**config**\: False
             
             
 
@@ -10450,12 +11952,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: up_count
                 
                 	Number of sessions in up state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: down_count
                 
@@ -10464,12 +11970,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: unknown_count
                 
                 	Number of sessions in unknown state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: retry_count
                 
@@ -10478,12 +11988,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: standby_count
                 
                 	Number of sessions in standby state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -10522,6 +12036,9 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
 
 
+
+
+
     class Ipv4MultiHopSummary(Entity):
         """
         Summary information of BFD IPv4 multihop
@@ -10531,6 +12048,8 @@ class Bfd(Entity):
         
         	Statistics of states for sessions
         	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSummary.SessionState>`
+        
+        	**config**\: False
         
         
 
@@ -10572,12 +12091,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: down_count
             
             	Number of sessions in down state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: up_count
             
@@ -10586,12 +12109,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: unknown_count
             
             	Number of sessions in unknown state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -10627,6 +12154,8 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4MultiHopSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
 
 
+
+
     class Ipv4SingleHopCounters(Entity):
         """
         IPv4 single hop Counters
@@ -10635,6 +12164,8 @@ class Bfd(Entity):
         
         	Table of IPv4 single hop Packet counters
         	**type**\:  :py:class:`Ipv4SingleHopPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopCounters.Ipv4SingleHopPacketCounters>`
+        
+        	**config**\: False
         
         
 
@@ -10674,6 +12205,8 @@ class Bfd(Entity):
             	Interface IPv4 single hop Packet counters
             	**type**\: list of  		 :py:class:`Ipv4SingleHopPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopCounters.Ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter>`
             
+            	**config**\: False
+            
             
 
             """
@@ -10712,12 +12245,16 @@ class Bfd(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: location
                 
                 	Location
                 	**type**\: str
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                
+                	**config**\: False
                 
                 .. attribute:: hello_transmit_count
                 
@@ -10726,12 +12263,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: hello_receive_count
                 
                 	Number of Hellos received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: echo_transmit_count
                 
@@ -10740,6 +12281,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: echo_receive_count
                 
                 	Number of echo packets received
@@ -10747,10 +12290,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: display_type
                 
                 	Packet Display Type
                 	**type**\:  :py:class:`BfdMgmtPktDisplay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplay>`
+                
+                	**config**\: False
                 
                 
 
@@ -10792,6 +12339,9 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4SingleHopCounters.Ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter, ['interface_name', 'location', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
 
 
+
+
+
     class Ipv6MultiHopSessionDetails(Entity):
         """
         Table of detailed information about all IPv6
@@ -10801,6 +12351,8 @@ class Bfd(Entity):
         
         	Detailed information for a single IPv6 multihop BFD session
         	**type**\: list of  		 :py:class:`Ipv6MultiHopSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail>`
+        
+        	**config**\: False
         
         
 
@@ -10847,6 +12399,8 @@ class Bfd(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: destination_address
             
             	Destination Address
@@ -10860,12 +12414,16 @@ class Bfd(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	Location
             	**type**\: str
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            
+            	**config**\: False
             
             .. attribute:: vrf_name
             
@@ -10874,30 +12432,42 @@ class Bfd(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: status_information
             
             	Session status information
             	**type**\:  :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation>`
+            
+            	**config**\: False
             
             .. attribute:: mp_download_state
             
             	MP Dowload State
             	**type**\:  :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState>`
             
+            	**config**\: False
+            
             .. attribute:: lsp_ping_info
             
             	LSP Ping Info
             	**type**\:  :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo>`
+            
+            	**config**\: False
             
             .. attribute:: owner_information
             
             	Client applications owning the session
             	**type**\: list of  		 :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.OwnerInformation>`
             
+            	**config**\: False
+            
             .. attribute:: association_information
             
             	Association session information
             	**type**\: list of  		 :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation>`
+            
+            	**config**\: False
             
             
 
@@ -10957,60 +12527,84 @@ class Bfd(Entity):
                 	Source address
                 	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.SourceAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: last_state_change
                 
                 	Time since last state change
                 	**type**\:  :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.LastStateChange>`
+                
+                	**config**\: False
                 
                 .. attribute:: transmit_packet
                 
                 	Transmit Packet
                 	**type**\:  :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.TransmitPacket>`
                 
+                	**config**\: False
+                
                 .. attribute:: receive_packet
                 
                 	Receive Packet
                 	**type**\:  :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.ReceivePacket>`
+                
+                	**config**\: False
                 
                 .. attribute:: status_brief_information
                 
                 	Brief Status Information
                 	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: async_transmit_statistics
                 
                 	Statistics of Interval between Async Packets Transmitted (in milli\-seconds)
                 	**type**\:  :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: async_receive_statistics
                 
                 	Statistics of Interval between Async Packets Received (in milli\-seconds)
                 	**type**\:  :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: echo_transmit_statistics
                 
                 	Statistics of Interval between Echo Packets Transmitted (in milli\-seconds)
                 	**type**\:  :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: echo_received_statistics
                 
                 	Statistics of Interval between Echo Packets Received (in milli\-seconds)
                 	**type**\:  :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: sessiontype
                 
                 	Session type
                 	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
+                
+                	**config**\: False
                 
                 .. attribute:: session_subtype
                 
                 	Session subtype
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	State
                 	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_discriminator
                 
@@ -11019,12 +12613,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: remote_discriminator
                 
                 	Session's Remote discriminator
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: to_up_state_count
                 
@@ -11033,12 +12631,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: desired_minimum_echo_transmit_interval
                 
                 	Desired minimum echo transmit interval in milli\-seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -11049,6 +12651,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: latency_number
@@ -11058,12 +12662,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: latency_minimum
                 
                 	Minimum value of Latency (in micro\-seconds)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: microsecond
                 
@@ -11074,6 +12682,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: microsecond
                 
                 .. attribute:: latency_average
@@ -11082,6 +12692,8 @@ class Bfd(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: microsecond
                 
@@ -11092,12 +12704,16 @@ class Bfd(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: internal_label
                 
                 	Internal Label
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -11198,12 +12814,16 @@ class Bfd(Entity):
                     	AFI
                     	**type**\:  :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: dummy
                     
                     	No Address
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4
                     
@@ -11212,12 +12832,16 @@ class Bfd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -11253,6 +12877,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class LastStateChange(Entity):
                     """
                     Time since last state change
@@ -11264,6 +12889,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: day
                     
                     .. attribute:: hours
@@ -11272,6 +12899,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     	**units**\: hour
                     
@@ -11282,6 +12911,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     	**units**\: minute
                     
                     .. attribute:: seconds
@@ -11290,6 +12921,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -11327,6 +12960,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
 
 
+
                 class TransmitPacket(Entity):
                     """
                     Transmit Packet
@@ -11338,10 +12972,14 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: diagnostic
                     
                     	Diagnostic
                     	**type**\:  :py:class:`BfdMgmtSessionDiag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiag>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ihear_you
                     
@@ -11350,10 +12988,14 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	State (v1)
                     	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: demand
                     
@@ -11362,12 +13004,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: poll
                     
                     	Poll bit
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: final
                     
@@ -11376,12 +13022,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: control_plane_independent
                     
                     	BFD implementation does not share fate with its control plane
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: authentication_present
                     
@@ -11390,12 +13040,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: length
                     
@@ -11404,12 +13058,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: my_discriminator
                     
                     	My Discriminator
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: your_discriminator
                     
@@ -11418,12 +13076,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: desired_minimum_transmit_interval
                     
                     	Desired minimum transmit interval in micro\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -11434,6 +13096,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: required_minimum_echo_receive_interval
@@ -11442,6 +13106,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -11503,6 +13169,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
 
 
+
                 class ReceivePacket(Entity):
                     """
                     Receive Packet
@@ -11514,10 +13181,14 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: diagnostic
                     
                     	Diagnostic
                     	**type**\:  :py:class:`BfdMgmtSessionDiag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiag>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ihear_you
                     
@@ -11526,10 +13197,14 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	State (v1)
                     	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: demand
                     
@@ -11538,12 +13213,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: poll
                     
                     	Poll bit
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: final
                     
@@ -11552,12 +13231,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: control_plane_independent
                     
                     	BFD implementation does not share fate with its control plane
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: authentication_present
                     
@@ -11566,12 +13249,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: length
                     
@@ -11580,12 +13267,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: my_discriminator
                     
                     	My Discriminator
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: your_discriminator
                     
@@ -11594,12 +13285,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: desired_minimum_transmit_interval
                     
                     	Desired minimum transmit interval in micro\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -11610,6 +13305,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: required_minimum_echo_receive_interval
@@ -11618,6 +13315,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -11679,6 +13378,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
 
 
+
                 class StatusBriefInformation(Entity):
                     """
                     Brief Status Information
@@ -11688,10 +13388,14 @@ class Bfd(Entity):
                     	Async Interval and Detect Multiplier Information
                     	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: echo_interval_multiplier
                     
                     	Echo Interval and Detect Multiplier Information
                     	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -11737,6 +13441,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: negotiated_local_transmit_interval
@@ -11745,6 +13451,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: microsecond
                         
@@ -11755,6 +13463,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_multiplier
@@ -11763,6 +13473,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -11798,6 +13510,7 @@ class Bfd(Entity):
                             self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
                     class EchoIntervalMultiplier(Entity):
                         """
                         Echo Interval and Detect Multiplier Information
@@ -11809,6 +13522,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_time
@@ -11818,6 +13533,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_multiplier
@@ -11826,6 +13543,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -11859,6 +13578,8 @@ class Bfd(Entity):
                             self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
+
                 class AsyncTransmitStatistics(Entity):
                     """
                     Statistics of Interval between Async Packets
@@ -11871,12 +13592,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -11887,6 +13612,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -11896,6 +13623,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -11904,6 +13633,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -11943,6 +13674,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class AsyncReceiveStatistics(Entity):
                     """
                     Statistics of Interval between Async Packets
@@ -11955,12 +13687,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -11971,6 +13707,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -11980,6 +13718,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -11988,6 +13728,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -12027,6 +13769,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class EchoTransmitStatistics(Entity):
                     """
                     Statistics of Interval between Echo Packets
@@ -12039,12 +13782,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -12055,6 +13802,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -12064,6 +13813,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -12072,6 +13823,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -12111,6 +13864,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class EchoReceivedStatistics(Entity):
                     """
                     Statistics of Interval between Echo Packets
@@ -12123,12 +13877,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -12139,6 +13897,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -12148,6 +13908,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -12156,6 +13918,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -12195,6 +13959,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
+
             class MpDownloadState(Entity):
                 """
                 MP Dowload State
@@ -12204,10 +13970,14 @@ class Bfd(Entity):
                 	Change time
                 	**type**\:  :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState.ChangeTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: mp_download_state
                 
                 	MP Download State
                 	**type**\:  :py:class:`BfdMpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadState>`
+                
+                	**config**\: False
                 
                 
 
@@ -12252,6 +14022,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -12260,6 +14032,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -12293,6 +14067,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
+
             class LspPingInfo(Entity):
                 """
                 LSP Ping Info
@@ -12302,15 +14078,21 @@ class Bfd(Entity):
                 	LSP Ping last sent time
                 	**type**\:  :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_error_time
                 
                 	LSP Ping last error time
                 	**type**\:  :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_time
                 
                 	LSP Ping last received time
                 	**type**\:  :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime>`
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_tx_count
                 
@@ -12319,6 +14101,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_error_count
                 
                 	LSP Ping Tx error count
@@ -12326,15 +14110,21 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_rc
                 
                 	LSP Ping Tx last result
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_error_rc
                 
                 	LSP Ping Tx last error
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_rx_last_discr
                 
@@ -12343,12 +14133,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_count
                 
                 	LSP Ping numer of times received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_rx_last_code
                 
@@ -12357,6 +14151,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_subcode
                 
                 	LSP Ping Rx Last Subcode
@@ -12364,10 +14160,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_output
                 
                 	LSP Ping Rx Last Output
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -12436,6 +14236,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -12444,6 +14246,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -12477,6 +14281,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class LspPingTxLastErrorTime(Entity):
                     """
                     LSP Ping last error time
@@ -12488,6 +14293,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -12496,6 +14303,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -12529,6 +14338,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class LspPingRxLastTime(Entity):
                     """
                     LSP Ping last received time
@@ -12540,6 +14350,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -12548,6 +14360,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -12581,6 +14395,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
+
             class OwnerInformation(Entity):
                 """
                 Client applications owning the session
@@ -12592,6 +14408,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: microsecond
                 
                 .. attribute:: detection_multiplier
@@ -12601,12 +14419,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: adjusted_interval
                 
                 	Adjusted minimum transmit interval in milli\-seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -12617,12 +14439,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: name
                 
                 	Client process name
                 	**type**\: str
                 
                 	**length:** 0..257
+                
+                	**config**\: False
                 
                 
 
@@ -12660,6 +14486,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
 
 
+
             class AssociationInformation(Entity):
                 """
                 Association session information
@@ -12669,6 +14496,8 @@ class Bfd(Entity):
                 	IPv4/v6 dest address
                 	**type**\:  :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.IpDestinationAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_name
                 
                 	Session Interface Name
@@ -12676,10 +14505,14 @@ class Bfd(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: sessiontype
                 
                 	Session type
                 	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_discriminator
                 
@@ -12688,10 +14521,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: owner_information
                 
                 	Client applications owning the session
                 	**type**\: list of  		 :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.OwnerInformation>`
+                
+                	**config**\: False
                 
                 
 
@@ -12740,12 +14577,16 @@ class Bfd(Entity):
                     	AFI
                     	**type**\:  :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: dummy
                     
                     	No Address
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4
                     
@@ -12754,12 +14595,16 @@ class Bfd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -12795,6 +14640,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class OwnerInformation(Entity):
                     """
                     Client applications owning the session
@@ -12806,6 +14652,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -12815,12 +14663,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: adjusted_interval
                     
                     	Adjusted minimum transmit interval in milli\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -12831,12 +14683,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	Client process name
                     	**type**\: str
                     
                     	**length:** 0..257
+                    
+                    	**config**\: False
                     
                     
 
@@ -12874,6 +14730,10 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
 
 
+
+
+
+
     class Ipv6MultiHopMultiPaths(Entity):
         """
         IPv6 multi hop multipath
@@ -12882,6 +14742,8 @@ class Bfd(Entity):
         
         	IPv6 multihop multipath table
         	**type**\: list of  		 :py:class:`Ipv6MultiHopMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopMultiPaths.Ipv6MultiHopMultiPath>`
+        
+        	**config**\: False
         
         
 
@@ -12927,6 +14789,8 @@ class Bfd(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: destination_address
             
             	Destination address
@@ -12940,12 +14804,16 @@ class Bfd(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	Location
             	**type**\: str
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            
+            	**config**\: False
             
             .. attribute:: vrf_name
             
@@ -12954,15 +14822,21 @@ class Bfd(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: session_subtype
             
             	Session subtype
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	State
             	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+            
+            	**config**\: False
             
             .. attribute:: local_discriminator
             
@@ -12971,12 +14845,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: node_id
             
             	Location where session is housed
             	**type**\: str
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            
+            	**config**\: False
             
             .. attribute:: incoming_label_xr
             
@@ -12985,12 +14863,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: session_interface_name
             
             	Interface name
             	**type**\: str
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+            
+            	**config**\: False
             
             
 
@@ -13038,6 +14920,8 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv6MultiHopMultiPaths.Ipv6MultiHopMultiPath, ['source_address', 'destination_address', 'location', 'vrf_name', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
 
 
+
+
     class Ipv4bfDoMplsteHeadCounters(Entity):
         """
         IPv4 BFD over MPLS\-TE Counters
@@ -13046,6 +14930,8 @@ class Bfd(Entity):
         
         	Table of IPv4 BFD over MPLS\-TE Packet counters
         	**type**\:  :py:class:`Ipv4bfDoMplsteHeadPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadCounters.Ipv4bfDoMplsteHeadPacketCounters>`
+        
+        	**config**\: False
         
         
 
@@ -13084,6 +14970,8 @@ class Bfd(Entity):
             
             	Interface  IPv4 BFD over MPLS\-TE Packet counters
             	**type**\: list of  		 :py:class:`Ipv4bfDoMplsteHeadPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadCounters.Ipv4bfDoMplsteHeadPacketCounters.Ipv4bfDoMplsteHeadPacketCounter>`
+            
+            	**config**\: False
             
             
 
@@ -13124,12 +15012,16 @@ class Bfd(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: location
                 
                 	Location
                 	**type**\: str
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                
+                	**config**\: False
                 
                 .. attribute:: hello_transmit_count
                 
@@ -13138,12 +15030,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: hello_receive_count
                 
                 	Number of Hellos received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: echo_transmit_count
                 
@@ -13152,6 +15048,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: echo_receive_count
                 
                 	Number of echo packets received
@@ -13159,10 +15057,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: display_type
                 
                 	Packet Display Type
                 	**type**\:  :py:class:`BfdMgmtPktDisplay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplay>`
+                
+                	**config**\: False
                 
                 
 
@@ -13204,6 +15106,9 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadCounters.Ipv4bfDoMplsteHeadPacketCounters.Ipv4bfDoMplsteHeadPacketCounter, ['interface_name', 'location', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
 
 
+
+
+
     class SessionMibs(Entity):
         """
         BFD session MIB database
@@ -13212,6 +15117,8 @@ class Bfd(Entity):
         
         	Brief information for BFD session MIB
         	**type**\: list of  		 :py:class:`SessionMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionMibs.SessionMib>`
+        
+        	**config**\: False
         
         
 
@@ -13251,10 +15158,14 @@ class Bfd(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dest_address
             
             	Session Destination address
             	**type**\:  :py:class:`DestAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionMibs.SessionMib.DestAddress>`
+            
+            	**config**\: False
             
             .. attribute:: local_discriminator
             
@@ -13263,12 +15174,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: remote_discriminator
             
             	Sessions' Remote Discriminator
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sessionversion
             
@@ -13277,12 +15192,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: session_state
             
             	Session State
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: trap_bitmap
             
@@ -13291,12 +15210,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: pkt_in
             
             	Packet In Counter
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: pkt_out
             
@@ -13305,12 +15228,16 @@ class Bfd(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: last_up_time_sec
             
             	Last Session Up Time (seconds)
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -13321,6 +15248,8 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: nanosecond
             
             .. attribute:: last_down_time_sec
@@ -13329,6 +15258,8 @@ class Bfd(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -13339,6 +15270,8 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: nanosecond
             
             .. attribute:: last_io_evm_schd_time_sec
@@ -13347,6 +15280,8 @@ class Bfd(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -13357,6 +15292,8 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: nanosecond
             
             .. attribute:: last_io_evm_schd_comp_time_sec
@@ -13365,6 +15302,8 @@ class Bfd(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -13375,6 +15314,8 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: nanosecond
             
             .. attribute:: last_down_diag
@@ -13382,10 +15323,14 @@ class Bfd(Entity):
             	Last Session Down Diag
             	**type**\:  :py:class:`BfdMgmtSessionDiag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiag>`
             
+            	**config**\: False
+            
             .. attribute:: last_rx_down_diag
             
             	Last Rx Session Down Diag
             	**type**\:  :py:class:`BfdMgmtSessionDiag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiag>`
+            
+            	**config**\: False
             
             .. attribute:: up_counter
             
@@ -13394,12 +15339,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: last_time_cached
             
             	Last Time Session Info Queried
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: interface_name
             
@@ -13408,12 +15357,16 @@ class Bfd(Entity):
             
             	**length:** 0..64
             
+            	**config**\: False
+            
             .. attribute:: int_handle
             
             	Session Interface Handle
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: detection_multiplier
             
@@ -13422,12 +15375,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: desired_min_tx_interval
             
             	Desired Min TX Interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: required_min_rx_interval
             
@@ -13436,12 +15393,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: required_min_rx_echo_interval
             
             	Required Min RX Echo Interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -13534,12 +15495,16 @@ class Bfd(Entity):
                 	AFI
                 	**type**\:  :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfId>`
                 
+                	**config**\: False
+                
                 .. attribute:: dummy
                 
                 	No Address
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: ipv4
                 
@@ -13548,12 +15513,16 @@ class Bfd(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ipv6
                 
                 	IPv6 address type
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 
 
@@ -13588,6 +15557,9 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.SessionMibs.SessionMib.DestAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
 
 
+
+
+
     class Ipv6MultiHopSummary(Entity):
         """
         Summary information of BFD IPv6 multihop
@@ -13597,6 +15569,8 @@ class Bfd(Entity):
         
         	Statistics of states for sessions
         	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSummary.SessionState>`
+        
+        	**config**\: False
         
         
 
@@ -13638,12 +15612,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: down_count
             
             	Number of sessions in down state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: up_count
             
@@ -13652,12 +15630,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: unknown_count
             
             	Number of sessions in unknown state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -13693,6 +15675,8 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv6MultiHopSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
 
 
+
+
     class LabelSummaryNodes(Entity):
         """
         Table of summary about Label BFD sessions for
@@ -13702,6 +15686,8 @@ class Bfd(Entity):
         
         	Summary of Label BFD 
         	**type**\: list of  		 :py:class:`LabelSummaryNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSummaryNodes.LabelSummaryNode>`
+        
+        	**config**\: False
         
         
 
@@ -13741,10 +15727,14 @@ class Bfd(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: session_state
             
             	Statistics of states for sessions
             	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSummaryNodes.LabelSummaryNode.SessionState>`
+            
+            	**config**\: False
             
             
 
@@ -13789,12 +15779,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: up_count
                 
                 	Number of sessions in up state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: down_count
                 
@@ -13803,12 +15797,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: unknown_count
                 
                 	Number of sessions in unknown state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: retry_count
                 
@@ -13817,12 +15815,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: standby_count
                 
                 	Number of sessions in standby state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -13861,6 +15863,9 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.LabelSummaryNodes.LabelSummaryNode.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
 
 
+
+
+
     class Ipv6MultiHopSessionBriefs(Entity):
         """
         Table of brief information about all IPv6
@@ -13870,6 +15875,8 @@ class Bfd(Entity):
         
         	Brief information for a single IPv6 multihop BFD session
         	**type**\: list of  		 :py:class:`Ipv6MultiHopSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief>`
+        
+        	**config**\: False
         
         
 
@@ -13916,6 +15923,8 @@ class Bfd(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: destination_address
             
             	Destination Address
@@ -13929,12 +15938,16 @@ class Bfd(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	Location
             	**type**\: str
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            
+            	**config**\: False
             
             .. attribute:: vrf_name
             
@@ -13943,10 +15956,14 @@ class Bfd(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: status_brief_information
             
             	Brief Status Information
             	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation>`
+            
+            	**config**\: False
             
             .. attribute:: node_id
             
@@ -13955,20 +15972,28 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	State
             	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+            
+            	**config**\: False
             
             .. attribute:: session_type
             
             	Session type
             	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
             
+            	**config**\: False
+            
             .. attribute:: session_subtype
             
             	Session subtype
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: session_flags
             
@@ -13976,6 +16001,8 @@ class Bfd(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -14034,10 +16061,14 @@ class Bfd(Entity):
                 	Async Interval and Detect Multiplier Information
                 	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
                 
+                	**config**\: False
+                
                 .. attribute:: echo_interval_multiplier
                 
                 	Echo Interval and Detect Multiplier Information
                 	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
+                
+                	**config**\: False
                 
                 
 
@@ -14083,6 +16114,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: negotiated_local_transmit_interval
@@ -14091,6 +16124,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -14101,6 +16136,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -14109,6 +16146,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -14144,6 +16183,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
                 class EchoIntervalMultiplier(Entity):
                     """
                     Echo Interval and Detect Multiplier Information
@@ -14155,6 +16195,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_time
@@ -14164,6 +16206,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -14172,6 +16216,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -14205,6 +16251,10 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
+
+
+
     class SessionBriefs(Entity):
         """
         Table of brief information about singlehop IPv4
@@ -14214,6 +16264,8 @@ class Bfd(Entity):
         
         	Brief information for a single IPv4 singlehop BFD session
         	**type**\: list of  		 :py:class:`SessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionBriefs.SessionBrief>`
+        
+        	**config**\: False
         
         
 
@@ -14254,12 +16306,16 @@ class Bfd(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: destination_address
             
             	Destination Address
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: location
             
@@ -14268,10 +16324,14 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: status_brief_information
             
             	Brief Status Information
             	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionBriefs.SessionBrief.StatusBriefInformation>`
+            
+            	**config**\: False
             
             .. attribute:: node_id
             
@@ -14280,20 +16340,28 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	State
             	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+            
+            	**config**\: False
             
             .. attribute:: session_type
             
             	Session type
             	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
             
+            	**config**\: False
+            
             .. attribute:: session_subtype
             
             	Session subtype
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: session_flags
             
@@ -14301,6 +16369,8 @@ class Bfd(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -14357,10 +16427,14 @@ class Bfd(Entity):
                 	Async Interval and Detect Multiplier Information
                 	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
                 
+                	**config**\: False
+                
                 .. attribute:: echo_interval_multiplier
                 
                 	Echo Interval and Detect Multiplier Information
                 	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
+                
+                	**config**\: False
                 
                 
 
@@ -14406,6 +16480,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: negotiated_local_transmit_interval
@@ -14414,6 +16490,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -14424,6 +16502,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -14432,6 +16512,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -14467,6 +16549,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
                 class EchoIntervalMultiplier(Entity):
                     """
                     Echo Interval and Detect Multiplier Information
@@ -14478,6 +16561,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_time
@@ -14487,6 +16572,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -14495,6 +16582,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -14528,6 +16617,10 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
+
+
+
     class Ipv6SingleHopNodeLocationSummaries(Entity):
         """
         Table of summary information about BFD IPv6
@@ -14537,6 +16630,8 @@ class Bfd(Entity):
         
         	Summary information for BFD IPv6 singlehop sessions for location
         	**type**\: list of  		 :py:class:`Ipv6SingleHopNodeLocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary>`
+        
+        	**config**\: False
         
         
 
@@ -14577,10 +16672,14 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: session_state
             
             	Statistics of states for sessions
             	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary.SessionState>`
+            
+            	**config**\: False
             
             
 
@@ -14625,12 +16724,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: up_count
                 
                 	Number of sessions in up state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: down_count
                 
@@ -14639,12 +16742,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: unknown_count
                 
                 	Number of sessions in unknown state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: retry_count
                 
@@ -14653,12 +16760,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: standby_count
                 
                 	Number of sessions in standby state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -14697,6 +16808,9 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
 
 
+
+
+
     class Summary(Entity):
         """
         Summary information of BFD IPv4 singlehop
@@ -14706,6 +16820,8 @@ class Bfd(Entity):
         
         	Statistics of states for sessions
         	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Summary.SessionState>`
+        
+        	**config**\: False
         
         
 
@@ -14747,12 +16863,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: down_count
             
             	Number of sessions in down state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: up_count
             
@@ -14761,12 +16881,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: unknown_count
             
             	Number of sessions in unknown state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -14802,6 +16926,8 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Summary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
 
 
+
+
     class Ipv4bfdMplsteTailNodeSummaries(Entity):
         """
         Table of summary about IPv4 TE tail BFD sessions
@@ -14811,6 +16937,8 @@ class Bfd(Entity):
         
         	Summary of IPv4 BFD over MPLS\-TE tail
         	**type**\: list of  		 :py:class:`Ipv4bfdMplsteTailNodeSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfdMplsteTailNodeSummaries.Ipv4bfdMplsteTailNodeSummary>`
+        
+        	**config**\: False
         
         
 
@@ -14850,10 +16978,14 @@ class Bfd(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: session_state
             
             	Statistics of states for sessions
             	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfdMplsteTailNodeSummaries.Ipv4bfdMplsteTailNodeSummary.SessionState>`
+            
+            	**config**\: False
             
             
 
@@ -14898,12 +17030,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: up_count
                 
                 	Number of sessions in up state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: down_count
                 
@@ -14912,12 +17048,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: unknown_count
                 
                 	Number of sessions in unknown state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: retry_count
                 
@@ -14926,12 +17066,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: standby_count
                 
                 	Number of sessions in standby state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -14970,6 +17114,9 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4bfdMplsteTailNodeSummaries.Ipv4bfdMplsteTailNodeSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
 
 
+
+
+
     class Ipv4SingleHopLocationSummaries(Entity):
         """
         Table of summary information about IPv4
@@ -14979,6 +17126,8 @@ class Bfd(Entity):
         
         	Summary information for BFD IPv4 singlehop sessions for location
         	**type**\: list of  		 :py:class:`Ipv4SingleHopLocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary>`
+        
+        	**config**\: False
         
         
 
@@ -15019,10 +17168,14 @@ class Bfd(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: session_state
             
             	Statistics of states for sessions
             	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary.SessionState>`
+            
+            	**config**\: False
             
             
 
@@ -15067,12 +17220,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: up_count
                 
                 	Number of sessions in up state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: down_count
                 
@@ -15081,12 +17238,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: unknown_count
                 
                 	Number of sessions in unknown state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: retry_count
                 
@@ -15095,12 +17256,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: standby_count
                 
                 	Number of sessions in standby state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -15139,6 +17304,9 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
 
 
+
+
+
     class Ipv4bfdMplsteHeadSummaryNodes(Entity):
         """
         Table of summary about IPv4 TE head BFD sessions
@@ -15148,6 +17316,8 @@ class Bfd(Entity):
         
         	Summary of IPv4 BFD over MPLS\-TE head
         	**type**\: list of  		 :py:class:`Ipv4bfdMplsteHeadSummaryNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfdMplsteHeadSummaryNodes.Ipv4bfdMplsteHeadSummaryNode>`
+        
+        	**config**\: False
         
         
 
@@ -15187,10 +17357,14 @@ class Bfd(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: session_state
             
             	Statistics of states for sessions
             	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfdMplsteHeadSummaryNodes.Ipv4bfdMplsteHeadSummaryNode.SessionState>`
+            
+            	**config**\: False
             
             
 
@@ -15235,12 +17409,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: up_count
                 
                 	Number of sessions in up state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: down_count
                 
@@ -15249,12 +17427,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: unknown_count
                 
                 	Number of sessions in unknown state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: retry_count
                 
@@ -15263,12 +17445,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: standby_count
                 
                 	Number of sessions in standby state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -15307,6 +17493,9 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4bfdMplsteHeadSummaryNodes.Ipv4bfdMplsteHeadSummaryNode.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
 
 
+
+
+
     class LabelSessionDetails(Entity):
         """
         Table of detailed information about all Label
@@ -15316,6 +17505,8 @@ class Bfd(Entity):
         
         	Detailed information for a single BFD session
         	**type**\: list of  		 :py:class:`LabelSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail>`
+        
+        	**config**\: False
         
         
 
@@ -15355,12 +17546,16 @@ class Bfd(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: incoming_label
             
             	Incoming Label
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: location
             
@@ -15369,30 +17564,42 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: status_information
             
             	Session status information
             	**type**\:  :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation>`
+            
+            	**config**\: False
             
             .. attribute:: mp_download_state
             
             	MP Dowload State
             	**type**\:  :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState>`
             
+            	**config**\: False
+            
             .. attribute:: lsp_ping_info
             
             	LSP Ping Info
             	**type**\:  :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo>`
+            
+            	**config**\: False
             
             .. attribute:: owner_information
             
             	Client applications owning the session
             	**type**\: list of  		 :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.OwnerInformation>`
             
+            	**config**\: False
+            
             .. attribute:: association_information
             
             	Association session information
             	**type**\: list of  		 :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation>`
+            
+            	**config**\: False
             
             
 
@@ -15450,60 +17657,84 @@ class Bfd(Entity):
                 	Source address
                 	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.SourceAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: last_state_change
                 
                 	Time since last state change
                 	**type**\:  :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.LastStateChange>`
+                
+                	**config**\: False
                 
                 .. attribute:: transmit_packet
                 
                 	Transmit Packet
                 	**type**\:  :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.TransmitPacket>`
                 
+                	**config**\: False
+                
                 .. attribute:: receive_packet
                 
                 	Receive Packet
                 	**type**\:  :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.ReceivePacket>`
+                
+                	**config**\: False
                 
                 .. attribute:: status_brief_information
                 
                 	Brief Status Information
                 	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: async_transmit_statistics
                 
                 	Statistics of Interval between Async Packets Transmitted (in milli\-seconds)
                 	**type**\:  :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncTransmitStatistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: async_receive_statistics
                 
                 	Statistics of Interval between Async Packets Received (in milli\-seconds)
                 	**type**\:  :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncReceiveStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: echo_transmit_statistics
                 
                 	Statistics of Interval between Echo Packets Transmitted (in milli\-seconds)
                 	**type**\:  :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoTransmitStatistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: echo_received_statistics
                 
                 	Statistics of Interval between Echo Packets Received (in milli\-seconds)
                 	**type**\:  :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoReceivedStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: sessiontype
                 
                 	Session type
                 	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
+                
+                	**config**\: False
                 
                 .. attribute:: session_subtype
                 
                 	Session subtype
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	State
                 	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_discriminator
                 
@@ -15512,12 +17743,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: remote_discriminator
                 
                 	Session's Remote discriminator
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: to_up_state_count
                 
@@ -15526,12 +17761,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: desired_minimum_echo_transmit_interval
                 
                 	Desired minimum echo transmit interval in milli\-seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -15542,6 +17781,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: latency_number
@@ -15551,12 +17792,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: latency_minimum
                 
                 	Minimum value of Latency (in micro\-seconds)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: microsecond
                 
@@ -15567,6 +17812,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: microsecond
                 
                 .. attribute:: latency_average
@@ -15575,6 +17822,8 @@ class Bfd(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: microsecond
                 
@@ -15585,12 +17834,16 @@ class Bfd(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: internal_label
                 
                 	Internal Label
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -15691,12 +17944,16 @@ class Bfd(Entity):
                     	AFI
                     	**type**\:  :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: dummy
                     
                     	No Address
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4
                     
@@ -15705,12 +17962,16 @@ class Bfd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -15746,6 +18007,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class LastStateChange(Entity):
                     """
                     Time since last state change
@@ -15757,6 +18019,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: day
                     
                     .. attribute:: hours
@@ -15765,6 +18029,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     	**units**\: hour
                     
@@ -15775,6 +18041,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     	**units**\: minute
                     
                     .. attribute:: seconds
@@ -15783,6 +18051,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -15820,6 +18090,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
 
 
+
                 class TransmitPacket(Entity):
                     """
                     Transmit Packet
@@ -15831,10 +18102,14 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: diagnostic
                     
                     	Diagnostic
                     	**type**\:  :py:class:`BfdMgmtSessionDiag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiag>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ihear_you
                     
@@ -15843,10 +18118,14 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	State (v1)
                     	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: demand
                     
@@ -15855,12 +18134,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: poll
                     
                     	Poll bit
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: final
                     
@@ -15869,12 +18152,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: control_plane_independent
                     
                     	BFD implementation does not share fate with its control plane
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: authentication_present
                     
@@ -15883,12 +18170,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: length
                     
@@ -15897,12 +18188,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: my_discriminator
                     
                     	My Discriminator
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: your_discriminator
                     
@@ -15911,12 +18206,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: desired_minimum_transmit_interval
                     
                     	Desired minimum transmit interval in micro\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -15927,6 +18226,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: required_minimum_echo_receive_interval
@@ -15935,6 +18236,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -15996,6 +18299,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
 
 
+
                 class ReceivePacket(Entity):
                     """
                     Receive Packet
@@ -16007,10 +18311,14 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: diagnostic
                     
                     	Diagnostic
                     	**type**\:  :py:class:`BfdMgmtSessionDiag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiag>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ihear_you
                     
@@ -16019,10 +18327,14 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	State (v1)
                     	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: demand
                     
@@ -16031,12 +18343,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: poll
                     
                     	Poll bit
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: final
                     
@@ -16045,12 +18361,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: control_plane_independent
                     
                     	BFD implementation does not share fate with its control plane
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: authentication_present
                     
@@ -16059,12 +18379,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: length
                     
@@ -16073,12 +18397,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: my_discriminator
                     
                     	My Discriminator
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: your_discriminator
                     
@@ -16087,12 +18415,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: desired_minimum_transmit_interval
                     
                     	Desired minimum transmit interval in micro\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -16103,6 +18435,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: required_minimum_echo_receive_interval
@@ -16111,6 +18445,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -16172,6 +18508,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
 
 
+
                 class StatusBriefInformation(Entity):
                     """
                     Brief Status Information
@@ -16181,10 +18518,14 @@ class Bfd(Entity):
                     	Async Interval and Detect Multiplier Information
                     	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: echo_interval_multiplier
                     
                     	Echo Interval and Detect Multiplier Information
                     	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -16230,6 +18571,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: negotiated_local_transmit_interval
@@ -16238,6 +18581,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: microsecond
                         
@@ -16248,6 +18593,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_multiplier
@@ -16256,6 +18603,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -16291,6 +18640,7 @@ class Bfd(Entity):
                             self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
                     class EchoIntervalMultiplier(Entity):
                         """
                         Echo Interval and Detect Multiplier Information
@@ -16302,6 +18652,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_time
@@ -16311,6 +18663,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_multiplier
@@ -16319,6 +18673,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -16352,6 +18708,8 @@ class Bfd(Entity):
                             self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
+
                 class AsyncTransmitStatistics(Entity):
                     """
                     Statistics of Interval between Async Packets
@@ -16364,12 +18722,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -16380,6 +18742,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -16389,6 +18753,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -16397,6 +18763,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -16436,6 +18804,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class AsyncReceiveStatistics(Entity):
                     """
                     Statistics of Interval between Async Packets
@@ -16448,12 +18817,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -16464,6 +18837,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -16473,6 +18848,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -16481,6 +18858,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -16520,6 +18899,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class EchoTransmitStatistics(Entity):
                     """
                     Statistics of Interval between Echo Packets
@@ -16532,12 +18912,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -16548,6 +18932,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -16557,6 +18943,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -16565,6 +18953,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -16604,6 +18994,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class EchoReceivedStatistics(Entity):
                     """
                     Statistics of Interval between Echo Packets
@@ -16616,12 +19007,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -16632,6 +19027,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -16641,6 +19038,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -16649,6 +19048,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -16688,6 +19089,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
+
             class MpDownloadState(Entity):
                 """
                 MP Dowload State
@@ -16697,10 +19100,14 @@ class Bfd(Entity):
                 	Change time
                 	**type**\:  :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState.ChangeTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: mp_download_state
                 
                 	MP Download State
                 	**type**\:  :py:class:`BfdMpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadState>`
+                
+                	**config**\: False
                 
                 
 
@@ -16745,6 +19152,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -16753,6 +19162,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -16786,6 +19197,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
+
             class LspPingInfo(Entity):
                 """
                 LSP Ping Info
@@ -16795,15 +19208,21 @@ class Bfd(Entity):
                 	LSP Ping last sent time
                 	**type**\:  :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_error_time
                 
                 	LSP Ping last error time
                 	**type**\:  :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_time
                 
                 	LSP Ping last received time
                 	**type**\:  :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingRxLastTime>`
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_tx_count
                 
@@ -16812,6 +19231,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_error_count
                 
                 	LSP Ping Tx error count
@@ -16819,15 +19240,21 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_rc
                 
                 	LSP Ping Tx last result
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_error_rc
                 
                 	LSP Ping Tx last error
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_rx_last_discr
                 
@@ -16836,12 +19263,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_count
                 
                 	LSP Ping numer of times received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_rx_last_code
                 
@@ -16850,6 +19281,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_subcode
                 
                 	LSP Ping Rx Last Subcode
@@ -16857,10 +19290,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_output
                 
                 	LSP Ping Rx Last Output
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -16929,6 +19366,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -16937,6 +19376,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -16970,6 +19411,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class LspPingTxLastErrorTime(Entity):
                     """
                     LSP Ping last error time
@@ -16981,6 +19423,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -16989,6 +19433,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -17022,6 +19468,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class LspPingRxLastTime(Entity):
                     """
                     LSP Ping last received time
@@ -17033,6 +19480,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -17041,6 +19490,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -17074,6 +19525,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
+
             class OwnerInformation(Entity):
                 """
                 Client applications owning the session
@@ -17085,6 +19538,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: microsecond
                 
                 .. attribute:: detection_multiplier
@@ -17094,12 +19549,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: adjusted_interval
                 
                 	Adjusted minimum transmit interval in milli\-seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -17110,12 +19569,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: name
                 
                 	Client process name
                 	**type**\: str
                 
                 	**length:** 0..257
+                
+                	**config**\: False
                 
                 
 
@@ -17153,6 +19616,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
 
 
+
             class AssociationInformation(Entity):
                 """
                 Association session information
@@ -17162,6 +19626,8 @@ class Bfd(Entity):
                 	IPv4/v6 dest address
                 	**type**\:  :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.IpDestinationAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_name
                 
                 	Session Interface Name
@@ -17169,10 +19635,14 @@ class Bfd(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: sessiontype
                 
                 	Session type
                 	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_discriminator
                 
@@ -17181,10 +19651,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: owner_information
                 
                 	Client applications owning the session
                 	**type**\: list of  		 :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.OwnerInformation>`
+                
+                	**config**\: False
                 
                 
 
@@ -17233,12 +19707,16 @@ class Bfd(Entity):
                     	AFI
                     	**type**\:  :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: dummy
                     
                     	No Address
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4
                     
@@ -17247,12 +19725,16 @@ class Bfd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -17288,6 +19770,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class OwnerInformation(Entity):
                     """
                     Client applications owning the session
@@ -17299,6 +19782,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -17308,12 +19793,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: adjusted_interval
                     
                     	Adjusted minimum transmit interval in milli\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -17324,12 +19813,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	Client process name
                     	**type**\: str
                     
                     	**length:** 0..257
+                    
+                    	**config**\: False
                     
                     
 
@@ -17367,6 +19860,10 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
 
 
+
+
+
+
     class Ipv6SingleHopSessionDetails(Entity):
         """
         Table of detailed information about all IPv6
@@ -17376,6 +19873,8 @@ class Bfd(Entity):
         
         	Detailed information for a single IPv6 singlehop BFD session
         	**type**\: list of  		 :py:class:`Ipv6SingleHopSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail>`
+        
+        	**config**\: False
         
         
 
@@ -17416,6 +19915,8 @@ class Bfd(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: destination_address
             
             	Destination Address
@@ -17429,6 +19930,8 @@ class Bfd(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	Location
@@ -17436,30 +19939,42 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: status_information
             
             	Session status information
             	**type**\:  :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation>`
+            
+            	**config**\: False
             
             .. attribute:: mp_download_state
             
             	MP Dowload State
             	**type**\:  :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState>`
             
+            	**config**\: False
+            
             .. attribute:: lsp_ping_info
             
             	LSP Ping Info
             	**type**\:  :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo>`
+            
+            	**config**\: False
             
             .. attribute:: owner_information
             
             	Client applications owning the session
             	**type**\: list of  		 :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.OwnerInformation>`
             
+            	**config**\: False
+            
             .. attribute:: association_information
             
             	Association session information
             	**type**\: list of  		 :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation>`
+            
+            	**config**\: False
             
             
 
@@ -17517,60 +20032,84 @@ class Bfd(Entity):
                 	Source address
                 	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.SourceAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: last_state_change
                 
                 	Time since last state change
                 	**type**\:  :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.LastStateChange>`
+                
+                	**config**\: False
                 
                 .. attribute:: transmit_packet
                 
                 	Transmit Packet
                 	**type**\:  :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.TransmitPacket>`
                 
+                	**config**\: False
+                
                 .. attribute:: receive_packet
                 
                 	Receive Packet
                 	**type**\:  :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.ReceivePacket>`
+                
+                	**config**\: False
                 
                 .. attribute:: status_brief_information
                 
                 	Brief Status Information
                 	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: async_transmit_statistics
                 
                 	Statistics of Interval between Async Packets Transmitted (in milli\-seconds)
                 	**type**\:  :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: async_receive_statistics
                 
                 	Statistics of Interval between Async Packets Received (in milli\-seconds)
                 	**type**\:  :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: echo_transmit_statistics
                 
                 	Statistics of Interval between Echo Packets Transmitted (in milli\-seconds)
                 	**type**\:  :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: echo_received_statistics
                 
                 	Statistics of Interval between Echo Packets Received (in milli\-seconds)
                 	**type**\:  :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: sessiontype
                 
                 	Session type
                 	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
+                
+                	**config**\: False
                 
                 .. attribute:: session_subtype
                 
                 	Session subtype
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	State
                 	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_discriminator
                 
@@ -17579,12 +20118,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: remote_discriminator
                 
                 	Session's Remote discriminator
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: to_up_state_count
                 
@@ -17593,12 +20136,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: desired_minimum_echo_transmit_interval
                 
                 	Desired minimum echo transmit interval in milli\-seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -17609,6 +20156,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: latency_number
@@ -17618,12 +20167,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: latency_minimum
                 
                 	Minimum value of Latency (in micro\-seconds)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: microsecond
                 
@@ -17634,6 +20187,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: microsecond
                 
                 .. attribute:: latency_average
@@ -17642,6 +20197,8 @@ class Bfd(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: microsecond
                 
@@ -17652,12 +20209,16 @@ class Bfd(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: internal_label
                 
                 	Internal Label
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -17758,12 +20319,16 @@ class Bfd(Entity):
                     	AFI
                     	**type**\:  :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: dummy
                     
                     	No Address
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4
                     
@@ -17772,12 +20337,16 @@ class Bfd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -17813,6 +20382,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class LastStateChange(Entity):
                     """
                     Time since last state change
@@ -17824,6 +20394,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: day
                     
                     .. attribute:: hours
@@ -17832,6 +20404,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     	**units**\: hour
                     
@@ -17842,6 +20416,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     	**units**\: minute
                     
                     .. attribute:: seconds
@@ -17850,6 +20426,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -17887,6 +20465,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
 
 
+
                 class TransmitPacket(Entity):
                     """
                     Transmit Packet
@@ -17898,10 +20477,14 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: diagnostic
                     
                     	Diagnostic
                     	**type**\:  :py:class:`BfdMgmtSessionDiag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiag>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ihear_you
                     
@@ -17910,10 +20493,14 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	State (v1)
                     	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: demand
                     
@@ -17922,12 +20509,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: poll
                     
                     	Poll bit
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: final
                     
@@ -17936,12 +20527,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: control_plane_independent
                     
                     	BFD implementation does not share fate with its control plane
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: authentication_present
                     
@@ -17950,12 +20545,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: length
                     
@@ -17964,12 +20563,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: my_discriminator
                     
                     	My Discriminator
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: your_discriminator
                     
@@ -17978,12 +20581,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: desired_minimum_transmit_interval
                     
                     	Desired minimum transmit interval in micro\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -17994,6 +20601,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: required_minimum_echo_receive_interval
@@ -18002,6 +20611,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -18063,6 +20674,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
 
 
+
                 class ReceivePacket(Entity):
                     """
                     Receive Packet
@@ -18074,10 +20686,14 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: diagnostic
                     
                     	Diagnostic
                     	**type**\:  :py:class:`BfdMgmtSessionDiag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiag>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ihear_you
                     
@@ -18086,10 +20702,14 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	State (v1)
                     	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: demand
                     
@@ -18098,12 +20718,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: poll
                     
                     	Poll bit
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: final
                     
@@ -18112,12 +20736,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: control_plane_independent
                     
                     	BFD implementation does not share fate with its control plane
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: authentication_present
                     
@@ -18126,12 +20754,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: length
                     
@@ -18140,12 +20772,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: my_discriminator
                     
                     	My Discriminator
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: your_discriminator
                     
@@ -18154,12 +20790,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: desired_minimum_transmit_interval
                     
                     	Desired minimum transmit interval in micro\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -18170,6 +20810,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: required_minimum_echo_receive_interval
@@ -18178,6 +20820,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -18239,6 +20883,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
 
 
+
                 class StatusBriefInformation(Entity):
                     """
                     Brief Status Information
@@ -18248,10 +20893,14 @@ class Bfd(Entity):
                     	Async Interval and Detect Multiplier Information
                     	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: echo_interval_multiplier
                     
                     	Echo Interval and Detect Multiplier Information
                     	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -18297,6 +20946,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: negotiated_local_transmit_interval
@@ -18305,6 +20956,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: microsecond
                         
@@ -18315,6 +20968,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_multiplier
@@ -18323,6 +20978,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -18358,6 +21015,7 @@ class Bfd(Entity):
                             self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
                     class EchoIntervalMultiplier(Entity):
                         """
                         Echo Interval and Detect Multiplier Information
@@ -18369,6 +21027,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_time
@@ -18378,6 +21038,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_multiplier
@@ -18386,6 +21048,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -18419,6 +21083,8 @@ class Bfd(Entity):
                             self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
+
                 class AsyncTransmitStatistics(Entity):
                     """
                     Statistics of Interval between Async Packets
@@ -18431,12 +21097,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -18447,6 +21117,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -18456,6 +21128,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -18464,6 +21138,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -18503,6 +21179,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class AsyncReceiveStatistics(Entity):
                     """
                     Statistics of Interval between Async Packets
@@ -18515,12 +21192,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -18531,6 +21212,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -18540,6 +21223,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -18548,6 +21233,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -18587,6 +21274,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class EchoTransmitStatistics(Entity):
                     """
                     Statistics of Interval between Echo Packets
@@ -18599,12 +21287,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -18615,6 +21307,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -18624,6 +21318,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -18632,6 +21328,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -18671,6 +21369,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class EchoReceivedStatistics(Entity):
                     """
                     Statistics of Interval between Echo Packets
@@ -18683,12 +21382,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -18699,6 +21402,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -18708,6 +21413,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -18716,6 +21423,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -18755,6 +21464,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
+
             class MpDownloadState(Entity):
                 """
                 MP Dowload State
@@ -18764,10 +21475,14 @@ class Bfd(Entity):
                 	Change time
                 	**type**\:  :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState.ChangeTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: mp_download_state
                 
                 	MP Download State
                 	**type**\:  :py:class:`BfdMpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadState>`
+                
+                	**config**\: False
                 
                 
 
@@ -18812,6 +21527,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -18820,6 +21537,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -18853,6 +21572,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
+
             class LspPingInfo(Entity):
                 """
                 LSP Ping Info
@@ -18862,15 +21583,21 @@ class Bfd(Entity):
                 	LSP Ping last sent time
                 	**type**\:  :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_error_time
                 
                 	LSP Ping last error time
                 	**type**\:  :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_time
                 
                 	LSP Ping last received time
                 	**type**\:  :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime>`
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_tx_count
                 
@@ -18879,6 +21606,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_error_count
                 
                 	LSP Ping Tx error count
@@ -18886,15 +21615,21 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_rc
                 
                 	LSP Ping Tx last result
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_error_rc
                 
                 	LSP Ping Tx last error
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_rx_last_discr
                 
@@ -18903,12 +21638,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_count
                 
                 	LSP Ping numer of times received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_rx_last_code
                 
@@ -18917,6 +21656,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_subcode
                 
                 	LSP Ping Rx Last Subcode
@@ -18924,10 +21665,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_output
                 
                 	LSP Ping Rx Last Output
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -18996,6 +21741,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -19004,6 +21751,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -19037,6 +21786,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class LspPingTxLastErrorTime(Entity):
                     """
                     LSP Ping last error time
@@ -19048,6 +21798,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -19056,6 +21808,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -19089,6 +21843,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class LspPingRxLastTime(Entity):
                     """
                     LSP Ping last received time
@@ -19100,6 +21855,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -19108,6 +21865,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -19141,6 +21900,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
+
             class OwnerInformation(Entity):
                 """
                 Client applications owning the session
@@ -19152,6 +21913,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: microsecond
                 
                 .. attribute:: detection_multiplier
@@ -19161,12 +21924,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: adjusted_interval
                 
                 	Adjusted minimum transmit interval in milli\-seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -19177,12 +21944,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: name
                 
                 	Client process name
                 	**type**\: str
                 
                 	**length:** 0..257
+                
+                	**config**\: False
                 
                 
 
@@ -19220,6 +21991,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
 
 
+
             class AssociationInformation(Entity):
                 """
                 Association session information
@@ -19229,6 +22001,8 @@ class Bfd(Entity):
                 	IPv4/v6 dest address
                 	**type**\:  :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.IpDestinationAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_name
                 
                 	Session Interface Name
@@ -19236,10 +22010,14 @@ class Bfd(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: sessiontype
                 
                 	Session type
                 	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_discriminator
                 
@@ -19248,10 +22026,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: owner_information
                 
                 	Client applications owning the session
                 	**type**\: list of  		 :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.OwnerInformation>`
+                
+                	**config**\: False
                 
                 
 
@@ -19300,12 +22082,16 @@ class Bfd(Entity):
                     	AFI
                     	**type**\:  :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: dummy
                     
                     	No Address
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4
                     
@@ -19314,12 +22100,16 @@ class Bfd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -19355,6 +22145,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class OwnerInformation(Entity):
                     """
                     Client applications owning the session
@@ -19366,6 +22157,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -19375,12 +22168,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: adjusted_interval
                     
                     	Adjusted minimum transmit interval in milli\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -19391,12 +22188,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	Client process name
                     	**type**\: str
                     
                     	**length:** 0..257
+                    
+                    	**config**\: False
                     
                     
 
@@ -19434,6 +22235,10 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
 
 
+
+
+
+
     class Ipv4MultiHopCounters(Entity):
         """
         IPv4 multiple hop Counters
@@ -19442,6 +22247,8 @@ class Bfd(Entity):
         
         	Table of IPv4 multiple hop Packet counters
         	**type**\:  :py:class:`Ipv4MultiHopPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopCounters.Ipv4MultiHopPacketCounters>`
+        
+        	**config**\: False
         
         
 
@@ -19480,6 +22287,8 @@ class Bfd(Entity):
             
             	IPv4 multiple hop Packet counters
             	**type**\: list of  		 :py:class:`Ipv4MultiHopPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopCounters.Ipv4MultiHopPacketCounters.Ipv4MultiHopPacketCounter>`
+            
+            	**config**\: False
             
             
 
@@ -19525,6 +22334,8 @@ class Bfd(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: destination_address
                 
                 	Destination Address
@@ -19538,12 +22349,16 @@ class Bfd(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: location
                 
                 	Location
                 	**type**\: str
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                
+                	**config**\: False
                 
                 .. attribute:: vrf_name
                 
@@ -19552,12 +22367,16 @@ class Bfd(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: hello_transmit_count
                 
                 	Number of Hellos transmitted
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: hello_receive_count
                 
@@ -19566,12 +22385,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: echo_transmit_count
                 
                 	Number of echo packets transmitted
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: echo_receive_count
                 
@@ -19580,10 +22403,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: display_type
                 
                 	Packet Display Type
                 	**type**\:  :py:class:`BfdMgmtPktDisplay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplay>`
+                
+                	**config**\: False
                 
                 
 
@@ -19629,6 +22456,9 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4MultiHopCounters.Ipv4MultiHopPacketCounters.Ipv4MultiHopPacketCounter, ['source_address', 'destination_address', 'location', 'vrf_name', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
 
 
+
+
+
     class SessionDetails(Entity):
         """
         Table of detailed information about IPv4
@@ -19638,6 +22468,8 @@ class Bfd(Entity):
         
         	Detailed information for a single IPv4 singlehop BFD session
         	**type**\: list of  		 :py:class:`SessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail>`
+        
+        	**config**\: False
         
         
 
@@ -19678,12 +22510,16 @@ class Bfd(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: destination_address
             
             	Destination Address
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: location
             
@@ -19692,30 +22528,42 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: status_information
             
             	Session status information
             	**type**\:  :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation>`
+            
+            	**config**\: False
             
             .. attribute:: mp_download_state
             
             	MP Dowload State
             	**type**\:  :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.MpDownloadState>`
             
+            	**config**\: False
+            
             .. attribute:: lsp_ping_info
             
             	LSP Ping Info
             	**type**\:  :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.LspPingInfo>`
+            
+            	**config**\: False
             
             .. attribute:: owner_information
             
             	Client applications owning the session
             	**type**\: list of  		 :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.OwnerInformation>`
             
+            	**config**\: False
+            
             .. attribute:: association_information
             
             	Association session information
             	**type**\: list of  		 :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation>`
+            
+            	**config**\: False
             
             
 
@@ -19773,60 +22621,84 @@ class Bfd(Entity):
                 	Source address
                 	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.SourceAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: last_state_change
                 
                 	Time since last state change
                 	**type**\:  :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.LastStateChange>`
+                
+                	**config**\: False
                 
                 .. attribute:: transmit_packet
                 
                 	Transmit Packet
                 	**type**\:  :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.TransmitPacket>`
                 
+                	**config**\: False
+                
                 .. attribute:: receive_packet
                 
                 	Receive Packet
                 	**type**\:  :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.ReceivePacket>`
+                
+                	**config**\: False
                 
                 .. attribute:: status_brief_information
                 
                 	Brief Status Information
                 	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: async_transmit_statistics
                 
                 	Statistics of Interval between Async Packets Transmitted (in milli\-seconds)
                 	**type**\:  :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncTransmitStatistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: async_receive_statistics
                 
                 	Statistics of Interval between Async Packets Received (in milli\-seconds)
                 	**type**\:  :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncReceiveStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: echo_transmit_statistics
                 
                 	Statistics of Interval between Echo Packets Transmitted (in milli\-seconds)
                 	**type**\:  :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.EchoTransmitStatistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: echo_received_statistics
                 
                 	Statistics of Interval between Echo Packets Received (in milli\-seconds)
                 	**type**\:  :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.EchoReceivedStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: sessiontype
                 
                 	Session type
                 	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
+                
+                	**config**\: False
                 
                 .. attribute:: session_subtype
                 
                 	Session subtype
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	State
                 	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_discriminator
                 
@@ -19835,12 +22707,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: remote_discriminator
                 
                 	Session's Remote discriminator
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: to_up_state_count
                 
@@ -19849,12 +22725,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: desired_minimum_echo_transmit_interval
                 
                 	Desired minimum echo transmit interval in milli\-seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -19865,6 +22745,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: latency_number
@@ -19874,12 +22756,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: latency_minimum
                 
                 	Minimum value of Latency (in micro\-seconds)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: microsecond
                 
@@ -19890,6 +22776,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: microsecond
                 
                 .. attribute:: latency_average
@@ -19898,6 +22786,8 @@ class Bfd(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: microsecond
                 
@@ -19908,12 +22798,16 @@ class Bfd(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: internal_label
                 
                 	Internal Label
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -20014,12 +22908,16 @@ class Bfd(Entity):
                     	AFI
                     	**type**\:  :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: dummy
                     
                     	No Address
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4
                     
@@ -20028,12 +22926,16 @@ class Bfd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -20069,6 +22971,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class LastStateChange(Entity):
                     """
                     Time since last state change
@@ -20080,6 +22983,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: day
                     
                     .. attribute:: hours
@@ -20088,6 +22993,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     	**units**\: hour
                     
@@ -20098,6 +23005,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     	**units**\: minute
                     
                     .. attribute:: seconds
@@ -20106,6 +23015,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -20143,6 +23054,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
 
 
+
                 class TransmitPacket(Entity):
                     """
                     Transmit Packet
@@ -20154,10 +23066,14 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: diagnostic
                     
                     	Diagnostic
                     	**type**\:  :py:class:`BfdMgmtSessionDiag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiag>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ihear_you
                     
@@ -20166,10 +23082,14 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	State (v1)
                     	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: demand
                     
@@ -20178,12 +23098,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: poll
                     
                     	Poll bit
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: final
                     
@@ -20192,12 +23116,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: control_plane_independent
                     
                     	BFD implementation does not share fate with its control plane
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: authentication_present
                     
@@ -20206,12 +23134,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: length
                     
@@ -20220,12 +23152,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: my_discriminator
                     
                     	My Discriminator
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: your_discriminator
                     
@@ -20234,12 +23170,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: desired_minimum_transmit_interval
                     
                     	Desired minimum transmit interval in micro\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -20250,6 +23190,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: required_minimum_echo_receive_interval
@@ -20258,6 +23200,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -20319,6 +23263,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
 
 
+
                 class ReceivePacket(Entity):
                     """
                     Receive Packet
@@ -20330,10 +23275,14 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: diagnostic
                     
                     	Diagnostic
                     	**type**\:  :py:class:`BfdMgmtSessionDiag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiag>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ihear_you
                     
@@ -20342,10 +23291,14 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	State (v1)
                     	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: demand
                     
@@ -20354,12 +23307,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: poll
                     
                     	Poll bit
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: final
                     
@@ -20368,12 +23325,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: control_plane_independent
                     
                     	BFD implementation does not share fate with its control plane
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: authentication_present
                     
@@ -20382,12 +23343,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: length
                     
@@ -20396,12 +23361,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: my_discriminator
                     
                     	My Discriminator
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: your_discriminator
                     
@@ -20410,12 +23379,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: desired_minimum_transmit_interval
                     
                     	Desired minimum transmit interval in micro\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -20426,6 +23399,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: required_minimum_echo_receive_interval
@@ -20434,6 +23409,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -20495,6 +23472,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
 
 
+
                 class StatusBriefInformation(Entity):
                     """
                     Brief Status Information
@@ -20504,10 +23482,14 @@ class Bfd(Entity):
                     	Async Interval and Detect Multiplier Information
                     	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: echo_interval_multiplier
                     
                     	Echo Interval and Detect Multiplier Information
                     	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -20553,6 +23535,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: negotiated_local_transmit_interval
@@ -20561,6 +23545,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: microsecond
                         
@@ -20571,6 +23557,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_multiplier
@@ -20579,6 +23567,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -20614,6 +23604,7 @@ class Bfd(Entity):
                             self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
                     class EchoIntervalMultiplier(Entity):
                         """
                         Echo Interval and Detect Multiplier Information
@@ -20625,6 +23616,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_time
@@ -20634,6 +23627,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_multiplier
@@ -20642,6 +23637,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -20675,6 +23672,8 @@ class Bfd(Entity):
                             self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
+
                 class AsyncTransmitStatistics(Entity):
                     """
                     Statistics of Interval between Async Packets
@@ -20687,12 +23686,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -20703,6 +23706,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -20712,6 +23717,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -20720,6 +23727,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -20759,6 +23768,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class AsyncReceiveStatistics(Entity):
                     """
                     Statistics of Interval between Async Packets
@@ -20771,12 +23781,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -20787,6 +23801,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -20796,6 +23812,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -20804,6 +23822,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -20843,6 +23863,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class EchoTransmitStatistics(Entity):
                     """
                     Statistics of Interval between Echo Packets
@@ -20855,12 +23876,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -20871,6 +23896,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -20880,6 +23907,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -20888,6 +23917,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -20927,6 +23958,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class EchoReceivedStatistics(Entity):
                     """
                     Statistics of Interval between Echo Packets
@@ -20939,12 +23971,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -20955,6 +23991,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -20964,6 +24002,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -20972,6 +24012,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -21011,6 +24053,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
+
             class MpDownloadState(Entity):
                 """
                 MP Dowload State
@@ -21020,10 +24064,14 @@ class Bfd(Entity):
                 	Change time
                 	**type**\:  :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.MpDownloadState.ChangeTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: mp_download_state
                 
                 	MP Download State
                 	**type**\:  :py:class:`BfdMpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadState>`
+                
+                	**config**\: False
                 
                 
 
@@ -21068,6 +24116,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -21076,6 +24126,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -21109,6 +24161,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
+
             class LspPingInfo(Entity):
                 """
                 LSP Ping Info
@@ -21118,15 +24172,21 @@ class Bfd(Entity):
                 	LSP Ping last sent time
                 	**type**\:  :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_error_time
                 
                 	LSP Ping last error time
                 	**type**\:  :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_time
                 
                 	LSP Ping last received time
                 	**type**\:  :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingRxLastTime>`
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_tx_count
                 
@@ -21135,6 +24195,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_error_count
                 
                 	LSP Ping Tx error count
@@ -21142,15 +24204,21 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_rc
                 
                 	LSP Ping Tx last result
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_error_rc
                 
                 	LSP Ping Tx last error
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_rx_last_discr
                 
@@ -21159,12 +24227,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_count
                 
                 	LSP Ping numer of times received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_rx_last_code
                 
@@ -21173,6 +24245,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_subcode
                 
                 	LSP Ping Rx Last Subcode
@@ -21180,10 +24254,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_output
                 
                 	LSP Ping Rx Last Output
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -21252,6 +24330,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -21260,6 +24340,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -21293,6 +24375,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class LspPingTxLastErrorTime(Entity):
                     """
                     LSP Ping last error time
@@ -21304,6 +24387,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -21312,6 +24397,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -21345,6 +24432,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class LspPingRxLastTime(Entity):
                     """
                     LSP Ping last received time
@@ -21356,6 +24444,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -21364,6 +24454,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -21397,6 +24489,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
+
             class OwnerInformation(Entity):
                 """
                 Client applications owning the session
@@ -21408,6 +24502,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: microsecond
                 
                 .. attribute:: detection_multiplier
@@ -21417,12 +24513,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: adjusted_interval
                 
                 	Adjusted minimum transmit interval in milli\-seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -21433,12 +24533,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: name
                 
                 	Client process name
                 	**type**\: str
                 
                 	**length:** 0..257
+                
+                	**config**\: False
                 
                 
 
@@ -21476,6 +24580,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.SessionDetails.SessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
 
 
+
             class AssociationInformation(Entity):
                 """
                 Association session information
@@ -21485,6 +24590,8 @@ class Bfd(Entity):
                 	IPv4/v6 dest address
                 	**type**\:  :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation.IpDestinationAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_name
                 
                 	Session Interface Name
@@ -21492,10 +24599,14 @@ class Bfd(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: sessiontype
                 
                 	Session type
                 	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_discriminator
                 
@@ -21504,10 +24615,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: owner_information
                 
                 	Client applications owning the session
                 	**type**\: list of  		 :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation.OwnerInformation>`
+                
+                	**config**\: False
                 
                 
 
@@ -21556,12 +24671,16 @@ class Bfd(Entity):
                     	AFI
                     	**type**\:  :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: dummy
                     
                     	No Address
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4
                     
@@ -21570,12 +24689,16 @@ class Bfd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -21611,6 +24734,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class OwnerInformation(Entity):
                     """
                     Client applications owning the session
@@ -21622,6 +24746,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -21631,12 +24757,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: adjusted_interval
                     
                     	Adjusted minimum transmit interval in milli\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -21647,12 +24777,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	Client process name
                     	**type**\: str
                     
                     	**length:** 0..257
+                    
+                    	**config**\: False
                     
                     
 
@@ -21690,6 +24824,10 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
 
 
+
+
+
+
     class Ipv4SingleHopMultiPaths(Entity):
         """
         IPv4 single hop multipath
@@ -21698,6 +24836,8 @@ class Bfd(Entity):
         
         	IPv4 single hop multipath table
         	**type**\: list of  		 :py:class:`Ipv4SingleHopMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopMultiPaths.Ipv4SingleHopMultiPath>`
+        
+        	**config**\: False
         
         
 
@@ -21737,12 +24877,16 @@ class Bfd(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: destination_address
             
             	Destination Address
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: location
             
@@ -21751,15 +24895,21 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: session_subtype
             
             	Session subtype
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	State
             	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+            
+            	**config**\: False
             
             .. attribute:: local_discriminator
             
@@ -21768,12 +24918,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: node_id
             
             	Location where session is housed
             	**type**\: str
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            
+            	**config**\: False
             
             .. attribute:: incoming_label_xr
             
@@ -21782,12 +24936,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: session_interface_name
             
             	Interface name
             	**type**\: str
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+            
+            	**config**\: False
             
             
 
@@ -21833,6 +24991,8 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4SingleHopMultiPaths.Ipv4SingleHopMultiPath, ['interface_name', 'destination_address', 'location', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
 
 
+
+
     class Ipv4SingleHopSessionBriefs(Entity):
         """
         Table of brief information about all IPv4
@@ -21842,6 +25002,8 @@ class Bfd(Entity):
         
         	Brief information for a single IPv4 singlehop BFD session
         	**type**\: list of  		 :py:class:`Ipv4SingleHopSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief>`
+        
+        	**config**\: False
         
         
 
@@ -21882,12 +25044,16 @@ class Bfd(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: destination_address
             
             	Destination Address
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: location
             
@@ -21896,10 +25062,14 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: status_brief_information
             
             	Brief Status Information
             	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation>`
+            
+            	**config**\: False
             
             .. attribute:: node_id
             
@@ -21908,20 +25078,28 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	State
             	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+            
+            	**config**\: False
             
             .. attribute:: session_type
             
             	Session type
             	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
             
+            	**config**\: False
+            
             .. attribute:: session_subtype
             
             	Session subtype
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: session_flags
             
@@ -21929,6 +25107,8 @@ class Bfd(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -21985,10 +25165,14 @@ class Bfd(Entity):
                 	Async Interval and Detect Multiplier Information
                 	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
                 
+                	**config**\: False
+                
                 .. attribute:: echo_interval_multiplier
                 
                 	Echo Interval and Detect Multiplier Information
                 	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
+                
+                	**config**\: False
                 
                 
 
@@ -22034,6 +25218,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: negotiated_local_transmit_interval
@@ -22042,6 +25228,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -22052,6 +25240,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -22060,6 +25250,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -22095,6 +25287,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
                 class EchoIntervalMultiplier(Entity):
                     """
                     Echo Interval and Detect Multiplier Information
@@ -22106,6 +25299,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_time
@@ -22115,6 +25310,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -22123,6 +25320,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -22156,6 +25355,10 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
+
+
+
     class Ipv6MultiHopCounters(Entity):
         """
         IPv6 multiple hop Counters
@@ -22164,6 +25367,8 @@ class Bfd(Entity):
         
         	Table of IPv6 multiple hop Packet counters
         	**type**\:  :py:class:`Ipv6MultiHopPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters>`
+        
+        	**config**\: False
         
         
 
@@ -22202,6 +25407,8 @@ class Bfd(Entity):
             
             	IPv4 multiple hop Packet counters
             	**type**\: list of  		 :py:class:`Ipv6MultiHopPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter>`
+            
+            	**config**\: False
             
             
 
@@ -22247,6 +25454,8 @@ class Bfd(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: destination_address
                 
                 	Destination Address
@@ -22260,12 +25469,16 @@ class Bfd(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: location
                 
                 	Location
                 	**type**\: str
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                
+                	**config**\: False
                 
                 .. attribute:: vrf_name
                 
@@ -22274,12 +25487,16 @@ class Bfd(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: hello_transmit_count
                 
                 	Number of Hellos transmitted
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: hello_receive_count
                 
@@ -22288,12 +25505,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: echo_transmit_count
                 
                 	Number of echo packets transmitted
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: echo_receive_count
                 
@@ -22302,10 +25523,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: display_type
                 
                 	Packet Display Type
                 	**type**\:  :py:class:`BfdMgmtPktDisplay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplay>`
+                
+                	**config**\: False
                 
                 
 
@@ -22351,6 +25576,9 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter, ['source_address', 'destination_address', 'location', 'vrf_name', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
 
 
+
+
+
     class Ipv6SingleHopLocationSummaries(Entity):
         """
         Table of summary information about BFD IPv6
@@ -22360,6 +25588,8 @@ class Bfd(Entity):
         
         	Summary information for BFD IPv6 singlehop sessions for location
         	**type**\: list of  		 :py:class:`Ipv6SingleHopLocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary>`
+        
+        	**config**\: False
         
         
 
@@ -22400,10 +25630,14 @@ class Bfd(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: session_state
             
             	Statistics of states for sessions
             	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary.SessionState>`
+            
+            	**config**\: False
             
             
 
@@ -22448,12 +25682,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: up_count
                 
                 	Number of sessions in up state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: down_count
                 
@@ -22462,12 +25700,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: unknown_count
                 
                 	Number of sessions in unknown state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: retry_count
                 
@@ -22476,12 +25718,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: standby_count
                 
                 	Number of sessions in standby state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -22520,6 +25766,9 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
 
 
+
+
+
     class LabelCounters(Entity):
         """
         Label Counters
@@ -22528,6 +25777,8 @@ class Bfd(Entity):
         
         	Table of Label Packet counters
         	**type**\:  :py:class:`LabelPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelCounters.LabelPacketCounters>`
+        
+        	**config**\: False
         
         
 
@@ -22567,6 +25818,8 @@ class Bfd(Entity):
             	Interface Label Packet counters
             	**type**\: list of  		 :py:class:`LabelPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelCounters.LabelPacketCounters.LabelPacketCounter>`
             
+            	**config**\: False
+            
             
 
             """
@@ -22605,12 +25858,16 @@ class Bfd(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: location
                 
                 	Location
                 	**type**\: str
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                
+                	**config**\: False
                 
                 .. attribute:: hello_transmit_count
                 
@@ -22619,12 +25876,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: hello_receive_count
                 
                 	Number of Hellos received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: echo_transmit_count
                 
@@ -22633,6 +25894,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: echo_receive_count
                 
                 	Number of echo packets received
@@ -22640,10 +25903,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: display_type
                 
                 	Packet Display Type
                 	**type**\:  :py:class:`BfdMgmtPktDisplay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplay>`
+                
+                	**config**\: False
                 
                 
 
@@ -22685,6 +25952,9 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.LabelCounters.LabelPacketCounters.LabelPacketCounter, ['interface_name', 'location', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
 
 
+
+
+
     class Ipv4bfDoMplsteHeadSessionDetails(Entity):
         """
         Table of detailed information about all IPv4 BFD
@@ -22694,6 +25964,8 @@ class Bfd(Entity):
         
         	Detailed information for a single IPv4 BFD over MPLS\-TE head session
         	**type**\: list of  		 :py:class:`Ipv4bfDoMplsteHeadSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail>`
+        
+        	**config**\: False
         
         
 
@@ -22734,12 +26006,16 @@ class Bfd(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: vrf_name
             
             	VRF name
             	**type**\: str
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            
+            	**config**\: False
             
             .. attribute:: incoming_label
             
@@ -22748,12 +26024,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: fe_ctype
             
             	FEC Type
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: fec_subgroup_id
             
@@ -22762,12 +26042,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: feclspid
             
             	FEC LSP ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: fec_tunnel_id
             
@@ -22776,12 +26060,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: fec_extended_tunnel_id
             
             	FEC Extended Tunnel ID
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: fec_source
             
@@ -22790,12 +26078,16 @@ class Bfd(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: fec_destination
             
             	FEC Destination
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: fecp2mpid
             
@@ -22804,12 +26096,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: fec_subgroup_originator
             
             	FEC Subgroup originator
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: fec_ctype
             
@@ -22818,6 +26114,8 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	Location
@@ -22825,30 +26123,42 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: status_information
             
             	Session status information
             	**type**\:  :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation>`
+            
+            	**config**\: False
             
             .. attribute:: mp_download_state
             
             	MP Dowload State
             	**type**\:  :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.MpDownloadState>`
             
+            	**config**\: False
+            
             .. attribute:: lsp_ping_info
             
             	LSP Ping Info
             	**type**\:  :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo>`
+            
+            	**config**\: False
             
             .. attribute:: owner_information
             
             	Client applications owning the session
             	**type**\: list of  		 :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.OwnerInformation>`
             
+            	**config**\: False
+            
             .. attribute:: association_information
             
             	Association session information
             	**type**\: list of  		 :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation>`
+            
+            	**config**\: False
             
             
 
@@ -22928,60 +26238,84 @@ class Bfd(Entity):
                 	Source address
                 	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.SourceAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: last_state_change
                 
                 	Time since last state change
                 	**type**\:  :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.LastStateChange>`
+                
+                	**config**\: False
                 
                 .. attribute:: transmit_packet
                 
                 	Transmit Packet
                 	**type**\:  :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.TransmitPacket>`
                 
+                	**config**\: False
+                
                 .. attribute:: receive_packet
                 
                 	Receive Packet
                 	**type**\:  :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.ReceivePacket>`
+                
+                	**config**\: False
                 
                 .. attribute:: status_brief_information
                 
                 	Brief Status Information
                 	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: async_transmit_statistics
                 
                 	Statistics of Interval between Async Packets Transmitted (in milli\-seconds)
                 	**type**\:  :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.AsyncTransmitStatistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: async_receive_statistics
                 
                 	Statistics of Interval between Async Packets Received (in milli\-seconds)
                 	**type**\:  :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.AsyncReceiveStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: echo_transmit_statistics
                 
                 	Statistics of Interval between Echo Packets Transmitted (in milli\-seconds)
                 	**type**\:  :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.EchoTransmitStatistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: echo_received_statistics
                 
                 	Statistics of Interval between Echo Packets Received (in milli\-seconds)
                 	**type**\:  :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.EchoReceivedStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: sessiontype
                 
                 	Session type
                 	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
+                
+                	**config**\: False
                 
                 .. attribute:: session_subtype
                 
                 	Session subtype
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	State
                 	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_discriminator
                 
@@ -22990,12 +26324,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: remote_discriminator
                 
                 	Session's Remote discriminator
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: to_up_state_count
                 
@@ -23004,12 +26342,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: desired_minimum_echo_transmit_interval
                 
                 	Desired minimum echo transmit interval in milli\-seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -23020,6 +26362,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: latency_number
@@ -23029,12 +26373,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: latency_minimum
                 
                 	Minimum value of Latency (in micro\-seconds)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: microsecond
                 
@@ -23045,6 +26393,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: microsecond
                 
                 .. attribute:: latency_average
@@ -23053,6 +26403,8 @@ class Bfd(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: microsecond
                 
@@ -23063,12 +26415,16 @@ class Bfd(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: internal_label
                 
                 	Internal Label
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -23169,12 +26525,16 @@ class Bfd(Entity):
                     	AFI
                     	**type**\:  :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: dummy
                     
                     	No Address
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4
                     
@@ -23183,12 +26543,16 @@ class Bfd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -23224,6 +26588,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class LastStateChange(Entity):
                     """
                     Time since last state change
@@ -23235,6 +26600,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: day
                     
                     .. attribute:: hours
@@ -23243,6 +26610,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     	**units**\: hour
                     
@@ -23253,6 +26622,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     	**units**\: minute
                     
                     .. attribute:: seconds
@@ -23261,6 +26632,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -23298,6 +26671,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
 
 
+
                 class TransmitPacket(Entity):
                     """
                     Transmit Packet
@@ -23309,10 +26683,14 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: diagnostic
                     
                     	Diagnostic
                     	**type**\:  :py:class:`BfdMgmtSessionDiag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiag>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ihear_you
                     
@@ -23321,10 +26699,14 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	State (v1)
                     	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: demand
                     
@@ -23333,12 +26715,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: poll
                     
                     	Poll bit
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: final
                     
@@ -23347,12 +26733,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: control_plane_independent
                     
                     	BFD implementation does not share fate with its control plane
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: authentication_present
                     
@@ -23361,12 +26751,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: length
                     
@@ -23375,12 +26769,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: my_discriminator
                     
                     	My Discriminator
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: your_discriminator
                     
@@ -23389,12 +26787,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: desired_minimum_transmit_interval
                     
                     	Desired minimum transmit interval in micro\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -23405,6 +26807,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: required_minimum_echo_receive_interval
@@ -23413,6 +26817,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -23474,6 +26880,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
 
 
+
                 class ReceivePacket(Entity):
                     """
                     Receive Packet
@@ -23485,10 +26892,14 @@ class Bfd(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: diagnostic
                     
                     	Diagnostic
                     	**type**\:  :py:class:`BfdMgmtSessionDiag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiag>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ihear_you
                     
@@ -23497,10 +26908,14 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	State (v1)
                     	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: demand
                     
@@ -23509,12 +26924,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: poll
                     
                     	Poll bit
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: final
                     
@@ -23523,12 +26942,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: control_plane_independent
                     
                     	BFD implementation does not share fate with its control plane
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: authentication_present
                     
@@ -23537,12 +26960,16 @@ class Bfd(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: length
                     
@@ -23551,12 +26978,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: my_discriminator
                     
                     	My Discriminator
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: your_discriminator
                     
@@ -23565,12 +26996,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: desired_minimum_transmit_interval
                     
                     	Desired minimum transmit interval in micro\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -23581,6 +27016,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: required_minimum_echo_receive_interval
@@ -23589,6 +27026,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -23650,6 +27089,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
 
 
+
                 class StatusBriefInformation(Entity):
                     """
                     Brief Status Information
@@ -23659,10 +27099,14 @@ class Bfd(Entity):
                     	Async Interval and Detect Multiplier Information
                     	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: echo_interval_multiplier
                     
                     	Echo Interval and Detect Multiplier Information
                     	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -23708,6 +27152,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: negotiated_local_transmit_interval
@@ -23716,6 +27162,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: microsecond
                         
@@ -23726,6 +27174,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_multiplier
@@ -23734,6 +27184,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -23769,6 +27221,7 @@ class Bfd(Entity):
                             self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
                     class EchoIntervalMultiplier(Entity):
                         """
                         Echo Interval and Detect Multiplier Information
@@ -23780,6 +27233,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_time
@@ -23789,6 +27244,8 @@ class Bfd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: microsecond
                         
                         .. attribute:: detection_multiplier
@@ -23797,6 +27254,8 @@ class Bfd(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -23830,6 +27289,8 @@ class Bfd(Entity):
                             self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
+
                 class AsyncTransmitStatistics(Entity):
                     """
                     Statistics of Interval between Async Packets
@@ -23842,12 +27303,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -23858,6 +27323,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -23867,6 +27334,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -23875,6 +27344,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -23914,6 +27385,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class AsyncReceiveStatistics(Entity):
                     """
                     Statistics of Interval between Async Packets
@@ -23926,12 +27398,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -23942,6 +27418,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -23951,6 +27429,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -23959,6 +27439,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -23998,6 +27480,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class EchoTransmitStatistics(Entity):
                     """
                     Statistics of Interval between Echo Packets
@@ -24010,12 +27493,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -24026,6 +27513,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -24035,6 +27524,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -24043,6 +27534,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -24082,6 +27575,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
                 class EchoReceivedStatistics(Entity):
                     """
                     Statistics of Interval between Echo Packets
@@ -24094,12 +27588,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -24110,6 +27608,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: average
@@ -24119,6 +27619,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: last
@@ -24127,6 +27629,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -24166,6 +27670,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
 
 
+
+
             class MpDownloadState(Entity):
                 """
                 MP Dowload State
@@ -24175,10 +27681,14 @@ class Bfd(Entity):
                 	Change time
                 	**type**\:  :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.MpDownloadState.ChangeTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: mp_download_state
                 
                 	MP Download State
                 	**type**\:  :py:class:`BfdMpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadState>`
+                
+                	**config**\: False
                 
                 
 
@@ -24223,6 +27733,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -24231,6 +27743,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -24264,6 +27778,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
+
             class LspPingInfo(Entity):
                 """
                 LSP Ping Info
@@ -24273,15 +27789,21 @@ class Bfd(Entity):
                 	LSP Ping last sent time
                 	**type**\:  :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_error_time
                 
                 	LSP Ping last error time
                 	**type**\:  :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_time
                 
                 	LSP Ping last received time
                 	**type**\:  :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingRxLastTime>`
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_tx_count
                 
@@ -24290,6 +27812,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_error_count
                 
                 	LSP Ping Tx error count
@@ -24297,15 +27821,21 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_rc
                 
                 	LSP Ping Tx last result
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_tx_last_error_rc
                 
                 	LSP Ping Tx last error
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_rx_last_discr
                 
@@ -24314,12 +27844,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_count
                 
                 	LSP Ping numer of times received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_ping_rx_last_code
                 
@@ -24328,6 +27862,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_subcode
                 
                 	LSP Ping Rx Last Subcode
@@ -24335,10 +27871,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_ping_rx_last_output
                 
                 	LSP Ping Rx Last Output
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -24407,6 +27947,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -24415,6 +27957,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -24448,6 +27992,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class LspPingTxLastErrorTime(Entity):
                     """
                     LSP Ping last error time
@@ -24459,6 +28004,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -24467,6 +28014,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -24500,6 +28049,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
                 class LspPingRxLastTime(Entity):
                     """
                     LSP Ping last received time
@@ -24511,6 +28061,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -24519,6 +28071,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -24552,6 +28106,8 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
 
 
+
+
             class OwnerInformation(Entity):
                 """
                 Client applications owning the session
@@ -24563,6 +28119,8 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: microsecond
                 
                 .. attribute:: detection_multiplier
@@ -24572,12 +28130,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: adjusted_interval
                 
                 	Adjusted minimum transmit interval in milli\-seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -24588,12 +28150,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: name
                 
                 	Client process name
                 	**type**\: str
                 
                 	**length:** 0..257
+                
+                	**config**\: False
                 
                 
 
@@ -24631,6 +28197,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
 
 
+
             class AssociationInformation(Entity):
                 """
                 Association session information
@@ -24640,6 +28207,8 @@ class Bfd(Entity):
                 	IPv4/v6 dest address
                 	**type**\:  :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation.IpDestinationAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_name
                 
                 	Session Interface Name
@@ -24647,10 +28216,14 @@ class Bfd(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: sessiontype
                 
                 	Session type
                 	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_discriminator
                 
@@ -24659,10 +28232,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: owner_information
                 
                 	Client applications owning the session
                 	**type**\: list of  		 :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation.OwnerInformation>`
+                
+                	**config**\: False
                 
                 
 
@@ -24711,12 +28288,16 @@ class Bfd(Entity):
                     	AFI
                     	**type**\:  :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: dummy
                     
                     	No Address
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4
                     
@@ -24725,12 +28306,16 @@ class Bfd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -24766,6 +28351,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class OwnerInformation(Entity):
                     """
                     Client applications owning the session
@@ -24777,6 +28363,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -24786,12 +28374,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: adjusted_interval
                     
                     	Adjusted minimum transmit interval in milli\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -24802,12 +28394,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	Client process name
                     	**type**\: str
                     
                     	**length:** 0..257
+                    
+                    	**config**\: False
                     
                     
 
@@ -24845,6 +28441,10 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
 
 
+
+
+
+
     class RelationBriefs(Entity):
         """
         Table of brief information about all BFD
@@ -24854,6 +28454,8 @@ class Bfd(Entity):
         
         	Brief information for relation of a single BFD session
         	**type**\: list of  		 :py:class:`RelationBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationBriefs.RelationBrief>`
+        
+        	**config**\: False
         
         
 
@@ -24894,6 +28496,8 @@ class Bfd(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: destination_address
             
             	Destination Address
@@ -24907,15 +28511,21 @@ class Bfd(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	State
             	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
             
+            	**config**\: False
+            
             .. attribute:: link_information
             
             	Brief Member Link Information
             	**type**\: list of  		 :py:class:`LinkInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationBriefs.RelationBrief.LinkInformation>`
+            
+            	**config**\: False
             
             
 
@@ -24960,12 +28570,16 @@ class Bfd(Entity):
                 	State
                 	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_name
                 
                 	Session Interface Name
                 	**type**\: str
                 
                 	**length:** 0..64
+                
+                	**config**\: False
                 
                 
 
@@ -24997,6 +28611,9 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.RelationBriefs.RelationBrief.LinkInformation, [u'state', u'interface_name'], name, value)
 
 
+
+
+
     class ClientBriefs(Entity):
         """
         Table of Brief information about BFD clients
@@ -25005,6 +28622,8 @@ class Bfd(Entity):
         
         	Brief information of client
         	**type**\: list of  		 :py:class:`ClientBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.ClientBriefs.ClientBrief>`
+        
+        	**config**\: False
         
         
 
@@ -25044,12 +28663,16 @@ class Bfd(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: name_xr
             
             	Client process name
             	**type**\: str
             
             	**length:** 0..257
+            
+            	**config**\: False
             
             .. attribute:: node_id
             
@@ -25058,12 +28681,16 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: session_count
             
             	Number of sessions created by this client
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -25099,6 +28726,8 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.ClientBriefs.ClientBrief, ['name', u'name_xr', u'node_id', u'session_count'], name, value)
 
 
+
+
     class Ipv4bfDoMplsteHeadMultiPaths(Entity):
         """
         IPv4 BFD over MPLS\-TE Head multipath
@@ -25107,6 +28736,8 @@ class Bfd(Entity):
         
         	Label multipath table
         	**type**\: list of  		 :py:class:`Ipv4bfDoMplsteHeadMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadMultiPaths.Ipv4bfDoMplsteHeadMultiPath>`
+        
+        	**config**\: False
         
         
 
@@ -25146,12 +28777,16 @@ class Bfd(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: vrf_name
             
             	VRF name
             	**type**\: str
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            
+            	**config**\: False
             
             .. attribute:: incoming_label
             
@@ -25160,12 +28795,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: fe_ctype
             
             	FEC Type
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: fec_subgroup_id
             
@@ -25174,12 +28813,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: feclspid
             
             	FEC LSP ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: fec_tunnel_id
             
@@ -25188,12 +28831,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: fec_extended_tunnel_id
             
             	FEC Extended Tunnel ID
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: fec_source
             
@@ -25202,12 +28849,16 @@ class Bfd(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: fec_destination
             
             	FEC Destination
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: fecp2mpid
             
@@ -25216,12 +28867,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: fec_subgroup_originator
             
             	FEC Subgroup originator
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: fec_ctype
             
@@ -25230,6 +28885,8 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	Location
@@ -25237,15 +28894,21 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: session_subtype
             
             	Session subtype
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	State
             	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+            
+            	**config**\: False
             
             .. attribute:: local_discriminator
             
@@ -25254,12 +28917,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: node_id
             
             	Location where session is housed
             	**type**\: str
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            
+            	**config**\: False
             
             .. attribute:: incoming_label_xr
             
@@ -25268,12 +28935,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: session_interface_name
             
             	Interface name
             	**type**\: str
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+            
+            	**config**\: False
             
             
 
@@ -25341,6 +29012,8 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadMultiPaths.Ipv4bfDoMplsteHeadMultiPath, ['interface_name', 'vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
 
 
+
+
     class RelationDetails(Entity):
         """
         Table of detail information about all BFD
@@ -25350,6 +29023,8 @@ class Bfd(Entity):
         
         	Detail information for relation of a single BFD session
         	**type**\: list of  		 :py:class:`RelationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail>`
+        
+        	**config**\: False
         
         
 
@@ -25390,6 +29065,8 @@ class Bfd(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: destination_address
             
             	Destination Address
@@ -25403,10 +29080,14 @@ class Bfd(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	State
             	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+            
+            	**config**\: False
             
             .. attribute:: local_discriminator
             
@@ -25415,15 +29096,21 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: link_information
             
             	Detail Member Link Information
             	**type**\: list of  		 :py:class:`LinkInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.LinkInformation>`
             
+            	**config**\: False
+            
             .. attribute:: association_information
             
             	Association session information
             	**type**\: list of  		 :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation>`
+            
+            	**config**\: False
             
             
 
@@ -25471,6 +29158,8 @@ class Bfd(Entity):
                 	State
                 	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_name
                 
                 	Session Interface Name
@@ -25478,12 +29167,16 @@ class Bfd(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: local_discriminator
                 
                 	Session's Local discriminator
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -25517,6 +29210,7 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.RelationDetails.RelationDetail.LinkInformation, [u'state', u'interface_name', u'local_discriminator'], name, value)
 
 
+
             class AssociationInformation(Entity):
                 """
                 Association session information
@@ -25526,6 +29220,8 @@ class Bfd(Entity):
                 	IPv4/v6 dest address
                 	**type**\:  :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation.IpDestinationAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_name
                 
                 	Session Interface Name
@@ -25533,10 +29229,14 @@ class Bfd(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: sessiontype
                 
                 	Session type
                 	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
+                
+                	**config**\: False
                 
                 .. attribute:: local_discriminator
                 
@@ -25545,10 +29245,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: owner_information
                 
                 	Client applications owning the session
                 	**type**\: list of  		 :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation.OwnerInformation>`
+                
+                	**config**\: False
                 
                 
 
@@ -25597,12 +29301,16 @@ class Bfd(Entity):
                     	AFI
                     	**type**\:  :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: dummy
                     
                     	No Address
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4
                     
@@ -25611,12 +29319,16 @@ class Bfd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 address type
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -25652,6 +29364,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.RelationDetails.RelationDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
 
 
+
                 class OwnerInformation(Entity):
                     """
                     Client applications owning the session
@@ -25663,6 +29376,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -25672,12 +29387,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: adjusted_interval
                     
                     	Adjusted minimum transmit interval in milli\-seconds
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: millisecond
                     
@@ -25688,12 +29407,16 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	Client process name
                     	**type**\: str
                     
                     	**length:** 0..257
+                    
+                    	**config**\: False
                     
                     
 
@@ -25731,6 +29454,10 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.RelationDetails.RelationDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
 
 
+
+
+
+
     class Ipv4bfDoMplsteTailCounters(Entity):
         """
         IPv4 BFD over MPLS\-TE Counters
@@ -25739,6 +29466,8 @@ class Bfd(Entity):
         
         	Table of IPv4 BFD over MPLS\-TE Packet counters
         	**type**\:  :py:class:`Ipv4bfDoMplsteTailPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailCounters.Ipv4bfDoMplsteTailPacketCounters>`
+        
+        	**config**\: False
         
         
 
@@ -25777,6 +29506,8 @@ class Bfd(Entity):
             
             	Interface  IPv4 BFD over MPLS\-TE Packet counters
             	**type**\: list of  		 :py:class:`Ipv4bfDoMplsteTailPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailCounters.Ipv4bfDoMplsteTailPacketCounters.Ipv4bfDoMplsteTailPacketCounter>`
+            
+            	**config**\: False
             
             
 
@@ -25817,12 +29548,16 @@ class Bfd(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: incoming_label
                 
                 	Incoming Label
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: fe_ctype
                 
@@ -25831,12 +29566,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: fec_subgroup_id
                 
                 	FEC Subgroup ID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: feclspid
                 
@@ -25845,12 +29584,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: fec_tunnel_id
                 
                 	FEC Tunnel ID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: fec_extended_tunnel_id
                 
@@ -25859,12 +29602,16 @@ class Bfd(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: fec_source
                 
                 	FEC Source
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: fec_destination
                 
@@ -25873,12 +29620,16 @@ class Bfd(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: fecp2mpid
                 
                 	FEC P2MP ID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: fec_subgroup_originator
                 
@@ -25887,12 +29638,16 @@ class Bfd(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: fec_ctype
                 
                 	FEC C Type
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: location
                 
@@ -25901,12 +29656,16 @@ class Bfd(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: hello_transmit_count
                 
                 	Number of Hellos transmitted
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: hello_receive_count
                 
@@ -25915,12 +29674,16 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: echo_transmit_count
                 
                 	Number of echo packets transmitted
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: echo_receive_count
                 
@@ -25929,10 +29692,14 @@ class Bfd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: display_type
                 
                 	Packet Display Type
                 	**type**\:  :py:class:`BfdMgmtPktDisplay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplay>`
+                
+                	**config**\: False
                 
                 
 
@@ -25996,6 +29763,9 @@ class Bfd(Entity):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteTailCounters.Ipv4bfDoMplsteTailPacketCounters.Ipv4bfDoMplsteTailPacketCounter, ['vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
 
 
+
+
+
     class Ipv6SingleHopSessionBriefs(Entity):
         """
         Table of brief information about all IPv6
@@ -26005,6 +29775,8 @@ class Bfd(Entity):
         
         	Brief information for a single IPv6 singlehop BFD session
         	**type**\: list of  		 :py:class:`Ipv6SingleHopSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief>`
+        
+        	**config**\: False
         
         
 
@@ -26045,6 +29817,8 @@ class Bfd(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: destination_address
             
             	Destination Address
@@ -26058,6 +29832,8 @@ class Bfd(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	Location
@@ -26065,10 +29841,14 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: status_brief_information
             
             	Brief Status Information
             	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation>`
+            
+            	**config**\: False
             
             .. attribute:: node_id
             
@@ -26077,20 +29857,28 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	State
             	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+            
+            	**config**\: False
             
             .. attribute:: session_type
             
             	Session type
             	**type**\:  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSession>`
             
+            	**config**\: False
+            
             .. attribute:: session_subtype
             
             	Session subtype
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: session_flags
             
@@ -26098,6 +29886,8 @@ class Bfd(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -26154,10 +29944,14 @@ class Bfd(Entity):
                 	Async Interval and Detect Multiplier Information
                 	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
                 
+                	**config**\: False
+                
                 .. attribute:: echo_interval_multiplier
                 
                 	Echo Interval and Detect Multiplier Information
                 	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
+                
+                	**config**\: False
                 
                 
 
@@ -26203,6 +29997,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: negotiated_local_transmit_interval
@@ -26211,6 +30007,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: microsecond
                     
@@ -26221,6 +30019,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -26229,6 +30029,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -26264,6 +30066,7 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
                 class EchoIntervalMultiplier(Entity):
                     """
                     Echo Interval and Detect Multiplier Information
@@ -26275,6 +30078,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_time
@@ -26284,6 +30089,8 @@ class Bfd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: microsecond
                     
                     .. attribute:: detection_multiplier
@@ -26292,6 +30099,8 @@ class Bfd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -26325,6 +30134,10 @@ class Bfd(Entity):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
 
 
+
+
+
+
     class Ipv4bfDoMplsteTailMultiPaths(Entity):
         """
         IPv4 BFD over MPLS\-TE Tail multipath
@@ -26333,6 +30146,8 @@ class Bfd(Entity):
         
         	Label multipath table
         	**type**\: list of  		 :py:class:`Ipv4bfDoMplsteTailMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteTailMultiPaths.Ipv4bfDoMplsteTailMultiPath>`
+        
+        	**config**\: False
         
         
 
@@ -26372,12 +30187,16 @@ class Bfd(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: incoming_label
             
             	Incoming Label
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: fe_ctype
             
@@ -26386,12 +30205,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: fec_subgroup_id
             
             	FEC Subgroup ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: feclspid
             
@@ -26400,12 +30223,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: fec_tunnel_id
             
             	FEC Tunnel ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: fec_extended_tunnel_id
             
@@ -26414,12 +30241,16 @@ class Bfd(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: fec_source
             
             	FEC Source
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: fec_destination
             
@@ -26428,12 +30259,16 @@ class Bfd(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: fecp2mpid
             
             	FEC P2MP ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: fec_subgroup_originator
             
@@ -26442,12 +30277,16 @@ class Bfd(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: fec_ctype
             
             	FEC C Type
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: location
             
@@ -26456,15 +30295,21 @@ class Bfd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: session_subtype
             
             	Session subtype
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	State
             	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+            
+            	**config**\: False
             
             .. attribute:: local_discriminator
             
@@ -26473,12 +30318,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: node_id
             
             	Location where session is housed
             	**type**\: str
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            
+            	**config**\: False
             
             .. attribute:: incoming_label_xr
             
@@ -26487,12 +30336,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: session_interface_name
             
             	Interface name
             	**type**\: str
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+            
+            	**config**\: False
             
             
 
@@ -26558,6 +30411,8 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteTailMultiPaths.Ipv4bfDoMplsteTailMultiPath, ['vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
 
 
+
+
     class Ipv4MultiHopMultiPaths(Entity):
         """
         IPv4 multi\-hop multipath
@@ -26566,6 +30421,8 @@ class Bfd(Entity):
         
         	IPv4 multi hop multipath table
         	**type**\: list of  		 :py:class:`Ipv4MultiHopMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopMultiPaths.Ipv4MultiHopMultiPath>`
+        
+        	**config**\: False
         
         
 
@@ -26611,6 +30468,8 @@ class Bfd(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: destination_address
             
             	Destination Address
@@ -26624,12 +30483,16 @@ class Bfd(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	Location
             	**type**\: str
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            
+            	**config**\: False
             
             .. attribute:: vrf_name
             
@@ -26638,15 +30501,21 @@ class Bfd(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: session_subtype
             
             	Session subtype
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	State
             	**type**\:  :py:class:`BfdMgmtSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionState>`
+            
+            	**config**\: False
             
             .. attribute:: local_discriminator
             
@@ -26655,12 +30524,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: node_id
             
             	Location where session is housed
             	**type**\: str
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            
+            	**config**\: False
             
             .. attribute:: incoming_label_xr
             
@@ -26669,12 +30542,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: session_interface_name
             
             	Interface name
             	**type**\: str
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+            
+            	**config**\: False
             
             
 
@@ -26722,6 +30599,8 @@ class Bfd(Entity):
                 self._perform_setattr(Bfd.Ipv4MultiHopMultiPaths.Ipv4MultiHopMultiPath, ['source_address', 'destination_address', 'location', 'vrf_name', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
 
 
+
+
     class Ipv4bfDoMplsteHeadSummary(Entity):
         """
         Summary information of IPv4 BFD over MPLS\-TE
@@ -26731,6 +30610,8 @@ class Bfd(Entity):
         
         	Statistics of states for sessions
         	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4bfDoMplsteHeadSummary.SessionState>`
+        
+        	**config**\: False
         
         
 
@@ -26772,12 +30653,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: down_count
             
             	Number of sessions in down state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: up_count
             
@@ -26786,12 +30671,16 @@ class Bfd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: unknown_count
             
             	Number of sessions in unknown state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -26826,7 +30715,11 @@ class Bfd(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Bfd()
         return self._top_entity
+
+
 

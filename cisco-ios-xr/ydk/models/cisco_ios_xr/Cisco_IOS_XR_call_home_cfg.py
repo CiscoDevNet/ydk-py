@@ -536,6 +536,8 @@ class CallHome(Entity):
                 self._perform_setattr(CallHome.MailServers.MailServer, ['mail_serv_address', 'priority'], name, value)
 
 
+
+
     class SyslogThrottling(Entity):
         """
         Enable or disable call\-home syslog message
@@ -572,6 +574,7 @@ class CallHome(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(CallHome.SyslogThrottling, ['active'], name, value)
+
 
 
     class HttpProxy(Entity):
@@ -618,6 +621,7 @@ class CallHome(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(CallHome.HttpProxy, ['server_address', 'port'], name, value)
+
 
 
     class Profiles(Entity):
@@ -850,6 +854,7 @@ class CallHome(Entity):
                         self._perform_setattr(CallHome.Profiles.Profile.ReportType.ReportingCallhomeData, ['enable'], name, value)
 
 
+
                 class ReportingLicensingData(Entity):
                     """
                     Report smart licensing data
@@ -884,6 +889,8 @@ class CallHome(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.ReportType.ReportingLicensingData, ['enable'], name, value)
+
+
 
 
             class Methods(Entity):
@@ -962,6 +969,8 @@ class CallHome(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.Methods.Method, ['method', 'enable'], name, value)
+
+
 
 
             class Addresses(Entity):
@@ -1049,6 +1058,8 @@ class CallHome(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.Addresses.Address, ['method', 'destination_addr', 'enable'], name, value)
+
+
 
 
             class SubscribeAlertGroup(Entity):
@@ -1169,6 +1180,7 @@ class CallHome(Entity):
                         self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Environment, ['severity'], name, value)
 
 
+
                 class Configuration(Entity):
                     """
                     configuration info
@@ -1284,6 +1296,8 @@ class CallHome(Entity):
                             self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration.Periodic, ['interval', 'day', 'weekday', 'hour', 'minute'], name, value)
 
 
+
+
                 class Snapshot(Entity):
                     """
                     snapshot info
@@ -1389,6 +1403,8 @@ class CallHome(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot.Periodic, ['interval', 'day', 'weekday', 'hour', 'minute'], name, value)
+
+
 
 
                 class Inventory(Entity):
@@ -1506,6 +1522,8 @@ class CallHome(Entity):
                             self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory.Periodic, ['interval', 'day', 'weekday', 'hour', 'minute'], name, value)
 
 
+
+
                 class Crash(Entity):
                     """
                     Crash info
@@ -1540,6 +1558,7 @@ class CallHome(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Crash, ['subscribe'], name, value)
+
 
 
                 class Syslogs(Entity):
@@ -1620,6 +1639,11 @@ class CallHome(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs.Syslog, ['syslog_pattern', 'severity'], name, value)
+
+
+
+
+
 
 
     class AlertGroups(Entity):
@@ -1711,6 +1735,8 @@ class CallHome(Entity):
                 self._perform_setattr(CallHome.AlertGroups.AlertGroup, ['alert_group_name', 'enable', 'disable'], name, value)
 
 
+
+
     class DataPrivacies(Entity):
         """
         Set call\-home data\-privacy
@@ -1789,6 +1815,8 @@ class CallHome(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CallHome.DataPrivacies.DataPrivacy, ['host_name', 'level'], name, value)
+
+
 
 
     class AlertGroupConfig(Entity):
@@ -1911,6 +1939,9 @@ class CallHome(Entity):
                     self._perform_setattr(CallHome.AlertGroupConfig.SnapshotCommands.SnapshotCommand, ['command', 'active'], name, value)
 
 
+
+
+
     class Authorization(Entity):
         """
         Config aaa authorization, default username is
@@ -1957,7 +1988,10 @@ class CallHome(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CallHome.Authorization, ['username', 'active'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = CallHome()
         return self._top_entity
+
+
 

@@ -66,6 +66,8 @@ class UtdOperData(Entity):
     
     	**presence node**\: True
     
+    	**config**\: False
+    
     .. attribute:: utd_ips_update_status
     
     	Unified Threat Defense (UTD) Intrusion Prevention System (IPS) update status
@@ -73,12 +75,16 @@ class UtdOperData(Entity):
     
     	**presence node**\: True
     
+    	**config**\: False
+    
     .. attribute:: utd_urlf_update_status
     
     	Unified Threat Defense (UTD) URL\-Filtering (URLF) update status
     	**type**\:  :py:class:`UtdUrlfUpdateStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_utd_oper.UtdOperData.UtdUrlfUpdateStatus>`
     
     	**presence node**\: True
+    
+    	**config**\: False
     
     
 
@@ -123,20 +129,28 @@ class UtdOperData(Entity):
         	Engine version
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: profile
         
         	Profile
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: status
         
         	Overall status
         	**type**\:  :py:class:`UtdOperStatusVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_utd_oper.UtdOperStatusVal>`
         
+        	**config**\: False
+        
         .. attribute:: reason
         
         	Overall status reason
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: memory_usage
         
@@ -145,6 +159,8 @@ class UtdOperData(Entity):
         
         	**range:** \-92233720368547758.08..92233720368547758.07
         
+        	**config**\: False
+        
         	**units**\: percent
         
         .. attribute:: memory_status
@@ -152,10 +168,14 @@ class UtdOperData(Entity):
         	Status of memory usage
         	**type**\:  :py:class:`UtdOperStatusVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_utd_oper.UtdOperStatusVal>`
         
+        	**config**\: False
+        
         .. attribute:: utd_engine_instance_status
         
         	Status of engine instances
         	**type**\: list of  		 :py:class:`UtdEngineInstanceStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_utd_oper.UtdOperData.UtdEngineStatus.UtdEngineInstanceStatus>`
+        
+        	**config**\: False
         
         
 
@@ -211,20 +231,28 @@ class UtdOperData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: running
             
             	Engine instance running
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: status
             
             	Engine instance status
             	**type**\:  :py:class:`UtdOperStatusVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_utd_oper.UtdOperStatusVal>`
             
+            	**config**\: False
+            
             .. attribute:: reason
             
             	Engine instance status reason
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -260,6 +288,8 @@ class UtdOperData(Entity):
                 self._perform_setattr(UtdOperData.UtdEngineStatus.UtdEngineInstanceStatus, ['id', 'running', 'status', 'reason'], name, value)
 
 
+
+
     class UtdIpsUpdateStatus(Entity):
         """
         Unified Threat Defense (UTD) Intrusion Prevention System (IPS) update status
@@ -268,6 +298,8 @@ class UtdOperData(Entity):
         
         	Intrusion Prevention System (IPS) update status
         	**type**\:  :py:class:`IpsUpdateStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_utd_oper.UtdOperData.UtdIpsUpdateStatus.IpsUpdateStatus>`
+        
+        	**config**\: False
         
         
 
@@ -310,6 +342,8 @@ class UtdOperData(Entity):
             	Version
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: last_update_time
             
             	Time of last attempted update
@@ -317,15 +351,21 @@ class UtdOperData(Entity):
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
+            	**config**\: False
+            
             .. attribute:: last_update_status
             
             	Status of last attempted update
             	**type**\:  :py:class:`UtdUpdateStatusVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_utd_common_oper.UtdUpdateStatusVal>`
             
+            	**config**\: False
+            
             .. attribute:: last_update_reason
             
             	Reason for last attempted update failure
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: last_successful_update_time
             
@@ -333,6 +373,8 @@ class UtdOperData(Entity):
             	**type**\: str
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+            
+            	**config**\: False
             
             
 
@@ -370,6 +412,8 @@ class UtdOperData(Entity):
                 self._perform_setattr(UtdOperData.UtdIpsUpdateStatus.IpsUpdateStatus, ['version', 'last_update_time', 'last_update_status', 'last_update_reason', 'last_successful_update_time'], name, value)
 
 
+
+
     class UtdUrlfUpdateStatus(Entity):
         """
         Unified Threat Defense (UTD) URL\-Filtering (URLF) update status
@@ -378,6 +422,8 @@ class UtdOperData(Entity):
         
         	URL\-Filtering (URLF) update status
         	**type**\:  :py:class:`UrlfUpdateStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_utd_oper.UtdOperData.UtdUrlfUpdateStatus.UrlfUpdateStatus>`
+        
+        	**config**\: False
         
         
 
@@ -420,6 +466,8 @@ class UtdOperData(Entity):
             	Version
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: last_update_time
             
             	Time of last attempted update
@@ -427,15 +475,21 @@ class UtdOperData(Entity):
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
+            	**config**\: False
+            
             .. attribute:: last_update_status
             
             	Status of last attempted update
             	**type**\:  :py:class:`UtdUpdateStatusVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_utd_common_oper.UtdUpdateStatusVal>`
             
+            	**config**\: False
+            
             .. attribute:: last_update_reason
             
             	Reason for last attempted update failure
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: last_successful_update_time
             
@@ -443,6 +497,8 @@ class UtdOperData(Entity):
             	**type**\: str
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+            
+            	**config**\: False
             
             
 
@@ -479,7 +535,11 @@ class UtdOperData(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(UtdOperData.UtdUrlfUpdateStatus.UrlfUpdateStatus, ['version', 'last_update_time', 'last_update_status', 'last_update_reason', 'last_successful_update_time'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = UtdOperData()
         return self._top_entity
+
+
 

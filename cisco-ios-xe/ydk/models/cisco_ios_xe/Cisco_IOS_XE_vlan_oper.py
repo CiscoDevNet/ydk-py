@@ -42,6 +42,8 @@ class Vlans(Entity):
     	List of VLANs, keyed by id
     	**type**\: list of  		 :py:class:`Vlan <ydk.models.cisco_ios_xe.Cisco_IOS_XE_vlan_oper.Vlans.Vlan>`
     
+    	**config**\: False
+    
     
 
     """
@@ -80,25 +82,35 @@ class Vlans(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: name
         
         	VLAN name
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: status
         
         	VLAN status
         	**type**\:  :py:class:`VlanStatusType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_vlan_oper.VlanStatusType>`
         
+        	**config**\: False
+        
         .. attribute:: ports
         
         	Assigned ports
         	**type**\: list of  		 :py:class:`Ports <ydk.models.cisco_ios_xe.Cisco_IOS_XE_vlan_oper.Vlans.Vlan.Ports>`
         
+        	**config**\: False
+        
         .. attribute:: vlan_interfaces
         
         	List of interfaces for a given VLAN
         	**type**\: list of  		 :py:class:`VlanInterfaces <ydk.models.cisco_ios_xe.Cisco_IOS_XE_vlan_oper.Vlans.Vlan.VlanInterfaces>`
+        
+        	**config**\: False
         
         
 
@@ -144,12 +156,16 @@ class Vlans(Entity):
             	Assigned interface
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: subinterface
             
             	Assigned subinterface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -180,6 +196,7 @@ class Vlans(Entity):
                 self._perform_setattr(Vlans.Vlan.Ports, ['interface', 'subinterface'], name, value)
 
 
+
         class VlanInterfaces(Entity):
             """
             List of interfaces for a given VLAN
@@ -189,12 +206,16 @@ class Vlans(Entity):
             	Assigned interface to the vlan
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: subinterface
             
             	Assigned subinterface to the vlan
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -224,7 +245,11 @@ class Vlans(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Vlans.Vlan.VlanInterfaces, ['interface', 'subinterface'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Vlans()
         return self._top_entity
+
+
 

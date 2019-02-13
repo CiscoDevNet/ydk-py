@@ -178,6 +178,7 @@ class MplsLsd(Entity):
             self._perform_setattr(MplsLsd.Ipv6, ['ttl_expiration_pop'], name, value)
 
 
+
     class Ipv4(Entity):
         """
         Configure IPv4 parameters
@@ -215,6 +216,7 @@ class MplsLsd(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsLsd.Ipv4, ['ttl_expiration_pop'], name, value)
+
 
 
     class LabelDatabases(Entity):
@@ -365,7 +367,12 @@ class MplsLsd(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsLsd.LabelDatabases.LabelDatabase.LabelRange, ['minvalue', 'max_value', 'min_static_value', 'max_static_value'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = MplsLsd()
         return self._top_entity
+
+
 

@@ -405,20 +405,28 @@ class TelemetryModelDriven(Entity):
     	Telemetry Destinations
     	**type**\:  :py:class:`Destinations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations>`
     
+    	**config**\: False
+    
     .. attribute:: subscriptions
     
     	Telemetry Subscriptions
     	**type**\:  :py:class:`Subscriptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions>`
+    
+    	**config**\: False
     
     .. attribute:: sensor_groups
     
     	Telemetry Sensor Groups
     	**type**\:  :py:class:`SensorGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.SensorGroups>`
     
+    	**config**\: False
+    
     .. attribute:: summary
     
     	Telemetry Summary info
     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Summary>`
+    
+    	**config**\: False
     
     
 
@@ -470,6 +478,8 @@ class TelemetryModelDriven(Entity):
         	Telemetry Destination
         	**type**\: list of  		 :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination>`
         
+        	**config**\: False
+        
         
 
         """
@@ -508,10 +518,14 @@ class TelemetryModelDriven(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: id
             
             	Destination Group name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: configured
             
@@ -520,10 +534,14 @@ class TelemetryModelDriven(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: destination
             
             	list of destinations defined in this group
             	**type**\: list of  		 :py:class:`Destination_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination_>`
+            
+            	**config**\: False
             
             
 
@@ -568,10 +586,14 @@ class TelemetryModelDriven(Entity):
                 	Destination
                 	**type**\:  :py:class:`Destination_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination_.Destination_>`
                 
+                	**config**\: False
+                
                 .. attribute:: collection_group
                 
                 	List of collection groups for this destination group
                 	**type**\: list of  		 :py:class:`CollectionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup>`
+                
+                	**config**\: False
                 
                 
 
@@ -612,15 +634,21 @@ class TelemetryModelDriven(Entity):
                     	Destination IP Address
                     	**type**\:  :py:class:`DestIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination_.Destination_.DestIpAddress>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: id
                     
                     	Destination Id
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: sub_id_str
                     
                     	Sub Idstr
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: dest_port
                     
@@ -629,20 +657,28 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: encoding
                     
                     	Destination group encoding
                     	**type**\:  :py:class:`MdtEncodingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtEncodingEnum>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: transport
                     
                     	Destination group transport
                     	**type**\:  :py:class:`MdtTransportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtTransportEnum>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: vrf
                     
                     	Destination group vrf
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: vrf_id
                     
@@ -651,10 +687,14 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	State of streaming on this destination
                     	**type**\:  :py:class:`MdtDestStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtDestStateEnum>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: udp_mtu
                     
@@ -663,6 +703,8 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tls
                     
                     	TLS connection to this destination
@@ -670,10 +712,14 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tls_host
                     
                     	TLS Hostname of this destination
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_num_of_packets_sent
                     
@@ -682,12 +728,16 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_num_of_bytes_sent
                     
                     	Total number of bytes sent for this destination
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -698,6 +748,8 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: dscp
                     
                     	DSCP setting for this destination
@@ -705,12 +757,16 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: sub_id
                     
                     	Sub Id
                     	**type**\: list of int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -782,6 +838,8 @@ class TelemetryModelDriven(Entity):
                         	IPType
                         	**type**\:  :py:class:`MdtIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtIp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_address
                         
                         	IPV4 Address
@@ -789,12 +847,16 @@ class TelemetryModelDriven(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6_address
                         
                         	IPV6 Address
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -827,6 +889,8 @@ class TelemetryModelDriven(Entity):
                             self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.Destination_.DestIpAddress, [u'ip_type', u'ipv4_address', u'ipv6_address'], name, value)
 
 
+
+
                 class CollectionGroup(Entity):
                     """
                     List of collection groups for this destination
@@ -839,12 +903,16 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: cadence
                     
                     	Period of the collections (ms)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_collections
                     
@@ -853,10 +921,14 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: encoding
                     
                     	Destination group encoding
                     	**type**\:  :py:class:`MdtEncodingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtEncodingEnum>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: last_collection_start_time
                     
@@ -865,12 +937,16 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_collection_end_time
                     
                     	Timestamp of the end of last collection
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: max_collection_time
                     
@@ -879,12 +955,16 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: min_collection_time
                     
                     	Minimum time for a collection (ms)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: min_total_time
                     
@@ -893,12 +973,16 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: max_total_time
                     
                     	Maximum time for all processing (ms)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: avg_total_time
                     
@@ -907,12 +991,16 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_other_errors
                     
                     	Total number of errors
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_on_data_instances
                     
@@ -921,12 +1009,16 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_not_ready
                     
                     	Total number skipped (not ready)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_send_errors
                     
@@ -935,6 +1027,8 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_send_drops
                     
                     	Total number of send drops
@@ -942,20 +1036,28 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: strict_timer
                     
                     	Set if strict timer is ON
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: collection_path
                     
                     	Array of information for sensor paths within collection group
                     	**type**\: list of  		 :py:class:`CollectionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: internal_collection_group
                     
                     	Array of information for sysdb paths within collection group
                     	**type**\: list of  		 :py:class:`InternalCollectionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1029,15 +1131,21 @@ class TelemetryModelDriven(Entity):
                         	Sensor Path
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: state
                         
                         	State, if sensor path is resolved or not
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: status_str
                         
                         	Error str, if there are any errors resolving the sensor path
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -1070,6 +1178,7 @@ class TelemetryModelDriven(Entity):
                             self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath, [u'path', u'state', u'status_str'], name, value)
 
 
+
                     class InternalCollectionGroup(Entity):
                         """
                         Array of information for sysdb paths within
@@ -1080,12 +1189,16 @@ class TelemetryModelDriven(Entity):
                         	Sysdb Path
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: cadence
                         
                         	Period of the collections (ms)
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_get_count
                         
@@ -1094,12 +1207,16 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_list_count
                         
                         	Total number of lists
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_datalist_count
                         
@@ -1108,12 +1225,16 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_finddata_count
                         
                         	Total number of finddata
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_get_bulk_count
                         
@@ -1122,12 +1243,16 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_item_count
                         
                         	Total number of items retrived from sysdb
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_get_errors
                         
@@ -1136,12 +1261,16 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_list_errors
                         
                         	Total number of list errors
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_datalist_errors
                         
@@ -1150,12 +1279,16 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_finddata_errors
                         
                         	Total number of finddata errors
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_get_bulk_errors
                         
@@ -1164,12 +1297,16 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_encode_errors
                         
                         	Total number of encode errors
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_encode_notready
                         
@@ -1178,12 +1315,16 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_send_errors
                         
                         	Total number of send errors
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_send_drops
                         
@@ -1192,12 +1333,16 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_sent_bytes
                         
                         	Total number of bytes sent
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -1208,12 +1353,16 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_send_bytes_dropped
                         
                         	Total number of send bytes dropped
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -1224,12 +1373,16 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_collections_missed
                         
                         	Total number of collections missed
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: max_collection_time
                         
@@ -1238,12 +1391,16 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: min_collection_time
                         
                         	Minimum time for a collection (ms)
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: avg_collection_time
                         
@@ -1252,6 +1409,8 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: collection_method
                         
                         	Collection method in use
@@ -1259,10 +1418,14 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: status
                         
                         	Status of collection path
                         	**type**\:  :py:class:`MdtInternalPathStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtInternalPathStatus>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1343,6 +1506,11 @@ class TelemetryModelDriven(Entity):
                             self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup, [u'path', u'cadence', u'total_get_count', u'total_list_count', u'total_datalist_count', u'total_finddata_count', u'total_get_bulk_count', u'total_item_count', u'total_get_errors', u'total_list_errors', u'total_datalist_errors', u'total_finddata_errors', u'total_get_bulk_errors', u'total_encode_errors', u'total_encode_notready', u'total_send_errors', u'total_send_drops', u'total_sent_bytes', u'total_send_packets', u'total_send_bytes_dropped', u'total_collections', u'total_collections_missed', u'max_collection_time', u'min_collection_time', u'avg_collection_time', u'collection_method', u'status'], name, value)
 
 
+
+
+
+
+
     class Subscriptions(Entity):
         """
         Telemetry Subscriptions
@@ -1351,6 +1519,8 @@ class TelemetryModelDriven(Entity):
         
         	Telemetry Subscription
         	**type**\: list of  		 :py:class:`Subscription <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription>`
+        
+        	**config**\: False
         
         
 
@@ -1390,15 +1560,21 @@ class TelemetryModelDriven(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: subscription
             
             	Subscription
             	**type**\:  :py:class:`Subscription_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription_>`
             
+            	**config**\: False
+            
             .. attribute:: collection_group
             
             	List of collection groups active for this subscription
             	**type**\: list of  		 :py:class:`CollectionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup>`
+            
+            	**config**\: False
             
             
 
@@ -1443,30 +1619,42 @@ class TelemetryModelDriven(Entity):
                 	configured source interface
                 	**type**\:  :py:class:`SourceInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SourceInterface>`
                 
+                	**config**\: False
+                
                 .. attribute:: id
                 
                 	Collection Subscription name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: state
                 
                 	Subscription state
                 	**type**\:  :py:class:`MdtSubsStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtSubsStateEnum>`
                 
+                	**config**\: False
+                
                 .. attribute:: source_qos_marking
                 
                 	DSCP
                 	**type**\:  :py:class:`MdtSourceQosMarking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtSourceQosMarking>`
+                
+                	**config**\: False
                 
                 .. attribute:: sensor_profile
                 
                 	List of sensor groups within a subscription
                 	**type**\: list of  		 :py:class:`SensorProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile>`
                 
+                	**config**\: False
+                
                 .. attribute:: destination_grp
                 
                 	Array of destinations within a subscription
                 	**type**\: list of  		 :py:class:`DestinationGrp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp>`
+                
+                	**config**\: False
                 
                 
 
@@ -1515,10 +1703,14 @@ class TelemetryModelDriven(Entity):
                     	Source Interface Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	interface state
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4_address
                     
@@ -1527,6 +1719,8 @@ class TelemetryModelDriven(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6_address
                     
                     	IPV6 Address
@@ -1534,12 +1728,16 @@ class TelemetryModelDriven(Entity):
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: vrf_id
                     
                     	Src Vrf Id
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1576,6 +1774,7 @@ class TelemetryModelDriven(Entity):
                         self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SourceInterface, [u'interface_name', u'state', u'ipv4_address', u'ipv6_address', u'vrf_id'], name, value)
 
 
+
                 class SensorProfile(Entity):
                     """
                     List of sensor groups within a subscription
@@ -1585,12 +1784,16 @@ class TelemetryModelDriven(Entity):
                     	sensor group
                     	**type**\:  :py:class:`SensorGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sample_interval
                     
                     	Sample interval for the sensor group (ms)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: heartbeat_interval
                     
@@ -1599,10 +1802,14 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: suppress_redundant
                     
                     	Suppress Redundant
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -1648,6 +1855,8 @@ class TelemetryModelDriven(Entity):
                         	Sensor Group name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: configured
                         
                         	Set if this is configured sensor group
@@ -1655,10 +1864,14 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: sensor_path
                         
                         	Array of information for sensor paths within sensor group
                         	**type**\: list of  		 :py:class:`SensorPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1701,15 +1914,21 @@ class TelemetryModelDriven(Entity):
                             	Sensor Path
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: state
                             
                             	State, if sensor path is resolved or not
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: status_str
                             
                             	Error str, if there are any errors resolving the sensor path
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -1742,6 +1961,9 @@ class TelemetryModelDriven(Entity):
                                 self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath, [u'path', u'state', u'status_str'], name, value)
 
 
+
+
+
                 class DestinationGrp(Entity):
                     """
                     Array of destinations within a subscription
@@ -1751,6 +1973,8 @@ class TelemetryModelDriven(Entity):
                     	Destination Group name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: configured
                     
                     	Set if this is configured destination group
@@ -1758,10 +1982,14 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: destination
                     
                     	list of destinations defined in this group
                     	**type**\: list of  		 :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1803,15 +2031,21 @@ class TelemetryModelDriven(Entity):
                         	Destination IP Address
                         	**type**\:  :py:class:`DestIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: id
                         
                         	Destination Id
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: sub_id_str
                         
                         	Sub Idstr
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: dest_port
                         
@@ -1820,20 +2054,28 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: encoding
                         
                         	Destination group encoding
                         	**type**\:  :py:class:`MdtEncodingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtEncodingEnum>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: transport
                         
                         	Destination group transport
                         	**type**\:  :py:class:`MdtTransportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtTransportEnum>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrf
                         
                         	Destination group vrf
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: vrf_id
                         
@@ -1842,10 +2084,14 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: state
                         
                         	State of streaming on this destination
                         	**type**\:  :py:class:`MdtDestStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtDestStateEnum>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: udp_mtu
                         
@@ -1854,6 +2100,8 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: tls
                         
                         	TLS connection to this destination
@@ -1861,10 +2109,14 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: tls_host
                         
                         	TLS Hostname of this destination
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_num_of_packets_sent
                         
@@ -1873,12 +2125,16 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_num_of_bytes_sent
                         
                         	Total number of bytes sent for this destination
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -1889,6 +2145,8 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: dscp
                         
                         	DSCP setting for this destination
@@ -1896,12 +2154,16 @@ class TelemetryModelDriven(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: sub_id
                         
                         	Sub Id
                         	**type**\: list of int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -1973,6 +2235,8 @@ class TelemetryModelDriven(Entity):
                             	IPType
                             	**type**\:  :py:class:`MdtIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtIp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4_address
                             
                             	IPV4 Address
@@ -1980,12 +2244,16 @@ class TelemetryModelDriven(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv6_address
                             
                             	IPV6 Address
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -2018,6 +2286,10 @@ class TelemetryModelDriven(Entity):
                                 self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress, [u'ip_type', u'ipv4_address', u'ipv6_address'], name, value)
 
 
+
+
+
+
             class CollectionGroup(Entity):
                 """
                 List of collection groups active for this
@@ -2030,12 +2302,16 @@ class TelemetryModelDriven(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: cadence
                 
                 	Period of the collections (ms)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: total_collections
                 
@@ -2044,10 +2320,14 @@ class TelemetryModelDriven(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: encoding
                 
                 	Destination group encoding
                 	**type**\:  :py:class:`MdtEncodingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtEncodingEnum>`
+                
+                	**config**\: False
                 
                 .. attribute:: last_collection_start_time
                 
@@ -2056,12 +2336,16 @@ class TelemetryModelDriven(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: last_collection_end_time
                 
                 	Timestamp of the end of last collection
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: max_collection_time
                 
@@ -2070,12 +2354,16 @@ class TelemetryModelDriven(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: min_collection_time
                 
                 	Minimum time for a collection (ms)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: min_total_time
                 
@@ -2084,12 +2372,16 @@ class TelemetryModelDriven(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: max_total_time
                 
                 	Maximum time for all processing (ms)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: avg_total_time
                 
@@ -2098,12 +2390,16 @@ class TelemetryModelDriven(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: total_other_errors
                 
                 	Total number of errors
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: total_on_data_instances
                 
@@ -2112,12 +2408,16 @@ class TelemetryModelDriven(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: total_not_ready
                 
                 	Total number skipped (not ready)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: total_send_errors
                 
@@ -2126,6 +2426,8 @@ class TelemetryModelDriven(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: total_send_drops
                 
                 	Total number of send drops
@@ -2133,20 +2435,28 @@ class TelemetryModelDriven(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: strict_timer
                 
                 	Set if strict timer is ON
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: collection_path
                 
                 	Array of information for sensor paths within collection group
                 	**type**\: list of  		 :py:class:`CollectionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.CollectionPath>`
                 
+                	**config**\: False
+                
                 .. attribute:: internal_collection_group
                 
                 	Array of information for sysdb paths within collection group
                 	**type**\: list of  		 :py:class:`InternalCollectionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.InternalCollectionGroup>`
+                
+                	**config**\: False
                 
                 
 
@@ -2220,15 +2530,21 @@ class TelemetryModelDriven(Entity):
                     	Sensor Path
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	State, if sensor path is resolved or not
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: status_str
                     
                     	Error str, if there are any errors resolving the sensor path
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -2261,6 +2577,7 @@ class TelemetryModelDriven(Entity):
                         self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.CollectionPath, [u'path', u'state', u'status_str'], name, value)
 
 
+
                 class InternalCollectionGroup(Entity):
                     """
                     Array of information for sysdb paths within
@@ -2271,12 +2588,16 @@ class TelemetryModelDriven(Entity):
                     	Sysdb Path
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: cadence
                     
                     	Period of the collections (ms)
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_get_count
                     
@@ -2285,12 +2606,16 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_list_count
                     
                     	Total number of lists
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_datalist_count
                     
@@ -2299,12 +2624,16 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_finddata_count
                     
                     	Total number of finddata
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_get_bulk_count
                     
@@ -2313,12 +2642,16 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_item_count
                     
                     	Total number of items retrived from sysdb
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_get_errors
                     
@@ -2327,12 +2660,16 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_list_errors
                     
                     	Total number of list errors
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_datalist_errors
                     
@@ -2341,12 +2678,16 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_finddata_errors
                     
                     	Total number of finddata errors
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_get_bulk_errors
                     
@@ -2355,12 +2696,16 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_encode_errors
                     
                     	Total number of encode errors
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_encode_notready
                     
@@ -2369,12 +2714,16 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_send_errors
                     
                     	Total number of send errors
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_send_drops
                     
@@ -2383,12 +2732,16 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_sent_bytes
                     
                     	Total number of bytes sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -2399,12 +2752,16 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_send_bytes_dropped
                     
                     	Total number of send bytes dropped
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -2415,12 +2772,16 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_collections_missed
                     
                     	Total number of collections missed
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: max_collection_time
                     
@@ -2429,12 +2790,16 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: min_collection_time
                     
                     	Minimum time for a collection (ms)
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: avg_collection_time
                     
@@ -2443,6 +2808,8 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: collection_method
                     
                     	Collection method in use
@@ -2450,10 +2817,14 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: status
                     
                     	Status of collection path
                     	**type**\:  :py:class:`MdtInternalPathStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.MdtInternalPathStatus>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2534,6 +2905,10 @@ class TelemetryModelDriven(Entity):
                         self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.InternalCollectionGroup, [u'path', u'cadence', u'total_get_count', u'total_list_count', u'total_datalist_count', u'total_finddata_count', u'total_get_bulk_count', u'total_item_count', u'total_get_errors', u'total_list_errors', u'total_datalist_errors', u'total_finddata_errors', u'total_get_bulk_errors', u'total_encode_errors', u'total_encode_notready', u'total_send_errors', u'total_send_drops', u'total_sent_bytes', u'total_send_packets', u'total_send_bytes_dropped', u'total_collections', u'total_collections_missed', u'max_collection_time', u'min_collection_time', u'avg_collection_time', u'collection_method', u'status'], name, value)
 
 
+
+
+
+
     class SensorGroups(Entity):
         """
         Telemetry Sensor Groups
@@ -2542,6 +2917,8 @@ class TelemetryModelDriven(Entity):
         
         	Telemetry Sensor Groups
         	**type**\: list of  		 :py:class:`SensorGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.SensorGroups.SensorGroup>`
+        
+        	**config**\: False
         
         
 
@@ -2581,10 +2958,14 @@ class TelemetryModelDriven(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: id
             
             	Sensor Group name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: configured
             
@@ -2593,10 +2974,14 @@ class TelemetryModelDriven(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sensor_path
             
             	Array of information for sensor paths within sensor group
             	**type**\: list of  		 :py:class:`SensorPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.SensorGroups.SensorGroup.SensorPath>`
+            
+            	**config**\: False
             
             
 
@@ -2642,15 +3027,21 @@ class TelemetryModelDriven(Entity):
                 	Sensor Path
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	State, if sensor path is resolved or not
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: status_str
                 
                 	Error str, if there are any errors resolving the sensor path
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -2683,6 +3074,9 @@ class TelemetryModelDriven(Entity):
                     self._perform_setattr(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPath, [u'path', u'state', u'status_str'], name, value)
 
 
+
+
+
     class Summary(Entity):
         """
         Telemetry Summary info
@@ -2694,12 +3088,16 @@ class TelemetryModelDriven(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: num_of_active_subscriptions
         
         	Number of Active Subscriptions
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: num_of_paused_subscriptions
         
@@ -2708,12 +3106,16 @@ class TelemetryModelDriven(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: num_of_destination_groups
         
         	Number of Destination Groups
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: num_of_destinations
         
@@ -2722,12 +3124,16 @@ class TelemetryModelDriven(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: num_of_tcp_dialouts
         
         	Number of Tcp Dialout Destinations
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: num_of_udp_dialouts
         
@@ -2736,12 +3142,16 @@ class TelemetryModelDriven(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: num_of_grpc_tls_dialouts
         
         	Number of GRPC TLS Dialout Destinations
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: num_of_grpc_non_tls_dialouts
         
@@ -2750,12 +3160,16 @@ class TelemetryModelDriven(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: num_of_dialins
         
         	Number of Dialin Destinations
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: num_of_active_destinations
         
@@ -2764,12 +3178,16 @@ class TelemetryModelDriven(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: num_of_connected_sessions
         
         	Number of Connected Sessions
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: num_of_connecting_sessions
         
@@ -2778,12 +3196,16 @@ class TelemetryModelDriven(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: num_of_sensor_groups
         
         	Number of Sensor Groups
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: num_of_unique_sensor_paths
         
@@ -2792,12 +3214,16 @@ class TelemetryModelDriven(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: num_of_sensor_paths
         
         	Number of Sensor Paths
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: num_of_not_resolved_sensor_paths
         
@@ -2806,12 +3232,16 @@ class TelemetryModelDriven(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: num_of_active_sensor_paths
         
         	Number of Active Sensor Paths
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: max_sensor_paths
         
@@ -2820,12 +3250,16 @@ class TelemetryModelDriven(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: max_containers_per_path
         
         	Max containers allowed per Sensor Path
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -2890,9 +3324,12 @@ class TelemetryModelDriven(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TelemetryModelDriven.Summary, [u'num_of_subscriptions', u'num_of_active_subscriptions', u'num_of_paused_subscriptions', u'num_of_destination_groups', u'num_of_destinations', u'num_of_tcp_dialouts', u'num_of_udp_dialouts', u'num_of_grpc_tls_dialouts', u'num_of_grpc_non_tls_dialouts', u'num_of_dialins', u'num_of_active_destinations', u'num_of_connected_sessions', u'num_of_connecting_sessions', u'num_of_sensor_groups', u'num_of_unique_sensor_paths', u'num_of_sensor_paths', u'num_of_not_resolved_sensor_paths', u'num_of_active_sensor_paths', u'max_sensor_paths', u'max_containers_per_path'], name, value)
+            self._perform_setattr(TelemetryModelDriven.Summary, ['num_of_subscriptions', 'num_of_active_subscriptions', 'num_of_paused_subscriptions', 'num_of_destination_groups', 'num_of_destinations', 'num_of_tcp_dialouts', 'num_of_udp_dialouts', 'num_of_grpc_tls_dialouts', 'num_of_grpc_non_tls_dialouts', 'num_of_dialins', 'num_of_active_destinations', 'num_of_connected_sessions', 'num_of_connecting_sessions', 'num_of_sensor_groups', 'num_of_unique_sensor_paths', 'num_of_sensor_paths', 'num_of_not_resolved_sensor_paths', 'num_of_active_sensor_paths', 'max_sensor_paths', 'max_containers_per_path'], name, value)
+
 
     def clone_ptr(self):
         self._top_entity = TelemetryModelDriven()
         return self._top_entity
+
+
 

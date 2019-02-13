@@ -95,9 +95,12 @@ class InstallAdd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(InstallAdd.Input, ['packagepath', 'packagename'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = InstallAdd()
         return self._top_entity
+
+
 
 class InstallCommit(Entity):
     """
@@ -170,9 +173,12 @@ class InstallCommit(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(InstallCommit.Input, ['sdr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = InstallCommit()
         return self._top_entity
+
+
 
 class InstallRemove(Entity):
     """
@@ -308,6 +314,7 @@ class InstallRemove(Entity):
                 self._perform_setattr(InstallRemove.Input.Packages, ['packagename'], name, value)
 
 
+
         class Ids(Entity):
             """
             
@@ -344,9 +351,13 @@ class InstallRemove(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallRemove.Input.Ids, ['id_no'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = InstallRemove()
         return self._top_entity
+
+
 
 class InstallPrepare(Entity):
     """
@@ -484,6 +495,7 @@ class InstallPrepare(Entity):
                 self._perform_setattr(InstallPrepare.Input.Packages, ['packagename'], name, value)
 
 
+
         class Ids(Entity):
             """
             
@@ -519,6 +531,7 @@ class InstallPrepare(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallPrepare.Input.Ids, ['id_no'], name, value)
+
 
 
         class PrepareForce(Entity):
@@ -564,9 +577,13 @@ class InstallPrepare(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallPrepare.Input.PrepareForce, ['packagename', 'ids'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = InstallPrepare()
         return self._top_entity
+
+
 
 class InstallActivate(Entity):
     """
@@ -832,6 +849,7 @@ class InstallActivate(Entity):
                 self._perform_setattr(InstallActivate.Input.Warm, ['packagename', 'ids'], name, value)
 
 
+
         class WarmForce(Entity):
             """
             
@@ -874,6 +892,7 @@ class InstallActivate(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallActivate.Input.WarmForce, ['packagename', 'ids'], name, value)
+
 
 
         class WarmReplace(Entity):
@@ -920,6 +939,7 @@ class InstallActivate(Entity):
                 self._perform_setattr(InstallActivate.Input.WarmReplace, ['packagename', 'ids'], name, value)
 
 
+
         class WarmReplaceForce(Entity):
             """
             
@@ -962,6 +982,7 @@ class InstallActivate(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallActivate.Input.WarmReplaceForce, ['packagename', 'ids'], name, value)
+
 
 
         class Reload(Entity):
@@ -1008,6 +1029,7 @@ class InstallActivate(Entity):
                 self._perform_setattr(InstallActivate.Input.Reload, ['packagename', 'ids'], name, value)
 
 
+
         class ReloadForce(Entity):
             """
             
@@ -1050,6 +1072,7 @@ class InstallActivate(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallActivate.Input.ReloadForce, ['packagename', 'ids'], name, value)
+
 
 
         class Replace(Entity):
@@ -1096,6 +1119,7 @@ class InstallActivate(Entity):
                 self._perform_setattr(InstallActivate.Input.Replace, ['packagename', 'ids'], name, value)
 
 
+
         class ReplaceForce(Entity):
             """
             
@@ -1138,6 +1162,7 @@ class InstallActivate(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallActivate.Input.ReplaceForce, ['packagename', 'ids'], name, value)
+
 
 
         class ActivateForce(Entity):
@@ -1184,6 +1209,7 @@ class InstallActivate(Entity):
                 self._perform_setattr(InstallActivate.Input.ActivateForce, ['packagename', 'ids'], name, value)
 
 
+
         class Packages(Entity):
             """
             
@@ -1219,6 +1245,7 @@ class InstallActivate(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallActivate.Input.Packages, ['packagename'], name, value)
+
 
 
         class Ids(Entity):
@@ -1257,9 +1284,13 @@ class InstallActivate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallActivate.Input.Ids, ['id_no'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = InstallActivate()
         return self._top_entity
+
+
 
 class InstallDeactivate(Entity):
     """
@@ -1404,6 +1435,7 @@ class InstallDeactivate(Entity):
                 self._perform_setattr(InstallDeactivate.Input.Reload, ['packagename', 'ids'], name, value)
 
 
+
         class Packages(Entity):
             """
             
@@ -1439,6 +1471,7 @@ class InstallDeactivate(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallDeactivate.Input.Packages, ['packagename'], name, value)
+
 
 
         class Ids(Entity):
@@ -1477,9 +1510,13 @@ class InstallDeactivate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallDeactivate.Input.Ids, ['id_no'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = InstallDeactivate()
         return self._top_entity
+
+
 
 class InstallExtract(Entity):
     """
@@ -1590,9 +1627,13 @@ class InstallExtract(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallExtract.Input.Packages, ['packagename'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = InstallExtract()
         return self._top_entity
+
+
 
 class InstallVerify(Entity):
     """
@@ -1665,9 +1706,12 @@ class InstallVerify(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(InstallVerify.Input, ['location'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = InstallVerify()
         return self._top_entity
+
+
 
 class InstallUpdate(Entity):
     """
@@ -1873,6 +1917,7 @@ class InstallUpdate(Entity):
                 self._perform_setattr(InstallUpdate.Input.Warm, ['packagepath', 'packagename'], name, value)
 
 
+
         class WarmForce(Entity):
             """
             
@@ -1915,6 +1960,7 @@ class InstallUpdate(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallUpdate.Input.WarmForce, ['packagepath', 'packagename'], name, value)
+
 
 
         class WarmReplace(Entity):
@@ -1961,6 +2007,7 @@ class InstallUpdate(Entity):
                 self._perform_setattr(InstallUpdate.Input.WarmReplace, ['packagepath', 'packagename'], name, value)
 
 
+
         class WarmReplaceForce(Entity):
             """
             
@@ -2003,6 +2050,7 @@ class InstallUpdate(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallUpdate.Input.WarmReplaceForce, ['packagepath', 'packagename'], name, value)
+
 
 
         class Force(Entity):
@@ -2049,6 +2097,7 @@ class InstallUpdate(Entity):
                 self._perform_setattr(InstallUpdate.Input.Force, ['packagepath', 'packagename'], name, value)
 
 
+
         class Replace(Entity):
             """
             
@@ -2091,6 +2140,7 @@ class InstallUpdate(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallUpdate.Input.Replace, ['packagepath', 'packagename'], name, value)
+
 
 
         class ReplaceForce(Entity):
@@ -2137,6 +2187,7 @@ class InstallUpdate(Entity):
                 self._perform_setattr(InstallUpdate.Input.ReplaceForce, ['packagepath', 'packagename'], name, value)
 
 
+
         class ReplaceCommit(Entity):
             """
             
@@ -2179,6 +2230,7 @@ class InstallUpdate(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallUpdate.Input.ReplaceCommit, ['packagepath', 'packagename'], name, value)
+
 
 
         class ReplaceCommitForce(Entity):
@@ -2224,7 +2276,11 @@ class InstallUpdate(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(InstallUpdate.Input.ReplaceCommitForce, ['packagepath', 'packagename'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = InstallUpdate()
         return self._top_entity
+
+
 

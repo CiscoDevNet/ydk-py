@@ -245,60 +245,84 @@ class LLDPMIB(Entity):
     	
     	**type**\:  :py:class:`LldpConfiguration <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpConfiguration>`
     
+    	**config**\: False
+    
     .. attribute:: lldpstatistics
     
     	
     	**type**\:  :py:class:`LldpStatistics <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpStatistics>`
+    
+    	**config**\: False
     
     .. attribute:: lldplocalsystemdata
     
     	
     	**type**\:  :py:class:`LldpLocalSystemData <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpLocalSystemData>`
     
+    	**config**\: False
+    
     .. attribute:: lldpportconfigtable
     
     	The table that controls LLDP frame transmission on individual ports
     	**type**\:  :py:class:`LldpPortConfigTable <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpPortConfigTable>`
+    
+    	**config**\: False
     
     .. attribute:: lldpstatstxporttable
     
     	A table containing LLDP transmission statistics for individual ports.  Entries are not required to exist in this table while the lldpPortConfigEntry object is equal to 'disabled(4)'
     	**type**\:  :py:class:`LldpStatsTxPortTable <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpStatsTxPortTable>`
     
+    	**config**\: False
+    
     .. attribute:: lldpstatsrxporttable
     
     	A table containing LLDP reception statistics for individual ports.  Entries are not required to exist in this table while the lldpPortConfigEntry object is equal to 'disabled(4)'
     	**type**\:  :py:class:`LldpStatsRxPortTable <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpStatsRxPortTable>`
+    
+    	**config**\: False
     
     .. attribute:: lldplocporttable
     
     	This table contains one or more rows per port information associated with the local system known to this agent
     	**type**\:  :py:class:`LldpLocPortTable <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpLocPortTable>`
     
+    	**config**\: False
+    
     .. attribute:: lldplocmanaddrtable
     
     	This table contains management address information on the local system known to this agent
     	**type**\:  :py:class:`LldpLocManAddrTable <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpLocManAddrTable>`
+    
+    	**config**\: False
     
     .. attribute:: lldpremtable
     
     	This table contains one or more rows per physical network connection known to this agent.  The agent may wish to ensure that only one lldpRemEntry is present for each local port, or it may choose to maintain multiple lldpRemEntries for the same local port.  The following procedure may be used to retrieve remote systems information updates from an LLDP agent\:     1. NMS polls all tables associated with remote systems       and keeps a local copy of the information retrieved.       NMS polls periodically the values of the following       objects\:          a. lldpStatsRemTablesInserts          b. lldpStatsRemTablesDeletes          c. lldpStatsRemTablesDrops          d. lldpStatsRemTablesAgeouts          e. lldpStatsRxPortAgeoutsTotal for all ports.     2. LLDP agent updates remote systems MIB objects, and       sends out notifications to a list of notification       destinations.     3. NMS receives the notifications and compares the new       values of objects listed in step 1.          Periodically, NMS should poll the object       lldpStatsRemTablesLastChangeTime to find out if anything       has changed since the last poll.  if something has       changed, NMS will poll the objects listed in step 1 to       figure out what kind of changes occurred in the tables.        if value of lldpStatsRemTablesInserts has changed,       then NMS will walk all tables by employing TimeFilter       with the last\-polled time value.  This request will       return new objects or objects whose values are updated       since the last poll.        if value of lldpStatsRemTablesAgeouts has changed,       then NMS will walk the lldpStatsRxPortAgeoutsTotal and       compare the new values with previously recorded ones.       For ports whose lldpStatsRxPortAgeoutsTotal value is       greater than the recorded value, NMS will have to       retrieve objects associated with those ports from       table(s) without employing a TimeFilter (which is       performed by specifying 0 for the TimeFilter.)        lldpStatsRemTablesDeletes and lldpStatsRemTablesDrops       objects are provided for informational purposes
     	**type**\:  :py:class:`LldpRemTable <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpRemTable>`
     
+    	**config**\: False
+    
     .. attribute:: lldpremmanaddrtable
     
     	This table contains one or more rows per management address information on the remote system learned on a particular port contained in the local chassis known to this agent
     	**type**\:  :py:class:`LldpRemManAddrTable <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpRemManAddrTable>`
+    
+    	**config**\: False
     
     .. attribute:: lldpremunknowntlvtable
     
     	This table contains information about an incoming TLV which is not recognized by the receiving LLDP agent.  The TLV may be from a later version of the basic management set.  This table should only contain TLVs that are found in a single LLDP frame.  Entries in this table, associated with an MAC service access point (MSAP, the access point for MAC services provided to the LCC sublayer, defined in IEEE 100, which is also identified with a particular lldpRemLocalPortNum, lldpRemIndex pair) are overwritten with most recently received unrecognized TLV from the same MSAP, or they will naturally age out when the rxInfoTTL timer (associated with the MSAP) expires
     	**type**\:  :py:class:`LldpRemUnknownTLVTable <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpRemUnknownTLVTable>`
     
+    	**config**\: False
+    
     .. attribute:: lldpremorgdefinfotable
     
     	This table contains one or more rows per physical network connection which advertises the organizationally defined information.  Note that this table contains one or more rows of organizationally defined information that is not recognized by the local agent.  If the local system is capable of recognizing any organizationally defined information, appropriate extension MIBs from the organization should be used for information retrieval
     	**type**\:  :py:class:`LldpRemOrgDefInfoTable <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpRemOrgDefInfoTable>`
+    
+    	**config**\: False
     
     
 
@@ -384,6 +408,8 @@ class LLDPMIB(Entity):
         
         	**range:** 5..32768
         
+        	**config**\: False
+        
         	**units**\: seconds
         
         .. attribute:: lldpmessagetxholdmultiplier
@@ -393,12 +419,16 @@ class LLDPMIB(Entity):
         
         	**range:** 2..10
         
+        	**config**\: False
+        
         .. attribute:: lldpreinitdelay
         
         	The lldpReinitDelay indicates the delay (in units of seconds) from when lldpPortConfigAdminStatus object of a particular port becomes 'disabled' until re\-initialization will be attempted.  The default value for lldpReintDelay object is two seconds.  The value of this object must be restored from non\-volatile storage after a re\-initialization of the management system
         	**type**\: int
         
         	**range:** 1..10
+        
+        	**config**\: False
         
         	**units**\: seconds
         
@@ -409,6 +439,8 @@ class LLDPMIB(Entity):
         
         	**range:** 1..8192
         
+        	**config**\: False
+        
         	**units**\: seconds
         
         .. attribute:: lldpnotificationinterval
@@ -417,6 +449,8 @@ class LLDPMIB(Entity):
         	**type**\: int
         
         	**range:** 5..3600
+        
+        	**config**\: False
         
         	**units**\: seconds
         
@@ -456,6 +490,7 @@ class LLDPMIB(Entity):
             self._perform_setattr(LLDPMIB.LldpConfiguration, ['lldpmessagetxinterval', 'lldpmessagetxholdmultiplier', 'lldpreinitdelay', 'lldptxdelay', 'lldpnotificationinterval'], name, value)
 
 
+
     class LldpStatistics(Entity):
         """
         
@@ -467,12 +502,16 @@ class LLDPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: lldpstatsremtablesinserts
         
         	The number of times the complete set of information advertised by a particular MSAP has been inserted into tables contained in lldpRemoteSystemsData and lldpExtensions objects.  The complete set of information received from a particular MSAP should be inserted into related tables.  If partial information cannot be inserted for a reason such as lack of resources, all of the complete set of information should be removed.  This counter should be incremented only once after the complete set of information is successfully recorded in all related tables.  Any failures during inserting information set which result in deletion of previously inserted information should not trigger any changes in lldpStatsRemTablesInserts since the insert is not completed yet or or in lldpStatsRemTablesDeletes, since the deletion would only be a partial deletion. If the failure was the result of lack of resources, the lldpStatsRemTablesDrops counter should be incremented once
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: table entries
         
@@ -483,6 +522,8 @@ class LLDPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: table entries
         
         .. attribute:: lldpstatsremtablesdrops
@@ -492,6 +533,8 @@ class LLDPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: table entries
         
         .. attribute:: lldpstatsremtablesageouts
@@ -500,6 +543,8 @@ class LLDPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -537,6 +582,7 @@ class LLDPMIB(Entity):
             self._perform_setattr(LLDPMIB.LldpStatistics, ['lldpstatsremtableslastchangetime', 'lldpstatsremtablesinserts', 'lldpstatsremtablesdeletes', 'lldpstatsremtablesdrops', 'lldpstatsremtablesageouts'], name, value)
 
 
+
     class LldpLocalSystemData(Entity):
         """
         
@@ -546,12 +592,16 @@ class LLDPMIB(Entity):
         	The type of encoding used to identify the chassis associated with the local system
         	**type**\:  :py:class:`LldpChassisIdSubtype <ydk.models.cisco_ios_xe.LLDP_MIB.LldpChassisIdSubtype>`
         
+        	**config**\: False
+        
         .. attribute:: lldplocchassisid
         
         	The string value used to identify the chassis component associated with the local system
         	**type**\: str
         
         	**length:** 1..255
+        
+        	**config**\: False
         
         .. attribute:: lldplocsysname
         
@@ -560,6 +610,8 @@ class LLDPMIB(Entity):
         
         	**length:** 0..255
         
+        	**config**\: False
+        
         .. attribute:: lldplocsysdesc
         
         	The string value used to identify the system description of the local system.  If the local agent supports IETF RFC 3418, lldpLocSysDesc object should have the same value of sysDesc object
@@ -567,15 +619,21 @@ class LLDPMIB(Entity):
         
         	**length:** 0..255
         
+        	**config**\: False
+        
         .. attribute:: lldplocsyscapsupported
         
         	The bitmap value used to identify which system capabilities are supported on the local system
         	**type**\:  :py:class:`LldpSystemCapabilitiesMap <ydk.models.cisco_ios_xe.LLDP_MIB.LldpSystemCapabilitiesMap>`
         
+        	**config**\: False
+        
         .. attribute:: lldplocsyscapenabled
         
         	The bitmap value used to identify which system capabilities are enabled on the local system
         	**type**\:  :py:class:`LldpSystemCapabilitiesMap <ydk.models.cisco_ios_xe.LLDP_MIB.LldpSystemCapabilitiesMap>`
+        
+        	**config**\: False
         
         
 
@@ -615,6 +673,7 @@ class LLDPMIB(Entity):
             self._perform_setattr(LLDPMIB.LldpLocalSystemData, ['lldplocchassisidsubtype', 'lldplocchassisid', 'lldplocsysname', 'lldplocsysdesc', 'lldplocsyscapsupported', 'lldplocsyscapenabled'], name, value)
 
 
+
     class LldpPortConfigTable(Entity):
         """
         The table that controls LLDP frame transmission on individual
@@ -624,6 +683,8 @@ class LLDPMIB(Entity):
         
         	LLDP configuration information for a particular port. This configuration parameter controls the transmission and the reception of LLDP frames on those ports whose rows are created in this table
         	**type**\: list of  		 :py:class:`LldpPortConfigEntry <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpPortConfigTable.LldpPortConfigEntry>`
+        
+        	**config**\: False
         
         
 
@@ -666,20 +727,28 @@ class LLDPMIB(Entity):
             
             	**range:** 1..4096
             
+            	**config**\: False
+            
             .. attribute:: lldpportconfigadminstatus
             
             	The administratively desired status of the local LLDP agent.  If the associated lldpPortConfigAdminStatus object has a value of 'txOnly(1)', then LLDP agent will transmit LLDP frames on this port and it will not store any information about the remote systems connected.  If the associated lldpPortConfigAdminStatus object has a value of 'rxOnly(2)', then the LLDP agent will receive, but it will not transmit LLDP frames on this port.  If the associated lldpPortConfigAdminStatus object has a value of 'txAndRx(3)', then the LLDP agent will transmit and receive LLDP frames on this port.  If the associated lldpPortConfigAdminStatus object has a value of 'disabled(4)', then LLDP agent will not transmit or receive LLDP frames on this port.  If there is remote systems information which is received on this port and stored in other tables, before the port's lldpPortConfigAdminStatus becomes disabled, then the information will naturally age out
             	**type**\:  :py:class:`LldpPortConfigAdminStatus <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpPortConfigTable.LldpPortConfigEntry.LldpPortConfigAdminStatus>`
+            
+            	**config**\: False
             
             .. attribute:: lldpportconfignotificationenable
             
             	The lldpPortConfigNotificationEnable controls, on a per port basis,  whether or not notifications from the agent are enabled. The value true(1) means that notifications are enabled; the value false(2) means that they are not
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: lldpportconfigtlvstxenable
             
             	The lldpPortConfigTLVsTxEnable, defined as a bitmap, includes the basic set of LLDP TLVs whose transmission is allowed on the local LLDP agent by the network management. Each bit in the bitmap corresponds to a TLV type associated with a specific optional TLV.  It should be noted that the organizationally\-specific TLVs are excluded from the lldpTLVsTxEnable bitmap.  LLDP Organization Specific Information Extension MIBs should have similar configuration object to control transmission of their organizationally defined TLVs.  The bit 'portDesc(0)' indicates that LLDP agent should transmit 'Port Description TLV'.  The bit 'sysName(1)' indicates that LLDP agent should transmit 'System Name TLV'.  The bit 'sysDesc(2)' indicates that LLDP agent should transmit 'System Description TLV'.  The bit 'sysCap(3)' indicates that LLDP agent should transmit 'System Capabilities TLV'.  There is no bit reserved for the management address TLV type since transmission of management address TLVs are controlled by another object, lldpConfigManAddrTable.  The default value for lldpPortConfigTLVsTxEnable object is empty set, which means no enumerated values are set.  The value of this object must be restored from non\-volatile storage after a re\-initialization of the management system
             	**type**\:  :py:class:`LldpPortConfigTLVsTxEnable <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpPortConfigTable.LldpPortConfigEntry.LldpPortConfigTLVsTxEnable>`
+            
+            	**config**\: False
             
             
 
@@ -772,6 +841,8 @@ class LLDPMIB(Entity):
 
 
 
+
+
     class LldpStatsTxPortTable(Entity):
         """
         A table containing LLDP transmission statistics for
@@ -783,6 +854,8 @@ class LLDPMIB(Entity):
         
         	LLDP frame transmission statistics for a particular port. The port must be contained in the same chassis as the LLDP agent.  All counter values in a particular entry shall be maintained on a continuing basis and shall not be deleted upon expiration of rxInfoTTL timing counters in the LLDP remote systems MIB of the receipt of a shutdown frame from a remote LLDP agent.  All statistical counters associated with a particular port on the local LLDP agent become frozen whenever the adminStatus is disabled for the same port
         	**type**\: list of  		 :py:class:`LldpStatsTxPortEntry <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpStatsTxPortTable.LldpStatsTxPortEntry>`
+        
+        	**config**\: False
         
         
 
@@ -834,12 +907,16 @@ class LLDPMIB(Entity):
             
             	**range:** 1..4096
             
+            	**config**\: False
+            
             .. attribute:: lldpstatstxportframestotal
             
             	The number of LLDP frames transmitted by this LLDP agent on the indicated port
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -871,6 +948,8 @@ class LLDPMIB(Entity):
                 self._perform_setattr(LLDPMIB.LldpStatsTxPortTable.LldpStatsTxPortEntry, ['lldpstatstxportnum', 'lldpstatstxportframestotal'], name, value)
 
 
+
+
     class LldpStatsRxPortTable(Entity):
         """
         A table containing LLDP reception statistics for individual
@@ -881,6 +960,8 @@ class LLDPMIB(Entity):
         
         	LLDP frame reception statistics for a particular port. The port must be contained in the same chassis as the LLDP agent.  All counter values in a particular entry shall be maintained on a continuing basis and shall not be deleted upon expiration of rxInfoTTL timing counters in the LLDP remote systems MIB of the receipt of a shutdown frame from a remote LLDP agent.  All statistical counters associated with a particular port on the local LLDP agent become frozen whenever the adminStatus is disabled for the same port
         	**type**\: list of  		 :py:class:`LldpStatsRxPortEntry <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpStatsRxPortTable.LldpStatsRxPortEntry>`
+        
+        	**config**\: False
         
         
 
@@ -932,12 +1013,16 @@ class LLDPMIB(Entity):
             
             	**range:** 1..4096
             
+            	**config**\: False
+            
             .. attribute:: lldpstatsrxportframesdiscardedtotal
             
             	The number of LLDP frames received by this LLDP agent on the indicated port, and then discarded for any reason. This counter can provide an indication that LLDP header formating problems may exist with the local LLDP agent in the sending system or that LLDPDU validation problems may exist with the local LLDP agent in the receiving system
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: lldpstatsrxportframeserrors
             
@@ -946,12 +1031,16 @@ class LLDPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: lldpstatsrxportframestotal
             
             	The number of valid LLDP frames received by this LLDP agent on the indicated port, while this LLDP agent is enabled
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: lldpstatsrxporttlvsdiscardedtotal
             
@@ -960,6 +1049,8 @@ class LLDPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: lldpstatsrxporttlvsunrecognizedtotal
             
             	The number of LLDP TLVs received on the given port that are not recognized by this LLDP agent on the indicated port.  An unrecognized TLV is referred to as the TLV whose type value is in the range of reserved TLV types (000 1001 \- 111 1110) in Table 9.1 of IEEE Std 802.1AB\-2005.  An unrecognized TLV may be a basic management TLV from a later LLDP version
@@ -967,12 +1058,16 @@ class LLDPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: lldpstatsrxportageoutstotal
             
             	The counter that represents the number of age\-outs that occurred on a given port.  An age\-out is the number of times the complete set of information advertised by a particular MSAP has been deleted from tables contained in lldpRemoteSystemsData and lldpExtensions objects because the information timeliness interval has expired.  This counter is similar to lldpStatsRemTablesAgeouts, except that the counter is on a per port basis.  This enables NMS to poll tables associated with the lldpRemoteSystemsData objects and all LLDP extension objects associated with remote systems on the indicated port only.  This counter should be set to zero during agent initialization and its value should not be saved in non\-volatile storage. When a port's admin status changes from 'disabled' to 'rxOnly', 'txOnly' or 'txAndRx', the counter associated with the same port should reset to 0.  The agent should also flush all remote system information associated with the same port.  This counter should be incremented only once when the complete set of information is invalidated (aged out) from all related tables on a particular port.  Partial aging is not allowed, and thus, should not change the value of this counter
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1014,6 +1109,8 @@ class LLDPMIB(Entity):
                 self._perform_setattr(LLDPMIB.LldpStatsRxPortTable.LldpStatsRxPortEntry, ['lldpstatsrxportnum', 'lldpstatsrxportframesdiscardedtotal', 'lldpstatsrxportframeserrors', 'lldpstatsrxportframestotal', 'lldpstatsrxporttlvsdiscardedtotal', 'lldpstatsrxporttlvsunrecognizedtotal', 'lldpstatsrxportageoutstotal'], name, value)
 
 
+
+
     class LldpLocPortTable(Entity):
         """
         This table contains one or more rows per port information
@@ -1023,6 +1120,8 @@ class LLDPMIB(Entity):
         
         	Information about a particular port component.  Entries may be created and deleted in this table by the agent
         	**type**\: list of  		 :py:class:`LldpLocPortEntry <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpLocPortTable.LldpLocPortEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1065,10 +1164,14 @@ class LLDPMIB(Entity):
             
             	**range:** 1..4096
             
+            	**config**\: False
+            
             .. attribute:: lldplocportidsubtype
             
             	The type of port identifier encoding used in the associated 'lldpLocPortId' object
             	**type**\:  :py:class:`LldpPortIdSubtype <ydk.models.cisco_ios_xe.LLDP_MIB.LldpPortIdSubtype>`
+            
+            	**config**\: False
             
             .. attribute:: lldplocportid
             
@@ -1077,12 +1180,16 @@ class LLDPMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: lldplocportdesc
             
             	The string value used to identify the 802 LAN station's port description associated with the local system.  If the local agent supports IETF RFC 2863, lldpLocPortDesc object should have the same value of ifDescr object
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             
 
@@ -1118,6 +1225,8 @@ class LLDPMIB(Entity):
                 self._perform_setattr(LLDPMIB.LldpLocPortTable.LldpLocPortEntry, ['lldplocportnum', 'lldplocportidsubtype', 'lldplocportid', 'lldplocportdesc'], name, value)
 
 
+
+
     class LldpLocManAddrTable(Entity):
         """
         This table contains management address information on the
@@ -1127,6 +1236,8 @@ class LLDPMIB(Entity):
         
         	Management address information about a particular chassis component.  There may be multiple management addresses configured on the system identified by a particular lldpLocChassisId.  Each management address should have distinct 'management address type' (lldpLocManAddrSubtype) and 'management address' (lldpLocManAddr.)  Entries may be created and deleted in this table by the agent
         	**type**\: list of  		 :py:class:`LldpLocManAddrEntry <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpLocManAddrTable.LldpLocManAddrEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1172,12 +1283,16 @@ class LLDPMIB(Entity):
             	The type of management address identifier encoding used in the associated 'lldpLocManagmentAddr' object
             	**type**\:  :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
             
+            	**config**\: False
+            
             .. attribute:: lldplocmanaddr  (key)
             
             	The string value used to identify the management address component associated with the local system.  The purpose of this address is to contact the management entity
             	**type**\: str
             
             	**length:** 1..31
+            
+            	**config**\: False
             
             .. attribute:: lldplocmanaddrlen
             
@@ -1186,10 +1301,14 @@ class LLDPMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: lldplocmanaddrifsubtype
             
             	The enumeration value that identifies the interface numbering method used for defining the interface number, associated with the local system
             	**type**\:  :py:class:`LldpManAddrIfSubtype <ydk.models.cisco_ios_xe.LLDP_MIB.LldpManAddrIfSubtype>`
+            
+            	**config**\: False
             
             .. attribute:: lldplocmanaddrifid
             
@@ -1198,6 +1317,8 @@ class LLDPMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: lldplocmanaddroid
             
             	The OID value used to identify the type of hardware component or protocol entity associated with the management address advertised by the local system agent
@@ -1205,12 +1326,16 @@ class LLDPMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: lldpconfigmanaddrportstxenable
             
             	A set of ports that are identified by a PortList, in which each port is represented as a bit.  The corresponding local system management address instance will be transmitted on the member ports of the lldpManAddrPortsTxEnable.    The default value for lldpConfigManAddrPortsTxEnable object is empty binary string, which means no ports are specified for advertising indicated management address instance
             	**type**\: str
             
             	**length:** 0..512
+            
+            	**config**\: False
             
             
 
@@ -1250,6 +1375,8 @@ class LLDPMIB(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(LLDPMIB.LldpLocManAddrTable.LldpLocManAddrEntry, ['lldplocmanaddrsubtype', 'lldplocmanaddr', 'lldplocmanaddrlen', 'lldplocmanaddrifsubtype', 'lldplocmanaddrifid', 'lldplocmanaddroid', 'lldpconfigmanaddrportstxenable'], name, value)
+
+
 
 
     class LldpRemTable(Entity):
@@ -1309,6 +1436,8 @@ class LLDPMIB(Entity):
         	Information about a particular physical network connection. Entries may be created and deleted in this table by the agent, if a physical topology discovery process is active
         	**type**\: list of  		 :py:class:`LldpRemEntry <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpRemTable.LldpRemEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -1349,12 +1478,16 @@ class LLDPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: lldpremlocalportnum  (key)
             
             	The index value used to identify the port component (contained in the local chassis with the LLDP agent) associated with this entry.  The lldpRemLocalPortNum identifies the port on which the remote system information is received.  The value of this object is used as a port index to the lldpRemTable
             	**type**\: int
             
             	**range:** 1..4096
+            
+            	**config**\: False
             
             .. attribute:: lldpremindex  (key)
             
@@ -1363,10 +1496,14 @@ class LLDPMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: lldpremchassisidsubtype
             
             	The type of encoding used to identify the chassis associated with the remote system
             	**type**\:  :py:class:`LldpChassisIdSubtype <ydk.models.cisco_ios_xe.LLDP_MIB.LldpChassisIdSubtype>`
+            
+            	**config**\: False
             
             .. attribute:: lldpremchassisid
             
@@ -1375,10 +1512,14 @@ class LLDPMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: lldpremportidsubtype
             
             	The type of port identifier encoding used in the associated 'lldpRemPortId' object
             	**type**\:  :py:class:`LldpPortIdSubtype <ydk.models.cisco_ios_xe.LLDP_MIB.LldpPortIdSubtype>`
+            
+            	**config**\: False
             
             .. attribute:: lldpremportid
             
@@ -1387,12 +1528,16 @@ class LLDPMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: lldpremportdesc
             
             	The string value used to identify the description of the given port associated with the remote system
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: lldpremsysname
             
@@ -1401,6 +1546,8 @@ class LLDPMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: lldpremsysdesc
             
             	The string value used to identify the system description of the remote system
@@ -1408,15 +1555,21 @@ class LLDPMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: lldpremsyscapsupported
             
             	The bitmap value used to identify which system capabilities are supported on the remote system
             	**type**\:  :py:class:`LldpSystemCapabilitiesMap <ydk.models.cisco_ios_xe.LLDP_MIB.LldpSystemCapabilitiesMap>`
             
+            	**config**\: False
+            
             .. attribute:: lldpremsyscapenabled
             
             	The bitmap value used to identify which system capabilities are enabled on the remote system
             	**type**\:  :py:class:`LldpSystemCapabilitiesMap <ydk.models.cisco_ios_xe.LLDP_MIB.LldpSystemCapabilitiesMap>`
+            
+            	**config**\: False
             
             
 
@@ -1468,6 +1621,8 @@ class LLDPMIB(Entity):
                 self._perform_setattr(LLDPMIB.LldpRemTable.LldpRemEntry, ['lldpremtimemark', 'lldpremlocalportnum', 'lldpremindex', 'lldpremchassisidsubtype', 'lldpremchassisid', 'lldpremportidsubtype', 'lldpremportid', 'lldpremportdesc', 'lldpremsysname', 'lldpremsysdesc', 'lldpremsyscapsupported', 'lldpremsyscapenabled'], name, value)
 
 
+
+
     class LldpRemManAddrTable(Entity):
         """
         This table contains one or more rows per management address
@@ -1478,6 +1633,8 @@ class LLDPMIB(Entity):
         
         	Management address information about a particular chassis component.  There may be multiple management addresses configured on the remote system identified by a particular lldpRemIndex whose information is received on lldpRemLocalPortNum of the local system.  Each management address should have distinct 'management address type' (lldpRemManAddrSubtype) and 'management address' (lldpRemManAddr.)  Entries may be created and deleted in this table by the agent
         	**type**\: list of  		 :py:class:`LldpRemManAddrEntry <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpRemManAddrTable.LldpRemManAddrEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1529,6 +1686,8 @@ class LLDPMIB(Entity):
             
             	**refers to**\:  :py:class:`lldpremtimemark <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpRemTable.LldpRemEntry>`
             
+            	**config**\: False
+            
             .. attribute:: lldpremlocalportnum  (key)
             
             	
@@ -1537,6 +1696,8 @@ class LLDPMIB(Entity):
             	**range:** 1..4096
             
             	**refers to**\:  :py:class:`lldpremlocalportnum <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpRemTable.LldpRemEntry>`
+            
+            	**config**\: False
             
             .. attribute:: lldpremindex  (key)
             
@@ -1547,10 +1708,14 @@ class LLDPMIB(Entity):
             
             	**refers to**\:  :py:class:`lldpremindex <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpRemTable.LldpRemEntry>`
             
+            	**config**\: False
+            
             .. attribute:: lldpremmanaddrsubtype  (key)
             
             	The type of management address identifier encoding used in the associated 'lldpRemManagmentAddr' object
             	**type**\:  :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
+            
+            	**config**\: False
             
             .. attribute:: lldpremmanaddr  (key)
             
@@ -1559,10 +1724,14 @@ class LLDPMIB(Entity):
             
             	**length:** 1..31
             
+            	**config**\: False
+            
             .. attribute:: lldpremmanaddrifsubtype
             
             	The enumeration value that identifies the interface numbering method used for defining the interface number, associated with the remote system
             	**type**\:  :py:class:`LldpManAddrIfSubtype <ydk.models.cisco_ios_xe.LLDP_MIB.LldpManAddrIfSubtype>`
+            
+            	**config**\: False
             
             .. attribute:: lldpremmanaddrifid
             
@@ -1571,12 +1740,16 @@ class LLDPMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: lldpremmanaddroid
             
             	The OID value used to identify the type of hardware component or protocol entity associated with the management address advertised by the remote system agent
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             
 
@@ -1620,6 +1793,8 @@ class LLDPMIB(Entity):
                 self._perform_setattr(LLDPMIB.LldpRemManAddrTable.LldpRemManAddrEntry, ['lldpremtimemark', 'lldpremlocalportnum', 'lldpremindex', 'lldpremmanaddrsubtype', 'lldpremmanaddr', 'lldpremmanaddrifsubtype', 'lldpremmanaddrifid', 'lldpremmanaddroid'], name, value)
 
 
+
+
     class LldpRemUnknownTLVTable(Entity):
         """
         This table contains information about an incoming TLV which
@@ -1640,6 +1815,8 @@ class LLDPMIB(Entity):
         
         	Information about an unrecognized TLV received from a physical network connection.  Entries may be created and deleted in this table by the agent, if a physical topology discovery process is active
         	**type**\: list of  		 :py:class:`LldpRemUnknownTLVEntry <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpRemUnknownTLVTable.LldpRemUnknownTLVEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1684,6 +1861,8 @@ class LLDPMIB(Entity):
             
             	**refers to**\:  :py:class:`lldpremtimemark <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpRemTable.LldpRemEntry>`
             
+            	**config**\: False
+            
             .. attribute:: lldpremlocalportnum  (key)
             
             	
@@ -1692,6 +1871,8 @@ class LLDPMIB(Entity):
             	**range:** 1..4096
             
             	**refers to**\:  :py:class:`lldpremlocalportnum <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpRemTable.LldpRemEntry>`
+            
+            	**config**\: False
             
             .. attribute:: lldpremindex  (key)
             
@@ -1702,6 +1883,8 @@ class LLDPMIB(Entity):
             
             	**refers to**\:  :py:class:`lldpremindex <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpRemTable.LldpRemEntry>`
             
+            	**config**\: False
+            
             .. attribute:: lldpremunknowntlvtype  (key)
             
             	This object represents the value extracted from the type field of the TLV
@@ -1709,12 +1892,16 @@ class LLDPMIB(Entity):
             
             	**range:** 9..126
             
+            	**config**\: False
+            
             .. attribute:: lldpremunknowntlvinfo
             
             	This object represents the value extracted from the value field of the TLV
             	**type**\: str
             
             	**length:** 0..511
+            
+            	**config**\: False
             
             
 
@@ -1752,6 +1939,8 @@ class LLDPMIB(Entity):
                 self._perform_setattr(LLDPMIB.LldpRemUnknownTLVTable.LldpRemUnknownTLVEntry, ['lldpremtimemark', 'lldpremlocalportnum', 'lldpremindex', 'lldpremunknowntlvtype', 'lldpremunknowntlvinfo'], name, value)
 
 
+
+
     class LldpRemOrgDefInfoTable(Entity):
         """
         This table contains one or more rows per physical network
@@ -1771,6 +1960,8 @@ class LLDPMIB(Entity):
         
         	Information about the unrecognized organizationally defined information advertised by the remote system. The lldpRemTimeMark, lldpRemLocalPortNum, lldpRemIndex, lldpRemOrgDefInfoOUI, lldpRemOrgDefInfoSubtype, and lldpRemOrgDefInfoIndex are indexes to this table.  If there is an lldpRemOrgDefInfoEntry associated with a particular remote system identified by the lldpRemLocalPortNum and lldpRemIndex, there must be an lldpRemEntry associated with the same instance (i.e, using same indexes.)  When the lldpRemEntry for the same index is removed from the lldpRemTable, the associated lldpRemOrgDefInfoEntry should be removed from the lldpRemOrgDefInfoTable.  Entries may be created and deleted in this table by the agent
         	**type**\: list of  		 :py:class:`LldpRemOrgDefInfoEntry <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpRemOrgDefInfoTable.LldpRemOrgDefInfoEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1826,6 +2017,8 @@ class LLDPMIB(Entity):
             
             	**refers to**\:  :py:class:`lldpremtimemark <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpRemTable.LldpRemEntry>`
             
+            	**config**\: False
+            
             .. attribute:: lldpremlocalportnum  (key)
             
             	
@@ -1834,6 +2027,8 @@ class LLDPMIB(Entity):
             	**range:** 1..4096
             
             	**refers to**\:  :py:class:`lldpremlocalportnum <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpRemTable.LldpRemEntry>`
+            
+            	**config**\: False
             
             .. attribute:: lldpremindex  (key)
             
@@ -1844,12 +2039,16 @@ class LLDPMIB(Entity):
             
             	**refers to**\:  :py:class:`lldpremindex <ydk.models.cisco_ios_xe.LLDP_MIB.LLDPMIB.LldpRemTable.LldpRemEntry>`
             
+            	**config**\: False
+            
             .. attribute:: lldpremorgdefinfooui  (key)
             
             	The Organizationally Unique Identifier (OUI), as defined in IEEE std 802\-2001, is a 24 bit (three octets) globally unique assigned number referenced by various standards, of the information received from the remote system
             	**type**\: str
             
             	**length:** 3
+            
+            	**config**\: False
             
             .. attribute:: lldpremorgdefinfosubtype  (key)
             
@@ -1858,6 +2057,8 @@ class LLDPMIB(Entity):
             
             	**range:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: lldpremorgdefinfoindex  (key)
             
             	This object represents an arbitrary local integer value used by this agent to identify a particular unrecognized organizationally defined information instance, unique only for the lldpRemOrgDefInfoOUI and lldpRemOrgDefInfoSubtype from the same remote system.  An agent is encouraged to assign monotonically increasing index values to new entries, starting with one, after each reboot.  It is considered unlikely that the lldpRemOrgDefInfoIndex will wrap between reboots
@@ -1865,12 +2066,16 @@ class LLDPMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: lldpremorgdefinfo
             
             	The string value used to identify the organizationally defined information of the remote system.  The encoding for this object should be as defined for SnmpAdminString TC
             	**type**\: str
             
             	**length:** 0..507
+            
+            	**config**\: False
             
             
 
@@ -1911,7 +2116,11 @@ class LLDPMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(LLDPMIB.LldpRemOrgDefInfoTable.LldpRemOrgDefInfoEntry, ['lldpremtimemark', 'lldpremlocalportnum', 'lldpremindex', 'lldpremorgdefinfooui', 'lldpremorgdefinfosubtype', 'lldpremorgdefinfoindex', 'lldpremorgdefinfo'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = LLDPMIB()
         return self._top_entity
+
+
 

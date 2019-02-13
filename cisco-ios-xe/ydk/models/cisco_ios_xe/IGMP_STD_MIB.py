@@ -22,10 +22,14 @@ class IGMPSTDMIB(Entity):
     	The (conceptual) table listing the interfaces on which IGMP is enabled
     	**type**\:  :py:class:`IgmpInterfaceTable <ydk.models.cisco_ios_xe.IGMP_STD_MIB.IGMPSTDMIB.IgmpInterfaceTable>`
     
+    	**config**\: False
+    
     .. attribute:: igmpcachetable
     
     	The (conceptual) table listing the IP multicast groups for which there are members on a particular interface
     	**type**\:  :py:class:`IgmpCacheTable <ydk.models.cisco_ios_xe.IGMP_STD_MIB.IGMPSTDMIB.IgmpCacheTable>`
+    
+    	**config**\: False
     
     
 
@@ -70,6 +74,8 @@ class IGMPSTDMIB(Entity):
         	An entry (conceptual row) representing an interface on which IGMP is enabled
         	**type**\: list of  		 :py:class:`IgmpInterfaceEntry <ydk.models.cisco_ios_xe.IGMP_STD_MIB.IGMPSTDMIB.IgmpInterfaceTable.IgmpInterfaceEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -109,12 +115,16 @@ class IGMPSTDMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: igmpinterfacequeryinterval
             
             	The frequency at which IGMP Host\-Query packets are transmitted on this interface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -123,12 +133,16 @@ class IGMPSTDMIB(Entity):
             	The activation of a row enables IGMP on the interface.  The destruction of a row disables IGMP on the interface
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: igmpinterfaceversion
             
             	The version of IGMP which is running on this interface. This object can be used to configure a router capable of running either value.  For IGMP to function correctly, all routers on a LAN must be configured to run the same version of IGMP on that LAN
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: igmpinterfacequerier
             
@@ -137,12 +151,16 @@ class IGMPSTDMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: igmpinterfacequerymaxresponsetime
             
             	The maximum query response time advertised in IGMPv2 queries on this interface
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             	**units**\: tenths of seconds
             
@@ -153,12 +171,16 @@ class IGMPSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: igmpinterfacequerierexpirytime
             
             	The amount of time remaining before the Other Querier Present Timer expires.  If the local system is the querier, the value of this object is zero
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: igmpinterfaceversion1queriertimer
             
@@ -167,12 +189,16 @@ class IGMPSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: igmpinterfacewrongversionqueries
             
             	The number of queries received whose IGMP version does not match igmpInterfaceVersion, over the lifetime of the row entry.  IGMP requires that all routers on a LAN be configured to run the same version of IGMP.  Thus, if any queries are received with the wrong version, this indicates a configuration error
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: igmpinterfacejoins
             
@@ -181,12 +207,16 @@ class IGMPSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: igmpinterfaceproxyifindex
             
             	Some devices implement a form of IGMP proxying whereby memberships learned on the interface represented by this row, cause IGMP Host Membership Reports to be sent on the interface whose ifIndex value is given by this object.  Such a device would implement the igmpV2RouterMIBGroup only on its router interfaces (those interfaces with non\-zero igmpInterfaceProxyIfIndex).  Typically, the value of this object is 0, indicating that no proxying is being done
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: igmpinterfacegroups
             
@@ -195,6 +225,8 @@ class IGMPSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: igmpinterfacerobustness
             
             	The Robustness Variable allows tuning for the expected packet loss on a subnet.  If a subnet is expected to be lossy, the Robustness Variable may be increased.  IGMP is robust to (Robustness Variable\-1) packet losses
@@ -202,12 +234,16 @@ class IGMPSTDMIB(Entity):
             
             	**range:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: igmpinterfacelastmembqueryintvl
             
             	The Last Member Query Interval is the Max Response Time inserted into Group\-Specific Queries sent in response to Leave Group messages, and is also the amount of time between Group\-Specific Query messages.  This value may be tuned to modify the leave latency of the network.  A reduced value results in reduced time to detect the loss of the last member of a group.  The value of this object is irrelevant if igmpInterfaceVersion is 1
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             	**units**\: tenths of seconds
             
@@ -267,6 +303,8 @@ class IGMPSTDMIB(Entity):
                 self._perform_setattr(IGMPSTDMIB.IgmpInterfaceTable.IgmpInterfaceEntry, ['igmpinterfaceifindex', 'igmpinterfacequeryinterval', 'igmpinterfacestatus', 'igmpinterfaceversion', 'igmpinterfacequerier', 'igmpinterfacequerymaxresponsetime', 'igmpinterfacequerieruptime', 'igmpinterfacequerierexpirytime', 'igmpinterfaceversion1queriertimer', 'igmpinterfacewrongversionqueries', 'igmpinterfacejoins', 'igmpinterfaceproxyifindex', 'igmpinterfacegroups', 'igmpinterfacerobustness', 'igmpinterfacelastmembqueryintvl'], name, value)
 
 
+
+
     class IgmpCacheTable(Entity):
         """
         The (conceptual) table listing the IP multicast groups for
@@ -276,6 +314,8 @@ class IGMPSTDMIB(Entity):
         
         	An entry (conceptual row) in the igmpCacheTable
         	**type**\: list of  		 :py:class:`IgmpCacheEntry <ydk.models.cisco_ios_xe.IGMP_STD_MIB.IGMPSTDMIB.IgmpCacheTable.IgmpCacheEntry>`
+        
+        	**config**\: False
         
         
 
@@ -315,6 +355,8 @@ class IGMPSTDMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: igmpcacheifindex  (key)
             
             	The interface for which this entry contains information for an IP multicast group address
@@ -322,10 +364,14 @@ class IGMPSTDMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: igmpcacheself
             
             	An indication of whether the local system is a member of this group address on this interface
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: igmpcachelastreporter
             
@@ -334,12 +380,16 @@ class IGMPSTDMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: igmpcacheuptime
             
             	The time elapsed since this entry was created
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: igmpcacheexpirytime
             
@@ -348,10 +398,14 @@ class IGMPSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: igmpcachestatus
             
             	The status of this entry
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             .. attribute:: igmpcacheversion1hosttimer
             
@@ -359,6 +413,8 @@ class IGMPSTDMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -401,7 +457,11 @@ class IGMPSTDMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(IGMPSTDMIB.IgmpCacheTable.IgmpCacheEntry, ['igmpcacheaddress', 'igmpcacheifindex', 'igmpcacheself', 'igmpcachelastreporter', 'igmpcacheuptime', 'igmpcacheexpirytime', 'igmpcachestatus', 'igmpcacheversion1hosttimer'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = IGMPSTDMIB()
         return self._top_entity
+
+
 

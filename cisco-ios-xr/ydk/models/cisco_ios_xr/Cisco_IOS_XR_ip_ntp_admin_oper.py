@@ -256,6 +256,8 @@ class Ntp(Entity):
     	Rack\-specific NTP operational data
     	**type**\:  :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks>`
     
+    	**config**\: False
+    
     
 
     """
@@ -293,6 +295,8 @@ class Ntp(Entity):
         
         	NTP operational data for a particular rack
         	**type**\: list of  		 :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack>`
+        
+        	**config**\: False
         
         
 
@@ -332,10 +336,14 @@ class Ntp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: slots
             
             	Node\-specific NTP operational data
             	**type**\:  :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots>`
+            
+            	**config**\: False
             
             
 
@@ -378,6 +386,8 @@ class Ntp(Entity):
                 	NTP operational data for a particular slot
                 	**type**\: list of  		 :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -415,10 +425,14 @@ class Ntp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: instances
                     
                     	Instance\-specific NTP operational data
                     	**type**\:  :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -460,6 +474,8 @@ class Ntp(Entity):
                         	NTP operational data for a particular instance
                         	**type**\: list of  		 :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -498,20 +514,28 @@ class Ntp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: status
                             
                             	Status of NTP peer(s)
                             	**type**\:  :py:class:`Status <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: associations
                             
                             	NTP Associations information
                             	**type**\:  :py:class:`Associations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: associations_detail
                             
                             	NTP Associations Detail information
                             	**type**\:  :py:class:`AssociationsDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -561,25 +585,35 @@ class Ntp(Entity):
                                 	Reference time
                                 	**type**\:  :py:class:`SysRefTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sys_drift
                                 
                                 	System Drift
                                 	**type**\:  :py:class:`SysDrift <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: is_ntp_enabled
                                 
                                 	Is NTP enabled
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sys_dispersion
                                 
                                 	Peer dispersion
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sys_offset
                                 
                                 	Clock offset
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: clock_period
                                 
@@ -588,12 +622,16 @@ class Ntp(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 	**units**\: nanosecond
                                 
                                 .. attribute:: sys_leap
                                 
                                 	leap
                                 	**type**\:  :py:class:`NtpLeap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeap>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: sys_precision
                                 
@@ -602,12 +640,16 @@ class Ntp(Entity):
                                 
                                 	**range:** \-128..127
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sys_stratum
                                 
                                 	Stratum
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: sys_ref_id
                                 
@@ -616,20 +658,28 @@ class Ntp(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sys_root_delay
                                 
                                 	Root delay
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: sys_root_dispersion
                                 
                                 	Root dispersion
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: loop_filter_state
                                 
                                 	Loop Filter State
                                 	**type**\:  :py:class:`NtpLoopFilterState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLoopFilterState>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: poll_interval
                                 
@@ -638,10 +688,14 @@ class Ntp(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: is_updated
                                 
                                 	Is clock updated
                                 	**type**\:  :py:class:`ClockUpdateNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.ClockUpdateNode>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: last_update
                                 
@@ -649,6 +703,8 @@ class Ntp(Entity):
                                 	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -720,10 +776,14 @@ class Ntp(Entity):
                                     	Second part in 64\-bit NTP timestamp
                                     	**type**\:  :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: frac_secs
                                     
                                     	Fractional part in 64\-bit NTP timestamp
                                     	**type**\:  :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -768,6 +828,8 @@ class Ntp(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -795,6 +857,7 @@ class Ntp(Entity):
                                             self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.Sec, ['int'], name, value)
 
 
+
                                     class FracSecs(Entity):
                                         """
                                         Fractional part in 64\-bit NTP timestamp
@@ -805,6 +868,8 @@ class Ntp(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -833,6 +898,8 @@ class Ntp(Entity):
                                             self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysRefTime.FracSecs, ['frac'], name, value)
 
 
+
+
                                 class SysDrift(Entity):
                                     """
                                     System Drift
@@ -842,10 +909,14 @@ class Ntp(Entity):
                                     	Second part in 64\-bit NTP timestamp
                                     	**type**\:  :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: frac_secs
                                     
                                     	Fractional part in 64\-bit NTP timestamp
                                     	**type**\:  :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -890,6 +961,8 @@ class Ntp(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -917,6 +990,7 @@ class Ntp(Entity):
                                             self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.Sec, ['int'], name, value)
 
 
+
                                     class FracSecs(Entity):
                                         """
                                         Fractional part in 64\-bit NTP timestamp
@@ -927,6 +1001,8 @@ class Ntp(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -955,6 +1031,9 @@ class Ntp(Entity):
                                             self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Status.SysDrift.FracSecs, ['frac'], name, value)
 
 
+
+
+
                             class Associations(Entity):
                                 """
                                 NTP Associations information
@@ -964,15 +1043,21 @@ class Ntp(Entity):
                                 	Is NTP enabled
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sys_leap
                                 
                                 	Leap
                                 	**type**\:  :py:class:`NtpLeap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeap>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: peer_summary_info
                                 
                                 	Peer info
                                 	**type**\: list of  		 :py:class:`PeerSummaryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1014,12 +1099,16 @@ class Ntp(Entity):
                                     	Common peer info
                                     	**type**\:  :py:class:`PeerInfoCommon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo.PeerInfoCommon>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: time_since
                                     
                                     	Time since last frame received (\-1=none)
                                     	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1061,15 +1150,21 @@ class Ntp(Entity):
                                         	Association mode with this peer
                                         	**type**\:  :py:class:`NtpMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpMode>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: is_configured
                                         
                                         	Is configured
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	Peer Address
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: reference_id
                                         
@@ -1078,12 +1173,16 @@ class Ntp(Entity):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: host_poll
                                         
                                         	Host poll
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: reachability
                                         
@@ -1092,6 +1191,8 @@ class Ntp(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: stratum
                                         
                                         	Peer stratum
@@ -1099,30 +1200,42 @@ class Ntp(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: status
                                         
                                         	Peer status
                                         	**type**\:  :py:class:`NtpPeerStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpPeerStatus>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: delay
                                         
                                         	Peer delay
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: offset
                                         
                                         	Peer offset
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: dispersion
                                         
                                         	Peer dispersion
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: is_sys_peer
                                         
                                         	Indicates whether this is syspeer
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1173,6 +1286,9 @@ class Ntp(Entity):
                                             self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.Associations.PeerSummaryInfo.PeerInfoCommon, ['host_mode', 'is_configured', 'address', 'reference_id', 'host_poll', 'reachability', 'stratum', 'status', 'delay', 'offset', 'dispersion', 'is_sys_peer'], name, value)
 
 
+
+
+
                             class AssociationsDetail(Entity):
                                 """
                                 NTP Associations Detail information
@@ -1182,15 +1298,21 @@ class Ntp(Entity):
                                 	Is NTP enabled
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sys_leap
                                 
                                 	Leap
                                 	**type**\:  :py:class:`NtpLeap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeap>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: peer_detail_info
                                 
                                 	Peer info
                                 	**type**\: list of  		 :py:class:`PeerDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1232,35 +1354,49 @@ class Ntp(Entity):
                                     	Common peer info
                                     	**type**\:  :py:class:`PeerInfoCommon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ref_time
                                     
                                     	Reference time
                                     	**type**\:  :py:class:`RefTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: originate_time
                                     
                                     	Originate timestamp
                                     	**type**\:  :py:class:`OriginateTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: receive_time
                                     
                                     	Receive timestamp
                                     	**type**\:  :py:class:`ReceiveTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: transmit_time
                                     
                                     	Transmit timestamp
                                     	**type**\:  :py:class:`TransmitTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: leap
                                     
                                     	Leap
                                     	**type**\:  :py:class:`NtpLeap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpLeap>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: peer_mode
                                     
                                     	Peer's association mode
                                     	**type**\:  :py:class:`NtpMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpMode>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: poll_interval
                                     
@@ -1269,30 +1405,42 @@ class Ntp(Entity):
                                     
                                     	**range:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: is_ref_clock
                                     
                                     	Is refclock
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: is_authenticated
                                     
                                     	Is authenticated
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: root_delay
                                     
                                     	Root delay
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: root_dispersion
                                     
                                     	Root dispersion
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: synch_distance
                                     
                                     	Synch distance
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: precision
                                     
@@ -1301,12 +1449,16 @@ class Ntp(Entity):
                                     
                                     	**range:** \-128..127
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: version
                                     
                                     	NTP version
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: filter_index
                                     
@@ -1315,6 +1467,8 @@ class Ntp(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: cast_flags
                                     
                                     	Cast Flags
@@ -1322,10 +1476,14 @@ class Ntp(Entity):
                                     
                                     	**range:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: filter_detail
                                     
                                     	Filter Details
                                     	**type**\: list of  		 :py:class:`FilterDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1407,15 +1565,21 @@ class Ntp(Entity):
                                         	Association mode with this peer
                                         	**type**\:  :py:class:`NtpMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpMode>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: is_configured
                                         
                                         	Is configured
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: address
                                         
                                         	Peer Address
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: reference_id
                                         
@@ -1424,12 +1588,16 @@ class Ntp(Entity):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: host_poll
                                         
                                         	Host poll
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: reachability
                                         
@@ -1438,6 +1606,8 @@ class Ntp(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: stratum
                                         
                                         	Peer stratum
@@ -1445,30 +1615,42 @@ class Ntp(Entity):
                                         
                                         	**range:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: status
                                         
                                         	Peer status
                                         	**type**\:  :py:class:`NtpPeerStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.NtpPeerStatus>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: delay
                                         
                                         	Peer delay
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: offset
                                         
                                         	Peer offset
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: dispersion
                                         
                                         	Peer dispersion
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: is_sys_peer
                                         
                                         	Indicates whether this is syspeer
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1519,6 +1701,7 @@ class Ntp(Entity):
                                             self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.PeerInfoCommon, ['host_mode', 'is_configured', 'address', 'reference_id', 'host_poll', 'reachability', 'stratum', 'status', 'delay', 'offset', 'dispersion', 'is_sys_peer'], name, value)
 
 
+
                                     class RefTime(Entity):
                                         """
                                         Reference time
@@ -1528,10 +1711,14 @@ class Ntp(Entity):
                                         	Second part in 64\-bit NTP timestamp
                                         	**type**\:  :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: frac_secs
                                         
                                         	Fractional part in 64\-bit NTP timestamp
                                         	**type**\:  :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1576,6 +1763,8 @@ class Ntp(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             
 
                                             """
@@ -1603,6 +1792,7 @@ class Ntp(Entity):
                                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.Sec, ['int'], name, value)
 
 
+
                                         class FracSecs(Entity):
                                             """
                                             Fractional part in 64\-bit NTP timestamp
@@ -1613,6 +1803,8 @@ class Ntp(Entity):
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1641,6 +1833,8 @@ class Ntp(Entity):
                                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs, ['frac'], name, value)
 
 
+
+
                                     class OriginateTime(Entity):
                                         """
                                         Originate timestamp
@@ -1650,10 +1844,14 @@ class Ntp(Entity):
                                         	Second part in 64\-bit NTP timestamp
                                         	**type**\:  :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: frac_secs
                                         
                                         	Fractional part in 64\-bit NTP timestamp
                                         	**type**\:  :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1698,6 +1896,8 @@ class Ntp(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             
 
                                             """
@@ -1725,6 +1925,7 @@ class Ntp(Entity):
                                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec, ['int'], name, value)
 
 
+
                                         class FracSecs(Entity):
                                             """
                                             Fractional part in 64\-bit NTP timestamp
@@ -1735,6 +1936,8 @@ class Ntp(Entity):
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1763,6 +1966,8 @@ class Ntp(Entity):
                                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs, ['frac'], name, value)
 
 
+
+
                                     class ReceiveTime(Entity):
                                         """
                                         Receive timestamp
@@ -1772,10 +1977,14 @@ class Ntp(Entity):
                                         	Second part in 64\-bit NTP timestamp
                                         	**type**\:  :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: frac_secs
                                         
                                         	Fractional part in 64\-bit NTP timestamp
                                         	**type**\:  :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1820,6 +2029,8 @@ class Ntp(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             
 
                                             """
@@ -1847,6 +2058,7 @@ class Ntp(Entity):
                                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec, ['int'], name, value)
 
 
+
                                         class FracSecs(Entity):
                                             """
                                             Fractional part in 64\-bit NTP timestamp
@@ -1857,6 +2069,8 @@ class Ntp(Entity):
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1885,6 +2099,8 @@ class Ntp(Entity):
                                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs, ['frac'], name, value)
 
 
+
+
                                     class TransmitTime(Entity):
                                         """
                                         Transmit timestamp
@@ -1894,10 +2110,14 @@ class Ntp(Entity):
                                         	Second part in 64\-bit NTP timestamp
                                         	**type**\:  :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: frac_secs
                                         
                                         	Fractional part in 64\-bit NTP timestamp
                                         	**type**\:  :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_admin_oper.Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1942,6 +2162,8 @@ class Ntp(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             
 
                                             """
@@ -1969,6 +2191,7 @@ class Ntp(Entity):
                                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec, ['int'], name, value)
 
 
+
                                         class FracSecs(Entity):
                                             """
                                             Fractional part in 64\-bit NTP timestamp
@@ -1979,6 +2202,8 @@ class Ntp(Entity):
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -2007,6 +2232,8 @@ class Ntp(Entity):
                                                 self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs, ['frac'], name, value)
 
 
+
+
                                     class FilterDetail(Entity):
                                         """
                                         Filter Details
@@ -2016,15 +2243,21 @@ class Ntp(Entity):
                                         	filter delay
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: filter_offset
                                         
                                         	filter offset
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: filter_disp
                                         
                                         	filter disp
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2056,7 +2289,18 @@ class Ntp(Entity):
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ntp.Racks.Rack.Slots.Slot.Instances.Instance.AssociationsDetail.PeerDetailInfo.FilterDetail, ['filter_delay', 'filter_offset', 'filter_disp'], name, value)
 
+
+
+
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Ntp()
         return self._top_entity
+
+
 

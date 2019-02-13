@@ -30,6 +30,7 @@ class ADDRESSFAMILY(Identity):
         super(ADDRESSFAMILY, self).__init__(ns, pref, tag)
 
 
+
 class L2ETHERNET(ADDRESSFAMILY):
     """
     The 802.3 Ethernet address family
@@ -43,6 +44,7 @@ class L2ETHERNET(ADDRESSFAMILY):
 
     def __init__(self, ns="http://openconfig.net/yang/openconfig-types", pref="openconfig-types", tag="openconfig-types:L2_ETHERNET"):
         super(L2ETHERNET, self).__init__(ns, pref, tag)
+
 
 
 class IPV6(ADDRESSFAMILY):
@@ -60,6 +62,7 @@ class IPV6(ADDRESSFAMILY):
         super(IPV6, self).__init__(ns, pref, tag)
 
 
+
 class MPLS(ADDRESSFAMILY):
     """
     The MPLS address family
@@ -75,6 +78,7 @@ class MPLS(ADDRESSFAMILY):
         super(MPLS, self).__init__(ns, pref, tag)
 
 
+
 class IPV4(ADDRESSFAMILY):
     """
     The IPv4 address family
@@ -88,5 +92,6 @@ class IPV4(ADDRESSFAMILY):
 
     def __init__(self, ns="http://openconfig.net/yang/openconfig-types", pref="openconfig-types", tag="openconfig-types:IPV4"):
         super(IPV4, self).__init__(ns, pref, tag)
+
 
 

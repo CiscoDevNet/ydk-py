@@ -27,6 +27,8 @@ class CheckpointArchives(Entity):
     
     	**range:** 0..255
     
+    	**config**\: False
+    
     .. attribute:: current
     
     	The current number of archives
@@ -34,15 +36,21 @@ class CheckpointArchives(Entity):
     
     	**range:** 0..255
     
+    	**config**\: False
+    
     .. attribute:: recent
     
     	The most recent archive
     	**type**\: str
     
+    	**config**\: False
+    
     .. attribute:: archives
     
     	Archive information
     	**type**\:  :py:class:`Archives <ydk.models.cisco_ios_xe.Cisco_IOS_XE_checkpoint_archive_oper.CheckpointArchives.Archives>`
+    
+    	**config**\: False
     
     
 
@@ -89,6 +97,8 @@ class CheckpointArchives(Entity):
         	List of archives
         	**type**\: list of  		 :py:class:`Archive <ydk.models.cisco_ios_xe.Cisco_IOS_XE_checkpoint_archive_oper.CheckpointArchives.Archives.Archive>`
         
+        	**config**\: False
+        
         
 
         """
@@ -127,10 +137,14 @@ class CheckpointArchives(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: name
             
             	The name of the archive
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -161,7 +175,11 @@ class CheckpointArchives(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CheckpointArchives.Archives.Archive, ['number', 'name'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CheckpointArchives()
         return self._top_entity
+
+
 

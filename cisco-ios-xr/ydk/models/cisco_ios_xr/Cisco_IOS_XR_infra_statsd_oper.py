@@ -30,6 +30,8 @@ class InfraStatistics(Entity):
     	List of interfaces
     	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class InfraStatistics(Entity):
         
         	Statistics of an interface
         	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface>`
+        
+        	**config**\: False
         
         
 
@@ -106,40 +110,56 @@ class InfraStatistics(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: cache
             
             	Cached stats data of interfaces
             	**type**\:  :py:class:`Cache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache>`
+            
+            	**config**\: False
             
             .. attribute:: latest
             
             	Latest stats data of interfaces
             	**type**\:  :py:class:`Latest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest>`
             
+            	**config**\: False
+            
             .. attribute:: total
             
             	Total stats data of interfaces
             	**type**\:  :py:class:`Total <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total>`
+            
+            	**config**\: False
             
             .. attribute:: protocols
             
             	List of protocols
             	**type**\:  :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Protocols>`
             
+            	**config**\: False
+            
             .. attribute:: interfaces_mib_counters
             
             	Set of interface counters as displayed by the InterfacesMIB
             	**type**\:  :py:class:`InterfacesMibCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.InterfacesMibCounters>`
+            
+            	**config**\: False
             
             .. attribute:: data_rate
             
             	Datarate information
             	**type**\:  :py:class:`DataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.DataRate>`
             
+            	**config**\: False
+            
             .. attribute:: generic_counters
             
             	Generic set of interface counters
             	**type**\:  :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.GenericCounters>`
+            
+            	**config**\: False
             
             
 
@@ -206,20 +226,28 @@ class InfraStatistics(Entity):
                 	List of protocols
                 	**type**\:  :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.Protocols>`
                 
+                	**config**\: False
+                
                 .. attribute:: interfaces_mib_counters
                 
                 	Set of interface counters as displayed by the InterfacesMIB
                 	**type**\:  :py:class:`InterfacesMibCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters>`
+                
+                	**config**\: False
                 
                 .. attribute:: data_rate
                 
                 	Datarate information
                 	**type**\:  :py:class:`DataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.DataRate>`
                 
+                	**config**\: False
+                
                 .. attribute:: generic_counters
                 
                 	Generic set of interface counters
                 	**type**\:  :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.GenericCounters>`
+                
+                	**config**\: False
                 
                 
 
@@ -270,6 +298,8 @@ class InfraStatistics(Entity):
                     	Interface counters per protocol
                     	**type**\: list of  		 :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -307,12 +337,16 @@ class InfraStatistics(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: bytes_received
                         
                         	Bytes received
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -323,12 +357,16 @@ class InfraStatistics(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: bytes_sent
                         
                         	Bytes sent
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -339,6 +377,8 @@ class InfraStatistics(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: protocol
                         
                         	Protocol number
@@ -346,12 +386,16 @@ class InfraStatistics(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_data_time
                         
                         	Time when counters were last written (in seconds)
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -362,6 +406,8 @@ class InfraStatistics(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         	**units**\: bit/s
                         
                         .. attribute:: input_packet_rate
@@ -370,6 +416,8 @@ class InfraStatistics(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: packet/s
                         
@@ -380,6 +428,8 @@ class InfraStatistics(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         	**units**\: bit/s
                         
                         .. attribute:: output_packet_rate
@@ -388,6 +438,8 @@ class InfraStatistics(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: packet/s
                         
@@ -438,6 +490,8 @@ class InfraStatistics(Entity):
                             self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol, ['protocol_name', 'bytes_received', 'packets_received', 'bytes_sent', 'packets_sent', 'protocol', 'last_data_time', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate'], name, value)
 
 
+
+
                 class InterfacesMibCounters(Entity):
                     """
                     Set of interface counters as displayed by the
@@ -450,12 +504,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bytes_received
                     
                     	Bytes received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -466,12 +524,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -482,12 +544,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: broadcast_packets_received
                     
                     	Broadcast packets received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: multicast_packets_sent
                     
@@ -496,12 +562,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: broadcast_packets_sent
                     
                     	Broadcast packets sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_drops
                     
@@ -510,12 +580,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_queue_drops
                     
                     	Output queue drops
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_drops
                     
@@ -524,12 +598,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_queue_drops
                     
                     	Input queue drops
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: runt_packets_received
                     
@@ -538,12 +616,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: giant_packets_received
                     
                     	Received giant packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: throttled_packets_received
                     
@@ -552,12 +634,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: parity_packets_received
                     
                     	Received parity packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: unknown_protocol_packets_received
                     
@@ -566,12 +652,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_errors
                     
                     	Total input errors
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: crc_errors
                     
@@ -580,12 +670,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_overruns
                     
                     	Input overruns
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: framing_errors_received
                     
@@ -594,12 +688,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_ignored_packets
                     
                     	Input ignored packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_aborts
                     
@@ -608,12 +706,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_errors
                     
                     	Total output errors
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_underruns
                     
@@ -622,12 +724,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_buffer_failures
                     
                     	Output buffer failures
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_buffers_swapped_out
                     
@@ -636,12 +742,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: applique
                     
                     	Applique
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: resets
                     
@@ -650,12 +760,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: carrier_transitions
                     
                     	Carrier transitions
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: availability_flag
                     
@@ -664,12 +778,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_data_time
                     
                     	Time when counters were last written (in seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -680,6 +798,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: last_discontinuity_time
@@ -688,6 +808,8 @@ class InfraStatistics(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -698,6 +820,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: seconds_since_packet_sent
@@ -706,6 +830,8 @@ class InfraStatistics(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -806,6 +932,7 @@ class InfraStatistics(Entity):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
 
+
                 class DataRate(Entity):
                     """
                     Datarate information
@@ -817,6 +944,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: bit/s
                     
                     .. attribute:: input_packet_rate
@@ -825,6 +954,8 @@ class InfraStatistics(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: packet/s
                     
@@ -835,6 +966,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: bit/s
                     
                     .. attribute:: output_packet_rate
@@ -843,6 +976,8 @@ class InfraStatistics(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: packet/s
                     
@@ -853,12 +988,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: peak_input_packet_rate
                     
                     	Peak input packet rate
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: peak_output_data_rate
                     
@@ -867,6 +1006,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: peak_output_packet_rate
                     
                     	Peak output packet rate
@@ -874,12 +1015,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bandwidth
                     
                     	Bandwidth (in kbps)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: kbit/s
                     
@@ -890,12 +1035,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_load
                     
                     	Output load as fraction of 255
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_load
                     
@@ -904,12 +1053,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: reliability
                     
                     	Reliability coefficient
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -962,6 +1115,7 @@ class InfraStatistics(Entity):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.DataRate, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
 
 
+
                 class GenericCounters(Entity):
                     """
                     Generic set of interface counters
@@ -973,12 +1127,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bytes_received
                     
                     	Bytes received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -989,12 +1147,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -1005,12 +1167,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: broadcast_packets_received
                     
                     	Broadcast packets received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: multicast_packets_sent
                     
@@ -1019,12 +1185,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: broadcast_packets_sent
                     
                     	Broadcast packets sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_drops
                     
@@ -1033,12 +1203,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_queue_drops
                     
                     	Output queue drops
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_drops
                     
@@ -1047,12 +1221,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_queue_drops
                     
                     	Input queue drops
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: runt_packets_received
                     
@@ -1061,12 +1239,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: giant_packets_received
                     
                     	Received giant packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: throttled_packets_received
                     
@@ -1075,12 +1257,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: parity_packets_received
                     
                     	Received parity packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: unknown_protocol_packets_received
                     
@@ -1089,12 +1275,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_errors
                     
                     	Total input errors
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: crc_errors
                     
@@ -1103,12 +1293,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_overruns
                     
                     	Input overruns
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: framing_errors_received
                     
@@ -1117,12 +1311,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_ignored_packets
                     
                     	Input ignored packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_aborts
                     
@@ -1131,12 +1329,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_errors
                     
                     	Total output errors
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_underruns
                     
@@ -1145,12 +1347,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_buffer_failures
                     
                     	Output buffer failures
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_buffers_swapped_out
                     
@@ -1159,12 +1365,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: applique
                     
                     	Applique
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: resets
                     
@@ -1173,12 +1383,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: carrier_transitions
                     
                     	Carrier transitions
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: availability_flag
                     
@@ -1187,12 +1401,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_data_time
                     
                     	Time when counters were last written (in seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -1203,6 +1421,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: last_discontinuity_time
@@ -1211,6 +1431,8 @@ class InfraStatistics(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -1221,6 +1443,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: seconds_since_packet_sent
@@ -1229,6 +1453,8 @@ class InfraStatistics(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -1329,6 +1555,8 @@ class InfraStatistics(Entity):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.GenericCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
 
+
+
             class Latest(Entity):
                 """
                 Latest stats data of interfaces
@@ -1338,20 +1566,28 @@ class InfraStatistics(Entity):
                 	List of protocols
                 	**type**\:  :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.Protocols>`
                 
+                	**config**\: False
+                
                 .. attribute:: interfaces_mib_counters
                 
                 	Set of interface counters as displayed by the InterfacesMIB
                 	**type**\:  :py:class:`InterfacesMibCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters>`
+                
+                	**config**\: False
                 
                 .. attribute:: data_rate
                 
                 	Datarate information
                 	**type**\:  :py:class:`DataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.DataRate>`
                 
+                	**config**\: False
+                
                 .. attribute:: generic_counters
                 
                 	Generic set of interface counters
                 	**type**\:  :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.GenericCounters>`
+                
+                	**config**\: False
                 
                 
 
@@ -1402,6 +1638,8 @@ class InfraStatistics(Entity):
                     	Interface counters per protocol
                     	**type**\: list of  		 :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1439,12 +1677,16 @@ class InfraStatistics(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: bytes_received
                         
                         	Bytes received
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -1455,12 +1697,16 @@ class InfraStatistics(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: bytes_sent
                         
                         	Bytes sent
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -1471,6 +1717,8 @@ class InfraStatistics(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: protocol
                         
                         	Protocol number
@@ -1478,12 +1726,16 @@ class InfraStatistics(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_data_time
                         
                         	Time when counters were last written (in seconds)
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -1494,6 +1746,8 @@ class InfraStatistics(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         	**units**\: bit/s
                         
                         .. attribute:: input_packet_rate
@@ -1502,6 +1756,8 @@ class InfraStatistics(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: packet/s
                         
@@ -1512,6 +1768,8 @@ class InfraStatistics(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         	**units**\: bit/s
                         
                         .. attribute:: output_packet_rate
@@ -1520,6 +1778,8 @@ class InfraStatistics(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: packet/s
                         
@@ -1570,6 +1830,8 @@ class InfraStatistics(Entity):
                             self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol, ['protocol_name', 'bytes_received', 'packets_received', 'bytes_sent', 'packets_sent', 'protocol', 'last_data_time', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate'], name, value)
 
 
+
+
                 class InterfacesMibCounters(Entity):
                     """
                     Set of interface counters as displayed by the
@@ -1582,12 +1844,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bytes_received
                     
                     	Bytes received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -1598,12 +1864,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -1614,12 +1884,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: broadcast_packets_received
                     
                     	Broadcast packets received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: multicast_packets_sent
                     
@@ -1628,12 +1902,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: broadcast_packets_sent
                     
                     	Broadcast packets sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_drops
                     
@@ -1642,12 +1920,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_queue_drops
                     
                     	Output queue drops
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_drops
                     
@@ -1656,12 +1938,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_queue_drops
                     
                     	Input queue drops
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: runt_packets_received
                     
@@ -1670,12 +1956,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: giant_packets_received
                     
                     	Received giant packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: throttled_packets_received
                     
@@ -1684,12 +1974,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: parity_packets_received
                     
                     	Received parity packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: unknown_protocol_packets_received
                     
@@ -1698,12 +1992,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_errors
                     
                     	Total input errors
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: crc_errors
                     
@@ -1712,12 +2010,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_overruns
                     
                     	Input overruns
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: framing_errors_received
                     
@@ -1726,12 +2028,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_ignored_packets
                     
                     	Input ignored packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_aborts
                     
@@ -1740,12 +2046,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_errors
                     
                     	Total output errors
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_underruns
                     
@@ -1754,12 +2064,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_buffer_failures
                     
                     	Output buffer failures
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_buffers_swapped_out
                     
@@ -1768,12 +2082,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: applique
                     
                     	Applique
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: resets
                     
@@ -1782,12 +2100,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: carrier_transitions
                     
                     	Carrier transitions
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: availability_flag
                     
@@ -1796,12 +2118,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_data_time
                     
                     	Time when counters were last written (in seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -1812,6 +2138,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: last_discontinuity_time
@@ -1820,6 +2148,8 @@ class InfraStatistics(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -1830,6 +2160,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: seconds_since_packet_sent
@@ -1838,6 +2170,8 @@ class InfraStatistics(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -1938,6 +2272,7 @@ class InfraStatistics(Entity):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
 
+
                 class DataRate(Entity):
                     """
                     Datarate information
@@ -1949,6 +2284,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: bit/s
                     
                     .. attribute:: input_packet_rate
@@ -1957,6 +2294,8 @@ class InfraStatistics(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: packet/s
                     
@@ -1967,6 +2306,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: bit/s
                     
                     .. attribute:: output_packet_rate
@@ -1975,6 +2316,8 @@ class InfraStatistics(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: packet/s
                     
@@ -1985,12 +2328,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: peak_input_packet_rate
                     
                     	Peak input packet rate
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: peak_output_data_rate
                     
@@ -1999,6 +2346,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: peak_output_packet_rate
                     
                     	Peak output packet rate
@@ -2006,12 +2355,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bandwidth
                     
                     	Bandwidth (in kbps)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: kbit/s
                     
@@ -2022,12 +2375,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_load
                     
                     	Output load as fraction of 255
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_load
                     
@@ -2036,12 +2393,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: reliability
                     
                     	Reliability coefficient
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -2094,6 +2455,7 @@ class InfraStatistics(Entity):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.DataRate, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
 
 
+
                 class GenericCounters(Entity):
                     """
                     Generic set of interface counters
@@ -2105,12 +2467,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bytes_received
                     
                     	Bytes received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -2121,12 +2487,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -2137,12 +2507,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: broadcast_packets_received
                     
                     	Broadcast packets received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: multicast_packets_sent
                     
@@ -2151,12 +2525,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: broadcast_packets_sent
                     
                     	Broadcast packets sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_drops
                     
@@ -2165,12 +2543,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_queue_drops
                     
                     	Output queue drops
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_drops
                     
@@ -2179,12 +2561,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_queue_drops
                     
                     	Input queue drops
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: runt_packets_received
                     
@@ -2193,12 +2579,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: giant_packets_received
                     
                     	Received giant packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: throttled_packets_received
                     
@@ -2207,12 +2597,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: parity_packets_received
                     
                     	Received parity packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: unknown_protocol_packets_received
                     
@@ -2221,12 +2615,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_errors
                     
                     	Total input errors
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: crc_errors
                     
@@ -2235,12 +2633,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_overruns
                     
                     	Input overruns
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: framing_errors_received
                     
@@ -2249,12 +2651,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_ignored_packets
                     
                     	Input ignored packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_aborts
                     
@@ -2263,12 +2669,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_errors
                     
                     	Total output errors
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_underruns
                     
@@ -2277,12 +2687,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_buffer_failures
                     
                     	Output buffer failures
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_buffers_swapped_out
                     
@@ -2291,12 +2705,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: applique
                     
                     	Applique
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: resets
                     
@@ -2305,12 +2723,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: carrier_transitions
                     
                     	Carrier transitions
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: availability_flag
                     
@@ -2319,12 +2741,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_data_time
                     
                     	Time when counters were last written (in seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -2335,6 +2761,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: last_discontinuity_time
@@ -2343,6 +2771,8 @@ class InfraStatistics(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -2353,6 +2783,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: seconds_since_packet_sent
@@ -2361,6 +2793,8 @@ class InfraStatistics(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -2461,6 +2895,8 @@ class InfraStatistics(Entity):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.GenericCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
 
+
+
             class Total(Entity):
                 """
                 Total stats data of interfaces
@@ -2470,20 +2906,28 @@ class InfraStatistics(Entity):
                 	List of protocols
                 	**type**\:  :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.Protocols>`
                 
+                	**config**\: False
+                
                 .. attribute:: interfaces_mib_counters
                 
                 	Set of interface counters as displayed by the InterfacesMIB
                 	**type**\:  :py:class:`InterfacesMibCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters>`
+                
+                	**config**\: False
                 
                 .. attribute:: data_rate
                 
                 	Datarate information
                 	**type**\:  :py:class:`DataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.DataRate>`
                 
+                	**config**\: False
+                
                 .. attribute:: generic_counters
                 
                 	Generic set of interface counters
                 	**type**\:  :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.GenericCounters>`
+                
+                	**config**\: False
                 
                 
 
@@ -2534,6 +2978,8 @@ class InfraStatistics(Entity):
                     	Interface counters per protocol
                     	**type**\: list of  		 :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -2571,12 +3017,16 @@ class InfraStatistics(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: bytes_received
                         
                         	Bytes received
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -2587,12 +3037,16 @@ class InfraStatistics(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: bytes_sent
                         
                         	Bytes sent
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -2603,6 +3057,8 @@ class InfraStatistics(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: protocol
                         
                         	Protocol number
@@ -2610,12 +3066,16 @@ class InfraStatistics(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_data_time
                         
                         	Time when counters were last written (in seconds)
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -2626,6 +3086,8 @@ class InfraStatistics(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         	**units**\: bit/s
                         
                         .. attribute:: input_packet_rate
@@ -2634,6 +3096,8 @@ class InfraStatistics(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: packet/s
                         
@@ -2644,6 +3108,8 @@ class InfraStatistics(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         	**units**\: bit/s
                         
                         .. attribute:: output_packet_rate
@@ -2652,6 +3118,8 @@ class InfraStatistics(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: packet/s
                         
@@ -2702,6 +3170,8 @@ class InfraStatistics(Entity):
                             self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol, ['protocol_name', 'bytes_received', 'packets_received', 'bytes_sent', 'packets_sent', 'protocol', 'last_data_time', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate'], name, value)
 
 
+
+
                 class InterfacesMibCounters(Entity):
                     """
                     Set of interface counters as displayed by the
@@ -2714,12 +3184,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bytes_received
                     
                     	Bytes received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -2730,12 +3204,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -2746,12 +3224,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: broadcast_packets_received
                     
                     	Broadcast packets received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: multicast_packets_sent
                     
@@ -2760,12 +3242,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: broadcast_packets_sent
                     
                     	Broadcast packets sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_drops
                     
@@ -2774,12 +3260,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_queue_drops
                     
                     	Output queue drops
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_drops
                     
@@ -2788,12 +3278,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_queue_drops
                     
                     	Input queue drops
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: runt_packets_received
                     
@@ -2802,12 +3296,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: giant_packets_received
                     
                     	Received giant packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: throttled_packets_received
                     
@@ -2816,12 +3314,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: parity_packets_received
                     
                     	Received parity packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: unknown_protocol_packets_received
                     
@@ -2830,12 +3332,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_errors
                     
                     	Total input errors
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: crc_errors
                     
@@ -2844,12 +3350,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_overruns
                     
                     	Input overruns
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: framing_errors_received
                     
@@ -2858,12 +3368,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_ignored_packets
                     
                     	Input ignored packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_aborts
                     
@@ -2872,12 +3386,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_errors
                     
                     	Total output errors
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_underruns
                     
@@ -2886,12 +3404,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_buffer_failures
                     
                     	Output buffer failures
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_buffers_swapped_out
                     
@@ -2900,12 +3422,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: applique
                     
                     	Applique
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: resets
                     
@@ -2914,12 +3440,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: carrier_transitions
                     
                     	Carrier transitions
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: availability_flag
                     
@@ -2928,12 +3458,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_data_time
                     
                     	Time when counters were last written (in seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -2944,6 +3478,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: last_discontinuity_time
@@ -2952,6 +3488,8 @@ class InfraStatistics(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -2962,6 +3500,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: seconds_since_packet_sent
@@ -2970,6 +3510,8 @@ class InfraStatistics(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -3070,6 +3612,7 @@ class InfraStatistics(Entity):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
 
+
                 class DataRate(Entity):
                     """
                     Datarate information
@@ -3081,6 +3624,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: bit/s
                     
                     .. attribute:: input_packet_rate
@@ -3089,6 +3634,8 @@ class InfraStatistics(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: packet/s
                     
@@ -3099,6 +3646,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: bit/s
                     
                     .. attribute:: output_packet_rate
@@ -3107,6 +3656,8 @@ class InfraStatistics(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: packet/s
                     
@@ -3117,12 +3668,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: peak_input_packet_rate
                     
                     	Peak input packet rate
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: peak_output_data_rate
                     
@@ -3131,6 +3686,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: peak_output_packet_rate
                     
                     	Peak output packet rate
@@ -3138,12 +3695,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bandwidth
                     
                     	Bandwidth (in kbps)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: kbit/s
                     
@@ -3154,12 +3715,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_load
                     
                     	Output load as fraction of 255
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_load
                     
@@ -3168,12 +3733,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: reliability
                     
                     	Reliability coefficient
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -3226,6 +3795,7 @@ class InfraStatistics(Entity):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.DataRate, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
 
 
+
                 class GenericCounters(Entity):
                     """
                     Generic set of interface counters
@@ -3237,12 +3807,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bytes_received
                     
                     	Bytes received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -3253,12 +3827,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -3269,12 +3847,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: broadcast_packets_received
                     
                     	Broadcast packets received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: multicast_packets_sent
                     
@@ -3283,12 +3865,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: broadcast_packets_sent
                     
                     	Broadcast packets sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_drops
                     
@@ -3297,12 +3883,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_queue_drops
                     
                     	Output queue drops
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_drops
                     
@@ -3311,12 +3901,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_queue_drops
                     
                     	Input queue drops
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: runt_packets_received
                     
@@ -3325,12 +3919,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: giant_packets_received
                     
                     	Received giant packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: throttled_packets_received
                     
@@ -3339,12 +3937,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: parity_packets_received
                     
                     	Received parity packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: unknown_protocol_packets_received
                     
@@ -3353,12 +3955,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_errors
                     
                     	Total input errors
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: crc_errors
                     
@@ -3367,12 +3973,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_overruns
                     
                     	Input overruns
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: framing_errors_received
                     
@@ -3381,12 +3991,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_ignored_packets
                     
                     	Input ignored packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_aborts
                     
@@ -3395,12 +4009,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_errors
                     
                     	Total output errors
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_underruns
                     
@@ -3409,12 +4027,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_buffer_failures
                     
                     	Output buffer failures
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_buffers_swapped_out
                     
@@ -3423,12 +4045,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: applique
                     
                     	Applique
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: resets
                     
@@ -3437,12 +4063,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: carrier_transitions
                     
                     	Carrier transitions
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: availability_flag
                     
@@ -3451,12 +4081,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_data_time
                     
                     	Time when counters were last written (in seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -3467,6 +4101,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: last_discontinuity_time
@@ -3475,6 +4111,8 @@ class InfraStatistics(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -3485,6 +4123,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: seconds_since_packet_sent
@@ -3493,6 +4133,8 @@ class InfraStatistics(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -3593,6 +4235,8 @@ class InfraStatistics(Entity):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.GenericCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
 
+
+
             class Protocols(Entity):
                 """
                 List of protocols
@@ -3601,6 +4245,8 @@ class InfraStatistics(Entity):
                 
                 	Interface counters per protocol
                 	**type**\: list of  		 :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Protocols.Protocol>`
+                
+                	**config**\: False
                 
                 
 
@@ -3639,12 +4285,16 @@ class InfraStatistics(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: bytes_received
                     
                     	Bytes received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -3655,12 +4305,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -3671,6 +4325,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: protocol
                     
                     	Protocol number
@@ -3678,12 +4334,16 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_data_time
                     
                     	Time when counters were last written (in seconds)
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -3694,6 +4354,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: bit/s
                     
                     .. attribute:: input_packet_rate
@@ -3702,6 +4364,8 @@ class InfraStatistics(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: packet/s
                     
@@ -3712,6 +4376,8 @@ class InfraStatistics(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: bit/s
                     
                     .. attribute:: output_packet_rate
@@ -3720,6 +4386,8 @@ class InfraStatistics(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: packet/s
                     
@@ -3770,6 +4438,8 @@ class InfraStatistics(Entity):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Protocols.Protocol, ['protocol_name', 'bytes_received', 'packets_received', 'bytes_sent', 'packets_sent', 'protocol', 'last_data_time', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate'], name, value)
 
 
+
+
             class InterfacesMibCounters(Entity):
                 """
                 Set of interface counters as displayed by the
@@ -3782,12 +4452,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes_received
                 
                 	Bytes received
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -3798,12 +4472,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes_sent
                 
                 	Bytes sent
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -3814,12 +4492,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: broadcast_packets_received
                 
                 	Broadcast packets received
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: multicast_packets_sent
                 
@@ -3828,12 +4510,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: broadcast_packets_sent
                 
                 	Broadcast packets sent
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: output_drops
                 
@@ -3842,12 +4528,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: output_queue_drops
                 
                 	Output queue drops
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: input_drops
                 
@@ -3856,12 +4546,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: input_queue_drops
                 
                 	Input queue drops
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: runt_packets_received
                 
@@ -3870,12 +4564,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: giant_packets_received
                 
                 	Received giant packets
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: throttled_packets_received
                 
@@ -3884,12 +4582,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: parity_packets_received
                 
                 	Received parity packets
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: unknown_protocol_packets_received
                 
@@ -3898,12 +4600,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: input_errors
                 
                 	Total input errors
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: crc_errors
                 
@@ -3912,12 +4618,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: input_overruns
                 
                 	Input overruns
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: framing_errors_received
                 
@@ -3926,12 +4636,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: input_ignored_packets
                 
                 	Input ignored packets
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: input_aborts
                 
@@ -3940,12 +4654,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: output_errors
                 
                 	Total output errors
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: output_underruns
                 
@@ -3954,12 +4672,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: output_buffer_failures
                 
                 	Output buffer failures
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: output_buffers_swapped_out
                 
@@ -3968,12 +4690,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: applique
                 
                 	Applique
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: resets
                 
@@ -3982,12 +4708,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: carrier_transitions
                 
                 	Carrier transitions
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: availability_flag
                 
@@ -3996,12 +4726,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: last_data_time
                 
                 	Time when counters were last written (in seconds)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -4012,6 +4746,8 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: last_discontinuity_time
@@ -4020,6 +4756,8 @@ class InfraStatistics(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -4030,6 +4768,8 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: seconds_since_packet_sent
@@ -4038,6 +4778,8 @@ class InfraStatistics(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -4138,6 +4880,7 @@ class InfraStatistics(Entity):
                     self._perform_setattr(InfraStatistics.Interfaces.Interface.InterfacesMibCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
 
+
             class DataRate(Entity):
                 """
                 Datarate information
@@ -4149,6 +4892,8 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 	**units**\: bit/s
                 
                 .. attribute:: input_packet_rate
@@ -4157,6 +4902,8 @@ class InfraStatistics(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: packet/s
                 
@@ -4167,6 +4914,8 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 	**units**\: bit/s
                 
                 .. attribute:: output_packet_rate
@@ -4175,6 +4924,8 @@ class InfraStatistics(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: packet/s
                 
@@ -4185,12 +4936,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: peak_input_packet_rate
                 
                 	Peak input packet rate
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: peak_output_data_rate
                 
@@ -4199,6 +4954,8 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: peak_output_packet_rate
                 
                 	Peak output packet rate
@@ -4206,12 +4963,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bandwidth
                 
                 	Bandwidth (in kbps)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: kbit/s
                 
@@ -4222,12 +4983,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: output_load
                 
                 	Output load as fraction of 255
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: input_load
                 
@@ -4236,12 +5001,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: reliability
                 
                 	Reliability coefficient
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 
 
@@ -4294,6 +5063,7 @@ class InfraStatistics(Entity):
                     self._perform_setattr(InfraStatistics.Interfaces.Interface.DataRate, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
 
 
+
             class GenericCounters(Entity):
                 """
                 Generic set of interface counters
@@ -4305,12 +5075,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes_received
                 
                 	Bytes received
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -4321,12 +5095,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes_sent
                 
                 	Bytes sent
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -4337,12 +5115,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: broadcast_packets_received
                 
                 	Broadcast packets received
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: multicast_packets_sent
                 
@@ -4351,12 +5133,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: broadcast_packets_sent
                 
                 	Broadcast packets sent
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: output_drops
                 
@@ -4365,12 +5151,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: output_queue_drops
                 
                 	Output queue drops
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: input_drops
                 
@@ -4379,12 +5169,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: input_queue_drops
                 
                 	Input queue drops
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: runt_packets_received
                 
@@ -4393,12 +5187,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: giant_packets_received
                 
                 	Received giant packets
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: throttled_packets_received
                 
@@ -4407,12 +5205,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: parity_packets_received
                 
                 	Received parity packets
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: unknown_protocol_packets_received
                 
@@ -4421,12 +5223,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: input_errors
                 
                 	Total input errors
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: crc_errors
                 
@@ -4435,12 +5241,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: input_overruns
                 
                 	Input overruns
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: framing_errors_received
                 
@@ -4449,12 +5259,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: input_ignored_packets
                 
                 	Input ignored packets
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: input_aborts
                 
@@ -4463,12 +5277,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: output_errors
                 
                 	Total output errors
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: output_underruns
                 
@@ -4477,12 +5295,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: output_buffer_failures
                 
                 	Output buffer failures
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: output_buffers_swapped_out
                 
@@ -4491,12 +5313,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: applique
                 
                 	Applique
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: resets
                 
@@ -4505,12 +5331,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: carrier_transitions
                 
                 	Carrier transitions
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: availability_flag
                 
@@ -4519,12 +5349,16 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: last_data_time
                 
                 	Time when counters were last written (in seconds)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -4535,6 +5369,8 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: last_discontinuity_time
@@ -4543,6 +5379,8 @@ class InfraStatistics(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -4553,6 +5391,8 @@ class InfraStatistics(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: seconds_since_packet_sent
@@ -4561,6 +5401,8 @@ class InfraStatistics(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -4660,7 +5502,12 @@ class InfraStatistics(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(InfraStatistics.Interfaces.Interface.GenericCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = InfraStatistics()
         return self._top_entity
+
+
 

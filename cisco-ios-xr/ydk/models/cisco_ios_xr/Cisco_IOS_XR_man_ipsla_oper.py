@@ -749,20 +749,28 @@ class Ipsla(Entity):
     	MPLS operational data
     	**type**\:  :py:class:`MplsData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.MplsData>`
     
+    	**config**\: False
+    
     .. attribute:: responder
     
     	Data from responder probe handling
     	**type**\:  :py:class:`Responder <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.Responder>`
+    
+    	**config**\: False
     
     .. attribute:: operation_data
     
     	Operations data
     	**type**\:  :py:class:`OperationData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData>`
     
+    	**config**\: False
+    
     .. attribute:: application_info
     
     	IPSLA application information
     	**type**\:  :py:class:`ApplicationInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.ApplicationInfo>`
+    
+    	**config**\: False
     
     
 
@@ -814,10 +822,14 @@ class Ipsla(Entity):
         	List of MPLS LSP Monitor instances
         	**type**\:  :py:class:`LspMonitors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.MplsData.LspMonitors>`
         
+        	**config**\: False
+        
         .. attribute:: discovery
         
         	Provider Edge(PE) discovery operational data
         	**type**\:  :py:class:`Discovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.MplsData.Discovery>`
+        
+        	**config**\: False
         
         
 
@@ -861,6 +873,8 @@ class Ipsla(Entity):
             	Operational data for MPLS LSP Monitor
             	**type**\: list of  		 :py:class:`LspMonitor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.MplsData.LspMonitors.LspMonitor>`
             
+            	**config**\: False
+            
             
 
             """
@@ -899,20 +913,28 @@ class Ipsla(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	Operational state of MPLS LSP Monitor
                 	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.MplsData.LspMonitors.LspMonitor.State>`
+                
+                	**config**\: False
                 
                 .. attribute:: operations
                 
                 	List of operations in MPLS LSP Monitor
                 	**type**\:  :py:class:`Operations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.MplsData.LspMonitors.LspMonitor.Operations>`
                 
+                	**config**\: False
+                
                 .. attribute:: scan_queues
                 
                 	List of Scan Queue entries in MPLS LSP Monitor
                 	**type**\:  :py:class:`ScanQueues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues>`
+                
+                	**config**\: False
                 
                 
 
@@ -965,6 +987,8 @@ class Ipsla(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: delete_scan_remaining
@@ -973,6 +997,8 @@ class Ipsla(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -983,6 +1009,8 @@ class Ipsla(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: lpd_compeletion_time
@@ -991,6 +1019,8 @@ class Ipsla(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -1027,6 +1057,7 @@ class Ipsla(Entity):
                         self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.State, [u'scan_remaining', u'delete_scan_remaining', u'rediscovery_remaining', u'lpd_compeletion_time'], name, value)
 
 
+
                 class Operations(Entity):
                     """
                     List of operations in MPLS LSP Monitor
@@ -1035,6 +1066,8 @@ class Ipsla(Entity):
                     
                     	Operation created in MPLS LSP Monitor
                     	**type**\: list of  		 :py:class:`Operation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1073,15 +1106,21 @@ class Ipsla(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: state
                         
                         	Operational state of the created operation
                         	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.State>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: lpd_paths
                         
                         	List of LPD paths in MPLS LPD group operation
                         	**type**\:  :py:class:`LpdPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1129,6 +1168,8 @@ class Ipsla(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: target_mask
                             
                             	PE target mask length
@@ -1136,10 +1177,14 @@ class Ipsla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: group_status
                             
                             	Latest LSP group status
                             	**type**\:  :py:class:`IpslaLspGrpStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaLspGrpStatusEnum>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: operation_time
                             
@@ -1147,6 +1192,8 @@ class Ipsla(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -1181,6 +1228,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.State, [u'target_address', u'target_mask', u'group_status', u'operation_time'], name, value)
 
 
+
                         class LpdPaths(Entity):
                             """
                             List of LPD paths in MPLS LPD group
@@ -1190,6 +1238,8 @@ class Ipsla(Entity):
                             
                             	Operational state of LPD path in MPLS LSP Group operation
                             	**type**\: list of  		 :py:class:`LpdPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1229,15 +1279,21 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: path_id
                                 
                                 	LPD path identifier
                                 	**type**\:  :py:class:`PathId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath.PathId>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: path_status
                                 
                                 	Latest path status
                                 	**type**\:  :py:class:`IpslaLspGrpPathStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaLspGrpPathStatusEnum>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: operation_time
                                 
@@ -1246,12 +1302,16 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: response_time
                                 
                                 	Latest RTT
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: success_count
                                 
@@ -1260,12 +1320,16 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: failure_count
                                 
                                 	Number of path failures
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1319,12 +1383,16 @@ class Ipsla(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: output_interface
                                     
                                     	Output interface
                                     	**type**\: str
                                     
                                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: nexthop_address
                                     
@@ -1333,12 +1401,16 @@ class Ipsla(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: downstream_label
                                     
                                     	Downstream label stacks
                                     	**type**\: list of int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1373,6 +1445,11 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath.PathId, [u'lsp_selector', u'output_interface', u'nexthop_address', u'downstream_label'], name, value)
 
 
+
+
+
+
+
                 class ScanQueues(Entity):
                     """
                     List of Scan Queue entries in MPLS LSP
@@ -1382,6 +1459,8 @@ class Ipsla(Entity):
                     
                     	Provider Edge(PE) addition or deletion requests in Scan Queue
                     	**type**\: list of  		 :py:class:`ScanQueue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues.ScanQueue>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1421,12 +1500,16 @@ class Ipsla(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: target_address
                         
                         	PE target address
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: target_mask
                         
@@ -1435,10 +1518,14 @@ class Ipsla(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: entry
                         
                         	PE addition or deletion
                         	**type**\:  :py:class:`IpslaMplsAddDeleteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaMplsAddDeleteEnum>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1473,6 +1560,10 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues.ScanQueue, ['address', u'target_address', u'target_mask', u'entry'], name, value)
 
 
+
+
+
+
         class Discovery(Entity):
             """
             Provider Edge(PE) discovery operational data
@@ -1481,6 +1572,8 @@ class Ipsla(Entity):
             
             	L3 VPN PE discovery operational data
             	**type**\:  :py:class:`Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.MplsData.Discovery.Vpn>`
+            
+            	**config**\: False
             
             
 
@@ -1520,10 +1613,14 @@ class Ipsla(Entity):
                 	Operational state of PE discovery
                 	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.MplsData.Discovery.Vpn.State>`
                 
+                	**config**\: False
+                
                 .. attribute:: nexthops
                 
                 	List of nexthop addresses for remote PE routers
                 	**type**\:  :py:class:`Nexthops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.MplsData.Discovery.Vpn.Nexthops>`
+                
+                	**config**\: False
                 
                 
 
@@ -1569,6 +1666,8 @@ class Ipsla(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     
@@ -1599,6 +1698,7 @@ class Ipsla(Entity):
                         self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.State, [u'refresh_remaining'], name, value)
 
 
+
                 class Nexthops(Entity):
                     """
                     List of nexthop addresses for remote PE
@@ -1608,6 +1708,8 @@ class Ipsla(Entity):
                     
                     	Nexthop address for remote PE router
                     	**type**\: list of  		 :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1647,15 +1749,21 @@ class Ipsla(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrfs
                         
                         	List of VRFs for the nexthop address
                         	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix
                         
                         	Prefix of the nexthop address
                         	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Prefix>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1702,6 +1810,8 @@ class Ipsla(Entity):
                             	VRF information of the nexthop address
                             	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs.Vrf>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -1739,12 +1849,16 @@ class Ipsla(Entity):
                                 
                                 	**length:** 1..32
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prefix_count
                                 
                                 	Number of prefixes in VRF
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1775,6 +1889,8 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs.Vrf, ['vrf_name', u'prefix_count'], name, value)
 
 
+
+
                         class Prefix(Entity):
                             """
                             Prefix of the nexthop address
@@ -1786,12 +1902,16 @@ class Ipsla(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: target_mask
                             
                             	PE target mask length
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1822,6 +1942,12 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Prefix, [u'target_address', u'target_mask'], name, value)
 
 
+
+
+
+
+
+
     class Responder(Entity):
         """
         Data from responder probe handling
@@ -1830,6 +1956,8 @@ class Ipsla(Entity):
         
         	Statistics maintained by responder
         	**type**\:  :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.Responder.Ports>`
+        
+        	**config**\: False
         
         
 
@@ -1869,6 +1997,8 @@ class Ipsla(Entity):
             	Port data
             	**type**\: list of  		 :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.Responder.Ports.Port>`
             
+            	**config**\: False
+            
             
 
             """
@@ -1907,12 +2037,16 @@ class Ipsla(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: port_xr
                 
                 	Port on which Responder is listening
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 .. attribute:: local_address
                 
@@ -1921,12 +2055,16 @@ class Ipsla(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: num_probes
                 
                 	Number of probes received from remote end
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: ctrl_probes
                 
@@ -1935,25 +2073,35 @@ class Ipsla(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: permanent
                 
                 	Port type if this is permanent or dynamic port
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: discard_on
                 
                 	Current discard socket option flag for the port
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: pd_time_stamp_failed
                 
                 	PD Timestamp failure
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: is_ipsla
                 
                 	IPSLA or TWAMP protocol
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: drop_counter
                 
@@ -1962,6 +2110,8 @@ class Ipsla(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: socket
                 
                 	Socket
@@ -1969,10 +2119,14 @@ class Ipsla(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: sender
                 
                 	List of senders
                 	**type**\: list of  		 :py:class:`Sender <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.Responder.Ports.Port.Sender>`
+                
+                	**config**\: False
                 
                 
 
@@ -2035,6 +2189,8 @@ class Ipsla(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: port
                     
                     	Port on which Sender is sending
@@ -2042,12 +2198,16 @@ class Ipsla(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_recv_time
                     
                     	Last received time
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -2080,6 +2240,10 @@ class Ipsla(Entity):
                         self._perform_setattr(Ipsla.Responder.Ports.Port.Sender, [u'ip_address', u'port', u'last_recv_time'], name, value)
 
 
+
+
+
+
     class OperationData(Entity):
         """
         Operations data
@@ -2088,6 +2252,8 @@ class Ipsla(Entity):
         
         	Configured operations
         	**type**\:  :py:class:`Operations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations>`
+        
+        	**config**\: False
         
         
 
@@ -2127,6 +2293,8 @@ class Ipsla(Entity):
             	Operational data for an operation
             	**type**\: list of  		 :py:class:`Operation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation>`
             
+            	**config**\: False
+            
             
 
             """
@@ -2165,25 +2333,35 @@ class Ipsla(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: common
                 
                 	Common data for all operation types
                 	**type**\:  :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Common>`
+                
+                	**config**\: False
                 
                 .. attribute:: lpd
                 
                 	LPD operational data of MPLS LSP group operation
                 	**type**\:  :py:class:`Lpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd>`
                 
+                	**config**\: False
+                
                 .. attribute:: history
                 
                 	Historical data for an operation
                 	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History>`
                 
+                	**config**\: False
+                
                 .. attribute:: statistics
                 
                 	Statistics collected for an operation
                 	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics>`
+                
+                	**config**\: False
                 
                 
 
@@ -2238,6 +2416,8 @@ class Ipsla(Entity):
                     	Operational state for an operation
                     	**type**\:  :py:class:`OperationalState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Common.OperationalState>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -2277,12 +2457,16 @@ class Ipsla(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: start_time
                         
                         	Last start time of the operation expressedin msec since 00\:00\:00 UTC, January 1, 1970
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: attempt_count
                         
@@ -2291,6 +2475,8 @@ class Ipsla(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: skipped_count
                         
                         	Number of data collection cycles skipped
@@ -2298,12 +2484,16 @@ class Ipsla(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: life_remaining
                         
                         	Number of seconds left in current life
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -2314,15 +2504,21 @@ class Ipsla(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: recurring
                         
                         	For recurring operation configured
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: operational_state
                         
                         	Operational state
                         	**type**\:  :py:class:`IpslaOperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaOperStateEnum>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: flags
                         
@@ -2331,12 +2527,16 @@ class Ipsla(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: local_port
                         
                         	Cached local port
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: unexpected_packets
                         
@@ -2345,6 +2545,8 @@ class Ipsla(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected_control_packets
                         
                         	Unexpected control pkts puntedfrom LPTS
@@ -2352,12 +2554,16 @@ class Ipsla(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: operation_time
                         
                         	Start time of current instance of the operation
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -2410,6 +2616,8 @@ class Ipsla(Entity):
                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Common.OperationalState, [u'modification_time', u'start_time', u'attempt_count', u'skipped_count', u'life_remaining', u'frequency', u'recurring', u'operational_state', u'flags', u'local_port', u'unexpected_packets', u'unexpected_control_packets', u'operation_time'], name, value)
 
 
+
+
                 class Lpd(Entity):
                     """
                     LPD operational data of MPLS LSP group
@@ -2420,10 +2628,14 @@ class Ipsla(Entity):
                     	Statistics collected for LPD group
                     	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Statistics>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: status
                     
                     	Operational status of LPD group
                     	**type**\:  :py:class:`Status <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Status>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2466,10 +2678,14 @@ class Ipsla(Entity):
                         	LPD statistics collected during the last sampling cycle
                         	**type**\:  :py:class:`Latest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: aggregated
                         
                         	Statistics aggregated for LPD group collected over time intervals
                         	**type**\:  :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2513,6 +2729,8 @@ class Ipsla(Entity):
                             	Latest statistics of LPD group
                             	**type**\:  :py:class:`Target <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -2550,6 +2768,8 @@ class Ipsla(Entity):
                                 	LPD target
                                 	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: start_time
                                 
                                 	LPD start time
@@ -2557,10 +2777,14 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: return_code
                                 
                                 	LPD return code
                                 	**type**\:  :py:class:`IpslaMplsLpdRetCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaMplsLpdRetCode>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: completion_time_count
                                 
@@ -2569,12 +2793,16 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: completion_time
                                 
                                 	LPD Completion time
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: min_completion_time
                                 
@@ -2583,12 +2811,16 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: max_completion_time
                                 
                                 	Maximum CompT
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: sum_completion_time
                                 
@@ -2597,12 +2829,16 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: path_count
                                 
                                 	Number of paths
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: min_path_count
                                 
@@ -2611,12 +2847,16 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: max_path_count
                                 
                                 	Maximum number of paths
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ok_count
                                 
@@ -2625,12 +2865,16 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: no_path_count
                                 
                                 	Number of failures due to no path
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: all_paths_broken_count
                                 
@@ -2639,12 +2883,16 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: all_paths_unexplorable_count
                                 
                                 	Number of failures due to all paths unexplorable
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: all_paths_broken_or_unexplorable_count
                                 
@@ -2653,12 +2901,16 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: timeout_count
                                 
                                 	Number of failures due to timeout
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: internal_error_count
                                 
@@ -2667,12 +2919,16 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: unknown_count
                                 
                                 	Number of failures due to unknown cause
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2748,20 +3004,28 @@ class Ipsla(Entity):
                                     	IPv4 prefix target
                                     	**type**\:  :py:class:`Ipv4PrefixTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PrefixTarget>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: tunnel_id_target
                                     
                                     	Tunnel ID target
                                     	**type**\:  :py:class:`TunnelIdTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.TunnelIdTarget>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ipv4_pseudowire_target
                                     
                                     	IPv4 pseudowire target
                                     	**type**\:  :py:class:`Ipv4PseudowireTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PseudowireTarget>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: target_type
                                     
                                     	TargetType
                                     	**type**\:  :py:class:`IpslaTargetTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaTargetTypeEnum>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ipv4_address_target
                                     
@@ -2770,12 +3034,16 @@ class Ipsla(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv6_address_target
                                     
                                     	IPv6 address target
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2831,12 +3099,16 @@ class Ipsla(Entity):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: mask_length
                                         
                                         	Mask length
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2867,6 +3139,7 @@ class Ipsla(Entity):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PrefixTarget, [u'address', u'mask_length'], name, value)
 
 
+
                                     class TunnelIdTarget(Entity):
                                         """
                                         Tunnel ID target
@@ -2877,6 +3150,8 @@ class Ipsla(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2905,6 +3180,7 @@ class Ipsla(Entity):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.TunnelIdTarget, [u'tunnel_id'], name, value)
 
 
+
                                     class Ipv4PseudowireTarget(Entity):
                                         """
                                         IPv4 pseudowire target
@@ -2916,12 +3192,16 @@ class Ipsla(Entity):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: virtual_circuit_id
                                         
                                         	Virtual circuit ID
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2952,6 +3232,10 @@ class Ipsla(Entity):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PseudowireTarget, [u'address', u'virtual_circuit_id'], name, value)
 
 
+
+
+
+
                         class Aggregated(Entity):
                             """
                             Statistics aggregated for LPD group
@@ -2961,6 +3245,8 @@ class Ipsla(Entity):
                             
                             	Table of LPD statistics aggregated over 1\-hour intervals
                             	**type**\:  :py:class:`Hours <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -3000,6 +3286,8 @@ class Ipsla(Entity):
                                 	LPD statistics aggregated for a 1\-hour interval
                                 	**type**\: list of  		 :py:class:`Hour <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -3038,10 +3326,14 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: target_address
                                     
                                     	LPD target
                                     	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: start_time
                                     
@@ -3050,10 +3342,14 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: return_code
                                     
                                     	LPD return code
                                     	**type**\:  :py:class:`IpslaMplsLpdRetCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaMplsLpdRetCode>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: completion_time_count
                                     
@@ -3062,12 +3358,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: completion_time
                                     
                                     	LPD Completion time
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: min_completion_time
                                     
@@ -3076,12 +3376,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: max_completion_time
                                     
                                     	Maximum CompT
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sum_completion_time
                                     
@@ -3090,12 +3394,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: path_count
                                     
                                     	Number of paths
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: min_path_count
                                     
@@ -3104,12 +3412,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: max_path_count
                                     
                                     	Maximum number of paths
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ok_count
                                     
@@ -3118,12 +3430,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: no_path_count
                                     
                                     	Number of failures due to no path
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: all_paths_broken_count
                                     
@@ -3132,12 +3448,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: all_paths_unexplorable_count
                                     
                                     	Number of failures due to all paths unexplorable
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: all_paths_broken_or_unexplorable_count
                                     
@@ -3146,12 +3466,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: timeout_count
                                     
                                     	Number of failures due to timeout
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: internal_error_count
                                     
@@ -3160,12 +3484,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: unknown_count
                                     
                                     	Number of failures due to unknown cause
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3243,20 +3571,28 @@ class Ipsla(Entity):
                                         	IPv4 prefix target
                                         	**type**\:  :py:class:`Ipv4PrefixTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PrefixTarget>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: tunnel_id_target
                                         
                                         	Tunnel ID target
                                         	**type**\:  :py:class:`TunnelIdTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.TunnelIdTarget>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: ipv4_pseudowire_target
                                         
                                         	IPv4 pseudowire target
                                         	**type**\:  :py:class:`Ipv4PseudowireTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PseudowireTarget>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: target_type
                                         
                                         	TargetType
                                         	**type**\:  :py:class:`IpslaTargetTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaTargetTypeEnum>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: ipv4_address_target
                                         
@@ -3265,12 +3601,16 @@ class Ipsla(Entity):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: ipv6_address_target
                                         
                                         	IPv6 address target
                                         	**type**\: str
                                         
                                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3326,12 +3666,16 @@ class Ipsla(Entity):
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: mask_length
                                             
                                             	Mask length
                                             	**type**\: int
                                             
                                             	**range:** 0..255
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -3362,6 +3706,7 @@ class Ipsla(Entity):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PrefixTarget, [u'address', u'mask_length'], name, value)
 
 
+
                                         class TunnelIdTarget(Entity):
                                             """
                                             Tunnel ID target
@@ -3372,6 +3717,8 @@ class Ipsla(Entity):
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -3400,6 +3747,7 @@ class Ipsla(Entity):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.TunnelIdTarget, [u'tunnel_id'], name, value)
 
 
+
                                         class Ipv4PseudowireTarget(Entity):
                                             """
                                             IPv4 pseudowire target
@@ -3411,12 +3759,16 @@ class Ipsla(Entity):
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: virtual_circuit_id
                                             
                                             	Virtual circuit ID
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -3447,6 +3799,12 @@ class Ipsla(Entity):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PseudowireTarget, [u'address', u'virtual_circuit_id'], name, value)
 
 
+
+
+
+
+
+
                     class Status(Entity):
                         """
                         Operational status of LPD group
@@ -3456,10 +3814,14 @@ class Ipsla(Entity):
                         	Operational path state in LPD group
                         	**type**\:  :py:class:`LpdPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: state
                         
                         	Operational status of LPD group
                         	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Status.State>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3502,6 +3864,8 @@ class Ipsla(Entity):
                             	Current operational path state in LPD group
                             	**type**\: list of  		 :py:class:`LpdPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -3540,15 +3904,21 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: path_id
                                 
                                 	LPD path identifier
                                 	**type**\:  :py:class:`PathId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath.PathId>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: path_status
                                 
                                 	Path status
                                 	**type**\:  :py:class:`IpslaMplsLpdPathDiscoveryStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaMplsLpdPathDiscoveryStatus>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3594,12 +3964,16 @@ class Ipsla(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: output_interface
                                     
                                     	Output interface
                                     	**type**\: str
                                     
                                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: nexthop_address
                                     
@@ -3608,12 +3982,16 @@ class Ipsla(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: downstream_label
                                     
                                     	Downstream label stacks
                                     	**type**\: list of int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3648,6 +4026,9 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath.PathId, [u'lsp_selector', u'output_interface', u'nexthop_address', u'downstream_label'], name, value)
 
 
+
+
+
                         class State(Entity):
                             """
                             Operational status of LPD group
@@ -3657,6 +4038,8 @@ class Ipsla(Entity):
                             	Target for LPD
                             	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: monitor_id
                             
                             	MPLSLM monitor ID
@@ -3664,10 +4047,14 @@ class Ipsla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: discovery_mode
                             
                             	Latest LPD mode
                             	**type**\:  :py:class:`IpslaMplsLpdDiscoveryModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaMplsLpdDiscoveryModeEnum>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_time
                             
@@ -3676,10 +4063,14 @@ class Ipsla(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: return_code
                             
                             	Latest return code
                             	**type**\:  :py:class:`IpslaMplsLpdRetCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaMplsLpdRetCode>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: completion_time
                             
@@ -3688,12 +4079,16 @@ class Ipsla(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: path_count
                             
                             	Number of discovered paths
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3745,20 +4140,28 @@ class Ipsla(Entity):
                                 	IPv4 prefix target
                                 	**type**\:  :py:class:`Ipv4PrefixTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PrefixTarget>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: tunnel_id_target
                                 
                                 	Tunnel ID target
                                 	**type**\:  :py:class:`TunnelIdTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.TunnelIdTarget>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv4_pseudowire_target
                                 
                                 	IPv4 pseudowire target
                                 	**type**\:  :py:class:`Ipv4PseudowireTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PseudowireTarget>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: target_type
                                 
                                 	TargetType
                                 	**type**\:  :py:class:`IpslaTargetTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaTargetTypeEnum>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv4_address_target
                                 
@@ -3767,12 +4170,16 @@ class Ipsla(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv6_address_target
                                 
                                 	IPv6 address target
                                 	**type**\: str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3828,12 +4235,16 @@ class Ipsla(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: mask_length
                                     
                                     	Mask length
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3864,6 +4275,7 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PrefixTarget, [u'address', u'mask_length'], name, value)
 
 
+
                                 class TunnelIdTarget(Entity):
                                     """
                                     Tunnel ID target
@@ -3874,6 +4286,8 @@ class Ipsla(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3902,6 +4316,7 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.TunnelIdTarget, [u'tunnel_id'], name, value)
 
 
+
                                 class Ipv4PseudowireTarget(Entity):
                                     """
                                     IPv4 pseudowire target
@@ -3913,12 +4328,16 @@ class Ipsla(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: virtual_circuit_id
                                     
                                     	Virtual circuit ID
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3949,6 +4368,11 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PseudowireTarget, [u'address', u'virtual_circuit_id'], name, value)
 
 
+
+
+
+
+
                 class History(Entity):
                     """
                     Historical data for an operation
@@ -3958,10 +4382,14 @@ class Ipsla(Entity):
                     	Historical data with multiple hops along the path
                     	**type**\:  :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History.Path>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: target
                     
                     	Historical data for the destination node
                     	**type**\:  :py:class:`Target <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History.Target>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4005,6 +4433,8 @@ class Ipsla(Entity):
                         	Tables of lives for an operation
                         	**type**\:  :py:class:`Lifes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History.Path.Lifes>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -4041,6 +4471,8 @@ class Ipsla(Entity):
                             
                             	History data for a particular life of the operation
                             	**type**\: list of  		 :py:class:`Life <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -4080,10 +4512,14 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: buckets
                                 
                                 	Table of history buckets (samples) for a particular operation
                                 	**type**\:  :py:class:`Buckets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4126,6 +4562,8 @@ class Ipsla(Entity):
                                     	History bucket for an operation
                                     	**type**\: list of  		 :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket>`
                                     
+                                    	**config**\: False
+                                    
                                     
 
                                     """
@@ -4163,10 +4601,14 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: samples
                                         
                                         	Table of samples for a particular cycle
                                         	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4208,6 +4650,8 @@ class Ipsla(Entity):
                                             	Data sample for particular cycle
                                             	**type**\: list of  		 :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample>`
                                             
+                                            	**config**\: False
+                                            
                                             
 
                                             """
@@ -4245,10 +4689,14 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: target_address
                                                 
                                                 	Target for the operation
                                                 	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: start_time
                                                 
@@ -4257,6 +4705,8 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: response_time
                                                 
                                                 	Round Trip Time (milliseconds)
@@ -4264,12 +4714,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 	**units**\: millisecond
                                                 
                                                 .. attribute:: return_code
                                                 
                                                 	Response Return Code
                                                 	**type**\:  :py:class:`IpslaRetCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaRetCode>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -4317,20 +4771,28 @@ class Ipsla(Entity):
                                                     	IPv4 prefix target
                                                     	**type**\:  :py:class:`Ipv4PrefixTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PrefixTarget>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: tunnel_id_target
                                                     
                                                     	Tunnel ID target
                                                     	**type**\:  :py:class:`TunnelIdTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.TunnelIdTarget>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: ipv4_pseudowire_target
                                                     
                                                     	IPv4 pseudowire target
                                                     	**type**\:  :py:class:`Ipv4PseudowireTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PseudowireTarget>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: target_type
                                                     
                                                     	TargetType
                                                     	**type**\:  :py:class:`IpslaTargetTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaTargetTypeEnum>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: ipv4_address_target
                                                     
@@ -4339,12 +4801,16 @@ class Ipsla(Entity):
                                                     
                                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: ipv6_address_target
                                                     
                                                     	IPv6 address target
                                                     	**type**\: str
                                                     
                                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -4400,12 +4866,16 @@ class Ipsla(Entity):
                                                         
                                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: mask_length
                                                         
                                                         	Mask length
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..255
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -4436,6 +4906,7 @@ class Ipsla(Entity):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PrefixTarget, [u'address', u'mask_length'], name, value)
 
 
+
                                                     class TunnelIdTarget(Entity):
                                                         """
                                                         Tunnel ID target
@@ -4446,6 +4917,8 @@ class Ipsla(Entity):
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -4474,6 +4947,7 @@ class Ipsla(Entity):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.TunnelIdTarget, [u'tunnel_id'], name, value)
 
 
+
                                                     class Ipv4PseudowireTarget(Entity):
                                                         """
                                                         IPv4 pseudowire target
@@ -4485,12 +4959,16 @@ class Ipsla(Entity):
                                                         
                                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: virtual_circuit_id
                                                         
                                                         	Virtual circuit ID
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -4521,6 +4999,15 @@ class Ipsla(Entity):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PseudowireTarget, [u'address', u'virtual_circuit_id'], name, value)
 
 
+
+
+
+
+
+
+
+
+
                     class Target(Entity):
                         """
                         Historical data for the destination node
@@ -4529,6 +5016,8 @@ class Ipsla(Entity):
                         
                         	Tables of lives for an operation
                         	**type**\:  :py:class:`Lifes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History.Target.Lifes>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -4566,6 +5055,8 @@ class Ipsla(Entity):
                             
                             	Operational data for a particular life of the operation
                             	**type**\: list of  		 :py:class:`Life <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -4605,10 +5096,14 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: buckets
                                 
                                 	Table of history buckets (samples) for a particular operation
                                 	**type**\:  :py:class:`Buckets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4651,6 +5146,8 @@ class Ipsla(Entity):
                                     	History bucket for an operation
                                     	**type**\: list of  		 :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket>`
                                     
+                                    	**config**\: False
+                                    
                                     
 
                                     """
@@ -4688,10 +5185,14 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: target_address
                                         
                                         	Target for the operation
                                         	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: start_time
                                         
@@ -4700,6 +5201,8 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: response_time
                                         
                                         	Round Trip Time (milliseconds)
@@ -4707,12 +5210,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: millisecond
                                         
                                         .. attribute:: return_code
                                         
                                         	Response Return Code
                                         	**type**\:  :py:class:`IpslaRetCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaRetCode>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4760,20 +5267,28 @@ class Ipsla(Entity):
                                             	IPv4 prefix target
                                             	**type**\:  :py:class:`Ipv4PrefixTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PrefixTarget>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: tunnel_id_target
                                             
                                             	Tunnel ID target
                                             	**type**\:  :py:class:`TunnelIdTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.TunnelIdTarget>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: ipv4_pseudowire_target
                                             
                                             	IPv4 pseudowire target
                                             	**type**\:  :py:class:`Ipv4PseudowireTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PseudowireTarget>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: target_type
                                             
                                             	TargetType
                                             	**type**\:  :py:class:`IpslaTargetTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaTargetTypeEnum>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: ipv4_address_target
                                             
@@ -4782,12 +5297,16 @@ class Ipsla(Entity):
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ipv6_address_target
                                             
                                             	IPv6 address target
                                             	**type**\: str
                                             
                                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -4843,12 +5362,16 @@ class Ipsla(Entity):
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: mask_length
                                                 
                                                 	Mask length
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..255
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -4879,6 +5402,7 @@ class Ipsla(Entity):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PrefixTarget, [u'address', u'mask_length'], name, value)
 
 
+
                                             class TunnelIdTarget(Entity):
                                                 """
                                                 Tunnel ID target
@@ -4889,6 +5413,8 @@ class Ipsla(Entity):
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -4917,6 +5443,7 @@ class Ipsla(Entity):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.TunnelIdTarget, [u'tunnel_id'], name, value)
 
 
+
                                             class Ipv4PseudowireTarget(Entity):
                                                 """
                                                 IPv4 pseudowire target
@@ -4928,12 +5455,16 @@ class Ipsla(Entity):
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: virtual_circuit_id
                                                 
                                                 	Virtual circuit ID
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -4964,6 +5495,14 @@ class Ipsla(Entity):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PseudowireTarget, [u'address', u'virtual_circuit_id'], name, value)
 
 
+
+
+
+
+
+
+
+
                 class Statistics(Entity):
                     """
                     Statistics collected for an operation
@@ -4973,10 +5512,14 @@ class Ipsla(Entity):
                     	Statistics collected during the last sampling cycle of the operation
                     	**type**\:  :py:class:`Latest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Latest>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: aggregated
                     
                     	Statistics aggregated for data collected over time intervals
                     	**type**\:  :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5020,15 +5563,21 @@ class Ipsla(Entity):
                         	Latest statistics for the target node
                         	**type**\:  :py:class:`Target <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: hops
                         
                         	Latest statistics for hops in a path\-enabled operation
                         	**type**\:  :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: lpd_paths
                         
                         	List of latest LPD paths
                         	**type**\:  :py:class:`LpdPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5075,10 +5624,14 @@ class Ipsla(Entity):
                             	Common Stats
                             	**type**\:  :py:class:`CommonStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.CommonStats>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: specific_stats
                             
                             	Operation Specific Stats
                             	**type**\:  :py:class:`SpecificStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -5123,10 +5676,14 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: return_code
                                 
                                 	Return code
                                 	**type**\:  :py:class:`IpslaRetCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaRetCode>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: response_time_count
                                 
@@ -5135,12 +5692,16 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: response_time
                                 
                                 	RTT
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: min_response_time
                                 
@@ -5149,12 +5710,16 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: max_response_time
                                 
                                 	Maximum RTT
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: sum_response_time
                                 
@@ -5163,12 +5728,16 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sum2_response_time
                                 
                                 	Sum of RTT^2
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: update_count
                                 
@@ -5177,12 +5746,16 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ok_count
                                 
                                 	Number of updates with Okay return code
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: disconnect_count
                                 
@@ -5191,12 +5764,16 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: timeout_count
                                 
                                 	Number of updates with Timeout return code
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: busy_count
                                 
@@ -5205,12 +5782,16 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: no_connection_count
                                 
                                 	Number of updates with NotConnected return code
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dropped_count
                                 
@@ -5219,12 +5800,16 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: internal_error_count
                                 
                                 	Number of updates with InternalError return code
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: sequence_error_count
                                 
@@ -5233,12 +5818,16 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: verify_error_count
                                 
                                 	Number of updates with VerifyError return code
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5301,6 +5890,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
 
 
+
                             class SpecificStats(Entity):
                                 """
                                 Operation Specific Stats
@@ -5310,15 +5900,21 @@ class Ipsla(Entity):
                                 	icmp path jitter stats
                                 	**type**\:  :py:class:`IcmpPathJitterStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.IcmpPathJitterStats>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: udp_jitter_stats
                                 
                                 	udp jitter stats
                                 	**type**\:  :py:class:`UdpJitterStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.UdpJitterStats>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: op_type
                                 
                                 	op type
                                 	**type**\:  :py:class:`OpTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.OpTypeEnum>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5366,12 +5962,16 @@ class Ipsla(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: dest_address
                                     
                                     	IP Address of the destination
                                     	**type**\: str
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: hop_address
                                     
@@ -5380,12 +5980,16 @@ class Ipsla(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: packet_interval
                                     
                                     	Interval between echos in ms
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: response_time_count
                                     
@@ -5394,12 +5998,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: response_time
                                     
                                     	RTT
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: min_response_time
                                     
@@ -5408,12 +6016,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: max_response_time
                                     
                                     	Maximum RTT
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sum_response_time
                                     
@@ -5422,12 +6034,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sum2_response_time
                                     
                                     	Sum of RTT^2
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: packet_count
                                     
@@ -5436,12 +6052,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: packet_loss_count
                                     
                                     	Number of packets lost
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: out_of_sequence_count
                                     
@@ -5450,12 +6070,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: discarded_sample_count
                                     
                                     	Number of discarded samples
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: verify_errors_count
                                     
@@ -5464,12 +6088,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: dropped_error_count
                                     
                                     	Number of packets dropped
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: jitter
                                     
@@ -5478,12 +6106,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pos_jitter_sum
                                     
                                     	Sum of positive jitter value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: pos_jitter_sum2
                                     
@@ -5492,12 +6124,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pos_jitter_min
                                     
                                     	Minimum positive jitter value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: pos_jitter_max
                                     
@@ -5506,12 +6142,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pos_jitter_count
                                     
                                     	Number of positive jitter values
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: neg_jitter_sum
                                     
@@ -5520,12 +6160,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: neg_jitter_min
                                     
                                     	Minimum negative jitter value
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: neg_jitter_max
                                     
@@ -5534,6 +6178,8 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: neg_jitter_sum2
                                     
                                     	Sum of squares of negative jitter values
@@ -5541,12 +6187,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: neg_jitter_count
                                     
                                     	Number of negative jitter values
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5627,6 +6277,7 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
 
 
+
                                 class UdpJitterStats(Entity):
                                     """
                                     udp jitter stats
@@ -5638,12 +6289,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: jitter_out
                                     
                                     	Output Jitter moving average, computed as per RFC1889
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: packet_loss_sd
                                     
@@ -5652,12 +6307,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: packet_loss_ds
                                     
                                     	Packets lost in destination to source (DS) direction
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: packet_out_of_sequence
                                     
@@ -5666,12 +6325,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: packet_mia
                                     
                                     	Packets missing in action (cannot determine if theywere lost in SD or DS direction
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: packet_skipped
                                     
@@ -5680,12 +6343,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: packet_late_arrivals
                                     
                                     	Packets arriving late
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: packet_invalid_tstamp
                                     
@@ -5694,12 +6361,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: internal_errors_count
                                     
                                     	Number of internal errors
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: busies_count
                                     
@@ -5708,12 +6379,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: positive_sd_sum
                                     
                                     	Sum of positive jitter values (i.e., network latency increases for two consecutive  packets) in SD direction Measured  in milliseconds
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: millisecond
                                     
@@ -5724,12 +6399,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: positive_sd_min
                                     
                                     	Minimum of positive jitter values in SD direction
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: positive_sd_max
                                     
@@ -5738,6 +6417,8 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: positive_sd_count
                                     
                                     	Number of positive jitter values in SD direction
@@ -5745,12 +6426,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: negative_sd_sum
                                     
                                     	Sum of negative jitter values (i.e., network latency decreases for two consecutive packets) in SD direction Measured  in milliseconds
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: millisecond
                                     
@@ -5761,12 +6446,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: negative_sd_min
                                     
                                     	Minimum of negative jitter values in SD direction
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: negative_sd_max
                                     
@@ -5775,6 +6464,8 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: negative_sd_count
                                     
                                     	Number of negative jitter values in SD direction
@@ -5782,12 +6473,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: positive_ds_sum
                                     
                                     	Sum of positive jitter values (i.e., network latency increases for two consecutive packets) in DS direction Measured  in milliseconds
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: millisecond
                                     
@@ -5798,12 +6493,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: positive_ds_min
                                     
                                     	Minimum of positive jitter values in DS direction
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: positive_ds_max
                                     
@@ -5812,6 +6511,8 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: positive_ds_count
                                     
                                     	Number of positive jitter values in DS direction
@@ -5819,12 +6520,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: negative_ds_sum
                                     
                                     	Sum of negative jitter values (i.e., network latency decreases for two consecutive packets) in DS direction Measured  in milliseconds
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: millisecond
                                     
@@ -5835,12 +6540,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: negative_ds_min
                                     
                                     	Minimum of negative jitter values in DS direction
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: negative_ds_max
                                     
@@ -5849,12 +6558,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: negative_ds_count
                                     
                                     	Number of negative jitter values in DS direction
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: one_way_count
                                     
@@ -5863,12 +6576,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: one_way_sd_min
                                     
                                     	Minimum of one\-way jitter values in SD direction (msec)
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: one_way_sd_max
                                     
@@ -5877,12 +6594,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: one_way_sd_sum
                                     
                                     	Sum of one\-way jitter values in SD direction (msec)
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: one_way_sd_sum2
                                     
@@ -5891,12 +6612,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: one_way_ds_min
                                     
                                     	Minimum of one\-way jitter values in DS direction (msec)
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: one_way_ds_max
                                     
@@ -5905,6 +6630,8 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: one_way_ds_sum
                                     
                                     	Sum of one\-way jitter values in DS direction (msec)
@@ -5912,12 +6639,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: one_way_ds_sum2
                                     
                                     	Sum of squares of the OneWayMinDS and OneWayMaxDS values (msec)
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6024,6 +6755,9 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
 
 
+
+
+
                         class Hops(Entity):
                             """
                             Latest statistics for hops in a
@@ -6033,6 +6767,8 @@ class Ipsla(Entity):
                             
                             	Latest stats for a hop in a path\-enabled operation
                             	**type**\: list of  		 :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -6072,15 +6808,21 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: common_stats
                                 
                                 	Common Stats
                                 	**type**\:  :py:class:`CommonStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.CommonStats>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: specific_stats
                                 
                                 	Operation Specific Stats
                                 	**type**\:  :py:class:`SpecificStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6128,10 +6870,14 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: return_code
                                     
                                     	Return code
                                     	**type**\:  :py:class:`IpslaRetCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaRetCode>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: response_time_count
                                     
@@ -6140,12 +6886,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: response_time
                                     
                                     	RTT
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: min_response_time
                                     
@@ -6154,12 +6904,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: max_response_time
                                     
                                     	Maximum RTT
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sum_response_time
                                     
@@ -6168,12 +6922,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sum2_response_time
                                     
                                     	Sum of RTT^2
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: update_count
                                     
@@ -6182,12 +6940,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ok_count
                                     
                                     	Number of updates with Okay return code
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: disconnect_count
                                     
@@ -6196,12 +6958,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: timeout_count
                                     
                                     	Number of updates with Timeout return code
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: busy_count
                                     
@@ -6210,12 +6976,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: no_connection_count
                                     
                                     	Number of updates with NotConnected return code
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: dropped_count
                                     
@@ -6224,12 +6994,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: internal_error_count
                                     
                                     	Number of updates with InternalError return code
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sequence_error_count
                                     
@@ -6238,12 +7012,16 @@ class Ipsla(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: verify_error_count
                                     
                                     	Number of updates with VerifyError return code
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6306,6 +7084,7 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
 
 
+
                                 class SpecificStats(Entity):
                                     """
                                     Operation Specific Stats
@@ -6315,15 +7094,21 @@ class Ipsla(Entity):
                                     	icmp path jitter stats
                                     	**type**\:  :py:class:`IcmpPathJitterStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.IcmpPathJitterStats>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: udp_jitter_stats
                                     
                                     	udp jitter stats
                                     	**type**\:  :py:class:`UdpJitterStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.UdpJitterStats>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: op_type
                                     
                                     	op type
                                     	**type**\:  :py:class:`OpTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.OpTypeEnum>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6371,12 +7156,16 @@ class Ipsla(Entity):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: dest_address
                                         
                                         	IP Address of the destination
                                         	**type**\: str
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: hop_address
                                         
@@ -6385,12 +7174,16 @@ class Ipsla(Entity):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: packet_interval
                                         
                                         	Interval between echos in ms
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: response_time_count
                                         
@@ -6399,12 +7192,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: response_time
                                         
                                         	RTT
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: min_response_time
                                         
@@ -6413,12 +7210,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: max_response_time
                                         
                                         	Maximum RTT
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: sum_response_time
                                         
@@ -6427,12 +7228,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: sum2_response_time
                                         
                                         	Sum of RTT^2
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: packet_count
                                         
@@ -6441,12 +7246,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: packet_loss_count
                                         
                                         	Number of packets lost
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: out_of_sequence_count
                                         
@@ -6455,12 +7264,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: discarded_sample_count
                                         
                                         	Number of discarded samples
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: verify_errors_count
                                         
@@ -6469,12 +7282,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: dropped_error_count
                                         
                                         	Number of packets dropped
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: jitter
                                         
@@ -6483,12 +7300,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: pos_jitter_sum
                                         
                                         	Sum of positive jitter value
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: pos_jitter_sum2
                                         
@@ -6497,12 +7318,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: pos_jitter_min
                                         
                                         	Minimum positive jitter value
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: pos_jitter_max
                                         
@@ -6511,12 +7336,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: pos_jitter_count
                                         
                                         	Number of positive jitter values
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: neg_jitter_sum
                                         
@@ -6525,12 +7354,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: neg_jitter_min
                                         
                                         	Minimum negative jitter value
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: neg_jitter_max
                                         
@@ -6539,6 +7372,8 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: neg_jitter_sum2
                                         
                                         	Sum of squares of negative jitter values
@@ -6546,12 +7381,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: neg_jitter_count
                                         
                                         	Number of negative jitter values
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6632,6 +7471,7 @@ class Ipsla(Entity):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
 
 
+
                                     class UdpJitterStats(Entity):
                                         """
                                         udp jitter stats
@@ -6643,12 +7483,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: jitter_out
                                         
                                         	Output Jitter moving average, computed as per RFC1889
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: packet_loss_sd
                                         
@@ -6657,12 +7501,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: packet_loss_ds
                                         
                                         	Packets lost in destination to source (DS) direction
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: packet_out_of_sequence
                                         
@@ -6671,12 +7519,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: packet_mia
                                         
                                         	Packets missing in action (cannot determine if theywere lost in SD or DS direction
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: packet_skipped
                                         
@@ -6685,12 +7537,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: packet_late_arrivals
                                         
                                         	Packets arriving late
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: packet_invalid_tstamp
                                         
@@ -6699,12 +7555,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: internal_errors_count
                                         
                                         	Number of internal errors
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: busies_count
                                         
@@ -6713,12 +7573,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: positive_sd_sum
                                         
                                         	Sum of positive jitter values (i.e., network latency increases for two consecutive  packets) in SD direction Measured  in milliseconds
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: millisecond
                                         
@@ -6729,12 +7593,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: positive_sd_min
                                         
                                         	Minimum of positive jitter values in SD direction
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: positive_sd_max
                                         
@@ -6743,6 +7611,8 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: positive_sd_count
                                         
                                         	Number of positive jitter values in SD direction
@@ -6750,12 +7620,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: negative_sd_sum
                                         
                                         	Sum of negative jitter values (i.e., network latency decreases for two consecutive packets) in SD direction Measured  in milliseconds
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: millisecond
                                         
@@ -6766,12 +7640,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: negative_sd_min
                                         
                                         	Minimum of negative jitter values in SD direction
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: negative_sd_max
                                         
@@ -6780,6 +7658,8 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: negative_sd_count
                                         
                                         	Number of negative jitter values in SD direction
@@ -6787,12 +7667,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: positive_ds_sum
                                         
                                         	Sum of positive jitter values (i.e., network latency increases for two consecutive packets) in DS direction Measured  in milliseconds
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: millisecond
                                         
@@ -6803,12 +7687,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: positive_ds_min
                                         
                                         	Minimum of positive jitter values in DS direction
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: positive_ds_max
                                         
@@ -6817,6 +7705,8 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: positive_ds_count
                                         
                                         	Number of positive jitter values in DS direction
@@ -6824,12 +7714,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: negative_ds_sum
                                         
                                         	Sum of negative jitter values (i.e., network latency decreases for two consecutive packets) in DS direction Measured  in milliseconds
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: millisecond
                                         
@@ -6840,12 +7734,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: negative_ds_min
                                         
                                         	Minimum of negative jitter values in DS direction
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: negative_ds_max
                                         
@@ -6854,12 +7752,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: negative_ds_count
                                         
                                         	Number of negative jitter values in DS direction
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: one_way_count
                                         
@@ -6868,12 +7770,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: one_way_sd_min
                                         
                                         	Minimum of one\-way jitter values in SD direction (msec)
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: one_way_sd_max
                                         
@@ -6882,12 +7788,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: one_way_sd_sum
                                         
                                         	Sum of one\-way jitter values in SD direction (msec)
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: one_way_sd_sum2
                                         
@@ -6896,12 +7806,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: one_way_ds_min
                                         
                                         	Minimum of one\-way jitter values in DS direction (msec)
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: one_way_ds_max
                                         
@@ -6910,6 +7824,8 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: one_way_ds_sum
                                         
                                         	Sum of one\-way jitter values in DS direction (msec)
@@ -6917,12 +7833,16 @@ class Ipsla(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: one_way_ds_sum2
                                         
                                         	Sum of squares of the OneWayMinDS and OneWayMaxDS values (msec)
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7029,6 +7949,10 @@ class Ipsla(Entity):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
 
 
+
+
+
+
                         class LpdPaths(Entity):
                             """
                             List of latest LPD paths
@@ -7037,6 +7961,8 @@ class Ipsla(Entity):
                             
                             	Latest path statistics of MPLS LSP group operation
                             	**type**\: list of  		 :py:class:`LpdPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -7076,15 +8002,21 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: path_id
                                 
                                 	LPD path identifier
                                 	**type**\:  :py:class:`PathId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath.PathId>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: return_code
                                 
                                 	Path return code
                                 	**type**\:  :py:class:`IpslaRetCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaRetCode>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7130,12 +8062,16 @@ class Ipsla(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: output_interface
                                     
                                     	Output interface
                                     	**type**\: str
                                     
                                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: nexthop_address
                                     
@@ -7144,12 +8080,16 @@ class Ipsla(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: downstream_label
                                     
                                     	Downstream label stacks
                                     	**type**\: list of int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7184,6 +8124,10 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath.PathId, [u'lsp_selector', u'output_interface', u'nexthop_address', u'downstream_label'], name, value)
 
 
+
+
+
+
                     class Aggregated(Entity):
                         """
                         Statistics aggregated for data collected
@@ -7194,10 +8138,14 @@ class Ipsla(Entity):
                         	Table of statistics aggregated over enhanced intervals
                         	**type**\:  :py:class:`EnhancedIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: hours
                         
                         	Table of statistics aggregated over 1\-hour intervals
                         	**type**\:  :py:class:`Hours <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -7241,6 +8189,8 @@ class Ipsla(Entity):
                             	Statistics aggregated over an interval specified in seconds. Specified interval must be a multiple of the operation frequency
                             	**type**\: list of  		 :py:class:`EnhancedInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -7281,12 +8231,16 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 	**units**\: second
                                 
                                 .. attribute:: start_times
                                 
                                 	Table of start times for the intervals
                                 	**type**\:  :py:class:`StartTimes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7328,6 +8282,8 @@ class Ipsla(Entity):
                                     	Statistics aggregated over an enhanced interval which starts at a specific time
                                     	**type**\: list of  		 :py:class:`StartTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime>`
                                     
+                                    	**config**\: False
+                                    
                                     
 
                                     """
@@ -7366,15 +8322,21 @@ class Ipsla(Entity):
                                         
                                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: common_stats
                                         
                                         	Common Stats
                                         	**type**\:  :py:class:`CommonStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.CommonStats>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: specific_stats
                                         
                                         	Operation Specific Stats
                                         	**type**\:  :py:class:`SpecificStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7422,10 +8384,14 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: return_code
                                             
                                             	Return code
                                             	**type**\:  :py:class:`IpslaRetCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaRetCode>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: response_time_count
                                             
@@ -7434,12 +8400,16 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: response_time
                                             
                                             	RTT
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: min_response_time
                                             
@@ -7448,12 +8418,16 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: max_response_time
                                             
                                             	Maximum RTT
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: sum_response_time
                                             
@@ -7462,12 +8436,16 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: sum2_response_time
                                             
                                             	Sum of RTT^2
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: update_count
                                             
@@ -7476,12 +8454,16 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ok_count
                                             
                                             	Number of updates with Okay return code
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: disconnect_count
                                             
@@ -7490,12 +8472,16 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: timeout_count
                                             
                                             	Number of updates with Timeout return code
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: busy_count
                                             
@@ -7504,12 +8490,16 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: no_connection_count
                                             
                                             	Number of updates with NotConnected return code
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: dropped_count
                                             
@@ -7518,12 +8508,16 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: internal_error_count
                                             
                                             	Number of updates with InternalError return code
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: sequence_error_count
                                             
@@ -7532,12 +8526,16 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: verify_error_count
                                             
                                             	Number of updates with VerifyError return code
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -7600,6 +8598,7 @@ class Ipsla(Entity):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
 
 
+
                                         class SpecificStats(Entity):
                                             """
                                             Operation Specific Stats
@@ -7609,15 +8608,21 @@ class Ipsla(Entity):
                                             	icmp path jitter stats
                                             	**type**\:  :py:class:`IcmpPathJitterStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.IcmpPathJitterStats>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: udp_jitter_stats
                                             
                                             	udp jitter stats
                                             	**type**\:  :py:class:`UdpJitterStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.UdpJitterStats>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: op_type
                                             
                                             	op type
                                             	**type**\:  :py:class:`OpTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.OpTypeEnum>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -7665,12 +8670,16 @@ class Ipsla(Entity):
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: dest_address
                                                 
                                                 	IP Address of the destination
                                                 	**type**\: str
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: hop_address
                                                 
@@ -7679,12 +8688,16 @@ class Ipsla(Entity):
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: packet_interval
                                                 
                                                 	Interval between echos in ms
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: response_time_count
                                                 
@@ -7693,12 +8706,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: response_time
                                                 
                                                 	RTT
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: min_response_time
                                                 
@@ -7707,12 +8724,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: max_response_time
                                                 
                                                 	Maximum RTT
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: sum_response_time
                                                 
@@ -7721,12 +8742,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: sum2_response_time
                                                 
                                                 	Sum of RTT^2
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: packet_count
                                                 
@@ -7735,12 +8760,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: packet_loss_count
                                                 
                                                 	Number of packets lost
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: out_of_sequence_count
                                                 
@@ -7749,12 +8778,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: discarded_sample_count
                                                 
                                                 	Number of discarded samples
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: verify_errors_count
                                                 
@@ -7763,12 +8796,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: dropped_error_count
                                                 
                                                 	Number of packets dropped
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: jitter
                                                 
@@ -7777,12 +8814,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: pos_jitter_sum
                                                 
                                                 	Sum of positive jitter value
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: pos_jitter_sum2
                                                 
@@ -7791,12 +8832,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: pos_jitter_min
                                                 
                                                 	Minimum positive jitter value
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: pos_jitter_max
                                                 
@@ -7805,12 +8850,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: pos_jitter_count
                                                 
                                                 	Number of positive jitter values
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: neg_jitter_sum
                                                 
@@ -7819,12 +8868,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: neg_jitter_min
                                                 
                                                 	Minimum negative jitter value
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: neg_jitter_max
                                                 
@@ -7833,6 +8886,8 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: neg_jitter_sum2
                                                 
                                                 	Sum of squares of negative jitter values
@@ -7840,12 +8895,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: neg_jitter_count
                                                 
                                                 	Number of negative jitter values
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -7926,6 +8985,7 @@ class Ipsla(Entity):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
 
 
+
                                             class UdpJitterStats(Entity):
                                                 """
                                                 udp jitter stats
@@ -7937,12 +8997,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: jitter_out
                                                 
                                                 	Output Jitter moving average, computed as per RFC1889
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: packet_loss_sd
                                                 
@@ -7951,12 +9015,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: packet_loss_ds
                                                 
                                                 	Packets lost in destination to source (DS) direction
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: packet_out_of_sequence
                                                 
@@ -7965,12 +9033,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: packet_mia
                                                 
                                                 	Packets missing in action (cannot determine if theywere lost in SD or DS direction
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: packet_skipped
                                                 
@@ -7979,12 +9051,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: packet_late_arrivals
                                                 
                                                 	Packets arriving late
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: packet_invalid_tstamp
                                                 
@@ -7993,12 +9069,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: internal_errors_count
                                                 
                                                 	Number of internal errors
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: busies_count
                                                 
@@ -8007,12 +9087,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: positive_sd_sum
                                                 
                                                 	Sum of positive jitter values (i.e., network latency increases for two consecutive  packets) in SD direction Measured  in milliseconds
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: millisecond
                                                 
@@ -8023,12 +9107,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: positive_sd_min
                                                 
                                                 	Minimum of positive jitter values in SD direction
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: positive_sd_max
                                                 
@@ -8037,6 +9125,8 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: positive_sd_count
                                                 
                                                 	Number of positive jitter values in SD direction
@@ -8044,12 +9134,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: negative_sd_sum
                                                 
                                                 	Sum of negative jitter values (i.e., network latency decreases for two consecutive packets) in SD direction Measured  in milliseconds
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: millisecond
                                                 
@@ -8060,12 +9154,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: negative_sd_min
                                                 
                                                 	Minimum of negative jitter values in SD direction
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: negative_sd_max
                                                 
@@ -8074,6 +9172,8 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: negative_sd_count
                                                 
                                                 	Number of negative jitter values in SD direction
@@ -8081,12 +9181,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: positive_ds_sum
                                                 
                                                 	Sum of positive jitter values (i.e., network latency increases for two consecutive packets) in DS direction Measured  in milliseconds
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: millisecond
                                                 
@@ -8097,12 +9201,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: positive_ds_min
                                                 
                                                 	Minimum of positive jitter values in DS direction
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: positive_ds_max
                                                 
@@ -8111,6 +9219,8 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: positive_ds_count
                                                 
                                                 	Number of positive jitter values in DS direction
@@ -8118,12 +9228,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: negative_ds_sum
                                                 
                                                 	Sum of negative jitter values (i.e., network latency decreases for two consecutive packets) in DS direction Measured  in milliseconds
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: millisecond
                                                 
@@ -8134,12 +9248,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: negative_ds_min
                                                 
                                                 	Minimum of negative jitter values in DS direction
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: negative_ds_max
                                                 
@@ -8148,12 +9266,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: negative_ds_count
                                                 
                                                 	Number of negative jitter values in DS direction
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: one_way_count
                                                 
@@ -8162,12 +9284,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: one_way_sd_min
                                                 
                                                 	Minimum of one\-way jitter values in SD direction (msec)
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: one_way_sd_max
                                                 
@@ -8176,12 +9302,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: one_way_sd_sum
                                                 
                                                 	Sum of one\-way jitter values in SD direction (msec)
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: one_way_sd_sum2
                                                 
@@ -8190,12 +9320,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: one_way_ds_min
                                                 
                                                 	Minimum of one\-way jitter values in DS direction (msec)
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: one_way_ds_max
                                                 
@@ -8204,6 +9338,8 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: one_way_ds_sum
                                                 
                                                 	Sum of one\-way jitter values in DS direction (msec)
@@ -8211,12 +9347,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: one_way_ds_sum2
                                                 
                                                 	Sum of squares of the OneWayMinDS and OneWayMaxDS values (msec)
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -8323,6 +9463,12 @@ class Ipsla(Entity):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
 
 
+
+
+
+
+
+
                         class Hours(Entity):
                             """
                             Table of statistics aggregated over 1\-hour
@@ -8332,6 +9478,8 @@ class Ipsla(Entity):
                             
                             	Statistics aggregated for a 1\-hour interval
                             	**type**\: list of  		 :py:class:`Hour <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -8371,15 +9519,21 @@ class Ipsla(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: distributed
                                 
                                 	Statistics aggregated on distribution value intervals for in 1\-hour intervals
                                 	**type**\:  :py:class:`Distributed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: non_distributed
                                 
                                 	Statistics aggregated for the total range of values in 1\-hour intervals
                                 	**type**\:  :py:class:`NonDistributed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8426,10 +9580,14 @@ class Ipsla(Entity):
                                     	Table of paths identified in the 1\-hour interval
                                     	**type**\:  :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: target
                                     
                                     	Distribution statistics for the target node
                                     	**type**\:  :py:class:`Target <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -8473,6 +9631,8 @@ class Ipsla(Entity):
                                         	Paths identified in a 1\-hour interval
                                         	**type**\: list of  		 :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path>`
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -8510,10 +9670,14 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: hops
                                             
                                             	Table of hops for a particular path
                                             	**type**\:  :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -8555,6 +9719,8 @@ class Ipsla(Entity):
                                                 	1\-hour aggregated statistics for a hop in a path\-enabled operation
                                                 	**type**\: list of  		 :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop>`
                                                 
+                                                	**config**\: False
+                                                
                                                 
 
                                                 """
@@ -8593,10 +9759,14 @@ class Ipsla(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: distribution_intervals
                                                     
                                                     	Table of distribution intervals for a particular hop
                                                     	**type**\:  :py:class:`DistributionIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -8639,6 +9809,8 @@ class Ipsla(Entity):
                                                         	1\-hour aggregated statistics for a hop in a path\-enabled operation
                                                         	**type**\: list of  		 :py:class:`DistributionInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         
 
                                                         """
@@ -8677,15 +9849,21 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: common_stats
                                                             
                                                             	Common Stats
                                                             	**type**\:  :py:class:`CommonStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.CommonStats>`
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: specific_stats
                                                             
                                                             	Operation Specific Stats
                                                             	**type**\:  :py:class:`SpecificStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats>`
+                                                            
+                                                            	**config**\: False
                                                             
                                                             
 
@@ -8733,10 +9911,14 @@ class Ipsla(Entity):
                                                                 
                                                                 	**range:** 0..18446744073709551615
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: return_code
                                                                 
                                                                 	Return code
                                                                 	**type**\:  :py:class:`IpslaRetCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaRetCode>`
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 .. attribute:: response_time_count
                                                                 
@@ -8745,12 +9927,16 @@ class Ipsla(Entity):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: response_time
                                                                 
                                                                 	RTT
                                                                 	**type**\: int
                                                                 
                                                                 	**range:** 0..4294967295
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 .. attribute:: min_response_time
                                                                 
@@ -8759,12 +9945,16 @@ class Ipsla(Entity):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: max_response_time
                                                                 
                                                                 	Maximum RTT
                                                                 	**type**\: int
                                                                 
                                                                 	**range:** 0..4294967295
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 .. attribute:: sum_response_time
                                                                 
@@ -8773,12 +9963,16 @@ class Ipsla(Entity):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: sum2_response_time
                                                                 
                                                                 	Sum of RTT^2
                                                                 	**type**\: int
                                                                 
                                                                 	**range:** 0..18446744073709551615
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 .. attribute:: update_count
                                                                 
@@ -8787,12 +9981,16 @@ class Ipsla(Entity):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: ok_count
                                                                 
                                                                 	Number of updates with Okay return code
                                                                 	**type**\: int
                                                                 
                                                                 	**range:** 0..4294967295
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 .. attribute:: disconnect_count
                                                                 
@@ -8801,12 +9999,16 @@ class Ipsla(Entity):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: timeout_count
                                                                 
                                                                 	Number of updates with Timeout return code
                                                                 	**type**\: int
                                                                 
                                                                 	**range:** 0..4294967295
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 .. attribute:: busy_count
                                                                 
@@ -8815,12 +10017,16 @@ class Ipsla(Entity):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: no_connection_count
                                                                 
                                                                 	Number of updates with NotConnected return code
                                                                 	**type**\: int
                                                                 
                                                                 	**range:** 0..4294967295
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 .. attribute:: dropped_count
                                                                 
@@ -8829,12 +10035,16 @@ class Ipsla(Entity):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: internal_error_count
                                                                 
                                                                 	Number of updates with InternalError return code
                                                                 	**type**\: int
                                                                 
                                                                 	**range:** 0..4294967295
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 .. attribute:: sequence_error_count
                                                                 
@@ -8843,12 +10053,16 @@ class Ipsla(Entity):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: verify_error_count
                                                                 
                                                                 	Number of updates with VerifyError return code
                                                                 	**type**\: int
                                                                 
                                                                 	**range:** 0..4294967295
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 
 
@@ -8911,6 +10125,7 @@ class Ipsla(Entity):
                                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
 
 
+
                                                             class SpecificStats(Entity):
                                                                 """
                                                                 Operation Specific Stats
@@ -8920,15 +10135,21 @@ class Ipsla(Entity):
                                                                 	icmp path jitter stats
                                                                 	**type**\:  :py:class:`IcmpPathJitterStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats>`
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: udp_jitter_stats
                                                                 
                                                                 	udp jitter stats
                                                                 	**type**\:  :py:class:`UdpJitterStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats>`
                                                                 
+                                                                	**config**\: False
+                                                                
                                                                 .. attribute:: op_type
                                                                 
                                                                 	op type
                                                                 	**type**\:  :py:class:`OpTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.OpTypeEnum>`
+                                                                
+                                                                	**config**\: False
                                                                 
                                                                 
 
@@ -8976,12 +10197,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: dest_address
                                                                     
                                                                     	IP Address of the destination
                                                                     	**type**\: str
                                                                     
                                                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: hop_address
                                                                     
@@ -8990,12 +10215,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: packet_interval
                                                                     
                                                                     	Interval between echos in ms
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: response_time_count
                                                                     
@@ -9004,12 +10233,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: response_time
                                                                     
                                                                     	RTT
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: min_response_time
                                                                     
@@ -9018,12 +10251,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: max_response_time
                                                                     
                                                                     	Maximum RTT
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: sum_response_time
                                                                     
@@ -9032,12 +10269,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: sum2_response_time
                                                                     
                                                                     	Sum of RTT^2
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..18446744073709551615
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: packet_count
                                                                     
@@ -9046,12 +10287,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: packet_loss_count
                                                                     
                                                                     	Number of packets lost
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: out_of_sequence_count
                                                                     
@@ -9060,12 +10305,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: discarded_sample_count
                                                                     
                                                                     	Number of discarded samples
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: verify_errors_count
                                                                     
@@ -9074,12 +10323,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: dropped_error_count
                                                                     
                                                                     	Number of packets dropped
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: jitter
                                                                     
@@ -9088,12 +10341,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: pos_jitter_sum
                                                                     
                                                                     	Sum of positive jitter value
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: pos_jitter_sum2
                                                                     
@@ -9102,12 +10359,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..18446744073709551615
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: pos_jitter_min
                                                                     
                                                                     	Minimum positive jitter value
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: pos_jitter_max
                                                                     
@@ -9116,12 +10377,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: pos_jitter_count
                                                                     
                                                                     	Number of positive jitter values
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: neg_jitter_sum
                                                                     
@@ -9130,12 +10395,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: neg_jitter_min
                                                                     
                                                                     	Minimum negative jitter value
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: neg_jitter_max
                                                                     
@@ -9144,6 +10413,8 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: neg_jitter_sum2
                                                                     
                                                                     	Sum of squares of negative jitter values
@@ -9151,12 +10422,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..18446744073709551615
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: neg_jitter_count
                                                                     
                                                                     	Number of negative jitter values
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     
 
@@ -9237,6 +10512,7 @@ class Ipsla(Entity):
                                                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
 
 
+
                                                                 class UdpJitterStats(Entity):
                                                                     """
                                                                     udp jitter stats
@@ -9248,12 +10524,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: jitter_out
                                                                     
                                                                     	Output Jitter moving average, computed as per RFC1889
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: packet_loss_sd
                                                                     
@@ -9262,12 +10542,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: packet_loss_ds
                                                                     
                                                                     	Packets lost in destination to source (DS) direction
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: packet_out_of_sequence
                                                                     
@@ -9276,12 +10560,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: packet_mia
                                                                     
                                                                     	Packets missing in action (cannot determine if theywere lost in SD or DS direction
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: packet_skipped
                                                                     
@@ -9290,12 +10578,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: packet_late_arrivals
                                                                     
                                                                     	Packets arriving late
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: packet_invalid_tstamp
                                                                     
@@ -9304,12 +10596,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: internal_errors_count
                                                                     
                                                                     	Number of internal errors
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: busies_count
                                                                     
@@ -9318,12 +10614,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: positive_sd_sum
                                                                     
                                                                     	Sum of positive jitter values (i.e., network latency increases for two consecutive  packets) in SD direction Measured  in milliseconds
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     	**units**\: millisecond
                                                                     
@@ -9334,12 +10634,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..18446744073709551615
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: positive_sd_min
                                                                     
                                                                     	Minimum of positive jitter values in SD direction
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: positive_sd_max
                                                                     
@@ -9348,6 +10652,8 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: positive_sd_count
                                                                     
                                                                     	Number of positive jitter values in SD direction
@@ -9355,12 +10661,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: negative_sd_sum
                                                                     
                                                                     	Sum of negative jitter values (i.e., network latency decreases for two consecutive packets) in SD direction Measured  in milliseconds
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     	**units**\: millisecond
                                                                     
@@ -9371,12 +10681,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..18446744073709551615
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: negative_sd_min
                                                                     
                                                                     	Minimum of negative jitter values in SD direction
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: negative_sd_max
                                                                     
@@ -9385,6 +10699,8 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: negative_sd_count
                                                                     
                                                                     	Number of negative jitter values in SD direction
@@ -9392,12 +10708,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: positive_ds_sum
                                                                     
                                                                     	Sum of positive jitter values (i.e., network latency increases for two consecutive packets) in DS direction Measured  in milliseconds
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     	**units**\: millisecond
                                                                     
@@ -9408,12 +10728,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..18446744073709551615
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: positive_ds_min
                                                                     
                                                                     	Minimum of positive jitter values in DS direction
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: positive_ds_max
                                                                     
@@ -9422,6 +10746,8 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: positive_ds_count
                                                                     
                                                                     	Number of positive jitter values in DS direction
@@ -9429,12 +10755,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: negative_ds_sum
                                                                     
                                                                     	Sum of negative jitter values (i.e., network latency decreases for two consecutive packets) in DS direction Measured  in milliseconds
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     	**units**\: millisecond
                                                                     
@@ -9445,12 +10775,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..18446744073709551615
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: negative_ds_min
                                                                     
                                                                     	Minimum of negative jitter values in DS direction
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: negative_ds_max
                                                                     
@@ -9459,12 +10793,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: negative_ds_count
                                                                     
                                                                     	Number of negative jitter values in DS direction
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: one_way_count
                                                                     
@@ -9473,12 +10811,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: one_way_sd_min
                                                                     
                                                                     	Minimum of one\-way jitter values in SD direction (msec)
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: one_way_sd_max
                                                                     
@@ -9487,12 +10829,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: one_way_sd_sum
                                                                     
                                                                     	Sum of one\-way jitter values in SD direction (msec)
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: one_way_sd_sum2
                                                                     
@@ -9501,12 +10847,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..18446744073709551615
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: one_way_ds_min
                                                                     
                                                                     	Minimum of one\-way jitter values in DS direction (msec)
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..4294967295
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     .. attribute:: one_way_ds_max
                                                                     
@@ -9515,6 +10865,8 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: one_way_ds_sum
                                                                     
                                                                     	Sum of one\-way jitter values in DS direction (msec)
@@ -9522,12 +10874,16 @@ class Ipsla(Entity):
                                                                     
                                                                     	**range:** 0..4294967295
                                                                     
+                                                                    	**config**\: False
+                                                                    
                                                                     .. attribute:: one_way_ds_sum2
                                                                     
                                                                     	Sum of squares of the OneWayMinDS and OneWayMaxDS values (msec)
                                                                     	**type**\: int
                                                                     
                                                                     	**range:** 0..18446744073709551615
+                                                                    
+                                                                    	**config**\: False
                                                                     
                                                                     
 
@@ -9634,6 +10990,14 @@ class Ipsla(Entity):
                                                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
 
 
+
+
+
+
+
+
+
+
                                     class Target(Entity):
                                         """
                                         Distribution statistics for the target
@@ -9643,6 +11007,8 @@ class Ipsla(Entity):
                                         
                                         	Table of distribution intervals for a particular hop
                                         	**type**\:  :py:class:`DistributionIntervals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -9682,6 +11048,8 @@ class Ipsla(Entity):
                                             	1\-hour aggregated statistics for a hop in a path\-enabled operation
                                             	**type**\: list of  		 :py:class:`DistributionInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval>`
                                             
+                                            	**config**\: False
+                                            
                                             
 
                                             """
@@ -9720,15 +11088,21 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: common_stats
                                                 
                                                 	Common Stats
                                                 	**type**\:  :py:class:`CommonStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.CommonStats>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: specific_stats
                                                 
                                                 	Operation Specific Stats
                                                 	**type**\:  :py:class:`SpecificStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats>`
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -9776,10 +11150,14 @@ class Ipsla(Entity):
                                                     
                                                     	**range:** 0..18446744073709551615
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: return_code
                                                     
                                                     	Return code
                                                     	**type**\:  :py:class:`IpslaRetCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaRetCode>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: response_time_count
                                                     
@@ -9788,12 +11166,16 @@ class Ipsla(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: response_time
                                                     
                                                     	RTT
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: min_response_time
                                                     
@@ -9802,12 +11184,16 @@ class Ipsla(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: max_response_time
                                                     
                                                     	Maximum RTT
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: sum_response_time
                                                     
@@ -9816,12 +11202,16 @@ class Ipsla(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: sum2_response_time
                                                     
                                                     	Sum of RTT^2
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..18446744073709551615
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: update_count
                                                     
@@ -9830,12 +11220,16 @@ class Ipsla(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: ok_count
                                                     
                                                     	Number of updates with Okay return code
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: disconnect_count
                                                     
@@ -9844,12 +11238,16 @@ class Ipsla(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: timeout_count
                                                     
                                                     	Number of updates with Timeout return code
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: busy_count
                                                     
@@ -9858,12 +11256,16 @@ class Ipsla(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: no_connection_count
                                                     
                                                     	Number of updates with NotConnected return code
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: dropped_count
                                                     
@@ -9872,12 +11274,16 @@ class Ipsla(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: internal_error_count
                                                     
                                                     	Number of updates with InternalError return code
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: sequence_error_count
                                                     
@@ -9886,12 +11292,16 @@ class Ipsla(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: verify_error_count
                                                     
                                                     	Number of updates with VerifyError return code
                                                     	**type**\: int
                                                     
                                                     	**range:** 0..4294967295
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -9954,6 +11364,7 @@ class Ipsla(Entity):
                                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
 
 
+
                                                 class SpecificStats(Entity):
                                                     """
                                                     Operation Specific Stats
@@ -9963,15 +11374,21 @@ class Ipsla(Entity):
                                                     	icmp path jitter stats
                                                     	**type**\:  :py:class:`IcmpPathJitterStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: udp_jitter_stats
                                                     
                                                     	udp jitter stats
                                                     	**type**\:  :py:class:`UdpJitterStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: op_type
                                                     
                                                     	op type
                                                     	**type**\:  :py:class:`OpTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.OpTypeEnum>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -10019,12 +11436,16 @@ class Ipsla(Entity):
                                                         
                                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: dest_address
                                                         
                                                         	IP Address of the destination
                                                         	**type**\: str
                                                         
                                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: hop_address
                                                         
@@ -10033,12 +11454,16 @@ class Ipsla(Entity):
                                                         
                                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: packet_interval
                                                         
                                                         	Interval between echos in ms
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: response_time_count
                                                         
@@ -10047,12 +11472,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: response_time
                                                         
                                                         	RTT
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: min_response_time
                                                         
@@ -10061,12 +11490,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: max_response_time
                                                         
                                                         	Maximum RTT
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: sum_response_time
                                                         
@@ -10075,12 +11508,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: sum2_response_time
                                                         
                                                         	Sum of RTT^2
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: packet_count
                                                         
@@ -10089,12 +11526,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: packet_loss_count
                                                         
                                                         	Number of packets lost
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: out_of_sequence_count
                                                         
@@ -10103,12 +11544,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: discarded_sample_count
                                                         
                                                         	Number of discarded samples
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: verify_errors_count
                                                         
@@ -10117,12 +11562,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: dropped_error_count
                                                         
                                                         	Number of packets dropped
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: jitter
                                                         
@@ -10131,12 +11580,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: pos_jitter_sum
                                                         
                                                         	Sum of positive jitter value
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: pos_jitter_sum2
                                                         
@@ -10145,12 +11598,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: pos_jitter_min
                                                         
                                                         	Minimum positive jitter value
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: pos_jitter_max
                                                         
@@ -10159,12 +11616,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: pos_jitter_count
                                                         
                                                         	Number of positive jitter values
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: neg_jitter_sum
                                                         
@@ -10173,12 +11634,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: neg_jitter_min
                                                         
                                                         	Minimum negative jitter value
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: neg_jitter_max
                                                         
@@ -10187,6 +11652,8 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: neg_jitter_sum2
                                                         
                                                         	Sum of squares of negative jitter values
@@ -10194,12 +11661,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: neg_jitter_count
                                                         
                                                         	Number of negative jitter values
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -10280,6 +11751,7 @@ class Ipsla(Entity):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
 
 
+
                                                     class UdpJitterStats(Entity):
                                                         """
                                                         udp jitter stats
@@ -10291,12 +11763,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: jitter_out
                                                         
                                                         	Output Jitter moving average, computed as per RFC1889
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: packet_loss_sd
                                                         
@@ -10305,12 +11781,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: packet_loss_ds
                                                         
                                                         	Packets lost in destination to source (DS) direction
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: packet_out_of_sequence
                                                         
@@ -10319,12 +11799,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: packet_mia
                                                         
                                                         	Packets missing in action (cannot determine if theywere lost in SD or DS direction
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: packet_skipped
                                                         
@@ -10333,12 +11817,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: packet_late_arrivals
                                                         
                                                         	Packets arriving late
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: packet_invalid_tstamp
                                                         
@@ -10347,12 +11835,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: internal_errors_count
                                                         
                                                         	Number of internal errors
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: busies_count
                                                         
@@ -10361,12 +11853,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: positive_sd_sum
                                                         
                                                         	Sum of positive jitter values (i.e., network latency increases for two consecutive  packets) in SD direction Measured  in milliseconds
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         	**units**\: millisecond
                                                         
@@ -10377,12 +11873,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: positive_sd_min
                                                         
                                                         	Minimum of positive jitter values in SD direction
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: positive_sd_max
                                                         
@@ -10391,6 +11891,8 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: positive_sd_count
                                                         
                                                         	Number of positive jitter values in SD direction
@@ -10398,12 +11900,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: negative_sd_sum
                                                         
                                                         	Sum of negative jitter values (i.e., network latency decreases for two consecutive packets) in SD direction Measured  in milliseconds
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         	**units**\: millisecond
                                                         
@@ -10414,12 +11920,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: negative_sd_min
                                                         
                                                         	Minimum of negative jitter values in SD direction
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: negative_sd_max
                                                         
@@ -10428,6 +11938,8 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: negative_sd_count
                                                         
                                                         	Number of negative jitter values in SD direction
@@ -10435,12 +11947,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: positive_ds_sum
                                                         
                                                         	Sum of positive jitter values (i.e., network latency increases for two consecutive packets) in DS direction Measured  in milliseconds
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         	**units**\: millisecond
                                                         
@@ -10451,12 +11967,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: positive_ds_min
                                                         
                                                         	Minimum of positive jitter values in DS direction
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: positive_ds_max
                                                         
@@ -10465,6 +11985,8 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: positive_ds_count
                                                         
                                                         	Number of positive jitter values in DS direction
@@ -10472,12 +11994,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: negative_ds_sum
                                                         
                                                         	Sum of negative jitter values (i.e., network latency decreases for two consecutive packets) in DS direction Measured  in milliseconds
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         	**units**\: millisecond
                                                         
@@ -10488,12 +12014,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: negative_ds_min
                                                         
                                                         	Minimum of negative jitter values in DS direction
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: negative_ds_max
                                                         
@@ -10502,12 +12032,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: negative_ds_count
                                                         
                                                         	Number of negative jitter values in DS direction
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: one_way_count
                                                         
@@ -10516,12 +12050,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: one_way_sd_min
                                                         
                                                         	Minimum of one\-way jitter values in SD direction (msec)
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: one_way_sd_max
                                                         
@@ -10530,12 +12068,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: one_way_sd_sum
                                                         
                                                         	Sum of one\-way jitter values in SD direction (msec)
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: one_way_sd_sum2
                                                         
@@ -10544,12 +12086,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: one_way_ds_min
                                                         
                                                         	Minimum of one\-way jitter values in DS direction (msec)
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: one_way_ds_max
                                                         
@@ -10558,6 +12104,8 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: one_way_ds_sum
                                                         
                                                         	Sum of one\-way jitter values in DS direction (msec)
@@ -10565,12 +12113,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: one_way_ds_sum2
                                                         
                                                         	Sum of squares of the OneWayMinDS and OneWayMaxDS values (msec)
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -10677,6 +12229,12 @@ class Ipsla(Entity):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
 
 
+
+
+
+
+
+
                                 class NonDistributed(Entity):
                                     """
                                     Statistics aggregated for the total range
@@ -10687,15 +12245,21 @@ class Ipsla(Entity):
                                     	Total 1\-hour aggregated statistics for the target node
                                     	**type**\:  :py:class:`Target <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: paths
                                     
                                     	Table of paths identified in the 1\-hour interval
                                     	**type**\:  :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lpd_paths
                                     
                                     	List of latest LPD paths
                                     	**type**\:  :py:class:`LpdPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -10743,10 +12307,14 @@ class Ipsla(Entity):
                                         	Common Stats
                                         	**type**\:  :py:class:`CommonStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.CommonStats>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: specific_stats
                                         
                                         	Operation Specific Stats
                                         	**type**\:  :py:class:`SpecificStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -10791,10 +12359,14 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: return_code
                                             
                                             	Return code
                                             	**type**\:  :py:class:`IpslaRetCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaRetCode>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: response_time_count
                                             
@@ -10803,12 +12375,16 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: response_time
                                             
                                             	RTT
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: min_response_time
                                             
@@ -10817,12 +12393,16 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: max_response_time
                                             
                                             	Maximum RTT
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: sum_response_time
                                             
@@ -10831,12 +12411,16 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: sum2_response_time
                                             
                                             	Sum of RTT^2
                                             	**type**\: int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: update_count
                                             
@@ -10845,12 +12429,16 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ok_count
                                             
                                             	Number of updates with Okay return code
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: disconnect_count
                                             
@@ -10859,12 +12447,16 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: timeout_count
                                             
                                             	Number of updates with Timeout return code
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: busy_count
                                             
@@ -10873,12 +12465,16 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: no_connection_count
                                             
                                             	Number of updates with NotConnected return code
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: dropped_count
                                             
@@ -10887,12 +12483,16 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: internal_error_count
                                             
                                             	Number of updates with InternalError return code
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: sequence_error_count
                                             
@@ -10901,12 +12501,16 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: verify_error_count
                                             
                                             	Number of updates with VerifyError return code
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -10969,6 +12573,7 @@ class Ipsla(Entity):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
 
 
+
                                         class SpecificStats(Entity):
                                             """
                                             Operation Specific Stats
@@ -10978,15 +12583,21 @@ class Ipsla(Entity):
                                             	icmp path jitter stats
                                             	**type**\:  :py:class:`IcmpPathJitterStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.IcmpPathJitterStats>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: udp_jitter_stats
                                             
                                             	udp jitter stats
                                             	**type**\:  :py:class:`UdpJitterStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.UdpJitterStats>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: op_type
                                             
                                             	op type
                                             	**type**\:  :py:class:`OpTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.OpTypeEnum>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -11034,12 +12645,16 @@ class Ipsla(Entity):
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: dest_address
                                                 
                                                 	IP Address of the destination
                                                 	**type**\: str
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: hop_address
                                                 
@@ -11048,12 +12663,16 @@ class Ipsla(Entity):
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: packet_interval
                                                 
                                                 	Interval between echos in ms
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: response_time_count
                                                 
@@ -11062,12 +12681,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: response_time
                                                 
                                                 	RTT
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: min_response_time
                                                 
@@ -11076,12 +12699,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: max_response_time
                                                 
                                                 	Maximum RTT
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: sum_response_time
                                                 
@@ -11090,12 +12717,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: sum2_response_time
                                                 
                                                 	Sum of RTT^2
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: packet_count
                                                 
@@ -11104,12 +12735,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: packet_loss_count
                                                 
                                                 	Number of packets lost
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: out_of_sequence_count
                                                 
@@ -11118,12 +12753,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: discarded_sample_count
                                                 
                                                 	Number of discarded samples
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: verify_errors_count
                                                 
@@ -11132,12 +12771,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: dropped_error_count
                                                 
                                                 	Number of packets dropped
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: jitter
                                                 
@@ -11146,12 +12789,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: pos_jitter_sum
                                                 
                                                 	Sum of positive jitter value
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: pos_jitter_sum2
                                                 
@@ -11160,12 +12807,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: pos_jitter_min
                                                 
                                                 	Minimum positive jitter value
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: pos_jitter_max
                                                 
@@ -11174,12 +12825,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: pos_jitter_count
                                                 
                                                 	Number of positive jitter values
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: neg_jitter_sum
                                                 
@@ -11188,12 +12843,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: neg_jitter_min
                                                 
                                                 	Minimum negative jitter value
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: neg_jitter_max
                                                 
@@ -11202,6 +12861,8 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: neg_jitter_sum2
                                                 
                                                 	Sum of squares of negative jitter values
@@ -11209,12 +12870,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: neg_jitter_count
                                                 
                                                 	Number of negative jitter values
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -11295,6 +12960,7 @@ class Ipsla(Entity):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
 
 
+
                                             class UdpJitterStats(Entity):
                                                 """
                                                 udp jitter stats
@@ -11306,12 +12972,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: jitter_out
                                                 
                                                 	Output Jitter moving average, computed as per RFC1889
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: packet_loss_sd
                                                 
@@ -11320,12 +12990,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: packet_loss_ds
                                                 
                                                 	Packets lost in destination to source (DS) direction
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: packet_out_of_sequence
                                                 
@@ -11334,12 +13008,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: packet_mia
                                                 
                                                 	Packets missing in action (cannot determine if theywere lost in SD or DS direction
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: packet_skipped
                                                 
@@ -11348,12 +13026,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: packet_late_arrivals
                                                 
                                                 	Packets arriving late
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: packet_invalid_tstamp
                                                 
@@ -11362,12 +13044,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: internal_errors_count
                                                 
                                                 	Number of internal errors
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: busies_count
                                                 
@@ -11376,12 +13062,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: positive_sd_sum
                                                 
                                                 	Sum of positive jitter values (i.e., network latency increases for two consecutive  packets) in SD direction Measured  in milliseconds
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: millisecond
                                                 
@@ -11392,12 +13082,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: positive_sd_min
                                                 
                                                 	Minimum of positive jitter values in SD direction
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: positive_sd_max
                                                 
@@ -11406,6 +13100,8 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: positive_sd_count
                                                 
                                                 	Number of positive jitter values in SD direction
@@ -11413,12 +13109,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: negative_sd_sum
                                                 
                                                 	Sum of negative jitter values (i.e., network latency decreases for two consecutive packets) in SD direction Measured  in milliseconds
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: millisecond
                                                 
@@ -11429,12 +13129,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: negative_sd_min
                                                 
                                                 	Minimum of negative jitter values in SD direction
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: negative_sd_max
                                                 
@@ -11443,6 +13147,8 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: negative_sd_count
                                                 
                                                 	Number of negative jitter values in SD direction
@@ -11450,12 +13156,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: positive_ds_sum
                                                 
                                                 	Sum of positive jitter values (i.e., network latency increases for two consecutive packets) in DS direction Measured  in milliseconds
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: millisecond
                                                 
@@ -11466,12 +13176,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: positive_ds_min
                                                 
                                                 	Minimum of positive jitter values in DS direction
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: positive_ds_max
                                                 
@@ -11480,6 +13194,8 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: positive_ds_count
                                                 
                                                 	Number of positive jitter values in DS direction
@@ -11487,12 +13203,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: negative_ds_sum
                                                 
                                                 	Sum of negative jitter values (i.e., network latency decreases for two consecutive packets) in DS direction Measured  in milliseconds
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 	**units**\: millisecond
                                                 
@@ -11503,12 +13223,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: negative_ds_min
                                                 
                                                 	Minimum of negative jitter values in DS direction
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: negative_ds_max
                                                 
@@ -11517,12 +13241,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: negative_ds_count
                                                 
                                                 	Number of negative jitter values in DS direction
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: one_way_count
                                                 
@@ -11531,12 +13259,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: one_way_sd_min
                                                 
                                                 	Minimum of one\-way jitter values in SD direction (msec)
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: one_way_sd_max
                                                 
@@ -11545,12 +13277,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: one_way_sd_sum
                                                 
                                                 	Sum of one\-way jitter values in SD direction (msec)
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: one_way_sd_sum2
                                                 
@@ -11559,12 +13295,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..18446744073709551615
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: one_way_ds_min
                                                 
                                                 	Minimum of one\-way jitter values in DS direction (msec)
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: one_way_ds_max
                                                 
@@ -11573,6 +13313,8 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: one_way_ds_sum
                                                 
                                                 	Sum of one\-way jitter values in DS direction (msec)
@@ -11580,12 +13322,16 @@ class Ipsla(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: one_way_ds_sum2
                                                 
                                                 	Sum of squares of the OneWayMinDS and OneWayMaxDS values (msec)
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -11692,6 +13438,9 @@ class Ipsla(Entity):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
 
 
+
+
+
                                     class Paths(Entity):
                                         """
                                         Table of paths identified in the 1\-hour
@@ -11701,6 +13450,8 @@ class Ipsla(Entity):
                                         
                                         	Paths identified in a 1\-hour interval
                                         	**type**\: list of  		 :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -11739,10 +13490,14 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: hops
                                             
                                             	Table of hops for a particular path
                                             	**type**\:  :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -11784,6 +13539,8 @@ class Ipsla(Entity):
                                                 	Total 1\-hour aggregated statistics for a hop in a path\-enabled operation
                                                 	**type**\: list of  		 :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop>`
                                                 
+                                                	**config**\: False
+                                                
                                                 
 
                                                 """
@@ -11822,15 +13579,21 @@ class Ipsla(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: common_stats
                                                     
                                                     	Common Stats
                                                     	**type**\:  :py:class:`CommonStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.CommonStats>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: specific_stats
                                                     
                                                     	Operation Specific Stats
                                                     	**type**\:  :py:class:`SpecificStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats>`
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -11878,10 +13641,14 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..18446744073709551615
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: return_code
                                                         
                                                         	Return code
                                                         	**type**\:  :py:class:`IpslaRetCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaRetCode>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: response_time_count
                                                         
@@ -11890,12 +13657,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: response_time
                                                         
                                                         	RTT
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: min_response_time
                                                         
@@ -11904,12 +13675,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: max_response_time
                                                         
                                                         	Maximum RTT
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: sum_response_time
                                                         
@@ -11918,12 +13693,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: sum2_response_time
                                                         
                                                         	Sum of RTT^2
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..18446744073709551615
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: update_count
                                                         
@@ -11932,12 +13711,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: ok_count
                                                         
                                                         	Number of updates with Okay return code
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: disconnect_count
                                                         
@@ -11946,12 +13729,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: timeout_count
                                                         
                                                         	Number of updates with Timeout return code
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: busy_count
                                                         
@@ -11960,12 +13747,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: no_connection_count
                                                         
                                                         	Number of updates with NotConnected return code
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: dropped_count
                                                         
@@ -11974,12 +13765,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: internal_error_count
                                                         
                                                         	Number of updates with InternalError return code
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         .. attribute:: sequence_error_count
                                                         
@@ -11988,12 +13783,16 @@ class Ipsla(Entity):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: verify_error_count
                                                         
                                                         	Number of updates with VerifyError return code
                                                         	**type**\: int
                                                         
                                                         	**range:** 0..4294967295
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -12056,6 +13855,7 @@ class Ipsla(Entity):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
 
 
+
                                                     class SpecificStats(Entity):
                                                         """
                                                         Operation Specific Stats
@@ -12065,15 +13865,21 @@ class Ipsla(Entity):
                                                         	icmp path jitter stats
                                                         	**type**\:  :py:class:`IcmpPathJitterStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.IcmpPathJitterStats>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: udp_jitter_stats
                                                         
                                                         	udp jitter stats
                                                         	**type**\:  :py:class:`UdpJitterStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.UdpJitterStats>`
                                                         
+                                                        	**config**\: False
+                                                        
                                                         .. attribute:: op_type
                                                         
                                                         	op type
                                                         	**type**\:  :py:class:`OpTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.OpTypeEnum>`
+                                                        
+                                                        	**config**\: False
                                                         
                                                         
 
@@ -12121,12 +13927,16 @@ class Ipsla(Entity):
                                                             
                                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: dest_address
                                                             
                                                             	IP Address of the destination
                                                             	**type**\: str
                                                             
                                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: hop_address
                                                             
@@ -12135,12 +13945,16 @@ class Ipsla(Entity):
                                                             
                                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: packet_interval
                                                             
                                                             	Interval between echos in ms
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: response_time_count
                                                             
@@ -12149,12 +13963,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: response_time
                                                             
                                                             	RTT
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: min_response_time
                                                             
@@ -12163,12 +13981,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: max_response_time
                                                             
                                                             	Maximum RTT
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: sum_response_time
                                                             
@@ -12177,12 +13999,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: sum2_response_time
                                                             
                                                             	Sum of RTT^2
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..18446744073709551615
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: packet_count
                                                             
@@ -12191,12 +14017,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: packet_loss_count
                                                             
                                                             	Number of packets lost
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: out_of_sequence_count
                                                             
@@ -12205,12 +14035,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: discarded_sample_count
                                                             
                                                             	Number of discarded samples
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: verify_errors_count
                                                             
@@ -12219,12 +14053,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: dropped_error_count
                                                             
                                                             	Number of packets dropped
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: jitter
                                                             
@@ -12233,12 +14071,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: pos_jitter_sum
                                                             
                                                             	Sum of positive jitter value
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: pos_jitter_sum2
                                                             
@@ -12247,12 +14089,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..18446744073709551615
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: pos_jitter_min
                                                             
                                                             	Minimum positive jitter value
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: pos_jitter_max
                                                             
@@ -12261,12 +14107,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: pos_jitter_count
                                                             
                                                             	Number of positive jitter values
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: neg_jitter_sum
                                                             
@@ -12275,12 +14125,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: neg_jitter_min
                                                             
                                                             	Minimum negative jitter value
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: neg_jitter_max
                                                             
@@ -12289,6 +14143,8 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: neg_jitter_sum2
                                                             
                                                             	Sum of squares of negative jitter values
@@ -12296,12 +14152,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..18446744073709551615
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: neg_jitter_count
                                                             
                                                             	Number of negative jitter values
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             
 
@@ -12382,6 +14242,7 @@ class Ipsla(Entity):
                                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
 
 
+
                                                         class UdpJitterStats(Entity):
                                                             """
                                                             udp jitter stats
@@ -12393,12 +14254,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: jitter_out
                                                             
                                                             	Output Jitter moving average, computed as per RFC1889
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: packet_loss_sd
                                                             
@@ -12407,12 +14272,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: packet_loss_ds
                                                             
                                                             	Packets lost in destination to source (DS) direction
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: packet_out_of_sequence
                                                             
@@ -12421,12 +14290,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: packet_mia
                                                             
                                                             	Packets missing in action (cannot determine if theywere lost in SD or DS direction
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: packet_skipped
                                                             
@@ -12435,12 +14308,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: packet_late_arrivals
                                                             
                                                             	Packets arriving late
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: packet_invalid_tstamp
                                                             
@@ -12449,12 +14326,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: internal_errors_count
                                                             
                                                             	Number of internal errors
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: busies_count
                                                             
@@ -12463,12 +14344,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: positive_sd_sum
                                                             
                                                             	Sum of positive jitter values (i.e., network latency increases for two consecutive  packets) in SD direction Measured  in milliseconds
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             	**units**\: millisecond
                                                             
@@ -12479,12 +14364,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..18446744073709551615
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: positive_sd_min
                                                             
                                                             	Minimum of positive jitter values in SD direction
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: positive_sd_max
                                                             
@@ -12493,6 +14382,8 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: positive_sd_count
                                                             
                                                             	Number of positive jitter values in SD direction
@@ -12500,12 +14391,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: negative_sd_sum
                                                             
                                                             	Sum of negative jitter values (i.e., network latency decreases for two consecutive packets) in SD direction Measured  in milliseconds
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             	**units**\: millisecond
                                                             
@@ -12516,12 +14411,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..18446744073709551615
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: negative_sd_min
                                                             
                                                             	Minimum of negative jitter values in SD direction
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: negative_sd_max
                                                             
@@ -12530,6 +14429,8 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: negative_sd_count
                                                             
                                                             	Number of negative jitter values in SD direction
@@ -12537,12 +14438,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: positive_ds_sum
                                                             
                                                             	Sum of positive jitter values (i.e., network latency increases for two consecutive packets) in DS direction Measured  in milliseconds
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             	**units**\: millisecond
                                                             
@@ -12553,12 +14458,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..18446744073709551615
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: positive_ds_min
                                                             
                                                             	Minimum of positive jitter values in DS direction
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: positive_ds_max
                                                             
@@ -12567,6 +14476,8 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: positive_ds_count
                                                             
                                                             	Number of positive jitter values in DS direction
@@ -12574,12 +14485,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: negative_ds_sum
                                                             
                                                             	Sum of negative jitter values (i.e., network latency decreases for two consecutive packets) in DS direction Measured  in milliseconds
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             	**units**\: millisecond
                                                             
@@ -12590,12 +14505,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..18446744073709551615
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: negative_ds_min
                                                             
                                                             	Minimum of negative jitter values in DS direction
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: negative_ds_max
                                                             
@@ -12604,12 +14523,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: negative_ds_count
                                                             
                                                             	Number of negative jitter values in DS direction
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: one_way_count
                                                             
@@ -12618,12 +14541,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: one_way_sd_min
                                                             
                                                             	Minimum of one\-way jitter values in SD direction (msec)
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: one_way_sd_max
                                                             
@@ -12632,12 +14559,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: one_way_sd_sum
                                                             
                                                             	Sum of one\-way jitter values in SD direction (msec)
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: one_way_sd_sum2
                                                             
@@ -12646,12 +14577,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..18446744073709551615
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: one_way_ds_min
                                                             
                                                             	Minimum of one\-way jitter values in DS direction (msec)
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..4294967295
+                                                            
+                                                            	**config**\: False
                                                             
                                                             .. attribute:: one_way_ds_max
                                                             
@@ -12660,6 +14595,8 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: one_way_ds_sum
                                                             
                                                             	Sum of one\-way jitter values in DS direction (msec)
@@ -12667,12 +14604,16 @@ class Ipsla(Entity):
                                                             
                                                             	**range:** 0..4294967295
                                                             
+                                                            	**config**\: False
+                                                            
                                                             .. attribute:: one_way_ds_sum2
                                                             
                                                             	Sum of squares of the OneWayMinDS and OneWayMaxDS values (msec)
                                                             	**type**\: int
                                                             
                                                             	**range:** 0..18446744073709551615
+                                                            
+                                                            	**config**\: False
                                                             
                                                             
 
@@ -12779,6 +14720,12 @@ class Ipsla(Entity):
                                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
 
 
+
+
+
+
+
+
                                     class LpdPaths(Entity):
                                         """
                                         List of latest LPD paths
@@ -12787,6 +14734,8 @@ class Ipsla(Entity):
                                         
                                         	Latest path statistics of MPLS LSP group operation
                                         	**type**\: list of  		 :py:class:`LpdPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -12826,15 +14775,21 @@ class Ipsla(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: path_id
                                             
                                             	LPD path identifier
                                             	**type**\:  :py:class:`PathId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath.PathId>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: return_code
                                             
                                             	Path return code
                                             	**type**\:  :py:class:`IpslaRetCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.IpslaRetCode>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -12880,12 +14835,16 @@ class Ipsla(Entity):
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: output_interface
                                                 
                                                 	Output interface
                                                 	**type**\: str
                                                 
                                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: nexthop_address
                                                 
@@ -12894,12 +14853,16 @@ class Ipsla(Entity):
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: downstream_label
                                                 
                                                 	Downstream label stacks
                                                 	**type**\: list of int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -12934,6 +14897,17 @@ class Ipsla(Entity):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath.PathId, [u'lsp_selector', u'output_interface', u'nexthop_address', u'downstream_label'], name, value)
 
 
+
+
+
+
+
+
+
+
+
+
+
     class ApplicationInfo(Entity):
         """
         IPSLA application information
@@ -12943,12 +14917,16 @@ class Ipsla(Entity):
         	Version of the IPSLA in Version.Release .Patch\-level format
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: max_entries
         
         	Maximum number of entries
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: entries_configured
         
@@ -12957,12 +14935,16 @@ class Ipsla(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: active_entries
         
         	Number of active entries
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: pending_entries
         
@@ -12971,12 +14953,16 @@ class Ipsla(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: inactive_entries
         
         	Number of inactive entries
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: configurable_probes
         
@@ -12985,6 +14971,8 @@ class Ipsla(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: min_memory
         
         	IPSLA low memory watermark in KB
@@ -12992,15 +14980,21 @@ class Ipsla(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: hw_timestamp_disabled
         
         	IPSLA HW timestamp Disabled flag
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: operation_type
         
         	Operation types available in this IPSLA version
         	**type**\: list of   :py:class:`SlaOpTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper.SlaOpTypes>`
+        
+        	**config**\: False
         
         
 
@@ -13047,7 +15041,10 @@ class Ipsla(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ipsla.ApplicationInfo, [u'version', u'max_entries', u'entries_configured', u'active_entries', u'pending_entries', u'inactive_entries', u'configurable_probes', u'min_memory', u'hw_timestamp_disabled', u'operation_type'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Ipsla()
         return self._top_entity
+
+
 

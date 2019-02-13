@@ -48,15 +48,21 @@ class CiscoPlatformSoftware(Entity):
     	Platform system usage information
     	**type**\:  :py:class:`SystemUsages <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.SystemUsages>`
     
+    	**config**\: False
+    
     .. attribute:: control_processes
     
     	Information about control processes
     	**type**\:  :py:class:`ControlProcesses <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses>`
     
+    	**config**\: False
+    
     .. attribute:: q_filesystem
     
     	Information about the filesystem
     	**type**\: list of  		 :py:class:`QFilesystem <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.QFilesystem>`
+    
+    	**config**\: False
     
     
 
@@ -102,6 +108,8 @@ class CiscoPlatformSoftware(Entity):
         	The list of process system usage
         	**type**\: list of  		 :py:class:`SystemUsage <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.SystemUsages.SystemUsage>`
         
+        	**config**\: False
+        
         
 
         """
@@ -138,12 +146,16 @@ class CiscoPlatformSoftware(Entity):
             	Field replaceable unit
             	**type**\:  :py:class:`BFru <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.BFru>`
             
+            	**config**\: False
+            
             .. attribute:: slotnum  (key)
             
             	Slot number
             	**type**\: int
             
             	**range:** \-32768..32767
+            
+            	**config**\: False
             
             .. attribute:: baynum  (key)
             
@@ -152,6 +164,8 @@ class CiscoPlatformSoftware(Entity):
             
             	**range:** \-32768..32767
             
+            	**config**\: False
+            
             .. attribute:: chassisnum  (key)
             
             	Chassis number
@@ -159,10 +173,14 @@ class CiscoPlatformSoftware(Entity):
             
             	**range:** \-32768..32767
             
+            	**config**\: False
+            
             .. attribute:: process_system_usages
             
             	List of process system usage
             	**type**\:  :py:class:`ProcessSystemUsages <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.SystemUsages.SystemUsage.ProcessSystemUsages>`
+            
+            	**config**\: False
             
             
 
@@ -211,6 +229,8 @@ class CiscoPlatformSoftware(Entity):
                 	Per\-process system usage
                 	**type**\: list of  		 :py:class:`ProcessSystemUsage <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.SystemUsages.SystemUsage.ProcessSystemUsages.ProcessSystemUsage>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -248,10 +268,14 @@ class CiscoPlatformSoftware(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	Process name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_run_time
                     
@@ -260,12 +284,16 @@ class CiscoPlatformSoftware(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: five_seconds
                     
                     	Busy percentage in last 5\-seconds
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: allocated_memory
                     
@@ -274,12 +302,16 @@ class CiscoPlatformSoftware(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: allocated_memory_percent
                     
                     	Percentage of memory allocated to this process
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -318,6 +350,10 @@ class CiscoPlatformSoftware(Entity):
                         self._perform_setattr(CiscoPlatformSoftware.SystemUsages.SystemUsage.ProcessSystemUsages.ProcessSystemUsage, ['pid', 'name', 'total_run_time', 'five_seconds', 'allocated_memory', 'allocated_memory_percent'], name, value)
 
 
+
+
+
+
     class ControlProcesses(Entity):
         """
         Information about control processes
@@ -326,6 +362,8 @@ class CiscoPlatformSoftware(Entity):
         
         	The list of control processes
         	**type**\: list of  		 :py:class:`ControlProcess <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess>`
+        
+        	**config**\: False
         
         
 
@@ -363,12 +401,16 @@ class CiscoPlatformSoftware(Entity):
             	Field replaceable unit
             	**type**\:  :py:class:`BFru <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.BFru>`
             
+            	**config**\: False
+            
             .. attribute:: slotnum  (key)
             
             	Slot number
             	**type**\: int
             
             	**range:** \-32768..32767
+            
+            	**config**\: False
             
             .. attribute:: baynum  (key)
             
@@ -377,6 +419,8 @@ class CiscoPlatformSoftware(Entity):
             
             	**range:** \-32768..32767
             
+            	**config**\: False
+            
             .. attribute:: chassisnum  (key)
             
             	Chassis number
@@ -384,10 +428,14 @@ class CiscoPlatformSoftware(Entity):
             
             	**range:** \-32768..32767
             
+            	**config**\: False
+            
             .. attribute:: control_process_status
             
             	Status of the control process
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: updated
             
@@ -396,25 +444,35 @@ class CiscoPlatformSoftware(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: load_average_stats
             
             	Load average statictics
             	**type**\:  :py:class:`LoadAverageStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAverageStats>`
+            
+            	**config**\: False
             
             .. attribute:: load_avg_minutes
             
             	Load average statistics calculated over a period of time
             	**type**\:  :py:class:`LoadAvgMinutes <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes>`
             
+            	**config**\: False
+            
             .. attribute:: memory_stats
             
             	Memory statistics
             	**type**\:  :py:class:`MemoryStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats>`
             
+            	**config**\: False
+            
             .. attribute:: per_core_stats
             
             	Processor core statistics
             	**type**\:  :py:class:`PerCoreStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.PerCoreStats>`
+            
+            	**config**\: False
             
             
 
@@ -479,6 +537,8 @@ class CiscoPlatformSoftware(Entity):
                 	Load average status
                 	**type**\: str
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -506,6 +566,7 @@ class CiscoPlatformSoftware(Entity):
                     self._perform_setattr(CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAverageStats, ['load_average_status'], name, value)
 
 
+
             class LoadAvgMinutes(Entity):
                 """
                 Load average statistics calculated over a period of time
@@ -514,6 +575,8 @@ class CiscoPlatformSoftware(Entity):
                 
                 	List of Load averages based on a time frame
                 	**type**\: list of  		 :py:class:`LoadAvgMinute <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes.LoadAvgMinute>`
+                
+                	**config**\: False
                 
                 
 
@@ -552,6 +615,8 @@ class CiscoPlatformSoftware(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: average
                     
                     	Calculated average
@@ -559,10 +624,14 @@ class CiscoPlatformSoftware(Entity):
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
+                    	**config**\: False
+                    
                     .. attribute:: status
                     
                     	Load average statistics minute status
                     	**type**\:  :py:class:`Status <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes.LoadAvgMinute.Status>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -606,10 +675,14 @@ class CiscoPlatformSoftware(Entity):
                         	Load average condition
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: threshold_status
                         
                         	Load average status
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: threshold_value
                         
@@ -617,6 +690,8 @@ class CiscoPlatformSoftware(Entity):
                         	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
+                        
+                        	**config**\: False
                         
                         
 
@@ -649,6 +724,9 @@ class CiscoPlatformSoftware(Entity):
                             self._perform_setattr(CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes.LoadAvgMinute.Status, ['condition', 'threshold_status', 'threshold_value'], name, value)
 
 
+
+
+
             class MemoryStats(Entity):
                 """
                 Memory statistics
@@ -658,12 +736,16 @@ class CiscoPlatformSoftware(Entity):
                 	The status of the memory
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: total
                 
                 	The total amount of memory in kb
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: used_number
                 
@@ -672,12 +754,16 @@ class CiscoPlatformSoftware(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: used_percent
                 
                 	The percentage of memory being used
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: free_number
                 
@@ -686,12 +772,16 @@ class CiscoPlatformSoftware(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: free_percent
                 
                 	The percentage of free memory
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: available_number
                 
@@ -700,12 +790,16 @@ class CiscoPlatformSoftware(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: available_percent
                 
                 	The percentage of available memory
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: committed_number
                 
@@ -714,6 +808,8 @@ class CiscoPlatformSoftware(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: committed_percent
                 
                 	The percentage of committed memory
@@ -721,10 +817,14 @@ class CiscoPlatformSoftware(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: status
                 
                 	Memory status
                 	**type**\:  :py:class:`Status <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats.Status>`
+                
+                	**config**\: False
                 
                 
 
@@ -786,12 +886,16 @@ class CiscoPlatformSoftware(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: critical_threshold_percent
                     
                     	Memory critical threshold value percent
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -822,6 +926,8 @@ class CiscoPlatformSoftware(Entity):
                         self._perform_setattr(CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats.Status, ['warning_threshold_percent', 'critical_threshold_percent'], name, value)
 
 
+
+
             class PerCoreStats(Entity):
                 """
                 Processor core statistics
@@ -830,6 +936,8 @@ class CiscoPlatformSoftware(Entity):
                 
                 	List of processor cores
                 	**type**\: list of  		 :py:class:`PerCoreStat <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.ControlProcesses.ControlProcess.PerCoreStats.PerCoreStat>`
+                
+                	**config**\: False
                 
                 
 
@@ -868,12 +976,16 @@ class CiscoPlatformSoftware(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: user
                     
                     	CPU utilization in user mode
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
                     
                     .. attribute:: system
                     
@@ -882,12 +994,16 @@ class CiscoPlatformSoftware(Entity):
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
+                    	**config**\: False
+                    
                     .. attribute:: nice
                     
                     	Nice level
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
                     
                     .. attribute:: idle
                     
@@ -896,12 +1012,16 @@ class CiscoPlatformSoftware(Entity):
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
+                    	**config**\: False
+                    
                     .. attribute:: irq
                     
                     	The percentage of utilization by irq
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
                     
                     .. attribute:: sirq
                     
@@ -910,12 +1030,16 @@ class CiscoPlatformSoftware(Entity):
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
+                    	**config**\: False
+                    
                     .. attribute:: io_wait
                     
                     	IOWait percentage
                     	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**config**\: False
                     
                     
 
@@ -958,6 +1082,10 @@ class CiscoPlatformSoftware(Entity):
                         self._perform_setattr(CiscoPlatformSoftware.ControlProcesses.ControlProcess.PerCoreStats.PerCoreStat, ['name', 'user', 'system', 'nice', 'idle', 'irq', 'sirq', 'io_wait'], name, value)
 
 
+
+
+
+
     class QFilesystem(Entity):
         """
         Information about the filesystem
@@ -967,12 +1095,16 @@ class CiscoPlatformSoftware(Entity):
         	Field replaceable unit
         	**type**\:  :py:class:`BFru <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.BFru>`
         
+        	**config**\: False
+        
         .. attribute:: slotnum  (key)
         
         	Slot number
         	**type**\: int
         
         	**range:** \-32768..32767
+        
+        	**config**\: False
         
         .. attribute:: baynum  (key)
         
@@ -981,6 +1113,8 @@ class CiscoPlatformSoftware(Entity):
         
         	**range:** \-32768..32767
         
+        	**config**\: False
+        
         .. attribute:: chassisnum  (key)
         
         	Chassis number
@@ -988,15 +1122,21 @@ class CiscoPlatformSoftware(Entity):
         
         	**range:** \-32768..32767
         
+        	**config**\: False
+        
         .. attribute:: partitions
         
         	Information about partitions
         	**type**\: list of  		 :py:class:`Partitions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.QFilesystem.Partitions>`
         
+        	**config**\: False
+        
         .. attribute:: core_files
         
         	Information about core files
         	**type**\: list of  		 :py:class:`CoreFiles <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.QFilesystem.CoreFiles>`
+        
+        	**config**\: False
         
         
 
@@ -1044,6 +1184,8 @@ class CiscoPlatformSoftware(Entity):
             	The name of the partition
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: total_size
             
             	Total size of the partition in Kilobytes
@@ -1051,12 +1193,16 @@ class CiscoPlatformSoftware(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: used_size
             
             	Size used in Kilobytes
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -1089,6 +1235,7 @@ class CiscoPlatformSoftware(Entity):
                 self._perform_setattr(CiscoPlatformSoftware.QFilesystem.Partitions, ['name', 'total_size', 'used_size'], name, value)
 
 
+
         class CoreFiles(Entity):
             """
             Information about core files
@@ -1098,12 +1245,16 @@ class CiscoPlatformSoftware(Entity):
             	The core filename
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: time
             
             	The date of generation
             	**type**\: str
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+            
+            	**config**\: False
             
             
 
@@ -1133,7 +1284,11 @@ class CiscoPlatformSoftware(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CiscoPlatformSoftware.QFilesystem.CoreFiles, ['filename', 'time'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CiscoPlatformSoftware()
         return self._top_entity
+
+
 

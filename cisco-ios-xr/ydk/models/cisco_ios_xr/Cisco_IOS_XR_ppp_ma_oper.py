@@ -333,6 +333,8 @@ class Ppp(Entity):
     	Per node PPP operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -370,6 +372,8 @@ class Ppp(Entity):
         
         	The PPP operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -409,40 +413,56 @@ class Ppp(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: statistics
             
             	PPP statistics data for a particular node
             	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Statistics>`
+            
+            	**config**\: False
             
             .. attribute:: node_interfaces
             
             	Per interface PPP operational data
             	**type**\:  :py:class:`NodeInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces>`
             
+            	**config**\: False
+            
             .. attribute:: sso_alerts
             
             	PPP SSO Alert data for a particular node
             	**type**\:  :py:class:`SsoAlerts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts>`
+            
+            	**config**\: False
             
             .. attribute:: node_interface_statistics
             
             	Per interface PPP operational statistics
             	**type**\:  :py:class:`NodeInterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics>`
             
+            	**config**\: False
+            
             .. attribute:: sso_summary
             
             	Summarized PPP SSO data for a particular node
             	**type**\:  :py:class:`SsoSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary>`
+            
+            	**config**\: False
             
             .. attribute:: sso_groups
             
             	PPP SSO Group data for a particular node
             	**type**\:  :py:class:`SsoGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups>`
             
+            	**config**\: False
+            
             .. attribute:: summary
             
             	Summarized PPP data for a particular node
             	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary>`
+            
+            	**config**\: False
             
             
 
@@ -509,15 +529,21 @@ class Ppp(Entity):
                 	PPP LCP Statistics
                 	**type**\:  :py:class:`LcpStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Statistics.LcpStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: authentication_statistics
                 
                 	PPP Authentication statistics
                 	**type**\:  :py:class:`AuthenticationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Statistics.AuthenticationStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: ncp_statistics_array
                 
                 	Array of PPP NCP Statistics
                 	**type**\: list of  		 :py:class:`NcpStatisticsArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Statistics.NcpStatisticsArray>`
+                
+                	**config**\: False
                 
                 
 
@@ -564,12 +590,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: conf_req_rcvd
                     
                     	Conf Req Packets Received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: conf_ack_sent
                     
@@ -578,12 +608,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: conf_ack_rcvd
                     
                     	Conf Ack Packets Received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: conf_nak_sent
                     
@@ -592,12 +626,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: conf_nak_rcvd
                     
                     	Conf Nak Packets Received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: conf_rej_sent
                     
@@ -606,12 +644,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: conf_rej_rcvd
                     
                     	Conf Rej Packets Received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: term_req_sent
                     
@@ -620,12 +662,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: term_req_rcvd
                     
                     	Term Req Packets Received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: term_ack_sent
                     
@@ -634,12 +680,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: term_ack_rcvd
                     
                     	Term Ack Packets Received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: code_rej_sent
                     
@@ -648,12 +698,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: code_rej_rcvd
                     
                     	Code Rej Packets Received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: proto_rej_sent
                     
@@ -662,12 +716,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: proto_rej_rcvd
                     
                     	Proto Rej Packets Received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: echo_req_sent
                     
@@ -676,12 +734,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: echo_req_rcvd
                     
                     	Echo Req Packets Received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: echo_rep_sent
                     
@@ -690,12 +752,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: echo_rep_rcvd
                     
                     	Echo Rep Packets Received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: disc_req_sent
                     
@@ -704,12 +770,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: disc_req_rcvd
                     
                     	Disc Req Packets Received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: link_up
                     
@@ -718,12 +788,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: link_error
                     
                     	Keepalive link failure count
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -795,7 +869,8 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.Statistics.LcpStatistics, ['conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd', 'term_req_sent', 'term_req_rcvd', 'term_ack_sent', 'term_ack_rcvd', 'code_rej_sent', 'code_rej_rcvd', 'proto_rej_sent', 'proto_rej_rcvd', 'echo_req_sent', 'echo_req_rcvd', 'echo_rep_sent', 'echo_rep_rcvd', 'disc_req_sent', 'disc_req_rcvd', 'link_up', 'link_error'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.Statistics.LcpStatistics, [u'conf_req_sent', u'conf_req_rcvd', u'conf_ack_sent', u'conf_ack_rcvd', u'conf_nak_sent', u'conf_nak_rcvd', u'conf_rej_sent', u'conf_rej_rcvd', u'term_req_sent', u'term_req_rcvd', u'term_ack_sent', u'term_ack_rcvd', u'code_rej_sent', u'code_rej_rcvd', u'proto_rej_sent', u'proto_rej_rcvd', u'echo_req_sent', u'echo_req_rcvd', u'echo_rep_sent', u'echo_rep_rcvd', u'disc_req_sent', u'disc_req_rcvd', u'link_up', u'link_error'], name, value)
+
 
 
                 class AuthenticationStatistics(Entity):
@@ -809,12 +884,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: pap_req_rcvd
                     
                     	PAP Request packets received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: pap_ack_sent
                     
@@ -823,12 +902,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: pap_ack_rcvd
                     
                     	PAP Ack packets received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: pap_nak_sent
                     
@@ -837,12 +920,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: pap_nak_rcvd
                     
                     	PAP Nak packets received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: chap_chall_sent
                     
@@ -851,12 +938,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: chap_chall_rcvd
                     
                     	CHAP challenge packets received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: chap_resp_sent
                     
@@ -865,12 +956,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: chap_resp_rcvd
                     
                     	CHAP response packets received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: chap_rep_succ_sent
                     
@@ -879,12 +974,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: chap_rep_succ_rcvd
                     
                     	CHAP reply success packets received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: chap_rep_fail_sent
                     
@@ -893,6 +992,8 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: chap_rep_fail_rcvd
                     
                     	CHAP reply failure packets received
@@ -900,12 +1001,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: auth_timeout_count
                     
                     	Authentication timeout count
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -959,7 +1064,8 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.Statistics.AuthenticationStatistics, ['pap_req_sent', 'pap_req_rcvd', 'pap_ack_sent', 'pap_ack_rcvd', 'pap_nak_sent', 'pap_nak_rcvd', 'chap_chall_sent', 'chap_chall_rcvd', 'chap_resp_sent', 'chap_resp_rcvd', 'chap_rep_succ_sent', 'chap_rep_succ_rcvd', 'chap_rep_fail_sent', 'chap_rep_fail_rcvd', 'auth_timeout_count'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.Statistics.AuthenticationStatistics, [u'pap_req_sent', u'pap_req_rcvd', u'pap_ack_sent', u'pap_ack_rcvd', u'pap_nak_sent', u'pap_nak_rcvd', u'chap_chall_sent', u'chap_chall_rcvd', u'chap_resp_sent', u'chap_resp_rcvd', u'chap_rep_succ_sent', u'chap_rep_succ_rcvd', u'chap_rep_fail_sent', u'chap_rep_fail_rcvd', u'auth_timeout_count'], name, value)
+
 
 
                 class NcpStatisticsArray(Entity):
@@ -971,12 +1077,16 @@ class Ppp(Entity):
                     	NCP identifier
                     	**type**\:  :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: conf_req_sent
                     
                     	Conf Req Packets Sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: conf_req_rcvd
                     
@@ -985,12 +1095,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: conf_ack_sent
                     
                     	Conf Ack Packets Sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: conf_ack_rcvd
                     
@@ -999,12 +1113,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: conf_nak_sent
                     
                     	Conf Nak Packets Sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: conf_nak_rcvd
                     
@@ -1013,12 +1131,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: conf_rej_sent
                     
                     	Conf Rej Packets Sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: conf_rej_rcvd
                     
@@ -1027,12 +1149,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: term_req_sent
                     
                     	Term Req Packets Sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: term_req_rcvd
                     
@@ -1041,12 +1167,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: term_ack_sent
                     
                     	Term Ack Packets Sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: term_ack_rcvd
                     
@@ -1055,6 +1185,8 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: proto_rej_sent
                     
                     	Proto Rej Packets Sent
@@ -1062,12 +1194,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: proto_rej_rcvd
                     
                     	Proto Rej Packets Received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -1121,7 +1257,9 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.Statistics.NcpStatisticsArray, ['ncp_identifier', 'conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd', 'term_req_sent', 'term_req_rcvd', 'term_ack_sent', 'term_ack_rcvd', 'proto_rej_sent', 'proto_rej_rcvd'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.Statistics.NcpStatisticsArray, [u'ncp_identifier', u'conf_req_sent', u'conf_req_rcvd', u'conf_ack_sent', u'conf_ack_rcvd', u'conf_nak_sent', u'conf_nak_rcvd', u'conf_rej_sent', u'conf_rej_rcvd', u'term_req_sent', u'term_req_rcvd', u'term_ack_sent', u'term_ack_rcvd', u'proto_rej_sent', u'proto_rej_rcvd'], name, value)
+
+
 
 
             class NodeInterfaces(Entity):
@@ -1132,6 +1270,8 @@ class Ppp(Entity):
                 
                 	LCP and summarized NCP data for an interface running PPP
                 	**type**\: list of  		 :py:class:`NodeInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface>`
+                
+                	**config**\: False
                 
                 
 
@@ -1171,20 +1311,28 @@ class Ppp(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: mp_info
                     
                     	MP information
                     	**type**\:  :py:class:`MpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: configured_timeout
                     
                     	Configured timeout
                     	**type**\:  :py:class:`ConfiguredTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: auth_info
                     
                     	Authentication information
                     	**type**\:  :py:class:`AuthInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: parent_state
                     
@@ -1193,6 +1341,8 @@ class Ppp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: line_state
                     
                     	Line state
@@ -1200,10 +1350,14 @@ class Ppp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_loopback_detected
                     
                     	Loopback detected
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: caps_idb_srg_role
                     
@@ -1212,12 +1366,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_srg_role
                     
                     	Session SRG role
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: keepalive_period
                     
@@ -1226,6 +1384,8 @@ class Ppp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: keepalive_retry_count
                     
                     	Keepalive retry count
@@ -1233,25 +1393,35 @@ class Ppp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_ssrp_configured
                     
                     	Is SSRP configured
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: is_l2ac
                     
                     	Is L2 AC
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: provisioned
                     
                     	Provisioned
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: ip_interworking_enabled
                     
                     	IP Interworking Enabled
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: xconnect_id
                     
@@ -1260,30 +1430,42 @@ class Ppp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_tunneled_session
                     
                     	Is tunneled session
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ssrp_peer_id
                     
                     	SSRP Peer ID
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: lcp_state
                     
                     	PPP/LCP state value
                     	**type**\:  :py:class:`PppFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppFsmState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: lcpsso_state
                     
                     	LCP SSO state
                     	**type**\:  :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_lcp_delayed
                     
                     	Is LCP Delayed
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: local_mru
                     
@@ -1292,12 +1474,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_mru
                     
                     	Peer MRU
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: local_mrru
                     
@@ -1306,12 +1492,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_mrru
                     
                     	Peer MRRU
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: local_ed
                     
@@ -1320,6 +1510,8 @@ class Ppp(Entity):
                     
                     	**length:** 0..41
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_ed
                     
                     	Peer Endpt Discriminator
@@ -1327,10 +1519,14 @@ class Ppp(Entity):
                     
                     	**length:** 0..41
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_mcmp_enabled
                     
                     	Is MCMP enabled
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: local_mcmp_classes
                     
@@ -1339,12 +1535,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_mcmp_classes
                     
                     	Peer MCMP classes
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: session_expires
                     
@@ -1353,12 +1553,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: ncp_info_array
                     
                     	Array of per\-NCP data
                     	**type**\: list of  		 :py:class:`NcpInfoArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1452,7 +1656,7 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface, ['interface', 'parent_state', 'line_state', 'is_loopback_detected', 'caps_idb_srg_role', 'session_srg_role', 'keepalive_period', 'keepalive_retry_count', 'is_ssrp_configured', 'is_l2ac', 'provisioned', 'ip_interworking_enabled', 'xconnect_id', 'is_tunneled_session', 'ssrp_peer_id', 'lcp_state', 'lcpsso_state', 'is_lcp_delayed', 'local_mru', 'peer_mru', 'local_mrru', 'peer_mrru', 'local_ed', 'peer_ed', 'is_mcmp_enabled', 'local_mcmp_classes', 'peer_mcmp_classes', 'session_expires'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface, ['interface', u'parent_state', u'line_state', u'is_loopback_detected', u'caps_idb_srg_role', u'session_srg_role', u'keepalive_period', u'keepalive_retry_count', u'is_ssrp_configured', u'is_l2ac', u'provisioned', u'ip_interworking_enabled', u'xconnect_id', u'is_tunneled_session', u'ssrp_peer_id', u'lcp_state', u'lcpsso_state', u'is_lcp_delayed', u'local_mru', u'peer_mru', u'local_mrru', u'peer_mrru', u'local_ed', u'peer_ed', u'is_mcmp_enabled', u'local_mcmp_classes', u'peer_mcmp_classes', u'session_expires'], name, value)
 
 
                     class MpInfo(Entity):
@@ -1464,6 +1668,8 @@ class Ppp(Entity):
                         	Is an MP bundle
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: mp_bundle_interface
                         
                         	MP Bundle Interface
@@ -1471,10 +1677,14 @@ class Ppp(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_mp_bundle_member
                         
                         	MP Bundle Member
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: mp_group
                         
@@ -1483,12 +1693,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: active_links
                         
                         	Number of active links
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: inactive_links
                         
@@ -1497,6 +1711,8 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: minimum_active_links
                         
                         	Minimum active links required for the MPbundle to come up
@@ -1504,15 +1720,21 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: mp_state
                         
                         	Member State
                         	**type**\:  :py:class:`PppLcpMpMbrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppLcpMpMbrState>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: mp_member_info_array
                         
                         	Array of MP members
                         	**type**\: list of  		 :py:class:`MpMemberInfoArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1554,7 +1776,7 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo, ['is_mp_bundle', 'mp_bundle_interface', 'is_mp_bundle_member', 'mp_group', 'active_links', 'inactive_links', 'minimum_active_links', 'mp_state'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo, [u'is_mp_bundle', u'mp_bundle_interface', u'is_mp_bundle_member', u'mp_group', u'active_links', u'inactive_links', u'minimum_active_links', u'mp_state'], name, value)
 
 
                         class MpMemberInfoArray(Entity):
@@ -1568,10 +1790,14 @@ class Ppp(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: state
                             
                             	Member State
                             	**type**\:  :py:class:`PppLcpMpMbrState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppLcpMpMbrState>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1599,7 +1825,9 @@ class Ppp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray, ['interface', 'state'], name, value)
+                                self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray, [u'interface', u'state'], name, value)
+
+
 
 
                     class ConfiguredTimeout(Entity):
@@ -1613,6 +1841,8 @@ class Ppp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: minute
                         
                         .. attribute:: seconds
@@ -1621,6 +1851,8 @@ class Ppp(Entity):
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -1650,7 +1882,8 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout, ['minutes', 'seconds'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout, [u'minutes', u'seconds'], name, value)
+
 
 
                     class AuthInfo(Entity):
@@ -1662,10 +1895,14 @@ class Ppp(Entity):
                         	Is authenticated
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_sso_authenticated
                         
                         	Is SSO authenticated
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: of_us_auth
                         
@@ -1674,6 +1911,8 @@ class Ppp(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: of_peer_auth
                         
                         	Of Peer authentication type
@@ -1681,25 +1920,35 @@ class Ppp(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: of_us_name
                         
                         	Local authenticated name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: of_peer_name
                         
                         	Peer's authenticated name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: of_us_sso_state
                         
                         	Of Us auth SSO FSM State
                         	**type**\:  :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: of_peer_sso_state
                         
                         	Of Peer auth SSO FSM State
                         	**type**\:  :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1739,7 +1988,8 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo, ['is_authenticated', 'is_sso_authenticated', 'of_us_auth', 'of_peer_auth', 'of_us_name', 'of_peer_name', 'of_us_sso_state', 'of_peer_sso_state'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo, [u'is_authenticated', u'is_sso_authenticated', u'of_us_auth', u'of_peer_auth', u'of_us_name', u'of_peer_name', u'of_us_sso_state', u'of_peer_sso_state'], name, value)
+
 
 
                     class NcpInfoArray(Entity):
@@ -1751,25 +2001,35 @@ class Ppp(Entity):
                         	Specific NCP info
                         	**type**\:  :py:class:`NcpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ncp_state
                         
                         	NCP state value
                         	**type**\:  :py:class:`PppFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppFsmState>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ncpsso_state
                         
                         	NCP SSO State
                         	**type**\:  :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_passive
                         
                         	Is Passive
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: ncp_identifier
                         
                         	NCP state identifier
                         	**type**\:  :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1805,7 +2065,7 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray, ['ncp_state', 'ncpsso_state', 'is_passive', 'ncp_identifier'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray, [u'ncp_state', u'ncpsso_state', u'is_passive', u'ncp_identifier'], name, value)
 
 
                         class NcpInfo(Entity):
@@ -1817,20 +2077,28 @@ class Ppp(Entity):
                             	Info for IPCP
                             	**type**\:  :py:class:`IpcpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipcpiw_info
                             
                             	Info for IPCPIW
                             	**type**\:  :py:class:`IpcpiwInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpiwInfo>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ipv6cp_info
                             
                             	Info for IPv6CP
                             	**type**\:  :py:class:`Ipv6cpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6cpInfo>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Type
                             	**type**\:  :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1868,7 +2136,7 @@ class Ppp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo, ['type'], name, value)
+                                self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo, [u'type'], name, value)
 
 
                             class IpcpInfo(Entity):
@@ -1880,10 +2148,14 @@ class Ppp(Entity):
                                 	Local IPHC options
                                 	**type**\:  :py:class:`LocalIphcOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: peer_iphc_options
                                 
                                 	Peer IPHC options
                                 	**type**\:  :py:class:`PeerIphcOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.PeerIphcOptions>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: local_address
                                 
@@ -1892,12 +2164,16 @@ class Ppp(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: peer_address
                                 
                                 	Peer IPv4 address
                                 	**type**\: str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: peer_netmask
                                 
@@ -1906,12 +2182,16 @@ class Ppp(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dns_primary
                                 
                                 	Peer DNS Primary
                                 	**type**\: str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dns_secondary
                                 
@@ -1920,12 +2200,16 @@ class Ppp(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: wins_primary
                                 
                                 	Peer WINS Primary
                                 	**type**\: str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: wins_secondary
                                 
@@ -1934,10 +2218,14 @@ class Ppp(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: is_iphc_configured
                                 
                                 	Is IPHC Configured
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1985,7 +2273,7 @@ class Ppp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo, ['local_address', 'peer_address', 'peer_netmask', 'dns_primary', 'dns_secondary', 'wins_primary', 'wins_secondary', 'is_iphc_configured'], name, value)
+                                    self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo, [u'local_address', u'peer_address', u'peer_netmask', u'dns_primary', u'dns_secondary', u'wins_primary', u'wins_secondary', u'is_iphc_configured'], name, value)
 
 
                                 class LocalIphcOptions(Entity):
@@ -1997,12 +2285,16 @@ class Ppp(Entity):
                                     	Compression type
                                     	**type**\:  :py:class:`PppIphcCompression <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppIphcCompression>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: tcp_space
                                     
                                     	TCP space
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: non_tcp_space
                                     
@@ -2011,12 +2303,16 @@ class Ppp(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: max_period
                                     
                                     	Max period
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: max_time
                                     
@@ -2025,6 +2321,8 @@ class Ppp(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: max_header
                                     
                                     	Max header
@@ -2032,15 +2330,21 @@ class Ppp(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: rtp_compression
                                     
                                     	RTP compression
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ec_rtp_compression
                                     
                                     	EcRTP compression
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2080,7 +2384,8 @@ class Ppp(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions, ['compression_type', 'tcp_space', 'non_tcp_space', 'max_period', 'max_time', 'max_header', 'rtp_compression', 'ec_rtp_compression'], name, value)
+                                        self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions, [u'compression_type', u'tcp_space', u'non_tcp_space', u'max_period', u'max_time', u'max_header', u'rtp_compression', u'ec_rtp_compression'], name, value)
+
 
 
                                 class PeerIphcOptions(Entity):
@@ -2092,12 +2397,16 @@ class Ppp(Entity):
                                     	Compression type
                                     	**type**\:  :py:class:`PppIphcCompression <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppIphcCompression>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: tcp_space
                                     
                                     	TCP space
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: non_tcp_space
                                     
@@ -2106,12 +2415,16 @@ class Ppp(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: max_period
                                     
                                     	Max period
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: max_time
                                     
@@ -2120,6 +2433,8 @@ class Ppp(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: max_header
                                     
                                     	Max header
@@ -2127,15 +2442,21 @@ class Ppp(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: rtp_compression
                                     
                                     	RTP compression
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ec_rtp_compression
                                     
                                     	EcRTP compression
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2175,7 +2496,9 @@ class Ppp(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.PeerIphcOptions, ['compression_type', 'tcp_space', 'non_tcp_space', 'max_period', 'max_time', 'max_header', 'rtp_compression', 'ec_rtp_compression'], name, value)
+                                        self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.PeerIphcOptions, [u'compression_type', u'tcp_space', u'non_tcp_space', u'max_period', u'max_time', u'max_header', u'rtp_compression', u'ec_rtp_compression'], name, value)
+
+
 
 
                             class IpcpiwInfo(Entity):
@@ -2189,12 +2512,16 @@ class Ppp(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: peer_address
                                 
                                 	Peer IPv4 address
                                 	**type**\: str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2222,7 +2549,8 @@ class Ppp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpiwInfo, ['local_address', 'peer_address'], name, value)
+                                    self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpiwInfo, [u'local_address', u'peer_address'], name, value)
+
 
 
                             class Ipv6cpInfo(Entity):
@@ -2236,12 +2564,16 @@ class Ppp(Entity):
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: peer_address
                                 
                                 	Peer IPv6 address
                                 	**type**\: str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2269,7 +2601,12 @@ class Ppp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6cpInfo, ['local_address', 'peer_address'], name, value)
+                                    self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6cpInfo, [u'local_address', u'peer_address'], name, value)
+
+
+
+
+
 
 
             class SsoAlerts(Entity):
@@ -2280,6 +2617,8 @@ class Ppp(Entity):
                 
                 	PPP SSO Alert data for a particular interface
                 	**type**\: list of  		 :py:class:`SsoAlert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert>`
+                
+                	**config**\: False
                 
                 
 
@@ -2318,25 +2657,35 @@ class Ppp(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: lcp_error
                     
                     	LCP SSO Error
                     	**type**\:  :py:class:`LcpError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: of_us_auth_error
                     
                     	Of\-us Authentication SSO Error
                     	**type**\:  :py:class:`OfUsAuthError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: of_peer_auth_error
                     
                     	Of\-peer Authentication SSO Error
                     	**type**\:  :py:class:`OfPeerAuthError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipcp_error
                     
                     	IPCP SSO Error
                     	**type**\:  :py:class:`IpcpError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2390,6 +2739,8 @@ class Ppp(Entity):
                         	Is SSO Error
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: error
                         
                         	SSO Error
@@ -2397,12 +2748,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: context
                         
                         	Context
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2432,7 +2787,8 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError, [u'is_error', u'error', u'context'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError, ['is_error', 'error', 'context'], name, value)
+
 
 
                     class OfUsAuthError(Entity):
@@ -2444,6 +2800,8 @@ class Ppp(Entity):
                         	Is SSO Error
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: error
                         
                         	SSO Error
@@ -2451,12 +2809,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: context
                         
                         	Context
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2486,7 +2848,8 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError, [u'is_error', u'error', u'context'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError, ['is_error', 'error', 'context'], name, value)
+
 
 
                     class OfPeerAuthError(Entity):
@@ -2498,6 +2861,8 @@ class Ppp(Entity):
                         	Is SSO Error
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: error
                         
                         	SSO Error
@@ -2505,12 +2870,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: context
                         
                         	Context
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2540,7 +2909,8 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError, [u'is_error', u'error', u'context'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError, ['is_error', 'error', 'context'], name, value)
+
 
 
                     class IpcpError(Entity):
@@ -2552,6 +2922,8 @@ class Ppp(Entity):
                         	Is SSO Error
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: error
                         
                         	SSO Error
@@ -2559,12 +2931,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: context
                         
                         	Context
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2594,7 +2970,10 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError, [u'is_error', u'error', u'context'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError, ['is_error', 'error', 'context'], name, value)
+
+
+
 
 
             class NodeInterfaceStatistics(Entity):
@@ -2605,6 +2984,8 @@ class Ppp(Entity):
                 
                 	LCP and NCP statistics for an interface running PPP
                 	**type**\: list of  		 :py:class:`NodeInterfaceStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic>`
+                
+                	**config**\: False
                 
                 
 
@@ -2644,20 +3025,28 @@ class Ppp(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: lcp_statistics
                     
                     	PPP LCP Statistics
                     	**type**\:  :py:class:`LcpStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: authentication_statistics
                     
                     	PPP Authentication statistics
                     	**type**\:  :py:class:`AuthenticationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ncp_statistics_array
                     
                     	Array of PPP NCP Statistics
                     	**type**\: list of  		 :py:class:`NcpStatisticsArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2707,12 +3096,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: conf_req_rcvd
                         
                         	Conf Req Packets Received
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: conf_ack_sent
                         
@@ -2721,12 +3114,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: conf_ack_rcvd
                         
                         	Conf Ack Packets Received
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: conf_nak_sent
                         
@@ -2735,12 +3132,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: conf_nak_rcvd
                         
                         	Conf Nak Packets Received
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: conf_rej_sent
                         
@@ -2749,12 +3150,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: conf_rej_rcvd
                         
                         	Conf Rej Packets Received
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: echo_req_sent
                         
@@ -2763,12 +3168,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: echo_req_rcvd
                         
                         	Echo Req Packets Received
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: echo_rep_sent
                         
@@ -2777,12 +3186,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: echo_rep_rcvd
                         
                         	Echo Rep Packets Received
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: disc_req_sent
                         
@@ -2791,12 +3204,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: disc_req_rcvd
                         
                         	Disc Req Packets Received
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: link_up
                         
@@ -2805,12 +3222,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: link_error
                         
                         	Keepalive link failure count
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -2866,7 +3287,8 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics, ['conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd', 'echo_req_sent', 'echo_req_rcvd', 'echo_rep_sent', 'echo_rep_rcvd', 'disc_req_sent', 'disc_req_rcvd', 'link_up', 'link_error'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics, [u'conf_req_sent', u'conf_req_rcvd', u'conf_ack_sent', u'conf_ack_rcvd', u'conf_nak_sent', u'conf_nak_rcvd', u'conf_rej_sent', u'conf_rej_rcvd', u'echo_req_sent', u'echo_req_rcvd', u'echo_rep_sent', u'echo_rep_rcvd', u'disc_req_sent', u'disc_req_rcvd', u'link_up', u'link_error'], name, value)
+
 
 
                     class AuthenticationStatistics(Entity):
@@ -2880,12 +3302,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: pap_req_rcvd
                         
                         	PAP Request packets received
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: pap_ack_sent
                         
@@ -2894,12 +3320,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: pap_ack_rcvd
                         
                         	PAP Ack packets received
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: pap_nak_sent
                         
@@ -2908,12 +3338,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: pap_nak_rcvd
                         
                         	PAP Nak packets received
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: chap_chall_sent
                         
@@ -2922,12 +3356,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: chap_chall_rcvd
                         
                         	CHAP challenge packets received
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: chap_resp_sent
                         
@@ -2936,12 +3374,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: chap_resp_rcvd
                         
                         	CHAP response packets received
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: chap_rep_succ_sent
                         
@@ -2950,12 +3392,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: chap_rep_succ_rcvd
                         
                         	CHAP reply success packets received
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: chap_rep_fail_sent
                         
@@ -2964,6 +3410,8 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: chap_rep_fail_rcvd
                         
                         	CHAP reply failure packets received
@@ -2971,12 +3419,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: auth_timeout_count
                         
                         	Authentication timeout count
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -3030,7 +3482,8 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics, ['pap_req_sent', 'pap_req_rcvd', 'pap_ack_sent', 'pap_ack_rcvd', 'pap_nak_sent', 'pap_nak_rcvd', 'chap_chall_sent', 'chap_chall_rcvd', 'chap_resp_sent', 'chap_resp_rcvd', 'chap_rep_succ_sent', 'chap_rep_succ_rcvd', 'chap_rep_fail_sent', 'chap_rep_fail_rcvd', 'auth_timeout_count'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics, [u'pap_req_sent', u'pap_req_rcvd', u'pap_ack_sent', u'pap_ack_rcvd', u'pap_nak_sent', u'pap_nak_rcvd', u'chap_chall_sent', u'chap_chall_rcvd', u'chap_resp_sent', u'chap_resp_rcvd', u'chap_rep_succ_sent', u'chap_rep_succ_rcvd', u'chap_rep_fail_sent', u'chap_rep_fail_rcvd', u'auth_timeout_count'], name, value)
+
 
 
                     class NcpStatisticsArray(Entity):
@@ -3042,12 +3495,16 @@ class Ppp(Entity):
                         	NCP identifier
                         	**type**\:  :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: conf_req_sent
                         
                         	Conf Req Packets Sent
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: conf_req_rcvd
                         
@@ -3056,12 +3513,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: conf_ack_sent
                         
                         	Conf Ack Packets Sent
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: conf_ack_rcvd
                         
@@ -3070,12 +3531,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: conf_nak_sent
                         
                         	Conf Nak Packets Sent
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: conf_nak_rcvd
                         
@@ -3084,6 +3549,8 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: conf_rej_sent
                         
                         	Conf Rej Packets Sent
@@ -3091,12 +3558,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: conf_rej_rcvd
                         
                         	Conf Rej Packets Received
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -3138,7 +3609,10 @@ class Ppp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray, ['ncp_identifier', 'conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray, [u'ncp_identifier', u'conf_req_sent', u'conf_req_rcvd', u'conf_ack_sent', u'conf_ack_rcvd', u'conf_nak_sent', u'conf_nak_rcvd', u'conf_rej_sent', u'conf_rej_rcvd'], name, value)
+
+
+
 
 
             class SsoSummary(Entity):
@@ -3150,20 +3624,28 @@ class Ppp(Entity):
                 	LCP SSO FSM States
                 	**type**\:  :py:class:`LcpStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary.LcpStates>`
                 
+                	**config**\: False
+                
                 .. attribute:: of_us_auth_states
                 
                 	Of\-us Authentication SSO FSM States
                 	**type**\:  :py:class:`OfUsAuthStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary.OfUsAuthStates>`
+                
+                	**config**\: False
                 
                 .. attribute:: of_peer_auth_states
                 
                 	Of\-peer Authentication SSO FSM States
                 	**type**\:  :py:class:`OfPeerAuthStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipcp_states
                 
                 	IPCP SSO FSM States
                 	**type**\:  :py:class:`IpcpStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoSummary.IpcpStates>`
+                
+                	**config**\: False
                 
                 
 
@@ -3216,12 +3698,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: count
                     
                     	Number of SSO FSMs in each State
                     	**type**\: list of int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -3249,7 +3735,8 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.LcpStates, [u'total', u'count'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.LcpStates, ['total', 'count'], name, value)
+
 
 
                 class OfUsAuthStates(Entity):
@@ -3263,12 +3750,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: count
                     
                     	Number of SSO FSMs in each State
                     	**type**\: list of int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -3296,7 +3787,8 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.OfUsAuthStates, [u'total', u'count'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.OfUsAuthStates, ['total', 'count'], name, value)
+
 
 
                 class OfPeerAuthStates(Entity):
@@ -3310,12 +3802,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: count
                     
                     	Number of SSO FSMs in each State
                     	**type**\: list of int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -3343,7 +3839,8 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates, [u'total', u'count'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates, ['total', 'count'], name, value)
+
 
 
                 class IpcpStates(Entity):
@@ -3357,12 +3854,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: count
                     
                     	Number of SSO FSMs in each State
                     	**type**\: list of int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -3390,7 +3891,9 @@ class Ppp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.IpcpStates, [u'total', u'count'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.IpcpStates, ['total', 'count'], name, value)
+
+
 
 
             class SsoGroups(Entity):
@@ -3401,6 +3904,8 @@ class Ppp(Entity):
                 
                 	PPP SSO state data for a particular group
                 	**type**\: list of  		 :py:class:`SsoGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup>`
+                
+                	**config**\: False
                 
                 
 
@@ -3439,10 +3944,14 @@ class Ppp(Entity):
                     
                     	**range:** 1..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: sso_states
                     
                     	PPP SSO State data for a particular group
                     	**type**\:  :py:class:`SsoStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3484,6 +3993,8 @@ class Ppp(Entity):
                         	PPP SSO State data for a particular interface
                         	**type**\: list of  		 :py:class:`SsoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -3522,25 +4033,35 @@ class Ppp(Entity):
                             
                             	**range:** 1..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: lcp_state
                             
                             	LCP SSO State
                             	**type**\:  :py:class:`LcpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: of_us_auth_state
                             
                             	Of\-us Authentication SSO State
                             	**type**\:  :py:class:`OfUsAuthState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: of_peer_auth_state
                             
                             	Of\-peer Authentication SSO State
                             	**type**\:  :py:class:`OfPeerAuthState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipcp_state
                             
                             	IPCP SSO State
                             	**type**\:  :py:class:`IpcpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: session_id_xr
                             
@@ -3549,12 +4070,16 @@ class Ppp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface
                             
                             	Interface
                             	**type**\: str
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            	**config**\: False
                             
                             
 
@@ -3600,7 +4125,7 @@ class Ppp(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState, ['session_id', u'session_id_xr', u'interface'], name, value)
+                                self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState, ['session_id', 'session_id_xr', 'interface'], name, value)
 
 
                             class LcpState(Entity):
@@ -3612,10 +4137,14 @@ class Ppp(Entity):
                                 	Is SSO FSM Running
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: state
                                 
                                 	SSO FSM State
                                 	**type**\:  :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3643,7 +4172,8 @@ class Ppp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState, [u'is_running', u'state'], name, value)
+                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState, ['is_running', 'state'], name, value)
+
 
 
                             class OfUsAuthState(Entity):
@@ -3655,10 +4185,14 @@ class Ppp(Entity):
                                 	Is SSO FSM Running
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: state
                                 
                                 	SSO FSM State
                                 	**type**\:  :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3686,7 +4220,8 @@ class Ppp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState, [u'is_running', u'state'], name, value)
+                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState, ['is_running', 'state'], name, value)
+
 
 
                             class OfPeerAuthState(Entity):
@@ -3698,10 +4233,14 @@ class Ppp(Entity):
                                 	Is SSO FSM Running
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: state
                                 
                                 	SSO FSM State
                                 	**type**\:  :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3729,7 +4268,8 @@ class Ppp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState, [u'is_running', u'state'], name, value)
+                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState, ['is_running', 'state'], name, value)
+
 
 
                             class IpcpState(Entity):
@@ -3741,10 +4281,14 @@ class Ppp(Entity):
                                 	Is SSO FSM Running
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: state
                                 
                                 	SSO FSM State
                                 	**type**\:  :py:class:`PppSsoFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.PppSsoFsmState>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3772,7 +4316,12 @@ class Ppp(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState, [u'is_running', u'state'], name, value)
+                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState, ['is_running', 'state'], name, value)
+
+
+
+
+
 
 
             class Summary(Entity):
@@ -3784,15 +4333,21 @@ class Ppp(Entity):
                 	Interfaces running PPP
                 	**type**\:  :py:class:`Intfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary.Intfs>`
                 
+                	**config**\: False
+                
                 .. attribute:: fsm_states
                 
                 	FSM States
                 	**type**\:  :py:class:`FsmStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary.FsmStates>`
                 
+                	**config**\: False
+                
                 .. attribute:: lcp_auth_phases
                 
                 	LCP/Auth Phases
                 	**type**\:  :py:class:`LcpAuthPhases <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary.LcpAuthPhases>`
+                
+                	**config**\: False
                 
                 
 
@@ -3841,12 +4396,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: serial_count
                     
                     	Serial Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: pppoe_count
                     
@@ -3855,12 +4414,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: multilink_bundle_count
                     
                     	Multilink Bundle Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: gcc0_count
                     
@@ -3869,6 +4432,8 @@ class Ppp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: gcc1_count
                     
                     	GCC1 Count
@@ -3876,12 +4441,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: total
                     
                     	Total Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -3922,6 +4491,7 @@ class Ppp(Entity):
                         self._perform_setattr(Ppp.Nodes.Node.Summary.Intfs, ['pos_count', 'serial_count', 'pppoe_count', 'multilink_bundle_count', 'gcc0_count', 'gcc1_count', 'total'], name, value)
 
 
+
                 class FsmStates(Entity):
                     """
                     FSM States
@@ -3931,10 +4501,14 @@ class Ppp(Entity):
                     	Array of per\-LCP FSM States
                     	**type**\:  :py:class:`LcpfsmStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary.FsmStates.LcpfsmStates>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ncpfsm_states_array
                     
                     	Array of per\-NCP FSM States
                     	**type**\: list of  		 :py:class:`NcpfsmStatesArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.Ppp.Nodes.Node.Summary.FsmStates.NcpfsmStatesArray>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3977,12 +4551,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: count
                         
                         	Number of FSMs in each State
                         	**type**\: list of int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4013,6 +4591,7 @@ class Ppp(Entity):
                             self._perform_setattr(Ppp.Nodes.Node.Summary.FsmStates.LcpfsmStates, ['total', 'count'], name, value)
 
 
+
                     class NcpfsmStatesArray(Entity):
                         """
                         Array of per\-NCP FSM States
@@ -4022,6 +4601,8 @@ class Ppp(Entity):
                         	NCP Identifier
                         	**type**\:  :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper.NcpIdent>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: total
                         
                         	Total number of FSMs running for this NCP
@@ -4029,12 +4610,16 @@ class Ppp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: count
                         
                         	Number of FSMs in each State
                         	**type**\: list of int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4067,6 +4652,8 @@ class Ppp(Entity):
                             self._perform_setattr(Ppp.Nodes.Node.Summary.FsmStates.NcpfsmStatesArray, ['ncp_identifier', 'total', 'count'], name, value)
 
 
+
+
                 class LcpAuthPhases(Entity):
                     """
                     LCP/Auth Phases
@@ -4078,12 +4665,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: authenticating
                     
                     	Number of sessions authenticating
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: line_held_down
                     
@@ -4092,12 +4683,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: up_local_term
                     
                     	Number of locally terminated sessions brought up
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: up_l2_fwded
                     
@@ -4106,12 +4701,16 @@ class Ppp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: up_tunneled
                     
                     	Number of VPDN tunneled sessions brought up
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -4149,7 +4748,13 @@ class Ppp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.Summary.LcpAuthPhases, ['lcp_not_negotiated', 'authenticating', 'line_held_down', 'up_local_term', 'up_l2_fwded', 'up_tunneled'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Ppp()
         return self._top_entity
+
+
 

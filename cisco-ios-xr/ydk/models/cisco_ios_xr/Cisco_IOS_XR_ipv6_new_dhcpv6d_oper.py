@@ -349,10 +349,14 @@ class Dhcpv6(Entity):
     	DHCP IssuStatus
     	**type**\:  :py:class:`IssuStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.IssuStatus>`
     
+    	**config**\: False
+    
     .. attribute:: nodes
     
     	IPv6 DHCP list of nodes
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes>`
+    
+    	**config**\: False
     
     
 
@@ -398,6 +402,8 @@ class Dhcpv6(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         	**units**\: nanosecond
         
         .. attribute:: issu_sync_complete_time
@@ -406,6 +412,8 @@ class Dhcpv6(Entity):
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         	**units**\: nanosecond
         
@@ -416,6 +424,8 @@ class Dhcpv6(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         	**units**\: nanosecond
         
         .. attribute:: issu_ready_time
@@ -424,6 +434,8 @@ class Dhcpv6(Entity):
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         	**units**\: nanosecond
         
@@ -434,6 +446,8 @@ class Dhcpv6(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         	**units**\: nanosecond
         
         .. attribute:: primary_role_time
@@ -443,6 +457,8 @@ class Dhcpv6(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         	**units**\: nanosecond
         
         .. attribute:: issu_ready_issu_mgr_connection
@@ -450,20 +466,28 @@ class Dhcpv6(Entity):
         	Whether or not DHCP is currently connected to ISSU Manager during the ISSU Load Phase
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: role
         
         	The current role of the DHCP process
         	**type**\:  :py:class:`Dhcpv6IssuRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6IssuRole>`
+        
+        	**config**\: False
         
         .. attribute:: phase
         
         	The current ISSU phase of the DHCP process
         	**type**\:  :py:class:`DhcpIssuPhase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.DhcpIssuPhase>`
         
+        	**config**\: False
+        
         .. attribute:: version
         
         	The current version of the DHCP process in the context of an ISSU
         	**type**\:  :py:class:`Dhcpv6IssuVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6IssuVersion>`
+        
+        	**config**\: False
         
         
 
@@ -511,6 +535,7 @@ class Dhcpv6(Entity):
             self._perform_setattr(Dhcpv6.IssuStatus, ['process_start_time', 'issu_sync_complete_time', 'issu_sync_start_time', 'issu_ready_time', 'big_bang_time', 'primary_role_time', 'issu_ready_issu_mgr_connection', 'role', 'phase', 'version'], name, value)
 
 
+
     class Nodes(Entity):
         """
         IPv6 DHCP list of nodes
@@ -519,6 +544,8 @@ class Dhcpv6(Entity):
         
         	IPv6 DHCP particular node name
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -558,25 +585,35 @@ class Dhcpv6(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: proxy
             
             	IPv6 DHCP proxy operational data
             	**type**\:  :py:class:`Proxy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy>`
+            
+            	**config**\: False
             
             .. attribute:: base
             
             	IPv6 DHCP Base
             	**type**\:  :py:class:`Base <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Base>`
             
+            	**config**\: False
+            
             .. attribute:: server
             
             	IPv6 DHCP server operational data
             	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server>`
             
+            	**config**\: False
+            
             .. attribute:: relay
             
             	IPv6 DHCP relay operational data
             	**type**\:  :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay>`
+            
+            	**config**\: False
             
             
 
@@ -631,25 +668,35 @@ class Dhcpv6(Entity):
                 	DHCPV6 proxy list of VRF names
                 	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs>`
                 
+                	**config**\: False
+                
                 .. attribute:: profiles
                 
                 	IPv6 DHCP proxy profile
                 	**type**\:  :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles>`
+                
+                	**config**\: False
                 
                 .. attribute:: interfaces
                 
                 	DHCPV6 proxy interface
                 	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Interfaces>`
                 
+                	**config**\: False
+                
                 .. attribute:: statistics
                 
                 	DHCPv6 proxy statistics
                 	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Statistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: binding
                 
                 	DHCPV6 proxy bindings
                 	**type**\:  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding>`
+                
+                	**config**\: False
                 
                 
 
@@ -704,6 +751,8 @@ class Dhcpv6(Entity):
                     	IPv6 DHCP proxy VRF name
                     	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -741,10 +790,14 @@ class Dhcpv6(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: statistics
                         
                         	IPv6 DHCP proxy statistics
                         	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -786,85 +839,119 @@ class Dhcpv6(Entity):
                             	DHCPV6 solicit packets
                             	**type**\:  :py:class:`Solicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: advertise
                             
                             	DHCPV6 advertise packets
                             	**type**\:  :py:class:`Advertise <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: request
                             
                             	DHCPV6 request packets
                             	**type**\:  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reply
                             
                             	DHCPV6 reply packets
                             	**type**\:  :py:class:`Reply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: confirm
                             
                             	DHCPV6 confirm packets
                             	**type**\:  :py:class:`Confirm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: decline
                             
                             	DHCPV6 decline packets
                             	**type**\:  :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: renew
                             
                             	DHCPV6 renew packets
                             	**type**\:  :py:class:`Renew <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: rebind
                             
                             	DHCPV6 rebind packets
                             	**type**\:  :py:class:`Rebind <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: release
                             
                             	DHCPV6 release packets
                             	**type**\:  :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reconfig
                             
                             	DHCPV6 reconfig packets
                             	**type**\:  :py:class:`Reconfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: inform
                             
                             	DHCPV6 inform packets
                             	**type**\:  :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: relay_forward
                             
                             	DHCPV6 relay forward packets
                             	**type**\:  :py:class:`RelayForward <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: relay_reply
                             
                             	DHCPV6 relay reply packets
                             	**type**\:  :py:class:`RelayReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lease_query
                             
                             	DHCPV6 lease query packets
                             	**type**\:  :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: lease_query_reply
                             
                             	DHCPV6 lease query reply packets
                             	**type**\:  :py:class:`LeaseQueryReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lease_query_done
                             
                             	DHCPV6 lease query done packets
                             	**type**\:  :py:class:`LeaseQueryDone <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lease_query_data
                             
                             	DHCPV6 lease query data packets
                             	**type**\:  :py:class:`LeaseQueryData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -969,6 +1056,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -976,12 +1065,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1014,6 +1107,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Advertise(Entity):
                                 """
                                 DHCPV6 advertise packets
@@ -1025,6 +1119,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -1032,12 +1128,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1070,6 +1170,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Request(Entity):
                                 """
                                 DHCPV6 request packets
@@ -1081,6 +1182,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -1088,12 +1191,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1126,6 +1233,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Reply(Entity):
                                 """
                                 DHCPV6 reply packets
@@ -1137,6 +1245,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -1144,12 +1254,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1182,6 +1296,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Confirm(Entity):
                                 """
                                 DHCPV6 confirm packets
@@ -1193,6 +1308,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -1200,12 +1317,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1238,6 +1359,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Decline(Entity):
                                 """
                                 DHCPV6 decline packets
@@ -1249,6 +1371,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -1256,12 +1380,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1294,6 +1422,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Renew(Entity):
                                 """
                                 DHCPV6 renew packets
@@ -1305,6 +1434,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -1312,12 +1443,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1350,6 +1485,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Rebind(Entity):
                                 """
                                 DHCPV6 rebind packets
@@ -1361,6 +1497,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -1368,12 +1506,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1406,6 +1548,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Release(Entity):
                                 """
                                 DHCPV6 release packets
@@ -1417,6 +1560,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -1424,12 +1569,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1462,6 +1611,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Reconfig(Entity):
                                 """
                                 DHCPV6 reconfig packets
@@ -1473,6 +1623,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -1480,12 +1632,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1518,6 +1674,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Inform(Entity):
                                 """
                                 DHCPV6 inform packets
@@ -1529,6 +1686,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -1536,12 +1695,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1574,6 +1737,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class RelayForward(Entity):
                                 """
                                 DHCPV6 relay forward packets
@@ -1585,6 +1749,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -1592,12 +1758,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1630,6 +1800,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class RelayReply(Entity):
                                 """
                                 DHCPV6 relay reply packets
@@ -1641,6 +1812,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -1648,12 +1821,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1686,6 +1863,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class LeaseQuery(Entity):
                                 """
                                 DHCPV6 lease query packets
@@ -1697,6 +1875,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -1704,12 +1884,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1742,6 +1926,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class LeaseQueryReply(Entity):
                                 """
                                 DHCPV6 lease query reply packets
@@ -1753,6 +1938,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -1760,12 +1947,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1798,6 +1989,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class LeaseQueryDone(Entity):
                                 """
                                 DHCPV6 lease query done packets
@@ -1809,6 +2001,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -1816,12 +2010,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1854,6 +2052,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class LeaseQueryData(Entity):
                                 """
                                 DHCPV6 lease query data packets
@@ -1865,6 +2064,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -1872,12 +2073,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1910,6 +2115,10 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
+
+
+
                 class Profiles(Entity):
                     """
                     IPv6 DHCP proxy profile
@@ -1918,6 +2127,8 @@ class Dhcpv6(Entity):
                     
                     	IPv6 DHCP proxy profile
                     	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1956,20 +2167,28 @@ class Dhcpv6(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: throttle_infos
                         
                         	DHCPV6 throttle table
                         	**type**\:  :py:class:`ThrottleInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: proxy_classes
                         
                         	IPv6 DHCP proxy class table
                         	**type**\:  :py:class:`ProxyClasses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: info
                         
                         	IPv6 DHCP proxy profile Info
                         	**type**\:  :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2019,6 +2238,8 @@ class Dhcpv6(Entity):
                             	IPv6 DHCP proxy profile Throttle Info
                             	**type**\: list of  		 :py:class:`ThrottleInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos.ThrottleInfo>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -2056,12 +2277,16 @@ class Dhcpv6(Entity):
                                 
                                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: binding_chaddr
                                 
                                 	Client MAC address
                                 	**type**\: str
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ifname
                                 
@@ -2070,6 +2295,8 @@ class Dhcpv6(Entity):
                                 
                                 	**length:** 0..65
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: state
                                 
                                 	State of entry
@@ -2077,12 +2304,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: time_left
                                 
                                 	Time Left in secs
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 	**units**\: second
                                 
@@ -2121,6 +2352,8 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos.ThrottleInfo, ['mac_address', 'binding_chaddr', 'ifname', 'state', 'time_left'], name, value)
 
 
+
+
                         class ProxyClasses(Entity):
                             """
                             IPv6 DHCP proxy class table
@@ -2129,6 +2362,8 @@ class Dhcpv6(Entity):
                             
                             	IPv6 DHCP proxy class profile
                             	**type**\: list of  		 :py:class:`ProxyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses.ProxyClass>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2167,12 +2402,16 @@ class Dhcpv6(Entity):
                                 
                                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: class_name_xr
                                 
                                 	Class name
                                 	**type**\: str
                                 
                                 	**length:** 0..65
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: profile_helper_address
                                 
@@ -2181,12 +2420,16 @@ class Dhcpv6(Entity):
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vrf_name
                                 
                                 	VRF names
                                 	**type**\: list of str
                                 
                                 	**length:** 0..33
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2221,6 +2464,8 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses.ProxyClass, ['class_name', 'class_name_xr', 'profile_helper_address', 'vrf_name'], name, value)
 
 
+
+
                         class Info(Entity):
                             """
                             IPv6 DHCP proxy profile Info
@@ -2230,15 +2475,21 @@ class Dhcpv6(Entity):
                             	Interface id references
                             	**type**\:  :py:class:`InterfaceIdReferences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: vrf_references
                             
                             	VRF references
                             	**type**\:  :py:class:`VrfReferences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_references
                             
                             	Interface references
                             	**type**\:  :py:class:`InterfaceReferences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: profile_name
                             
@@ -2247,12 +2498,16 @@ class Dhcpv6(Entity):
                             
                             	**length:** 0..65
                             
+                            	**config**\: False
+                            
                             .. attribute:: remote_id
                             
                             	Remote id
                             	**type**\: str
                             
                             	**length:** 0..257
+                            
+                            	**config**\: False
                             
                             .. attribute:: profile_link_address
                             
@@ -2261,10 +2516,14 @@ class Dhcpv6(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: proxy_profile_linkaddress_from_ra_enable
                             
                             	LinkAddress From RA mesage
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: profile_helper_address
                             
@@ -2273,6 +2532,8 @@ class Dhcpv6(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: vrf_name
                             
                             	VRF names
@@ -2280,12 +2541,16 @@ class Dhcpv6(Entity):
                             
                             	**length:** 0..33
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_name
                             
                             	Interface names
                             	**type**\: list of str
                             
                             	**length:** 0..65
+                            
+                            	**config**\: False
                             
                             
 
@@ -2347,6 +2612,8 @@ class Dhcpv6(Entity):
                                 	ipv6 dhcpv6d proxy iid reference
                                 	**type**\: list of  		 :py:class:`Ipv6Dhcpv6dProxyIidReference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -2384,12 +2651,16 @@ class Dhcpv6(Entity):
                                     
                                     	**length:** 0..65
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: proxy_interface_id
                                     
                                     	Interface id
                                     	**type**\: str
                                     
                                     	**length:** 0..257
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2420,6 +2691,8 @@ class Dhcpv6(Entity):
                                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference, ['proxy_iid_interface_name', 'proxy_interface_id'], name, value)
 
 
+
+
                             class VrfReferences(Entity):
                                 """
                                 VRF references
@@ -2428,6 +2701,8 @@ class Dhcpv6(Entity):
                                 
                                 	ipv6 dhcpv6d proxy vrf reference
                                 	**type**\: list of  		 :py:class:`Ipv6Dhcpv6dProxyVrfReference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2466,6 +2741,8 @@ class Dhcpv6(Entity):
                                     
                                     	**length:** 0..33
                                     
+                                    	**config**\: False
+                                    
                                     
 
                                     """
@@ -2493,6 +2770,8 @@ class Dhcpv6(Entity):
                                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference, ['proxy_reference_vrf_name'], name, value)
 
 
+
+
                             class InterfaceReferences(Entity):
                                 """
                                 Interface references
@@ -2501,6 +2780,8 @@ class Dhcpv6(Entity):
                                 
                                 	ipv6 dhcpv6d proxy interface reference
                                 	**type**\: list of  		 :py:class:`Ipv6Dhcpv6dProxyInterfaceReference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2539,6 +2820,8 @@ class Dhcpv6(Entity):
                                     
                                     	**length:** 0..65
                                     
+                                    	**config**\: False
+                                    
                                     
 
                                     """
@@ -2566,6 +2849,11 @@ class Dhcpv6(Entity):
                                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference, ['proxy_reference_interface_name'], name, value)
 
 
+
+
+
+
+
                 class Interfaces(Entity):
                     """
                     DHCPV6 proxy interface
@@ -2574,6 +2862,8 @@ class Dhcpv6(Entity):
                     
                     	IPv6 DHCP proxy interface
                     	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Interfaces.Interface>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2612,6 +2902,8 @@ class Dhcpv6(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: proxy_vrf_name
                         
                         	VRF name
@@ -2619,10 +2911,14 @@ class Dhcpv6(Entity):
                         
                         	**length:** 0..33
                         
+                        	**config**\: False
+                        
                         .. attribute:: proxy_interface_mode
                         
                         	Mode of interface
                         	**type**\:  :py:class:`BagDhcpv6dSubMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6dSubMode>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_proxy_interface_ambiguous
                         
@@ -2631,6 +2927,8 @@ class Dhcpv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: proxy_interface_profile_name
                         
                         	Name of profile attached to the interface
@@ -2638,10 +2936,14 @@ class Dhcpv6(Entity):
                         
                         	**length:** 0..65
                         
+                        	**config**\: False
+                        
                         .. attribute:: proxy_interface_lease_limit_type
                         
                         	Lease limit type on interface
                         	**type**\:  :py:class:`LeaseLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.LeaseLimit>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: proxy_interface_lease_limits
                         
@@ -2650,20 +2952,28 @@ class Dhcpv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: srg_role
                         
                         	DHCPv6 Interface SRG role
                         	**type**\:  :py:class:`BagDhcpv6dIntfSrgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6dIntfSrgRole>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: serg_role
                         
                         	DHCPv6 Interface SERG role
                         	**type**\:  :py:class:`BagDhcpv6dIntfSergRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6dIntfSergRole>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: mac_throttle
                         
                         	Mac Throttle Status
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: srg_vrf_name
                         
@@ -2672,10 +2982,14 @@ class Dhcpv6(Entity):
                         
                         	**length:** 0..33
                         
+                        	**config**\: False
+                        
                         .. attribute:: srgp2p
                         
                         	SRG P2P Status
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -2726,6 +3040,8 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Interfaces.Interface, ['interface_name', 'proxy_vrf_name', 'proxy_interface_mode', 'is_proxy_interface_ambiguous', 'proxy_interface_profile_name', 'proxy_interface_lease_limit_type', 'proxy_interface_lease_limits', 'srg_role', 'serg_role', 'mac_throttle', 'srg_vrf_name', 'srgp2p'], name, value)
 
 
+
+
                 class Statistics(Entity):
                     """
                     DHCPv6 proxy statistics
@@ -2734,6 +3050,8 @@ class Dhcpv6(Entity):
                     
                     	ipv6 dhcpv6d proxy stat
                     	**type**\: list of  		 :py:class:`Ipv6Dhcpv6dProxyStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2770,12 +3088,16 @@ class Dhcpv6(Entity):
                         	Proxy statistics
                         	**type**\:  :py:class:`Statistics_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat.Statistics_>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrf_name
                         
                         	DHCPv6 L3 VRF name
                         	**type**\: str
                         
                         	**length:** 0..33
+                        
+                        	**config**\: False
                         
                         
 
@@ -2819,6 +3141,8 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: transmitted_packets
                             
                             	Transmitted packets
@@ -2826,12 +3150,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: dropped_packets
                             
                             	Dropped packets
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -2864,6 +3192,9 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
+
+
                 class Binding(Entity):
                     """
                     DHCPV6 proxy bindings
@@ -2873,10 +3204,14 @@ class Dhcpv6(Entity):
                     	DHCPV6 proxy client bindings
                     	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Clients>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: summary
                     
                     	DHCPV6 proxy binding summary
                     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Summary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2919,6 +3254,8 @@ class Dhcpv6(Entity):
                         	Single DHCPV6 proxy binding
                         	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -2956,15 +3293,21 @@ class Dhcpv6(Entity):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: ia_id_pd
                             
                             	List of DHCPv6 IA\_ID/PDs
                             	**type**\:  :py:class:`IaIdPd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: duid
                             
                             	Client DUID
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: client_flag
                             
@@ -2973,12 +3316,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: subscriber_label
                             
                             	DHCPV6 subscriber label
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: vrf_name
                             
@@ -2987,10 +3334,14 @@ class Dhcpv6(Entity):
                             
                             	**length:** 0..33
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_address
                             
                             	Client MAC address
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: ia_id_p_ds
                             
@@ -2999,12 +3350,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_name
                             
                             	DHCPV6 access interface to client
                             	**type**\: str
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            	**config**\: False
                             
                             .. attribute:: access_vrf_name
                             
@@ -3013,12 +3368,16 @@ class Dhcpv6(Entity):
                             
                             	**length:** 0..33
                             
+                            	**config**\: False
+                            
                             .. attribute:: proxy_binding_tags
                             
                             	DHCPV6 VLAN tag count
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: proxy_binding_outer_tag
                             
@@ -3027,12 +3386,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: proxy_binding_inner_tag
                             
                             	DHCPV6 VLAN Inner VLAN
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: class_name
                             
@@ -3041,12 +3404,16 @@ class Dhcpv6(Entity):
                             
                             	**length:** 0..64
                             
+                            	**config**\: False
+                            
                             .. attribute:: pool_name
                             
                             	DHCPV6 pool name
                             	**type**\: str
                             
                             	**length:** 0..64
+                            
+                            	**config**\: False
                             
                             .. attribute:: rx_remote_id
                             
@@ -3055,12 +3422,16 @@ class Dhcpv6(Entity):
                             
                             	**length:** 0..771
                             
+                            	**config**\: False
+                            
                             .. attribute:: tx_remote_id
                             
                             	DHCPV6 transmitted Remote ID
                             	**type**\: str
                             
                             	**length:** 0..771
+                            
+                            	**config**\: False
                             
                             .. attribute:: rx_interface_id
                             
@@ -3069,12 +3440,16 @@ class Dhcpv6(Entity):
                             
                             	**length:** 0..771
                             
+                            	**config**\: False
+                            
                             .. attribute:: tx_interface_id
                             
                             	DHCPV6 transmitted Interface ID
                             	**type**\: str
                             
                             	**length:** 0..771
+                            
+                            	**config**\: False
                             
                             .. attribute:: server_ipv6_address
                             
@@ -3083,12 +3458,16 @@ class Dhcpv6(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: profile_name
                             
                             	DHCPV6 profile name
                             	**type**\: str
                             
                             	**length:** 0..65
+                            
+                            	**config**\: False
                             
                             .. attribute:: framed_ipv6_prefix
                             
@@ -3097,6 +3476,8 @@ class Dhcpv6(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: framed_prefix_length
                             
                             	DHCPV6 framed ipv6 prefix length used by ND
@@ -3104,10 +3485,14 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_nak_next_renew
                             
                             	Is true if DHCP next renew from client will be NAK'd
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: srg_state
                             
@@ -3116,6 +3501,8 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: srg_intf_role
                             
                             	DHCPV6 SRG Intf Role
@@ -3123,10 +3510,14 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: srgp2p
                             
                             	SRG P2P Status
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: srg_vrf_name
                             
@@ -3135,6 +3526,8 @@ class Dhcpv6(Entity):
                             
                             	**length:** 0..33
                             
+                            	**config**\: False
+                            
                             .. attribute:: serg_state
                             
                             	DHCPV6 SERG state
@@ -3142,12 +3535,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: serg_intf_role
                             
                             	DHCPV6 SERG Intf Role
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3245,6 +3642,8 @@ class Dhcpv6(Entity):
                                 	bag dhcpv6d ia id pd info
                                 	**type**\: list of  		 :py:class:`BagDhcpv6dIaIdPdInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -3280,10 +3679,14 @@ class Dhcpv6(Entity):
                                     	List of addresses in this IA
                                     	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ia_type
                                     
                                     	IA type
                                     	**type**\:  :py:class:`BagDhcpv6dIaId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6dIaId>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ia_id
                                     
@@ -3292,12 +3695,16 @@ class Dhcpv6(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: flags
                                     
                                     	FSM Flag for this IA
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: total_address
                                     
@@ -3306,10 +3713,14 @@ class Dhcpv6(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: state
                                     
                                     	State
                                     	**type**\:  :py:class:`BagDhcpv6dFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6dFsmState>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3359,6 +3770,8 @@ class Dhcpv6(Entity):
                                         	bag dhcpv6d addr attrb
                                         	**type**\: list of  		 :py:class:`BagDhcpv6dAddrAttrb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb>`
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -3396,6 +3809,8 @@ class Dhcpv6(Entity):
                                             
                                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: prefix_length
                                             
                                             	Prefix length
@@ -3403,12 +3818,16 @@ class Dhcpv6(Entity):
                                             
                                             	**range:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: lease_time
                                             
                                             	Lease time in seconds
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: second
                                             
@@ -3418,6 +3837,8 @@ class Dhcpv6(Entity):
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: second
                                             
@@ -3454,6 +3875,12 @@ class Dhcpv6(Entity):
                                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb, ['prefix', 'prefix_length', 'lease_time', 'remaining_lease_time'], name, value)
 
 
+
+
+
+
+
+
                     class Summary(Entity):
                         """
                         DHCPV6 proxy binding summary
@@ -3463,10 +3890,14 @@ class Dhcpv6(Entity):
                         	IANA proxy binding summary
                         	**type**\:  :py:class:`Iana <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: iapd
                         
                         	IAPD proxy binding summary
                         	**type**\:  :py:class:`Iapd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: clients
                         
@@ -3474,6 +3905,8 @@ class Dhcpv6(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3521,12 +3954,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dpm_waiting_clients
                             
                             	Number of clients waiting on DPM to validate subscriber
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: daps_waiting_clients
                             
@@ -3535,12 +3972,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: msg_waiting_clients
                             
                             	Number of clients waiting for a message from the client/server
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: iedge_waiting_clients
                             
@@ -3549,6 +3990,8 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: rib_waiting_clients
                             
                             	Number of clients in waiting on RIB response
@@ -3556,12 +3999,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: bound_clients
                             
                             	Number of clients in bound state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3602,6 +4049,7 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana, ['initializing_clients', 'dpm_waiting_clients', 'daps_waiting_clients', 'msg_waiting_clients', 'iedge_waiting_clients', 'rib_waiting_clients', 'bound_clients'], name, value)
 
 
+
                         class Iapd(Entity):
                             """
                             IAPD proxy binding summary
@@ -3613,12 +4061,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dpm_waiting_clients
                             
                             	Number of clients waiting on DPM to validate subscriber
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: daps_waiting_clients
                             
@@ -3627,12 +4079,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: msg_waiting_clients
                             
                             	Number of clients waiting for a message from the client/server
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: iedge_waiting_clients
                             
@@ -3641,6 +4097,8 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: rib_waiting_clients
                             
                             	Number of clients in waiting on RIB response
@@ -3648,12 +4106,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: bound_clients
                             
                             	Number of clients in bound state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3694,6 +4156,10 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd, ['initializing_clients', 'dpm_waiting_clients', 'daps_waiting_clients', 'msg_waiting_clients', 'iedge_waiting_clients', 'rib_waiting_clients', 'bound_clients'], name, value)
 
 
+
+
+
+
             class Base(Entity):
                 """
                 IPv6 DHCP Base
@@ -3703,10 +4169,14 @@ class Dhcpv6(Entity):
                 	DHCP database
                 	**type**\:  :py:class:`Database <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Base.Database>`
                 
+                	**config**\: False
+                
                 .. attribute:: addr_bindings
                 
                 	IPv6 DHCP Base Binding
                 	**type**\:  :py:class:`AddrBindings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Base.AddrBindings>`
+                
+                	**config**\: False
                 
                 
 
@@ -3749,6 +4219,8 @@ class Dhcpv6(Entity):
                     	Database feature configured
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: version
                     
                     	Current file version
@@ -3756,12 +4228,16 @@ class Dhcpv6(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: full_file_write_interval
                     
                     	Full file write interval in minutes
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: minute
                     
@@ -3772,12 +4248,16 @@ class Dhcpv6(Entity):
                     
                     	**length:** 0..64
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_full_write_time
                     
                     	Last full write time since epoch
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: full_file_write_count
                     
@@ -3786,12 +4266,16 @@ class Dhcpv6(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: failed_full_file_write_count
                     
                     	Failed full file write count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: full_file_record_count
                     
@@ -3800,6 +4284,8 @@ class Dhcpv6(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_full_file_write_error_timestamp
                     
                     	Last full file write error timestamp since epoch
@@ -3807,12 +4293,16 @@ class Dhcpv6(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: incremental_file_write_interval
                     
                     	Incremental file write interval in minutes
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: minute
                     
@@ -3823,12 +4313,16 @@ class Dhcpv6(Entity):
                     
                     	**length:** 0..64
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_incremental_write_time
                     
                     	Last incremental write time since epoch
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: incremental_file_write_count
                     
@@ -3837,12 +4331,16 @@ class Dhcpv6(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: failed_incremental_file_write_count
                     
                     	Failed incremental file write count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: incremental_file_record_count
                     
@@ -3851,12 +4349,16 @@ class Dhcpv6(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_incremental_file_write_error_timestamp
                     
                     	Last incremental file write error timestamp since epoch
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -3915,6 +4417,7 @@ class Dhcpv6(Entity):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Base.Database, ['configured', 'version', 'full_file_write_interval', 'last_full_write_file_name', 'last_full_write_time', 'full_file_write_count', 'failed_full_file_write_count', 'full_file_record_count', 'last_full_file_write_error_timestamp', 'incremental_file_write_interval', 'last_incremental_write_file_name', 'last_incremental_write_time', 'incremental_file_write_count', 'failed_incremental_file_write_count', 'incremental_file_record_count', 'last_incremental_file_write_error_timestamp'], name, value)
 
 
+
                 class AddrBindings(Entity):
                     """
                     IPv6 DHCP Base Binding
@@ -3923,6 +4426,8 @@ class Dhcpv6(Entity):
                     
                     	DHCPv6 base stats debug
                     	**type**\: list of  		 :py:class:`AddrBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Base.AddrBindings.AddrBinding>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3961,10 +4466,14 @@ class Dhcpv6(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: mac_address
                         
                         	DHCPV6 client MAC address
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: vrf_name
                         
@@ -3973,12 +4482,16 @@ class Dhcpv6(Entity):
                         
                         	**length:** 0..33
                         
+                        	**config**\: False
+                        
                         .. attribute:: server_vrf_name
                         
                         	DHCPV6 server VRF name
                         	**type**\: str
                         
                         	**length:** 0..33
+                        
+                        	**config**\: False
                         
                         .. attribute:: ipv6_address
                         
@@ -3987,12 +4500,16 @@ class Dhcpv6(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: server_ipv6_address
                         
                         	DHCPV6 server IPv6 address
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: reply_server_ipv6_address
                         
@@ -4001,12 +4518,16 @@ class Dhcpv6(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: lease_time
                         
                         	Lease time in seconds
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -4017,12 +4538,16 @@ class Dhcpv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: second
                         
                         .. attribute:: state
                         
                         	DHCPV6 client state
                         	**type**\:  :py:class:`BagDhcpv6dFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6dFsmState>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: interface_name
                         
@@ -4031,12 +4556,16 @@ class Dhcpv6(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: access_vrf_name
                         
                         	DHCPV6 access interface VRF name
                         	**type**\: str
                         
                         	**length:** 0..33
+                        
+                        	**config**\: False
                         
                         .. attribute:: base_binding_tags
                         
@@ -4045,12 +4574,16 @@ class Dhcpv6(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: base_binding_outer_tag
                         
                         	DHCPV6 VLAN Outer VLAN
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: base_binding_inner_tag
                         
@@ -4059,6 +4592,8 @@ class Dhcpv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: profile_name
                         
                         	DHCPV6 profile name
@@ -4066,10 +4601,14 @@ class Dhcpv6(Entity):
                         
                         	**length:** 0..64
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_nak_next_renew
                         
                         	Is true if DHCPV6 next renew from client will be NAK'd
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: subscriber_label
                         
@@ -4078,12 +4617,16 @@ class Dhcpv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: old_subscriber_label
                         
                         	DHCPV6 old subscriber label
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: rx_client_duid
                         
@@ -4092,12 +4635,16 @@ class Dhcpv6(Entity):
                         
                         	**length:** 0..771
                         
+                        	**config**\: False
+                        
                         .. attribute:: tx_client_uid
                         
                         	DHCPV6 transmitted client DUID
                         	**type**\: str
                         
                         	**length:** 0..771
+                        
+                        	**config**\: False
                         
                         .. attribute:: rx_remote_id
                         
@@ -4106,12 +4653,16 @@ class Dhcpv6(Entity):
                         
                         	**length:** 0..771
                         
+                        	**config**\: False
+                        
                         .. attribute:: tx_remote_id
                         
                         	DHCPV6 transmitted Remote ID
                         	**type**\: str
                         
                         	**length:** 0..771
+                        
+                        	**config**\: False
                         
                         .. attribute:: rx_interface_id
                         
@@ -4120,12 +4671,16 @@ class Dhcpv6(Entity):
                         
                         	**length:** 0..771
                         
+                        	**config**\: False
+                        
                         .. attribute:: tx_interface_id
                         
                         	DHCPV6 transmitted Interface ID
                         	**type**\: str
                         
                         	**length:** 0..771
+                        
+                        	**config**\: False
                         
                         
 
@@ -4202,6 +4757,9 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Base.AddrBindings.AddrBinding, ['addr_string', 'mac_address', 'vrf_name', 'server_vrf_name', 'ipv6_address', 'server_ipv6_address', 'reply_server_ipv6_address', 'lease_time', 'remaining_lease_time', 'state', 'interface_name', 'access_vrf_name', 'base_binding_tags', 'base_binding_outer_tag', 'base_binding_inner_tag', 'profile_name', 'is_nak_next_renew', 'subscriber_label', 'old_subscriber_label', 'rx_client_duid', 'tx_client_uid', 'rx_remote_id', 'tx_remote_id', 'rx_interface_id', 'tx_interface_id'], name, value)
 
 
+
+
+
             class Server(Entity):
                 """
                 IPv6 DHCP server operational data
@@ -4211,30 +4769,42 @@ class Dhcpv6(Entity):
                 	DHCPV6 server bindings
                 	**type**\:  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding>`
                 
+                	**config**\: False
+                
                 .. attribute:: vrfs
                 
                 	DHCPV6 server list of VRF names
                 	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs>`
+                
+                	**config**\: False
                 
                 .. attribute:: profiles
                 
                 	IPv6 DHCP server profile
                 	**type**\:  :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Profiles>`
                 
+                	**config**\: False
+                
                 .. attribute:: interfaces
                 
                 	DHCPV6 server interface
                 	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Interfaces>`
+                
+                	**config**\: False
                 
                 .. attribute:: statistics
                 
                 	DHCPv6 server statistics
                 	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Statistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: binding_options
                 
                 	DHCPv6 server binding with options
                 	**type**\:  :py:class:`BindingOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.BindingOptions>`
+                
+                	**config**\: False
                 
                 
 
@@ -4293,10 +4863,14 @@ class Dhcpv6(Entity):
                     	DHCPV6 server binding summary
                     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Summary>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: clients
                     
                     	DHCPV6 server client bindings
                     	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Clients>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4339,10 +4913,14 @@ class Dhcpv6(Entity):
                         	IANA server binding summary
                         	**type**\:  :py:class:`Iana <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: iapd
                         
                         	IAPD server binding summary
                         	**type**\:  :py:class:`Iapd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: clients
                         
@@ -4350,6 +4928,8 @@ class Dhcpv6(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4397,12 +4977,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dpm_waiting_clients
                             
                             	Number of clients waiting on DPM to validate subscriber
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: daps_waiting_clients
                             
@@ -4411,12 +4995,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: request_waiting_clients
                             
                             	Number of clients waiting for a request from the client
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: iedge_waiting_clients
                             
@@ -4425,6 +5013,8 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: rib_waiting_clients
                             
                             	Number of clients in waiting for RIB response
@@ -4432,12 +5022,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: bound_clients
                             
                             	Number of clients in bound state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -4478,6 +5072,7 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana, ['initializing_clients', 'dpm_waiting_clients', 'daps_waiting_clients', 'request_waiting_clients', 'iedge_waiting_clients', 'rib_waiting_clients', 'bound_clients'], name, value)
 
 
+
                         class Iapd(Entity):
                             """
                             IAPD server binding summary
@@ -4489,12 +5084,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: dpm_waiting_clients
                             
                             	Number of clients waiting on DPM to validate subscriber
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: daps_waiting_clients
                             
@@ -4503,12 +5102,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: request_waiting_clients
                             
                             	Number of clients waiting for a request from the client
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: iedge_waiting_clients
                             
@@ -4517,6 +5120,8 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: rib_waiting_clients
                             
                             	Number of clients in waiting for RIB response
@@ -4524,12 +5129,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: bound_clients
                             
                             	Number of clients in bound state
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -4570,6 +5179,8 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd, ['initializing_clients', 'dpm_waiting_clients', 'daps_waiting_clients', 'request_waiting_clients', 'iedge_waiting_clients', 'rib_waiting_clients', 'bound_clients'], name, value)
 
 
+
+
                     class Clients(Entity):
                         """
                         DHCPV6 server client bindings
@@ -4578,6 +5189,8 @@ class Dhcpv6(Entity):
                         
                         	Single DHCPV6 server binding
                         	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Clients.Client>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -4616,15 +5229,21 @@ class Dhcpv6(Entity):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: ia_id_pd
                             
                             	List of DHCPv6 IA\_ID/PDs
                             	**type**\:  :py:class:`IaIdPd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: duid
                             
                             	Client DUID
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: client_id_xr
                             
@@ -4633,12 +5252,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: client_flag
                             
                             	DHCPV6 client flag
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: subscriber_label
                             
@@ -4647,6 +5270,8 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: vrf_name
                             
                             	DHCPVV6 client/subscriber VRF name
@@ -4654,10 +5279,14 @@ class Dhcpv6(Entity):
                             
                             	**length:** 0..33
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_address
                             
                             	Client MAC address
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: ia_id_p_ds
                             
@@ -4666,12 +5295,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: link_local_address
                             
                             	DHCPV6 IPv6 client link local address
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: interface_name
                             
@@ -4680,12 +5313,16 @@ class Dhcpv6(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: access_vrf_name
                             
                             	DHCPV6 access VRF name to client
                             	**type**\: str
                             
                             	**length:** 0..33
+                            
+                            	**config**\: False
                             
                             .. attribute:: server_binding_tags
                             
@@ -4694,12 +5331,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: server_binding_outer_tag
                             
                             	DHCPV6 VLAN Outer VLAN
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: server_binding_inner_tag
                             
@@ -4708,12 +5349,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: pool_name
                             
                             	DHCPV6 pool name
                             	**type**\: str
                             
                             	**length:** 0..64
+                            
+                            	**config**\: False
                             
                             .. attribute:: profile_name
                             
@@ -4722,12 +5367,16 @@ class Dhcpv6(Entity):
                             
                             	**length:** 0..64
                             
+                            	**config**\: False
+                            
                             .. attribute:: framed_ipv6_prefix
                             
                             	DHCPV6 framed ipv6 addess used by ND
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: framed_prefix_length
                             
@@ -4736,12 +5385,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: class_name
                             
                             	DHCPV6 class name
                             	**type**\: str
                             
                             	**length:** 0..64
+                            
+                            	**config**\: False
                             
                             .. attribute:: rx_remote_id
                             
@@ -4750,12 +5403,16 @@ class Dhcpv6(Entity):
                             
                             	**length:** 0..771
                             
+                            	**config**\: False
+                            
                             .. attribute:: rx_interface_id
                             
                             	DHCPV6 received Interface ID
                             	**type**\: str
                             
                             	**length:** 0..771
+                            
+                            	**config**\: False
                             
                             .. attribute:: prefix_pool_name
                             
@@ -4764,12 +5421,16 @@ class Dhcpv6(Entity):
                             
                             	**length:** 0..64
                             
+                            	**config**\: False
+                            
                             .. attribute:: address_pool_name
                             
                             	DHCPV6 server address pool name
                             	**type**\: str
                             
                             	**length:** 0..64
+                            
+                            	**config**\: False
                             
                             .. attribute:: dns_server_count
                             
@@ -4778,10 +5439,14 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_nak_next_renew
                             
                             	Is true if DHCPv6 next renew from client will be NAK'd
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: srg_state
                             
@@ -4790,6 +5455,8 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: srg_intf_role
                             
                             	DHCPV6 SRG Intf Role
@@ -4797,10 +5464,14 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: srgp2p
                             
                             	SRG P2P Status
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: srg_vrf_name
                             
@@ -4809,6 +5480,8 @@ class Dhcpv6(Entity):
                             
                             	**length:** 0..33
                             
+                            	**config**\: False
+                            
                             .. attribute:: sesrg_state
                             
                             	DHCPV6 SERG state
@@ -4816,12 +5489,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: serg_intf_role
                             
                             	DHCPV6 SERG Intf Role
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -4923,6 +5600,8 @@ class Dhcpv6(Entity):
                                 	bag dhcpv6d ia id pd info
                                 	**type**\: list of  		 :py:class:`BagDhcpv6dIaIdPdInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -4958,10 +5637,14 @@ class Dhcpv6(Entity):
                                     	List of addresses in this IA
                                     	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ia_type
                                     
                                     	IA type
                                     	**type**\:  :py:class:`BagDhcpv6dIaId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6dIaId>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ia_id
                                     
@@ -4970,12 +5653,16 @@ class Dhcpv6(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: flags
                                     
                                     	FSM Flag for this IA
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: total_address
                                     
@@ -4984,10 +5671,14 @@ class Dhcpv6(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: state
                                     
                                     	State
                                     	**type**\:  :py:class:`BagDhcpv6dFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6dFsmState>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5037,6 +5728,8 @@ class Dhcpv6(Entity):
                                         	bag dhcpv6d addr attrb
                                         	**type**\: list of  		 :py:class:`BagDhcpv6dAddrAttrb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb>`
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -5074,6 +5767,8 @@ class Dhcpv6(Entity):
                                             
                                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: prefix_length
                                             
                                             	Prefix length
@@ -5081,12 +5776,16 @@ class Dhcpv6(Entity):
                                             
                                             	**range:** 0..255
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: lease_time
                                             
                                             	Lease time in seconds
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: second
                                             
@@ -5096,6 +5795,8 @@ class Dhcpv6(Entity):
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             	**units**\: second
                                             
@@ -5132,6 +5833,13 @@ class Dhcpv6(Entity):
                                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb, ['prefix', 'prefix_length', 'lease_time', 'remaining_lease_time'], name, value)
 
 
+
+
+
+
+
+
+
                 class Vrfs(Entity):
                     """
                     DHCPV6 server list of VRF names
@@ -5140,6 +5848,8 @@ class Dhcpv6(Entity):
                     
                     	IPv6 DHCP server VRF name
                     	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5178,10 +5888,14 @@ class Dhcpv6(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: statistics
                         
                         	IPv6 DHCP server statistics
                         	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5223,85 +5937,119 @@ class Dhcpv6(Entity):
                             	DHCPV6 solicit packets
                             	**type**\:  :py:class:`Solicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: advertise
                             
                             	DHCPV6 advertise packets
                             	**type**\:  :py:class:`Advertise <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: request
                             
                             	DHCPV6 request packets
                             	**type**\:  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reply
                             
                             	DHCPV6 reply packets
                             	**type**\:  :py:class:`Reply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: confirm
                             
                             	DHCPV6 confirm packets
                             	**type**\:  :py:class:`Confirm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: decline
                             
                             	DHCPV6 decline packets
                             	**type**\:  :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: renew
                             
                             	DHCPV6 renew packets
                             	**type**\:  :py:class:`Renew <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: rebind
                             
                             	DHCPV6 rebind packets
                             	**type**\:  :py:class:`Rebind <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: release
                             
                             	DHCPV6 release packets
                             	**type**\:  :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reconfig
                             
                             	DHCPV6 reconfig packets
                             	**type**\:  :py:class:`Reconfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: inform
                             
                             	DHCPV6 inform packets
                             	**type**\:  :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: relay_forward
                             
                             	DHCPV6 relay forward packets
                             	**type**\:  :py:class:`RelayForward <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: relay_reply
                             
                             	DHCPV6 relay reply packets
                             	**type**\:  :py:class:`RelayReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lease_query
                             
                             	DHCPV6 lease query packets
                             	**type**\:  :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: lease_query_reply
                             
                             	DHCPV6 lease query reply packets
                             	**type**\:  :py:class:`LeaseQueryReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lease_query_done
                             
                             	DHCPV6 lease query done packets
                             	**type**\:  :py:class:`LeaseQueryDone <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lease_query_data
                             
                             	DHCPV6 lease query data packets
                             	**type**\:  :py:class:`LeaseQueryData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -5406,6 +6154,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5413,12 +6163,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5451,6 +6205,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Advertise(Entity):
                                 """
                                 DHCPV6 advertise packets
@@ -5462,6 +6217,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5469,12 +6226,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5507,6 +6268,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Request(Entity):
                                 """
                                 DHCPV6 request packets
@@ -5518,6 +6280,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5525,12 +6289,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5563,6 +6331,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Reply(Entity):
                                 """
                                 DHCPV6 reply packets
@@ -5574,6 +6343,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5581,12 +6352,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5619,6 +6394,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Confirm(Entity):
                                 """
                                 DHCPV6 confirm packets
@@ -5630,6 +6406,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5637,12 +6415,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5675,6 +6457,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Decline(Entity):
                                 """
                                 DHCPV6 decline packets
@@ -5686,6 +6469,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5693,12 +6478,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5731,6 +6520,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Renew(Entity):
                                 """
                                 DHCPV6 renew packets
@@ -5742,6 +6532,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5749,12 +6541,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5787,6 +6583,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Rebind(Entity):
                                 """
                                 DHCPV6 rebind packets
@@ -5798,6 +6595,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5805,12 +6604,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5843,6 +6646,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Release(Entity):
                                 """
                                 DHCPV6 release packets
@@ -5854,6 +6658,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5861,12 +6667,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5899,6 +6709,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Reconfig(Entity):
                                 """
                                 DHCPV6 reconfig packets
@@ -5910,6 +6721,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5917,12 +6730,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5955,6 +6772,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Inform(Entity):
                                 """
                                 DHCPV6 inform packets
@@ -5966,6 +6784,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5973,12 +6793,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6011,6 +6835,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class RelayForward(Entity):
                                 """
                                 DHCPV6 relay forward packets
@@ -6022,6 +6847,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -6029,12 +6856,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6067,6 +6898,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class RelayReply(Entity):
                                 """
                                 DHCPV6 relay reply packets
@@ -6078,6 +6910,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -6085,12 +6919,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6123,6 +6961,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class LeaseQuery(Entity):
                                 """
                                 DHCPV6 lease query packets
@@ -6134,6 +6973,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -6141,12 +6982,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6179,6 +7024,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class LeaseQueryReply(Entity):
                                 """
                                 DHCPV6 lease query reply packets
@@ -6190,6 +7036,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -6197,12 +7045,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6235,6 +7087,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class LeaseQueryDone(Entity):
                                 """
                                 DHCPV6 lease query done packets
@@ -6246,6 +7099,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -6253,12 +7108,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6291,6 +7150,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class LeaseQueryData(Entity):
                                 """
                                 DHCPV6 lease query data packets
@@ -6302,6 +7162,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -6309,12 +7171,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6347,6 +7213,10 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
+
+
+
                 class Profiles(Entity):
                     """
                     IPv6 DHCP server profile
@@ -6355,6 +7225,8 @@ class Dhcpv6(Entity):
                     
                     	IPv6 DHCP server profile
                     	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Profiles.Profile>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -6393,20 +7265,28 @@ class Dhcpv6(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: info
                         
                         	IPv6 DHCP server profile Info
                         	**type**\:  :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: throttle_infos
                         
                         	DHCPV6 throttle table
                         	**type**\:  :py:class:`ThrottleInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: server_classes
                         
                         	IPv6 DHCP server class table
                         	**type**\:  :py:class:`ServerClasses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -6456,10 +7336,14 @@ class Dhcpv6(Entity):
                             	Server lease time
                             	**type**\:  :py:class:`Lease <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_references
                             
                             	Interface references
                             	**type**\:  :py:class:`InterfaceReferences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: profile_name
                             
@@ -6468,12 +7352,16 @@ class Dhcpv6(Entity):
                             
                             	**length:** 0..65
                             
+                            	**config**\: False
+                            
                             .. attribute:: profile_allowed_duid_type
                             
                             	Allowed DUID Type
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             .. attribute:: domain_name
                             
@@ -6482,12 +7370,16 @@ class Dhcpv6(Entity):
                             
                             	**length:** 0..65
                             
+                            	**config**\: False
+                            
                             .. attribute:: profile_dns
                             
                             	DNS address count
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: aftr_name
                             
@@ -6496,12 +7388,16 @@ class Dhcpv6(Entity):
                             
                             	**length:** 0..65
                             
+                            	**config**\: False
+                            
                             .. attribute:: framed_addr_pool_name
                             
                             	Server framed address pool name
                             	**type**\: str
                             
                             	**length:** 0..65
+                            
+                            	**config**\: False
                             
                             .. attribute:: delegated_prefix_pool_name
                             
@@ -6510,10 +7406,14 @@ class Dhcpv6(Entity):
                             
                             	**length:** 0..65
                             
+                            	**config**\: False
+                            
                             .. attribute:: rapid_commit
                             
                             	Rapid Commit
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: profile_dns_address
                             
@@ -6521,6 +7421,8 @@ class Dhcpv6(Entity):
                             	**type**\: list of str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -6584,6 +7486,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 	**units**\: second
                                 
                                 .. attribute:: time
@@ -6592,6 +7496,8 @@ class Dhcpv6(Entity):
                                 	**type**\: str
                                 
                                 	**length:** 0..10
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6622,6 +7528,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease, ['seconds', 'time'], name, value)
 
 
+
                             class InterfaceReferences(Entity):
                                 """
                                 Interface references
@@ -6630,6 +7537,8 @@ class Dhcpv6(Entity):
                                 
                                 	ipv6 dhcpv6d server interface reference
                                 	**type**\: list of  		 :py:class:`Ipv6Dhcpv6dServerInterfaceReference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6668,6 +7577,8 @@ class Dhcpv6(Entity):
                                     
                                     	**length:** 0..65
                                     
+                                    	**config**\: False
+                                    
                                     
 
                                     """
@@ -6695,6 +7606,9 @@ class Dhcpv6(Entity):
                                         self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference, ['server_reference_interface_name'], name, value)
 
 
+
+
+
                         class ThrottleInfos(Entity):
                             """
                             DHCPV6 throttle table
@@ -6703,6 +7617,8 @@ class Dhcpv6(Entity):
                             
                             	IPv6 DHCP server profile Throttle Info
                             	**type**\: list of  		 :py:class:`ThrottleInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos.ThrottleInfo>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -6741,12 +7657,16 @@ class Dhcpv6(Entity):
                                 
                                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: binding_chaddr
                                 
                                 	Client MAC address
                                 	**type**\: str
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ifname
                                 
@@ -6755,6 +7675,8 @@ class Dhcpv6(Entity):
                                 
                                 	**length:** 0..65
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: state
                                 
                                 	State of entry
@@ -6762,12 +7684,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: time_left
                                 
                                 	Time Left in secs
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 	**units**\: second
                                 
@@ -6806,6 +7732,8 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos.ThrottleInfo, ['mac_address', 'binding_chaddr', 'ifname', 'state', 'time_left'], name, value)
 
 
+
+
                         class ServerClasses(Entity):
                             """
                             IPv6 DHCP server class table
@@ -6814,6 +7742,8 @@ class Dhcpv6(Entity):
                             
                             	IPv6 DHCP server class profile
                             	**type**\: list of  		 :py:class:`ServerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses.ServerClass>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -6852,12 +7782,16 @@ class Dhcpv6(Entity):
                                 
                                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: class_name_xr
                                 
                                 	Class name
                                 	**type**\: str
                                 
                                 	**length:** 0..65
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: domain_name
                                 
@@ -6866,12 +7800,16 @@ class Dhcpv6(Entity):
                                 
                                 	**length:** 0..65
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: profile_dns
                                 
                                 	DNS address count
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: framed_addr_pool_name
                                 
@@ -6880,6 +7818,8 @@ class Dhcpv6(Entity):
                                 
                                 	**length:** 0..65
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: delegated_prefix_pool_name
                                 
                                 	Server delegated prefix pool name
@@ -6887,12 +7827,16 @@ class Dhcpv6(Entity):
                                 
                                 	**length:** 0..65
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: profile_dns_address
                                 
                                 	DNS addresses
                                 	**type**\: list of str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6933,6 +7877,10 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses.ServerClass, ['class_name', 'class_name_xr', 'domain_name', 'profile_dns', 'framed_addr_pool_name', 'delegated_prefix_pool_name', 'profile_dns_address'], name, value)
 
 
+
+
+
+
                 class Interfaces(Entity):
                     """
                     DHCPV6 server interface
@@ -6941,6 +7889,8 @@ class Dhcpv6(Entity):
                     
                     	IPv6 DHCP server interface
                     	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Interfaces.Interface>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -6979,6 +7929,8 @@ class Dhcpv6(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: server_vrf_name
                         
                         	VRF name
@@ -6986,10 +7938,14 @@ class Dhcpv6(Entity):
                         
                         	**length:** 0..33
                         
+                        	**config**\: False
+                        
                         .. attribute:: server_interface_mode
                         
                         	Mode of interface
                         	**type**\:  :py:class:`BagDhcpv6dSubMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6dSubMode>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_server_interface_ambiguous
                         
@@ -6998,6 +7954,8 @@ class Dhcpv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: server_interface_profile_name
                         
                         	Name of profile attached to the interface
@@ -7005,10 +7963,14 @@ class Dhcpv6(Entity):
                         
                         	**length:** 0..65
                         
+                        	**config**\: False
+                        
                         .. attribute:: server_interface_lease_limit_type
                         
                         	Lease limit type on interface
                         	**type**\:  :py:class:`LeaseLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.LeaseLimit>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: server_interface_lease_limits
                         
@@ -7017,20 +7979,28 @@ class Dhcpv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: srg_role
                         
                         	DHCPv6 Interface SRG role
                         	**type**\:  :py:class:`BagDhcpv6dIntfSrgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6dIntfSrgRole>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: serg_role
                         
                         	DHCPv6 Interface SERG role
                         	**type**\:  :py:class:`BagDhcpv6dIntfSergRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.BagDhcpv6dIntfSergRole>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: mac_throttle
                         
                         	Mac Throttle Status
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: srg_vrf_name
                         
@@ -7039,10 +8009,14 @@ class Dhcpv6(Entity):
                         
                         	**length:** 0..33
                         
+                        	**config**\: False
+                        
                         .. attribute:: srgp2p
                         
                         	SRG P2P Status
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -7093,6 +8067,8 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.Interfaces.Interface, ['interface_name', 'server_vrf_name', 'server_interface_mode', 'is_server_interface_ambiguous', 'server_interface_profile_name', 'server_interface_lease_limit_type', 'server_interface_lease_limits', 'srg_role', 'serg_role', 'mac_throttle', 'srg_vrf_name', 'srgp2p'], name, value)
 
 
+
+
                 class Statistics(Entity):
                     """
                     DHCPv6 server statistics
@@ -7101,6 +8077,8 @@ class Dhcpv6(Entity):
                     
                     	ipv6 dhcpv6d server stat
                     	**type**\: list of  		 :py:class:`Ipv6Dhcpv6dServerStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -7137,12 +8115,16 @@ class Dhcpv6(Entity):
                         	Server statistics
                         	**type**\:  :py:class:`Statistics_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat.Statistics_>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrf_name
                         
                         	DHCPv6 L3 VRF name
                         	**type**\: str
                         
                         	**length:** 0..33
+                        
+                        	**config**\: False
                         
                         
 
@@ -7186,6 +8168,8 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: transmitted_packets
                             
                             	Transmitted packets
@@ -7193,12 +8177,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: dropped_packets
                             
                             	Dropped packets
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -7231,6 +8219,9 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
+
+
                 class BindingOptions(Entity):
                     """
                     DHCPv6 server binding with options
@@ -7240,10 +8231,14 @@ class Dhcpv6(Entity):
                     	DHCPv6 server binding from MAC address
                     	**type**\:  :py:class:`MacBindOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: duid_bind_options
                     
                     	DHCPv6 server binding from DUID
                     	**type**\:  :py:class:`DuidBindOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -7286,6 +8281,8 @@ class Dhcpv6(Entity):
                         	DHCPv6 server binding with options
                         	**type**\: list of  		 :py:class:`MacBindOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions.MacBindOption>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -7323,15 +8320,21 @@ class Dhcpv6(Entity):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_address_xr
                             
                             	Client MAC address
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: duid_xr
                             
                             	Client DUID
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: dns_count
                             
@@ -7340,10 +8343,14 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: opt17
                             
                             	Client Option 17 value
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: dns_address
                             
@@ -7351,6 +8358,8 @@ class Dhcpv6(Entity):
                             	**type**\: list of str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -7389,6 +8398,8 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions.MacBindOption, ['mac_address', 'mac_address_xr', 'duid_xr', 'dns_count', 'opt17', 'dns_address'], name, value)
 
 
+
+
                     class DuidBindOptions(Entity):
                         """
                         DHCPv6 server binding from DUID
@@ -7397,6 +8408,8 @@ class Dhcpv6(Entity):
                         
                         	DHCPv6 server binding with options
                         	**type**\: list of  		 :py:class:`DuidBindOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions.DuidBindOption>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -7435,15 +8448,21 @@ class Dhcpv6(Entity):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_address_xr
                             
                             	Client MAC address
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: duid_xr
                             
                             	Client DUID
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: dns_count
                             
@@ -7452,10 +8471,14 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: opt17
                             
                             	Client Option 17 value
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: dns_address
                             
@@ -7463,6 +8486,8 @@ class Dhcpv6(Entity):
                             	**type**\: list of str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -7501,6 +8526,10 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions.DuidBindOption, ['duid', 'mac_address_xr', 'duid_xr', 'dns_count', 'opt17', 'dns_address'], name, value)
 
 
+
+
+
+
             class Relay(Entity):
                 """
                 IPv6 DHCP relay operational data
@@ -7510,15 +8539,21 @@ class Dhcpv6(Entity):
                 	DHCPv6 relay statistics
                 	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Statistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: binding
                 
                 	DHCPV6 relay bindings
                 	**type**\:  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Binding>`
                 
+                	**config**\: False
+                
                 .. attribute:: vrfs
                 
                 	DHCPV6 relay list of VRF names
                 	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs>`
+                
+                	**config**\: False
                 
                 
 
@@ -7565,6 +8600,8 @@ class Dhcpv6(Entity):
                     	ipv6 dhcpv6d relay stat
                     	**type**\: list of  		 :py:class:`Ipv6Dhcpv6dRelayStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -7600,12 +8637,16 @@ class Dhcpv6(Entity):
                         	Relay statistics
                         	**type**\:  :py:class:`Statistics_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat.Statistics_>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrf_name
                         
                         	DHCPv6 L3 VRF name
                         	**type**\: str
                         
                         	**length:** 0..33
+                        
+                        	**config**\: False
                         
                         
 
@@ -7649,6 +8690,8 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: transmitted_packets
                             
                             	Transmitted packets
@@ -7656,12 +8699,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: dropped_packets
                             
                             	Dropped packets
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -7694,6 +8741,9 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
+
+
                 class Binding(Entity):
                     """
                     DHCPV6 relay bindings
@@ -7703,10 +8753,14 @@ class Dhcpv6(Entity):
                     	DHCPV6 relay binding summary
                     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Binding.Summary>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: clients
                     
                     	DHCPV6 relay client bindings
                     	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Binding.Clients>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -7751,6 +8805,8 @@ class Dhcpv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -7778,6 +8834,7 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Binding.Summary, ['clients'], name, value)
 
 
+
                     class Clients(Entity):
                         """
                         DHCPV6 relay client bindings
@@ -7786,6 +8843,8 @@ class Dhcpv6(Entity):
                         
                         	Single DHCPV6 relay binding
                         	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -7824,10 +8883,14 @@ class Dhcpv6(Entity):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: duid
                             
                             	Client DUID
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: client_id_xr
                             
@@ -7836,12 +8899,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: prefix_length
                             
                             	length of prefix
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: prefix
                             
@@ -7850,12 +8917,16 @@ class Dhcpv6(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: vrf_name
                             
                             	DHCPv6 client/subscriber Vrf name
                             	**type**\: str
                             
                             	**length:** 0..33
+                            
+                            	**config**\: False
                             
                             .. attribute:: lifetime
                             
@@ -7864,12 +8935,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: rem_life_time
                             
                             	Client route remaining lifetime
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: interface_name
                             
@@ -7878,12 +8953,16 @@ class Dhcpv6(Entity):
                             
                             	**length:** 0..65
                             
+                            	**config**\: False
+                            
                             .. attribute:: next_hop_addr
                             
                             	Next hop is our address
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: ia_id
                             
@@ -7892,12 +8971,16 @@ class Dhcpv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: relay_profile_name
                             
                             	Relay Profile name
                             	**type**\: str
                             
                             	**length:** 0..65
+                            
+                            	**config**\: False
                             
                             
 
@@ -7948,6 +9031,9 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client, ['client_id', 'duid', 'client_id_xr', 'prefix_length', 'prefix', 'vrf_name', 'lifetime', 'rem_life_time', 'interface_name', 'next_hop_addr', 'ia_id', 'relay_profile_name'], name, value)
 
 
+
+
+
                 class Vrfs(Entity):
                     """
                     DHCPV6 relay list of VRF names
@@ -7956,6 +9042,8 @@ class Dhcpv6(Entity):
                     
                     	IPv6 DHCP relay VRF name
                     	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -7994,10 +9082,14 @@ class Dhcpv6(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: statistics
                         
                         	IPv6 DHCP relay statistics
                         	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -8039,85 +9131,119 @@ class Dhcpv6(Entity):
                             	DHCPV6 solicit packets
                             	**type**\:  :py:class:`Solicit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: advertise
                             
                             	DHCPV6 advertise packets
                             	**type**\:  :py:class:`Advertise <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: request
                             
                             	DHCPV6 request packets
                             	**type**\:  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reply
                             
                             	DHCPV6 reply packets
                             	**type**\:  :py:class:`Reply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: confirm
                             
                             	DHCPV6 confirm packets
                             	**type**\:  :py:class:`Confirm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: decline
                             
                             	DHCPV6 decline packets
                             	**type**\:  :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: renew
                             
                             	DHCPV6 renew packets
                             	**type**\:  :py:class:`Renew <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: rebind
                             
                             	DHCPV6 rebind packets
                             	**type**\:  :py:class:`Rebind <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: release
                             
                             	DHCPV6 release packets
                             	**type**\:  :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reconfig
                             
                             	DHCPV6 reconfig packets
                             	**type**\:  :py:class:`Reconfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: inform
                             
                             	DHCPV6 inform packets
                             	**type**\:  :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: relay_forward
                             
                             	DHCPV6 relay forward packets
                             	**type**\:  :py:class:`RelayForward <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: relay_reply
                             
                             	DHCPV6 relay reply packets
                             	**type**\:  :py:class:`RelayReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lease_query
                             
                             	DHCPV6 lease query packets
                             	**type**\:  :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: lease_query_reply
                             
                             	DHCPV6 lease query reply packets
                             	**type**\:  :py:class:`LeaseQueryReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lease_query_done
                             
                             	DHCPV6 lease query done packets
                             	**type**\:  :py:class:`LeaseQueryDone <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lease_query_data
                             
                             	DHCPV6 lease query data packets
                             	**type**\:  :py:class:`LeaseQueryData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -8222,6 +9348,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8229,12 +9357,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8267,6 +9399,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Advertise(Entity):
                                 """
                                 DHCPV6 advertise packets
@@ -8278,6 +9411,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8285,12 +9420,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8323,6 +9462,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Request(Entity):
                                 """
                                 DHCPV6 request packets
@@ -8334,6 +9474,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8341,12 +9483,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8379,6 +9525,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Reply(Entity):
                                 """
                                 DHCPV6 reply packets
@@ -8390,6 +9537,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8397,12 +9546,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8435,6 +9588,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Confirm(Entity):
                                 """
                                 DHCPV6 confirm packets
@@ -8446,6 +9600,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8453,12 +9609,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8491,6 +9651,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Decline(Entity):
                                 """
                                 DHCPV6 decline packets
@@ -8502,6 +9663,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8509,12 +9672,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8547,6 +9714,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Renew(Entity):
                                 """
                                 DHCPV6 renew packets
@@ -8558,6 +9726,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8565,12 +9735,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8603,6 +9777,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Rebind(Entity):
                                 """
                                 DHCPV6 rebind packets
@@ -8614,6 +9789,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8621,12 +9798,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8659,6 +9840,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Release(Entity):
                                 """
                                 DHCPV6 release packets
@@ -8670,6 +9852,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8677,12 +9861,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8715,6 +9903,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Reconfig(Entity):
                                 """
                                 DHCPV6 reconfig packets
@@ -8726,6 +9915,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8733,12 +9924,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8771,6 +9966,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class Inform(Entity):
                                 """
                                 DHCPV6 inform packets
@@ -8782,6 +9978,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8789,12 +9987,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8827,6 +10029,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class RelayForward(Entity):
                                 """
                                 DHCPV6 relay forward packets
@@ -8838,6 +10041,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8845,12 +10050,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8883,6 +10092,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class RelayReply(Entity):
                                 """
                                 DHCPV6 relay reply packets
@@ -8894,6 +10104,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8901,12 +10113,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8939,6 +10155,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class LeaseQuery(Entity):
                                 """
                                 DHCPV6 lease query packets
@@ -8950,6 +10167,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8957,12 +10176,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8995,6 +10218,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class LeaseQueryReply(Entity):
                                 """
                                 DHCPV6 lease query reply packets
@@ -9006,6 +10230,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -9013,12 +10239,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9051,6 +10281,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class LeaseQueryDone(Entity):
                                 """
                                 DHCPV6 lease query done packets
@@ -9062,6 +10293,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -9069,12 +10302,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9107,6 +10344,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
+
                             class LeaseQueryData(Entity):
                                 """
                                 DHCPV6 lease query data packets
@@ -9118,6 +10356,8 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -9125,12 +10365,16 @@ class Dhcpv6(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9162,7 +10406,16 @@ class Dhcpv6(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
+
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Dhcpv6()
         return self._top_entity
+
+
 

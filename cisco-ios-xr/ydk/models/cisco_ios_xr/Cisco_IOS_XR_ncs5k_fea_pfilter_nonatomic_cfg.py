@@ -116,7 +116,10 @@ class Hardware(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Hardware.AccessList, ['atomic_disable'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Hardware()
         return self._top_entity
+
+
 

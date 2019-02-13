@@ -347,6 +347,9 @@ class ObjectTrackings(Entity):
                         self._perform_setattr(ObjectTrackings.ObjectTracking.Action.ActionErrDis.ActionErrDi, ['track_state_type', 'interface_name'], name, value)
 
 
+
+
+
         class TypeBfdRtr(Entity):
             """
             Track type BFD RTR (BFD Response Time Reporter)
@@ -461,6 +464,8 @@ class ObjectTrackings(Entity):
                     self._perform_setattr(ObjectTrackings.ObjectTracking.TypeBfdRtr.BfdRtr, ['rate', 'debounce_count', 'interface_name', 'dest_address'], name, value)
 
 
+
+
         class TypeInterface(Entity):
             """
             Track type line\-protocol
@@ -499,6 +504,7 @@ class ObjectTrackings(Entity):
                 self._perform_setattr(ObjectTrackings.ObjectTracking.TypeInterface, ['interface'], name, value)
 
 
+
         class TypeRtr(Entity):
             """
             Track type RTR (Response Time Reporter \- IPSLA)
@@ -535,6 +541,7 @@ class ObjectTrackings(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ObjectTrackings.ObjectTracking.TypeRtr, ['rtr'], name, value)
+
 
 
         class TypeList(Entity):
@@ -778,6 +785,10 @@ class ObjectTrackings(Entity):
                                 self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeight.ThresholdLimits.ThresholdUpValues.ThresholdUpValue, ['up', 'threshold_down'], name, value)
 
 
+
+
+
+
             class ThresholdPercentageObject(Entity):
                 """
                 Track type threshold percentage
@@ -860,6 +871,8 @@ class ObjectTrackings(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentageObject.Object, ['object', 'object_weight'], name, value)
+
+
 
 
             class ThresholdPercentage(Entity):
@@ -1022,6 +1035,10 @@ class ObjectTrackings(Entity):
                                 self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdPercentage.ThresholdLimits.ThresholdUpValues.ThresholdUpValue, ['up', 'threshold_down'], name, value)
 
 
+
+
+
+
             class ThresholdWeightObject(Entity):
                 """
                 Track type threshold weight
@@ -1104,6 +1121,9 @@ class ObjectTrackings(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTrackings.ObjectTracking.TypeList.ThresholdWeightObject.Object, ['object', 'object_weight'], name, value)
+
+
+
 
 
         class TypeRoute(Entity):
@@ -1202,6 +1222,8 @@ class ObjectTrackings(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTrackings.ObjectTracking.TypeRoute.IpAddress, ['address', 'mask'], name, value)
+
+
 
 
         class TypeBooleanList(Entity):
@@ -1330,6 +1352,8 @@ class ObjectTrackings(Entity):
                         self._perform_setattr(ObjectTrackings.ObjectTracking.TypeBooleanList.OrObjects.OrObject, ['object', 'object_sign'], name, value)
 
 
+
+
             class AndObjects(Entity):
                 """
                 Track type boolean and list
@@ -1409,7 +1433,13 @@ class ObjectTrackings(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTrackings.ObjectTracking.TypeBooleanList.AndObjects.AndObject, ['object_name', 'object_sign'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = ObjectTrackings()
         return self._top_entity
+
+
 

@@ -26,20 +26,28 @@ class CISCOIETFFRRMIB(Entity):
     	
     	**type**\:  :py:class:`CmplsFrrScalars <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.CmplsFrrScalars>`
     
+    	**config**\: False
+    
     .. attribute:: cmplsfrrconsttable
     
     	This table shows detour setup constraints
     	**type**\:  :py:class:`CmplsFrrConstTable <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.CmplsFrrConstTable>`
+    
+    	**config**\: False
     
     .. attribute:: cmplsfrrlogtable
     
     	The fast reroute log table records fast reroute events such as protected links going up or down or the FRR feature kicking in
     	**type**\:  :py:class:`CmplsFrrLogTable <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.CmplsFrrLogTable>`
     
+    	**config**\: False
+    
     .. attribute:: cmplsfrrfacroutedbtable
     
     	The mplsFrrFacRouteDBTable provides information about the  fast reroute database.  Each entry belongs to an interface, protecting backup tunnel and protected tunnel. MPLS  interfaces defined on this node are protected by backup tunnels and are indexed by mplsFrrFacRouteProtectedIndex. Backup tunnels defined to protect the tunnels traversing an interface, and are indexed by  mplsFrrFacRouteProtectingTunIndex.  Note that the tunnel  instance index is not required, since it is implied to be 0,  which indicates the tunnel head interface for the protecting  tunnel. The protecting tunnel is defined to exist on the PLR  in the FRR specification.  Protected tunnels are the LSPs that  traverse the protected link.  These LSPs are uniquely  identified by mplsFrrFacRouteProtectedTunIndex, mplsFrrFacRouteProtectedTunInstance,  mplsFrrFacRouteProtectedTunIngressLSRId, and  mplsFrrFacRouteProtectedTunEgressLSRId
     	**type**\:  :py:class:`CmplsFrrFacRouteDBTable <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.CmplsFrrFacRouteDBTable>`
+    
+    	**config**\: False
     
     
 
@@ -93,12 +101,16 @@ class CISCOIETFFRRMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: cmplsfrrdetouroutgoing
         
         	The number of detour LSPs leaving the device if mplsFrrConstProtectionMethod is set to oneToOneBackup(0), or 0 if mplsFrrConstProtectionMethod is set to  to facilityBackup(1)
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: cmplsfrrdetouroriginating
         
@@ -107,12 +119,16 @@ class CISCOIETFFRRMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: cmplsfrrswitchover
         
         	The number of tunnel instances that are switched over to their corresponding detour LSP if mplsFrrConstProtectionMethod is set to oneToOneBackup(0), or tunnels being switched over if mplsFrrConstProtectionMethod is set to facilityBackup(1)
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: cmplsfrrnumofconfifs
         
@@ -121,12 +137,16 @@ class CISCOIETFFRRMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: cmplsfrractprotectedifs
         
         	Indicates the number of interfaces currently being protected  by the FRR feature if mplsFrrConstProtectionMethod is set to facilityBackup(1), otherwise this value should return 0 to indicate that LSPs traversing any interface may be protected. This value MUST be less than or equal to mplsFrrConfIfs
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: cmplsfrrconfprotectingtuns
         
@@ -135,12 +155,16 @@ class CISCOIETFFRRMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: cmplsfrractprotectedtuns
         
         	Indicates the number of bypass tunnels indicated in mplsFrrConfProtectingTuns whose operStatus is up(1) indicating that they are currently protecting facilities on this LSR using the FRR feature. This object MUST return 0 if mplsFrrConstProtectionMethod  is set to facilityBackup(1)
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: cmplsfrractprotectedlsps
         
@@ -149,15 +173,21 @@ class CISCOIETFFRRMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: cmplsfrrconstprotectionmethod
         
         	Indicates which protection method is to be used for fast reroute. Some devices may require a reboot of their routing processors if this variable is changed. An agent which does not wish to reboot or modify its FRR mode  MUST return an inconsistentValue error. Please  consult the device's agent capability statement  for more details
         	**type**\:  :py:class:`CmplsFrrConstProtectionMethod <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.CmplsFrrScalars.CmplsFrrConstProtectionMethod>`
         
+        	**config**\: False
+        
         .. attribute:: cmplsfrrnotifsenabled
         
         	Enables or disables FRR notifications defined in this MIB module. Notifications are disabled by default
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: cmplsfrrlogtablemaxentries
         
@@ -166,6 +196,8 @@ class CISCOIETFFRRMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: cmplsfrrlogtablecurrentries
         
         	Indicates the current number of entries in the FRR log table
@@ -173,12 +205,16 @@ class CISCOIETFFRRMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: cmplsfrrnotifmaxrate
         
         	This variable indicates the number of milliseconds that must elapse between notification emissions. If events occur more rapidly, the implementation may simply fail to emit these notifications during that period, or may queue them until an appropriate time in the future. A value of 0 means no minimum  elapsed period is specified
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -263,6 +299,7 @@ class CISCOIETFFRRMIB(Entity):
 
 
 
+
     class CmplsFrrConstTable(Entity):
         """
         This table shows detour setup constraints.
@@ -271,6 +308,8 @@ class CISCOIETFFRRMIB(Entity):
         
         	An entry in this table represents detour LSP or bypass tunnel  setup constraints for a tunnel instance to be protected by  detour LSPs or a tunnel. Agents must allow entries in this table  to be created only for tunnel instances that require fast\-reroute. Entries indexed with mplsFrrConstIfIndex set to 0 apply to all interfaces on this device for which the FRR feature can operate on
         	**type**\: list of  		 :py:class:`CmplsFrrConstEntry <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.CmplsFrrConstTable.CmplsFrrConstEntry>`
+        
+        	**config**\: False
         
         
 
@@ -316,12 +355,16 @@ class CISCOIETFFRRMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cmplsfrrconsttunnelindex  (key)
             
             	Uniquely identifies a tunnel for which fast reroute is requested
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: cmplsfrrconsttunnelinstance  (key)
             
@@ -330,12 +373,16 @@ class CISCOIETFFRRMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cmplsfrrconstsetupprio
             
             	Indicates the setup priority of detour LSP
             	**type**\: int
             
             	**range:** 0..7
+            
+            	**config**\: False
             
             .. attribute:: cmplsfrrconstholdingprio
             
@@ -344,12 +391,16 @@ class CISCOIETFFRRMIB(Entity):
             
             	**range:** 0..7
             
+            	**config**\: False
+            
             .. attribute:: cmplsfrrconstinclanyaffinity
             
             	A link satisfies the include\-any constraint if and only if the constraint is zero, or the link and the constraint have a resource class in common
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cmplsfrrconstinclallaffinity
             
@@ -358,12 +409,16 @@ class CISCOIETFFRRMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cmplsfrrconstexclallaffinity
             
             	A link satisfies the exclude\-all constraint if and only if the link contains none of the administrative groups specified in the constraint
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cmplsfrrconsthoplimit
             
@@ -372,6 +427,8 @@ class CISCOIETFFRRMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: cmplsfrrconstbandwidth
             
             	This variable represents the bandwidth for detour LSPs of this tunnel, in units of thousands of bits per second (Kbps)
@@ -379,10 +436,14 @@ class CISCOIETFFRRMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cmplsfrrconstrowstatus
             
             	This object is used to create, modify, and/or delete a row in this table
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             .. attribute:: cmplsfrrconstnumprotectingtunonif
             
@@ -391,12 +452,16 @@ class CISCOIETFFRRMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cmplsfrrconstnumprotectedtunonif
             
             	The number of tunnels protected on this interface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -450,6 +515,8 @@ class CISCOIETFFRRMIB(Entity):
                 self._perform_setattr(CISCOIETFFRRMIB.CmplsFrrConstTable.CmplsFrrConstEntry, ['cmplsfrrconstifindex', 'cmplsfrrconsttunnelindex', 'cmplsfrrconsttunnelinstance', 'cmplsfrrconstsetupprio', 'cmplsfrrconstholdingprio', 'cmplsfrrconstinclanyaffinity', 'cmplsfrrconstinclallaffinity', 'cmplsfrrconstexclallaffinity', 'cmplsfrrconsthoplimit', 'cmplsfrrconstbandwidth', 'cmplsfrrconstrowstatus', 'cmplsfrrconstnumprotectingtunonif', 'cmplsfrrconstnumprotectedtunonif'], name, value)
 
 
+
+
     class CmplsFrrLogTable(Entity):
         """
         The fast reroute log table records fast reroute events such
@@ -460,6 +527,8 @@ class CISCOIETFFRRMIB(Entity):
         
         	An entry in this table is created to describe one fast reroute event.  Entries in this table are only created and destroyed by the agent implementation. The maximum number  of entries in this log is governed by the scalar
         	**type**\: list of  		 :py:class:`CmplsFrrLogEntry <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.CmplsFrrLogTable.CmplsFrrLogEntry>`
+        
+        	**config**\: False
         
         
 
@@ -502,12 +571,16 @@ class CISCOIETFFRRMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cmplsfrrlogeventtime
             
             	This object provides the amount of time ticks since this event occured
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cmplsfrrloginterface
             
@@ -516,10 +589,14 @@ class CISCOIETFFRRMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cmplsfrrlogeventtype
             
             	This object describes what type of fast reroute event occured
             	**type**\:  :py:class:`CmplsFrrLogEventType <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.CmplsFrrLogTable.CmplsFrrLogEntry.CmplsFrrLogEventType>`
+            
+            	**config**\: False
             
             .. attribute:: cmplsfrrlogeventduration
             
@@ -528,12 +605,16 @@ class CISCOIETFFRRMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cmplsfrrlogeventreasonstring
             
             	This object contains an implementation\-specific explanation of the event
             	**type**\: str
             
             	**length:** 128
+            
+            	**config**\: False
             
             
 
@@ -592,6 +673,8 @@ class CISCOIETFFRRMIB(Entity):
 
 
 
+
+
     class CmplsFrrFacRouteDBTable(Entity):
         """
         The mplsFrrFacRouteDBTable provides information about the 
@@ -616,6 +699,8 @@ class CISCOIETFFRRMIB(Entity):
         
         	An entry in the mplsFrrDBTable represents a single protected LSP, protected by a backup tunnel and defined for a specific protected interface. Note that for brevity, managers should consult the mplsTunnelTable present in the MPLS\-TE MIB for additional information about the protecting and protected tunnels, and the ifEntry in the IF\-MIB for the protected interface
         	**type**\: list of  		 :py:class:`CmplsFrrFacRouteDBEntry <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.CmplsFrrFacRouteDBTable.CmplsFrrFacRouteDBEntry>`
+        
+        	**config**\: False
         
         
 
@@ -661,12 +746,16 @@ class CISCOIETFFRRMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cmplsfrrfacrouteprotectingtunindex  (key)
             
             	Uniquely identifies the mplsTunnelEntry primary index for the tunnel head interface designated to protect the  interface as specified in the mplsFrrFacRouteIfProtectedIndex (and all of the tunnels using this interface)
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: cmplsfrrfacrouteprotectedtunindex  (key)
             
@@ -675,12 +764,16 @@ class CISCOIETFFRRMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: cmplsfrrfacrouteprotectedtuninstance  (key)
             
             	Uniquely identifies an mplsTunnelEntry that is being protected by FRR
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cmplsfrrfacrouteprotectedtuningresslsrid  (key)
             
@@ -689,6 +782,8 @@ class CISCOIETFFRRMIB(Entity):
             
             	**length:** 4
             
+            	**config**\: False
+            
             .. attribute:: cmplsfrrfacrouteprotectedtunegresslsrid  (key)
             
             	Uniquely identifies an mplsTunnelEntry that is being protected by FRR
@@ -696,10 +791,14 @@ class CISCOIETFFRRMIB(Entity):
             
             	**length:** 4
             
+            	**config**\: False
+            
             .. attribute:: cmplsfrrfacrouteprotectedtunstatus
             
             	Specifies the state of the protected tunnel.  active  This tunnel's label has been placed in the          LFIB and is ready to be applied to incoming          packets.           ready \-  This tunnel's label entry has been created but is          not yet in the LFIB.           partial \- This tunnel's label entry as not been fully           created
             	**type**\:  :py:class:`CmplsFrrFacRouteProtectedTunStatus <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.CmplsFrrFacRouteDBTable.CmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectedTunStatus>`
+            
+            	**config**\: False
             
             .. attribute:: cmplsfrrfacrouteprotectingtunresvbw
             
@@ -708,10 +807,14 @@ class CISCOIETFFRRMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cmplsfrrfacrouteprotectingtunprotectiontype
             
             	Indicates type of the resource protection
             	**type**\:  :py:class:`CmplsFrrFacRouteProtectingTunProtectionType <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.CmplsFrrFacRouteDBTable.CmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectingTunProtectionType>`
+            
+            	**config**\: False
             
             
 
@@ -808,7 +911,11 @@ class CISCOIETFFRRMIB(Entity):
                 nodeProtection = Enum.YLeaf(1, "nodeProtection")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOIETFFRRMIB()
         return self._top_entity
+
+
 

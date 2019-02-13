@@ -205,15 +205,15 @@ class Vrfs(Entity):
         	VRF address family configuration
         	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs>`
         
-        .. attribute:: bgp_global
-        
-        	BGP related VRF Global config
-        	**type**\:  :py:class:`BgpGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.BgpGlobal>`
-        
         .. attribute:: multicast_host
         
         	Multicast host stack configuration
         	**type**\:  :py:class:`MulticastHost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.MulticastHost>`
+        
+        .. attribute:: bgp_global
+        
+        	BGP related VRF Global config
+        	**type**\:  :py:class:`BgpGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.BgpGlobal>`
         
         
 
@@ -230,7 +230,7 @@ class Vrfs(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['vrf_name']
-            self._child_classes = OrderedDict([("vpn-id", ("vpn_id", Vrfs.Vrf.VpnId)), ("afs", ("afs", Vrfs.Vrf.Afs)), ("Cisco-IOS-XR-ipv4-bgp-cfg:bgp-global", ("bgp_global", Vrfs.Vrf.BgpGlobal)), ("Cisco-IOS-XR-ip-iarm-vrf-cfg:multicast-host", ("multicast_host", Vrfs.Vrf.MulticastHost))])
+            self._child_classes = OrderedDict([("vpn-id", ("vpn_id", Vrfs.Vrf.VpnId)), ("afs", ("afs", Vrfs.Vrf.Afs)), ("Cisco-IOS-XR-ip-iarm-vrf-cfg:multicast-host", ("multicast_host", Vrfs.Vrf.MulticastHost)), ("Cisco-IOS-XR-ipv4-bgp-cfg:bgp-global", ("bgp_global", Vrfs.Vrf.BgpGlobal))])
             self._leafs = OrderedDict([
                 ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                 ('fallback_vrf', (YLeaf(YType.str, 'fallback-vrf'), ['str'])),
@@ -253,13 +253,13 @@ class Vrfs(Entity):
             self.afs.parent = self
             self._children_name_map["afs"] = "afs"
 
-            self.bgp_global = Vrfs.Vrf.BgpGlobal()
-            self.bgp_global.parent = self
-            self._children_name_map["bgp_global"] = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp-global"
-
             self.multicast_host = Vrfs.Vrf.MulticastHost()
             self.multicast_host.parent = self
             self._children_name_map["multicast_host"] = "Cisco-IOS-XR-ip-iarm-vrf-cfg:multicast-host"
+
+            self.bgp_global = Vrfs.Vrf.BgpGlobal()
+            self.bgp_global.parent = self
+            self._children_name_map["bgp_global"] = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp-global"
             self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:vrfs/%s" % self._segment_path()
             self._is_frozen = True
@@ -320,6 +320,7 @@ class Vrfs(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vrfs.Vrf.VpnId, [u'vpn_oui', u'vpn_index'], name, value)
+
 
 
         class Afs(Entity):
@@ -485,6 +486,7 @@ class Vrfs(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vrfs.Vrf.Afs.Af.MaximumPrefix, ['prefix_limit', 'mid_threshold'], name, value)
+
 
 
                 class Bgp(Entity):
@@ -770,6 +772,7 @@ class Vrfs(Entity):
                                         self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, ['as_xx', 'as_', 'as_index', 'stitching_rt'], name, value)
 
 
+
                                 class Ipv4Address(Entity):
                                     """
                                     ipv4 address
@@ -824,6 +827,10 @@ class Vrfs(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, ['address', 'address_index', 'stitching_rt'], name, value)
+
+
+
+
 
 
                     class ExportRouteTargets(Entity):
@@ -1012,6 +1019,7 @@ class Vrfs(Entity):
                                         self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, ['as_xx', 'as_', 'as_index', 'stitching_rt'], name, value)
 
 
+
                                 class Ipv4Address(Entity):
                                     """
                                     ipv4 address
@@ -1068,6 +1076,10 @@ class Vrfs(Entity):
                                         self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, ['address', 'address_index', 'stitching_rt'], name, value)
 
 
+
+
+
+
                     class VrfToGlobalExportRoutePolicy(Entity):
                         """
                         Route policy for vrf to global export filtering
@@ -1116,6 +1128,7 @@ class Vrfs(Entity):
                             self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy, ['route_policy_name', 'allow_imported_vpn'], name, value)
 
 
+
                     class ExportVrfOptions(Entity):
                         """
                         Export VRF options
@@ -1157,6 +1170,7 @@ class Vrfs(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions, ['allow_imported_vpn', 'import_stitching_rt'], name, value)
+
 
 
                     class GlobalToVrfImportRoutePolicy(Entity):
@@ -1205,6 +1219,135 @@ class Vrfs(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy, ['route_policy_name', 'advertise_as_vpn'], name, value)
+
+
+
+
+
+
+        class MulticastHost(Entity):
+            """
+            Multicast host stack configuration
+            
+            .. attribute:: ipv4
+            
+            	IPv4 configuration
+            	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.MulticastHost.Ipv4>`
+            
+            .. attribute:: ipv6
+            
+            	IPv6 configuration
+            	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.MulticastHost.Ipv6>`
+            
+            
+
+            """
+
+            _prefix = 'ip-iarm-vrf-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Vrfs.Vrf.MulticastHost, self).__init__()
+
+                self.yang_name = "multicast-host"
+                self.yang_parent_name = "vrf"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("ipv4", ("ipv4", Vrfs.Vrf.MulticastHost.Ipv4)), ("ipv6", ("ipv6", Vrfs.Vrf.MulticastHost.Ipv6))])
+                self._leafs = OrderedDict()
+
+                self.ipv4 = Vrfs.Vrf.MulticastHost.Ipv4()
+                self.ipv4.parent = self
+                self._children_name_map["ipv4"] = "ipv4"
+
+                self.ipv6 = Vrfs.Vrf.MulticastHost.Ipv6()
+                self.ipv6.parent = self
+                self._children_name_map["ipv6"] = "ipv6"
+                self._segment_path = lambda: "Cisco-IOS-XR-ip-iarm-vrf-cfg:multicast-host"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Vrfs.Vrf.MulticastHost, [], name, value)
+
+
+            class Ipv4(Entity):
+                """
+                IPv4 configuration
+                
+                .. attribute:: interface
+                
+                	Default multicast host interface name
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                
+
+                """
+
+                _prefix = 'ip-iarm-vrf-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Vrfs.Vrf.MulticastHost.Ipv4, self).__init__()
+
+                    self.yang_name = "ipv4"
+                    self.yang_parent_name = "multicast-host"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                    ])
+                    self.interface = None
+                    self._segment_path = lambda: "ipv4"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Vrfs.Vrf.MulticastHost.Ipv4, ['interface'], name, value)
+
+
+
+            class Ipv6(Entity):
+                """
+                IPv6 configuration
+                
+                .. attribute:: interface
+                
+                	Default multicast host interface name
+                	**type**\: str
+                
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                
+
+                """
+
+                _prefix = 'ip-iarm-vrf-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Vrfs.Vrf.MulticastHost.Ipv6, self).__init__()
+
+                    self.yang_name = "ipv6"
+                    self.yang_parent_name = "multicast-host"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                    ])
+                    self.interface = None
+                    self._segment_path = lambda: "ipv6"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Vrfs.Vrf.MulticastHost.Ipv6, ['interface'], name, value)
+
+
 
 
         class BgpGlobal(Entity):
@@ -1325,130 +1468,13 @@ class Vrfs(Entity):
                     self._perform_setattr(Vrfs.Vrf.BgpGlobal.RouteDistinguisher, ['type', 'as_xx', 'as_', 'as_index', 'address', 'address_index'], name, value)
 
 
-        class MulticastHost(Entity):
-            """
-            Multicast host stack configuration
-            
-            .. attribute:: ipv4
-            
-            	IPv4 configuration
-            	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.MulticastHost.Ipv4>`
-            
-            .. attribute:: ipv6
-            
-            	IPv6 configuration
-            	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.MulticastHost.Ipv6>`
-            
-            
 
-            """
-
-            _prefix = 'ip-iarm-vrf-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Vrfs.Vrf.MulticastHost, self).__init__()
-
-                self.yang_name = "multicast-host"
-                self.yang_parent_name = "vrf"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("ipv4", ("ipv4", Vrfs.Vrf.MulticastHost.Ipv4)), ("ipv6", ("ipv6", Vrfs.Vrf.MulticastHost.Ipv6))])
-                self._leafs = OrderedDict()
-
-                self.ipv4 = Vrfs.Vrf.MulticastHost.Ipv4()
-                self.ipv4.parent = self
-                self._children_name_map["ipv4"] = "ipv4"
-
-                self.ipv6 = Vrfs.Vrf.MulticastHost.Ipv6()
-                self.ipv6.parent = self
-                self._children_name_map["ipv6"] = "ipv6"
-                self._segment_path = lambda: "Cisco-IOS-XR-ip-iarm-vrf-cfg:multicast-host"
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Vrfs.Vrf.MulticastHost, [], name, value)
-
-
-            class Ipv4(Entity):
-                """
-                IPv4 configuration
-                
-                .. attribute:: interface
-                
-                	Default multicast host interface name
-                	**type**\: str
-                
-                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                
-                
-
-                """
-
-                _prefix = 'ip-iarm-vrf-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Vrfs.Vrf.MulticastHost.Ipv4, self).__init__()
-
-                    self.yang_name = "ipv4"
-                    self.yang_parent_name = "multicast-host"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
-                    ])
-                    self.interface = None
-                    self._segment_path = lambda: "ipv4"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Vrfs.Vrf.MulticastHost.Ipv4, ['interface'], name, value)
-
-
-            class Ipv6(Entity):
-                """
-                IPv6 configuration
-                
-                .. attribute:: interface
-                
-                	Default multicast host interface name
-                	**type**\: str
-                
-                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                
-                
-
-                """
-
-                _prefix = 'ip-iarm-vrf-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Vrfs.Vrf.MulticastHost.Ipv6, self).__init__()
-
-                    self.yang_name = "ipv6"
-                    self.yang_parent_name = "multicast-host"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
-                    ])
-                    self.interface = None
-                    self._segment_path = lambda: "ipv6"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Vrfs.Vrf.MulticastHost.Ipv6, ['interface'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Vrfs()
         return self._top_entity
+
+
 
 class GlobalAf(Entity):
     """
@@ -1653,6 +1679,7 @@ class GlobalAf(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(GlobalAf.Afs.Af.MaximumPrefix, ['prefix_limit', 'mid_threshold'], name, value)
+
 
 
             class Bgp(Entity):
@@ -1938,6 +1965,7 @@ class GlobalAf(Entity):
                                     self._perform_setattr(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, ['as_xx', 'as_', 'as_index', 'stitching_rt'], name, value)
 
 
+
                             class Ipv4Address(Entity):
                                 """
                                 ipv4 address
@@ -1992,6 +2020,10 @@ class GlobalAf(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, ['address', 'address_index', 'stitching_rt'], name, value)
+
+
+
+
 
 
                 class ExportRouteTargets(Entity):
@@ -2180,6 +2212,7 @@ class GlobalAf(Entity):
                                     self._perform_setattr(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, ['as_xx', 'as_', 'as_index', 'stitching_rt'], name, value)
 
 
+
                             class Ipv4Address(Entity):
                                 """
                                 ipv4 address
@@ -2236,6 +2269,10 @@ class GlobalAf(Entity):
                                     self._perform_setattr(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, ['address', 'address_index', 'stitching_rt'], name, value)
 
 
+
+
+
+
                 class VrfToGlobalExportRoutePolicy(Entity):
                     """
                     Route policy for vrf to global export filtering
@@ -2284,6 +2321,7 @@ class GlobalAf(Entity):
                         self._perform_setattr(GlobalAf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy, ['route_policy_name', 'allow_imported_vpn'], name, value)
 
 
+
                 class ExportVrfOptions(Entity):
                     """
                     Export VRF options
@@ -2325,6 +2363,7 @@ class GlobalAf(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(GlobalAf.Afs.Af.Bgp.ExportVrfOptions, ['allow_imported_vpn', 'import_stitching_rt'], name, value)
+
 
 
                 class GlobalToVrfImportRoutePolicy(Entity):
@@ -2374,9 +2413,15 @@ class GlobalAf(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(GlobalAf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy, ['route_policy_name', 'advertise_as_vpn'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = GlobalAf()
         return self._top_entity
+
+
 
 class Srlg(Entity):
     """
@@ -2614,6 +2659,7 @@ class Srlg(Entity):
                     self._perform_setattr(Srlg.Interfaces.Interface.IncludeOptical, [u'enable', u'priority'], name, value)
 
 
+
             class InterfaceGroup(Entity):
                 """
                 Group configuration for an interface
@@ -2750,6 +2796,9 @@ class Srlg(Entity):
                             self._perform_setattr(Srlg.Interfaces.Interface.InterfaceGroup.GroupNames.GroupName, [u'group_name_index', u'group_name', u'srlg_priority'], name, value)
 
 
+
+
+
             class Values(Entity):
                 """
                 SRLG Value configuration for an interface
@@ -2843,6 +2892,8 @@ class Srlg(Entity):
                         self._perform_setattr(Srlg.Interfaces.Interface.Values.Value, [u'srlg_index', u'srlg_value', u'srlg_priority'], name, value)
 
 
+
+
             class InterfaceSrlgNames(Entity):
                 """
                 SRLG Name configuration for an interface
@@ -2914,6 +2965,10 @@ class Srlg(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.Interfaces.Interface.InterfaceSrlgNames.InterfaceSrlgName, [u'srlg_name'], name, value)
+
+
+
+
 
 
     class SrlgNames(Entity):
@@ -3000,6 +3055,8 @@ class Srlg(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Srlg.SrlgNames.SrlgName, [u'srlg_name', u'srlg_value'], name, value)
+
+
 
 
     class Groups(Entity):
@@ -3186,6 +3243,10 @@ class Srlg(Entity):
                         self._perform_setattr(Srlg.Groups.Group.GroupValues.GroupValue, [u'srlg_index', u'srlg_value', u'srlg_priority'], name, value)
 
 
+
+
+
+
     class InheritNodes(Entity):
         """
         Set of inherit nodes configured with SRLG
@@ -3370,9 +3431,15 @@ class Srlg(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.InheritNodes.InheritNode.InheritNodeValues.InheritNodeValue, [u'srlg_index', u'srlg_value', u'srlg_priority'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Srlg()
         return self._top_entity
+
+
 
 class VrfGroups(Entity):
     """
@@ -3537,9 +3604,14 @@ class VrfGroups(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(VrfGroups.VrfGroup.Vrfs.Vrf, [u'vrf_name'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = VrfGroups()
         return self._top_entity
+
+
 
 class SelectiveVrfDownload(Entity):
     """
@@ -3580,4 +3652,6 @@ class SelectiveVrfDownload(Entity):
     def clone_ptr(self):
         self._top_entity = SelectiveVrfDownload()
         return self._top_entity
+
+
 

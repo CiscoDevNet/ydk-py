@@ -34,40 +34,56 @@ class Oper(Entity):
     	
     	**type**\:  :py:class:`ShelfMgr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.ShelfMgr>`
     
+    	**config**\: False
+    
     .. attribute:: platform
     
     	
     	**type**\:  :py:class:`Platform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Platform>`
+    
+    	**config**\: False
     
     .. attribute:: chassis
     
     	
     	**type**\:  :py:class:`Chassis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Chassis>`
     
+    	**config**\: False
+    
     .. attribute:: reload
     
     	
     	**type**\:  :py:class:`Reload <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Reload>`
+    
+    	**config**\: False
     
     .. attribute:: reboot_history
     
     	
     	**type**\:  :py:class:`RebootHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.RebootHistory>`
     
+    	**config**\: False
+    
     .. attribute:: interface
     
     	
     	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Interface>`
+    
+    	**config**\: False
     
     .. attribute:: reload_vm
     
     	
     	**type**\:  :py:class:`ReloadVm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.ReloadVm>`
     
+    	**config**\: False
+    
     .. attribute:: macpool
     
     	
     	**type**\:  :py:class:`Macpool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Macpool>`
+    
+    	**config**\: False
     
     
 
@@ -133,6 +149,8 @@ class Oper(Entity):
         	show traceable processes
         	**type**\: list of  		 :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.ShelfMgr.Trace>`
         
+        	**config**\: False
+        
         
 
         """
@@ -169,10 +187,14 @@ class Oper(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.ShelfMgr.Trace.Location>`
+            
+            	**config**\: False
             
             
 
@@ -213,10 +235,14 @@ class Oper(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: all_options
                 
                 	
                 	**type**\: list of  		 :py:class:`AllOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.ShelfMgr.Trace.Location.AllOptions>`
+                
+                	**config**\: False
                 
                 
 
@@ -256,10 +282,14 @@ class Oper(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: trace_blocks
                     
                     	
                     	**type**\: list of  		 :py:class:`TraceBlocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.ShelfMgr.Trace.Location.AllOptions.TraceBlocks>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -299,6 +329,8 @@ class Oper(Entity):
                         	Trace output block
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -326,6 +358,11 @@ class Oper(Entity):
                             self._perform_setattr(Oper.ShelfMgr.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
 
+
+
+
+
+
     class Platform(Entity):
         """
         
@@ -335,15 +372,21 @@ class Oper(Entity):
         	
         	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Platform.Summary>`
         
+        	**config**\: False
+        
         .. attribute:: detail
         
         	
         	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Platform.Detail>`
         
+        	**config**\: False
+        
         .. attribute:: slices
         
         	
         	**type**\:  :py:class:`Slices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Platform.Slices>`
+        
+        	**config**\: False
         
         
 
@@ -391,6 +434,8 @@ class Oper(Entity):
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Platform.Summary.Location>`
             
+            	**config**\: False
+            
             
 
             """
@@ -429,10 +474,14 @@ class Oper(Entity):
                 
                 	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
+                	**config**\: False
+                
                 .. attribute:: summary_data
                 
                 	
                 	**type**\:  :py:class:`SummaryData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Platform.Summary.Location.SummaryData>`
+                
+                	**config**\: False
                 
                 
 
@@ -475,20 +524,28 @@ class Oper(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: hw_state
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: sw_state
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: config_state
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -523,6 +580,9 @@ class Oper(Entity):
                         self._perform_setattr(Oper.Platform.Summary.Location.SummaryData, ['card_type', 'hw_state', 'sw_state', 'config_state'], name, value)
 
 
+
+
+
         class Detail(Entity):
             """
             
@@ -531,6 +591,8 @@ class Oper(Entity):
             
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Platform.Detail.Location>`
+            
+            	**config**\: False
             
             
 
@@ -570,10 +632,14 @@ class Oper(Entity):
                 
                 	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
+                	**config**\: False
+                
                 .. attribute:: detail_data
                 
                 	
                 	**type**\:  :py:class:`DetailData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Platform.Detail.Location.DetailData>`
+                
+                	**config**\: False
                 
                 
 
@@ -616,45 +682,63 @@ class Oper(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: vid_sn
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: hw_state
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: sw_state
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: config_wordy
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: hw_ver
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_event
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_ev_reason_str
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -699,6 +783,9 @@ class Oper(Entity):
                         self._perform_setattr(Oper.Platform.Detail.Location.DetailData, ['pid', 'description', 'vid_sn', 'hw_state', 'sw_state', 'config_wordy', 'hw_ver', 'last_event', 'last_ev_reason_str'], name, value)
 
 
+
+
+
         class Slices(Entity):
             """
             
@@ -707,6 +794,8 @@ class Oper(Entity):
             
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Platform.Slices.Location>`
+            
+            	**config**\: False
             
             
 
@@ -746,10 +835,14 @@ class Oper(Entity):
                 
                 	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
+                	**config**\: False
+                
                 .. attribute:: slice_values
                 
                 	
                 	**type**\: list of  		 :py:class:`SliceValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Platform.Slices.Location.SliceValues>`
+                
+                	**config**\: False
                 
                 
 
@@ -792,10 +885,14 @@ class Oper(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: slice
                     
                     	
                     	**type**\:  :py:class:`Slice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Platform.Slices.Location.SliceValues.Slice>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -839,15 +936,21 @@ class Oper(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: admin_state
                         
                         	
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: oper_state
                         
                         	
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -880,6 +983,11 @@ class Oper(Entity):
                             self._perform_setattr(Oper.Platform.Slices.Location.SliceValues.Slice, ['slice_num', 'admin_state', 'oper_state'], name, value)
 
 
+
+
+
+
+
     class Chassis(Entity):
         """
         
@@ -888,6 +996,8 @@ class Oper(Entity):
         
         	
         	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Chassis.Brief>`
+        
+        	**config**\: False
         
         
 
@@ -927,6 +1037,8 @@ class Oper(Entity):
             	
             	**type**\: list of  		 :py:class:`ChassisSerial <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Chassis.Brief.ChassisSerial>`
             
+            	**config**\: False
+            
             
 
             """
@@ -963,10 +1075,14 @@ class Oper(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: brief_data
                 
                 	
                 	**type**\:  :py:class:`BriefData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Chassis.Brief.ChassisSerial.BriefData>`
+                
+                	**config**\: False
                 
                 
 
@@ -1009,25 +1125,35 @@ class Oper(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: rack_type
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: rack_state
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: data_plane
                     
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: ctrl_plane
                     
                     	
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1064,6 +1190,10 @@ class Oper(Entity):
                         self._perform_setattr(Oper.Chassis.Brief.ChassisSerial.BriefData, ['racknum', 'rack_type', 'rack_state', 'data_plane', 'ctrl_plane'], name, value)
 
 
+
+
+
+
     class Reload(Entity):
         """
         
@@ -1072,6 +1202,8 @@ class Oper(Entity):
         
         	
         	**type**\:  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Reload.Rack>`
+        
+        	**config**\: False
         
         
 
@@ -1111,6 +1243,8 @@ class Oper(Entity):
             	
             	**type**\: list of  		 :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Reload.Rack.Racks>`
             
+            	**config**\: False
+            
             
 
             """
@@ -1147,6 +1281,8 @@ class Oper(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1175,6 +1311,9 @@ class Oper(Entity):
                     self._perform_setattr(Oper.Reload.Rack.Racks, ['rack'], name, value)
 
 
+
+
+
     class RebootHistory(Entity):
         """
         
@@ -1184,15 +1323,21 @@ class Oper(Entity):
         	
         	**type**\:  :py:class:`Card <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.RebootHistory.Card>`
         
+        	**config**\: False
+        
         .. attribute:: admin_vm
         
         	
         	**type**\:  :py:class:`AdminVm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.RebootHistory.AdminVm>`
         
+        	**config**\: False
+        
         .. attribute:: reverse
         
         	
         	**type**\:  :py:class:`Reverse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.RebootHistory.Reverse>`
+        
+        	**config**\: False
         
         
 
@@ -1240,6 +1385,8 @@ class Oper(Entity):
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.RebootHistory.Card.Location>`
             
+            	**config**\: False
+            
             
 
             """
@@ -1278,10 +1425,14 @@ class Oper(Entity):
                 
                 	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
+                	**config**\: False
+                
                 .. attribute:: events
                 
                 	
                 	**type**\: list of  		 :py:class:`Events <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.RebootHistory.Card.Location.Events>`
+                
+                	**config**\: False
                 
                 
 
@@ -1324,10 +1475,14 @@ class Oper(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: event
                     
                     	
                     	**type**\:  :py:class:`Event <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.RebootHistory.Card.Location.Events.Event>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1369,6 +1524,8 @@ class Oper(Entity):
                         	
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: reason_code
                         
                         	
@@ -1376,20 +1533,28 @@ class Oper(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: reason
                         
                         	
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: src_loc
                         
                         	
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: src_name
                         
                         	
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -1426,6 +1591,10 @@ class Oper(Entity):
                             self._perform_setattr(Oper.RebootHistory.Card.Location.Events.Event, ['timestamp', 'reason_code', 'reason', 'src_loc', 'src_name'], name, value)
 
 
+
+
+
+
         class AdminVm(Entity):
             """
             
@@ -1434,6 +1603,8 @@ class Oper(Entity):
             
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.RebootHistory.AdminVm.Location>`
+            
+            	**config**\: False
             
             
 
@@ -1473,10 +1644,14 @@ class Oper(Entity):
                 
                 	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
+                	**config**\: False
+                
                 .. attribute:: events
                 
                 	
                 	**type**\: list of  		 :py:class:`Events <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.RebootHistory.AdminVm.Location.Events>`
+                
+                	**config**\: False
                 
                 
 
@@ -1519,10 +1694,14 @@ class Oper(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: event
                     
                     	
                     	**type**\:  :py:class:`Event <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.RebootHistory.AdminVm.Location.Events.Event>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1564,6 +1743,8 @@ class Oper(Entity):
                         	
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: reason_code
                         
                         	
@@ -1571,20 +1752,28 @@ class Oper(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: reason
                         
                         	
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: src_loc
                         
                         	
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: src_name
                         
                         	
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -1621,6 +1810,10 @@ class Oper(Entity):
                             self._perform_setattr(Oper.RebootHistory.AdminVm.Location.Events.Event, ['timestamp', 'reason_code', 'reason', 'src_loc', 'src_name'], name, value)
 
 
+
+
+
+
         class Reverse(Entity):
             """
             
@@ -1630,10 +1823,14 @@ class Oper(Entity):
             	
             	**type**\:  :py:class:`Card <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.RebootHistory.Reverse.Card>`
             
+            	**config**\: False
+            
             .. attribute:: admin_vm
             
             	
             	**type**\:  :py:class:`AdminVm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.RebootHistory.Reverse.AdminVm>`
+            
+            	**config**\: False
             
             
 
@@ -1677,6 +1874,8 @@ class Oper(Entity):
                 	
                 	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.RebootHistory.Reverse.Card.Location>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1715,10 +1914,14 @@ class Oper(Entity):
                     
                     	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: events
                     
                     	
                     	**type**\: list of  		 :py:class:`Events <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.RebootHistory.Reverse.Card.Location.Events>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1761,10 +1964,14 @@ class Oper(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: event
                         
                         	
                         	**type**\:  :py:class:`Event <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.RebootHistory.Reverse.Card.Location.Events.Event>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1806,6 +2013,8 @@ class Oper(Entity):
                             	
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: reason_code
                             
                             	
@@ -1813,20 +2022,28 @@ class Oper(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: reason
                             
                             	
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: src_loc
                             
                             	
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: src_name
                             
                             	
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -1863,6 +2080,10 @@ class Oper(Entity):
                                 self._perform_setattr(Oper.RebootHistory.Reverse.Card.Location.Events.Event, ['timestamp', 'reason_code', 'reason', 'src_loc', 'src_name'], name, value)
 
 
+
+
+
+
             class AdminVm(Entity):
                 """
                 
@@ -1871,6 +2092,8 @@ class Oper(Entity):
                 
                 	
                 	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.RebootHistory.Reverse.AdminVm.Location>`
+                
+                	**config**\: False
                 
                 
 
@@ -1910,10 +2133,14 @@ class Oper(Entity):
                     
                     	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: events
                     
                     	
                     	**type**\: list of  		 :py:class:`Events <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.RebootHistory.Reverse.AdminVm.Location.Events>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1956,10 +2183,14 @@ class Oper(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: event
                         
                         	
                         	**type**\:  :py:class:`Event <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.RebootHistory.Reverse.AdminVm.Location.Events.Event>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2001,6 +2232,8 @@ class Oper(Entity):
                             	
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: reason_code
                             
                             	
@@ -2008,20 +2241,28 @@ class Oper(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: reason
                             
                             	
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: src_loc
                             
                             	
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: src_name
                             
                             	
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -2058,6 +2299,12 @@ class Oper(Entity):
                                 self._perform_setattr(Oper.RebootHistory.Reverse.AdminVm.Location.Events.Event, ['timestamp', 'reason_code', 'reason', 'src_loc', 'src_name'], name, value)
 
 
+
+
+
+
+
+
     class Interface(Entity):
         """
         
@@ -2067,10 +2314,14 @@ class Oper(Entity):
         	
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: interface_data
         
         	
         	**type**\:  :py:class:`InterfaceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Interface.InterfaceData>`
+        
+        	**config**\: False
         
         
 
@@ -2115,6 +2366,8 @@ class Oper(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: ipv4
             
             	
@@ -2122,15 +2375,21 @@ class Oper(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: flagstr
             
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: port_status
             
             	
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: mtu
             
@@ -2139,12 +2398,16 @@ class Oper(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: metric
             
             	
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rx_pak
             
@@ -2153,12 +2416,16 @@ class Oper(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rx_errors
             
             	
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rx_dropped
             
@@ -2167,12 +2434,16 @@ class Oper(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rx_overruns
             
             	
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rx_frame
             
@@ -2181,12 +2452,16 @@ class Oper(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tx_pak
             
             	
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tx_errors
             
@@ -2195,12 +2470,16 @@ class Oper(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tx_dropped
             
             	
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tx_overruns
             
@@ -2209,12 +2488,16 @@ class Oper(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tx_carrier
             
             	
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: collisions
             
@@ -2223,12 +2506,16 @@ class Oper(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tx_queuelen
             
             	
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rx_bytes
             
@@ -2237,6 +2524,8 @@ class Oper(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: tx_bytes
             
             	
@@ -2244,12 +2533,16 @@ class Oper(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: intf_num
             
             	
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2318,6 +2611,8 @@ class Oper(Entity):
                 self._perform_setattr(Oper.Interface.InterfaceData, ['mac', 'ipv4', 'flagstr', 'port_status', 'mtu', 'metric', 'rx_pak', 'rx_errors', 'rx_dropped', 'rx_overruns', 'rx_frame', 'tx_pak', 'tx_errors', 'tx_dropped', 'tx_overruns', 'tx_carrier', 'collisions', 'tx_queuelen', 'rx_bytes', 'tx_bytes', 'intf_num'], name, value)
 
 
+
+
     class ReloadVm(Entity):
         """
         
@@ -2326,6 +2621,8 @@ class Oper(Entity):
         
         	
         	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.ReloadVm.Location>`
+        
+        	**config**\: False
         
         
 
@@ -2363,6 +2660,8 @@ class Oper(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             
 
             """
@@ -2391,6 +2690,8 @@ class Oper(Entity):
                 self._perform_setattr(Oper.ReloadVm.Location, ['location'], name, value)
 
 
+
+
     class Macpool(Entity):
         """
         
@@ -2399,6 +2700,8 @@ class Oper(Entity):
         
         	
         	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Macpool.Brief>`
+        
+        	**config**\: False
         
         
 
@@ -2438,6 +2741,8 @@ class Oper(Entity):
             	
             	**type**\: list of  		 :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Macpool.Brief.Rack>`
             
+            	**config**\: False
+            
             
 
             """
@@ -2474,10 +2779,14 @@ class Oper(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: brief_data
                 
                 	
                 	**type**\:  :py:class:`BriefData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sm.Oper.Macpool.Brief.Rack.BriefData>`
+                
+                	**config**\: False
                 
                 
 
@@ -2520,12 +2829,16 @@ class Oper(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: mac_base
                     
                     	
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    
+                    	**config**\: False
                     
                     .. attribute:: mac_count
                     
@@ -2534,10 +2847,14 @@ class Oper(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_selected
                     
                     	
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: allocated_count
                     
@@ -2545,6 +2862,8 @@ class Oper(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -2580,9 +2899,15 @@ class Oper(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Oper.Macpool.Brief.Rack.BriefData, ['racknum', 'mac_base', 'mac_count', 'is_selected', 'allocated_count'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Oper()
         return self._top_entity
+
+
 
 class Config(Entity):
     """
@@ -2733,6 +3058,8 @@ class Config(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Config.Chassis.Serial, ['serial', 'rack'], name, value)
+
+
 
 
     class Interface(Entity):
@@ -2956,6 +3283,7 @@ class Config(Entity):
                         self._perform_setattr(Config.Interface.MgmtEth.Locport.Ipv4, ['address'], name, value)
 
 
+
                 class Arp(Entity):
                     """
                     
@@ -3042,6 +3370,11 @@ class Config(Entity):
                             self._perform_setattr(Config.Interface.MgmtEth.Locport.Arp.Ip, ['ip', 'mac'], name, value)
 
 
+
+
+
+
+
     class Domain(Entity):
         """
         
@@ -3121,6 +3454,7 @@ class Config(Entity):
                 self._perform_setattr(Config.Domain.Name, ['name'], name, value)
 
 
+
         class NameServer(Entity):
             """
             
@@ -3158,6 +3492,8 @@ class Config(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Config.Domain.NameServer, ['name_server'], name, value)
+
+
 
 
     class VirtualMacaddrRange(Entity):
@@ -3207,9 +3543,12 @@ class Config(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Config.VirtualMacaddrRange, ['base', 'count'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Config()
         return self._top_entity
+
+
 
 class Actions(Entity):
     """
@@ -3239,4 +3578,6 @@ class Actions(Entity):
     def clone_ptr(self):
         self._top_entity = Actions()
         return self._top_entity
+
+
 

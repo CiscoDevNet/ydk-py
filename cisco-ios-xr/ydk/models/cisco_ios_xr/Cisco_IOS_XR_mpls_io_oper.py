@@ -31,6 +31,8 @@ class MplsEa(Entity):
     	NODE container class for MPLS IO EA operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsEa.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -70,6 +72,8 @@ class MplsEa(Entity):
         	Per node MPLS IO EA operational data
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsEa.Nodes.Node>`
         
+        	**config**\: False
+        
         
 
         """
@@ -108,10 +112,14 @@ class MplsEa(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: interfaces
             
             	MPLS IO EA Interfaces information 
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsEa.Nodes.Node.Interfaces>`
+            
+            	**config**\: False
             
             
 
@@ -154,6 +162,8 @@ class MplsEa(Entity):
                 	MPLS IO EA NODE Interface data 
                 	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsEa.Nodes.Node.Interfaces.Interface>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -191,12 +201,16 @@ class MplsEa(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: mtu
                     
                     	MTU for fragmentation
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: bkp_label_stack_depth
                     
@@ -205,6 +219,8 @@ class MplsEa(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: srte_label_stack_depth
                     
                     	Srte Label Stack Depth
@@ -212,12 +228,16 @@ class MplsEa(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: pri_label_stack_depth
                     
                     	Pri Label Stack Depth
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -251,11 +271,17 @@ class MplsEa(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsEa.Nodes.Node.Interfaces.Interface, ['interface_name', 'mtu', 'bkp_label_stack_depth', 'srte_label_stack_depth', 'pri_label_stack_depth'], name, value)
+                        self._perform_setattr(MplsEa.Nodes.Node.Interfaces.Interface, ['interface_name', u'mtu', u'bkp_label_stack_depth', u'srte_label_stack_depth', u'pri_label_stack_depth'], name, value)
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = MplsEa()
         return self._top_entity
+
+
 
 class MplsMa(Entity):
     """
@@ -265,6 +291,8 @@ class MplsMa(Entity):
     
     	NODE container class for MPLS IO MA operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsMa.Nodes>`
+    
+    	**config**\: False
     
     
 
@@ -305,6 +333,8 @@ class MplsMa(Entity):
         	Per node MPLS IO MA operational data
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsMa.Nodes.Node>`
         
+        	**config**\: False
+        
         
 
         """
@@ -343,10 +373,14 @@ class MplsMa(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: interfaces
             
             	MPLS IO MA Interfaces information 
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsMa.Nodes.Node.Interfaces>`
+            
+            	**config**\: False
             
             
 
@@ -389,6 +423,8 @@ class MplsMa(Entity):
                 	MPLS IO MA NODE Interface data 
                 	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_io_oper.MplsMa.Nodes.Node.Interfaces.Interface>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -426,12 +462,16 @@ class MplsMa(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: mtu
                     
                     	MTU for fragmentation
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: bkp_label_stack_depth
                     
@@ -440,6 +480,8 @@ class MplsMa(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: srte_label_stack_depth
                     
                     	Srte Label Stack Depth
@@ -447,12 +489,16 @@ class MplsMa(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: pri_label_stack_depth
                     
                     	Pri Label Stack Depth
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -486,9 +532,15 @@ class MplsMa(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsMa.Nodes.Node.Interfaces.Interface, ['interface_name', 'mtu', 'bkp_label_stack_depth', 'srte_label_stack_depth', 'pri_label_stack_depth'], name, value)
+                        self._perform_setattr(MplsMa.Nodes.Node.Interfaces.Interface, ['interface_name', u'mtu', u'bkp_label_stack_depth', u'srte_label_stack_depth', u'pri_label_stack_depth'], name, value)
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = MplsMa()
         return self._top_entity
+
+
 

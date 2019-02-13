@@ -30,6 +30,8 @@ class TimingCard(Entity):
     	List of nodes applicable to timing
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rptiming_tmg_oper.TimingCard.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class TimingCard(Entity):
         
         	Timing operational data for a single node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rptiming_tmg_oper.TimingCard.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -106,15 +110,21 @@ class TimingCard(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: input_clock
             
             	Display the timing card input clock status information
             	**type**\:  :py:class:`InputClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rptiming_tmg_oper.TimingCard.Nodes.Node.InputClock>`
             
+            	**config**\: False
+            
             .. attribute:: pll
             
             	Display the timing card PLL status information
             	**type**\:  :py:class:`Pll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rptiming_tmg_oper.TimingCard.Nodes.Node.Pll>`
+            
+            	**config**\: False
             
             
 
@@ -162,55 +172,77 @@ class TimingCard(Entity):
                 	IC Valid 1
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: ic2_valid
                 
                 	IC Valid 2
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ic3_valid
                 
                 	IC Valid 3
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: ic4_valid
                 
                 	IC Valid 4
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ic5_valid
                 
                 	IC Valid 5
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: ic6_valid
                 
                 	IC Valid 6
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ic7_valid
                 
                 	IC Valid 7
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: ic8_valid
                 
                 	IC Valid 8
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ic9_valid
                 
                 	IC Valid 9
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: ic10_valid
                 
                 	IC Valid 10
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: ic11_valid
                 
                 	IC Valid 11
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ic1_slot
                 
@@ -219,12 +251,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic2_slot
                 
                 	IC Slot 2
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic3_slot
                 
@@ -233,12 +269,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic4_slot
                 
                 	IC Slot 4
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic5_slot
                 
@@ -247,12 +287,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic6_slot
                 
                 	IC Slot 6
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic7_slot
                 
@@ -261,12 +305,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic8_slot
                 
                 	IC Slot 8
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic9_slot
                 
@@ -275,12 +323,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic10_slot
                 
                 	IC Slot 10
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic11_slot
                 
@@ -289,12 +341,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic1_split_xom
                 
                 	IC1 Split XO Mode Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic2_split_xom
                 
@@ -303,12 +359,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic3_split_xom
                 
                 	IC3 Split XO Mode Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic4_split_xom
                 
@@ -317,12 +377,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic5_split_xom
                 
                 	IC5 Split XO Mode Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic6_split_xom
                 
@@ -331,12 +395,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic7_split_xom
                 
                 	IC7 Split XO Mode Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic8_split_xom
                 
@@ -345,12 +413,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic9_split_xom
                 
                 	IC9 Split XO Mode Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic10_split_xom
                 
@@ -359,12 +431,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic11_split_xom
                 
                 	IC11 Split XO Mode Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic1_eppsm
                 
@@ -373,12 +449,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic2_eppsm
                 
                 	IC2 ePPSM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic3_eppsm
                 
@@ -387,12 +467,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic4_eppsm
                 
                 	IC4 ePPSM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic5_eppsm
                 
@@ -401,12 +485,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic6_eppsm
                 
                 	IC6 ePPSM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic7_eppsm
                 
@@ -415,12 +503,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic8_eppsm
                 
                 	IC8 ePPSM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic9_eppsm
                 
@@ -429,12 +521,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic10_eppsm
                 
                 	IC10 ePPSM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic11_eppsm
                 
@@ -443,12 +539,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic1_pfm
                 
                 	IC1 PFM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic2_pfm
                 
@@ -457,12 +557,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic3_pfm
                 
                 	IC3 PFM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic4_pfm
                 
@@ -471,12 +575,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic5_pfm
                 
                 	IC5 PFM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic6_pfm
                 
@@ -485,12 +593,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic7_pfm
                 
                 	IC7 PFM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic8_pfm
                 
@@ -499,12 +611,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic9_pfm
                 
                 	IC9 PFM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic10_pfm
                 
@@ -513,12 +629,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic11_pfm
                 
                 	IC11 PFM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic1_gst
                 
@@ -527,12 +647,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic2_gst
                 
                 	IC2 GST Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic3_gst
                 
@@ -541,12 +665,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic4_gst
                 
                 	IC4 GST Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic5_gst
                 
@@ -555,12 +683,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic6_gst
                 
                 	IC6 GST Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic7_gst
                 
@@ -569,12 +701,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic8_gst
                 
                 	IC8 GST Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic9_gst
                 
@@ -583,12 +719,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic10_gst
                 
                 	IC10 GST Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic11_gst
                 
@@ -597,12 +737,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic1_cfm
                 
                 	IC1 CFM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic2_cfm
                 
@@ -611,12 +755,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic3_cfm
                 
                 	IC3 CFM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic4_cfm
                 
@@ -625,12 +773,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic5_cfm
                 
                 	IC5 CFM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic6_cfm
                 
@@ -639,12 +791,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic7_cfm
                 
                 	IC7 CFM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic8_cfm
                 
@@ -653,12 +809,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic9_cfm
                 
                 	IC9 CFM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic10_cfm
                 
@@ -667,12 +827,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic11_cfm
                 
                 	IC11 CFM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic1_scm
                 
@@ -681,12 +845,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic2_scm
                 
                 	IC2 SCM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic3_scm
                 
@@ -695,12 +863,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic4_scm
                 
                 	IC4 SCM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic5_scm
                 
@@ -709,12 +881,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic6_scm
                 
                 	IC6 SCM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic7_scm
                 
@@ -723,12 +899,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic8_scm
                 
                 	IC8 SCM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic9_scm
                 
@@ -737,12 +917,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic10_scm
                 
                 	IC10 SCM Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic11_scm
                 
@@ -751,12 +935,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic1_los
                 
                 	IC1 LOS Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic2_los
                 
@@ -765,12 +953,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic3_los
                 
                 	IC3 LOS Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic4_los
                 
@@ -779,12 +971,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic5_los
                 
                 	IC5 LOS Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic6_los
                 
@@ -793,12 +989,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic7_los
                 
                 	IC7 LOS Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic8_los
                 
@@ -807,12 +1007,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic9_los
                 
                 	IC9 LOS Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic10_los
                 
@@ -821,12 +1025,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic11_los
                 
                 	IC11 LOS Status
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 
 
@@ -1051,6 +1259,7 @@ class TimingCard(Entity):
                     self._perform_setattr(TimingCard.Nodes.Node.InputClock, ['ic1_valid', 'ic2_valid', 'ic3_valid', 'ic4_valid', 'ic5_valid', 'ic6_valid', 'ic7_valid', 'ic8_valid', 'ic9_valid', 'ic10_valid', 'ic11_valid', 'ic1_slot', 'ic2_slot', 'ic3_slot', 'ic4_slot', 'ic5_slot', 'ic6_slot', 'ic7_slot', 'ic8_slot', 'ic9_slot', 'ic10_slot', 'ic11_slot', 'ic1_split_xom', 'ic2_split_xom', 'ic3_split_xom', 'ic4_split_xom', 'ic5_split_xom', 'ic6_split_xom', 'ic7_split_xom', 'ic8_split_xom', 'ic9_split_xom', 'ic10_split_xom', 'ic11_split_xom', 'ic1_eppsm', 'ic2_eppsm', 'ic3_eppsm', 'ic4_eppsm', 'ic5_eppsm', 'ic6_eppsm', 'ic7_eppsm', 'ic8_eppsm', 'ic9_eppsm', 'ic10_eppsm', 'ic11_eppsm', 'ic1_pfm', 'ic2_pfm', 'ic3_pfm', 'ic4_pfm', 'ic5_pfm', 'ic6_pfm', 'ic7_pfm', 'ic8_pfm', 'ic9_pfm', 'ic10_pfm', 'ic11_pfm', 'ic1_gst', 'ic2_gst', 'ic3_gst', 'ic4_gst', 'ic5_gst', 'ic6_gst', 'ic7_gst', 'ic8_gst', 'ic9_gst', 'ic10_gst', 'ic11_gst', 'ic1_cfm', 'ic2_cfm', 'ic3_cfm', 'ic4_cfm', 'ic5_cfm', 'ic6_cfm', 'ic7_cfm', 'ic8_cfm', 'ic9_cfm', 'ic10_cfm', 'ic11_cfm', 'ic1_scm', 'ic2_scm', 'ic3_scm', 'ic4_scm', 'ic5_scm', 'ic6_scm', 'ic7_scm', 'ic8_scm', 'ic9_scm', 'ic10_scm', 'ic11_scm', 'ic1_los', 'ic2_los', 'ic3_los', 'ic4_los', 'ic5_los', 'ic6_los', 'ic7_los', 'ic8_los', 'ic9_los', 'ic10_los', 'ic11_los'], name, value)
 
 
+
             class Pll(Entity):
                 """
                 Display the timing card PLL status information
@@ -1062,12 +1271,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: t4_pll_state
                 
                 	T4 PLL state
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ptp_pll_state
                 
@@ -1076,12 +1289,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: t0_pll_selected
                 
                 	T0 PLL selected
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: t4_pll_selected
                 
@@ -1090,12 +1307,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ptp_pll_selected
                 
                 	1588 PLL selected
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: t0_pll_mode
                 
@@ -1104,12 +1325,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: t4_pll_mode
                 
                 	T4 PLL mode
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ptp_pll_mode
                 
@@ -1118,12 +1343,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: t0_pll_ic1_prio
                 
                 	T0 PLL IC1 Priority
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: t0_pll_ic2_prio
                 
@@ -1132,12 +1361,16 @@ class TimingCard(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: t0_pll_ic3_prio
                 
                 	T0 PLL IC3 Priority
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: t0_pll_ic4_prio
                 
@@ -1146,12 +1379,16 @@ class TimingCard(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: t0_pll_ic5_prio
                 
                 	T0 PLL IC5 Priority
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: t0_pll_ic6_prio
                 
@@ -1160,12 +1397,16 @@ class TimingCard(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: t0_pll_ic7_prio
                 
                 	T0 PLL IC7 Priority
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: t0_pll_ic8_prio
                 
@@ -1174,12 +1415,16 @@ class TimingCard(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: t0_pll_ic9_prio
                 
                 	T0 PLL IC9 Priority
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: t0_pll_ic10_prio
                 
@@ -1188,12 +1433,16 @@ class TimingCard(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: t0_pll_ic11_prio
                 
                 	T0 PLL IC11 Priority
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: t4_pll_ic1_prio
                 
@@ -1202,12 +1451,16 @@ class TimingCard(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: t4_pll_ic2_prio
                 
                 	T4 PLL IC2 Priority
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: t4_pll_ic3_prio
                 
@@ -1216,12 +1469,16 @@ class TimingCard(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: t4_pll_ic4_prio
                 
                 	T4 PLL IC4 Priority
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: t4_pll_ic5_prio
                 
@@ -1230,12 +1487,16 @@ class TimingCard(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: t4_pll_ic6_prio
                 
                 	T4 PLL IC6 Priority
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: t4_pll_ic7_prio
                 
@@ -1244,12 +1505,16 @@ class TimingCard(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: t4_pll_ic8_prio
                 
                 	T4 PLL IC8 Priority
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: t4_pll_ic9_prio
                 
@@ -1258,12 +1523,16 @@ class TimingCard(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: t4_pll_ic10_prio
                 
                 	T4 PLL IC10 Priority
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: t4_pll_ic11_prio
                 
@@ -1272,12 +1541,16 @@ class TimingCard(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: ptp_pll_ic1_prio
                 
                 	PTP PLL IC1 Priority
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: ptp_pll_ic2_prio
                 
@@ -1286,12 +1559,16 @@ class TimingCard(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: ptp_pll_ic3_prio
                 
                 	PTP PLL IC3 Priority
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: ptp_pll_ic4_prio
                 
@@ -1300,12 +1577,16 @@ class TimingCard(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: ptp_pll_ic5_prio
                 
                 	PTP PLL IC5 Priority
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: ptp_pll_ic6_prio
                 
@@ -1314,12 +1595,16 @@ class TimingCard(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: ptp_pll_ic7_prio
                 
                 	PTP PLL IC7 Priority
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: ptp_pll_ic8_prio
                 
@@ -1328,12 +1613,16 @@ class TimingCard(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: ptp_pll_ic9_prio
                 
                 	PTP PLL IC9 Priority
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: ptp_pll_ic10_prio
                 
@@ -1342,6 +1631,8 @@ class TimingCard(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: ptp_pll_ic11_prio
                 
                 	PTP PLL IC11 Priority
@@ -1349,60 +1640,84 @@ class TimingCard(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: ic1_valid
                 
                 	IC Valid 1
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ic2_valid
                 
                 	IC Valid 2
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: ic3_valid
                 
                 	IC Valid 3
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ic4_valid
                 
                 	IC Valid 4
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: ic5_valid
                 
                 	IC Valid 5
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ic6_valid
                 
                 	IC Valid 6
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: ic7_valid
                 
                 	IC Valid 7
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ic8_valid
                 
                 	IC Valid 8
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: ic9_valid
                 
                 	IC Valid 9
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: ic10_valid
                 
                 	IC Valid 10
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: ic11_valid
                 
                 	IC Valid 11
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: t0_pll_freq_offset
                 
@@ -1411,12 +1726,16 @@ class TimingCard(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: t4_pll_freq_offset
                 
                 	T4 PLL Frequency Offset
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**config**\: False
                 
                 .. attribute:: ptp_pll_freq_offset
                 
@@ -1425,12 +1744,16 @@ class TimingCard(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: t0_pll_bandwidth
                 
                 	T0 PLL Bandwidth
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: t4_pll_bandwidth
                 
@@ -1439,12 +1762,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ptp_pll_bandwidth
                 
                 	PTP PLL Bandwidth
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: t0_pll_psl
                 
@@ -1453,12 +1780,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: t4_pll_psl
                 
                 	T4 PLL PSL
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ptp_pll_psl
                 
@@ -1467,12 +1798,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic1_qual_min
                 
                 	IC1 Pull\-in/Hold\-in Min
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic1_qual_max
                 
@@ -1481,12 +1816,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic2_qual_min
                 
                 	IC2 Pull\-in/Hold\-in Min
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic2_qual_max
                 
@@ -1495,12 +1834,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic3_qual_min
                 
                 	IC3 Pull\-in/Hold\-in Min
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic3_qual_max
                 
@@ -1509,12 +1852,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic4_qual_min
                 
                 	IC4 Pull\-in/Hold\-in Min
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic4_qual_max
                 
@@ -1523,12 +1870,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic5_qual_min
                 
                 	IC5 Pull\-in/Hold\-in Min
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic5_qual_max
                 
@@ -1537,12 +1888,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic6_qual_min
                 
                 	IC6 Pull\-in/Hold\-in Min
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic6_qual_max
                 
@@ -1551,12 +1906,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic7_qual_min
                 
                 	IC7 Pull\-in/Hold\-in Min
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic7_qual_max
                 
@@ -1565,12 +1924,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic8_qual_min
                 
                 	IC8 Pull\-in/Hold\-in Min
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic8_qual_max
                 
@@ -1579,12 +1942,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic9_qual_min
                 
                 	IC9 Pull\-in/Hold\-in Min
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic9_qual_max
                 
@@ -1593,12 +1960,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic10_qual_min
                 
                 	IC10 Pull\-in/Hold\-in Min
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 .. attribute:: ic10_qual_max
                 
@@ -1607,6 +1978,8 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic11_qual_min
                 
                 	IC11 Pull\-in/Hold\-in Min
@@ -1614,12 +1987,16 @@ class TimingCard(Entity):
                 
                 	**length:** 0..50
                 
+                	**config**\: False
+                
                 .. attribute:: ic11_qual_max
                 
                 	IC11 Pull\-in/Hold\-in Min
                 	**type**\: str
                 
                 	**length:** 0..50
+                
+                	**config**\: False
                 
                 
 
@@ -1813,7 +2190,12 @@ class TimingCard(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(TimingCard.Nodes.Node.Pll, ['t0_pll_state', 't4_pll_state', 'ptp_pll_state', 't0_pll_selected', 't4_pll_selected', 'ptp_pll_selected', 't0_pll_mode', 't4_pll_mode', 'ptp_pll_mode', 't0_pll_ic1_prio', 't0_pll_ic2_prio', 't0_pll_ic3_prio', 't0_pll_ic4_prio', 't0_pll_ic5_prio', 't0_pll_ic6_prio', 't0_pll_ic7_prio', 't0_pll_ic8_prio', 't0_pll_ic9_prio', 't0_pll_ic10_prio', 't0_pll_ic11_prio', 't4_pll_ic1_prio', 't4_pll_ic2_prio', 't4_pll_ic3_prio', 't4_pll_ic4_prio', 't4_pll_ic5_prio', 't4_pll_ic6_prio', 't4_pll_ic7_prio', 't4_pll_ic8_prio', 't4_pll_ic9_prio', 't4_pll_ic10_prio', 't4_pll_ic11_prio', 'ptp_pll_ic1_prio', 'ptp_pll_ic2_prio', 'ptp_pll_ic3_prio', 'ptp_pll_ic4_prio', 'ptp_pll_ic5_prio', 'ptp_pll_ic6_prio', 'ptp_pll_ic7_prio', 'ptp_pll_ic8_prio', 'ptp_pll_ic9_prio', 'ptp_pll_ic10_prio', 'ptp_pll_ic11_prio', 'ic1_valid', 'ic2_valid', 'ic3_valid', 'ic4_valid', 'ic5_valid', 'ic6_valid', 'ic7_valid', 'ic8_valid', 'ic9_valid', 'ic10_valid', 'ic11_valid', 't0_pll_freq_offset', 't4_pll_freq_offset', 'ptp_pll_freq_offset', 't0_pll_bandwidth', 't4_pll_bandwidth', 'ptp_pll_bandwidth', 't0_pll_psl', 't4_pll_psl', 'ptp_pll_psl', 'ic1_qual_min', 'ic1_qual_max', 'ic2_qual_min', 'ic2_qual_max', 'ic3_qual_min', 'ic3_qual_max', 'ic4_qual_min', 'ic4_qual_max', 'ic5_qual_min', 'ic5_qual_max', 'ic6_qual_min', 'ic6_qual_max', 'ic7_qual_min', 'ic7_qual_max', 'ic8_qual_min', 'ic8_qual_max', 'ic9_qual_min', 'ic9_qual_max', 'ic10_qual_min', 'ic10_qual_max', 'ic11_qual_min', 'ic11_qual_max'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = TimingCard()
         return self._top_entity
+
+
 

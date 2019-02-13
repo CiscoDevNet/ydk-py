@@ -96,15 +96,21 @@ class Tty(Entity):
     	List of Nodes for console
     	**type**\:  :py:class:`ConsoleNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes>`
     
+    	**config**\: False
+    
     .. attribute:: vty_lines
     
     	List of VTY lines
     	**type**\:  :py:class:`VtyLines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines>`
     
+    	**config**\: False
+    
     .. attribute:: auxiliary_nodes
     
     	List of Nodes attached with an auxiliary line
     	**type**\:  :py:class:`AuxiliaryNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes>`
+    
+    	**config**\: False
     
     
 
@@ -152,6 +158,8 @@ class Tty(Entity):
         	Console line configuration on a node
         	**type**\: list of  		 :py:class:`ConsoleNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode>`
         
+        	**config**\: False
+        
         
 
         """
@@ -190,10 +198,14 @@ class Tty(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: console_line
             
             	Console line
             	**type**\:  :py:class:`ConsoleLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine>`
+            
+            	**config**\: False
             
             
 
@@ -236,15 +248,21 @@ class Tty(Entity):
                 	Statistics of the console line
                 	**type**\:  :py:class:`ConsoleStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	Line state information
                 	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State>`
                 
+                	**config**\: False
+                
                 .. attribute:: configuration
                 
                 	Configuration information of the line
                 	**type**\:  :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration>`
+                
+                	**config**\: False
                 
                 
 
@@ -291,20 +309,28 @@ class Tty(Entity):
                     	RS232 statistics of console line
                     	**type**\:  :py:class:`Rs232 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: general_statistics
                     
                     	General statistics of line
                     	**type**\:  :py:class:`GeneralStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: exec_
                     
                     	Exec related statistics
                     	**type**\:  :py:class:`Exec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: aaa
                     
                     	AAA related statistics
                     	**type**\:  :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -357,12 +383,16 @@ class Tty(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: bit
                         
                         .. attribute:: exec_disabled
                         
                         	Exec disabled on TTY
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: hardware_flow_control_status
                         
@@ -371,6 +401,8 @@ class Tty(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: parity_status
                         
                         	Parity status
@@ -378,12 +410,16 @@ class Tty(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: baud_rate
                         
                         	Inbound/Outbound baud rate in bps
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: bit/s
                         
@@ -394,6 +430,8 @@ class Tty(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: bit
                         
                         .. attribute:: overrun_error_count
@@ -403,6 +441,8 @@ class Tty(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: framing_error_count
                         
                         	Framing error count
@@ -410,12 +450,16 @@ class Tty(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: parity_error_count
                         
                         	Parity error count
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -460,6 +504,7 @@ class Tty(Entity):
                             self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232, [u'data_bits', u'exec_disabled', u'hardware_flow_control_status', u'parity_status', u'baud_rate', u'stop_bits', u'overrun_error_count', u'framing_error_count', u'parity_error_count'], name, value)
 
 
+
                     class GeneralStatistics(Entity):
                         """
                         General statistics of line
@@ -471,6 +516,8 @@ class Tty(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: terminal_width
                         
                         	Line width
@@ -478,10 +525,14 @@ class Tty(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: async_interface
                         
                         	Usable as async interface
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: flow_control_start_character
                         
@@ -490,6 +541,8 @@ class Tty(Entity):
                         
                         	**range:** \-128..127
                         
+                        	**config**\: False
+                        
                         .. attribute:: flow_control_stop_character
                         
                         	Software flow control stop char
@@ -497,25 +550,35 @@ class Tty(Entity):
                         
                         	**range:** \-128..127
                         
+                        	**config**\: False
+                        
                         .. attribute:: domain_lookup_enabled
                         
                         	DNS resolution enabled
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: motd_banner_enabled
                         
                         	MOTD banner enabled
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: private_flag
                         
                         	TTY private flag
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: terminal_type
                         
                         	Terminal type
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: absolute_timeout
                         
@@ -524,12 +587,16 @@ class Tty(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: idle_time
                         
                         	TTY idle time
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -575,7 +642,8 @@ class Tty(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics, ['terminal_length', 'terminal_width', 'async_interface', 'flow_control_start_character', 'flow_control_stop_character', 'domain_lookup_enabled', 'motd_banner_enabled', 'private_flag', 'terminal_type', 'absolute_timeout', 'idle_time'], name, value)
+                            self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics, [u'terminal_length', u'terminal_width', u'async_interface', u'flow_control_start_character', u'flow_control_stop_character', u'domain_lookup_enabled', u'motd_banner_enabled', u'private_flag', u'terminal_type', u'absolute_timeout', u'idle_time'], name, value)
+
 
 
                     class Exec(Entity):
@@ -586,6 +654,8 @@ class Tty(Entity):
                         
                         	Specifies whether timestamp is enabled or not
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -614,6 +684,7 @@ class Tty(Entity):
                             self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec, [u'time_stamp_enabled'], name, value)
 
 
+
                     class Aaa(Entity):
                         """
                         AAA related statistics
@@ -622,6 +693,8 @@ class Tty(Entity):
                         
                         	The authenticated username
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -650,6 +723,8 @@ class Tty(Entity):
                             self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa, [u'user_name'], name, value)
 
 
+
+
                 class State(Entity):
                     """
                     Line state information
@@ -659,10 +734,14 @@ class Tty(Entity):
                     	Information related to template applied to the line
                     	**type**\:  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: general
                     
                     	General information
                     	**type**\:  :py:class:`General <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -706,6 +785,8 @@ class Tty(Entity):
                         	Name of the template
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -733,6 +814,7 @@ class Tty(Entity):
                             self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template, ['name'], name, value)
 
 
+
                     class General(Entity):
                         """
                         General information
@@ -742,10 +824,14 @@ class Tty(Entity):
                         	application running of on the tty line
                         	**type**\:  :py:class:`SessionOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperation>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: general_state
                         
                         	State of the line
                         	**type**\:  :py:class:`LineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineState>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -776,6 +862,8 @@ class Tty(Entity):
                             self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General, ['operation_', 'general_state'], name, value)
 
 
+
+
                 class Configuration(Entity):
                     """
                     Configuration information of the line
@@ -784,6 +872,8 @@ class Tty(Entity):
                     
                     	Conection configuration information
                     	**type**\:  :py:class:`ConnectionConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -822,15 +912,21 @@ class Tty(Entity):
                         	Protocols to use when connecting to the terminal server
                         	**type**\:  :py:class:`TransportInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: acl_out
                         
                         	ACL for outbound traffic
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: acl_in
                         
                         	ACL for inbound traffic
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -875,6 +971,8 @@ class Tty(Entity):
                             	Choose transport protocols
                             	**type**\:  :py:class:`TtyTransportProtocolSelect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelect>`
                             
+                            	**config**\: False
+                            
                             	**default value**\: all
                             
                             .. attribute:: protocol1
@@ -882,10 +980,14 @@ class Tty(Entity):
                             	Transport protocol1
                             	**type**\:  :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: protocol2
                             
                             	Transport protocol2
                             	**type**\:  :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: none
                             
@@ -893,6 +995,8 @@ class Tty(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -927,6 +1031,12 @@ class Tty(Entity):
                                 self._perform_setattr(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput, ['select', 'protocol1', 'protocol2', 'none'], name, value)
 
 
+
+
+
+
+
+
     class VtyLines(Entity):
         """
         List of VTY lines
@@ -935,6 +1045,8 @@ class Tty(Entity):
         
         	VTY Line
         	**type**\: list of  		 :py:class:`VtyLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine>`
+        
+        	**config**\: False
         
         
 
@@ -974,25 +1086,35 @@ class Tty(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: vty_statistics
             
             	Statistics of the VTY line
             	**type**\:  :py:class:`VtyStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics>`
+            
+            	**config**\: False
             
             .. attribute:: state
             
             	Line state information
             	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.State>`
             
+            	**config**\: False
+            
             .. attribute:: configuration
             
             	Configuration information of the line
             	**type**\:  :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Configuration>`
             
+            	**config**\: False
+            
             .. attribute:: sessions
             
             	Outgoing sessions
             	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Sessions>`
+            
+            	**config**\: False
             
             
 
@@ -1047,20 +1169,28 @@ class Tty(Entity):
                 	Connection related statistics
                 	**type**\:  :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Connection>`
                 
+                	**config**\: False
+                
                 .. attribute:: general_statistics
                 
                 	General statistics of line
                 	**type**\:  :py:class:`GeneralStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: exec_
                 
                 	Exec related statistics
                 	**type**\:  :py:class:`Exec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Exec>`
                 
+                	**config**\: False
+                
                 .. attribute:: aaa
                 
                 	AAA related statistics
                 	**type**\:  :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Aaa>`
+                
+                	**config**\: False
                 
                 
 
@@ -1113,6 +1243,8 @@ class Tty(Entity):
                     
                     	**length:** 0..46
                     
+                    	**config**\: False
+                    
                     .. attribute:: host_address_family
                     
                     	Incoming host address family
@@ -1120,12 +1252,16 @@ class Tty(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: service
                     
                     	Input transport
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1158,6 +1294,7 @@ class Tty(Entity):
                         self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics.Connection, [u'incoming_host_address', u'host_address_family', u'service'], name, value)
 
 
+
                 class GeneralStatistics(Entity):
                     """
                     General statistics of line
@@ -1169,6 +1306,8 @@ class Tty(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: terminal_width
                     
                     	Line width
@@ -1176,10 +1315,14 @@ class Tty(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: async_interface
                     
                     	Usable as async interface
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: flow_control_start_character
                     
@@ -1188,6 +1331,8 @@ class Tty(Entity):
                     
                     	**range:** \-128..127
                     
+                    	**config**\: False
+                    
                     .. attribute:: flow_control_stop_character
                     
                     	Software flow control stop char
@@ -1195,25 +1340,35 @@ class Tty(Entity):
                     
                     	**range:** \-128..127
                     
+                    	**config**\: False
+                    
                     .. attribute:: domain_lookup_enabled
                     
                     	DNS resolution enabled
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: motd_banner_enabled
                     
                     	MOTD banner enabled
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: private_flag
                     
                     	TTY private flag
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: terminal_type
                     
                     	Terminal type
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: absolute_timeout
                     
@@ -1222,12 +1377,16 @@ class Tty(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: idle_time
                     
                     	TTY idle time
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1273,7 +1432,8 @@ class Tty(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics, ['terminal_length', 'terminal_width', 'async_interface', 'flow_control_start_character', 'flow_control_stop_character', 'domain_lookup_enabled', 'motd_banner_enabled', 'private_flag', 'terminal_type', 'absolute_timeout', 'idle_time'], name, value)
+                        self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics, [u'terminal_length', u'terminal_width', u'async_interface', u'flow_control_start_character', u'flow_control_stop_character', u'domain_lookup_enabled', u'motd_banner_enabled', u'private_flag', u'terminal_type', u'absolute_timeout', u'idle_time'], name, value)
+
 
 
                 class Exec(Entity):
@@ -1284,6 +1444,8 @@ class Tty(Entity):
                     
                     	Specifies whether timestamp is enabled or not
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -1312,6 +1474,7 @@ class Tty(Entity):
                         self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics.Exec, [u'time_stamp_enabled'], name, value)
 
 
+
                 class Aaa(Entity):
                     """
                     AAA related statistics
@@ -1320,6 +1483,8 @@ class Tty(Entity):
                     
                     	The authenticated username
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1348,6 +1513,8 @@ class Tty(Entity):
                         self._perform_setattr(Tty.VtyLines.VtyLine.VtyStatistics.Aaa, [u'user_name'], name, value)
 
 
+
+
             class State(Entity):
                 """
                 Line state information
@@ -1357,10 +1524,14 @@ class Tty(Entity):
                 	Information related to template applied to the line
                 	**type**\:  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.State.Template>`
                 
+                	**config**\: False
+                
                 .. attribute:: general
                 
                 	General information
                 	**type**\:  :py:class:`General <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.State.General>`
+                
+                	**config**\: False
                 
                 
 
@@ -1404,6 +1575,8 @@ class Tty(Entity):
                     	Name of the template
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1431,6 +1604,7 @@ class Tty(Entity):
                         self._perform_setattr(Tty.VtyLines.VtyLine.State.Template, ['name'], name, value)
 
 
+
                 class General(Entity):
                     """
                     General information
@@ -1440,10 +1614,14 @@ class Tty(Entity):
                     	application running of on the tty line
                     	**type**\:  :py:class:`SessionOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperation>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: general_state
                     
                     	State of the line
                     	**type**\:  :py:class:`LineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineState>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1474,6 +1652,8 @@ class Tty(Entity):
                         self._perform_setattr(Tty.VtyLines.VtyLine.State.General, ['operation_', 'general_state'], name, value)
 
 
+
+
             class Configuration(Entity):
                 """
                 Configuration information of the line
@@ -1482,6 +1662,8 @@ class Tty(Entity):
                 
                 	Conection configuration information
                 	**type**\:  :py:class:`ConnectionConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration>`
+                
+                	**config**\: False
                 
                 
 
@@ -1520,15 +1702,21 @@ class Tty(Entity):
                     	Protocols to use when connecting to the terminal server
                     	**type**\:  :py:class:`TransportInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: acl_out
                     
                     	ACL for outbound traffic
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: acl_in
                     
                     	ACL for inbound traffic
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1573,6 +1761,8 @@ class Tty(Entity):
                         	Choose transport protocols
                         	**type**\:  :py:class:`TtyTransportProtocolSelect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelect>`
                         
+                        	**config**\: False
+                        
                         	**default value**\: all
                         
                         .. attribute:: protocol1
@@ -1580,10 +1770,14 @@ class Tty(Entity):
                         	Transport protocol1
                         	**type**\:  :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: protocol2
                         
                         	Transport protocol2
                         	**type**\:  :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: none
                         
@@ -1591,6 +1785,8 @@ class Tty(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1625,6 +1821,9 @@ class Tty(Entity):
                             self._perform_setattr(Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput, ['select', 'protocol1', 'protocol2', 'none'], name, value)
 
 
+
+
+
             class Sessions(Entity):
                 """
                 Outgoing sessions
@@ -1633,6 +1832,8 @@ class Tty(Entity):
                 
                 	List of outgoing sessions
                 	**type**\: list of  		 :py:class:`OutgoingConnection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Sessions.OutgoingConnection>`
+                
+                	**config**\: False
                 
                 
 
@@ -1669,6 +1870,8 @@ class Tty(Entity):
                     	Host address
                     	**type**\:  :py:class:`HostAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: connection_id
                     
                     	Connection ID [1\-20]
@@ -1676,20 +1879,28 @@ class Tty(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: host_name
                     
                     	Host name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: transport_protocol
                     
                     	Session transport protocol
                     	**type**\:  :py:class:`TransportService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_oper.TransportService>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_last_active_session
                     
                     	True indicates last active session
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: idle_time
                     
@@ -1697,6 +1908,8 @@ class Tty(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -1748,6 +1961,8 @@ class Tty(Entity):
                         	AFName
                         	**type**\:  :py:class:`HostAfIdBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_oper.HostAfIdBase>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_address
                         
                         	IPv4 address
@@ -1755,12 +1970,16 @@ class Tty(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6_address
                         
                         	IPv6 address
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -1793,6 +2012,11 @@ class Tty(Entity):
                             self._perform_setattr(Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
+
+
+
+
+
     class AuxiliaryNodes(Entity):
         """
         List of Nodes attached with an auxiliary line
@@ -1801,6 +2025,8 @@ class Tty(Entity):
         
         	Line configuration on a node
         	**type**\: list of  		 :py:class:`AuxiliaryNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode>`
+        
+        	**config**\: False
         
         
 
@@ -1840,10 +2066,14 @@ class Tty(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: auxiliary_line
             
             	Auxiliary line
             	**type**\:  :py:class:`AuxiliaryLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine>`
+            
+            	**config**\: False
             
             
 
@@ -1886,15 +2116,21 @@ class Tty(Entity):
                 	Statistics of the auxiliary line
                 	**type**\:  :py:class:`AuxiliaryStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	Line state information
                 	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State>`
                 
+                	**config**\: False
+                
                 .. attribute:: configuration
                 
                 	Configuration information of the line
                 	**type**\:  :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration>`
+                
+                	**config**\: False
                 
                 
 
@@ -1941,20 +2177,28 @@ class Tty(Entity):
                     	RS232 statistics of console line
                     	**type**\:  :py:class:`Rs232 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: general_statistics
                     
                     	General statistics of line
                     	**type**\:  :py:class:`GeneralStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: exec_
                     
                     	Exec related statistics
                     	**type**\:  :py:class:`Exec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: aaa
                     
                     	AAA related statistics
                     	**type**\:  :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2007,12 +2251,16 @@ class Tty(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: bit
                         
                         .. attribute:: exec_disabled
                         
                         	Exec disabled on TTY
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: hardware_flow_control_status
                         
@@ -2021,6 +2269,8 @@ class Tty(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: parity_status
                         
                         	Parity status
@@ -2028,12 +2278,16 @@ class Tty(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: baud_rate
                         
                         	Inbound/Outbound baud rate in bps
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: bit/s
                         
@@ -2044,6 +2298,8 @@ class Tty(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: bit
                         
                         .. attribute:: overrun_error_count
@@ -2053,6 +2309,8 @@ class Tty(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: framing_error_count
                         
                         	Framing error count
@@ -2060,12 +2318,16 @@ class Tty(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: parity_error_count
                         
                         	Parity error count
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2110,6 +2372,7 @@ class Tty(Entity):
                             self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232, [u'data_bits', u'exec_disabled', u'hardware_flow_control_status', u'parity_status', u'baud_rate', u'stop_bits', u'overrun_error_count', u'framing_error_count', u'parity_error_count'], name, value)
 
 
+
                     class GeneralStatistics(Entity):
                         """
                         General statistics of line
@@ -2121,6 +2384,8 @@ class Tty(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: terminal_width
                         
                         	Line width
@@ -2128,10 +2393,14 @@ class Tty(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: async_interface
                         
                         	Usable as async interface
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: flow_control_start_character
                         
@@ -2140,6 +2409,8 @@ class Tty(Entity):
                         
                         	**range:** \-128..127
                         
+                        	**config**\: False
+                        
                         .. attribute:: flow_control_stop_character
                         
                         	Software flow control stop char
@@ -2147,25 +2418,35 @@ class Tty(Entity):
                         
                         	**range:** \-128..127
                         
+                        	**config**\: False
+                        
                         .. attribute:: domain_lookup_enabled
                         
                         	DNS resolution enabled
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: motd_banner_enabled
                         
                         	MOTD banner enabled
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: private_flag
                         
                         	TTY private flag
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: terminal_type
                         
                         	Terminal type
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: absolute_timeout
                         
@@ -2174,12 +2455,16 @@ class Tty(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: idle_time
                         
                         	TTY idle time
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2225,7 +2510,8 @@ class Tty(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics, ['terminal_length', 'terminal_width', 'async_interface', 'flow_control_start_character', 'flow_control_stop_character', 'domain_lookup_enabled', 'motd_banner_enabled', 'private_flag', 'terminal_type', 'absolute_timeout', 'idle_time'], name, value)
+                            self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics, [u'terminal_length', u'terminal_width', u'async_interface', u'flow_control_start_character', u'flow_control_stop_character', u'domain_lookup_enabled', u'motd_banner_enabled', u'private_flag', u'terminal_type', u'absolute_timeout', u'idle_time'], name, value)
+
 
 
                     class Exec(Entity):
@@ -2236,6 +2522,8 @@ class Tty(Entity):
                         
                         	Specifies whether timestamp is enabled or not
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -2264,6 +2552,7 @@ class Tty(Entity):
                             self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec, [u'time_stamp_enabled'], name, value)
 
 
+
                     class Aaa(Entity):
                         """
                         AAA related statistics
@@ -2272,6 +2561,8 @@ class Tty(Entity):
                         
                         	The authenticated username
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -2300,6 +2591,8 @@ class Tty(Entity):
                             self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa, [u'user_name'], name, value)
 
 
+
+
                 class State(Entity):
                     """
                     Line state information
@@ -2309,10 +2602,14 @@ class Tty(Entity):
                     	Information related to template applied to the line
                     	**type**\:  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: general
                     
                     	General information
                     	**type**\:  :py:class:`General <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2356,6 +2653,8 @@ class Tty(Entity):
                         	Name of the template
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -2383,6 +2682,7 @@ class Tty(Entity):
                             self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template, ['name'], name, value)
 
 
+
                     class General(Entity):
                         """
                         General information
@@ -2392,10 +2692,14 @@ class Tty(Entity):
                         	application running of on the tty line
                         	**type**\:  :py:class:`SessionOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperation>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: general_state
                         
                         	State of the line
                         	**type**\:  :py:class:`LineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineState>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2426,6 +2730,8 @@ class Tty(Entity):
                             self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General, ['operation_', 'general_state'], name, value)
 
 
+
+
                 class Configuration(Entity):
                     """
                     Configuration information of the line
@@ -2434,6 +2740,8 @@ class Tty(Entity):
                     
                     	Conection configuration information
                     	**type**\:  :py:class:`ConnectionConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2472,15 +2780,21 @@ class Tty(Entity):
                         	Protocols to use when connecting to the terminal server
                         	**type**\:  :py:class:`TransportInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: acl_out
                         
                         	ACL for outbound traffic
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: acl_in
                         
                         	ACL for inbound traffic
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -2525,6 +2839,8 @@ class Tty(Entity):
                             	Choose transport protocols
                             	**type**\:  :py:class:`TtyTransportProtocolSelect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelect>`
                             
+                            	**config**\: False
+                            
                             	**default value**\: all
                             
                             .. attribute:: protocol1
@@ -2532,10 +2848,14 @@ class Tty(Entity):
                             	Transport protocol1
                             	**type**\:  :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: protocol2
                             
                             	Transport protocol2
                             	**type**\:  :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: none
                             
@@ -2543,6 +2863,8 @@ class Tty(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2576,7 +2898,15 @@ class Tty(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput, ['select', 'protocol1', 'protocol2', 'none'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Tty()
         return self._top_entity
+
+
 

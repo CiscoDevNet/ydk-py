@@ -21,6 +21,8 @@ class Fpdserv(Entity):
     	show traceable processes
     	**type**\: list of  		 :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fpd_infra_cli_fpdserv_ctrace.Fpdserv.Trace>`
     
+    	**config**\: False
+    
     
 
     """
@@ -57,10 +59,14 @@ class Fpdserv(Entity):
         	
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: location
         
         	
         	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fpd_infra_cli_fpdserv_ctrace.Fpdserv.Trace.Location>`
+        
+        	**config**\: False
         
         
 
@@ -101,10 +107,14 @@ class Fpdserv(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: all_options
             
             	
             	**type**\: list of  		 :py:class:`AllOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fpd_infra_cli_fpdserv_ctrace.Fpdserv.Trace.Location.AllOptions>`
+            
+            	**config**\: False
             
             
 
@@ -144,10 +154,14 @@ class Fpdserv(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: trace_blocks
                 
                 	
                 	**type**\: list of  		 :py:class:`TraceBlocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fpd_infra_cli_fpdserv_ctrace.Fpdserv.Trace.Location.AllOptions.TraceBlocks>`
+                
+                	**config**\: False
                 
                 
 
@@ -187,6 +201,8 @@ class Fpdserv(Entity):
                     	Trace output block
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -213,7 +229,13 @@ class Fpdserv(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fpdserv.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Fpdserv()
         return self._top_entity
+
+
 

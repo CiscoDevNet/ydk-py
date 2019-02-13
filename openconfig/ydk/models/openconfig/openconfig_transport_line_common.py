@@ -30,6 +30,7 @@ class OPTICALLINEPORTTYPE(Identity):
         super(OPTICALLINEPORTTYPE, self).__init__(ns, pref, tag)
 
 
+
 class INGRESS(OPTICALLINEPORTTYPE):
     """
     Ingress port, corresponding to a signal entering
@@ -45,6 +46,7 @@ class INGRESS(OPTICALLINEPORTTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:INGRESS"):
         super(INGRESS, self).__init__(ns, pref, tag)
+
 
 
 class MONITOR(OPTICALLINEPORTTYPE):
@@ -66,6 +68,7 @@ class MONITOR(OPTICALLINEPORTTYPE):
         super(MONITOR, self).__init__(ns, pref, tag)
 
 
+
 class DROP(OPTICALLINEPORTTYPE):
     """
     Drop port, corresponding to a signal dropped
@@ -80,6 +83,7 @@ class DROP(OPTICALLINEPORTTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:DROP"):
         super(DROP, self).__init__(ns, pref, tag)
+
 
 
 class ADD(OPTICALLINEPORTTYPE):
@@ -98,6 +102,7 @@ class ADD(OPTICALLINEPORTTYPE):
         super(ADD, self).__init__(ns, pref, tag)
 
 
+
 class EGRESS(OPTICALLINEPORTTYPE):
     """
     Egress port, corresponding to a signal exiting
@@ -113,5 +118,6 @@ class EGRESS(OPTICALLINEPORTTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:EGRESS"):
         super(EGRESS, self).__init__(ns, pref, tag)
+
 
 

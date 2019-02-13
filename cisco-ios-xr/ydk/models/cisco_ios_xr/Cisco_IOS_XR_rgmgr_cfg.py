@@ -89,7 +89,7 @@ class RedundancyGroupManager(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(RedundancyGroupManager, [u'enable'], name, value)
+        self._perform_setattr(RedundancyGroupManager, ['enable'], name, value)
 
 
     class Aps(Entity):
@@ -184,7 +184,8 @@ class RedundancyGroupManager(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RedundancyGroupManager.Aps.DefaultRedundancyGroup, [u'next_hop_address', u'backup_interface_name'], name, value)
+                self._perform_setattr(RedundancyGroupManager.Aps.DefaultRedundancyGroup, ['next_hop_address', 'backup_interface_name'], name, value)
+
 
 
         class Groups(Entity):
@@ -268,7 +269,7 @@ class RedundancyGroupManager(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RedundancyGroupManager.Aps.Groups.Group, [u'group_id'], name, value)
+                    self._perform_setattr(RedundancyGroupManager.Aps.Groups.Group, ['group_id'], name, value)
 
 
                 class Controllers(Entity):
@@ -359,7 +360,12 @@ class RedundancyGroupManager(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RedundancyGroupManager.Aps.Groups.Group.Controllers.Controller, [u'controller_name', u'next_hop_address', u'backup_interface_name'], name, value)
+                            self._perform_setattr(RedundancyGroupManager.Aps.Groups.Group.Controllers.Controller, ['controller_name', 'next_hop_address', 'backup_interface_name'], name, value)
+
+
+
+
+
 
 
     class Iccp(Entity):
@@ -471,15 +477,15 @@ class RedundancyGroupManager(Entity):
                 	ICCP mode
                 	**type**\:  :py:class:`IccpMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.IccpMode>`
                 
-                .. attribute:: mlacp
-                
-                	Multi\-chassis Link Aggregation Control Protocol commands
-                	**type**\:  :py:class:`Mlacp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp>`
-                
                 .. attribute:: nv_satellite
                 
                 	nV Satellite configuration
                 	**type**\:  :py:class:`NvSatellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite>`
+                
+                .. attribute:: mlacp
+                
+                	Multi\-chassis Link Aggregation Control Protocol commands
+                	**type**\:  :py:class:`Mlacp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp>`
                 
                 
 
@@ -496,7 +502,7 @@ class RedundancyGroupManager(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['group_number']
-                    self._child_classes = OrderedDict([("backbones", ("backbones", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones)), ("members", ("members", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members)), ("Cisco-IOS-XR-bundlemgr-cfg:mlacp", ("mlacp", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp)), ("Cisco-IOS-XR-icpe-infra-cfg:nv-satellite", ("nv_satellite", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite))])
+                    self._child_classes = OrderedDict([("backbones", ("backbones", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones)), ("members", ("members", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members)), ("Cisco-IOS-XR-icpe-infra-cfg:nv-satellite", ("nv_satellite", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite)), ("Cisco-IOS-XR-bundlemgr-cfg:mlacp", ("mlacp", RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp))])
                     self._leafs = OrderedDict([
                         ('group_number', (YLeaf(YType.uint32, 'group-number'), ['int'])),
                         ('isolation_recovery_delay', (YLeaf(YType.uint32, 'isolation-recovery-delay'), ['int'])),
@@ -514,19 +520,19 @@ class RedundancyGroupManager(Entity):
                     self.members.parent = self
                     self._children_name_map["members"] = "members"
 
-                    self.mlacp = RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp()
-                    self.mlacp.parent = self
-                    self._children_name_map["mlacp"] = "Cisco-IOS-XR-bundlemgr-cfg:mlacp"
-
                     self.nv_satellite = RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite()
                     self.nv_satellite.parent = self
                     self._children_name_map["nv_satellite"] = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite"
+
+                    self.mlacp = RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp()
+                    self.mlacp.parent = self
+                    self._children_name_map["mlacp"] = "Cisco-IOS-XR-bundlemgr-cfg:mlacp"
                     self._segment_path = lambda: "iccp-group" + "[group-number='" + str(self.group_number) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/iccp/iccp-groups/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup, [u'group_number', u'isolation_recovery_delay', u'mode'], name, value)
+                    self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup, ['group_number', 'isolation_recovery_delay', 'mode'], name, value)
 
 
                 class Backbones(Entity):
@@ -599,7 +605,9 @@ class RedundancyGroupManager(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones.Backbone, [u'backbone_name'], name, value)
+                            self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones.Backbone, ['backbone_name'], name, value)
+
+
 
 
                 class Members(Entity):
@@ -672,7 +680,48 @@ class RedundancyGroupManager(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members.Member, [u'neighbor_address'], name, value)
+                            self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members.Member, ['neighbor_address'], name, value)
+
+
+
+
+                class NvSatellite(Entity):
+                    """
+                    nV Satellite configuration
+                    
+                    .. attribute:: system_mac
+                    
+                    	Optional identifier for this system
+                    	**type**\: str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    
+                    
+
+                    """
+
+                    _prefix = 'icpe-infra-cfg'
+                    _revision = '2017-09-30'
+
+                    def __init__(self):
+                        super(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite, self).__init__()
+
+                        self.yang_name = "nv-satellite"
+                        self.yang_parent_name = "iccp-group"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('system_mac', (YLeaf(YType.str, 'system-mac'), ['str'])),
+                        ])
+                        self.system_mac = None
+                        self._segment_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite, [u'system_mac'], name, value)
+
 
 
                 class Mlacp(Entity):
@@ -741,44 +790,12 @@ class RedundancyGroupManager(Entity):
                         self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp, ['connect_timeout', 'system_mac', 'node', 'system_priority'], name, value)
 
 
-                class NvSatellite(Entity):
-                    """
-                    nV Satellite configuration
-                    
-                    .. attribute:: system_mac
-                    
-                    	Optional identifier for this system
-                    	**type**\: str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                    
-                    
 
-                    """
 
-                    _prefix = 'icpe-infra-cfg'
-                    _revision = '2017-09-30'
-
-                    def __init__(self):
-                        super(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite, self).__init__()
-
-                        self.yang_name = "nv-satellite"
-                        self.yang_parent_name = "iccp-group"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('system_mac', (YLeaf(YType.str, 'system-mac'), ['str'])),
-                        ])
-                        self.system_mac = None
-                        self._segment_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite"
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite, [u'system_mac'], name, value)
 
     def clone_ptr(self):
         self._top_entity = RedundancyGroupManager()
         return self._top_entity
+
+
 

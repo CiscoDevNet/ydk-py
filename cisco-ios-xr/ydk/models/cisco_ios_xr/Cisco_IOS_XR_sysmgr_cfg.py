@@ -226,6 +226,10 @@ class ProcessMandatory(Entity):
                         self._perform_setattr(ProcessMandatory.Nodes.Node.Processes.Process, ['process_name'], name, value)
 
 
+
+
+
+
     class All(Entity):
         """
         Mandatory for all nodes
@@ -338,9 +342,14 @@ class ProcessMandatory(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(ProcessMandatory.All.Processes.Process, ['process_name'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = ProcessMandatory()
         return self._top_entity
+
+
 
 class ProcessSingleCrash(Entity):
     """
@@ -401,4 +410,6 @@ class ProcessSingleCrash(Entity):
     def clone_ptr(self):
         self._top_entity = ProcessSingleCrash()
         return self._top_entity
+
+
 

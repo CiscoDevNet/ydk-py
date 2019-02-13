@@ -110,7 +110,10 @@ class UpgradeFpd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(UpgradeFpd.Input, ['location', 'fpd', 'force'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = UpgradeFpd()
         return self._top_entity
+
+
 

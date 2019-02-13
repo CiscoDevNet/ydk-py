@@ -117,6 +117,7 @@ class Vrrp(Entity):
             self._perform_setattr(Vrrp.Logging, ['state_change_disable'], name, value)
 
 
+
     class Interfaces(Entity):
         """
         Interface configuration table
@@ -576,6 +577,8 @@ class Vrrp(Entity):
                                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, ['ip_address'], name, value)
 
 
+
+
                             class Tracks(Entity):
                                 """
                                 Track an item, reducing priority if it
@@ -661,6 +664,8 @@ class Vrrp(Entity):
                                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks.Track, ['interface_name', 'priority'], name, value)
 
 
+
+
                             class Timer(Entity):
                                 """
                                 Set advertisement timer
@@ -719,6 +724,7 @@ class Vrrp(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer, ['advertisement_time_in_msec', 'advertisement_time_in_sec', 'forced'], name, value)
+
 
 
                             class TrackedObjects(Entity):
@@ -806,6 +812,8 @@ class Vrrp(Entity):
                                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, ['object_name', 'priority_decrement'], name, value)
 
 
+
+
                             class LinkLocalIpv6Address(Entity):
                                 """
                                 The VRRP IPv6 virtual linklocal address
@@ -857,6 +865,10 @@ class Vrrp(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address, ['ip_address', 'auto_configure'], name, value)
+
+
+
+
 
 
                 class SlaveVirtualRouters(Entity):
@@ -1017,6 +1029,7 @@ class Vrrp(Entity):
                                 self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address, ['ip_address', 'auto_configure'], name, value)
 
 
+
                         class GlobalIpv6Addresses(Entity):
                             """
                             The table of VRRP virtual global IPv6
@@ -1097,6 +1110,11 @@ class Vrrp(Entity):
                                     self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, ['ip_address'], name, value)
 
 
+
+
+
+
+
             class Delay(Entity):
                 """
                 Minimum and Reload Delay
@@ -1153,6 +1171,7 @@ class Vrrp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrrp.Interfaces.Interface.Delay, ['min_delay', 'reload_delay'], name, value)
+
 
 
             class Ipv4(Entity):
@@ -1472,6 +1491,7 @@ class Vrrp(Entity):
                                     self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer, ['advertisement_time_in_msec', 'advertisement_time_in_sec', 'forced'], name, value)
 
 
+
                             class SecondaryIpv4Addresses(Entity):
                                 """
                                 The table of VRRP secondary IPv4 addresses
@@ -1543,6 +1563,8 @@ class Vrrp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, ['ip_address'], name, value)
+
+
 
 
                             class TrackedObjects(Entity):
@@ -1630,6 +1652,8 @@ class Vrrp(Entity):
                                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, ['object_name', 'priority_decrement'], name, value)
 
 
+
+
                             class Tracks(Entity):
                                 """
                                 Track an item, reducing priority if it
@@ -1713,6 +1737,11 @@ class Vrrp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks.Track, ['interface_name', 'priority'], name, value)
+
+
+
+
+
 
 
                 class SlaveVirtualRouters(Entity):
@@ -1891,6 +1920,10 @@ class Vrrp(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, ['ip_address'], name, value)
+
+
+
+
 
 
                 class Version2(Entity):
@@ -2162,6 +2195,7 @@ class Vrrp(Entity):
                                     self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer, ['advertisement_time_in_msec', 'advertisement_time_in_sec', 'forced'], name, value)
 
 
+
                             class SecondaryIpv4Addresses(Entity):
                                 """
                                 The table of VRRP secondary IPv4 addresses
@@ -2233,6 +2267,8 @@ class Vrrp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, ['ip_address'], name, value)
+
+
 
 
                             class Tracks(Entity):
@@ -2320,6 +2356,8 @@ class Vrrp(Entity):
                                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks.Track, ['interface_name', 'priority'], name, value)
 
 
+
+
                             class TrackedObjects(Entity):
                                 """
                                 Track an object, reducing priority if it
@@ -2405,6 +2443,12 @@ class Vrrp(Entity):
                                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, ['object_name', 'priority_decrement'], name, value)
 
 
+
+
+
+
+
+
             class Bfd(Entity):
                 """
                 BFD configuration
@@ -2453,7 +2497,12 @@ class Vrrp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrrp.Interfaces.Interface.Bfd, ['interval', 'detection_multiplier'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Vrrp()
         return self._top_entity
+
+
 

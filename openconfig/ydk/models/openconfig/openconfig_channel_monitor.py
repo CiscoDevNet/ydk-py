@@ -72,6 +72,8 @@ class ChannelMonitors(Entity):
         	Operational state data 
         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.State>`
         
+        	**config**\: False
+        
         .. attribute:: channels
         
         	Enclosing container for the list of values describing the power spectral density distribution
@@ -164,6 +166,7 @@ class ChannelMonitors(Entity):
                 self._perform_setattr(ChannelMonitors.ChannelMonitor.Config, ['name', 'monitor_port'], name, value)
 
 
+
         class State(Entity):
             """
             Operational state data 
@@ -175,12 +178,16 @@ class ChannelMonitors(Entity):
             
             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
             
+            	**config**\: False
+            
             .. attribute:: monitor_port
             
             	Reference to system\-supplied name of the port that the channel monitor is physically connected to. This port will be of type MONITOR. This port is a tap off of the monitored\-port and would be in the same card as the monitored port. If this port is embedded in another card (i.e. an amplifier card) the device should still define a port representing the monitor port if it is internal and not physically present on the faceplate of the card
             	**type**\: str
             
             	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
+            
+            	**config**\: False
             
             
 
@@ -211,6 +218,7 @@ class ChannelMonitors(Entity):
                 self._perform_setattr(ChannelMonitors.ChannelMonitor.State, ['name', 'monitor_port'], name, value)
 
 
+
         class Channels(Entity):
             """
             Enclosing container for the list of values describing
@@ -220,6 +228,8 @@ class ChannelMonitors(Entity):
             
             	List of tuples describing the PSD distribution
             	**type**\: list of  		 :py:class:`Channel <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.Channels.Channel>`
+            
+            	**config**\: False
             
             
 
@@ -260,6 +270,8 @@ class ChannelMonitors(Entity):
                 
                 	**refers to**\:  :py:class:`lower_frequency <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.Channels.Channel.State>`
                 
+                	**config**\: False
+                
                 .. attribute:: upper_frequency  (key)
                 
                 	Reference to the list key
@@ -269,10 +281,14 @@ class ChannelMonitors(Entity):
                 
                 	**refers to**\:  :py:class:`upper_frequency <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.Channels.Channel.State>`
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	Operational state data for PSD
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.Channels.Channel.State>`
+                
+                	**config**\: False
                 
                 
 
@@ -318,6 +334,8 @@ class ChannelMonitors(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: upper_frequency
                     
                     	Upper frequency of the specified PSD
@@ -325,12 +343,16 @@ class ChannelMonitors(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: psd
                     
                     	Power spectral density expressed in nanowatts per megahertz, nW/MHz.  These units allow the value to often be greater than 1.0.  It also avoids dealing with zero values for 0dBm.  For example, a 40GHz wide channel with 0dBm power would be\:  0dBm = 1mW = 10^6nW  40GHz = 40,000MHz  0dBm/40GHz = 10^6nW/40,000MHz = 1000/40 = 25
                     	**type**\: str
                     
                     	**length:** 32
+                    
+                    	**config**\: False
                     
                     	**units**\: nW/MHz
                     
@@ -364,7 +386,13 @@ class ChannelMonitors(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ChannelMonitors.ChannelMonitor.Channels.Channel.State, ['lower_frequency', 'upper_frequency', 'psd'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = ChannelMonitors()
         return self._top_entity
+
+
 

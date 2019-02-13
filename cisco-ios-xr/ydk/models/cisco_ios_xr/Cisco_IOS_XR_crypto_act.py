@@ -99,9 +99,12 @@ class KeyGenerateRsaGeneralKeys(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(KeyGenerateRsaGeneralKeys.Input, ['key_label', 'key_modulus'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = KeyGenerateRsaGeneralKeys()
         return self._top_entity
+
+
 
 class KeyGenerateRsaUsageKeys(Entity):
     """
@@ -185,9 +188,12 @@ class KeyGenerateRsaUsageKeys(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(KeyGenerateRsaUsageKeys.Input, ['key_label', 'key_modulus'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = KeyGenerateRsaUsageKeys()
         return self._top_entity
+
+
 
 class KeyGenerateRsa(Entity):
     """
@@ -271,9 +277,12 @@ class KeyGenerateRsa(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(KeyGenerateRsa.Input, ['key_label', 'key_modulus'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = KeyGenerateRsa()
         return self._top_entity
+
+
 
 class KeyGenerateDsa(Entity):
     """
@@ -350,9 +359,12 @@ class KeyGenerateDsa(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(KeyGenerateDsa.Input, ['key_modulus'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = KeyGenerateDsa()
         return self._top_entity
+
+
 
 class KeyGenerateEcdsa(Entity):
     """
@@ -453,9 +465,12 @@ class KeyGenerateEcdsa(Entity):
             nistp521 = Enum.YLeaf(2, "nistp521")
 
 
+
     def clone_ptr(self):
         self._top_entity = KeyGenerateEcdsa()
         return self._top_entity
+
+
 
 class KeyZeroizeRsa(Entity):
     """
@@ -528,9 +543,12 @@ class KeyZeroizeRsa(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(KeyZeroizeRsa.Input, ['key_label'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = KeyZeroizeRsa()
         return self._top_entity
+
+
 
 class KeyZeroizeDsa(Entity):
     """
@@ -560,6 +578,8 @@ class KeyZeroizeDsa(Entity):
     def clone_ptr(self):
         self._top_entity = KeyZeroizeDsa()
         return self._top_entity
+
+
 
 class KeyZeroizeEcdsa(Entity):
     """
@@ -660,9 +680,12 @@ class KeyZeroizeEcdsa(Entity):
             nistp521 = Enum.YLeaf(2, "nistp521")
 
 
+
     def clone_ptr(self):
         self._top_entity = KeyZeroizeEcdsa()
         return self._top_entity
+
+
 
 class KeyZeroizeAuthenticationRsa(Entity):
     """
@@ -692,6 +715,8 @@ class KeyZeroizeAuthenticationRsa(Entity):
     def clone_ptr(self):
         self._top_entity = KeyZeroizeAuthenticationRsa()
         return self._top_entity
+
+
 
 class KeyImportAuthenticationRsa(Entity):
     """
@@ -766,9 +791,12 @@ class KeyImportAuthenticationRsa(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(KeyImportAuthenticationRsa.Input, ['path'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = KeyImportAuthenticationRsa()
         return self._top_entity
+
+
 
 class CaAuthenticate(Entity):
     """
@@ -843,9 +871,12 @@ class CaAuthenticate(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CaAuthenticate.Input, ['server_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = CaAuthenticate()
         return self._top_entity
+
+
 
 class CaEnroll(Entity):
     """
@@ -920,9 +951,12 @@ class CaEnroll(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CaEnroll.Input, ['server_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = CaEnroll()
         return self._top_entity
+
+
 
 class CaImportCertificate(Entity):
     """
@@ -997,9 +1031,12 @@ class CaImportCertificate(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CaImportCertificate.Input, ['server_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = CaImportCertificate()
         return self._top_entity
+
+
 
 class CaCancelEnroll(Entity):
     """
@@ -1074,9 +1111,12 @@ class CaCancelEnroll(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CaCancelEnroll.Input, ['server_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = CaCancelEnroll()
         return self._top_entity
+
+
 
 class CaCrlRequest(Entity):
     """
@@ -1161,6 +1201,7 @@ class CaCrlRequest(Entity):
             self._perform_setattr(CaCrlRequest.Input, ['uri'], name, value)
 
 
+
     class Output(Entity):
         """
         
@@ -1199,9 +1240,12 @@ class CaCrlRequest(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CaCrlRequest.Output, ['certificate'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = CaCrlRequest()
         return self._top_entity
+
+
 
 class CaTrustpoolImportUrl(Entity):
     """
@@ -1274,9 +1318,12 @@ class CaTrustpoolImportUrl(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CaTrustpoolImportUrl.Input, ['url'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = CaTrustpoolImportUrl()
         return self._top_entity
+
+
 
 class CaTrustpoolImportUrlClean(Entity):
     """
@@ -1349,7 +1396,10 @@ class CaTrustpoolImportUrlClean(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CaTrustpoolImportUrlClean.Input, ['url'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = CaTrustpoolImportUrlClean()
         return self._top_entity
+
+
 

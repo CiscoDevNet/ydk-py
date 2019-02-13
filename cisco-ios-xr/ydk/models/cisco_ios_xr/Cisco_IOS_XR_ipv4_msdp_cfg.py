@@ -357,6 +357,7 @@ class Msdp(Entity):
                     self._perform_setattr(Msdp.Vrfs.Vrf.CacheState, ['sa_holdtime', 'list', 'rp_list'], name, value)
 
 
+
             class KeepAlive(Entity):
                 """
                 MSDP keep alive period
@@ -413,6 +414,7 @@ class Msdp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Msdp.Vrfs.Vrf.KeepAlive, ['keep_alive_period', 'peer_timeout_period'], name, value)
+
 
 
             class Peers(Entity):
@@ -646,6 +648,7 @@ class Msdp(Entity):
                             self._perform_setattr(Msdp.Vrfs.Vrf.Peers.Peer.RemoteAs, ['as_xx', 'as_yy'], name, value)
 
 
+
                     class KeepAlive(Entity):
                         """
                         MSDP keep alive period
@@ -702,6 +705,7 @@ class Msdp(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Msdp.Vrfs.Vrf.Peers.Peer.KeepAlive, ['keep_alive_period', 'peer_timeout_period'], name, value)
+
 
 
                     class SaFilters(Entity):
@@ -793,6 +797,10 @@ class Msdp(Entity):
                                 self._perform_setattr(Msdp.Vrfs.Vrf.Peers.Peer.SaFilters.SaFilter, ['list', 'filter_type', 'access_list_name'], name, value)
 
 
+
+
+
+
             class SaFilters(Entity):
                 """
                 Filter SA messages from peer
@@ -880,6 +888,10 @@ class Msdp(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Msdp.Vrfs.Vrf.SaFilters.SaFilter, ['list', 'filter_type', 'access_list_name'], name, value)
+
+
+
+
 
 
     class DefaultContext(Entity):
@@ -1064,6 +1076,7 @@ class Msdp(Entity):
                 self._perform_setattr(Msdp.DefaultContext.CacheState, ['sa_holdtime', 'list', 'rp_list'], name, value)
 
 
+
         class KeepAlive(Entity):
             """
             MSDP keep alive period
@@ -1121,6 +1134,7 @@ class Msdp(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Msdp.DefaultContext.KeepAlive, ['keep_alive_period', 'peer_timeout_period'], name, value)
+
 
 
         class Peers(Entity):
@@ -1356,6 +1370,7 @@ class Msdp(Entity):
                         self._perform_setattr(Msdp.DefaultContext.Peers.Peer.RemoteAs, ['as_xx', 'as_yy'], name, value)
 
 
+
                 class KeepAlive(Entity):
                     """
                     MSDP keep alive period
@@ -1412,6 +1427,7 @@ class Msdp(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Msdp.DefaultContext.Peers.Peer.KeepAlive, ['keep_alive_period', 'peer_timeout_period'], name, value)
+
 
 
                 class SaFilters(Entity):
@@ -1501,6 +1517,10 @@ class Msdp(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Msdp.DefaultContext.Peers.Peer.SaFilters.SaFilter, ['list', 'filter_type', 'access_list_name'], name, value)
+
+
+
+
 
 
         class SaFilters(Entity):
@@ -1593,7 +1613,12 @@ class Msdp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Msdp.DefaultContext.SaFilters.SaFilter, ['list', 'filter_type', 'access_list_name'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Msdp()
         return self._top_entity
+
+
 

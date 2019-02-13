@@ -102,6 +102,8 @@ class Ipv6Data(Entity):
     	List of IPv6 neighbors
     	**type**\: list of  		 :py:class:`Nd6Info <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ipv6_oper.Ipv6Data.Nd6Info>`
     
+    	**config**\: False
+    
     
 
     """
@@ -138,10 +140,14 @@ class Ipv6Data(Entity):
         	The Virtual Router and Forwarding instance that  this neighbor information is associated with
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: if_name  (key)
         
         	The Interface name
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: ip  (key)
         
@@ -156,6 +162,8 @@ class Ipv6Data(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: mac_address
         
         	MAC address
@@ -163,10 +171,14 @@ class Ipv6Data(Entity):
         
         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
         
+        	**config**\: False
+        
         .. attribute:: state
         
         	State of the entry
         	**type**\:  :py:class:`Ipv6NdTdlState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ipv6_oper.Ipv6NdTdlState>`
+        
+        	**config**\: False
         
         .. attribute:: idle_timer
         
@@ -175,12 +187,16 @@ class Ipv6Data(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: uptime
         
         	Indicates how long this neighbor entry has  been active, in seconds
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -221,7 +237,10 @@ class Ipv6Data(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv6Data.Nd6Info, ['vrf_name', 'if_name', 'ip', 'mac_address', 'state', 'idle_timer', 'uptime'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Ipv6Data()
         return self._top_entity
+
+
 

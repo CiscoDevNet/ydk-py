@@ -99,45 +99,63 @@ class Snmp(Entity):
     	List of trap hosts
     	**type**\:  :py:class:`TrapServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.TrapServers>`
     
+    	**config**\: False
+    
     .. attribute:: information
     
     	SNMP operational information
     	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information>`
+    
+    	**config**\: False
     
     .. attribute:: interfaces
     
     	List of interfaces
     	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Interfaces>`
     
+    	**config**\: False
+    
     .. attribute:: correlator
     
     	Trap Correlator operational data
     	**type**\:  :py:class:`Correlator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator>`
+    
+    	**config**\: False
     
     .. attribute:: interface_indexes
     
     	List of index
     	**type**\:  :py:class:`InterfaceIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceIndexes>`
     
+    	**config**\: False
+    
     .. attribute:: if_indexes
     
     	List of ifnames
     	**type**\:  :py:class:`IfIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.IfIndexes>`
+    
+    	**config**\: False
     
     .. attribute:: entity_mib
     
     	SNMP entity mib
     	**type**\:  :py:class:`EntityMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.EntityMib>`
     
+    	**config**\: False
+    
     .. attribute:: interface_mib
     
     	SNMP IF\-MIB information
     	**type**\:  :py:class:`InterfaceMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib>`
     
+    	**config**\: False
+    
     .. attribute:: sensor_mib
     
     	SNMP sensor MIB information
     	**type**\:  :py:class:`SensorMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib>`
+    
+    	**config**\: False
     
     
 
@@ -209,6 +227,8 @@ class Snmp(Entity):
         	Trap server and port to which the trap is to be sent and statistics
         	**type**\: list of  		 :py:class:`TrapServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.TrapServers.TrapServer>`
         
+        	**config**\: False
+        
         
 
         """
@@ -246,12 +266,16 @@ class Snmp(Entity):
             	Trap Host
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: port
             
             	Trap port
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: number_of_pkts_in_trap_q
             
@@ -260,12 +284,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: max_q_length_of_trap_q
             
             	Maximum Queue length of trapQ
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: number_of_pkts_sent
             
@@ -274,12 +302,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: number_of_pkts_dropped
             
             	No. of trap packets dropped
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -319,6 +351,8 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.TrapServers.TrapServer, [u'trap_host', u'port', u'number_of_pkts_in_trap_q', u'max_q_length_of_trap_q', u'number_of_pkts_sent', u'number_of_pkts_dropped'], name, value)
 
 
+
+
     class Information(Entity):
         """
         SNMP operational information
@@ -328,125 +362,175 @@ class Snmp(Entity):
         	SNMP host information
         	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Hosts>`
         
+        	**config**\: False
+        
         .. attribute:: system_up_time
         
         	System up time
         	**type**\:  :py:class:`SystemUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.SystemUpTime>`
+        
+        	**config**\: False
         
         .. attribute:: nms_addresses
         
         	SNMP request type summary 
         	**type**\:  :py:class:`NmsAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.NmsAddresses>`
         
+        	**config**\: False
+        
         .. attribute:: engine_id
         
         	SNMP engine ID
         	**type**\:  :py:class:`EngineId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.EngineId>`
+        
+        	**config**\: False
         
         .. attribute:: rx_queue
         
         	SNMP rx queue statistics
         	**type**\:  :py:class:`RxQueue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.RxQueue>`
         
+        	**config**\: False
+        
         .. attribute:: system_name
         
         	System name
         	**type**\:  :py:class:`SystemName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.SystemName>`
+        
+        	**config**\: False
         
         .. attribute:: request_type_detail
         
         	SNMP request type details 
         	**type**\:  :py:class:`RequestTypeDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.RequestTypeDetail>`
         
+        	**config**\: False
+        
         .. attribute:: duplicate_drop
         
         	Duplicate request status, count, time 
         	**type**\:  :py:class:`DuplicateDrop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.DuplicateDrop>`
+        
+        	**config**\: False
         
         .. attribute:: bulk_stats_transfers
         
         	List of bulkstats transfer on the system
         	**type**\:  :py:class:`BulkStatsTransfers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.BulkStatsTransfers>`
         
+        	**config**\: False
+        
         .. attribute:: trap_infos
         
         	SNMP trap OID
         	**type**\:  :py:class:`TrapInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.TrapInfos>`
+        
+        	**config**\: False
         
         .. attribute:: poll_oids
         
         	OID list for poll PDU
         	**type**\:  :py:class:`PollOids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.PollOids>`
         
+        	**config**\: False
+        
         .. attribute:: infom_details
         
         	SNMP trap OID
         	**type**\:  :py:class:`InfomDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.InfomDetails>`
+        
+        	**config**\: False
         
         .. attribute:: statistics
         
         	SNMP statistics
         	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Statistics>`
         
+        	**config**\: False
+        
         .. attribute:: incoming_queue
         
         	Incoming queue details 
         	**type**\:  :py:class:`IncomingQueue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.IncomingQueue>`
+        
+        	**config**\: False
         
         .. attribute:: context_mapping
         
         	Context name, features name, topology name, instance
         	**type**\:  :py:class:`ContextMapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.ContextMapping>`
         
+        	**config**\: False
+        
         .. attribute:: trap_oids
         
         	SNMP trap OID
         	**type**\:  :py:class:`TrapOids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.TrapOids>`
+        
+        	**config**\: False
         
         .. attribute:: nm_spackets
         
         	SNMP overload statistics 
         	**type**\:  :py:class:`NmSpackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.NmSpackets>`
         
+        	**config**\: False
+        
         .. attribute:: mibs
         
         	List of MIBS supported on the system
         	**type**\:  :py:class:`Mibs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Mibs>`
+        
+        	**config**\: False
         
         .. attribute:: serial_numbers
         
         	SNMP statistics pdu 
         	**type**\:  :py:class:`SerialNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.SerialNumbers>`
         
+        	**config**\: False
+        
         .. attribute:: drop_nms_addresses
         
         	NMS list for drop PDU
         	**type**\:  :py:class:`DropNmsAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.DropNmsAddresses>`
+        
+        	**config**\: False
         
         .. attribute:: views
         
         	SNMP view information
         	**type**\:  :py:class:`Views <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Views>`
         
+        	**config**\: False
+        
         .. attribute:: system_descr
         
         	System description
         	**type**\:  :py:class:`SystemDescr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.SystemDescr>`
+        
+        	**config**\: False
         
         .. attribute:: tables
         
         	List of table
         	**type**\:  :py:class:`Tables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Tables>`
         
+        	**config**\: False
+        
         .. attribute:: system_oid
         
         	System object ID
         	**type**\:  :py:class:`SystemOid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.SystemOid>`
         
+        	**config**\: False
+        
         .. attribute:: trap_queue
         
         	SNMP trap queue statistics
         	**type**\:  :py:class:`TrapQueue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.TrapQueue>`
+        
+        	**config**\: False
         
         
 
@@ -582,6 +666,8 @@ class Snmp(Entity):
             	SNMP target host name
             	**type**\: list of  		 :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Hosts.Host>`
             
+            	**config**\: False
+            
             
 
             """
@@ -620,10 +706,14 @@ class Snmp(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: host_information
                 
                 	Host name ,udp\-port , user, security model and level
                 	**type**\: list of  		 :py:class:`HostInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Hosts.Host.HostInformation>`
+                
+                	**config**\: False
                 
                 
 
@@ -667,35 +757,49 @@ class Snmp(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: snmp_target_address_t_host
                     
                     	Transport type of address
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: snmp_target_address_port
                     
                     	Target UDP port
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: snmp_target_addresstype
                     
                     	Target host type (Inform or Trap)
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: snmp_target_params_security_model
                     
                     	Security model
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: snmp_target_params_security_name
                     
                     	Security name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: snmp_target_params_security_level
                     
                     	Security level
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -736,6 +840,9 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Information.Hosts.Host.HostInformation, [u'user', u'snmp_target_address_t_host', u'snmp_target_address_port', u'snmp_target_addresstype', u'snmp_target_params_security_model', u'snmp_target_params_security_name', u'snmp_target_params_security_level'], name, value)
 
 
+
+
+
         class SystemUpTime(Entity):
             """
             System up time
@@ -744,6 +851,8 @@ class Snmp(Entity):
             
             	sysUpTime  1.3.6.1.2.1.1.3
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -773,6 +882,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.SystemUpTime, [u'system_up_time_edm'], name, value)
 
 
+
         class NmsAddresses(Entity):
             """
             SNMP request type summary 
@@ -781,6 +891,8 @@ class Snmp(Entity):
             
             	NMS address
             	**type**\: list of  		 :py:class:`NmsAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.NmsAddresses.NmsAddress>`
+            
+            	**config**\: False
             
             
 
@@ -820,10 +932,14 @@ class Snmp(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: nms_address
                 
                 	NMS address of server
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: get_request_count
                 
@@ -832,12 +948,16 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: getnext_request_count
                 
                 	Getnext Request Count
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: getbulk_request_count
                 
@@ -846,6 +966,8 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: set_request_count
                 
                 	Set Request Count
@@ -853,12 +975,16 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: test_request_count
                 
                 	Test Request Count
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -900,6 +1026,8 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Information.NmsAddresses.NmsAddress, [u'nms_addr', u'nms_address', u'get_request_count', u'getnext_request_count', u'getbulk_request_count', u'set_request_count', u'test_request_count'], name, value)
 
 
+
+
         class EngineId(Entity):
             """
             SNMP engine ID
@@ -908,6 +1036,8 @@ class Snmp(Entity):
             
             	SNMPv3 engineID
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -937,6 +1067,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.EngineId, [u'engine_id'], name, value)
 
 
+
         class RxQueue(Entity):
             """
             SNMP rx queue statistics
@@ -948,12 +1079,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: in_min
             
             	in min
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: in_avg
             
@@ -962,12 +1097,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: in_max
             
             	in max
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: pend_min
             
@@ -976,12 +1115,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: pend_avg
             
             	pend avg
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: pend_max
             
@@ -990,15 +1133,21 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: incoming_q
             
             	incoming q
             	**type**\: list of  		 :py:class:`IncomingQ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.RxQueue.IncomingQ>`
             
+            	**config**\: False
+            
             .. attribute:: pending_q
             
             	pending q
             	**type**\: list of  		 :py:class:`PendingQ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.RxQueue.PendingQ>`
+            
+            	**config**\: False
             
             
 
@@ -1054,6 +1203,8 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: avg
                 
                 	avg
@@ -1061,12 +1212,16 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: max
                 
                 	max
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1100,6 +1255,7 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Information.RxQueue.IncomingQ, [u'min', u'avg', u'max'], name, value)
 
 
+
             class PendingQ(Entity):
                 """
                 pending q
@@ -1111,6 +1267,8 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: avg
                 
                 	avg
@@ -1118,12 +1276,16 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: max
                 
                 	max
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1157,6 +1319,8 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Information.RxQueue.PendingQ, [u'min', u'avg', u'max'], name, value)
 
 
+
+
         class SystemName(Entity):
             """
             System name
@@ -1165,6 +1329,8 @@ class Snmp(Entity):
             
             	sysName  1.3.6.1.2.1.1.5
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1194,6 +1360,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.SystemName, [u'system_name'], name, value)
 
 
+
         class RequestTypeDetail(Entity):
             """
             SNMP request type details 
@@ -1202,6 +1369,8 @@ class Snmp(Entity):
             
             	snmp request type details 
             	**type**\:  :py:class:`NmsAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.RequestTypeDetail.NmsAddresses>`
+            
+            	**config**\: False
             
             
 
@@ -1241,6 +1410,8 @@ class Snmp(Entity):
                 	NMS address
                 	**type**\: list of  		 :py:class:`NmsAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.RequestTypeDetail.NmsAddresses.NmsAddress>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1279,12 +1450,16 @@ class Snmp(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_count
                     
                     	Total request count for each managment station or client
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: agent_request_count
                     
@@ -1293,12 +1468,16 @@ class Snmp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_request_count
                     
                     	Processing interfce request count for each client for particluar managment station
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: entity_request_count
                     
@@ -1307,6 +1486,8 @@ class Snmp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: route_request_count
                     
                     	Processing route request count for each client for particluar Managment station
@@ -1314,12 +1495,16 @@ class Snmp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: infra_request_count
                     
                     	Processing infra request count for each client for particluar Managment station
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1361,6 +1546,9 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Information.RequestTypeDetail.NmsAddresses.NmsAddress, [u'nms_addr', u'total_count', u'agent_request_count', u'interface_request_count', u'entity_request_count', u'route_request_count', u'infra_request_count'], name, value)
 
 
+
+
+
         class DuplicateDrop(Entity):
             """
             Duplicate request status, count, time 
@@ -1370,10 +1558,14 @@ class Snmp(Entity):
             	Duplicate requests drop feature status
             	**type**\:  :py:class:`DupReqDropStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.DupReqDropStatus>`
             
+            	**config**\: False
+            
             .. attribute:: last_status_change_time
             
             	Duplicate request drop feature last enable disable time (Day Mon Date HH\:MM\:SS)
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: duplicate_drop_configured_timeout
             
@@ -1382,12 +1574,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: duplicate_dropped_requests
             
             	Number of duplicate SNMP requests are dropped
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: retry_processed_requests
             
@@ -1396,10 +1592,14 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: first_enable_time
             
             	Duplicate request drop feature first  enable time (Day Mon Date HH\:MM\:SS)
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: latest_duplicate_dropped_requests
             
@@ -1408,6 +1608,8 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: latest_retry_processed_requests
             
             	Number of retry SNMP requests processed, from the last enable time
@@ -1415,10 +1617,14 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: duplicate_request_latest_enable_time
             
             	Duplicate request drop feature last enable time(Day Mon Date HH\:MM\:SS)
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: duplicate_drop_enable_count
             
@@ -1427,12 +1633,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: duplicate_drop_disable_count
             
             	 Number of times duplicate request drop feature is disabled
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1482,6 +1692,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.DuplicateDrop, [u'duplicate_request_status', u'last_status_change_time', u'duplicate_drop_configured_timeout', u'duplicate_dropped_requests', u'retry_processed_requests', u'first_enable_time', u'latest_duplicate_dropped_requests', u'latest_retry_processed_requests', u'duplicate_request_latest_enable_time', u'duplicate_drop_enable_count', u'duplicate_drop_disable_count'], name, value)
 
 
+
         class BulkStatsTransfers(Entity):
             """
             List of bulkstats transfer on the system
@@ -1490,6 +1701,8 @@ class Snmp(Entity):
             
             	SNMP bulkstats transfer name
             	**type**\: list of  		 :py:class:`BulkStatsTransfer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.BulkStatsTransfers.BulkStatsTransfer>`
+            
+            	**config**\: False
             
             
 
@@ -1529,25 +1742,35 @@ class Snmp(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: transfer_name_xr
                 
                 	Name of the bulkstats transfer session
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: url_primary
                 
                 	Bulkstats transfer primary URL
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: url_secondary
                 
                 	Bulkstats transfer secondary URL
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: retained_file
                 
                 	Bulkstats transfer retained file name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: time_left
                 
@@ -1555,6 +1778,8 @@ class Snmp(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -1564,6 +1789,8 @@ class Snmp(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1605,6 +1832,8 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Information.BulkStatsTransfers.BulkStatsTransfer, [u'transfer_name', u'transfer_name_xr', u'url_primary', u'url_secondary', u'retained_file', u'time_left', u'retry_left'], name, value)
 
 
+
+
         class TrapInfos(Entity):
             """
             SNMP trap OID
@@ -1613,6 +1842,8 @@ class Snmp(Entity):
             
             	SNMP Trap infomation like server , port and trapOID
             	**type**\: list of  		 :py:class:`TrapInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.TrapInfos.TrapInfo>`
+            
+            	**config**\: False
             
             
 
@@ -1651,6 +1882,8 @@ class Snmp(Entity):
                 	Trap Host
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: port
                 
                 	Trap port
@@ -1658,10 +1891,14 @@ class Snmp(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: host
                 
                 	NMS/Host address
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: port_xr
                 
@@ -1670,6 +1907,8 @@ class Snmp(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: trap_oid_count
                 
                 	Total number of OID's sent
@@ -1677,10 +1916,14 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: trap_oi_dinfo
                 
                 	Per trap OID statistics
                 	**type**\: list of  		 :py:class:`TrapOiDinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.TrapInfos.TrapInfo.TrapOiDinfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -1729,12 +1972,16 @@ class Snmp(Entity):
                     	TRAP OID
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: count
                     
                     	Number of traps sent
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: drop_count
                     
@@ -1743,6 +1990,8 @@ class Snmp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: retry_count
                     
                     	Num of times retry
@@ -1750,15 +1999,21 @@ class Snmp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: lastsent_time
                     
                     	Timestamp of latest successfully sent
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: lasrdrop_time
                     
                     	Timestamp of latest droped
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1798,6 +2053,9 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Information.TrapInfos.TrapInfo.TrapOiDinfo, [u'trap_oid', u'count', u'drop_count', u'retry_count', u'lastsent_time', u'lasrdrop_time'], name, value)
 
 
+
+
+
         class PollOids(Entity):
             """
             OID list for poll PDU
@@ -1806,6 +2064,8 @@ class Snmp(Entity):
             
             	PDU drop info for OID
             	**type**\: list of  		 :py:class:`PollOid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.PollOids.PollOid>`
+            
+            	**config**\: False
             
             
 
@@ -1845,6 +2105,8 @@ class Snmp(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: nms_count
                 
                 	 Managment station count
@@ -1852,10 +2114,14 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: nms
                 
                 	Network Managment station ipadress
                 	**type**\: list of str
+                
+                	**config**\: False
                 
                 .. attribute:: request_count
                 
@@ -1863,6 +2129,8 @@ class Snmp(Entity):
                 	**type**\: list of int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1898,6 +2166,8 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Information.PollOids.PollOid, [u'object_id', u'nms_count', u'nms', u'request_count'], name, value)
 
 
+
+
         class InfomDetails(Entity):
             """
             SNMP trap OID
@@ -1906,6 +2176,8 @@ class Snmp(Entity):
             
             	SNMP Trap infomation like server , port and trapOID
             	**type**\: list of  		 :py:class:`InfomDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.InfomDetails.InfomDetail>`
+            
+            	**config**\: False
             
             
 
@@ -1944,6 +2216,8 @@ class Snmp(Entity):
                 	Trap Host
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: port
                 
                 	Trap port
@@ -1951,10 +2225,14 @@ class Snmp(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: host
                 
                 	NMS/Host address
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: port_xr
                 
@@ -1963,6 +2241,8 @@ class Snmp(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: trap_oid_count
                 
                 	Total number of OID's sent
@@ -1970,10 +2250,14 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: trap_oi_dinfo
                 
                 	Per trap OID statistics
                 	**type**\: list of  		 :py:class:`TrapOiDinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.InfomDetails.InfomDetail.TrapOiDinfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -2022,12 +2306,16 @@ class Snmp(Entity):
                     	TRAP OID
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: count
                     
                     	Number of traps sent
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: drop_count
                     
@@ -2036,6 +2324,8 @@ class Snmp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: retry_count
                     
                     	Num of times retry
@@ -2043,15 +2333,21 @@ class Snmp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: lastsent_time
                     
                     	Timestamp of latest successfully sent
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: lasrdrop_time
                     
                     	Timestamp of latest droped
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -2091,6 +2387,9 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Information.InfomDetails.InfomDetail.TrapOiDinfo, [u'trap_oid', u'count', u'drop_count', u'retry_count', u'lastsent_time', u'lasrdrop_time'], name, value)
 
 
+
+
+
         class Statistics(Entity):
             """
             SNMP statistics
@@ -2102,12 +2401,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: bad_versions_received
             
             	snmpInBadVersions
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: bad_community_names_received
             
@@ -2116,12 +2419,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: bad_community_uses_received
             
             	snmpInBadCommunityUses
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: asn_parse_errors_received
             
@@ -2130,12 +2437,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: silent_drop_count
             
             	snmpSilentDrops
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: proxy_drop_count
             
@@ -2144,12 +2455,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: too_big_packet_received
             
             	snmpInTooBigs
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: max_packet_size
             
@@ -2158,12 +2473,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: no_such_names_received
             
             	snmpInNoSuchNames
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: bad_values_received
             
@@ -2172,12 +2491,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: read_only_received
             
             	snmpInReadOnlys
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: total_general_errors
             
@@ -2186,12 +2509,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: total_requested_variables
             
             	snmpInTotalReqVars
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: total_set_variables_received
             
@@ -2200,12 +2527,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: get_requests_received
             
             	snmpInGetRequests
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: get_next_requests_received
             
@@ -2214,12 +2545,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: set_requests_received
             
             	snmpInSetRequests
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: get_responses_received
             
@@ -2228,12 +2563,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: traps_received
             
             	snmpInTraps
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: total_packets_sent
             
@@ -2242,12 +2581,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: too_big_packets_sent
             
             	snmpOutTooBigs
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: no_such_names_sent
             
@@ -2256,12 +2599,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: bad_values_sent
             
             	snmpOutBadValues
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: general_errors_sent
             
@@ -2270,12 +2617,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: get_requests_sent
             
             	snmpOutGetRequests
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: get_next_request_sent
             
@@ -2284,12 +2635,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: set_requests_sent
             
             	snmpOutSetRequests
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: get_responses_sent
             
@@ -2298,12 +2653,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: traps_sent
             
             	snmpOutTraps
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2391,6 +2750,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.Statistics, [u'packets_received', u'bad_versions_received', u'bad_community_names_received', u'bad_community_uses_received', u'asn_parse_errors_received', u'silent_drop_count', u'proxy_drop_count', u'too_big_packet_received', u'max_packet_size', u'no_such_names_received', u'bad_values_received', u'read_only_received', u'total_general_errors', u'total_requested_variables', u'total_set_variables_received', u'get_requests_received', u'get_next_requests_received', u'set_requests_received', u'get_responses_received', u'traps_received', u'total_packets_sent', u'too_big_packets_sent', u'no_such_names_sent', u'bad_values_sent', u'general_errors_sent', u'get_requests_sent', u'get_next_request_sent', u'set_requests_sent', u'get_responses_sent', u'traps_sent'], name, value)
 
 
+
         class IncomingQueue(Entity):
             """
             Incoming queue details 
@@ -2402,10 +2762,14 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: inq_entry
             
             	Each Entry Details
             	**type**\: list of  		 :py:class:`InqEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.IncomingQueue.InqEntry>`
+            
+            	**config**\: False
             
             
 
@@ -2446,12 +2810,16 @@ class Snmp(Entity):
                 	Address of NMS Q
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: request_count
                 
                 	Request Count of Each Queue
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: processed_request_count
                 
@@ -2460,10 +2828,14 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: last_access_time
                 
                 	Last Access time of Each Queue
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: priority
                 
@@ -2471,6 +2843,8 @@ class Snmp(Entity):
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 
 
@@ -2508,6 +2882,8 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Information.IncomingQueue.InqEntry, [u'address_of_queue', u'request_count', u'processed_request_count', u'last_access_time', u'priority'], name, value)
 
 
+
+
         class ContextMapping(Entity):
             """
             Context name, features name, topology name,
@@ -2517,6 +2893,8 @@ class Snmp(Entity):
             
             	Context Mapping
             	**type**\: list of  		 :py:class:`ContexMapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.ContextMapping.ContexMapping>`
+            
+            	**config**\: False
             
             
 
@@ -2554,25 +2932,35 @@ class Snmp(Entity):
                 	Context name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: feature_name
                 
                 	Feature name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: instance
                 
                 	Instance name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: topology
                 
                 	Topology name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: feature
                 
                 	Feature
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -2610,6 +2998,8 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Information.ContextMapping.ContexMapping, [u'context', u'feature_name', u'instance', u'topology', u'feature'], name, value)
 
 
+
+
         class TrapOids(Entity):
             """
             SNMP trap OID
@@ -2618,6 +3008,8 @@ class Snmp(Entity):
             
             	SNMP trap 
             	**type**\: list of  		 :py:class:`TrapOid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.TrapOids.TrapOid>`
+            
+            	**config**\: False
             
             
 
@@ -2657,6 +3049,8 @@ class Snmp(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: trap_oid_count
                 
                 	Total number of OID's sent
@@ -2664,10 +3058,14 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: trap_oid_xr
                 
                 	TRAP OID
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -2701,6 +3099,8 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Information.TrapOids.TrapOid, [u'trap_oid', u'trap_oid_count', u'trap_oid_xr'], name, value)
 
 
+
+
         class NmSpackets(Entity):
             """
             SNMP overload statistics 
@@ -2709,6 +3109,8 @@ class Snmp(Entity):
             
             	NMS packet drop count
             	**type**\: list of  		 :py:class:`NmSpacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.NmSpackets.NmSpacket>`
+            
+            	**config**\: False
             
             
 
@@ -2748,12 +3150,16 @@ class Snmp(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: number_of_nmsq_pkts_dropped
                 
                 	Number of packets which are currently enqueued within the NMS queues
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: number_of_pkts_dropped
                 
@@ -2762,15 +3168,21 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: overload_start_time
                 
                 	Time of overload contol begin
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: overload_end_time
                 
                 	Time of overload contol End
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -2808,6 +3220,8 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Information.NmSpackets.NmSpacket, [u'packetcount', u'number_of_nmsq_pkts_dropped', u'number_of_pkts_dropped', u'overload_start_time', u'overload_end_time'], name, value)
 
 
+
+
         class Mibs(Entity):
             """
             List of MIBS supported on the system
@@ -2816,6 +3230,8 @@ class Snmp(Entity):
             
             	SNMP MIB Name
             	**type**\: list of  		 :py:class:`Mib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Mibs.Mib>`
+            
+            	**config**\: False
             
             
 
@@ -2855,15 +3271,21 @@ class Snmp(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: oids
                 
                 	List of OIDs per MIB
                 	**type**\:  :py:class:`Oids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Mibs.Mib.Oids>`
                 
+                	**config**\: False
+                
                 .. attribute:: mib_information
                 
                 	MIB state and information
                 	**type**\:  :py:class:`MibInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Mibs.Mib.MibInformation>`
+                
+                	**config**\: False
                 
                 
 
@@ -2910,6 +3332,8 @@ class Snmp(Entity):
                     	Object identifiers of a mib
                     	**type**\: list of  		 :py:class:`Oid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Mibs.Mib.Oids.Oid>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -2945,12 +3369,16 @@ class Snmp(Entity):
                         	Object Identifier
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: oid_name
                         
                         	MIB OID Name
                         	**type**\: str
                         
                         	**mandatory**\: True
+                        
+                        	**config**\: False
                         
                         
 
@@ -2981,6 +3409,8 @@ class Snmp(Entity):
                             self._perform_setattr(Snmp.Information.Mibs.Mib.Oids.Oid, [u'oid', u'oid_name'], name, value)
 
 
+
+
                 class MibInformation(Entity):
                     """
                     MIB state and information
@@ -2990,20 +3420,28 @@ class Snmp(Entity):
                     	Name of the MIB module
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: dll_name
                     
                     	MIB DLL filename, non\-DLL MIBs will have no value
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: mib_config_filename
                     
                     	MIB config filename, non\-DLL MIBs will have no value
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_mib_loaded
                     
                     	TRUE if MIB DLL is currently loaded, will always be TRUE for non\-DLL MIBs
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: dll_capabilities
                     
@@ -3012,15 +3450,21 @@ class Snmp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: trap_strings
                     
                     	List of trapstring configured
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: timeout
                     
                     	TRUE is mib is in phase 1 timeout
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: load_time
                     
@@ -3028,6 +3472,8 @@ class Snmp(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -3070,6 +3516,9 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Information.Mibs.Mib.MibInformation, [u'mib_name', u'dll_name', u'mib_config_filename', u'is_mib_loaded', u'dll_capabilities', u'trap_strings', u'timeout', u'load_time'], name, value)
 
 
+
+
+
         class SerialNumbers(Entity):
             """
             SNMP statistics pdu 
@@ -3078,6 +3527,8 @@ class Snmp(Entity):
             
             	Serial number
             	**type**\: list of  		 :py:class:`SerialNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.SerialNumbers.SerialNumber>`
+            
+            	**config**\: False
             
             
 
@@ -3117,12 +3568,16 @@ class Snmp(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: req_id
                 
                 	Request ID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: port
                 
@@ -3131,10 +3586,14 @@ class Snmp(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: nms
                 
                 	 NMS address Rx PDU
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: request_id
                 
@@ -3143,12 +3602,16 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: port_xr
                 
                 	NMS port number
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 .. attribute:: pdu_type
                 
@@ -3157,12 +3620,16 @@ class Snmp(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: error_status
                 
                 	Is reques dropped due to error
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 .. attribute:: serial_num
                 
@@ -3171,10 +3638,14 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: input_q
                 
                 	Request inserted into input queue
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: output_q
                 
@@ -3183,6 +3654,8 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pending_q
                 
                 	Enqueue the request into pending queue
@@ -3190,12 +3663,16 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: response_out
                 
                 	Response sent
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -3249,6 +3726,8 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Information.SerialNumbers.SerialNumber, [u'number', u'req_id', u'port', u'nms', u'request_id', u'port_xr', u'pdu_type', u'error_status', u'serial_num', u'input_q', u'output_q', u'pending_q', u'response_out'], name, value)
 
 
+
+
         class DropNmsAddresses(Entity):
             """
             NMS list for drop PDU
@@ -3257,6 +3736,8 @@ class Snmp(Entity):
             
             	PDU drop info for NMS
             	**type**\: list of  		 :py:class:`DropNmsAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.DropNmsAddresses.DropNmsAddress>`
+            
+            	**config**\: False
             
             
 
@@ -3296,10 +3777,14 @@ class Snmp(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: nms_address
                 
                 	NMS address of server
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: incoming_q_count
                 
@@ -3308,12 +3793,16 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: threshold_incoming_q_count
                 
                 	Drop Count at Incoming Q after threshold limit
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: encode_count
                 
@@ -3322,12 +3811,16 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: duplicate_count
                 
                 	Duplicate request drop count
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: stack_count
                 
@@ -3336,12 +3829,16 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: aipc_count
                 
                 	drop count with AIPC Buffer Full
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: overload_count
                 
@@ -3350,6 +3847,8 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: timeout_count
                 
                 	Drop count with timeout
@@ -3357,12 +3856,16 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: internal_count
                 
                 	 drop with Internal Errors
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -3412,6 +3915,8 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Information.DropNmsAddresses.DropNmsAddress, [u'nms_addr', u'nms_address', u'incoming_q_count', u'threshold_incoming_q_count', u'encode_count', u'duplicate_count', u'stack_count', u'aipc_count', u'overload_count', u'timeout_count', u'internal_count'], name, value)
 
 
+
+
         class Views(Entity):
             """
             SNMP view information
@@ -3420,6 +3925,8 @@ class Snmp(Entity):
             
             	SNMP target view name
             	**type**\: list of  		 :py:class:`View <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Views.View>`
+            
+            	**config**\: False
             
             
 
@@ -3459,10 +3966,14 @@ class Snmp(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: view_information
                 
                 	View name ,familytype, storagetype and status
                 	**type**\: list of  		 :py:class:`ViewInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Views.View.ViewInformation>`
+                
+                	**config**\: False
                 
                 
 
@@ -3505,20 +4016,28 @@ class Snmp(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: snmp_view_family_type
                     
                     	Include or exclude
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: snmp_view_family_storage_type
                     
                     	Storage type
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: snmp_view_family_status
                     
                     	Status of this entry
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -3553,6 +4072,9 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Information.Views.View.ViewInformation, [u'object_id', u'snmp_view_family_type', u'snmp_view_family_storage_type', u'snmp_view_family_status'], name, value)
 
 
+
+
+
         class SystemDescr(Entity):
             """
             System description
@@ -3561,6 +4083,8 @@ class Snmp(Entity):
             
             	sysDescr  1.3.6.1.2.1.1.1
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -3590,6 +4114,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.SystemDescr, [u'sys_descr'], name, value)
 
 
+
         class Tables(Entity):
             """
             List of table
@@ -3599,10 +4124,14 @@ class Snmp(Entity):
             	List of vacmAccessTable
             	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Tables.Groups>`
             
+            	**config**\: False
+            
             .. attribute:: user_engine_ids
             
             	List of User
             	**type**\:  :py:class:`UserEngineIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Tables.UserEngineIds>`
+            
+            	**config**\: False
             
             
 
@@ -3646,6 +4175,8 @@ class Snmp(Entity):
                 	SNMP group name
                 	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Tables.Groups.Group>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -3684,10 +4215,14 @@ class Snmp(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: group_informations
                     
                     	Group Model
                     	**type**\:  :py:class:`GroupInformations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Tables.Groups.Group.GroupInformations>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3730,6 +4265,8 @@ class Snmp(Entity):
                         	Group name ,status  and information
                         	**type**\: list of  		 :py:class:`GroupInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Tables.Groups.Group.GroupInformations.GroupInformation>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -3767,6 +4304,8 @@ class Snmp(Entity):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: level
                             
                             	Level
@@ -3774,20 +4313,28 @@ class Snmp(Entity):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: vacm_access_read_view_name
                             
                             	Read view name
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: vacm_access_write_view_name
                             
                             	Write view name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: vacm_access_notify_view_name
                             
                             	Notify view name
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: vacm_access_status
                             
@@ -3795,6 +4342,8 @@ class Snmp(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3833,6 +4382,10 @@ class Snmp(Entity):
                                 self._perform_setattr(Snmp.Information.Tables.Groups.Group.GroupInformations.GroupInformation, [u'modelnumber', u'level', u'vacm_access_read_view_name', u'vacm_access_write_view_name', u'vacm_access_notify_view_name', u'vacm_access_status'], name, value)
 
 
+
+
+
+
             class UserEngineIds(Entity):
                 """
                 List of User
@@ -3841,6 +4394,8 @@ class Snmp(Entity):
                 
                 	SNMP engineId
                 	**type**\: list of  		 :py:class:`UserEngineId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Tables.UserEngineIds.UserEngineId>`
+                
+                	**config**\: False
                 
                 
 
@@ -3880,10 +4435,14 @@ class Snmp(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: user_name
                     
                     	User name ,storage type ,status 
                     	**type**\: list of  		 :py:class:`UserName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Tables.UserEngineIds.UserEngineId.UserName>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3926,6 +4485,8 @@ class Snmp(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: usm_user_storage_type
                         
                         	Storage type
@@ -3933,12 +4494,16 @@ class Snmp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: usm_user_status
                         
                         	Status of this user
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3971,6 +4536,10 @@ class Snmp(Entity):
                             self._perform_setattr(Snmp.Information.Tables.UserEngineIds.UserEngineId.UserName, [u'user_name', u'usm_user_storage_type', u'usm_user_status'], name, value)
 
 
+
+
+
+
         class SystemOid(Entity):
             """
             System object ID
@@ -3979,6 +4548,8 @@ class Snmp(Entity):
             
             	sysObjID  1.3.6.1.2.1.1.2
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -4008,6 +4579,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Information.SystemOid, [u'sys_obj_id'], name, value)
 
 
+
         class TrapQueue(Entity):
             """
             SNMP trap queue statistics
@@ -4019,12 +4591,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: trap_avg
             
             	trap avg
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: trap_max
             
@@ -4033,10 +4609,14 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: trap_q
             
             	trap q
             	**type**\: list of  		 :py:class:`TrapQ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.TrapQueue.TrapQ>`
+            
+            	**config**\: False
             
             
 
@@ -4083,6 +4663,8 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: avg
                 
                 	avg
@@ -4090,12 +4672,16 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: max
                 
                 	max
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -4129,6 +4715,9 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.Information.TrapQueue.TrapQ, [u'min', u'avg', u'max'], name, value)
 
 
+
+
+
     class Interfaces(Entity):
         """
         List of interfaces
@@ -4137,6 +4726,8 @@ class Snmp(Entity):
         
         	Interface Name
         	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Interfaces.Interface>`
+        
+        	**config**\: False
         
         
 
@@ -4176,6 +4767,8 @@ class Snmp(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: interface_index
             
             	Interface Index as used by MIB tables
@@ -4184,6 +4777,8 @@ class Snmp(Entity):
             	**range:** 0..4294967295
             
             	**mandatory**\: True
+            
+            	**config**\: False
             
             
 
@@ -4215,6 +4810,8 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Interfaces.Interface, [u'name', u'interface_index'], name, value)
 
 
+
+
     class Correlator(Entity):
         """
         Trap Correlator operational data
@@ -4224,20 +4821,28 @@ class Snmp(Entity):
         	Table that contains the database of correlation rule details
         	**type**\:  :py:class:`RuleDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator.RuleDetails>`
         
+        	**config**\: False
+        
         .. attribute:: buffer_status
         
         	Describes buffer utilization and parameters configured
         	**type**\:  :py:class:`BufferStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator.BufferStatus>`
+        
+        	**config**\: False
         
         .. attribute:: rule_set_details
         
         	Table that contains the ruleset detail info
         	**type**\:  :py:class:`RuleSetDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator.RuleSetDetails>`
         
+        	**config**\: False
+        
         .. attribute:: traps
         
         	Correlated traps Table
         	**type**\:  :py:class:`Traps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator.Traps>`
+        
+        	**config**\: False
         
         
 
@@ -4290,6 +4895,8 @@ class Snmp(Entity):
             	Details of one of the correlation rules
             	**type**\: list of  		 :py:class:`RuleDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator.RuleDetails.RuleDetail>`
             
+            	**config**\: False
+            
             
 
             """
@@ -4328,15 +4935,21 @@ class Snmp(Entity):
                 
                 	**length:** 1..32
                 
+                	**config**\: False
+                
                 .. attribute:: rule_summary
                 
                 	Rule summary, name, etc
                 	**type**\:  :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary>`
                 
+                	**config**\: False
+                
                 .. attribute:: root_cause
                 
                 	OID/VarBinds defining the rootcause match conditions
                 	**type**\:  :py:class:`RootCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator.RuleDetails.RuleDetail.RootCause>`
+                
+                	**config**\: False
                 
                 .. attribute:: timeout
                 
@@ -4345,15 +4958,21 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: non_rootcaus
                 
                 	OIDs/VarBinds defining the nonrootcause match conditions
                 	**type**\: list of  		 :py:class:`NonRootcaus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus>`
                 
+                	**config**\: False
+                
                 .. attribute:: apply_host
                 
                 	Hosts (IP/port) to which the rule is applied
                 	**type**\: list of  		 :py:class:`ApplyHost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost>`
+                
+                	**config**\: False
                 
                 
 
@@ -4405,10 +5024,14 @@ class Snmp(Entity):
                     	Correlation Rule Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: rule_state
                     
                     	Applied state of the rule It could be not applied, applied or applied to all
                     	**type**\:  :py:class:`SnmpCorrRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.SnmpCorrRuleState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: buffered_traps_count
                     
@@ -4416,6 +5039,8 @@ class Snmp(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -4448,6 +5073,7 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary, [u'rule_name', u'rule_state', u'buffered_traps_count'], name, value)
 
 
+
                 class RootCause(Entity):
                     """
                     OID/VarBinds defining the rootcause match
@@ -4458,10 +5084,14 @@ class Snmp(Entity):
                     	OID of the trap
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: var_bind
                     
                     	VarBinds of the trap
                     	**type**\: list of  		 :py:class:`VarBind <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator.RuleDetails.RuleDetail.RootCause.VarBind>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4501,15 +5131,21 @@ class Snmp(Entity):
                         	OID of the varbind
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: match_type
                         
                         	Varbind match type
                         	**type**\:  :py:class:`SnmpCorrVbindMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.SnmpCorrVbindMatch>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: reg_exp
                         
                         	Regular expression to match
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -4542,6 +5178,8 @@ class Snmp(Entity):
                             self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.RootCause.VarBind, [u'oid', u'match_type', u'reg_exp'], name, value)
 
 
+
+
                 class NonRootcaus(Entity):
                     """
                     OIDs/VarBinds defining the nonrootcause match
@@ -4552,10 +5190,14 @@ class Snmp(Entity):
                     	OID of the trap
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: var_bind
                     
                     	VarBinds of the trap
                     	**type**\: list of  		 :py:class:`VarBind <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus.VarBind>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4595,15 +5237,21 @@ class Snmp(Entity):
                         	OID of the varbind
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: match_type
                         
                         	Varbind match type
                         	**type**\:  :py:class:`SnmpCorrVbindMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.SnmpCorrVbindMatch>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: reg_exp
                         
                         	Regular expression to match
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -4636,6 +5284,8 @@ class Snmp(Entity):
                             self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus.VarBind, [u'oid', u'match_type', u'reg_exp'], name, value)
 
 
+
+
                 class ApplyHost(Entity):
                     """
                     Hosts (IP/port) to which the rule is applied
@@ -4645,12 +5295,16 @@ class Snmp(Entity):
                     	IP address of the host
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: port
                     
                     	Port of the host
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -4681,6 +5335,9 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost, [u'ip_address', u'port'], name, value)
 
 
+
+
+
         class BufferStatus(Entity):
             """
             Describes buffer utilization and parameters
@@ -4693,12 +5350,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: configured_size
             
             	Configured buffer size
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -4730,6 +5391,7 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.Correlator.BufferStatus, [u'current_size', u'configured_size'], name, value)
 
 
+
         class RuleSetDetails(Entity):
             """
             Table that contains the ruleset detail info
@@ -4738,6 +5400,8 @@ class Snmp(Entity):
             
             	Detail of one of the correlation rulesets
             	**type**\: list of  		 :py:class:`RuleSetDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator.RuleSetDetails.RuleSetDetail>`
+            
+            	**config**\: False
             
             
 
@@ -4777,15 +5441,21 @@ class Snmp(Entity):
                 
                 	**length:** 1..32
                 
+                	**config**\: False
+                
                 .. attribute:: rule_set_name_xr
                 
                 	Ruleset Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: rules
                 
                 	Rules contained in a ruleset
                 	**type**\: list of  		 :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator.RuleSetDetails.RuleSetDetail.Rules>`
+                
+                	**config**\: False
                 
                 
 
@@ -4828,10 +5498,14 @@ class Snmp(Entity):
                     	Correlation Rule Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: rule_state
                     
                     	Applied state of the rule It could be not applied, applied or applied to all
                     	**type**\:  :py:class:`SnmpCorrRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.SnmpCorrRuleState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: buffered_traps_count
                     
@@ -4839,6 +5513,8 @@ class Snmp(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -4871,6 +5547,9 @@ class Snmp(Entity):
                         self._perform_setattr(Snmp.Correlator.RuleSetDetails.RuleSetDetail.Rules, [u'rule_name', u'rule_state', u'buffered_traps_count'], name, value)
 
 
+
+
+
         class Traps(Entity):
             """
             Correlated traps Table
@@ -4879,6 +5558,8 @@ class Snmp(Entity):
             
             	One of the correlated traps
             	**type**\: list of  		 :py:class:`Trap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator.Traps.Trap>`
+            
+            	**config**\: False
             
             
 
@@ -4918,10 +5599,14 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: trap_info
                 
                 	Correlated trap information
                 	**type**\:  :py:class:`TrapInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator.Traps.Trap.TrapInfo>`
+                
+                	**config**\: False
                 
                 .. attribute:: correlation_id
                 
@@ -4930,15 +5615,21 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: is_root_cause
                 
                 	True if this is the rootcause
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: rule_name
                 
                 	Correlation rule name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -4987,12 +5678,16 @@ class Snmp(Entity):
                     	Object ID
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: relative_timestamp
                     
                     	Number of hsecs elapsed since snmpd was started
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -5003,12 +5698,16 @@ class Snmp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: var_bind
                     
                     	VarBinds on the trap
                     	**type**\: list of  		 :py:class:`VarBind <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator.Traps.Trap.TrapInfo.VarBind>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5052,10 +5751,14 @@ class Snmp(Entity):
                         	OID of the varbind
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: value
                         
                         	Value of the varbind
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -5086,6 +5789,11 @@ class Snmp(Entity):
                             self._perform_setattr(Snmp.Correlator.Traps.Trap.TrapInfo.VarBind, [u'oid', u'value'], name, value)
 
 
+
+
+
+
+
     class InterfaceIndexes(Entity):
         """
         List of index
@@ -5094,6 +5802,8 @@ class Snmp(Entity):
         
         	Interface Index
         	**type**\: list of  		 :py:class:`InterfaceIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceIndexes.InterfaceIndex>`
+        
+        	**config**\: False
         
         
 
@@ -5133,12 +5843,16 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: interface_name
             
             	Interface Name
             	**type**\: str
             
             	**mandatory**\: True
+            
+            	**config**\: False
             
             
 
@@ -5170,6 +5884,8 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.InterfaceIndexes.InterfaceIndex, [u'interface_index', u'interface_name'], name, value)
 
 
+
+
     class IfIndexes(Entity):
         """
         List of ifnames
@@ -5178,6 +5894,8 @@ class Snmp(Entity):
         
         	Interface Index
         	**type**\: list of  		 :py:class:`IfIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.IfIndexes.IfIndex>`
+        
+        	**config**\: False
         
         
 
@@ -5217,10 +5935,14 @@ class Snmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: interface_name
             
             	Interface Name
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -5252,6 +5974,8 @@ class Snmp(Entity):
                 self._perform_setattr(Snmp.IfIndexes.IfIndex, [u'interface_index', u'interface_name'], name, value)
 
 
+
+
     class EntityMib(Entity):
         """
         SNMP entity mib
@@ -5260,6 +5984,8 @@ class Snmp(Entity):
         
         	SNMP entity mib
         	**type**\:  :py:class:`EntityPhysicalIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.EntityMib.EntityPhysicalIndexes>`
+        
+        	**config**\: False
         
         
 
@@ -5299,6 +6025,8 @@ class Snmp(Entity):
             	SNMP entPhysical index number
             	**type**\: list of  		 :py:class:`EntityPhysicalIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex>`
             
+            	**config**\: False
+            
             
 
             """
@@ -5337,6 +6065,8 @@ class Snmp(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: physical_index
                 
                 	entPhysicalIndex
@@ -5344,50 +6074,70 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ent_physical_name
                 
                 	entPhysicalName
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: location
                 
                 	invmgr EDM path
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: ent_physical_descr
                 
                 	EntPhysicalDescription
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: ent_physical_firmware_rev
                 
                 	entphysicalFirmwareRev
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: ent_physical_hardware_rev
                 
                 	entphysicalHardwareRev
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: ent_physical_modelname
                 
                 	entphysicalModelName
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: ent_physical_serial_num
                 
                 	entphysicalSerialNum
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: ent_physical_software_rev
                 
                 	entphysicalSoftwareRev
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: ent_physical_mfg_name
                 
                 	entphysicalMfgName
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -5437,6 +6187,9 @@ class Snmp(Entity):
                     self._perform_setattr(Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex, ['entity_phynum', u'physical_index', u'ent_physical_name', u'location', u'ent_physical_descr', u'ent_physical_firmware_rev', u'ent_physical_hardware_rev', u'ent_physical_modelname', u'ent_physical_serial_num', u'ent_physical_software_rev', u'ent_physical_mfg_name'], name, value)
 
 
+
+
+
     class InterfaceMib(Entity):
         """
         SNMP IF\-MIB information
@@ -5446,25 +6199,35 @@ class Snmp(Entity):
         	Interfaces ifIndex information
         	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.Interfaces>`
         
+        	**config**\: False
+        
         .. attribute:: interface_connectors
         
         	Interfaces ifConnectorPresent information
         	**type**\:  :py:class:`InterfaceConnectors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.InterfaceConnectors>`
+        
+        	**config**\: False
         
         .. attribute:: interface_aliases
         
         	Interfaces ifAlias information
         	**type**\:  :py:class:`InterfaceAliases <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.InterfaceAliases>`
         
+        	**config**\: False
+        
         .. attribute:: notification_interfaces
         
         	Interfaces Notification information
         	**type**\:  :py:class:`NotificationInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.NotificationInterfaces>`
         
+        	**config**\: False
+        
         .. attribute:: interface_stack_statuses
         
         	Interfaces ifstackstatus information
         	**type**\:  :py:class:`InterfaceStackStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.InterfaceStackStatuses>`
+        
+        	**config**\: False
         
         
 
@@ -5520,6 +6283,8 @@ class Snmp(Entity):
             	ifIndex for a specific Interface Name
             	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.Interfaces.Interface>`
             
+            	**config**\: False
+            
             
 
             """
@@ -5558,12 +6323,16 @@ class Snmp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: if_index
                 
                 	Interface Index
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -5592,7 +6361,9 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.InterfaceMib.Interfaces.Interface, ['interface_name', u'if_index'], name, value)
+                    self._perform_setattr(Snmp.InterfaceMib.Interfaces.Interface, ['interface_name', 'if_index'], name, value)
+
+
 
 
         class InterfaceConnectors(Entity):
@@ -5603,6 +6374,8 @@ class Snmp(Entity):
             
             	ifConnectorPresent for a specific Interface Name
             	**type**\: list of  		 :py:class:`InterfaceConnector <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.InterfaceConnectors.InterfaceConnector>`
+            
+            	**config**\: False
             
             
 
@@ -5643,10 +6416,14 @@ class Snmp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: if_connector_present
                 
                 	Interface ifConnector
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -5675,7 +6452,9 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.InterfaceMib.InterfaceConnectors.InterfaceConnector, ['interface_name', u'if_connector_present'], name, value)
+                    self._perform_setattr(Snmp.InterfaceMib.InterfaceConnectors.InterfaceConnector, ['interface_name', 'if_connector_present'], name, value)
+
+
 
 
         class InterfaceAliases(Entity):
@@ -5686,6 +6465,8 @@ class Snmp(Entity):
             
             	ifAlias for a specific Interface Name
             	**type**\: list of  		 :py:class:`InterfaceAlias <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.InterfaceAliases.InterfaceAlias>`
+            
+            	**config**\: False
             
             
 
@@ -5725,10 +6506,14 @@ class Snmp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: if_alias
                 
                 	Interface ifAlias
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -5757,7 +6542,9 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.InterfaceMib.InterfaceAliases.InterfaceAlias, ['interface_name', u'if_alias'], name, value)
+                    self._perform_setattr(Snmp.InterfaceMib.InterfaceAliases.InterfaceAlias, ['interface_name', 'if_alias'], name, value)
+
+
 
 
         class NotificationInterfaces(Entity):
@@ -5768,6 +6555,8 @@ class Snmp(Entity):
             
             	Notification for specific Interface Name
             	**type**\: list of  		 :py:class:`NotificationInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.NotificationInterfaces.NotificationInterface>`
+            
+            	**config**\: False
             
             
 
@@ -5807,10 +6596,14 @@ class Snmp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: link_up_down_notif_status
                 
                 	LinkUpDown notification status
                 	**type**\:  :py:class:`LinkUpDownStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_ifmib_oper.LinkUpDownStatus>`
+                
+                	**config**\: False
                 
                 
 
@@ -5839,7 +6632,9 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.InterfaceMib.NotificationInterfaces.NotificationInterface, ['interface_name', u'link_up_down_notif_status'], name, value)
+                    self._perform_setattr(Snmp.InterfaceMib.NotificationInterfaces.NotificationInterface, ['interface_name', 'link_up_down_notif_status'], name, value)
+
+
 
 
         class InterfaceStackStatuses(Entity):
@@ -5850,6 +6645,8 @@ class Snmp(Entity):
             
             	ifstatus for a pair of Interface
             	**type**\: list of  		 :py:class:`InterfaceStackStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.InterfaceMib.InterfaceStackStatuses.InterfaceStackStatus>`
+            
+            	**config**\: False
             
             
 
@@ -5889,20 +6686,28 @@ class Snmp(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: if_stack_higher_layer
                 
                 	Higher Layer Index
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: if_stack_lower_layer
                 
                 	Lowyer Layer Index
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: if_stack_status
                 
                 	Interface ifStackStaus info
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -5935,7 +6740,10 @@ class Snmp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.InterfaceMib.InterfaceStackStatuses.InterfaceStackStatus, ['interface_stack_status', u'if_stack_higher_layer', u'if_stack_lower_layer', u'if_stack_status'], name, value)
+                    self._perform_setattr(Snmp.InterfaceMib.InterfaceStackStatuses.InterfaceStackStatus, ['interface_stack_status', 'if_stack_higher_layer', 'if_stack_lower_layer', 'if_stack_status'], name, value)
+
+
+
 
 
     class SensorMib(Entity):
@@ -5947,10 +6755,14 @@ class Snmp(Entity):
         	List of physical index table for threshold value
         	**type**\:  :py:class:`PhysicalIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.PhysicalIndexes>`
         
+        	**config**\: False
+        
         .. attribute:: ent_phy_indexes
         
         	List of physical index 
         	**type**\:  :py:class:`EntPhyIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.EntPhyIndexes>`
+        
+        	**config**\: False
         
         
 
@@ -5995,6 +6807,8 @@ class Snmp(Entity):
             	Threshold value for physical index
             	**type**\: list of  		 :py:class:`PhysicalIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.PhysicalIndexes.PhysicalIndex>`
             
+            	**config**\: False
+            
             
 
             """
@@ -6033,10 +6847,14 @@ class Snmp(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: threshold_indexes
                 
                 	List of threshold index
                 	**type**\:  :py:class:`ThresholdIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes>`
+                
+                	**config**\: False
                 
                 
 
@@ -6079,6 +6897,8 @@ class Snmp(Entity):
                     	Threshold value for threshold index
                     	**type**\: list of  		 :py:class:`ThresholdIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -6116,12 +6936,16 @@ class Snmp(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: thre_index
                         
                         	Threshold index
                         	**type**\: str
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                        
+                        	**config**\: False
                         
                         .. attribute:: threshold_severity
                         
@@ -6130,12 +6954,16 @@ class Snmp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: threshold_relation
                         
                         	Indicates relation between sensor value and threshold
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: threshold_value
                         
@@ -6144,15 +6972,21 @@ class Snmp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: threshold_evaluation
                         
                         	Indicates the result of the most recent evaluation of the thresholD
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: threshold_notification_enabled
                         
                         	Indicates whether or not a notification should result, in case of threshold violation
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -6190,7 +7024,11 @@ class Snmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex, ['phy_index', 'thre_index', 'threshold_severity', 'threshold_relation', 'threshold_value', 'threshold_evaluation', 'threshold_notification_enabled'], name, value)
+                            self._perform_setattr(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex, ['phy_index', 'thre_index', u'threshold_severity', u'threshold_relation', u'threshold_value', u'threshold_evaluation', u'threshold_notification_enabled'], name, value)
+
+
+
+
 
 
         class EntPhyIndexes(Entity):
@@ -6201,6 +7039,8 @@ class Snmp(Entity):
             
             	Sensor value for physical index
             	**type**\: list of  		 :py:class:`EntPhyIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.EntPhyIndexes.EntPhyIndex>`
+            
+            	**config**\: False
             
             
 
@@ -6240,12 +7080,16 @@ class Snmp(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: field_validity_bitmap
                 
                 	Sensor valid bitmap
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: device_description
                 
@@ -6254,12 +7098,16 @@ class Snmp(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: units
                 
                 	Units of variable being read
                 	**type**\: str
                 
                 	**length:** 0..64
+                
+                	**config**\: False
                 
                 .. attribute:: device_id
                 
@@ -6268,12 +7116,16 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: value
                 
                 	Current reading of sensor
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: alarm_type
                 
@@ -6282,12 +7134,16 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: data_type
                 
                 	Sensor data type enums
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: scale
                 
@@ -6296,12 +7152,16 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: precision
                 
                 	Sensor precision range
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: status
                 
@@ -6310,12 +7170,16 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: age_time_stamp
                 
                 	Age of the sensor value; set to the current time if directly access the value from sensor
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: update_rate
                 
@@ -6324,12 +7188,16 @@ class Snmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: measured_entity
                 
                 	physical entity for which the sensor is taking measurements
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -6384,7 +7252,12 @@ class Snmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.SensorMib.EntPhyIndexes.EntPhyIndex, ['index', 'field_validity_bitmap', 'device_description', 'units', 'device_id', 'value', 'alarm_type', 'data_type', 'scale', 'precision', 'status', 'age_time_stamp', 'update_rate', 'measured_entity'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Snmp()
         return self._top_entity
+
+
 

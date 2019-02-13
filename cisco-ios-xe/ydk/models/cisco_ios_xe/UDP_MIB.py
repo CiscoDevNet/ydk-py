@@ -25,10 +25,14 @@ class UDPMIB(Entity):
     	
     	**type**\:  :py:class:`Udp <ydk.models.cisco_ios_xe.UDP_MIB.UDPMIB.Udp>`
     
+    	**config**\: False
+    
     .. attribute:: udptable
     
     	A table containing IPv4\-specific UDP listener information.  It contains information about all local IPv4 UDP end\-points on which an application is currently accepting datagrams.  This table has been deprecated in favor of the version neutral udpEndpointTable
     	**type**\:  :py:class:`UdpTable <ydk.models.cisco_ios_xe.UDP_MIB.UDPMIB.UdpTable>`
+    
+    	**config**\: False
     
     	**status**\: deprecated
     
@@ -36,6 +40,8 @@ class UDPMIB(Entity):
     
     	A table containing information about this entity's UDP endpoints on which a local application is currently accepting or sending datagrams.  The address type in this table represents the address type used for the communication, irrespective of the higher\-layer abstraction.  For example, an application using IPv6 'sockets' to communicate via IPv4 between \:\:ffff\:10.0.0.1 and \:\:ffff\:10.0.0.2 would use InetAddressType ipv4(1).  Unlike the udpTable in RFC 2013, this table also allows the representation of an application that completely specifies both local and remote addresses and ports.  A listening application is represented in three possible ways\:  1) An application that is willing to accept both IPv4    and IPv6 datagrams is represented by a    udpEndpointLocalAddressType of unknown(0) and a    udpEndpointLocalAddress of ''h (a zero\-length    octet\-string).  2) An application that is willing to accept only IPv4    or only IPv6 datagrams is represented by a    udpEndpointLocalAddressType of the appropriate    address type and a udpEndpointLocalAddress of    '0.0.0.0' or '\:\:' respectively.  3) An application that is listening for datagrams only    for a specific IP address but from any remote    system is represented by a    udpEndpointLocalAddressType of the appropriate    address type, with udpEndpointLocalAddress    specifying the local address.  In all cases where the remote is a wildcard, the udpEndpointRemoteAddressType is unknown(0), the udpEndpointRemoteAddress is ''h (a zero\-length octet\-string), and the udpEndpointRemotePort is 0.  If the operating system is demultiplexing UDP packets by remote address and port, or if the application has 'connected' the socket specifying a default remote address and port, the udpEndpointRemote\* values should be used to reflect this
     	**type**\:  :py:class:`UdpEndpointTable <ydk.models.cisco_ios_xe.UDP_MIB.UDPMIB.UdpEndpointTable>`
+    
+    	**config**\: False
     
     
 
@@ -85,12 +91,16 @@ class UDPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: udpnoports
         
         	The total number of received UDP datagrams for which there was no application at the destination port.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by discontinuities in the value of sysUpTime
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: udpinerrors
         
@@ -99,12 +109,16 @@ class UDPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: udpoutdatagrams
         
         	The total number of UDP datagrams sent from this entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by discontinuities in the value of sysUpTime
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: udphcindatagrams
         
@@ -113,12 +127,16 @@ class UDPMIB(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: udphcoutdatagrams
         
         	The total number of UDP datagrams sent from this entity, for devices that can transmit more than 1 million UDP datagrams per second.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by discontinuities in the value of sysUpTime
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         
 
@@ -158,6 +176,7 @@ class UDPMIB(Entity):
             self._perform_setattr(UDPMIB.Udp, ['udpindatagrams', 'udpnoports', 'udpinerrors', 'udpoutdatagrams', 'udphcindatagrams', 'udphcoutdatagrams'], name, value)
 
 
+
     class UdpTable(Entity):
         """
         A table containing IPv4\-specific UDP listener
@@ -171,6 +190,8 @@ class UDPMIB(Entity):
         
         	Information about a particular current UDP listener
         	**type**\: list of  		 :py:class:`UdpEntry <ydk.models.cisco_ios_xe.UDP_MIB.UDPMIB.UdpTable.UdpEntry>`
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -212,6 +233,8 @@ class UDPMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: udplocalport  (key)
@@ -220,6 +243,8 @@ class UDPMIB(Entity):
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -251,6 +276,8 @@ class UDPMIB(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(UDPMIB.UdpTable.UdpEntry, ['udplocaladdress', 'udplocalport'], name, value)
+
+
 
 
     class UdpEndpointTable(Entity):
@@ -307,6 +334,8 @@ class UDPMIB(Entity):
         	Information about a particular current UDP endpoint.  Implementers need to be aware that if the total number of elements (octets or sub\-identifiers) in udpEndpointLocalAddress and udpEndpointRemoteAddress exceeds 111, then OIDs of column instances in this table will have more than 128 sub\-identifiers and cannot be accessed using SNMPv1, SNMPv2c, or SNMPv3
         	**type**\: list of  		 :py:class:`UdpEndpointEntry <ydk.models.cisco_ios_xe.UDP_MIB.UDPMIB.UdpEndpointTable.UdpEndpointEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -350,12 +379,16 @@ class UDPMIB(Entity):
             	The address type of udpEndpointLocalAddress.  Only IPv4, IPv4z, IPv6, and IPv6z addresses are expected, or unknown(0) if datagrams for all local IP addresses are accepted
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
+            	**config**\: False
+            
             .. attribute:: udpendpointlocaladdress  (key)
             
             	The local IP address for this UDP endpoint.  The value of this object can be represented in three  possible ways, depending on the characteristics of the listening application\:  1. For an application that is willing to accept both    IPv4 and IPv6 datagrams, the value of this object    must be ''h (a zero\-length octet\-string), with    the value of the corresponding instance of the    udpEndpointLocalAddressType object being unknown(0).  2. For an application that is willing to accept only IPv4    or only IPv6 datagrams, the value of this object    must be '0.0.0.0' or '\:\:', respectively, while the    corresponding instance of the    udpEndpointLocalAddressType object represents the    appropriate address type.  3. For an application that is listening for data    destined only to a specific IP address, the value    of this object is the specific IP address for which    this node is receiving packets, with the    corresponding instance of the    udpEndpointLocalAddressType object representing the    appropriate address type.  As this object is used in the index for the udpEndpointTable, implementors of this table should be careful not to create entries that would result in OIDs with more than 128 subidentifiers; else the information cannot be accessed using SNMPv1, SNMPv2c, or SNMPv3
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: udpendpointlocalport  (key)
             
@@ -364,10 +397,14 @@ class UDPMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: udpendpointremoteaddresstype  (key)
             
             	The address type of udpEndpointRemoteAddress.  Only IPv4, IPv4z, IPv6, and IPv6z addresses are expected, or unknown(0) if datagrams for all remote IP addresses are accepted.  Also, note that some combinations of  udpEndpointLocalAdressType and udpEndpointRemoteAddressType are not supported.  In particular, if the value of this object is not unknown(0), it is expected to always refer to the same IP version as udpEndpointLocalAddressType
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: udpendpointremoteaddress  (key)
             
@@ -376,12 +413,16 @@ class UDPMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: udpendpointremoteport  (key)
             
             	The remote port number for this UDP endpoint.  If datagrams from any remote system are to be accepted, this value is zero
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: udpendpointinstance  (key)
             
@@ -390,12 +431,16 @@ class UDPMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: udpendpointprocess
             
             	The system's process ID for the process associated with this endpoint, or zero if there is no such process. This value is expected to be the same as HOST\-RESOURCES\-MIB\:\:hrSWRunIndex or SYSAPPL\-MIB\:\: sysApplElmtRunIndex for some row in the appropriate tables
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -438,7 +483,11 @@ class UDPMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(UDPMIB.UdpEndpointTable.UdpEndpointEntry, ['udpendpointlocaladdresstype', 'udpendpointlocaladdress', 'udpendpointlocalport', 'udpendpointremoteaddresstype', 'udpendpointremoteaddress', 'udpendpointremoteport', 'udpendpointinstance', 'udpendpointprocess'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = UDPMIB()
         return self._top_entity
+
+
 

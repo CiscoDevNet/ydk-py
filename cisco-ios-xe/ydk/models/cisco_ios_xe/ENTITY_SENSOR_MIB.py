@@ -264,6 +264,8 @@ class ENTITYSENSORMIB(Entity):
     	This table contains one row per physical sensor represented by an associated row in the entPhysicalTable
     	**type**\:  :py:class:`EntPhySensorTable <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.ENTITYSENSORMIB.EntPhySensorTable>`
     
+    	**config**\: False
+    
     
 
     """
@@ -302,6 +304,8 @@ class ENTITYSENSORMIB(Entity):
         
         	Information about a particular physical sensor.  An entry in this table describes the present reading of a sensor, the measurement units and scale, and sensor operational status.  Entries are created in this table by the agent.  An entry for each physical sensor SHOULD be created at the same time as the associated entPhysicalEntry.  An entry SHOULD be destroyed if the associated entPhysicalEntry is destroyed
         	**type**\: list of  		 :py:class:`EntPhySensorEntry <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.ENTITYSENSORMIB.EntPhySensorTable.EntPhySensorEntry>`
+        
+        	**config**\: False
         
         
 
@@ -352,15 +356,21 @@ class ENTITYSENSORMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: entphysensortype
             
             	The type of data returned by the associated entPhySensorValue object.  This object SHOULD be set by the agent during entry creation, and the value SHOULD NOT change during operation
             	**type**\:  :py:class:`EntitySensorDataType <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.EntitySensorDataType>`
             
+            	**config**\: False
+            
             .. attribute:: entphysensorscale
             
             	The exponent to apply to values returned by the associated entPhySensorValue object.  This object SHOULD be set by the agent during entry creation, and the value SHOULD NOT change during operation
             	**type**\:  :py:class:`EntitySensorDataScale <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.EntitySensorDataScale>`
+            
+            	**config**\: False
             
             .. attribute:: entphysensorprecision
             
@@ -369,6 +379,8 @@ class ENTITYSENSORMIB(Entity):
             
             	**range:** \-8..9
             
+            	**config**\: False
+            
             .. attribute:: entphysensorvalue
             
             	The most recent measurement obtained by the agent for this sensor.  To correctly interpret the value of this object, the associated entPhySensorType, entPhySensorScale, and entPhySensorPrecision objects must also be examined
@@ -376,15 +388,21 @@ class ENTITYSENSORMIB(Entity):
             
             	**range:** \-1000000000..1073741823
             
+            	**config**\: False
+            
             .. attribute:: entphysensoroperstatus
             
             	The operational status of the sensor
             	**type**\:  :py:class:`EntitySensorStatus <ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB.EntitySensorStatus>`
             
+            	**config**\: False
+            
             .. attribute:: entphysensorunitsdisplay
             
             	A textual description of the data units that should be used in the display of entPhySensorValue
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: entphysensorvaluetimestamp
             
@@ -393,12 +411,16 @@ class ENTITYSENSORMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: entphysensorvalueupdaterate
             
             	An indication of the frequency that the agent updates the associated entPhySensorValue object, representing in milliseconds.  The value zero indicates\:      \- the sensor value is updated on demand (e.g.,       when polled by the agent for a get\-request),     \- the sensor value is updated when the sensor       value changes (event\-driven),     \- the agent does not know the update rate
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -445,7 +467,11 @@ class ENTITYSENSORMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ENTITYSENSORMIB.EntPhySensorTable.EntPhySensorEntry, ['entphysicalindex', 'entphysensortype', 'entphysensorscale', 'entphysensorprecision', 'entphysensorvalue', 'entphysensoroperstatus', 'entphysensorunitsdisplay', 'entphysensorvaluetimestamp', 'entphysensorvalueupdaterate'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ENTITYSENSORMIB()
         return self._top_entity
+
+
 

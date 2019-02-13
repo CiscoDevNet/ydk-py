@@ -178,7 +178,11 @@ class Configurationvalidation(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Configurationvalidation.FailureTypeActions.FailureTypeAction, ['failure', 'action'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Configurationvalidation()
         return self._top_entity
+
+
 

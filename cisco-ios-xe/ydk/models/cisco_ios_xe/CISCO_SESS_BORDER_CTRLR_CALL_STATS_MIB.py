@@ -144,30 +144,42 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
     	The call stats instance table contains the physical index for each of the physical entity (line card, primary, secondary cards). The index of the table is instance index which uniquely identifies the physical entity present on the box
     	**type**\:  :py:class:`CsbCallStatsInstanceTable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable>`
     
+    	**config**\: False
+    
     .. attribute:: csbcallstatstable
     
     	This table describes the global statistics information in the form of a table which contains call specific information like call rates, media flows, signaling flows etc. The index of the table is service index which corresponds to a particular  service configured on the SBC and all the rows of the table represents the global information regarding all the call flows related to that particular service. The other index of this table is csbCallStatsInstanceIndex which is defined in csbCallStatsInstanceTable
     	**type**\:  :py:class:`CsbCallStatsTable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable>`
+    
+    	**config**\: False
     
     .. attribute:: csbcurrperiodicstatstable
     
     	This table is used to collect measurement over several different intervals as defined by the csbCurrPeriodicStatsInterval object. When a new interval starts the objects associated with the interval are reset and count up throughout the interval. The index of the table is the interval for which the stats information is to be displayed. The interval values can be 5 min, 15 mins, 1 hour and one day. The other indices of this table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable.  The gauge values are reported as \:\- 1.If the period being queried is current5mins, this is the value at the instant that the query is issued.  2.Otherwise, for the other intevals, this is an average value during the summary period sampled at 5 minute intervals
     	**type**\:  :py:class:`CsbCurrPeriodicStatsTable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCurrPeriodicStatsTable>`
     
+    	**config**\: False
+    
     .. attribute:: csbhistorystatstable
     
     	This table provide historical measurement in various interval length defined by the csbHistoryStatsInterval object. Each interval may contain one or more entries to allow for detailed measurment to be collected. It is up to the platform to determine the number of intervals to be supported like  5 minutes, 15 minutes, 1 hour and 1 day. In addition, the number of historical entries is also determined by the platform resources.  The gauge values are reported as\: If the period being queried is previous5mins, this is the number of calls that were active at the end of the previous 5 minute period. Otherwise for the other intevals, this is an average value during the summary period, sampled at 5 minute intervals
     	**type**\:  :py:class:`CsbHistoryStatsTable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbHistoryStatsTable>`
+    
+    	**config**\: False
     
     .. attribute:: csbperflowstatstable
     
     	This table describes statistics table for each call flow. The indices of the table are virtual media gateway id, gate id, falow pair id and side id (indices for side A or side B). The other indices of this table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
     	**type**\:  :py:class:`CsbPerFlowStatsTable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbPerFlowStatsTable>`
     
+    	**config**\: False
+    
     .. attribute:: csbh248statstable
     
     	This table describes the H.248 statistics for SBC. The index of the table is service index which corresponds to a particular  service configured on the SBC and the index assigned to a particular H.248 controller. The other index of this table is csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable. This table is replaced by the csbH248StatsRev1Table
     	**type**\:  :py:class:`CsbH248StatsTable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbH248StatsTable>`
+    
+    	**config**\: False
     
     	**status**\: deprecated
     
@@ -175,6 +187,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
     
     	This table describes the H.248 statistics for SBC. The index of the table is service index which corresponds to a particular  service configured on the SBC and the index assigned to a particular H.248 controller. The other index of this table is csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable
     	**type**\:  :py:class:`CsbH248StatsRev1Table <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbH248StatsRev1Table>`
+    
+    	**config**\: False
     
     
 
@@ -241,6 +255,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
         	A conceptual row in csbCallStatsInstanceTable. There is an entry in this table for each SBC instance, as identified by a  value of csbCallStatsInstanceIndex
         	**type**\: list of  		 :py:class:`CsbCallStatsInstanceEntry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable.CsbCallStatsInstanceEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -281,12 +297,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbcallstatsinstancephysicalindex
             
             	This object indicates the physical entity for which all the measurements are maintained. The exact type of this entity is described by its entPhysicalVendorType value
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             
 
@@ -318,6 +338,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
                 self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable.CsbCallStatsInstanceEntry, [u'csbcallstatsinstanceindex', u'csbcallstatsinstancephysicalindex'], name, value)
 
 
+
+
     class CsbCallStatsTable(Entity):
         """
         This table describes the global statistics information in the
@@ -334,6 +356,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
         
         	An conceptual row in the csbCallStatsGlobalStatsTable. There is an entry in this table for the particular service configured on SBC identified by a value of csbCallStatsInstanceIndex. The other index of this table is csbCallStatsInstanceIndex which is defined in csbCallStatsInstanceTable
         	**type**\: list of  		 :py:class:`CsbCallStatsEntry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable.CsbCallStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -379,6 +403,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable.CsbCallStatsInstanceEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbcallstatsserviceindex  (key)
             
             	This object identifies the index of the name of the SBC service configured. This object also acts as an index for the table
@@ -386,10 +412,14 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbcallstatssbcname
             
             	This object indicates the configured name of the SBC service. The length of this object is zero when value is not assigned to it
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csbcallstatscallshigh
             
@@ -397,6 +427,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls per second
             
@@ -407,6 +439,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: calls per second
             
             .. attribute:: csbcallstatscallslow
@@ -415,6 +449,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls per second
             
@@ -425,6 +461,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: flows
             
             .. attribute:: csbcallstatsusedflows
@@ -433,6 +471,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: flows
             
@@ -443,6 +483,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: flows
             
             .. attribute:: csbcallstatstotalflows
@@ -451,6 +493,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: flows
             
@@ -461,6 +505,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: signal flows
             
             .. attribute:: csbcallstatspeaksigflows
@@ -469,6 +515,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: signal flows
             
@@ -479,6 +527,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: signal flows
             
             .. attribute:: csbcallstatsavailablepktrate
@@ -487,6 +537,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets per second
             
@@ -497,6 +549,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: csbcallstatsrtppktssent
@@ -505,6 +559,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -515,6 +571,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: csbcallstatsrtppktsdiscard
@@ -523,6 +581,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -533,6 +593,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: octets
             
             .. attribute:: csbcallstatsrtpoctetsrcvd
@@ -541,6 +603,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: octets
             
@@ -551,6 +615,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: octets
             
             .. attribute:: csbcallstatsnomediacount
@@ -559,6 +625,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: no media events
             
@@ -569,6 +637,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: route error events
             
             .. attribute:: csbcallstatsavailabletranscodeflows
@@ -577,6 +647,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: flows
             
@@ -587,6 +659,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: flows
             
             .. attribute:: csbcallstatspeaktranscodeflows
@@ -596,6 +670,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: flows
             
             .. attribute:: csbcallstatstotaltranscodeflows
@@ -604,6 +680,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: flows
             
@@ -687,6 +765,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
                 self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable.CsbCallStatsEntry, [u'csbcallstatsinstanceindex', u'csbcallstatsserviceindex', u'csbcallstatssbcname', u'csbcallstatscallshigh', u'csbcallstatsrate1sec', u'csbcallstatscallslow', u'csbcallstatsavailableflows', u'csbcallstatsusedflows', u'csbcallstatspeakflows', u'csbcallstatstotalflows', u'csbcallstatsusedsigflows', u'csbcallstatspeaksigflows', u'csbcallstatstotalsigflows', u'csbcallstatsavailablepktrate', u'csbcallstatsunclassifiedpkts', u'csbcallstatsrtppktssent', u'csbcallstatsrtppktsrcvd', u'csbcallstatsrtppktsdiscard', u'csbcallstatsrtpoctetssent', u'csbcallstatsrtpoctetsrcvd', u'csbcallstatsrtpoctetsdiscard', u'csbcallstatsnomediacount', u'csbcallstatsrouteerrors', u'csbcallstatsavailabletranscodeflows', u'csbcallstatsactivetranscodeflows', u'csbcallstatspeaktranscodeflows', u'csbcallstatstotaltranscodeflows'], name, value)
 
 
+
+
     class CsbCurrPeriodicStatsTable(Entity):
         """
         This table is used to collect measurement over several
@@ -710,6 +790,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
         
         	An conceptual row in the csbCurrPeriodicStatsTable. There is an entry in this table for the particular controller by a value of csbH248StatsCtrlrIndex. The other indices of this table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
         	**type**\: list of  		 :py:class:`CsbCurrPeriodicStatsEntry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCurrPeriodicStatsTable.CsbCurrPeriodicStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -755,6 +837,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable.CsbCallStatsInstanceEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbcallstatsserviceindex  (key)
             
             	
@@ -764,10 +848,14 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable.CsbCallStatsEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbcurrperiodicstatsinterval  (key)
             
             	This object identifies the interval for which the periodic statistics information is to be displayed. The interval values can be 5 min, 15 mins, 1 hour , 1 Day. This object acts as index for the table
             	**type**\:  :py:class:`CiscoSbcPeriodicStatsInterval <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CiscoSbcPeriodicStatsInterval>`
+            
+            	**config**\: False
             
             .. attribute:: csbcurrperiodicstatsactivecalls
             
@@ -775,6 +863,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -785,6 +875,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: calls
             
             .. attribute:: csbcurrperiodicstatsdeactivatingcalls
@@ -793,6 +885,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -803,12 +897,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbcurrperiodicstatsfailedcallattempts
             
             	This object indicates the number of failed call attempts during this interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csbcurrperiodicstatscallroutingfailure
             
@@ -817,12 +915,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbcurrperiodicstatscallresourcefailure
             
             	This object indicates the number of call setup failures due to resource failures during this interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csbcurrperiodicstatscallmediafailure
             
@@ -831,12 +933,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbcurrperiodicstatscallsigfailure
             
             	This object indicates the number of call setup failures due to signaling failure during this interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csbcurrperiodicstatsactivecallfailure
             
@@ -845,12 +951,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbcurrperiodicstatscongestionfailure
             
             	This object indicates the number of call setup failures due to congestion during this interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csbcurrperiodicstatscallsetuppolicyfailure
             
@@ -859,12 +969,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbcurrperiodicstatscallsetupnapolicyfailure
             
             	This object indicates the number of call setup failures due to NA policy failure during this interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csbcurrperiodicstatscallsetuproutingpolicyfailure
             
@@ -873,12 +987,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbcurrperiodicstatscallsetupcacpolicyfailure
             
             	This object indicates the number of call setup failures due to CAC policy failure during this interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csbcurrperiodicstatscallsetupcaccalllimitfailure
             
@@ -887,12 +1005,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbcurrperiodicstatscallsetupcacratelimitfailure
             
             	This object indicates the number of call setup failures due to CAC call rate limit during this interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csbcurrperiodicstatscallsetupcacbandwidthfailure
             
@@ -901,12 +1023,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbcurrperiodicstatscallsetupcacmedialimitfailure
             
             	This object indicates the number of call setup failures due to CAC media limit during this interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csbcurrperiodicstatscallsetupcacmediaupdatefailure
             
@@ -915,6 +1041,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbcurrperiodicstatstimestamp
             
             	This object indicates the current time at the start of each interval
@@ -922,12 +1050,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**length:** 0..80
             
+            	**config**\: False
+            
             .. attribute:: csbcurrperiodicstatstranscodedcalls
             
             	The object indicates the number of transcoded calls that are active during this interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -938,6 +1070,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: calls
             
             .. attribute:: csbcurrperiodicstatstotalcallupdatefailure
@@ -946,6 +1080,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -956,6 +1092,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: calls
             
             .. attribute:: csbcurrperiodicstatsactiveemergencycalls
@@ -964,6 +1102,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -974,6 +1114,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: calls
             
             .. attribute:: csbcurrperiodicstatsimsrxactivecalls
@@ -982,6 +1124,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -992,6 +1136,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: failures
             
             .. attribute:: csbcurrperiodicstatsimsrxcallrenegotiationattempts
@@ -1000,6 +1146,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: attempts
             
@@ -1010,6 +1158,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: failures
             
             .. attribute:: csbcurrperiodicstatsaudiotranscodedcalls
@@ -1018,6 +1168,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -1028,6 +1180,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: calls
             
             .. attribute:: csbcurrperiodicstatsrtpdisallowedfailures
@@ -1036,6 +1190,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: failures
             
@@ -1046,6 +1202,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: failures
             
             .. attribute:: csbcurrperiodicstatsnonsrtpcalls
@@ -1054,6 +1212,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -1064,6 +1224,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: calls
             
             .. attribute:: csbcurrperiodicstatssrtpiwcalls
@@ -1072,6 +1234,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -1082,6 +1246,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: calls
             
             .. attribute:: csbcurrperiodicstatsdtmfiwinbandcalls
@@ -1090,6 +1256,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -1100,6 +1268,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: calls
             
             .. attribute:: csbcurrperiodicstatstotaltapsrequested
@@ -1108,6 +1278,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: attempts
             
@@ -1118,6 +1290,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: success
             
             .. attribute:: csbcurrperiodicstatscurrenttaps
@@ -1127,6 +1301,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: taps
             
             .. attribute:: csbcurrperiodicipseccalls
@@ -1135,6 +1311,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -1260,6 +1438,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
                 self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCurrPeriodicStatsTable.CsbCurrPeriodicStatsEntry, [u'csbcallstatsinstanceindex', u'csbcallstatsserviceindex', u'csbcurrperiodicstatsinterval', u'csbcurrperiodicstatsactivecalls', u'csbcurrperiodicstatsactivatingcalls', u'csbcurrperiodicstatsdeactivatingcalls', u'csbcurrperiodicstatstotalcallattempts', u'csbcurrperiodicstatsfailedcallattempts', u'csbcurrperiodicstatscallroutingfailure', u'csbcurrperiodicstatscallresourcefailure', u'csbcurrperiodicstatscallmediafailure', u'csbcurrperiodicstatscallsigfailure', u'csbcurrperiodicstatsactivecallfailure', u'csbcurrperiodicstatscongestionfailure', u'csbcurrperiodicstatscallsetuppolicyfailure', u'csbcurrperiodicstatscallsetupnapolicyfailure', u'csbcurrperiodicstatscallsetuproutingpolicyfailure', u'csbcurrperiodicstatscallsetupcacpolicyfailure', u'csbcurrperiodicstatscallsetupcaccalllimitfailure', u'csbcurrperiodicstatscallsetupcacratelimitfailure', u'csbcurrperiodicstatscallsetupcacbandwidthfailure', u'csbcurrperiodicstatscallsetupcacmedialimitfailure', u'csbcurrperiodicstatscallsetupcacmediaupdatefailure', u'csbcurrperiodicstatstimestamp', u'csbcurrperiodicstatstranscodedcalls', u'csbcurrperiodicstatstransratedcalls', u'csbcurrperiodicstatstotalcallupdatefailure', u'csbcurrperiodicstatsactiveipv6calls', u'csbcurrperiodicstatsactiveemergencycalls', u'csbcurrperiodicstatsactivee2emergencycalls', u'csbcurrperiodicstatsimsrxactivecalls', u'csbcurrperiodicstatsimsrxcallsetupfaiures', u'csbcurrperiodicstatsimsrxcallrenegotiationattempts', u'csbcurrperiodicstatsimsrxcallrenegotiationfailures', u'csbcurrperiodicstatsaudiotranscodedcalls', u'csbcurrperiodicstatsfaxtranscodedcalls', u'csbcurrperiodicstatsrtpdisallowedfailures', u'csbcurrperiodicstatssrtpdisallowedfailures', u'csbcurrperiodicstatsnonsrtpcalls', u'csbcurrperiodicstatssrtpnoniwcalls', u'csbcurrperiodicstatssrtpiwcalls', u'csbcurrperiodicstatsdtmfiw2833calls', u'csbcurrperiodicstatsdtmfiwinbandcalls', u'csbcurrperiodicstatsdtmfiw2833inbandcalls', u'csbcurrperiodicstatstotaltapsrequested', u'csbcurrperiodicstatstotaltapssucceeded', u'csbcurrperiodicstatscurrenttaps', u'csbcurrperiodicipseccalls'], name, value)
 
 
+
+
     class CsbHistoryStatsTable(Entity):
         """
         This table provide historical measurement in various interval
@@ -1282,6 +1462,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
         
         	A conceptual row in the csbHistoryStatsTable. The entries in this table are updated as interval completes in the csbCurrPeriodicStatsTable table and the data is moved from that table to this one
         	**type**\: list of  		 :py:class:`CsbHistoryStatsEntry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbHistoryStatsTable.CsbHistoryStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1326,6 +1508,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable.CsbCallStatsInstanceEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbcallstatsserviceindex  (key)
             
             	
@@ -1335,10 +1519,14 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable.CsbCallStatsEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbhistorystatsinterval  (key)
             
             	This object identifies the interval for which the history statistics information is to be displayed. The interval values can be 5 min, 15 mins, 1 hour , 1 day. This object acts as index for the table
             	**type**\:  :py:class:`CiscoSbcPeriodicStatsInterval <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CiscoSbcPeriodicStatsInterval>`
+            
+            	**config**\: False
             
             .. attribute:: csbhistorystatselements  (key)
             
@@ -1347,12 +1535,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbhistorystatsactivecalls
             
             	This object indicates the number of active calls history during this interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -1363,12 +1555,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbhistorystatsfailedcallattempts
             
             	This object indicates the number of failed call attempts during this interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csbhistorystatscallroutingfailure
             
@@ -1377,12 +1573,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbhistorystatscallresourcefailure
             
             	This object indicates the number of call setup failures due to resource failures during this interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csbhistorystatscallmediafailure
             
@@ -1391,12 +1591,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbhistorystatsfailsigfailure
             
             	This object indicates the number of call setup failures due to signaling failure during this interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csbhistorystatsactivecallfailure
             
@@ -1405,12 +1609,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbhistorystatscongestionfailure
             
             	This object indicates the number of call setup failures due to congestion during this interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csbhistorystatscallsetuppolicyfailure
             
@@ -1419,12 +1627,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbhistorystatscallsetupnapolicyfailure
             
             	This object indicates the number of call setup failures due to NA policy failure during this interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csbhistorystatscallsetuproutingpolicyfailure
             
@@ -1433,12 +1645,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbhistorystatscallsetupcacpolicyfailure
             
             	This object indicates the number of call setup failures due to CAC policy failure during this interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csbhistorystatscallsetupcaccalllimitfailure
             
@@ -1447,12 +1663,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbhistorystatscallsetupcacratelimitfailure
             
             	This object indicates the number of call setup failures due to CAC call rate limit during this interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csbhistorystatscallsetupcacbandwidthfailure
             
@@ -1461,12 +1681,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbhistorystatscallsetupcacmedialimitfailure
             
             	This object indicates the number of call setup failures due to CAC media limit during this interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csbhistorystatscallsetupcacmediaupdatefailure
             
@@ -1475,6 +1699,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbhistorystatstimestamp
             
             	This object indicates the time at the start of the interval when measurements were first collected for this interval in the csbCurrPeriodicStatsTable
@@ -1482,12 +1708,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**length:** 0..80
             
+            	**config**\: False
+            
             .. attribute:: csbhistroystatstranscodedcalls
             
             	The object indicates the number of active transcoded calls during this interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -1498,6 +1728,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: calls
             
             .. attribute:: csbhistorystatstotalcallupdatefailure
@@ -1506,6 +1738,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -1516,6 +1750,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: calls
             
             .. attribute:: csbhistorystatsactiveemergencycalls
@@ -1524,6 +1760,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -1534,6 +1772,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: calls
             
             .. attribute:: csbhistorystatsimsrxactivecalls
@@ -1542,6 +1782,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -1552,6 +1794,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: failures
             
             .. attribute:: csbhistorystatsimsrxcallrenegotiationattempts
@@ -1560,6 +1804,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: attempts
             
@@ -1570,6 +1816,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: failures
             
             .. attribute:: csbhistorystatsaudiotranscodedcalls
@@ -1578,6 +1826,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -1588,6 +1838,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: calls
             
             .. attribute:: csbhistorystatsrtpdisallowedfailures
@@ -1596,6 +1848,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: failures
             
@@ -1606,6 +1860,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: failures
             
             .. attribute:: csbhistorystatsnonsrtpcalls
@@ -1614,6 +1870,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -1624,6 +1882,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: calls
             
             .. attribute:: csbhistorystatssrtpiwcalls
@@ -1632,6 +1892,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -1642,6 +1904,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: calls
             
             .. attribute:: csbhistorystatsdtmfiwinbandcalls
@@ -1650,6 +1914,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -1660,6 +1926,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: calls
             
             .. attribute:: csbhistorystatstotaltapsrequested
@@ -1668,6 +1936,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: attempts
             
@@ -1678,6 +1948,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: success
             
             .. attribute:: csbhistorystatscurrenttaps
@@ -1687,6 +1959,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: taps
             
             .. attribute:: csbhistorystatsipseccalls
@@ -1695,6 +1969,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: calls
             
@@ -1818,6 +2094,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
                 self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbHistoryStatsTable.CsbHistoryStatsEntry, [u'csbcallstatsinstanceindex', u'csbcallstatsserviceindex', u'csbhistorystatsinterval', u'csbhistorystatselements', u'csbhistorystatsactivecalls', u'csbhistorystatstotalcallattempts', u'csbhistorystatsfailedcallattempts', u'csbhistorystatscallroutingfailure', u'csbhistorystatscallresourcefailure', u'csbhistorystatscallmediafailure', u'csbhistorystatsfailsigfailure', u'csbhistorystatsactivecallfailure', u'csbhistorystatscongestionfailure', u'csbhistorystatscallsetuppolicyfailure', u'csbhistorystatscallsetupnapolicyfailure', u'csbhistorystatscallsetuproutingpolicyfailure', u'csbhistorystatscallsetupcacpolicyfailure', u'csbhistorystatscallsetupcaccalllimitfailure', u'csbhistorystatscallsetupcacratelimitfailure', u'csbhistorystatscallsetupcacbandwidthfailure', u'csbhistorystatscallsetupcacmedialimitfailure', u'csbhistorystatscallsetupcacmediaupdatefailure', u'csbhistorystatstimestamp', u'csbhistroystatstranscodedcalls', u'csbhistroystatstransratedcalls', u'csbhistorystatstotalcallupdatefailure', u'csbhistorystatsactiveipv6calls', u'csbhistorystatsactiveemergencycalls', u'csbhistorystatsactivee2emergencycalls', u'csbhistorystatsimsrxactivecalls', u'csbhistorystatsimsrxcallsetupfailures', u'csbhistorystatsimsrxcallrenegotiationattempts', u'csbhistorystatsimsrxcallrenegotiationfailures', u'csbhistorystatsaudiotranscodedcalls', u'csbhistorystatsfaxtranscodedcalls', u'csbhistorystatsrtpdisallowedfailures', u'csbhistorystatssrtpdisallowedfailures', u'csbhistorystatsnonsrtpcalls', u'csbhistorystatssrtpnoniwcalls', u'csbhistorystatssrtpiwcalls', u'csbhistorystatsdtmfiw2833calls', u'csbhistorystatsdtmfiwinbandcalls', u'csbhistorystatsdtmfiw2833inbandcalls', u'csbhistorystatstotaltapsrequested', u'csbhistorystatstotaltapssucceeded', u'csbhistorystatscurrenttaps', u'csbhistorystatsipseccalls'], name, value)
 
 
+
+
     class CsbPerFlowStatsTable(Entity):
         """
         This table describes statistics table for each call flow. The
@@ -1831,6 +2109,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
         
         	An conceptual row in the csbPerFlowStatsTable. There is an entry in this table for vdbe Id, gate id, flow pair id and side id. The other indices of this table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
         	**type**\: list of  		 :py:class:`CsbPerFlowStatsEntry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbPerFlowStatsTable.CsbPerFlowStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1876,6 +2156,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable.CsbCallStatsInstanceEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbcallstatsserviceindex  (key)
             
             	
@@ -1885,12 +2167,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable.CsbCallStatsEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbperflowstatsvdbeid  (key)
             
             	This object identifies the virtual media gateway id. This object also acts as an index for the table
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: csbperflowstatsgateid  (key)
             
@@ -1899,6 +2185,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: csbperflowstatsflowpairid  (key)
             
             	This object identifies the flow pair id. This object also acts as an index for the table
@@ -1906,15 +2194,21 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: csbperflowstatssideid  (key)
             
             	This object identifies the index corresponding to side of flow pair either side A or side B. This object also acts as an index for the table
             	**type**\:  :py:class:`CsbPerFlowStatsSideId <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbPerFlowStatsTable.CsbPerFlowStatsEntry.CsbPerFlowStatsSideId>`
             
+            	**config**\: False
+            
             .. attribute:: csbperflowstatsflowtype
             
             	This object indicates the type of the flow, like media flow, signaling flow etc
             	**type**\:  :py:class:`CsbPerFlowStatsFlowType <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbPerFlowStatsTable.CsbPerFlowStatsEntry.CsbPerFlowStatsFlowType>`
+            
+            	**config**\: False
             
             .. attribute:: csbperflowstatsrtppktssent
             
@@ -1922,6 +2216,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -1932,6 +2228,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: csbperflowstatsrtppktsdiscard
@@ -1940,6 +2238,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -1950,6 +2250,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: octets
             
             .. attribute:: csbperflowstatsrtpoctetsrcvd
@@ -1958,6 +2260,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: octets
             
@@ -1968,6 +2272,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: octets
             
             .. attribute:: csbperflowstatsrtcppktssent
@@ -1976,6 +2282,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -1986,6 +2294,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: csbperflowstatsrtcppktslost
@@ -1994,6 +2304,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -2004,6 +2316,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: csbperflowstatstmanpermbs
@@ -2012,6 +2326,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -2022,12 +2338,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: kilobytes per second
             
             .. attribute:: csbperflowstatsdscpsettings
             
             	This object indicates the mark packets sent for the current FlowPair with, or zero if none set. The DSCP is a 6\-bit value, which will be present in the top 6 bits of the lowest byte of this field
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csbperflowstatsadrstatus
             
@@ -2036,6 +2356,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**length:** 0..10
             
+            	**config**\: False
+            
             .. attribute:: csbperflowstatsqasettings
             
             	This object indicates the flow on the current FlowPair has subscribed for the media loss event
@@ -2043,12 +2365,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**length:** 0..10
             
+            	**config**\: False
+            
             .. attribute:: csbperflowstatsrtppktslost
             
             	This object indicates the number of RTP packets lost per flow by the SBC
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -2164,6 +2490,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
 
 
 
+
+
     class CsbH248StatsTable(Entity):
         """
         This table describes the H.248 statistics for SBC. The index of
@@ -2177,6 +2505,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
         
         	An conceptual row in the csbCallStath248Table. There is an entry in this table for the particular controller by a value of csbH248StatsCtrlrIndex. The other indices of this table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
         	**type**\: list of  		 :py:class:`CsbH248StatsEntry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbH248StatsTable.CsbH248StatsEntry>`
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -2224,6 +2554,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable.CsbCallStatsInstanceEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbcallstatsserviceindex  (key)
             
             	
@@ -2233,12 +2565,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable.CsbCallStatsEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbh248statsctrlrindex  (key)
             
             	This object identifies the controller index of the H.248 server. This is also the index for the table
             	**type**\: int
             
             	**range:** 1..50
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2249,6 +2585,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: csbh248statsrequestsrcvd
@@ -2257,6 +2595,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2267,6 +2607,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: csbh248statsrequestsretried
@@ -2275,6 +2617,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2285,6 +2629,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: csbh248statsrepliesrcvd
@@ -2293,6 +2639,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2303,6 +2651,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: csbh248statssegpktssent
@@ -2311,6 +2661,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2321,6 +2673,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: csbh248statsestablishedtime
@@ -2330,6 +2684,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**length:** 0..80
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: csbh248statstmaxtimeoutval
@@ -2338,6 +2694,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -2350,6 +2708,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             	**status**\: deprecated
@@ -2360,6 +2720,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -2423,6 +2785,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
                 self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbH248StatsTable.CsbH248StatsEntry, [u'csbcallstatsinstanceindex', u'csbcallstatsserviceindex', u'csbh248statsctrlrindex', u'csbh248statsrequestssent', u'csbh248statsrequestsrcvd', u'csbh248statsrequestsfailed', u'csbh248statsrequestsretried', u'csbh248statsrepliessent', u'csbh248statsrepliesrcvd', u'csbh248statsrepliesretried', u'csbh248statssegpktssent', u'csbh248statssegpktsrcvd', u'csbh248statsestablishedtime', u'csbh248statstmaxtimeoutval', u'csbh248statsrtt', u'csbh248statslt'], name, value)
 
 
+
+
     class CsbH248StatsRev1Table(Entity):
         """
         This table describes the H.248 statistics for SBC. The index of
@@ -2435,6 +2799,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
         
         	An conceptual row in the csbCallStath248Table. There is an entry in this table for the particular Vdbe by a value of csbH248StatsVdbeId. The other indices of this table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
         	**type**\: list of  		 :py:class:`CsbH248StatsRev1Entry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbH248StatsRev1Table.CsbH248StatsRev1Entry>`
+        
+        	**config**\: False
         
         
 
@@ -2480,6 +2846,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable.CsbCallStatsInstanceEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbcallstatsserviceindex  (key)
             
             	
@@ -2489,12 +2857,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable.CsbCallStatsEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbh248statsvdbeid  (key)
             
             	This object identifies the virtual media gateway id. This is also the index for the table
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: csbh248statsrequestssentrev1
             
@@ -2503,12 +2875,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbh248statsrequestsrcvdrev1
             
             	This object indicates the requests received through the Session Controller Interface to an SBE or DBE
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csbh248statsrequestsfailedrev1
             
@@ -2517,12 +2893,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbh248statsrequestsretriedrev1
             
             	This object indicates the requests retried through the Session Controller Interface to an SBE or DBE
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csbh248statsrepliessentrev1
             
@@ -2531,12 +2911,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbh248statsrepliesrcvdrev1
             
             	This object indicates the number of replies received from the Session Controller Interface to an SBE or DBE
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csbh248statsrepliesretriedrev1
             
@@ -2545,12 +2929,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbh248statssegpktssentrev1
             
             	This object indicates the number of response segments sent by DBE. This field will only be present if segmentation is enabled on this association
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csbh248statssegpktsrcvdrev1
             
@@ -2559,6 +2947,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbh248statsestablishedtimerev1
             
             	This object indicates the H.248 Controller established time (the time at which the association became established)
@@ -2566,12 +2956,16 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**length:** 0..80
             
+            	**config**\: False
+            
             .. attribute:: csbh248statstmaxtimeoutvalrev1
             
             	This object indicates the T\-Max timeout value. This field specifies the maximum delay (in milliseconds) for a response from an MGC before deciding that the request has failed
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -2582,6 +2976,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: csbh248statsltrev1
@@ -2590,6 +2986,8 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -2650,7 +3048,11 @@ class CISCOSESSBORDERCTRLRCALLSTATSMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbH248StatsRev1Table.CsbH248StatsRev1Entry, [u'csbcallstatsinstanceindex', u'csbcallstatsserviceindex', u'csbh248statsvdbeid', u'csbh248statsrequestssentrev1', u'csbh248statsrequestsrcvdrev1', u'csbh248statsrequestsfailedrev1', u'csbh248statsrequestsretriedrev1', u'csbh248statsrepliessentrev1', u'csbh248statsrepliesrcvdrev1', u'csbh248statsrepliesretriedrev1', u'csbh248statssegpktssentrev1', u'csbh248statssegpktsrcvdrev1', u'csbh248statsestablishedtimerev1', u'csbh248statstmaxtimeoutvalrev1', u'csbh248statsrttrev1', u'csbh248statsltrev1'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOSESSBORDERCTRLRCALLSTATSMIB()
         return self._top_entity
+
+
 

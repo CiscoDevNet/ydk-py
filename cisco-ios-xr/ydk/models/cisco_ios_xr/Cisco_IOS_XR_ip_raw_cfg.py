@@ -135,6 +135,7 @@ class IpRaw(Entity):
             self._perform_setattr(IpRaw.NumThread, ['raw_in_q_threads', 'raw_out_q_threads'], name, value)
 
 
+
     class Directory(Entity):
         """
         RAW directory details
@@ -198,7 +199,10 @@ class IpRaw(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(IpRaw.Directory, ['directoryname', 'max_raw_debug_files', 'max_file_size_files'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = IpRaw()
         return self._top_entity
+
+
 

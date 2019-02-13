@@ -472,6 +472,10 @@ class TelemetryModelDriven(Entity):
                         self._perform_setattr(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths.SensorPath, ['telemetry_sensor_path'], name, value)
 
 
+
+
+
+
     class Subscriptions(Entity):
         """
         Streaming Telemetry Subscription
@@ -674,6 +678,8 @@ class TelemetryModelDriven(Entity):
                         self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles.SensorProfile, ['sensorgroupid', 'strict_timer', 'sample_interval'], name, value)
 
 
+
+
             class DestinationProfiles(Entity):
                 """
                 Associate Destination Groups with Subscription
@@ -745,6 +751,10 @@ class TelemetryModelDriven(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles.DestinationProfile, ['destination_id'], name, value)
+
+
+
+
 
 
     class Include(Entity):
@@ -820,6 +830,8 @@ class TelemetryModelDriven(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TelemetryModelDriven.Include.Empty, ['values'], name, value)
+
+
 
 
     class DestinationGroups(Entity):
@@ -1094,6 +1106,9 @@ class TelemetryModelDriven(Entity):
                             self._perform_setattr(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination.Protocol, ['protocol', 'tls_hostname', 'no_tls', 'packetsize'], name, value)
 
 
+
+
+
             class Ipv4Destinations(Entity):
                 """
                 Destination address configuration
@@ -1263,7 +1278,14 @@ class TelemetryModelDriven(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination.Protocol, ['protocol', 'tls_hostname', 'no_tls', 'packetsize'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = TelemetryModelDriven()
         return self._top_entity
+
+
 

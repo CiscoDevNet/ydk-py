@@ -591,50 +591,70 @@ class DOCSIF3MIB(Entity):
     	
     	**type**\:  :py:class:`DocsIf3CmCapabilities <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmCapabilities>`
     
+    	**config**\: False
+    
     .. attribute:: docsif3cmtscmctrl
     
     	
     	**type**\:  :py:class:`DocsIf3CmtsCmCtrl <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsCmCtrl>`
+    
+    	**config**\: False
     
     .. attribute:: docsif3cmenergymgtcfg
     
     	
     	**type**\:  :py:class:`DocsIf3CmEnergyMgtCfg <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmEnergyMgtCfg>`
     
+    	**config**\: False
+    
     .. attribute:: docsif3cmspectrumanalysisctrlcmd
     
     	
     	**type**\:  :py:class:`DocsIf3CmSpectrumAnalysisCtrlCmd <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmSpectrumAnalysisCtrlCmd>`
+    
+    	**config**\: False
     
     .. attribute:: docsif3cmstatustable
     
     	This object defines attributes of the CM connectivity status. This object provides CM connectivity status information of the CM previously available in the SNMP table docsIfCmStatusTable
     	**type**\:  :py:class:`DocsIf3CmStatusTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmStatusTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsif3cmstatusustable
     
     	This object defines PHY and MAC information about the CM's upstream channels operating in Multiple Transmit Channel (MTC) mode or in a Pre\-3.0 DOSCIS transmit channel mode. This object provides per\-CM Upstream channel information previously available in the SNMP table docsIfCmStatusTable
     	**type**\:  :py:class:`DocsIf3CmStatusUsTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmStatusUsTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsif3cmtscmregstatustable
     
     	This object defines attributes that represent the CM's registration status as tracked by the CMTS. Refer to the individual attribute definitions for  applicability to 3.0 and 3.1 Cable Modems
     	**type**\:  :py:class:`DocsIf3CmtsCmRegStatusTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsCmRegStatusTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsif3cmtscmusstatustable
     
     	This object defines status information of the CM currently in use Upstream Logical Channels, as reported by the CMTS
     	**type**\:  :py:class:`DocsIf3CmtsCmUsStatusTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsCmUsStatusTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsif3mdchcfgtable
     
     	This object configures the association of downstream and upstream channels to a particular MAC Domain (MD) on a CMTS.  The creation of channels and MAC domain object interface instances is vendor\-specific. In particular, the assignment of the channel interface index is normally vendor\-specific. Therefore, this object is intended only for associating channels to a MAC Domain and assumes that those channels were previously configured. The CMTS may have restrictions on which channels can be configured in the same MAC Domain.  For example, it could require the upstream channels to be from the same line card. This object supports the creation and deletion of multiple instances. Creation of a new instance of this object requires the ChId attribute to be set
     	**type**\:  :py:class:`DocsIf3MdChCfgTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3MdChCfgTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsif3rcccfgtable
     
     	This object identifies the scope of the Receive Channel Configuration (RCC) and provides a top level container for the Receive Module and Receive Channel objects.  The CMTS selects an instance of this object to assign to a CM when it registers. This object supports the creation and deletion of multiple instances
     	**type**\:  :py:class:`DocsIf3RccCfgTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RccCfgTable>`
+    
+    	**config**\: False
     
     	**status**\: obsolete
     
@@ -643,10 +663,14 @@ class DOCSIF3MIB(Entity):
     	The RCC Status object provides a read\-only view of the statically\-configured (from the RccCfg object) and dynamically\-created RCCs. The CMTS creates an RCC Status instance for each unique MAC Domain Cable Modem Service Group (MD\-CM\-SG) to which it signals an RCC to the CM
     	**type**\:  :py:class:`DocsIf3RccStatusTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RccStatusTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsif3rxchcfgtable
     
     	The Receive Channel Configuration object permits an operator to configure how CMs registered with certain Receive Channel Profiles will configure the Receive Channels within their profile. When a CM registers with an RCP for which all Receive Channel Indices (RcIds) are configured in the Receive Module object and all Receive Channels are configured within this object, the CMTS should use the configuration within these objects to set the Receive Channel Configuration returned to the CM in a REG\-RSP message.  A CMTS may require configuration of all pertinent Receive Module and Receive Channel instances in order to register a CM that reports a Receive Channel Profile (RCP), including any standard Receive Channel Profiles. If the CM reports multiple RCPs, and Receive Module and Receive Channel objects have instances for more than one RCP, the particular RCP selected by the CMTS is not specified.  A CMTS is not restricted to assigning Receive Modules based only on the contents of this object. This object supports the creation and deletion of multiple instances. Creation of a new instance of this object requires the ChIfIndex attribute to be set and a valid reference of a RccCfg instance
     	**type**\:  :py:class:`DocsIf3RxChCfgTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RxChCfgTable>`
+    
+    	**config**\: False
     
     	**status**\: obsolete
     
@@ -655,10 +679,14 @@ class DOCSIF3MIB(Entity):
     	The Receive Channel Status object reports the status of the statically\-configured and dynamically\-created Receive Channels within an RCC
     	**type**\:  :py:class:`DocsIf3RxChStatusTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RxChStatusTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsif3rxmodulecfgtable
     
     	The Receive Module Configuration object permits an operator to configure how CMs with certain Receive Channel Profiles (RCPs) will configure the Receive Modules within their profile upon CM registration.  When a CM registers with an RCP for which all Receive Module Indices (RmIds) are configured in this object and all Receive Channels are configured within the Receive Channel (ReceiveChannel) object, the CMTS should use the configuration within these objects to set the Receive Channel Configuration assigned to the CM in a REG\-RSP message.  A CMTS may require configuration of all pertinent Receive Module and Receive Channel instances (i.e., MIB table entries) in order to register a CM that reports a Receive Channel Profile.  If the CM reports multiple RCPs, and Receive Module and Receive Channel objects have instances (i.e., MIB table entries) for more than one RCP reported by the CM, the particular RCP selected by the CMTS is not specified.  A CMTS is not restricted to assigning Receive Modules based only on the contents of this object.  This object supports the creation and deletion of multiple instances. Creation of a new instance of this object requires the reference of a valid RccCfg instance
     	**type**\:  :py:class:`DocsIf3RxModuleCfgTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RxModuleCfgTable>`
+    
+    	**config**\: False
     
     	**status**\: obsolete
     
@@ -667,115 +695,161 @@ class DOCSIF3MIB(Entity):
     	The Receive Module Status object provides a read\-only view of the statically configured and dynamically created Receive Modules within an RCC
     	**type**\:  :py:class:`DocsIf3RxModuleStatusTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RxModuleStatusTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsif3mdnodestatustable
     
     	This object reports the MD\-DS\-SG\-ID and MD\-US\-SG\-ID associated with a MD\-CM\-SG\-ID within a MAC Domain and the Fiber Nodes reached by the MD\-CM\-SG
     	**type**\:  :py:class:`DocsIf3MdNodeStatusTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3MdNodeStatusTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsif3mddssgstatustable
     
     	This object returns the list of downstream channel associated with a MAC Domain MD\-DS\-SG\-ID
     	**type**\:  :py:class:`DocsIf3MdDsSgStatusTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3MdDsSgStatusTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsif3mdussgstatustable
     
     	This object returns the list of upstream channels associated with a MAC Domain MD\-US\-SG\-ID
     	**type**\:  :py:class:`DocsIf3MdUsSgStatusTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3MdUsSgStatusTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsif3mdustodschmappingtable
     
     	This object returns the set of downstream channels that carry UCDs and MAPs for a particular upstream channel in a MAC Domain
     	**type**\:  :py:class:`DocsIf3MdUsToDsChMappingTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3MdUsToDsChMappingTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsif3mdcfgtable
     
     	This object contains MAC domain level control and configuration attributes
     	**type**\:  :py:class:`DocsIf3MdCfgTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3MdCfgTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsif3bondinggrpcfgtable
     
     	This object defines statically configured Downstream Bonding Groups and Upstream Bonding Groups on the CMTS. This object supports the creation and deletion of multiple instances. Creation of a new instance of this object requires the ChList attribute to be set
     	**type**\:  :py:class:`DocsIf3BondingGrpCfgTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3BondingGrpCfgTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsif3dsbondinggrpstatustable
     
     	This object returns administratively\-configured and CMTS defined downstream bonding groups
     	**type**\:  :py:class:`DocsIf3DsBondingGrpStatusTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3DsBondingGrpStatusTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsif3usbondinggrpstatustable
     
     	This object returns administratively\-configured and CMTS\-defined upstream bonding groups
     	**type**\:  :py:class:`DocsIf3UsBondingGrpStatusTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3UsBondingGrpStatusTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsif3uschexttable
     
     	This object defines management extensions for upstream channels, in particular SCDMA parameters
     	**type**\:  :py:class:`DocsIf3UsChExtTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3UsChExtTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsif3uschsettable
     
     	This object defines a set of upstream channels. These channel sets may be associated with channel bonding groups, MD\-US\-SGs, MD\-CM\-SGs, or any other channel set that the CMTS may derive from other CMTS processes
     	**type**\:  :py:class:`DocsIf3UsChSetTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3UsChSetTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsif3dschsettable
     
     	This object defines a set of downstream channels. These channel sets may be associated with channel bonding groups, MD\-DS\-SGs, MD\-CM\-SGs, or any other channel set that the CMTS may derive from other CMTS processes
     	**type**\:  :py:class:`DocsIf3DsChSetTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3DsChSetTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsif3signalqualityexttable
     
     	This object provides an in\-channel received modulation error ratio metric for CM and CMTS
     	**type**\:  :py:class:`DocsIf3SignalQualityExtTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3SignalQualityExtTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsif3cmtssignalqualityexttable
     
     	This object provides metrics and parameters associated with received carrier, noise and interference power levels in the upstream channels of the CMTS
     	**type**\:  :py:class:`DocsIf3CmtsSignalQualityExtTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsSignalQualityExtTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsif3cmtsspectrumanalysismeastable
     
     	This object is used to configure the logical upstream interfaces to perform the spectrum measurements. This object supports creation and deletion of instances
     	**type**\:  :py:class:`DocsIf3CmtsSpectrumAnalysisMeasTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsSpectrumAnalysisMeasTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsif3cmdpvstatstable
     
     	This object represents the DOCSIS Path Verify Statistics collected in the cable modem device. The CMTS controls the logging of DPV statistics in the cable modem. Therefore the context and nature of the measurements are governed by the CMTS and not self\-descriptive when read from the CM
     	**type**\:  :py:class:`DocsIf3CmDpvStatsTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmDpvStatsTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsif3cmeventctrltable
     
     	This object represents the control mechanism to enable the dispatching of events based on the event Id. The following rules define the event control behavior\:  \- The CmEventCtrl object has no instances or contains an    instance with Event ID 0. All events matching the Local Log   settings of docsDevEvReporting are sent to local log ONLY.  \- The CmEventCtrl object contains configured instances   Only events matching the Event Ids configured in the object   are sent according to the settings of the docsDevEvReporting   object.       The CM does not persist instances of CmEventCtrl across    reinitializations
     	**type**\:  :py:class:`DocsIf3CmEventCtrlTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmEventCtrlTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsif3cmtseventctrltable
     
     	This object represents the control mechanism to enable the dispatching of  events based on the event Id. The following rules define the event control behavior\:  \- The CmtsEventCtrl object has no instances or contains an    instance with Event ID 0. All events matching the Local Log    settings of docsDevEvReporting are sent to local log ONLY.  \- The CmtsEventCtrl object contains configured instances   Only events matching the Event Ids configured in the object   are sent according to the settings of the docsDevEvReporting   object.     \- The CMTS persists all instances of CmtsEventCtrl across    reinitializations
     	**type**\:  :py:class:`DocsIf3CmtsEventCtrlTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsEventCtrlTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsif3cmmdcfgtable
     
     	This object contains CM MAC domain level control and configuration attributes
     	**type**\:  :py:class:`DocsIf3CmMdCfgTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmMdCfgTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsif3cmenergymgt1x1cfgtable
     
     	This object provides configuration state information  on the CM for the Energy Management 1x1 Mode feature
     	**type**\:  :py:class:`DocsIf3CmEnergyMgt1x1CfgTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmEnergyMgt1x1CfgTable>`
+    
+    	**config**\: False
     
     .. attribute:: docsif3cmspectrumanalysismeastable
     
     	This table provides a list of spectral analysis measurements  as performed across a range of center frequencies. The table  is capable of representing a full scan of the spectrum
     	**type**\:  :py:class:`DocsIf3CmSpectrumAnalysisMeasTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmSpectrumAnalysisMeasTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsif3cmtscmemstatstable
     
     	This table defines Energy Management mode statistics for the CM as reported by the CMTS.  For example, such metrics can provide insight into configuration of appropriate EM 1x1 Mode Activity Detection thresholds on the CM and/or to get feedback on how/if the current thresholds are working well or are  causing user experience issues
     	**type**\:  :py:class:`DocsIf3CmtsCmEmStatsTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsCmEmStatsTable>`
     
+    	**config**\: False
+    
     .. attribute:: docsif3cmem1x1statstable
     
     	This object defines Energy Management 1x1 mode statistics on the CM to provide insight into configuration of appropriate EM 1x1 Mode Activity Detection thresholds and/or to get feedback on how/if the current thresholds are working well or are  causing user experience issues. These statistics are only applicable/valid when the Energy  Management 1x1 mode is enabled in the CM
     	**type**\:  :py:class:`DocsIf3CmEm1x1StatsTable <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmEm1x1StatsTable>`
+    
+    	**config**\: False
     
     
 
@@ -961,12 +1035,16 @@ class DOCSIF3MIB(Entity):
         
         	**length:** 0 \| 2..255
         
+        	**config**\: False
+        
         .. attribute:: docsif3cmcapabilitiesrsp
         
         	This attribute contains the TLV encoding for TLV\-5 received in a REG\-RSP. The first byte of this encoding is expected to be '05'H
         	**type**\: str
         
         	**length:** 0 \| 2..255
+        
+        	**config**\: False
         
         
 
@@ -998,6 +1076,7 @@ class DOCSIF3MIB(Entity):
             self._perform_setattr(DOCSIF3MIB.DocsIf3CmCapabilities, ['docsif3cmcapabilitiesreq', 'docsif3cmcapabilitiesrsp'], name, value)
 
 
+
     class DocsIf3CmtsCmCtrl(Entity):
         """
         
@@ -1009,12 +1088,16 @@ class DOCSIF3MIB(Entity):
         
         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
         
+        	**config**\: False
+        
         .. attribute:: docsif3cmtscmctrlcmdmuteuschid
         
         	This attribute represents the Upstream Channel ID (UCID) to  mute or unmute.  A value of zero indicates all upstream  channels.  This attribute is only applicable when the  docsIf3CmtsCmCtrlCmdCommit attribute is set to  'mute'
         	**type**\: int
         
         	**range:** 0..255
+        
+        	**config**\: False
         
         .. attribute:: docsif3cmtscmctrlcmdmuteinterval
         
@@ -1023,6 +1106,8 @@ class DOCSIF3MIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: milliseconds
         
         .. attribute:: docsif3cmtscmctrlcmddisableforwarding
@@ -1030,10 +1115,14 @@ class DOCSIF3MIB(Entity):
         	When set to 'true', this attribute disables data forwarding  to the CMCI when the docsIf3CmtsCmCtrlCmdCommit attribute is set to 'disableForwarding'.  When set to 'false', this attribute enables data forwarding to the CMCI when the docsIf3CmtsCmCtrlCmdCommit attribute is set to 'disableForwarding'.  This attribute is only applicable when the  docsIf3CmtsCmCtrlCmdCommit attribute is set to  'disableForwarding'
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: docsif3cmtscmctrlcmdcommit
         
         	This attribute indicates the type of command for the  CMTS to trigger in the CM\-CTRL\-REQ message. This attribute will return the value of the last operation  performed or the default value if no operation has been  performed
         	**type**\:  :py:class:`DocsIf3CmtsCmCtrlCmdCommit <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsCmCtrl.DocsIf3CmtsCmCtrlCmdCommit>`
+        
+        	**config**\: False
         
         
 
@@ -1100,6 +1189,7 @@ class DOCSIF3MIB(Entity):
 
 
 
+
     class DocsIf3CmEnergyMgtCfg(Entity):
         """
         
@@ -1109,12 +1199,16 @@ class DOCSIF3MIB(Entity):
         	This attribute indicates which energy savings features have been enabled in the Cable Modem. The CM enables use of Energy Management Features only if both the Energy Management Feature Control TLV and Energy Management Modem Capability Response from the CMTS indicate that the feature is enabled.  If bit 0 is set,  the Energy Management 1x1 Mode feature is enabled
         	**type**\:  :py:class:`DocsIf3CmEnergyMgtCfgFeatureEnabled <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmEnergyMgtCfg.DocsIf3CmEnergyMgtCfgFeatureEnabled>`
         
+        	**config**\: False
+        
         .. attribute:: docsif3cmenergymgtcfgcycleperiod
         
         	This attribute specifies a minimum time period (in seconds)  that must elapse between EM\-REQ transactions in certain  situations\:  \- In the case of Energy Management 1x1 Mode, this attribute   sets the minimum cycle time that a CM will use for sending   requests to enter Energy Management 1x1 Mode.  \- In the case that the CM fails to receive an EM\-RSP message   after the maximum number of retries, this attribute sets    the minimum amount of time to elapse before the CM can    attempt another EM\-REQ transaction
         	**type**\: int
         
         	**range:** 0..65535
+        
+        	**config**\: False
         
         	**units**\: seconds
         
@@ -1148,6 +1242,7 @@ class DOCSIF3MIB(Entity):
             self._perform_setattr(DOCSIF3MIB.DocsIf3CmEnergyMgtCfg, ['docsif3cmenergymgtcfgfeatureenabled', 'docsif3cmenergymgtcfgcycleperiod'], name, value)
 
 
+
     class DocsIf3CmSpectrumAnalysisCtrlCmd(Entity):
         """
         
@@ -1157,12 +1252,16 @@ class DOCSIF3MIB(Entity):
         	This attribute is used to enable or disable the spectrum  analyzer feature. Setting this attribute to true triggers the CM to initiate measurements for the spectrum analyzer feature based on the other configuration attributes for the feature. By  default, the feature is disabled unless explicitly enabled.  Note that the feature may be disabled by the system under  certain circumstances if the spectrum analyzer would affect  critical services. In such a case, the attribute will return 'false' when read, and will reject sets to 'true' with an  error. Once the feature is enabled, any Set operation on  the docsIf3CmSpectrumAnalysisCtrlCmd MIB group might not  be effective until the feature is re\-enabled again
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: docsif3cmspectrumanalysisctrlcmdinactivitytimeout
         
         	This attribute controls the length of time after the last  spectrum analysis measurement before the feature is  automatically disabled. If set to a value of 0, the feature will remain enabled until it is explicitly disabled
         	**type**\: int
         
         	**range:** 0..86400
+        
+        	**config**\: False
         
         	**units**\: seconds
         
@@ -1173,6 +1272,8 @@ class DOCSIF3MIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: Hz
         
         .. attribute:: docsif3cmspectrumanalysisctrlcmdlastsegmentcenterfrequency
@@ -1181,6 +1282,8 @@ class DOCSIF3MIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: Hz
         
@@ -1191,6 +1294,8 @@ class DOCSIF3MIB(Entity):
         
         	**range:** 1000000..900000000
         
+        	**config**\: False
+        
         	**units**\: Hz
         
         .. attribute:: docsif3cmspectrumanalysisctrlcmdnumbinspersegment
@@ -1199,6 +1304,8 @@ class DOCSIF3MIB(Entity):
         	**type**\: int
         
         	**range:** 2..2048
+        
+        	**config**\: False
         
         	**units**\: bins-per-segment
         
@@ -1209,6 +1316,8 @@ class DOCSIF3MIB(Entity):
         
         	**range:** 50..500
         
+        	**config**\: False
+        
         	**units**\: hundredthsbin
         
         .. attribute:: docsif3cmspectrumanalysisctrlcmdwindowfunction
@@ -1216,12 +1325,16 @@ class DOCSIF3MIB(Entity):
         	This attribute controls or indicates the windowing function  which will be used when performing the discrete Fourier transform for the analysis.  The WindowFunction and the Equivalent Noise Bandwidth are related. If a particular WindowFunction is selected, then the EquivalentNoiseBandwidth  for the function which is in use, will be reported by the EquivalentNoiseBandwidth attribute. Alternatively if an EquivalentNoiseBandwidth value is chosen then if a WindowFunction function representing that  EquivalentNoiseBandwidth is defined in the CM, that value will be reported in the WindowFunction MIB object, or a value of  'other' will be reported. Use of 'modern' windowing functions not yet defined will likely be reported as 'other'.  Note that all window functions may not be supported by all  devices.  If an attempt is made to set the object to an  unsupported window function, or if writing of the  WindowFunction is not supported, an error will be returned
         	**type**\:  :py:class:`SpectrumAnalysisWindowFunction <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.SpectrumAnalysisWindowFunction>`
         
+        	**config**\: False
+        
         .. attribute:: docsif3cmspectrumanalysisctrlcmdnumberofaverages
         
         	This attribute controls the number of averages  that will be performed on spectral bins.   The average will be computed using the 'leaky integrator' method, where\:   reported bin value = alpha\*accumulated bin values +                         (1\-alpha)\*current bin value.    Alpha is one minus the reciprocal of the number of averages. For example, if N=25, then alpha = 0.96.   A value of 1 indicates no averaging.   Re\-writing the number of averages will restart the averaging process.  If there are no accumulated values, the  accumulators are made equal to the first measured bin  amplitudes.  If an attempt is made to set the attribute to an unsupported  number of averages, an error will be returned
         	**type**\: int
         
         	**range:** 1..1000
+        
+        	**config**\: False
         
         
 
@@ -1267,6 +1380,7 @@ class DOCSIF3MIB(Entity):
             self._perform_setattr(DOCSIF3MIB.DocsIf3CmSpectrumAnalysisCtrlCmd, ['docsif3cmspectrumanalysisctrlcmdenable', 'docsif3cmspectrumanalysisctrlcmdinactivitytimeout', 'docsif3cmspectrumanalysisctrlcmdfirstsegmentcenterfrequency', 'docsif3cmspectrumanalysisctrlcmdlastsegmentcenterfrequency', 'docsif3cmspectrumanalysisctrlcmdsegmentfrequencyspan', 'docsif3cmspectrumanalysisctrlcmdnumbinspersegment', 'docsif3cmspectrumanalysisctrlcmdequivalentnoisebandwidth', 'docsif3cmspectrumanalysisctrlcmdwindowfunction', 'docsif3cmspectrumanalysisctrlcmdnumberofaverages'], name, value)
 
 
+
     class DocsIf3CmStatusTable(Entity):
         """
         This object defines attributes of the CM connectivity
@@ -1278,6 +1392,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3CmStatusTable. An instance exist for the CM MAC Domain Interface
         	**type**\: list of  		 :py:class:`DocsIf3CmStatusEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmStatusTable.DocsIf3CmStatusEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1320,10 +1436,14 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmstatusvalue
             
             	This attribute denotes the current CM connectivity state. For the case of IP acquisition related states, this attribute reflects states for the current CM provisioning mode, not the other DHCP process associated with dual stack operation
             	**type**\:  :py:class:`CmRegState <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.CmRegState>`
+            
+            	**config**\: False
             
             .. attribute:: docsif3cmstatuscode
             
@@ -1332,12 +1452,16 @@ class DOCSIF3MIB(Entity):
             
             	**length:** 0 \| 5..7
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmstatusresets
             
             	This attribute denotes the number of times the CM reset or initialized this interface. Discontinuities in the value of this counter can occur at re\-initialization of the managed system, and at other times as indicated by the value of ifCounterDiscontinuityTime for the CM MAC Domain interface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: resets
             
@@ -1348,6 +1472,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: messages
             
             .. attribute:: docsif3cmstatusinvalidmaps
@@ -1356,6 +1482,8 @@ class DOCSIF3MIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: maps
             
@@ -1366,6 +1494,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: messages
             
             .. attribute:: docsif3cmstatusinvalidrangingrsps
@@ -1374,6 +1504,8 @@ class DOCSIF3MIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: messages
             
@@ -1384,6 +1516,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: messages
             
             .. attribute:: docsif3cmstatust1timeouts
@@ -1392,6 +1526,8 @@ class DOCSIF3MIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: timeouts
             
@@ -1402,6 +1538,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: timeouts
             
             .. attribute:: docsif3cmstatusuccssuccesses
@@ -1410,6 +1548,8 @@ class DOCSIF3MIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: attempts
             
@@ -1422,6 +1562,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: attempts
             
             	**status**\: obsolete
@@ -1430,6 +1572,8 @@ class DOCSIF3MIB(Entity):
             
             	This attribute indicates whether the CM is currently operating in Energy Management 1x1 Mode. If this attribute returns 'true',  the CM is operating in Energy Management 1x1 Mode
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -1485,6 +1629,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3CmStatusTable.DocsIf3CmStatusEntry, ['ifindex', 'docsif3cmstatusvalue', 'docsif3cmstatuscode', 'docsif3cmstatusresets', 'docsif3cmstatuslostsyncs', 'docsif3cmstatusinvalidmaps', 'docsif3cmstatusinvaliducds', 'docsif3cmstatusinvalidrangingrsps', 'docsif3cmstatusinvalidregrsps', 'docsif3cmstatust1timeouts', 'docsif3cmstatust2timeouts', 'docsif3cmstatusuccssuccesses', 'docsif3cmstatusuccfails', 'docsif3cmstatusenergymgt1x1operstatus'], name, value)
 
 
+
+
     class DocsIf3CmStatusUsTable(Entity):
         """
         This object defines PHY and MAC information about
@@ -1498,6 +1644,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3CmStatusUsTable. An instance exist for each of the CM's SC\-QAM upstream channels  which are configured for data transmission
         	**type**\: list of  		 :py:class:`DocsIf3CmStatusUsEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmStatusUsTable.DocsIf3CmStatusUsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1541,12 +1689,16 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmstatusustxpower
             
             	This attribute represents the operational CM transmit power for this SC\-QAM upstream channel. In order for this attribute to provide consistent information  under all circumstances, a 3.1 CM will report the average total  power for the SC\-QAM channel the same as was done for  DOCSIS 3.0, regardless of whether it is operating with a 3.1 or  a 3.0 CMTS. The value that is reported was referred to as Pr in  the DOCSIS 3.0 PHY Spec. This attribute is not applicable for  OFDMA channels
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: TenthdBmV
             
@@ -1557,6 +1709,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: timeouts
             
             .. attribute:: docsif3cmstatusust4timeouts
@@ -1565,6 +1719,8 @@ class DOCSIF3MIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: timeouts
             
@@ -1575,12 +1731,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: attempts
             
             .. attribute:: docsif3cmstatususmodulationtype
             
             	This attribute indicates modulation type status currently used by the CM for this upstream channel. Since this object specifically identifies PHY Layer mode, the shared upstream channel type 'tdmaAndAtdma' is not permitted
             	**type**\:  :py:class:`DocsisUpstreamType <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DocsisUpstreamType>`
+            
+            	**config**\: False
             
             .. attribute:: docsif3cmstatususeqdata
             
@@ -1589,12 +1749,16 @@ class DOCSIF3MIB(Entity):
             
             	**length:** 0 \| 36..260
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmstatusust3exceededs
             
             	This attribute denotes the number of times for excessive T3 timeouts. Discontinuities in the value of this counter can occur at re\-initialization of the managed system, and at other times as indicated by the value of ifCounterDiscontinuityTime for the associated upstream channel
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: timeouts
             
@@ -1603,10 +1767,14 @@ class DOCSIF3MIB(Entity):
             	This attribute denotes whether the upstream channel is muted
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmstatususrangingstatus
             
             	This attribute denotes the ranging state of the CM
             	**type**\:  :py:class:`RangingState <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.RangingState>`
+            
+            	**config**\: False
             
             
 
@@ -1654,6 +1822,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3CmStatusUsTable.DocsIf3CmStatusUsEntry, ['ifindex', 'docsif3cmstatusustxpower', 'docsif3cmstatusust3timeouts', 'docsif3cmstatusust4timeouts', 'docsif3cmstatususrangingaborteds', 'docsif3cmstatususmodulationtype', 'docsif3cmstatususeqdata', 'docsif3cmstatusust3exceededs', 'docsif3cmstatususismuted', 'docsif3cmstatususrangingstatus'], name, value)
 
 
+
+
     class DocsIf3CmtsCmRegStatusTable(Entity):
         """
         This object defines attributes that represent the CM's
@@ -1665,6 +1835,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3CmtsCmRegStatusTable
         	**type**\: list of  		 :py:class:`DocsIf3CmtsCmRegStatusEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsCmRegStatusTable.DocsIf3CmtsCmRegStatusEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1704,6 +1876,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtscmregstatusmacaddr
             
             	This attribute represents the MAC address of the CM. If the CM has multiple MAC addresses, this is the MAC address associated with the MAC Domain interface
@@ -1711,25 +1885,35 @@ class DOCSIF3MIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtscmregstatusipv6addr
             
             	This attribute represents the IPv6 address of the CM. If the CM has no Internet address assigned, or the Internet address is unknown, the value of this attribute is the all zeros address
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: docsif3cmtscmregstatusipv6linklocal
             
             	This attribute represents the IPv6 local scope address of the CM. If the CM has no link local address assigned, or the Internet address is unknown, the value of this attribute is the all zeros address
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtscmregstatusipv4addr
             
             	This attribute represents the IPv4 address of this CM. If the CM has no IP address assigned, or the IP address is unknown, this object returns 0.0.0.0
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtscmregstatusvalue
             
             	This attribute represents the current CM connectivity state
             	**type**\:  :py:class:`CmtsCmRegState <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.CmtsCmRegState>`
+            
+            	**config**\: False
             
             .. attribute:: docsif3cmtscmregstatusmdifindex
             
@@ -1738,12 +1922,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtscmregstatusmdcmsgid
             
             	This attribute represents the ID of the MAC Domain CM Service Group Id (MD\-CM\-SG\-ID) in which the CM is registered. If the ID is unknown, the CMTS returns a value of zero
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsif3cmtscmregstatusrcpid
             
@@ -1752,12 +1940,16 @@ class DOCSIF3MIB(Entity):
             
             	**length:** 5
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtscmregstatusrccstatusid
             
             	This attribute represents the RCC Id the CMTS used to configure the CM receive channel set during the registration process, if the CM is in DOCSIS 3.0 mode. If unknown or the CM is in DOCSIS 3.1 mode, the CMTS returns the value zero
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsif3cmtscmregstatusrcsid
             
@@ -1766,6 +1958,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtscmregstatustcsid
             
             	This attribute represents Transmit Channel Set (TCS) the CM is currently using. If the TCS is unknown, the CMTS returns the value zero
@@ -1773,15 +1967,21 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtscmregstatusqosversion
             
             	This attribute denotes the queuing services the CM  registered, either DOCSIS 1.1 QoS or DOCSIS 1.0 CoS mode
             	**type**\:  :py:class:`DocsisQosVersion <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DocsisQosVersion>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtscmregstatuslastregtime
             
             	This attribute represents the last time the CM registered
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: docsif3cmtscmregstatusaddrresolutionreqs
             
@@ -1790,15 +1990,21 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtscmregstatusenergymgtenabled
             
             	This attribute indicates which, if any, of the Energy  Management Features are enabled for this CM. If this attribute returns the em1x1Mode(0) bit set, the CM is configured with the  Energy Management 1x1 Feature enabled. If this attribute returns the dlsMode(1) bit set, the CM is configured with the DLS Feature enabled. If this attribute returns all bits cleared, the CM will  not request to operate in any Energy Management mode of operation.    Note\: This attribute only indicates if an Energy Management Feature  is enabled/disabled via the CM config file and registration  request/response exchange and does not indicate whether the CM is  actively operating in an Energy Management Mode
             	**type**\:  :py:class:`DocsIf3CmtsCmRegStatusEnergyMgtEnabled <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsCmRegStatusTable.DocsIf3CmtsCmRegStatusEntry.DocsIf3CmtsCmRegStatusEnergyMgtEnabled>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtscmregstatusenergymgtoperstatus
             
             	This attribute indicates whether the CM is currently operating in an Energy Management Mode. If this attribute returns the em1x1Mode(0) bit set, the CM is operating in Energy Management 1x1 Mode. If this attribute returns the dlsMode(1) bit set, the CM is operating in DLS Mode. If this attribute returns all bits  cleared, the CM is not operating in any Energy Management Mode.  This attribute always returns 0x00 (no bits set) in the case when  docsIf3CmtsCmRegStatusEnergyMgtEnabled is set to 0x00 (no Energy  Management Features enabled).  Note\: dlsMode(1) and em1x1Mode(0) are mutually exclusive, thus  a return value where both of these bits are 'true' is invalid
             	**type**\:  :py:class:`DocsIf3CmtsCmRegStatusEnergyMgtOperStatus <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsCmRegStatusTable.DocsIf3CmtsCmRegStatusEntry.DocsIf3CmtsCmRegStatusEnergyMgtOperStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1860,6 +2066,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3CmtsCmRegStatusTable.DocsIf3CmtsCmRegStatusEntry, ['docsif3cmtscmregstatusid', 'docsif3cmtscmregstatusmacaddr', 'docsif3cmtscmregstatusipv6addr', 'docsif3cmtscmregstatusipv6linklocal', 'docsif3cmtscmregstatusipv4addr', 'docsif3cmtscmregstatusvalue', 'docsif3cmtscmregstatusmdifindex', 'docsif3cmtscmregstatusmdcmsgid', 'docsif3cmtscmregstatusrcpid', 'docsif3cmtscmregstatusrccstatusid', 'docsif3cmtscmregstatusrcsid', 'docsif3cmtscmregstatustcsid', 'docsif3cmtscmregstatusqosversion', 'docsif3cmtscmregstatuslastregtime', 'docsif3cmtscmregstatusaddrresolutionreqs', 'docsif3cmtscmregstatusenergymgtenabled', 'docsif3cmtscmregstatusenergymgtoperstatus'], name, value)
 
 
+
+
     class DocsIf3CmtsCmUsStatusTable(Entity):
         """
         This object defines status information of the CM
@@ -1870,6 +2078,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3CmtsCmUsStatusTable
         	**type**\: list of  		 :py:class:`DocsIf3CmtsCmUsStatusEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsCmUsStatusTable.DocsIf3CmtsCmUsStatusEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1911,6 +2121,8 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`docsif3cmtscmregstatusid <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsCmRegStatusTable.DocsIf3CmtsCmRegStatusEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtscmusstatuschifindex  (key)
             
             	This attribute is a key that represents the ifIndex of the upstream interface
@@ -1918,10 +2130,14 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtscmusstatusmodulationtype
             
             	This attribute represents the modulation type currently used by this upstream channel
             	**type**\:  :py:class:`DocsisUpstreamType <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DocsisUpstreamType>`
+            
+            	**config**\: False
             
             .. attribute:: docsif3cmtscmusstatusrxpower
             
@@ -1929,6 +2145,8 @@ class DOCSIF3MIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: TenthdBmV
             
@@ -1939,6 +2157,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**units**\: TenthdB
             
             .. attribute:: docsif3cmtscmusstatusmicroreflections
@@ -1947,6 +2167,8 @@ class DOCSIF3MIB(Entity):
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             	**units**\: -dBc
             
@@ -1957,12 +2179,16 @@ class DOCSIF3MIB(Entity):
             
             	**length:** 0 \| 36..260
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtscmusstatusunerroreds
             
             	This attribute represents the codewords received without error from the CM on this interface. Discontinuities in the value of this counter can occur at re\-initialization of the managed system, and at other times as indicated by the value of ifCounterDiscontinuityTime for the associated upstream channel
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsif3cmtscmusstatuscorrecteds
             
@@ -1971,12 +2197,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtscmusstatusuncorrectables
             
             	This attribute represents the codewords received with uncorrectable errors from the CM on this upstream channel. Discontinuities in the value of this counter can occur at re\-initialization of the managed system, and at other times as indicated by the value of ifCounterDiscontinuityTime for the associated upstream channel
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsif3cmtscmusstatushighresolutiontimingoffset
             
@@ -1985,6 +2215,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**units**\: time tick/(64*256)
             
             .. attribute:: docsif3cmtscmusstatusismuted
@@ -1992,10 +2224,14 @@ class DOCSIF3MIB(Entity):
             	This attribute has a value 'true' to indicate that  the CM's upstream channel has been muted via  CM\-CTRL\-REQ/CM\-CTRL\-RSP message exchange
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtscmusstatusrangingstatus
             
             	This attribute denotes the ranging state of the CM
             	**type**\:  :py:class:`RangingState <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.RangingState>`
+            
+            	**config**\: False
             
             
 
@@ -2049,6 +2285,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3CmtsCmUsStatusTable.DocsIf3CmtsCmUsStatusEntry, ['docsif3cmtscmregstatusid', 'docsif3cmtscmusstatuschifindex', 'docsif3cmtscmusstatusmodulationtype', 'docsif3cmtscmusstatusrxpower', 'docsif3cmtscmusstatussignalnoise', 'docsif3cmtscmusstatusmicroreflections', 'docsif3cmtscmusstatuseqdata', 'docsif3cmtscmusstatusunerroreds', 'docsif3cmtscmusstatuscorrecteds', 'docsif3cmtscmusstatusuncorrectables', 'docsif3cmtscmusstatushighresolutiontimingoffset', 'docsif3cmtscmusstatusismuted', 'docsif3cmtscmusstatusrangingstatus'], name, value)
 
 
+
+
     class DocsIf3MdChCfgTable(Entity):
         """
         This object configures the association of downstream
@@ -2073,6 +2311,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3MdChCfgTable. The ifIndex key corresponds to the MAC Domain interface where the channel is configured. The CMTS persists all instances of MdChCfg across reinitializations
         	**type**\: list of  		 :py:class:`DocsIf3MdChCfgEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3MdChCfgTable.DocsIf3MdChCfgEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2118,6 +2358,8 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3mdchcfgchifindex  (key)
             
             	This key represents the interface index of an existing upstream or downstream channel that is configured to be part of the MAC Domain. For the case of upstream interfaces the CMTS could reject the assignment of upstream logical channels under the same physical upstream interface to different MAC Domains
@@ -2125,10 +2367,14 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: docsif3mdchcfgispricapableds
             
             	If set to 'true', this attribute configures the downstream channel as Primary\-Capable.  The default value for a downstream channel is 'true'. This attribute is not relevant for upstream interfaces,  therefore it reports the value 'false' for such interfaces. A CMTS may restrict the permitted value of this attribute based upon physical channel capabilities
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsif3mdchcfgchid
             
@@ -2137,15 +2383,21 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: docsif3mdchcfgsfprovattrmask
             
             	This attribute contains Provisioned Attribute Mask of non\-bonded service flow assignment to this channel
             	**type**\:  :py:class:`AttributeMask <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.AttributeMask>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3mdchcfgrowstatus
             
             	The status of this instance
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -2185,6 +2437,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3MdChCfgTable.DocsIf3MdChCfgEntry, ['ifindex', 'docsif3mdchcfgchifindex', 'docsif3mdchcfgispricapableds', 'docsif3mdchcfgchid', 'docsif3mdchcfgsfprovattrmask', 'docsif3mdchcfgrowstatus'], name, value)
 
 
+
+
     class DocsIf3RccCfgTable(Entity):
         """
         This object identifies the scope of the Receive Channel
@@ -2199,6 +2453,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3RccCfgTable. The ifIndex key corresponds to the MAC Domain interface where the RCC is configured.  The CMTS persists all instances of RccCfg across  reinitializations
         	**type**\: list of  		 :py:class:`DocsIf3RccCfgEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RccCfgTable.DocsIf3RccCfgEntry>`
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -2246,12 +2502,16 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3rcccfgrcpid  (key)
             
             	This key represents the 'Receive Channel Profile Identifier' (RCP\-ID) configured for the MAC Domain indicated by this instance
             	**type**\: str
             
             	**length:** 5
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -2262,6 +2522,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: docsif3rcccfgvendorspecific
@@ -2270,6 +2532,8 @@ class DOCSIF3MIB(Entity):
             	**type**\: str
             
             	**length:** 0..252
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -2280,12 +2544,16 @@ class DOCSIF3MIB(Entity):
             
             	**length:** 0..15
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: docsif3rcccfgrowstatus
             
             	The status of this instance
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -2327,6 +2595,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3RccCfgTable.DocsIf3RccCfgEntry, ['ifindex', 'docsif3rcccfgrcpid', 'docsif3rcccfgrcccfgid', 'docsif3rcccfgvendorspecific', 'docsif3rcccfgdescription', 'docsif3rcccfgrowstatus'], name, value)
 
 
+
+
     class DocsIf3RccStatusTable(Entity):
         """
         The RCC Status object provides a read\-only view of
@@ -2340,6 +2610,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3RccStatusTable. The ifIndex key corresponds to the MAC Domain interface where the RCC is configured
         	**type**\: list of  		 :py:class:`DocsIf3RccStatusEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RccStatusTable.DocsIf3RccStatusEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2383,12 +2655,16 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3rccstatusrcpid  (key)
             
             	This key represents the RCP\-ID to which this instance applies
             	**type**\: str
             
             	**length:** 5
+            
+            	**config**\: False
             
             .. attribute:: docsif3rccstatusrccstatusid  (key)
             
@@ -2397,6 +2673,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsif3rccstatusrcccfgid
             
             	This attribute identifies an RCC\-Configured combination from which this instance was defined. If nonzero, it corresponds to the RccCfg instance from which the RCC was created. Zero means that the  RCC was dynamically created by the CMTS
@@ -2404,15 +2682,21 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: docsif3rccstatusvaliditycode
             
             	This attribute indicates whether the RCC instance of this object is valid or not. An RCC Status instance from a configured or a dynamic RCC could become invalid, for example, due changes in the topology
             	**type**\:  :py:class:`DocsIf3RccStatusValidityCode <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RccStatusTable.DocsIf3RccStatusEntry.DocsIf3RccStatusValidityCode>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3rccstatusvaliditycodetext
             
             	This attribute contains the CMTS vendor\-specific log information from the Receive Channel Configuration Status encoding
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -2503,6 +2787,8 @@ class DOCSIF3MIB(Entity):
 
 
 
+
+
     class DocsIf3RxChCfgTable(Entity):
         """
         The Receive Channel Configuration object permits
@@ -2535,6 +2821,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3RxChCfgTable. The ifIndex key corresponds to the MAC Domain interface where the RCC is configured. The CMTS persists all instances of ReceiveChannelCfg across reinitializations
         	**type**\: list of  		 :py:class:`DocsIf3RxChCfgEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RxChCfgTable.DocsIf3RxChCfgEntry>`
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -2582,6 +2870,8 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3rcccfgrcpid  (key)
             
             	
@@ -2590,6 +2880,8 @@ class DOCSIF3MIB(Entity):
             	**length:** 5
             
             	**refers to**\:  :py:class:`docsif3rcccfgrcpid <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RccCfgTable.DocsIf3RccCfgEntry>`
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -2602,6 +2894,8 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`docsif3rcccfgrcccfgid <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RccCfgTable.DocsIf3RccCfgEntry>`
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: docsif3rxchcfgrcid  (key)
@@ -2610,6 +2904,8 @@ class DOCSIF3MIB(Entity):
             	**type**\: int
             
             	**range:** 1..255
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -2620,12 +2916,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: docsif3rxchcfgprimarydsindicator
             
             	If set to 'true', this attribute indicates the Receive Channel is to be the primary\-capable downstream channel for the CM receiving this RCC. Otherwise, the downstream channel is to be a non\-primary\-capable channel
             	**type**\: bool
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -2636,12 +2936,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: docsif3rxchcfgrowstatus
             
             	The status of this instance
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -2687,6 +2991,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3RxChCfgTable.DocsIf3RxChCfgEntry, ['ifindex', 'docsif3rcccfgrcpid', 'docsif3rcccfgrcccfgid', 'docsif3rxchcfgrcid', 'docsif3rxchcfgchifindex', 'docsif3rxchcfgprimarydsindicator', 'docsif3rxchcfgrcrmconnectivityid', 'docsif3rxchcfgrowstatus'], name, value)
 
 
+
+
     class DocsIf3RxChStatusTable(Entity):
         """
         The Receive Channel Status object reports the status
@@ -2697,6 +3003,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3RxChStatusTable. The ifIndex key corresponds to the MAC Domain interface where the RCC is configured. When this object is defined on the CM, the value of RccStatusId is always 1
         	**type**\: list of  		 :py:class:`DocsIf3RxChStatusEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RxChStatusTable.DocsIf3RxChStatusEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2741,6 +3049,8 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3rccstatusrcpid  (key)
             
             	
@@ -2749,6 +3059,8 @@ class DOCSIF3MIB(Entity):
             	**length:** 5
             
             	**refers to**\:  :py:class:`docsif3rccstatusrcpid <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RccStatusTable.DocsIf3RccStatusEntry>`
+            
+            	**config**\: False
             
             .. attribute:: docsif3rccstatusrccstatusid  (key)
             
@@ -2759,12 +3071,16 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`docsif3rccstatusrccstatusid <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RccStatusTable.DocsIf3RccStatusEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3rxchstatusrcid  (key)
             
             	This key represents an identifier for the parameters of the Receive Channel instance within the Receive Channel Profile
             	**type**\: int
             
             	**range:** 1..255
+            
+            	**config**\: False
             
             .. attribute:: docsif3rxchstatuschifindex
             
@@ -2773,10 +3089,14 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: docsif3rxchstatusprimarydsindicator
             
             	If set to 'true', this attribute indicates the Receive Channel is to be the primary\-capable downstream channel for the CM receiving this RCC. Otherwise, the downstream channel is to be a non\-primary\-capable channel
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsif3rxchstatusrcrmconnectivityid
             
@@ -2784,6 +3104,8 @@ class DOCSIF3MIB(Entity):
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             
 
@@ -2825,6 +3147,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3RxChStatusTable.DocsIf3RxChStatusEntry, ['ifindex', 'docsif3rccstatusrcpid', 'docsif3rccstatusrccstatusid', 'docsif3rxchstatusrcid', 'docsif3rxchstatuschifindex', 'docsif3rxchstatusprimarydsindicator', 'docsif3rxchstatusrcrmconnectivityid'], name, value)
 
 
+
+
     class DocsIf3RxModuleCfgTable(Entity):
         """
         The Receive Module Configuration object permits
@@ -2857,6 +3181,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3RxModuleCfgTable. The ifIndex key corresponds to the MAC Domain interface where the RCC is configured
         	**type**\: list of  		 :py:class:`DocsIf3RxModuleCfgEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RxModuleCfgTable.DocsIf3RxModuleCfgEntry>`
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -2902,6 +3228,8 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3rcccfgrcpid  (key)
             
             	
@@ -2910,6 +3238,8 @@ class DOCSIF3MIB(Entity):
             	**length:** 5
             
             	**refers to**\:  :py:class:`docsif3rcccfgrcpid <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RccCfgTable.DocsIf3RccCfgEntry>`
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -2922,6 +3252,8 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`docsif3rcccfgrcccfgid <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RccCfgTable.DocsIf3RccCfgEntry>`
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: docsif3rxmodulecfgrmid  (key)
@@ -2930,6 +3262,8 @@ class DOCSIF3MIB(Entity):
             	**type**\: int
             
             	**range:** 1..255
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -2940,6 +3274,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: docsif3rxmodulecfgfirstcenterfrequency
@@ -2949,6 +3285,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Hz
             
             	**status**\: obsolete
@@ -2957,6 +3295,8 @@ class DOCSIF3MIB(Entity):
             
             	The status of this instance
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -3000,6 +3340,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3RxModuleCfgTable.DocsIf3RxModuleCfgEntry, ['ifindex', 'docsif3rcccfgrcpid', 'docsif3rcccfgrcccfgid', 'docsif3rxmodulecfgrmid', 'docsif3rxmodulecfgrmrmconnectivityid', 'docsif3rxmodulecfgfirstcenterfrequency', 'docsif3rxmodulecfgrowstatus'], name, value)
 
 
+
+
     class DocsIf3RxModuleStatusTable(Entity):
         """
         The Receive Module Status object provides a read\-only
@@ -3010,6 +3352,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3RxModuleStatusTable. The ifIndex key corresponds to the MAC Domain interface where the RCC is configured. When this object is defined on the CM, the value of RccStatusId is always 1
         	**type**\: list of  		 :py:class:`DocsIf3RxModuleStatusEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RxModuleStatusTable.DocsIf3RxModuleStatusEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3054,6 +3398,8 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3rccstatusrcpid  (key)
             
             	
@@ -3062,6 +3408,8 @@ class DOCSIF3MIB(Entity):
             	**length:** 5
             
             	**refers to**\:  :py:class:`docsif3rccstatusrcpid <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RccStatusTable.DocsIf3RccStatusEntry>`
+            
+            	**config**\: False
             
             .. attribute:: docsif3rccstatusrccstatusid  (key)
             
@@ -3072,12 +3420,16 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`docsif3rccstatusrccstatusid <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3RccStatusTable.DocsIf3RccStatusEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3rxmodulestatusrmid  (key)
             
             	This key represents an identifier of a Receive Module instance within the Receive Channel Profile
             	**type**\: int
             
             	**range:** 1..255
+            
+            	**config**\: False
             
             .. attribute:: docsif3rxmodulestatusrmrmconnectivityid
             
@@ -3086,12 +3438,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: docsif3rxmodulestatusfirstcenterfrequency
             
             	This attribute represents the low frequency channel of the Receive Module, or 0 if not applicable to the Receive Module
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Hz
             
@@ -3133,6 +3489,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3RxModuleStatusTable.DocsIf3RxModuleStatusEntry, ['ifindex', 'docsif3rccstatusrcpid', 'docsif3rccstatusrccstatusid', 'docsif3rxmodulestatusrmid', 'docsif3rxmodulestatusrmrmconnectivityid', 'docsif3rxmodulestatusfirstcenterfrequency'], name, value)
 
 
+
+
     class DocsIf3MdNodeStatusTable(Entity):
         """
         This object reports the MD\-DS\-SG\-ID and MD\-US\-SG\-ID
@@ -3143,6 +3501,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3MdNodeStatusTable. The ifIndex key corresponds to the MAC Domain interface where the MD\-CM\-SG\-ID is configured
         	**type**\: list of  		 :py:class:`DocsIf3MdNodeStatusEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3MdNodeStatusTable.DocsIf3MdNodeStatusEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3186,12 +3546,16 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3mdnodestatusnodename  (key)
             
             	This key represents the name of a fiber node associated with a MD\-CM\-SG of a MAC Domain
             	**type**\: str
             
             	**length:** 0..16
+            
+            	**config**\: False
             
             .. attribute:: docsif3mdnodestatusmdcmsgid  (key)
             
@@ -3200,6 +3564,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsif3mdnodestatusmddssgid
             
             	This attribute corresponds to the MD\-DS\-SG\-ID of the MD\-CM\-SG of this object instance. The MdDsSgId values are unique within a MAC Domain
@@ -3207,12 +3573,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: docsif3mdnodestatusmdussgid
             
             	This attribute corresponds to the MD\-US\-SG\-ID of the MD\-CM\-SG of this object instance. The MdUsSgId values are unique within a MAC Domain
             	**type**\: int
             
             	**range:** 1..255
+            
+            	**config**\: False
             
             
 
@@ -3250,6 +3620,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3MdNodeStatusTable.DocsIf3MdNodeStatusEntry, ['ifindex', 'docsif3mdnodestatusnodename', 'docsif3mdnodestatusmdcmsgid', 'docsif3mdnodestatusmddssgid', 'docsif3mdnodestatusmdussgid'], name, value)
 
 
+
+
     class DocsIf3MdDsSgStatusTable(Entity):
         """
         This object returns the list of downstream channel
@@ -3259,6 +3631,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3MdDsSgStatusTable. The ifIndex key corresponds to the MAC Domain interface where the MD\-DS\-SG\-ID is configured. The CMTS is not required to persist instances of this object across reinitializations
         	**type**\: list of  		 :py:class:`DocsIf3MdDsSgStatusEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3MdDsSgStatusTable.DocsIf3MdDsSgStatusEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3304,6 +3678,8 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3mddssgstatusmddssgid  (key)
             
             	This key represents a MD\-DS\-SG\-ID in a Mac Domain
@@ -3311,12 +3687,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: docsif3mddssgstatuschsetid
             
             	This attribute represents a reference to the list of downstream channels of the MD\-DS\-SG\-ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -3350,6 +3730,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3MdDsSgStatusTable.DocsIf3MdDsSgStatusEntry, ['ifindex', 'docsif3mddssgstatusmddssgid', 'docsif3mddssgstatuschsetid'], name, value)
 
 
+
+
     class DocsIf3MdUsSgStatusTable(Entity):
         """
         This object returns the list of upstream channels
@@ -3359,6 +3741,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3MdUsSgStatusTable. The ifIndex key corresponds to the MAC Domain interface where the MD\-DS\-SG\-ID is configured. The CMTS is not required to persist instances of this object across reinitializations
         	**type**\: list of  		 :py:class:`DocsIf3MdUsSgStatusEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3MdUsSgStatusTable.DocsIf3MdUsSgStatusEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3404,6 +3788,8 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3mdussgstatusmdussgid  (key)
             
             	This key represents a MD\-US\-SG\-ID in a Mac Domain
@@ -3411,12 +3797,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: docsif3mdussgstatuschsetid
             
             	This attribute represents a reference to the list of upstream channels of the MD\-US\-SG\-ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -3450,6 +3840,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3MdUsSgStatusTable.DocsIf3MdUsSgStatusEntry, ['ifindex', 'docsif3mdussgstatusmdussgid', 'docsif3mdussgstatuschsetid'], name, value)
 
 
+
+
     class DocsIf3MdUsToDsChMappingTable(Entity):
         """
         This object returns the set of downstream channels
@@ -3460,6 +3852,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3MdUsToDsChMappingTable
         	**type**\: list of  		 :py:class:`DocsIf3MdUsToDsChMappingEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3MdUsToDsChMappingTable.DocsIf3MdUsToDsChMappingEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3499,6 +3893,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: docsif3mdustodschmappingdsifindex  (key)
             
             	This key represents the interface index of a downstream channel carrying in UCDs and Maps associated with the upstream channel defined by this instance
@@ -3506,12 +3902,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: docsif3mdustodschmappingmdifindex  (key)
             
             	This key represents the MAC domain of the upstream and downstream channels of this instance
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             
 
@@ -3545,6 +3945,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3MdUsToDsChMappingTable.DocsIf3MdUsToDsChMappingEntry, ['docsif3mdustodschmappingusifindex', 'docsif3mdustodschmappingdsifindex', 'docsif3mdustodschmappingmdifindex'], name, value)
 
 
+
+
     class DocsIf3MdCfgTable(Entity):
         """
         This object contains MAC domain level control and
@@ -3554,6 +3956,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3MdCfgTable. The CMTS persists all instances of MdCfg across reinitializations. The ifIndex key corresponds to the MAC Domain interface
         	**type**\: list of  		 :py:class:`DocsIf3MdCfgEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3MdCfgTable.DocsIf3MdCfgEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3598,12 +4002,16 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3mdcfgmddinterval
             
             	This attribute configures the interval for the insertion of MDD messages in each downstream channel of a MAC Domain
             	**type**\: int
             
             	**range:** 1..2000
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -3612,70 +4020,98 @@ class DOCSIF3MIB(Entity):
             	This attribute configures the CMTS IP provisioning mode for a MAC Domain.  When this attribute is set to 'ipv4Only' the CM will acquire a single IPv4 address for the CM management stack. When this attribute is set to 'ipv6Only' the CM will acquire a single IPv6 address for the CM management stack. When this attribute is set to 'alternate' the CM will acquire a single IPv6 address for the CM management stack and, if failures occur, the CM will fall back to provision and operation with an IPv4 address. When this attribute is set to 'dualStack' the CM will acquire both an IPv6 and IPv4 address for provisioning and operation
             	**type**\:  :py:class:`DocsIf3MdCfgIpProvMode <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3MdCfgTable.DocsIf3MdCfgEntry.DocsIf3MdCfgIpProvMode>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3mdcfgcmstatusevctlenabled
             
             	If set to 'true', this attribute enables the signaling of the CM\-Status Event reporting mechanism
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsif3mdcfgusfreqrange
             
             	This attribute indicates in MDD messages the upstream frequency upper band edge of an upstream Channel.  A value 'standard' means Standard Frequency Range and a value 'extended' means Extended Frequency Range
             	**type**\:  :py:class:`DocsIf3MdCfgUsFreqRange <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3MdCfgTable.DocsIf3MdCfgEntry.DocsIf3MdCfgUsFreqRange>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3mdcfgmcastdsidfwdenabled
             
             	If set to 'true', this attribute enables the CMTS to use IP Multicast DSID Forwarding (MDF) for the MAC domain
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsif3mdcfgmultrxchmodeenabled
             
             	If set to 'true', this attribute enables Downstream Channel Bonding for the MAC Domain
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: docsif3mdcfgmulttxchmodeenabled
             
             	If set to 'true', this attribute enables Multiple Transmit Channel (MTC) Mode for the MAC Domain
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsif3mdcfgearlyauthencrctrl
             
             	This attribute enables or disables early authentication and encryption (EAE) signaling for the MAC Domain. It also defines the type of EAE enforcement in the case that EAE is enabled. If set to 'disableEAE', EAE is disabled for the MAC Domain.  If set to 'enableEaeRangingBasedEnforcement', 'enableEaeCapabilityBasedEnforcement' or 'enableEaeTotalEnforcement', EAE is enabled for the MAC Domain.  The following EAE enforcement methods are defined in the case where EAE signaling is enabled\: The option 'enableEaeRangingBasedEnforcement' indicates EAE is enforced on CMs that perform ranging with a B\-INIT\-RNG\-REQ message. The option 'enableEaeCapabilityBasedEnforcement' indicates EAE is enforced on CMs that perform ranging with a B\-INIT\-RNG\-REQ message in which the EAE capability flag is set. The option 'enableEaeTotalEnforcement' indicates EAE is enforced on all CMs regardless of their EAE capabilities
             	**type**\:  :py:class:`DocsIf3MdCfgEarlyAuthEncrCtrl <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3MdCfgTable.DocsIf3MdCfgEntry.DocsIf3MdCfgEarlyAuthEncrCtrl>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3mdcfgtftpproxyenabled
             
             	If set to 'true', this attribute enables TFTP Proxy functionality for the MAC Domain
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsif3mdcfgsrcaddrverifenabled
             
             	If set to 'true', this attribute enables Source Address Verification (SAV) functionality for the MAC Domain
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: docsif3mdcfgdownchannelannex
             
             	This attribute defines the ITU\-J\-83 Annex being used  for this MAC Domain.  The value of this attribute  indicates the conformance of the implementation to  important regional cable standards.   Valid enumerations for the attribute are\: unknown other annexA \: Annex A from ITU\-J83 is used. annexB \: Annex B from ITU\-J83 is used. annexC \: Annex C from ITU\-J83 is used.  Values 6\-255 are reserved
             	**type**\:  :py:class:`DocsIf3MdCfgDownChannelAnnex <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3MdCfgTable.DocsIf3MdCfgEntry.DocsIf3MdCfgDownChannelAnnex>`
+            
+            	**config**\: False
             
             .. attribute:: docsif3mdcfgcmudcenabled
             
             	If set to 'true', this attribute instructs the CMTS MAC  Domain to enable Upstream Drop Classifiers (UDC) for the  CMs attempting registration in this MAC Domain
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: docsif3mdcfgsendudcrulesenabled
             
             	If set to 'true' and when the CM signals to the CMTS 'Upstream Drop Classifier Group ID' encodings, this attribute instructs the CMTS MAC Domain to send the Subscriber  Management Filters rules associated with the 'Upstream Drop Classifier Group ID' encodings to the CM in the form of UDCs  when the following conditions occurs\: \- The attribute CmUdcEnabled value for this MAC Domain    is set to 'true', and  \- The CM has the UDC capability advertised as supported.  If there is no a single Subscriber Management Filter  configured in the CMTS for the CM's signaled UDC Group ID, the CMTS does not send UDC encodings to the CM.  It is vendor specific whether the CMTS maintains enforcement of the CM signaled or default Subscriber Management Filter  groups in the upstream direction
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsif3mdcfgservicetypeidlist
             
             	This attribute indicates the list of Service Type IDs  associated with the MAC Domain.  During the CM registration process the CMTS will attempt to redirect the CM to a MAC Domain where the CM' Service Type TLV is contained in this attribute
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: docsif3mdcfgbpi2enforcectrl
             
             	This attribute indicates the level of BPI+ enforcement policies with the MAC Domain.  The following BPI+ enforcement policies are defined in the case where BPI+ is enabled\:  The option 'disable' indicates the CMTS does not enforce BPI+.  The option 'qosCfgFileWithBpi2AndCapabPrivSupportEnabled'  indicates the CMTS enforces BPI+ on CMs that register with a  DOCSIS 1.1 style configuration file with parameters indicating BPI+ is enabled (missing TLV 29 or containing TLV 29 set to  enable) and with a Modem Capabilities Privacy Support TLV (5.6)  set to BPI+ support.  The option 'qosCfgFileWithBpi2Enabled' indicates the CMTS  enforces BPI+ on CMs that register with a DOCSIS 1.1 style  configuration file with parameters indicating BPI+ is enabled  (missing TLV 29 or containing TLV 29 set to enable).  The option 'qosCfgFile' indicates the CMTS enforces BPI+ on CMs that register with a DOCSIS 1.1 style configuration file.  The option 'total' indicates the CMTS enforces BPI+ on all CMs
             	**type**\:  :py:class:`DocsIf3MdCfgBpi2EnforceCtrl <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3MdCfgTable.DocsIf3MdCfgEntry.DocsIf3MdCfgBpi2EnforceCtrl>`
+            
+            	**config**\: False
             
             .. attribute:: docsif3mdcfgenergymgt1x1enabled
             
@@ -3683,6 +4119,8 @@ class DOCSIF3MIB(Entity):
             	**type**\: int
             
             	**range:** 0..1
+            
+            	**config**\: False
             
             
 
@@ -3991,6 +4429,8 @@ class DOCSIF3MIB(Entity):
 
 
 
+
+
     class DocsIf3BondingGrpCfgTable(Entity):
         """
         This object defines statically configured Downstream
@@ -4005,6 +4445,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3BondingGrpCfgTable. The ifIndex key corresponds to the MAC Domain interface where the Bonding Group is configured. The CMTS persists all instances of BondingGrpCfg across reinitializations
         	**type**\: list of  		 :py:class:`DocsIf3BondingGrpCfgEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3BondingGrpCfgTable.DocsIf3BondingGrpCfgEntry>`
+        
+        	**config**\: False
         
         
 
@@ -4050,10 +4492,14 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3bondinggrpcfgdir  (key)
             
             	This attribute defines the ordered list of channels that comprise the channel set
             	**type**\:  :py:class:`IfDirection <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.IfDirection>`
+            
+            	**config**\: False
             
             .. attribute:: docsif3bondinggrpcfgcfgid  (key)
             
@@ -4062,12 +4508,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: docsif3bondinggrpcfgchlist
             
             	This attribute contains the list of channels of the bonding group
             	**type**\: str
             
             	**length:** 2..255
+            
+            	**config**\: False
             
             .. attribute:: docsif3bondinggrpcfgsfprovattrmask
             
@@ -4076,12 +4526,16 @@ class DOCSIF3MIB(Entity):
             
             	**length:** 0..16
             
+            	**config**\: False
+            
             .. attribute:: docsif3bondinggrpcfgdsidreseqwaittime
             
             	For a Downstream Bonding Group, this attribute provides the DSID Resequencing Wait Time that is to be used for all DSIDs associated with this Downstream Bonding Group.  The value of 255 indicates that the DSID Resequencing Wait Time is determined by the CMTS. The value zero in not supported for downstream  bonding groups. For an Upstream Bonding Group, this attribute has no meaning and returns the value 0
             	**type**\: int
             
             	**range:** 0..180 \| 255..None
+            
+            	**config**\: False
             
             	**units**\: hundredMicroseconds
             
@@ -4092,12 +4546,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..179 \| 255..None
             
+            	**config**\: False
+            
             	**units**\: hundredMicroseconds
             
             .. attribute:: docsif3bondinggrpcfgrowstatus
             
             	The status of this instance
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -4141,6 +4599,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3BondingGrpCfgTable.DocsIf3BondingGrpCfgEntry, ['ifindex', 'docsif3bondinggrpcfgdir', 'docsif3bondinggrpcfgcfgid', 'docsif3bondinggrpcfgchlist', 'docsif3bondinggrpcfgsfprovattrmask', 'docsif3bondinggrpcfgdsidreseqwaittime', 'docsif3bondinggrpcfgdsidreseqwarnthrshld', 'docsif3bondinggrpcfgrowstatus'], name, value)
 
 
+
+
     class DocsIf3DsBondingGrpStatusTable(Entity):
         """
         This object returns administratively\-configured
@@ -4150,6 +4610,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3DsBondingGrpStatusTable. The ifIndex key corresponds to the MAC Domain interface where the Bonding Group is configured
         	**type**\: list of  		 :py:class:`DocsIf3DsBondingGrpStatusEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3DsBondingGrpStatusTable.DocsIf3DsBondingGrpStatusEntry>`
+        
+        	**config**\: False
         
         
 
@@ -4193,12 +4655,16 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3dsbondinggrpstatuschsetid  (key)
             
             	This key represents the identifier for the Downstream Bonding Group or the single\-downstream channel of this instance
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsif3dsbondinggrpstatusmddssgid
             
@@ -4207,12 +4673,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: docsif3dsbondinggrpstatuscfgid
             
             	This attribute provides the BondingGrpCfgId for the downstream bonding group if it was configured. Otherwise, the zero value indicates that the CMTS will define the bonding group
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             
 
@@ -4248,6 +4718,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3DsBondingGrpStatusTable.DocsIf3DsBondingGrpStatusEntry, ['ifindex', 'docsif3dsbondinggrpstatuschsetid', 'docsif3dsbondinggrpstatusmddssgid', 'docsif3dsbondinggrpstatuscfgid'], name, value)
 
 
+
+
     class DocsIf3UsBondingGrpStatusTable(Entity):
         """
         This object returns administratively\-configured
@@ -4257,6 +4729,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3UsBondingGrpStatusTable. The ifIndex key corresponds to the MAC Domain interface where the Bonding Group is configured
         	**type**\: list of  		 :py:class:`DocsIf3UsBondingGrpStatusEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3UsBondingGrpStatusTable.DocsIf3UsBondingGrpStatusEntry>`
+        
+        	**config**\: False
         
         
 
@@ -4300,12 +4774,16 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3usbondinggrpstatuschsetid  (key)
             
             	This key represents the identifier for the Upstream Bonding Group or the single\-upstream channel of this instance
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsif3usbondinggrpstatusmdussgid
             
@@ -4314,12 +4792,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: docsif3usbondinggrpstatuscfgid
             
             	This attribute provides the BondingGrpCfgId for the upstream bonding group if it was configured. Otherwise, the zero value indicates that the CMTS defines the bonding group
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -4355,6 +4837,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3UsBondingGrpStatusTable.DocsIf3UsBondingGrpStatusEntry, ['ifindex', 'docsif3usbondinggrpstatuschsetid', 'docsif3usbondinggrpstatusmdussgid', 'docsif3usbondinggrpstatuscfgid'], name, value)
 
 
+
+
     class DocsIf3UsChExtTable(Entity):
         """
         This object defines management extensions for upstream
@@ -4364,6 +4848,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3UsChExtTable. The ifIndex key corresponds to each of the upstream channels
         	**type**\: list of  		 :py:class:`DocsIf3UsChExtEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3UsChExtTable.DocsIf3UsChExtEntry>`
+        
+        	**config**\: False
         
         
 
@@ -4407,10 +4893,14 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3uschextsaccodehoppingselectionmode
             
             	This attribute indicates the selection mode for active codes and code hopping. 'none'    Non\-SCDMA channel 'sac1NoCodeHopping'    Selectable active codes mode 1 and code hopping disabled  'sac1CodeHoppingMode1'    Selectable active codes mode 1 and code hopping mode 1 'sac2CodeHoppingMode2'   Selectable active codes mode 2 and code hopping mode 2 'sac2NoCodeHopping'   Selectable active codes mode 2 and code hopping disabled
             	**type**\:  :py:class:`DocsIf3UsChExtSacCodeHoppingSelectionMode <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3UsChExtTable.DocsIf3UsChExtEntry.DocsIf3UsChExtSacCodeHoppingSelectionMode>`
+            
+            	**config**\: False
             
             .. attribute:: docsif3uschextscdmaselectionstringactivecodes
             
@@ -4418,6 +4908,8 @@ class DOCSIF3MIB(Entity):
             	**type**\: str
             
             	**length:** 0 \| 16
+            
+            	**config**\: False
             
             
 
@@ -4506,6 +4998,8 @@ class DOCSIF3MIB(Entity):
 
 
 
+
+
     class DocsIf3UsChSetTable(Entity):
         """
         This object defines a set of upstream channels. These
@@ -4517,6 +5011,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3UsChSetTable. The ifIndex key corresponds to the MAC Domain interface where the upstream channel set is defined
         	**type**\: list of  		 :py:class:`DocsIf3UsChSetEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3UsChSetTable.DocsIf3UsChSetEntry>`
+        
+        	**config**\: False
         
         
 
@@ -4560,6 +5056,8 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3uschsetid  (key)
             
             	This key defines a reference identifier for the upstream channel set within the MAC Domain
@@ -4567,12 +5065,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsif3uschsetchlist
             
             	This attribute defines the ordered list of channels that comprise the upstream channel set
             	**type**\: str
             
             	**length:** 0 \| 2..255
+            
+            	**config**\: False
             
             
 
@@ -4606,6 +5108,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3UsChSetTable.DocsIf3UsChSetEntry, ['ifindex', 'docsif3uschsetid', 'docsif3uschsetchlist'], name, value)
 
 
+
+
     class DocsIf3DsChSetTable(Entity):
         """
         This object defines a set of downstream channels.
@@ -4617,6 +5121,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3DsChSetTable. The ifIndex key corresponds to the MAC Domain interface where the downstream channel set is defined
         	**type**\: list of  		 :py:class:`DocsIf3DsChSetEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3DsChSetTable.DocsIf3DsChSetEntry>`
+        
+        	**config**\: False
         
         
 
@@ -4660,6 +5166,8 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3dschsetid  (key)
             
             	This key defines a reference identifier for the downstream channel set within the MAC Domain
@@ -4667,12 +5175,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsif3dschsetchlist
             
             	This attribute defines the ordered list of channels that comprise the downstream channel set
             	**type**\: str
             
             	**length:** 0 \| 2..255
+            
+            	**config**\: False
             
             
 
@@ -4706,6 +5218,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3DsChSetTable.DocsIf3DsChSetEntry, ['ifindex', 'docsif3dschsetid', 'docsif3dschsetchlist'], name, value)
 
 
+
+
     class DocsIf3SignalQualityExtTable(Entity):
         """
         This object provides an in\-channel received modulation
@@ -4715,6 +5229,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3SignalQualityExtTable. At the CM, this object describes the received modulation  error ratio of each downstream channel. At the CMTS,  it describes the received modulation error ratio of each logical upstream channel.  An entry in this table exists for each ifEntry with an ifType of docsCableDownstream(128) for Cable Modems. For Cable Modem Termination Systems, an entry exists for  each ifEntry with an ifType of docsCableUpstreamChannel(205)
         	**type**\: list of  		 :py:class:`DocsIf3SignalQualityExtEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3SignalQualityExtTable.DocsIf3SignalQualityExtEntry>`
+        
+        	**config**\: False
         
         
 
@@ -4764,12 +5280,16 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3signalqualityextrxmer
             
             	RxMER provides an in\-channel received Modulation Error Ratio (MER). RxMER is defined as an estimate, provided by the demodulator, of the ratio\: (average constellation energy with equally likely symbols) / (average squared magnitude of error vector)  RxMER is measured just prior to FEC (trellis/Reed\-Solomon) decoding. RxMER includes the effects of the HFC channel as well as implementation effects of the modulator and demodulator. Error vector estimation may vary among demodulator implementations.  The CMTS RxMER is averaged over a given number of bursts at the burst receiver, which may correspond to transmissions from multiple users. In the case of S\-CDMA mode, RxMER is measured on the de\-spread signal
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: TenthdB
             
@@ -4779,6 +5299,8 @@ class DOCSIF3MIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -4812,6 +5334,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3SignalQualityExtTable.DocsIf3SignalQualityExtEntry, ['ifindex', 'docsif3signalqualityextrxmer', 'docsif3signalqualityextrxmersamples'], name, value)
 
 
+
+
     class DocsIf3CmtsSignalQualityExtTable(Entity):
         """
         This object provides metrics and parameters associated
@@ -4822,6 +5346,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3CmtsSignalQualityExtTable. The ifIndex key corresponds to each of the upstream channels. The CMTS is not required to persist the values of all  instances of CmtsSignalQualityExt across reinitialization
         	**type**\: list of  		 :py:class:`DocsIf3CmtsSignalQualityExtEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsSignalQualityExtTable.DocsIf3CmtsSignalQualityExtEntry>`
+        
+        	**config**\: False
         
         
 
@@ -4867,6 +5393,8 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtssignalqualityextcnir
             
             	This attribute provides an upstream in\-channel Carrier\-to\-Noise plus Interference Ratio (CNIR). CNIR is defined as the ratio of the expected commanded received signal power at the CMTS input, assuming QPSK0 modulation, to the noise plus interference in the channel. This measurement occurs prior to the point at which  the desired CM signal, when present, is demodulated. The measurement includes the effect of the receive matched filter but does not include the effect of any ingress filtering. Both the signal power and noise/interference power are referenced to the same point, e.g., CMTS input
@@ -4874,12 +5402,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtssignalqualityextexpectedrxsignalpower
             
             	ExpectedReceivedSignalPower is the power of the expected commanded received signal in the channel, referenced to the CMTS input
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             
 
@@ -4913,6 +5445,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3CmtsSignalQualityExtTable.DocsIf3CmtsSignalQualityExtEntry, ['ifindex', 'docsif3cmtssignalqualityextcnir', 'docsif3cmtssignalqualityextexpectedrxsignalpower'], name, value)
 
 
+
+
     class DocsIf3CmtsSpectrumAnalysisMeasTable(Entity):
         """
         This object is used to configure the logical upstream
@@ -4923,6 +5457,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3CmtsSpectrumAnalysisMeasTable. The ifIndex key corresponds to each of the upstream channels. The CMTS is not required to persist instances of this object across reinitializations
         	**type**\: list of  		 :py:class:`DocsIf3CmtsSpectrumAnalysisMeasEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsSpectrumAnalysisMeasTable.DocsIf3CmtsSpectrumAnalysisMeasEntry>`
+        
+        	**config**\: False
         
         
 
@@ -4968,12 +5504,16 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtsspectrumanalysismeasamplitudedata
             
             	This attribute provides a list of the spectral amplitudes corresponding to the frequency bins ordered from lowest to highest frequencies covering the frequency span. Information about the center frequency, frequency span, number of bins and resolution bandwidth are included to provide context to the measurement point The CMTS must support the number of bins as an odd number in order to provide a spectrum representation that is symmetric about the middle data point or bin. The CMTS must support a number of bins greater than or equal to 257 for frequency spans greater than or equal to 6.4 MHz.  The CMTS must not exceed 25 kHz bin spacing for measurement of frequency spans less than or equal to 6.4 MHz.  The bins measurements are updated periodically at time intervals given by the TimeInterval attribute
             	**type**\: str
             
             	**length:** 0 \| 2..4116
+            
+            	**config**\: False
             
             .. attribute:: docsif3cmtsspectrumanalysismeastimeinterval
             
@@ -4982,12 +5522,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: docsif3cmtsspectrumanalysismeasrowstatus
             
             	The status of this instance
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -5023,6 +5567,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3CmtsSpectrumAnalysisMeasTable.DocsIf3CmtsSpectrumAnalysisMeasEntry, ['ifindex', 'docsif3cmtsspectrumanalysismeasamplitudedata', 'docsif3cmtsspectrumanalysismeastimeinterval', 'docsif3cmtsspectrumanalysismeasrowstatus'], name, value)
 
 
+
+
     class DocsIf3CmDpvStatsTable(Entity):
         """
         This object represents the DOCSIS Path Verify Statistics
@@ -5036,6 +5582,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3CmDpvStatsTable
         	**type**\: list of  		 :py:class:`DocsIf3CmDpvStatsEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmDpvStatsTable.DocsIf3CmDpvStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -5077,12 +5625,16 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmdpvstatsgrpid  (key)
             
             	This key represents the DPV Group ID. The CM reports two instance of DPV statistics per downstream normally referred as Statistical Group 1 and Statistical Group 2
             	**type**\: int
             
             	**range:** 1..2
+            
+            	**config**\: False
             
             .. attribute:: docsif3cmdpvstatslastmeaslatency
             
@@ -5091,6 +5643,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: nanoseconds
             
             .. attribute:: docsif3cmdpvstatslastmeastime
@@ -5098,12 +5652,16 @@ class DOCSIF3MIB(Entity):
             	This attribute represents the last measurement time of the last latency measurement for this statistical group. This attribute reports the EPOC time value when no measurements are being reported or after the statistics were cleared
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmdpvstatsminlatency
             
             	This attribute represents the minimum latency measurement for this statistical group since the last time statistics were cleared
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: nanoseconds
             
@@ -5114,6 +5672,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: nanoseconds
             
             .. attribute:: docsif3cmdpvstatsavglatency
@@ -5122,6 +5682,8 @@ class DOCSIF3MIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: nanoseconds
             
@@ -5132,12 +5694,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: measurements
             
             .. attribute:: docsif3cmdpvstatslastcleartime
             
             	This attribute represents the last time statistics were cleared for this statistical group
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -5183,6 +5749,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3CmDpvStatsTable.DocsIf3CmDpvStatsEntry, ['ifindex', 'docsif3cmdpvstatsgrpid', 'docsif3cmdpvstatslastmeaslatency', 'docsif3cmdpvstatslastmeastime', 'docsif3cmdpvstatsminlatency', 'docsif3cmdpvstatsmaxlatency', 'docsif3cmdpvstatsavglatency', 'docsif3cmdpvstatsnummeas', 'docsif3cmdpvstatslastcleartime'], name, value)
 
 
+
+
     class DocsIf3CmEventCtrlTable(Entity):
         """
         This object represents the control mechanism to enable the
@@ -5205,6 +5773,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3CmEventCtrlTable
         	**type**\: list of  		 :py:class:`DocsIf3CmEventCtrlEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmEventCtrlTable.DocsIf3CmEventCtrlEntry>`
+        
+        	**config**\: False
         
         
 
@@ -5244,10 +5814,14 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmeventctrlstatus
             
             	The status of this instance
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -5279,6 +5853,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3CmEventCtrlTable.DocsIf3CmEventCtrlEntry, ['docsif3cmeventctrleventid', 'docsif3cmeventctrlstatus'], name, value)
 
 
+
+
     class DocsIf3CmtsEventCtrlTable(Entity):
         """
         This object represents the control mechanism to enable the
@@ -5301,6 +5877,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3CmtsEventCtrlTable
         	**type**\: list of  		 :py:class:`DocsIf3CmtsEventCtrlEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsEventCtrlTable.DocsIf3CmtsEventCtrlEntry>`
+        
+        	**config**\: False
         
         
 
@@ -5340,10 +5918,14 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtseventctrlstatus
             
             	The status of this instance
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -5375,6 +5957,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3CmtsEventCtrlTable.DocsIf3CmtsEventCtrlEntry, ['docsif3cmtseventctrleventid', 'docsif3cmtseventctrlstatus'], name, value)
 
 
+
+
     class DocsIf3CmMdCfgTable(Entity):
         """
         This object contains CM MAC domain level control and
@@ -5384,6 +5968,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3CmMdCfgTable. The ifIndex key corresponds to the MAC Domain interface
         	**type**\: list of  		 :py:class:`DocsIf3CmMdCfgEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmMdCfgTable.DocsIf3CmMdCfgEntry>`
+        
+        	**config**\: False
         
         
 
@@ -5426,15 +6012,21 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmmdcfgipprovmode
             
             	This attribute specifies whether the CM honors or ignores the  CMTS MDD TLV 5.1 setting in order to configure its IP provisioning  mode. The CM relies upon the CMTS to facilitate the successful  IP address acquisition independently of the MDD. When this attribute is set to 'ipv4Only' the CM will initiate the acquisition of a single  IPv4 address for the CM management stack. When this attribute is set to 'ipv6Only' the CM will initiate the  acquisition of a single IPv6 address for the CM management stack. When this attribute is set to 'honorMdd' the CM will initiate the  acquisition of an IPv6 or IPv4 address as directed by the MDD  message for provisioning and operation
             	**type**\:  :py:class:`DocsIf3CmMdCfgIpProvMode <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmMdCfgTable.DocsIf3CmMdCfgEntry.DocsIf3CmMdCfgIpProvMode>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmmdcfgipprovmoderesetonchange
             
             	This attribute determines if the CM is to automatically reset upon change of the IpProvMode attribute. The attribute has a default value of 'false' (2) which means that the CM does not reset upon change to IpProvMode attribute.  When this attribute is set to 'true' (1), the CM resets upon a change to the IpProvMode attribute
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: docsif3cmmdcfgipprovmoderesetonchangeholdofftimer
             
@@ -5443,12 +6035,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..300
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: docsif3cmmdcfgipprovmodestoragetype
             
             	This attribute determines if the CM persists the value of  IpProvMode across a single reset or across all resets.   The  default value of this attribute is 'nonVolatile' (3) which means that the CM persists the value of IpProvMode across all resets.  The CM persists the value of IpProveMode across only a single  reset when IpProvModeStorageType is set to volatile(2). Other  StorageType values are not applicable for this object; an attempt to set this object to a value of other(1), permanent(4), or readOnly(5) will be rejected with an error code of inconsistentValue
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            	**config**\: False
             
             
 
@@ -5527,6 +6123,8 @@ class DOCSIF3MIB(Entity):
 
 
 
+
+
     class DocsIf3CmEnergyMgt1x1CfgTable(Entity):
         """
         This object provides configuration state information 
@@ -5536,6 +6134,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3CmEnergyMgt1x1CfgTable
         	**type**\: list of  		 :py:class:`DocsIf3CmEnergyMgt1x1CfgEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmEnergyMgt1x1CfgTable.DocsIf3CmEnergyMgt1x1CfgEntry>`
+        
+        	**config**\: False
         
         
 
@@ -5573,12 +6173,16 @@ class DOCSIF3MIB(Entity):
             	This index indicates whether the threshold applies to the  upstream or downstream
             	**type**\:  :py:class:`IfDirection <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.IfDirection>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmenergymgt1x1cfgentrybitratethrshld
             
             	This attribute specifies the upstream or downstream bitrate threshold (in bps) below which the CM will request to enter  Energy Management 1x1 Mode operation
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: bps
             
@@ -5589,6 +6193,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: docsif3cmenergymgt1x1cfgexitbitratethrshld
@@ -5598,6 +6204,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: bps
             
             .. attribute:: docsif3cmenergymgt1x1cfgexittimethrshld
@@ -5606,6 +6214,8 @@ class DOCSIF3MIB(Entity):
             	**type**\: int
             
             	**range:** 1..65535
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -5645,6 +6255,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3CmEnergyMgt1x1CfgTable.DocsIf3CmEnergyMgt1x1CfgEntry, ['docsif3cmenergymgt1x1cfgdirection', 'docsif3cmenergymgt1x1cfgentrybitratethrshld', 'docsif3cmenergymgt1x1cfgentrytimethrshld', 'docsif3cmenergymgt1x1cfgexitbitratethrshld', 'docsif3cmenergymgt1x1cfgexittimethrshld'], name, value)
 
 
+
+
     class DocsIf3CmSpectrumAnalysisMeasTable(Entity):
         """
         This table provides a list of spectral analysis measurements 
@@ -5655,6 +6267,8 @@ class DOCSIF3MIB(Entity):
         
         	Each row in the docsIf3CmSpectrumAnalysisMeasTable  represents the spectral analysis around a single center  frequency point in the spectrum
         	**type**\: list of  		 :py:class:`DocsIf3CmSpectrumAnalysisMeasEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmSpectrumAnalysisMeasTable.DocsIf3CmSpectrumAnalysisMeasEntry>`
+        
+        	**config**\: False
         
         
 
@@ -5696,6 +6310,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmspectrumanalysismeasamplitudedata
             
             	This attribute provides a list of the spectral amplitudes as  measured at the center frequency specified by the Frequency index.  The frequency bins are ordered from lowest to highest  frequencies covering the frequency span. Information about the center frequency, frequency span, number of bins and resolution bandwidth are included to provide context to the measurement  point
@@ -5703,12 +6319,16 @@ class DOCSIF3MIB(Entity):
             
             	**length:** 0 \| 2..4116
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmspectrumanalysismeastotalsegmentpower
             
             	This attribute provides the total RF power present in the  segment with the center frequency equal to the Frequency index and the span equal to the SegmentFrequencySpan. The value  represents the sum of the spectrum power in all of the  associated bins. The value is computed by summing power (not  dB) values and converting the final sum to TenthdB
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             
 
@@ -5742,6 +6362,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3CmSpectrumAnalysisMeasTable.DocsIf3CmSpectrumAnalysisMeasEntry, ['docsif3cmspectrumanalysismeasfrequency', 'docsif3cmspectrumanalysismeasamplitudedata', 'docsif3cmspectrumanalysismeastotalsegmentpower'], name, value)
 
 
+
+
     class DocsIf3CmtsCmEmStatsTable(Entity):
         """
         This table defines Energy Management mode statistics for the
@@ -5755,6 +6377,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3CmtsCmEmStatsTable
         	**type**\: list of  		 :py:class:`DocsIf3CmtsCmEmStatsEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsCmEmStatsTable.DocsIf3CmtsCmEmStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -5796,12 +6420,16 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`docsif3cmtscmregstatusid <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmtsCmRegStatusTable.DocsIf3CmtsCmRegStatusEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmtscmemstatsem1x1modetotalduration
             
             	This attribute indicates the total time duration, in seconds since registration, the CM identified by  docsIf3CmtsCmRegStatusId has been in Energy Management 1x1  mode, as controlled by the DBC\-REQ Energy Management 1x1  Mode Indicator TLV
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -5835,6 +6463,8 @@ class DOCSIF3MIB(Entity):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3CmtsCmEmStatsTable.DocsIf3CmtsCmEmStatsEntry, ['docsif3cmtscmregstatusid', 'docsif3cmtscmemstatsem1x1modetotalduration'], name, value)
 
 
+
+
     class DocsIf3CmEm1x1StatsTable(Entity):
         """
         This object defines Energy Management 1x1 mode statistics on
@@ -5849,6 +6479,8 @@ class DOCSIF3MIB(Entity):
         
         	The conceptual row of docsIf3CmEm1x1StatsTable. An instance exist for the CM MAC Domain Interface
         	**type**\: list of  		 :py:class:`DocsIf3CmEm1x1StatsEntry <ydk.models.cisco_ios_xe.DOCS_IF3_MIB.DOCSIF3MIB.DocsIf3CmEm1x1StatsTable.DocsIf3CmEm1x1StatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -5891,12 +6523,16 @@ class DOCSIF3MIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmem1x1statsnumbertimescrossedbelowusentrythrshlds
             
             	This attribute indicates the number of times since  registration the CM crossed below the upstream entry bitrate threshold for a number of consecutive seconds equal to or  exceeding the upstream entry time threshold
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: docsif3cmem1x1statsnumbertimescrossedbelowdsentrythrshlds
             
@@ -5905,12 +6541,16 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: docsif3cmem1x1statstotalduration
             
             	This attribute indicates the total time duration, in seconds since registration, the CM has been in Energy Management 1x1 mode, as controlled by the DBC\-REQ Energy Management 1x1 Mode Indicator TLV. This attribute differs from  docsIf3CmEm1x1StatsTotalDurationBelowUsDsThrshlds because it is dependent on effects of the Energy Management Cycle  Period, and processing of EM\-REQ/EM\-RSP messages and DBC  messages that specifically indicate entry into or exit from Energy Management 1x1 mode
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -5921,6 +6561,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: docsif3cmem1x1statstotaldurationbelowdsthrshlds
@@ -5930,6 +6572,8 @@ class DOCSIF3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: docsif3cmem1x1statstotaldurationbelowusdsthrshlds
@@ -5938,6 +6582,8 @@ class DOCSIF3MIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -5980,7 +6626,11 @@ class DOCSIF3MIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(DOCSIF3MIB.DocsIf3CmEm1x1StatsTable.DocsIf3CmEm1x1StatsEntry, ['ifindex', 'docsif3cmem1x1statsnumbertimescrossedbelowusentrythrshlds', 'docsif3cmem1x1statsnumbertimescrossedbelowdsentrythrshlds', 'docsif3cmem1x1statstotalduration', 'docsif3cmem1x1statstotaldurationbelowusthrshlds', 'docsif3cmem1x1statstotaldurationbelowdsthrshlds', 'docsif3cmem1x1statstotaldurationbelowusdsthrshlds'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = DOCSIF3MIB()
         return self._top_entity
+
+
 

@@ -126,10 +126,14 @@ class HwModule(Entity):
     	Amplifier trail data information
     	**type**\:  :py:class:`AmplifierTrails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper.HwModule.AmplifierTrails>`
     
+    	**config**\: False
+    
     .. attribute:: channels_trails
     
     	Channels trail data information
     	**type**\:  :py:class:`ChannelsTrails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper.HwModule.ChannelsTrails>`
+    
+    	**config**\: False
     
     
 
@@ -173,6 +177,8 @@ class HwModule(Entity):
         	Slot Id
         	**type**\: list of  		 :py:class:`AmplifierTrail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper.HwModule.AmplifierTrails.AmplifierTrail>`
         
+        	**config**\: False
+        
         
 
         """
@@ -211,10 +217,14 @@ class HwModule(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: amplifier_trail_data
             
             	Trail data information
             	**type**\: list of  		 :py:class:`AmplifierTrailData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper.HwModule.AmplifierTrails.AmplifierTrail.AmplifierTrailData>`
+            
+            	**config**\: False
             
             
 
@@ -255,15 +265,21 @@ class HwModule(Entity):
                 	Select trail data
                 	**type**\:  :py:class:`OtsAmpliTrailData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper.OtsAmpliTrailData>`
                 
+                	**config**\: False
+                
                 .. attribute:: ampli_trail_info
                 
                 	ampli trail info
                 	**type**\: list of  		 :py:class:`AmpliTrailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper.HwModule.AmplifierTrails.AmplifierTrail.AmplifierTrailData.AmpliTrailInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: channel_trail_info
                 
                 	channel trail info
                 	**type**\: list of  		 :py:class:`ChannelTrailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper.HwModule.AmplifierTrails.AmplifierTrail.AmplifierTrailData.ChannelTrailInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -306,10 +322,14 @@ class HwModule(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: view
                     
                     	View
                     	**type**\:  :py:class:`Trailview <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper.Trailview>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: com_port_number
                     
@@ -318,12 +338,16 @@ class HwModule(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: com_port_name
                     
                     	ComPortName
                     	**type**\: str
                     
                     	**length:** 0..32
+                    
+                    	**config**\: False
                     
                     .. attribute:: line_port_number
                     
@@ -332,12 +356,16 @@ class HwModule(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: line_port_name
                     
                     	LinePortName
                     	**type**\: str
                     
                     	**length:** 0..32
+                    
+                    	**config**\: False
                     
                     .. attribute:: bst_in_rx_power
                     
@@ -346,12 +374,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: bst_in_rx_total_power
                     
                     	BstInRxTotalPower
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     .. attribute:: bst_in_rx_power_th_low
                     
@@ -360,12 +392,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: bst_out_tx_power
                     
                     	BstOutTxPower
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     .. attribute:: bst_out_tx_total_power
                     
@@ -374,12 +410,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: bst_out_tx_power_th_low
                     
                     	BstOutTxPowerThLow
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     .. attribute:: bst_working_mode
                     
@@ -388,12 +428,16 @@ class HwModule(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: bst_safety_mode
                     
                     	BstSafetyMode
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: bst_gain_range
                     
@@ -402,12 +446,16 @@ class HwModule(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: bst_osri
                     
                     	BstOsri
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: bst_channel_power
                     
@@ -416,12 +464,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: bst_gain
                     
                     	BstGain
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     .. attribute:: bst_tilt
                     
@@ -430,12 +482,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_in_rx_power
                     
                     	PreInRxPower
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_in_rx_total_power
                     
@@ -444,12 +500,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_in_rx_power_th_low
                     
                     	PreInRxPowerThLow
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_out_tx_power
                     
@@ -458,12 +518,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_out_tx_total_power
                     
                     	PreOutTxTotalPower
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_out_tx_power_th_low
                     
@@ -472,12 +536,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_working_mode
                     
                     	PreWorkingMode
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_safety_mode
                     
@@ -486,12 +554,16 @@ class HwModule(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_gain_range
                     
                     	PreGainRange
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_osri
                     
@@ -500,12 +572,16 @@ class HwModule(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_channel_power
                     
                     	PreChannelPower
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_gain
                     
@@ -514,12 +590,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_tilt
                     
                     	PreTilt
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     
 
@@ -610,6 +690,7 @@ class HwModule(Entity):
                         self._perform_setattr(HwModule.AmplifierTrails.AmplifierTrail.AmplifierTrailData.AmpliTrailInfo, ['eqpt_fail', 'view', 'com_port_number', 'com_port_name', 'line_port_number', 'line_port_name', 'bst_in_rx_power', 'bst_in_rx_total_power', 'bst_in_rx_power_th_low', 'bst_out_tx_power', 'bst_out_tx_total_power', 'bst_out_tx_power_th_low', 'bst_working_mode', 'bst_safety_mode', 'bst_gain_range', 'bst_osri', 'bst_channel_power', 'bst_gain', 'bst_tilt', 'pre_in_rx_power', 'pre_in_rx_total_power', 'pre_in_rx_power_th_low', 'pre_out_tx_power', 'pre_out_tx_total_power', 'pre_out_tx_power_th_low', 'pre_working_mode', 'pre_safety_mode', 'pre_gain_range', 'pre_osri', 'pre_channel_power', 'pre_gain', 'pre_tilt'], name, value)
 
 
+
                 class ChannelTrailInfo(Entity):
                     """
                     channel trail info
@@ -621,10 +702,14 @@ class HwModule(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: filter
                     
                     	Filter
                     	**type**\:  :py:class:`Chfilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper.Chfilter>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: och_name
                     
@@ -633,12 +718,16 @@ class HwModule(Entity):
                     
                     	**length:** 0..64
                     
+                    	**config**\: False
+                    
                     .. attribute:: wavelength
                     
                     	Wavelength
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: frequency
                     
@@ -647,12 +736,16 @@ class HwModule(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: com_port_number
                     
                     	ComPortNumber
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: com_port_name
                     
@@ -661,12 +754,16 @@ class HwModule(Entity):
                     
                     	**length:** 0..32
                     
+                    	**config**\: False
+                    
                     .. attribute:: com_rx_power_th_low
                     
                     	ComRxPowerThLow
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     .. attribute:: line_port_number
                     
@@ -675,12 +772,16 @@ class HwModule(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: line_port_name
                     
                     	LinePortName
                     	**type**\: str
                     
                     	**length:** 0..32
+                    
+                    	**config**\: False
                     
                     .. attribute:: line_rx_power_th_low
                     
@@ -689,12 +790,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: bst_in_rx_power
                     
                     	BstInRxPower
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     .. attribute:: bst_out_tx_power
                     
@@ -703,6 +808,8 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_in_rx_power
                     
                     	PreInRxPower
@@ -710,12 +817,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_out_tx_power
                     
                     	PreOutTxPower
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     
 
@@ -772,6 +883,10 @@ class HwModule(Entity):
                         self._perform_setattr(HwModule.AmplifierTrails.AmplifierTrail.AmplifierTrailData.ChannelTrailInfo, ['eqpt_fail', 'filter', 'och_name', 'wavelength', 'frequency', 'com_port_number', 'com_port_name', 'com_rx_power_th_low', 'line_port_number', 'line_port_name', 'line_rx_power_th_low', 'bst_in_rx_power', 'bst_out_tx_power', 'pre_in_rx_power', 'pre_out_tx_power'], name, value)
 
 
+
+
+
+
     class ChannelsTrails(Entity):
         """
         Channels trail data information
@@ -780,6 +895,8 @@ class HwModule(Entity):
         
         	Slot Id
         	**type**\: list of  		 :py:class:`ChannelsTrail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper.HwModule.ChannelsTrails.ChannelsTrail>`
+        
+        	**config**\: False
         
         
 
@@ -819,10 +936,14 @@ class HwModule(Entity):
             
             	**range:** 1..3
             
+            	**config**\: False
+            
             .. attribute:: channels_trail_data
             
             	Trail data information
             	**type**\: list of  		 :py:class:`ChannelsTrailData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper.HwModule.ChannelsTrails.ChannelsTrail.ChannelsTrailData>`
+            
+            	**config**\: False
             
             
 
@@ -863,15 +984,21 @@ class HwModule(Entity):
                 	Select trail data
                 	**type**\:  :py:class:`OtsChannelsTrailData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper.OtsChannelsTrailData>`
                 
+                	**config**\: False
+                
                 .. attribute:: ampli_trail_info
                 
                 	ampli trail info
                 	**type**\: list of  		 :py:class:`AmpliTrailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper.HwModule.ChannelsTrails.ChannelsTrail.ChannelsTrailData.AmpliTrailInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: channel_trail_info
                 
                 	channel trail info
                 	**type**\: list of  		 :py:class:`ChannelTrailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper.HwModule.ChannelsTrails.ChannelsTrail.ChannelsTrailData.ChannelTrailInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -914,10 +1041,14 @@ class HwModule(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: view
                     
                     	View
                     	**type**\:  :py:class:`Trailview <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper.Trailview>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: com_port_number
                     
@@ -926,12 +1057,16 @@ class HwModule(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: com_port_name
                     
                     	ComPortName
                     	**type**\: str
                     
                     	**length:** 0..32
+                    
+                    	**config**\: False
                     
                     .. attribute:: line_port_number
                     
@@ -940,12 +1075,16 @@ class HwModule(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: line_port_name
                     
                     	LinePortName
                     	**type**\: str
                     
                     	**length:** 0..32
+                    
+                    	**config**\: False
                     
                     .. attribute:: bst_in_rx_power
                     
@@ -954,12 +1093,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: bst_in_rx_total_power
                     
                     	BstInRxTotalPower
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     .. attribute:: bst_in_rx_power_th_low
                     
@@ -968,12 +1111,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: bst_out_tx_power
                     
                     	BstOutTxPower
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     .. attribute:: bst_out_tx_total_power
                     
@@ -982,12 +1129,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: bst_out_tx_power_th_low
                     
                     	BstOutTxPowerThLow
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     .. attribute:: bst_working_mode
                     
@@ -996,12 +1147,16 @@ class HwModule(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: bst_safety_mode
                     
                     	BstSafetyMode
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: bst_gain_range
                     
@@ -1010,12 +1165,16 @@ class HwModule(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: bst_osri
                     
                     	BstOsri
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: bst_channel_power
                     
@@ -1024,12 +1183,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: bst_gain
                     
                     	BstGain
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     .. attribute:: bst_tilt
                     
@@ -1038,12 +1201,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_in_rx_power
                     
                     	PreInRxPower
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_in_rx_total_power
                     
@@ -1052,12 +1219,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_in_rx_power_th_low
                     
                     	PreInRxPowerThLow
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_out_tx_power
                     
@@ -1066,12 +1237,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_out_tx_total_power
                     
                     	PreOutTxTotalPower
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_out_tx_power_th_low
                     
@@ -1080,12 +1255,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_working_mode
                     
                     	PreWorkingMode
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_safety_mode
                     
@@ -1094,12 +1273,16 @@ class HwModule(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_gain_range
                     
                     	PreGainRange
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_osri
                     
@@ -1108,12 +1291,16 @@ class HwModule(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_channel_power
                     
                     	PreChannelPower
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     .. attribute:: pre_gain
                     
@@ -1122,12 +1309,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_tilt
                     
                     	PreTilt
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     
 
@@ -1218,6 +1409,7 @@ class HwModule(Entity):
                         self._perform_setattr(HwModule.ChannelsTrails.ChannelsTrail.ChannelsTrailData.AmpliTrailInfo, ['eqpt_fail', 'view', 'com_port_number', 'com_port_name', 'line_port_number', 'line_port_name', 'bst_in_rx_power', 'bst_in_rx_total_power', 'bst_in_rx_power_th_low', 'bst_out_tx_power', 'bst_out_tx_total_power', 'bst_out_tx_power_th_low', 'bst_working_mode', 'bst_safety_mode', 'bst_gain_range', 'bst_osri', 'bst_channel_power', 'bst_gain', 'bst_tilt', 'pre_in_rx_power', 'pre_in_rx_total_power', 'pre_in_rx_power_th_low', 'pre_out_tx_power', 'pre_out_tx_total_power', 'pre_out_tx_power_th_low', 'pre_working_mode', 'pre_safety_mode', 'pre_gain_range', 'pre_osri', 'pre_channel_power', 'pre_gain', 'pre_tilt'], name, value)
 
 
+
                 class ChannelTrailInfo(Entity):
                     """
                     channel trail info
@@ -1229,10 +1421,14 @@ class HwModule(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: filter
                     
                     	Filter
                     	**type**\:  :py:class:`Chfilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper.Chfilter>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: och_name
                     
@@ -1241,12 +1437,16 @@ class HwModule(Entity):
                     
                     	**length:** 0..64
                     
+                    	**config**\: False
+                    
                     .. attribute:: wavelength
                     
                     	Wavelength
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: frequency
                     
@@ -1255,12 +1455,16 @@ class HwModule(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: com_port_number
                     
                     	ComPortNumber
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: com_port_name
                     
@@ -1269,12 +1473,16 @@ class HwModule(Entity):
                     
                     	**length:** 0..32
                     
+                    	**config**\: False
+                    
                     .. attribute:: com_rx_power_th_low
                     
                     	ComRxPowerThLow
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     .. attribute:: line_port_number
                     
@@ -1283,12 +1491,16 @@ class HwModule(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: line_port_name
                     
                     	LinePortName
                     	**type**\: str
                     
                     	**length:** 0..32
+                    
+                    	**config**\: False
                     
                     .. attribute:: line_rx_power_th_low
                     
@@ -1297,12 +1509,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: bst_in_rx_power
                     
                     	BstInRxPower
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     .. attribute:: bst_out_tx_power
                     
@@ -1311,6 +1527,8 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_in_rx_power
                     
                     	PreInRxPower
@@ -1318,12 +1536,16 @@ class HwModule(Entity):
                     
                     	**range:** \-32768..32767
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_out_tx_power
                     
                     	PreOutTxPower
                     	**type**\: int
                     
                     	**range:** \-32768..32767
+                    
+                    	**config**\: False
                     
                     
 
@@ -1379,7 +1601,13 @@ class HwModule(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(HwModule.ChannelsTrails.ChannelsTrail.ChannelsTrailData.ChannelTrailInfo, ['eqpt_fail', 'filter', 'och_name', 'wavelength', 'frequency', 'com_port_number', 'com_port_name', 'com_rx_power_th_low', 'line_port_number', 'line_port_name', 'line_rx_power_th_low', 'bst_in_rx_power', 'bst_out_tx_power', 'pre_in_rx_power', 'pre_out_tx_power'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = HwModule()
         return self._top_entity
+
+
 

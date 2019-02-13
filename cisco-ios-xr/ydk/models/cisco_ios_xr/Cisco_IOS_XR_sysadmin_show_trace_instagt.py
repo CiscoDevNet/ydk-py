@@ -32,6 +32,8 @@ class Instagt(Entity):
     	show traceable processes
     	**type**\: list of  		 :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_instagt.Instagt.Trace>`
     
+    	**config**\: False
+    
     
 
     """
@@ -68,10 +70,14 @@ class Instagt(Entity):
         	
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: location
         
         	
         	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_instagt.Instagt.Trace.Location>`
+        
+        	**config**\: False
         
         
 
@@ -112,10 +118,14 @@ class Instagt(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: all_options
             
             	
             	**type**\: list of  		 :py:class:`AllOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_instagt.Instagt.Trace.Location.AllOptions>`
+            
+            	**config**\: False
             
             
 
@@ -155,10 +165,14 @@ class Instagt(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: trace_blocks
                 
                 	
                 	**type**\: list of  		 :py:class:`TraceBlocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_instagt.Instagt.Trace.Location.AllOptions.TraceBlocks>`
+                
+                	**config**\: False
                 
                 
 
@@ -198,6 +212,8 @@ class Instagt(Entity):
                     	Trace output block
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -224,7 +240,13 @@ class Instagt(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Instagt.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Instagt()
         return self._top_entity
+
+
 

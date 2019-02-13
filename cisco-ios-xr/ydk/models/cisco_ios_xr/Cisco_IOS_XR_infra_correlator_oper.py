@@ -150,10 +150,14 @@ class Suppression(Entity):
     	Table that contains the database of suppression rule summary
     	**type**\:  :py:class:`RuleSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleSummaries>`
     
+    	**config**\: False
+    
     .. attribute:: rule_details
     
     	Table that contains the database of suppression rule details
     	**type**\:  :py:class:`RuleDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleDetails>`
+    
+    	**config**\: False
     
     
 
@@ -198,6 +202,8 @@ class Suppression(Entity):
         	One of the suppression rules
         	**type**\: list of  		 :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleSummaries.RuleSummary>`
         
+        	**config**\: False
+        
         
 
         """
@@ -236,15 +242,21 @@ class Suppression(Entity):
             
             	**length:** 1..32
             
+            	**config**\: False
+            
             .. attribute:: rule_name_xr
             
             	Suppress Rule Name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: rule_state
             
             	Applied state of the rule It could be not applied, applied or applied to all
             	**type**\:  :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
+            
+            	**config**\: False
             
             .. attribute:: suppressed_alarms_count
             
@@ -252,6 +264,8 @@ class Suppression(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -284,7 +298,9 @@ class Suppression(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Suppression.RuleSummaries.RuleSummary, ['rule_name', u'rule_name_xr', u'rule_state', u'suppressed_alarms_count'], name, value)
+                self._perform_setattr(Suppression.RuleSummaries.RuleSummary, ['rule_name', 'rule_name_xr', 'rule_state', 'suppressed_alarms_count'], name, value)
+
+
 
 
     class RuleDetails(Entity):
@@ -296,6 +312,8 @@ class Suppression(Entity):
         
         	Details of one of the suppression rules
         	**type**\: list of  		 :py:class:`RuleDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleDetails.RuleDetail>`
+        
+        	**config**\: False
         
         
 
@@ -335,20 +353,28 @@ class Suppression(Entity):
             
             	**length:** 1..32
             
+            	**config**\: False
+            
             .. attribute:: rule_summary
             
             	Rule summary, name, etc
             	**type**\:  :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleDetails.RuleDetail.RuleSummary>`
+            
+            	**config**\: False
             
             .. attribute:: all_alarms
             
             	Match any alarm
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: alarm_severity
             
             	Severity level to suppress
             	**type**\:  :py:class:`AlAlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmSeverity>`
+            
+            	**config**\: False
             
             .. attribute:: apply_source
             
@@ -357,10 +383,14 @@ class Suppression(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: codes
             
             	Message codes defining the rule
             	**type**\: list of  		 :py:class:`Codes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleDetails.RuleDetail.Codes>`
+            
+            	**config**\: False
             
             
 
@@ -399,7 +429,7 @@ class Suppression(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Suppression.RuleDetails.RuleDetail, ['rule_name', u'all_alarms', u'alarm_severity', u'apply_source'], name, value)
+                self._perform_setattr(Suppression.RuleDetails.RuleDetail, ['rule_name', 'all_alarms', 'alarm_severity', 'apply_source'], name, value)
 
 
             class RuleSummary(Entity):
@@ -411,10 +441,14 @@ class Suppression(Entity):
                 	Suppress Rule Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: rule_state
                 
                 	Applied state of the rule It could be not applied, applied or applied to all
                 	**type**\:  :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
+                
+                	**config**\: False
                 
                 .. attribute:: suppressed_alarms_count
                 
@@ -422,6 +456,8 @@ class Suppression(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -451,7 +487,8 @@ class Suppression(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Suppression.RuleDetails.RuleDetail.RuleSummary, [u'rule_name_xr', u'rule_state', u'suppressed_alarms_count'], name, value)
+                    self._perform_setattr(Suppression.RuleDetails.RuleDetail.RuleSummary, ['rule_name_xr', 'rule_state', 'suppressed_alarms_count'], name, value)
+
 
 
             class Codes(Entity):
@@ -463,15 +500,21 @@ class Suppression(Entity):
                 	Category of messages to which this alarm belongs
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: group
                 
                 	Group of messages to which this alarm belongs
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: code
                 
                 	Alarm code which further qualifies the alarm within a message group
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -501,11 +544,16 @@ class Suppression(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Suppression.RuleDetails.RuleDetail.Codes, [u'category', u'group', u'code'], name, value)
+                    self._perform_setattr(Suppression.RuleDetails.RuleDetail.Codes, ['category', 'group', 'code'], name, value)
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Suppression()
         return self._top_entity
+
+
 
 class Correlator(Entity):
     """
@@ -516,35 +564,49 @@ class Correlator(Entity):
     	Table that contains the database of correlation rules
     	**type**\:  :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Rules>`
     
+    	**config**\: False
+    
     .. attribute:: buffer_status
     
     	Describes buffer utilization and parameters configured
     	**type**\:  :py:class:`BufferStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.BufferStatus>`
+    
+    	**config**\: False
     
     .. attribute:: alarms
     
     	Correlated alarms Table
     	**type**\:  :py:class:`Alarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Alarms>`
     
+    	**config**\: False
+    
     .. attribute:: rule_set_summaries
     
     	Table that contains the ruleset summary info
     	**type**\:  :py:class:`RuleSetSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetSummaries>`
+    
+    	**config**\: False
     
     .. attribute:: rule_set_details
     
     	Table that contains the ruleset detail info
     	**type**\:  :py:class:`RuleSetDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetDetails>`
     
+    	**config**\: False
+    
     .. attribute:: rule_details
     
     	Table that contains the database of correlation rule details
     	**type**\:  :py:class:`RuleDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleDetails>`
     
+    	**config**\: False
+    
     .. attribute:: rule_summaries
     
     	Table that contains the database of correlation rule summary
     	**type**\:  :py:class:`RuleSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSummaries>`
+    
+    	**config**\: False
     
     
 
@@ -609,6 +671,8 @@ class Correlator(Entity):
         	One of the correlation rules
         	**type**\: list of  		 :py:class:`Rule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Rules.Rule>`
         
+        	**config**\: False
+        
         
 
         """
@@ -647,10 +711,14 @@ class Correlator(Entity):
             
             	**length:** 1..32
             
+            	**config**\: False
+            
             .. attribute:: rule_name_xr
             
             	Correlation Rule Name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: timeout
             
@@ -659,10 +727,14 @@ class Correlator(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rule_state
             
             	Applied state of the rule It could be not applied, applied or applied to all
             	**type**\:  :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
+            
+            	**config**\: False
             
             .. attribute:: apply_location
             
@@ -671,6 +743,8 @@ class Correlator(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: apply_context
             
             	Contexts (Interfaces) to which the rule is applied
@@ -678,10 +752,14 @@ class Correlator(Entity):
             
             	**length:** 0..33
             
+            	**config**\: False
+            
             .. attribute:: codes
             
             	Message codes defining the rule
             	**type**\: list of  		 :py:class:`Codes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Rules.Rule.Codes>`
+            
+            	**config**\: False
             
             
 
@@ -720,7 +798,7 @@ class Correlator(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Correlator.Rules.Rule, ['rule_name', u'rule_name_xr', u'timeout', u'rule_state', u'apply_location', u'apply_context'], name, value)
+                self._perform_setattr(Correlator.Rules.Rule, ['rule_name', 'rule_name_xr', 'timeout', 'rule_state', 'apply_location', 'apply_context'], name, value)
 
 
             class Codes(Entity):
@@ -732,15 +810,21 @@ class Correlator(Entity):
                 	Category of messages to which this alarm belongs
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: group
                 
                 	Group of messages to which this alarm belongs
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: code
                 
                 	Alarm code which further qualifies the alarm within a message group
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -770,7 +854,10 @@ class Correlator(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Correlator.Rules.Rule.Codes, [u'category', u'group', u'code'], name, value)
+                    self._perform_setattr(Correlator.Rules.Rule.Codes, ['category', 'group', 'code'], name, value)
+
+
+
 
 
     class BufferStatus(Entity):
@@ -785,12 +872,16 @@ class Correlator(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: configured_size
         
         	Configured buffer size
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -819,7 +910,8 @@ class Correlator(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Correlator.BufferStatus, [u'current_size', u'configured_size'], name, value)
+            self._perform_setattr(Correlator.BufferStatus, ['current_size', 'configured_size'], name, value)
+
 
 
     class Alarms(Entity):
@@ -830,6 +922,8 @@ class Correlator(Entity):
         
         	One of the correlated alarms
         	**type**\: list of  		 :py:class:`Alarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Alarms.Alarm>`
+        
+        	**config**\: False
         
         
 
@@ -869,20 +963,28 @@ class Correlator(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: alarm_info
             
             	Correlated alarm information
             	**type**\:  :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Alarms.Alarm.AlarmInfo>`
+            
+            	**config**\: False
             
             .. attribute:: rule_name
             
             	Correlation rule name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: context
             
             	Context string  for the alarm
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -917,7 +1019,7 @@ class Correlator(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Correlator.Alarms.Alarm, ['alarm_id', u'rule_name', u'context'], name, value)
+                self._perform_setattr(Correlator.Alarms.Alarm, ['alarm_id', 'rule_name', 'context'], name, value)
 
 
             class AlarmInfo(Entity):
@@ -929,12 +1031,16 @@ class Correlator(Entity):
                 	Source Identifier(Location).Indicates the node in which the alarm was generated
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: timestamp
                 
                 	Time when the alarm was generated. It is expressed in number of milliseconds since 00\:00 \:00 UTC, January 1, 1970
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -943,25 +1049,35 @@ class Correlator(Entity):
                 	Category of the alarm
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: group
                 
                 	Group of messages to which this alarm belongs to
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: code
                 
                 	Alarm code which further qualifies the alarm within a message group
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: severity
                 
                 	Severity of the alarm
                 	**type**\:  :py:class:`AlAlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmSeverity>`
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	State of the alarm (bistate alarms only)
                 	**type**\:  :py:class:`AlAlarmBistate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmBistate>`
+                
+                	**config**\: False
                 
                 .. attribute:: correlation_id
                 
@@ -970,15 +1086,21 @@ class Correlator(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: is_admin
                 
                 	Indicates the event id admin\-level
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: additional_text
                 
                 	Full text of the Alarm
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1022,7 +1144,10 @@ class Correlator(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Correlator.Alarms.Alarm.AlarmInfo, [u'source_id', u'timestamp', u'category', u'group', u'code', u'severity', u'state', u'correlation_id', u'is_admin', u'additional_text'], name, value)
+                    self._perform_setattr(Correlator.Alarms.Alarm.AlarmInfo, ['source_id', 'timestamp', 'category', 'group', 'code', 'severity', 'state', 'correlation_id', 'is_admin', 'additional_text'], name, value)
+
+
+
 
 
     class RuleSetSummaries(Entity):
@@ -1033,6 +1158,8 @@ class Correlator(Entity):
         
         	Summary of one of the correlation rulesets
         	**type**\: list of  		 :py:class:`RuleSetSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetSummaries.RuleSetSummary>`
+        
+        	**config**\: False
         
         
 
@@ -1072,10 +1199,14 @@ class Correlator(Entity):
             
             	**length:** 1..32
             
+            	**config**\: False
+            
             .. attribute:: rule_set_name_xr
             
             	Ruleset Name
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1104,7 +1235,9 @@ class Correlator(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Correlator.RuleSetSummaries.RuleSetSummary, ['rule_set_name', u'rule_set_name_xr'], name, value)
+                self._perform_setattr(Correlator.RuleSetSummaries.RuleSetSummary, ['rule_set_name', 'rule_set_name_xr'], name, value)
+
+
 
 
     class RuleSetDetails(Entity):
@@ -1115,6 +1248,8 @@ class Correlator(Entity):
         
         	Detail of one of the correlation rulesets
         	**type**\: list of  		 :py:class:`RuleSetDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetDetails.RuleSetDetail>`
+        
+        	**config**\: False
         
         
 
@@ -1154,15 +1289,21 @@ class Correlator(Entity):
             
             	**length:** 1..32
             
+            	**config**\: False
+            
             .. attribute:: rule_set_name_xr
             
             	Ruleset Name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: rules
             
             	Rules contained in a ruleset
             	**type**\: list of  		 :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetDetails.RuleSetDetail.Rules>`
+            
+            	**config**\: False
             
             
 
@@ -1193,7 +1334,7 @@ class Correlator(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Correlator.RuleSetDetails.RuleSetDetail, ['rule_set_name', u'rule_set_name_xr'], name, value)
+                self._perform_setattr(Correlator.RuleSetDetails.RuleSetDetail, ['rule_set_name', 'rule_set_name_xr'], name, value)
 
 
             class Rules(Entity):
@@ -1205,15 +1346,21 @@ class Correlator(Entity):
                 	Correlation Rule Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: stateful
                 
                 	Whether the rule is stateful
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: rule_state
                 
                 	Applied state of the rule It could be not applied, applied or applied to all
                 	**type**\:  :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
+                
+                	**config**\: False
                 
                 .. attribute:: buffered_alarms_count
                 
@@ -1221,6 +1368,8 @@ class Correlator(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1252,7 +1401,10 @@ class Correlator(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Correlator.RuleSetDetails.RuleSetDetail.Rules, [u'rule_name_xr', u'stateful', u'rule_state', u'buffered_alarms_count'], name, value)
+                    self._perform_setattr(Correlator.RuleSetDetails.RuleSetDetail.Rules, ['rule_name_xr', 'stateful', 'rule_state', 'buffered_alarms_count'], name, value)
+
+
+
 
 
     class RuleDetails(Entity):
@@ -1264,6 +1416,8 @@ class Correlator(Entity):
         
         	Details of one of the correlation rules
         	**type**\: list of  		 :py:class:`RuleDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleDetails.RuleDetail>`
+        
+        	**config**\: False
         
         
 
@@ -1303,10 +1457,14 @@ class Correlator(Entity):
             
             	**length:** 1..32
             
+            	**config**\: False
+            
             .. attribute:: rule_summary
             
             	Rule summary, name, etc
             	**type**\:  :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleDetails.RuleDetail.RuleSummary>`
+            
+            	**config**\: False
             
             .. attribute:: timeout
             
@@ -1315,6 +1473,8 @@ class Correlator(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: root_cause_timeout
             
             	Timeout before root cause alarm
@@ -1322,25 +1482,35 @@ class Correlator(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: internal
             
             	True if the rule is internal
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: reissue_non_bistate
             
             	Whether to reissue non\-bistate alarms
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: reparent
             
             	Reparent
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: context_correlation
             
             	Whether context correlation is enabled
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: apply_location
             
@@ -1349,6 +1519,8 @@ class Correlator(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: apply_context
             
             	Contexts (Interfaces) to which the rule is applied
@@ -1356,10 +1528,14 @@ class Correlator(Entity):
             
             	**length:** 0..33
             
+            	**config**\: False
+            
             .. attribute:: codes
             
             	Message codes defining the rule
             	**type**\: list of  		 :py:class:`Codes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleDetails.RuleDetail.Codes>`
+            
+            	**config**\: False
             
             
 
@@ -1408,7 +1584,7 @@ class Correlator(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Correlator.RuleDetails.RuleDetail, ['rule_name', u'timeout', u'root_cause_timeout', u'internal', u'reissue_non_bistate', u'reparent', u'context_correlation', u'apply_location', u'apply_context'], name, value)
+                self._perform_setattr(Correlator.RuleDetails.RuleDetail, ['rule_name', 'timeout', 'root_cause_timeout', 'internal', 'reissue_non_bistate', 'reparent', 'context_correlation', 'apply_location', 'apply_context'], name, value)
 
 
             class RuleSummary(Entity):
@@ -1420,15 +1596,21 @@ class Correlator(Entity):
                 	Correlation Rule Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: stateful
                 
                 	Whether the rule is stateful
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: rule_state
                 
                 	Applied state of the rule It could be not applied, applied or applied to all
                 	**type**\:  :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
+                
+                	**config**\: False
                 
                 .. attribute:: buffered_alarms_count
                 
@@ -1436,6 +1618,8 @@ class Correlator(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1467,7 +1651,8 @@ class Correlator(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Correlator.RuleDetails.RuleDetail.RuleSummary, [u'rule_name_xr', u'stateful', u'rule_state', u'buffered_alarms_count'], name, value)
+                    self._perform_setattr(Correlator.RuleDetails.RuleDetail.RuleSummary, ['rule_name_xr', 'stateful', 'rule_state', 'buffered_alarms_count'], name, value)
+
 
 
             class Codes(Entity):
@@ -1479,15 +1664,21 @@ class Correlator(Entity):
                 	Category of messages to which this alarm belongs
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: group
                 
                 	Group of messages to which this alarm belongs
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: code
                 
                 	Alarm code which further qualifies the alarm within a message group
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1517,7 +1708,10 @@ class Correlator(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Correlator.RuleDetails.RuleDetail.Codes, [u'category', u'group', u'code'], name, value)
+                    self._perform_setattr(Correlator.RuleDetails.RuleDetail.Codes, ['category', 'group', 'code'], name, value)
+
+
+
 
 
     class RuleSummaries(Entity):
@@ -1529,6 +1723,8 @@ class Correlator(Entity):
         
         	One of the correlation rules
         	**type**\: list of  		 :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSummaries.RuleSummary>`
+        
+        	**config**\: False
         
         
 
@@ -1568,20 +1764,28 @@ class Correlator(Entity):
             
             	**length:** 1..32
             
+            	**config**\: False
+            
             .. attribute:: rule_name_xr
             
             	Correlation Rule Name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: stateful
             
             	Whether the rule is stateful
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: rule_state
             
             	Applied state of the rule It could be not applied, applied or applied to all
             	**type**\:  :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
+            
+            	**config**\: False
             
             .. attribute:: buffered_alarms_count
             
@@ -1589,6 +1793,8 @@ class Correlator(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1623,9 +1829,13 @@ class Correlator(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Correlator.RuleSummaries.RuleSummary, ['rule_name', u'rule_name_xr', u'stateful', u'rule_state', u'buffered_alarms_count'], name, value)
+                self._perform_setattr(Correlator.RuleSummaries.RuleSummary, ['rule_name', 'rule_name_xr', 'stateful', 'rule_state', 'buffered_alarms_count'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = Correlator()
         return self._top_entity
+
+
 

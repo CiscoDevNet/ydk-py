@@ -606,6 +606,8 @@ class ClearBgpAllGraceful(Entity):
         self._top_entity = ClearBgpAllGraceful()
         return self._top_entity
 
+
+
 class ClearBgpAll(Entity):
     """
     Clear all peers and all routes from the BGP table.
@@ -635,6 +637,8 @@ class ClearBgpAll(Entity):
     def clone_ptr(self):
         self._top_entity = ClearBgpAll()
         return self._top_entity
+
+
 
 class ClearBgpIpAddrGraceful(Entity):
     """
@@ -719,9 +723,12 @@ class ClearBgpIpAddrGraceful(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpIpAddrGraceful.Input, ['ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpIpAddrGraceful()
         return self._top_entity
+
+
 
 class ClearBgpIpAddrLongLivedStale(Entity):
     """
@@ -806,9 +813,12 @@ class ClearBgpIpAddrLongLivedStale(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpIpAddrLongLivedStale.Input, ['ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpIpAddrLongLivedStale()
         return self._top_entity
+
+
 
 class ClearBgpIpAddr(Entity):
     """
@@ -892,9 +902,12 @@ class ClearBgpIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpIpAddr.Input, ['ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiAllSoftInPrefixFilter(Entity):
     """
@@ -973,9 +986,12 @@ class ClearBgpAfiSafiAllSoftInPrefixFilter(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiAllSoftInPrefixFilter.Input, ['afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiAllSoftInPrefixFilter()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiAllSoftIn(Entity):
     """
@@ -1053,9 +1069,12 @@ class ClearBgpAfiSafiAllSoftIn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiAllSoftIn.Input, ['afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiAllSoftIn()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiAllSoftOut(Entity):
     """
@@ -1133,9 +1152,12 @@ class ClearBgpAfiSafiAllSoftOut(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiAllSoftOut.Input, ['afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiAllSoftOut()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiAllSoft(Entity):
     """
@@ -1212,9 +1234,12 @@ class ClearBgpAfiSafiAllSoft(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiAllSoft.Input, ['afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiAllSoft()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiIpAddrLongLivedStale(Entity):
     """
@@ -1307,9 +1332,12 @@ class ClearBgpAfiSafiIpAddrLongLivedStale(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiIpAddrLongLivedStale.Input, ['afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiIpAddrLongLivedStale()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiIpAddrSoftInPrefixFilter(Entity):
     """
@@ -1404,9 +1432,12 @@ class ClearBgpAfiSafiIpAddrSoftInPrefixFilter(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiIpAddrSoftInPrefixFilter.Input, ['afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiIpAddrSoftInPrefixFilter()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiIpAddrSoftIn(Entity):
     """
@@ -1500,9 +1531,12 @@ class ClearBgpAfiSafiIpAddrSoftIn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiIpAddrSoftIn.Input, ['afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiIpAddrSoftIn()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiIpAddrSoftOut(Entity):
     """
@@ -1596,9 +1630,12 @@ class ClearBgpAfiSafiIpAddrSoftOut(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiIpAddrSoftOut.Input, ['afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiIpAddrSoftOut()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiIpAddrSoft(Entity):
     """
@@ -1691,9 +1728,12 @@ class ClearBgpAfiSafiIpAddrSoft(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiIpAddrSoft.Input, ['afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiIpAddrSoft()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiAsSoftInPrefixFilter(Entity):
     """
@@ -1793,9 +1833,12 @@ class ClearBgpAfiSafiAsSoftInPrefixFilter(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiAsSoftInPrefixFilter.Input, ['afi_safi_name', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiAsSoftInPrefixFilter()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiAsSoftIn(Entity):
     """
@@ -1894,9 +1937,12 @@ class ClearBgpAfiSafiAsSoftIn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiAsSoftIn.Input, ['afi_safi_name', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiAsSoftIn()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiAsSoftOut(Entity):
     """
@@ -1995,9 +2041,12 @@ class ClearBgpAfiSafiAsSoftOut(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiAsSoftOut.Input, ['afi_safi_name', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiAsSoftOut()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiAsSoft(Entity):
     """
@@ -2095,9 +2144,12 @@ class ClearBgpAfiSafiAsSoft(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiAsSoft.Input, ['afi_safi_name', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiAsSoft()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiDampeningIpPrefix(Entity):
     """
@@ -2190,9 +2242,12 @@ class ClearBgpAfiSafiDampeningIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiDampeningIpPrefix.Input, ['afi_safi_name', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiDampeningIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiDampening(Entity):
     """
@@ -2268,9 +2323,12 @@ class ClearBgpAfiSafiDampening(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiDampening.Input, ['afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiDampening()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiExternalSoftInPrefixFilter(Entity):
     """
@@ -2349,9 +2407,12 @@ class ClearBgpAfiSafiExternalSoftInPrefixFilter(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiExternalSoftInPrefixFilter.Input, ['afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiExternalSoftInPrefixFilter()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiExternalSoftIn(Entity):
     """
@@ -2429,9 +2490,12 @@ class ClearBgpAfiSafiExternalSoftIn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiExternalSoftIn.Input, ['afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiExternalSoftIn()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiExternalSoftOut(Entity):
     """
@@ -2509,9 +2573,12 @@ class ClearBgpAfiSafiExternalSoftOut(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiExternalSoftOut.Input, ['afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiExternalSoftOut()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiExternalSoft(Entity):
     """
@@ -2588,9 +2655,12 @@ class ClearBgpAfiSafiExternalSoft(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiExternalSoft.Input, ['afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiExternalSoft()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
     """
@@ -2694,9 +2764,12 @@ class ClearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask.Input, ['afi_safi_name', 'ip_addr', 'ipv4_mask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiFlapStatisticsIpAddr(Entity):
     """
@@ -2789,9 +2862,12 @@ class ClearBgpAfiSafiFlapStatisticsIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiFlapStatisticsIpAddr.Input, ['afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiFlapStatisticsIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiFlapStatisticsIpPrefix(Entity):
     """
@@ -2884,9 +2960,12 @@ class ClearBgpAfiSafiFlapStatisticsIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiFlapStatisticsIpPrefix.Input, ['afi_safi_name', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiFlapStatisticsIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiFlapStatisticsRegexp(Entity):
     """
@@ -2972,9 +3051,12 @@ class ClearBgpAfiSafiFlapStatisticsRegexp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiFlapStatisticsRegexp.Input, ['afi_safi_name', 'regexp_pattern'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiFlapStatisticsRegexp()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiFlapStatisticsRoutePolicy(Entity):
     """
@@ -3060,9 +3142,12 @@ class ClearBgpAfiSafiFlapStatisticsRoutePolicy(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiFlapStatisticsRoutePolicy.Input, ['afi_safi_name', 'route_policy_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiFlapStatisticsRoutePolicy()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiFlapStatistics(Entity):
     """
@@ -3138,9 +3223,12 @@ class ClearBgpAfiSafiFlapStatistics(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiFlapStatistics.Input, ['afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiFlapStatistics()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiNexthopPerformanceStatistics(Entity):
     """
@@ -3217,9 +3305,12 @@ class ClearBgpAfiSafiNexthopPerformanceStatistics(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiNexthopPerformanceStatistics.Input, ['afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiNexthopPerformanceStatistics()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiNexthopRegistrationIpAddr(Entity):
     """
@@ -3313,9 +3404,12 @@ class ClearBgpAfiSafiNexthopRegistrationIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiNexthopRegistrationIpAddr.Input, ['afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiNexthopRegistrationIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiSelfOriginated(Entity):
     """
@@ -3391,9 +3485,12 @@ class ClearBgpAfiSafiSelfOriginated(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiSelfOriginated.Input, ['afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiSelfOriginated()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiShutdown(Entity):
     """
@@ -3469,9 +3566,12 @@ class ClearBgpAfiSafiShutdown(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiShutdown.Input, ['afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiShutdown()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
     """
@@ -3550,9 +3650,12 @@ class ClearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent.Input, ['afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiUpdateOutqAddressFamily(Entity):
     """
@@ -3630,9 +3733,12 @@ class ClearBgpAfiSafiUpdateOutqAddressFamily(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiUpdateOutqAddressFamily.Input, ['afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiUpdateOutqAddressFamily()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
     """
@@ -3729,9 +3835,12 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.Input, ['afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
     """
@@ -3827,9 +3936,12 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh.Input, ['afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
     """
@@ -3925,9 +4037,12 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent.Input, ['afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiUpdateOutqNeighborIpAddr(Entity):
     """
@@ -4022,9 +4137,12 @@ class ClearBgpAfiSafiUpdateOutqNeighborIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiUpdateOutqNeighborIpAddr.Input, ['afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiUpdateOutqNeighborIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
     """
@@ -4126,9 +4244,12 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.Input, ['afi_safi_name', 'update_group', 'sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
     """
@@ -4229,9 +4350,12 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroup.Input, ['afi_safi_name', 'update_group', 'sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroup()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(Entity):
     """
@@ -4333,9 +4457,12 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(En
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input, ['afi_safi_name', 'update_group', 'refresh_sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
     """
@@ -4436,9 +4563,12 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input, ['afi_safi_name', 'update_group', 'refresh_sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
     """
@@ -4528,9 +4658,12 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent.Input, ['afi_safi_name', 'update_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiUpdateOutqUpdateGroup(Entity):
     """
@@ -4619,9 +4752,12 @@ class ClearBgpAfiSafiUpdateOutqUpdateGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiUpdateOutqUpdateGroup.Input, ['afi_safi_name', 'update_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiUpdateOutqUpdateGroup()
         return self._top_entity
+
+
 
 class ClearBgpAsGraceful(Entity):
     """
@@ -4710,9 +4846,12 @@ class ClearBgpAsGraceful(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAsGraceful.Input, ['as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAsGraceful()
         return self._top_entity
+
+
 
 class ClearBgpAs(Entity):
     """
@@ -4800,9 +4939,12 @@ class ClearBgpAs(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAs.Input, ['as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAs()
         return self._top_entity
+
+
 
 class ClearBgpBestpathIpAddrIpNetmask(Entity):
     """
@@ -4903,9 +5045,12 @@ class ClearBgpBestpathIpAddrIpNetmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathIpAddrIpNetmask.Input, ['ip_addr', 'ip_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathIpAddrIpNetmask()
         return self._top_entity
+
+
 
 class ClearBgpBestpathIpAddr(Entity):
     """
@@ -4989,9 +5134,12 @@ class ClearBgpBestpathIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathIpAddr.Input, ['ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpBestpathIpPrefix(Entity):
     """
@@ -5075,9 +5223,12 @@ class ClearBgpBestpathIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathIpPrefix.Input, ['ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiIpAddrIpNetmask(Entity):
     """
@@ -5187,9 +5338,12 @@ class ClearBgpBestpathAfiSafiIpAddrIpNetmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiIpAddrIpNetmask.Input, ['afi_safi_name', 'ip_addr', 'ip_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiIpAddrIpNetmask()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiIpAddr(Entity):
     """
@@ -5282,9 +5436,12 @@ class ClearBgpBestpathAfiSafiIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiIpAddr.Input, ['afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiIpPrefix(Entity):
     """
@@ -5377,9 +5534,12 @@ class ClearBgpBestpathAfiSafiIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiIpPrefix.Input, ['afi_safi_name', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
     """
@@ -5499,9 +5659,12 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask.Input, ['afi_safi_name', 'bridge_domain_name', 'ip_addr', 'ip_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiBridgeDomainIpAddr(Entity):
     """
@@ -5604,9 +5767,12 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiBridgeDomainIpAddr.Input, ['afi_safi_name', 'bridge_domain_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiBridgeDomainIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiBridgeDomainIpPrefix(Entity):
     """
@@ -5709,9 +5875,12 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiBridgeDomainIpPrefix.Input, ['afi_safi_name', 'bridge_domain_name', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiBridgeDomainIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiRdIpAddrIpNetmask(Entity):
     """
@@ -5847,9 +6016,12 @@ class ClearBgpBestpathAfiSafiRdIpAddrIpNetmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiRdIpAddrIpNetmask.Input, ['afi_safi_name', 'rd', 'ip_addr', 'ip_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiRdIpAddrIpNetmask()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiRdIpAddr(Entity):
     """
@@ -5968,9 +6140,12 @@ class ClearBgpBestpathAfiSafiRdIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiRdIpAddr.Input, ['afi_safi_name', 'rd', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiRdIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiRdIpPrefix(Entity):
     """
@@ -6089,9 +6264,12 @@ class ClearBgpBestpathAfiSafiRdIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiRdIpPrefix.Input, ['afi_safi_name', 'rd', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiRdIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiIpv4AddrIpv4Mask(Entity):
     """
@@ -6189,9 +6367,12 @@ class ClearBgpBestpathAfiSafiIpv4AddrIpv4Mask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiIpv4AddrIpv4Mask.Input, ['afi_safi_name', 'ipv4_addr', 'ipv4_mask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiIpv4AddrIpv4Mask()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiIpv4Addr(Entity):
     """
@@ -6278,9 +6459,12 @@ class ClearBgpBestpathAfiSafiIpv4Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiIpv4Addr.Input, ['afi_safi_name', 'ipv4_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiIpv4Addr()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiIpv4Prefix(Entity):
     """
@@ -6367,9 +6551,12 @@ class ClearBgpBestpathAfiSafiIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiIpv4Prefix.Input, ['afi_safi_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiRdIpv4Addr(Entity):
     """
@@ -6482,9 +6669,12 @@ class ClearBgpBestpathAfiSafiRdIpv4Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiRdIpv4Addr.Input, ['afi_safi_name', 'rd', 'ipv4_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiRdIpv4Addr()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiVrfIpv4Addr(Entity):
     """
@@ -6581,9 +6771,12 @@ class ClearBgpBestpathAfiSafiVrfIpv4Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiVrfIpv4Addr.Input, ['afi_safi_name', 'vrf_name', 'ipv4_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiVrfIpv4Addr()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiNetwork(Entity):
     """
@@ -6668,9 +6861,12 @@ class ClearBgpBestpathAfiSafiNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiNetwork.Input, ['afi_safi_name', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiNetwork()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiRdNetwork(Entity):
     """
@@ -6781,9 +6977,12 @@ class ClearBgpBestpathAfiSafiRdNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiRdNetwork.Input, ['afi_safi_name', 'rd', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiRdNetwork()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiVrfNetwork(Entity):
     """
@@ -6878,9 +7077,12 @@ class ClearBgpBestpathAfiSafiVrfNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiVrfNetwork.Input, ['afi_safi_name', 'vrf_name', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiVrfNetwork()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiRtConstraintNetwork(Entity):
     """
@@ -6965,9 +7167,12 @@ class ClearBgpBestpathAfiSafiRtConstraintNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiRtConstraintNetwork.Input, ['afi_safi_name', 'rt_constraint_network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiRtConstraintNetwork()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiIpv4TunnelNetwork(Entity):
     """
@@ -7052,9 +7257,12 @@ class ClearBgpBestpathAfiSafiIpv4TunnelNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiIpv4TunnelNetwork.Input, ['afi_safi_name', 'ipv4_tunnel_network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiIpv4TunnelNetwork()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiIpv6AddrIpv6Netmask(Entity):
     """
@@ -7152,9 +7360,12 @@ class ClearBgpBestpathAfiSafiIpv6AddrIpv6Netmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiIpv6AddrIpv6Netmask.Input, ['afi_safi_name', 'ipv6_addr', 'ipv6_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiIpv6AddrIpv6Netmask()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiIpv6Addr(Entity):
     """
@@ -7241,9 +7452,12 @@ class ClearBgpBestpathAfiSafiIpv6Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiIpv6Addr.Input, ['afi_safi_name', 'ipv6_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiIpv6Addr()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiIpv6Prefix(Entity):
     """
@@ -7330,9 +7544,12 @@ class ClearBgpBestpathAfiSafiIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiIpv6Prefix.Input, ['afi_safi_name', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiRd(Entity):
     """
@@ -7434,9 +7651,12 @@ class ClearBgpBestpathAfiSafiRd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiRd.Input, ['afi_safi_name', 'rd'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiRd()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiVrf(Entity):
     """
@@ -7522,9 +7742,12 @@ class ClearBgpBestpathAfiSafiVrf(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiVrf.Input, ['afi_safi_name', 'vrf_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiVrf()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafi(Entity):
     """
@@ -7600,9 +7823,12 @@ class ClearBgpBestpathAfiSafi(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafi.Input, ['afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafi()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiSrPolicyPrefix(Entity):
     """
@@ -7687,9 +7913,12 @@ class ClearBgpBestpathAfiSafiSrPolicyPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiSrPolicyPrefix.Input, ['afi_safi_name', 'sr_policy_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiSrPolicyPrefix()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiBridgeDomainIpv4Prefix(Entity):
     """
@@ -7786,9 +8015,12 @@ class ClearBgpBestpathAfiSafiBridgeDomainIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiBridgeDomainIpv4Prefix.Input, ['afi_safi_name', 'bridge_domain_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiBridgeDomainIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiRdIpv4Prefix(Entity):
     """
@@ -7901,9 +8133,12 @@ class ClearBgpBestpathAfiSafiRdIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiRdIpv4Prefix.Input, ['afi_safi_name', 'rd', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiRdIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiMp2mpIpv4Prefix(Entity):
     """
@@ -8000,9 +8235,12 @@ class ClearBgpBestpathAfiSafiMp2mpIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiMp2mpIpv4Prefix.Input, ['afi_safi_name', 'mp2mp', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiMp2mpIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiVrfIpv4Prefix(Entity):
     """
@@ -8099,9 +8337,12 @@ class ClearBgpBestpathAfiSafiVrfIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiVrfIpv4Prefix.Input, ['afi_safi_name', 'vrf_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiVrfIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask(Entity):
     """
@@ -8225,9 +8466,12 @@ class ClearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask.Input, ['afi_safi_name', 'rd', 'ipv4_addr', 'ipv4_mask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask(Entity):
     """
@@ -8335,9 +8579,12 @@ class ClearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask.Input, ['afi_safi_name', 'vrf_name', 'ipv4_addr', 'ipv4_mask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask(Entity):
     """
@@ -8461,9 +8708,12 @@ class ClearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask.Input, ['afi_safi_name', 'rd', 'ipv6_addr', 'ipv6_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiRdIpv6Addr(Entity):
     """
@@ -8576,9 +8826,12 @@ class ClearBgpBestpathAfiSafiRdIpv6Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiRdIpv6Addr.Input, ['afi_safi_name', 'rd', 'ipv6_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiRdIpv6Addr()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiRdIpv6Prefix(Entity):
     """
@@ -8691,9 +8944,12 @@ class ClearBgpBestpathAfiSafiRdIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiRdIpv6Prefix.Input, ['afi_safi_name', 'rd', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiRdIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
     """
@@ -8801,9 +9057,12 @@ class ClearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask.Input, ['afi_safi_name', 'vrf_name', 'ipv6_addr', 'ipv6_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiVrfIpv6Addr(Entity):
     """
@@ -8900,9 +9159,12 @@ class ClearBgpBestpathAfiSafiVrfIpv6Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiVrfIpv6Addr.Input, ['afi_safi_name', 'vrf_name', 'ipv6_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiVrfIpv6Addr()
         return self._top_entity
+
+
 
 class ClearBgpBestpathAfiSafiVrfIpv6Prefix(Entity):
     """
@@ -8999,9 +9261,12 @@ class ClearBgpBestpathAfiSafiVrfIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathAfiSafiVrfIpv6Prefix.Input, ['afi_safi_name', 'vrf_name', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathAfiSafiVrfIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpBestpathVrfIpAddrIpNetmask(Entity):
     """
@@ -9116,9 +9381,12 @@ class ClearBgpBestpathVrfIpAddrIpNetmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathVrfIpAddrIpNetmask.Input, ['vrf_all', 'ip_addr', 'ip_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathVrfIpAddrIpNetmask()
         return self._top_entity
+
+
 
 class ClearBgpBestpathVrfIpAddr(Entity):
     """
@@ -9216,9 +9484,12 @@ class ClearBgpBestpathVrfIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathVrfIpAddr.Input, ['vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathVrfIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpBestpathVrfIpPrefix(Entity):
     """
@@ -9316,9 +9587,12 @@ class ClearBgpBestpathVrfIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathVrfIpPrefix.Input, ['vrf_all', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathVrfIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpBestpathVrfAfiSafiIpv4Prefix(Entity):
     """
@@ -9419,9 +9693,12 @@ class ClearBgpBestpathVrfAfiSafiIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathVrfAfiSafiIpv4Prefix.Input, ['vrf_all', 'afi_safi_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathVrfAfiSafiIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask(Entity):
     """
@@ -9533,9 +9810,12 @@ class ClearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask.Input, ['vrf_all', 'afi_safi_name', 'ipv4_addr', 'ipv4_mask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask()
         return self._top_entity
+
+
 
 class ClearBgpBestpathVrfAfiSafiIpv4Addr(Entity):
     """
@@ -9636,9 +9916,12 @@ class ClearBgpBestpathVrfAfiSafiIpv4Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathVrfAfiSafiIpv4Addr.Input, ['vrf_all', 'afi_safi_name', 'ipv4_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathVrfAfiSafiIpv4Addr()
         return self._top_entity
+
+
 
 class ClearBgpBestpathVrfAfiSafiNetwork(Entity):
     """
@@ -9737,9 +10020,12 @@ class ClearBgpBestpathVrfAfiSafiNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathVrfAfiSafiNetwork.Input, ['vrf_all', 'afi_safi_name', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathVrfAfiSafiNetwork()
         return self._top_entity
+
+
 
 class ClearBgpBestpathVrfAfiSafiRdNetwork(Entity):
     """
@@ -9864,9 +10150,12 @@ class ClearBgpBestpathVrfAfiSafiRdNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathVrfAfiSafiRdNetwork.Input, ['vrf_all', 'afi_safi_name', 'rd', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathVrfAfiSafiRdNetwork()
         return self._top_entity
+
+
 
 class ClearBgpBestpathVrfAfiSafiVrfNetwork(Entity):
     """
@@ -9975,9 +10264,12 @@ class ClearBgpBestpathVrfAfiSafiVrfNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathVrfAfiSafiVrfNetwork.Input, ['vrf_all', 'afi_safi_name', 'vrf_name', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathVrfAfiSafiVrfNetwork()
         return self._top_entity
+
+
 
 class ClearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
     """
@@ -10089,9 +10381,12 @@ class ClearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask.Input, ['vrf_all', 'afi_safi_name', 'ipv6_addr', 'ipv6_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask()
         return self._top_entity
+
+
 
 class ClearBgpBestpathVrfAfiSafiIpv6Addr(Entity):
     """
@@ -10192,9 +10487,12 @@ class ClearBgpBestpathVrfAfiSafiIpv6Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathVrfAfiSafiIpv6Addr.Input, ['vrf_all', 'afi_safi_name', 'ipv6_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathVrfAfiSafiIpv6Addr()
         return self._top_entity
+
+
 
 class ClearBgpBestpathVrfAfiSafiIpv6Prefix(Entity):
     """
@@ -10295,9 +10593,12 @@ class ClearBgpBestpathVrfAfiSafiIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathVrfAfiSafiIpv6Prefix.Input, ['vrf_all', 'afi_safi_name', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathVrfAfiSafiIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpBestpathVrfAfiSafiRd(Entity):
     """
@@ -10413,9 +10714,12 @@ class ClearBgpBestpathVrfAfiSafiRd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathVrfAfiSafiRd.Input, ['vrf_all', 'afi_safi_name', 'rd'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathVrfAfiSafiRd()
         return self._top_entity
+
+
 
 class ClearBgpBestpathVrfAfiSafiVrf(Entity):
     """
@@ -10515,9 +10819,12 @@ class ClearBgpBestpathVrfAfiSafiVrf(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathVrfAfiSafiVrf.Input, ['vrf_all', 'afi_safi_name', 'vrf_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathVrfAfiSafiVrf()
         return self._top_entity
+
+
 
 class ClearBgpBestpathVrfAfiSafi(Entity):
     """
@@ -10607,9 +10914,12 @@ class ClearBgpBestpathVrfAfiSafi(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpBestpathVrfAfiSafi.Input, ['vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpBestpathVrfAfiSafi()
         return self._top_entity
+
+
 
 class ClearBgpExternalGraceful(Entity):
     """
@@ -10642,6 +10952,8 @@ class ClearBgpExternalGraceful(Entity):
         self._top_entity = ClearBgpExternalGraceful()
         return self._top_entity
 
+
+
 class ClearBgpExternal(Entity):
     """
     Clear all external peers.
@@ -10671,6 +10983,8 @@ class ClearBgpExternal(Entity):
     def clone_ptr(self):
         self._top_entity = ClearBgpExternal()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAllGraceful(Entity):
     """
@@ -10752,9 +11066,12 @@ class ClearBgpInstanceAllGraceful(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAllGraceful.Input, ['instance_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAllGraceful()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAll(Entity):
     """
@@ -10835,9 +11152,12 @@ class ClearBgpInstanceAll(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAll.Input, ['instance_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAll()
         return self._top_entity
+
+
 
 class ClearBgpInstanceIpAddrGraceful(Entity):
     """
@@ -10935,9 +11255,12 @@ class ClearBgpInstanceIpAddrGraceful(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceIpAddrGraceful.Input, ['instance_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceIpAddrGraceful()
         return self._top_entity
+
+
 
 class ClearBgpInstanceIpAddrLongLivedStale(Entity):
     """
@@ -11035,9 +11358,12 @@ class ClearBgpInstanceIpAddrLongLivedStale(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceIpAddrLongLivedStale.Input, ['instance_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceIpAddrLongLivedStale()
         return self._top_entity
+
+
 
 class ClearBgpInstanceIpAddr(Entity):
     """
@@ -11134,9 +11460,12 @@ class ClearBgpInstanceIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceIpAddr.Input, ['instance_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiAllSoftInPrefixFilter(Entity):
     """
@@ -11229,9 +11558,12 @@ class ClearBgpInstanceAfiSafiAllSoftInPrefixFilter(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiAllSoftInPrefixFilter.Input, ['instance_name', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiAllSoftInPrefixFilter()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiAllSoftIn(Entity):
     """
@@ -11323,9 +11655,12 @@ class ClearBgpInstanceAfiSafiAllSoftIn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiAllSoftIn.Input, ['instance_name', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiAllSoftIn()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiAllSoftOut(Entity):
     """
@@ -11417,9 +11752,12 @@ class ClearBgpInstanceAfiSafiAllSoftOut(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiAllSoftOut.Input, ['instance_name', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiAllSoftOut()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiAllSoft(Entity):
     """
@@ -11510,9 +11848,12 @@ class ClearBgpInstanceAfiSafiAllSoft(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiAllSoft.Input, ['instance_name', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiAllSoft()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiIpAddrLongLivedStale(Entity):
     """
@@ -11619,9 +11960,12 @@ class ClearBgpInstanceAfiSafiIpAddrLongLivedStale(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiIpAddrLongLivedStale.Input, ['instance_name', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiIpAddrLongLivedStale()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter(Entity):
     """
@@ -11730,9 +12074,12 @@ class ClearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter.Input, ['instance_name', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiIpAddrSoftIn(Entity):
     """
@@ -11840,9 +12187,12 @@ class ClearBgpInstanceAfiSafiIpAddrSoftIn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiIpAddrSoftIn.Input, ['instance_name', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiIpAddrSoftIn()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiIpAddrSoftOut(Entity):
     """
@@ -11950,9 +12300,12 @@ class ClearBgpInstanceAfiSafiIpAddrSoftOut(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiIpAddrSoftOut.Input, ['instance_name', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiIpAddrSoftOut()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiIpAddrSoft(Entity):
     """
@@ -12059,9 +12412,12 @@ class ClearBgpInstanceAfiSafiIpAddrSoft(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiIpAddrSoft.Input, ['instance_name', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiIpAddrSoft()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiAsSoftInPrefixFilter(Entity):
     """
@@ -12175,9 +12531,12 @@ class ClearBgpInstanceAfiSafiAsSoftInPrefixFilter(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiAsSoftInPrefixFilter.Input, ['instance_name', 'afi_safi_name', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiAsSoftInPrefixFilter()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiAsSoftIn(Entity):
     """
@@ -12290,9 +12649,12 @@ class ClearBgpInstanceAfiSafiAsSoftIn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiAsSoftIn.Input, ['instance_name', 'afi_safi_name', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiAsSoftIn()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiAsSoftOut(Entity):
     """
@@ -12405,9 +12767,12 @@ class ClearBgpInstanceAfiSafiAsSoftOut(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiAsSoftOut.Input, ['instance_name', 'afi_safi_name', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiAsSoftOut()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiAsSoft(Entity):
     """
@@ -12519,9 +12884,12 @@ class ClearBgpInstanceAfiSafiAsSoft(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiAsSoft.Input, ['instance_name', 'afi_safi_name', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiAsSoft()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiDampeningIpPrefix(Entity):
     """
@@ -12628,9 +12996,12 @@ class ClearBgpInstanceAfiSafiDampeningIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiDampeningIpPrefix.Input, ['instance_name', 'afi_safi_name', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiDampeningIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiDampening(Entity):
     """
@@ -12720,9 +13091,12 @@ class ClearBgpInstanceAfiSafiDampening(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiDampening.Input, ['instance_name', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiDampening()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiExternalSoftInPrefixFilter(Entity):
     """
@@ -12815,9 +13189,12 @@ class ClearBgpInstanceAfiSafiExternalSoftInPrefixFilter(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiExternalSoftInPrefixFilter.Input, ['instance_name', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiExternalSoftInPrefixFilter()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiExternalSoftIn(Entity):
     """
@@ -12909,9 +13286,12 @@ class ClearBgpInstanceAfiSafiExternalSoftIn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiExternalSoftIn.Input, ['instance_name', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiExternalSoftIn()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiExternalSoftOut(Entity):
     """
@@ -13003,9 +13383,12 @@ class ClearBgpInstanceAfiSafiExternalSoftOut(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiExternalSoftOut.Input, ['instance_name', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiExternalSoftOut()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiExternalSoft(Entity):
     """
@@ -13096,9 +13479,12 @@ class ClearBgpInstanceAfiSafiExternalSoft(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiExternalSoft.Input, ['instance_name', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiExternalSoft()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
     """
@@ -13216,9 +13602,12 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask.Input, ['instance_name', 'afi_safi_name', 'ip_addr', 'ipv4_mask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiFlapStatisticsIpAddr(Entity):
     """
@@ -13325,9 +13714,12 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiFlapStatisticsIpAddr.Input, ['instance_name', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiFlapStatisticsIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiFlapStatisticsIpPrefix(Entity):
     """
@@ -13434,9 +13826,12 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiFlapStatisticsIpPrefix.Input, ['instance_name', 'afi_safi_name', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiFlapStatisticsIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiFlapStatisticsRegexp(Entity):
     """
@@ -13536,9 +13931,12 @@ class ClearBgpInstanceAfiSafiFlapStatisticsRegexp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiFlapStatisticsRegexp.Input, ['instance_name', 'afi_safi_name', 'regexp_pattern'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiFlapStatisticsRegexp()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiFlapStatisticsRoutePolicy(Entity):
     """
@@ -13638,9 +14036,12 @@ class ClearBgpInstanceAfiSafiFlapStatisticsRoutePolicy(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiFlapStatisticsRoutePolicy.Input, ['instance_name', 'afi_safi_name', 'route_policy_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiFlapStatisticsRoutePolicy()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiFlapStatistics(Entity):
     """
@@ -13730,9 +14131,12 @@ class ClearBgpInstanceAfiSafiFlapStatistics(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiFlapStatistics.Input, ['instance_name', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiFlapStatistics()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiNexthopPerformanceStatistics(Entity):
     """
@@ -13823,9 +14227,12 @@ class ClearBgpInstanceAfiSafiNexthopPerformanceStatistics(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiNexthopPerformanceStatistics.Input, ['instance_name', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiNexthopPerformanceStatistics()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiNexthopRegistrationIpAddr(Entity):
     """
@@ -13933,9 +14340,12 @@ class ClearBgpInstanceAfiSafiNexthopRegistrationIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiNexthopRegistrationIpAddr.Input, ['instance_name', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiNexthopRegistrationIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiSelfOriginated(Entity):
     """
@@ -14025,9 +14435,12 @@ class ClearBgpInstanceAfiSafiSelfOriginated(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiSelfOriginated.Input, ['instance_name', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiSelfOriginated()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiShutdown(Entity):
     """
@@ -14117,9 +14530,12 @@ class ClearBgpInstanceAfiSafiShutdown(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiShutdown.Input, ['instance_name', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiShutdown()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
     """
@@ -14212,9 +14628,12 @@ class ClearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent.Input, ['instance_name', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiUpdateOutqAddressFamily(Entity):
     """
@@ -14306,9 +14725,12 @@ class ClearBgpInstanceAfiSafiUpdateOutqAddressFamily(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiUpdateOutqAddressFamily.Input, ['instance_name', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiUpdateOutqAddressFamily()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
     """
@@ -14419,9 +14841,12 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity)
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.Input, ['instance_name', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
     """
@@ -14531,9 +14956,12 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh.Input, ['instance_name', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
     """
@@ -14643,9 +15071,12 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent.Input, ['instance_name', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr(Entity):
     """
@@ -14754,9 +15185,12 @@ class ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr.Input, ['instance_name', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
     """
@@ -14872,9 +15306,12 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.Input, ['instance_name', 'afi_safi_name', 'update_group', 'sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
     """
@@ -14989,9 +15426,12 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup.Input, ['instance_name', 'afi_safi_name', 'update_group', 'sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(Entity):
     """
@@ -15107,9 +15547,12 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateP
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input, ['instance_name', 'afi_safi_name', 'update_group', 'refresh_sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
     """
@@ -15224,9 +15667,12 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input, ['instance_name', 'afi_safi_name', 'update_group', 'refresh_sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
     """
@@ -15330,9 +15776,12 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent.Input, ['instance_name', 'afi_safi_name', 'update_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroup(Entity):
     """
@@ -15435,9 +15884,12 @@ class ClearBgpInstanceAfiSafiUpdateOutqUpdateGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiUpdateOutqUpdateGroup.Input, ['instance_name', 'afi_safi_name', 'update_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiUpdateOutqUpdateGroup()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAsGraceful(Entity):
     """
@@ -15540,9 +15992,12 @@ class ClearBgpInstanceAsGraceful(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAsGraceful.Input, ['instance_name', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAsGraceful()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAs(Entity):
     """
@@ -15644,9 +16099,12 @@ class ClearBgpInstanceAs(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAs.Input, ['instance_name', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAs()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathIpAddrIpNetmask(Entity):
     """
@@ -15761,9 +16219,12 @@ class ClearBgpInstanceBestpathIpAddrIpNetmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathIpAddrIpNetmask.Input, ['instance_name', 'ip_addr', 'ip_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathIpAddrIpNetmask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathIpAddr(Entity):
     """
@@ -15861,9 +16322,12 @@ class ClearBgpInstanceBestpathIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathIpAddr.Input, ['instance_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathIpPrefix(Entity):
     """
@@ -15961,9 +16425,12 @@ class ClearBgpInstanceBestpathIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathIpPrefix.Input, ['instance_name', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiIpAddrIpNetmask(Entity):
     """
@@ -16087,9 +16554,12 @@ class ClearBgpInstanceBestpathAfiSafiIpAddrIpNetmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiIpAddrIpNetmask.Input, ['instance_name', 'afi_safi_name', 'ip_addr', 'ip_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiIpAddrIpNetmask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiIpAddr(Entity):
     """
@@ -16196,9 +16666,12 @@ class ClearBgpInstanceBestpathAfiSafiIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiIpAddr.Input, ['instance_name', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiIpPrefix(Entity):
     """
@@ -16305,9 +16778,12 @@ class ClearBgpInstanceBestpathAfiSafiIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiIpPrefix.Input, ['instance_name', 'afi_safi_name', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
     """
@@ -16441,9 +16917,12 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask.Input, ['instance_name', 'afi_safi_name', 'bridge_domain_name', 'ip_addr', 'ip_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr(Entity):
     """
@@ -16560,9 +17039,12 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr.Input, ['instance_name', 'afi_safi_name', 'bridge_domain_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix(Entity):
     """
@@ -16679,9 +17161,12 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix.Input, ['instance_name', 'afi_safi_name', 'bridge_domain_name', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask(Entity):
     """
@@ -16831,9 +17316,12 @@ class ClearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask.Input, ['instance_name', 'afi_safi_name', 'rd', 'ip_addr', 'ip_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiRdIpAddr(Entity):
     """
@@ -16966,9 +17454,12 @@ class ClearBgpInstanceBestpathAfiSafiRdIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiRdIpAddr.Input, ['instance_name', 'afi_safi_name', 'rd', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiRdIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiRdIpPrefix(Entity):
     """
@@ -17101,9 +17592,12 @@ class ClearBgpInstanceBestpathAfiSafiRdIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiRdIpPrefix.Input, ['instance_name', 'afi_safi_name', 'rd', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiRdIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask(Entity):
     """
@@ -17215,9 +17709,12 @@ class ClearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask.Input, ['instance_name', 'afi_safi_name', 'ipv4_addr', 'ipv4_mask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiIpv4Addr(Entity):
     """
@@ -17318,9 +17815,12 @@ class ClearBgpInstanceBestpathAfiSafiIpv4Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiIpv4Addr.Input, ['instance_name', 'afi_safi_name', 'ipv4_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiIpv4Addr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiIpv4Prefix(Entity):
     """
@@ -17421,9 +17921,12 @@ class ClearBgpInstanceBestpathAfiSafiIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiIpv4Prefix.Input, ['instance_name', 'afi_safi_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiRdIpv4Addr(Entity):
     """
@@ -17550,9 +18053,12 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiRdIpv4Addr.Input, ['instance_name', 'afi_safi_name', 'rd', 'ipv4_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiRdIpv4Addr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiVrfIpv4Addr(Entity):
     """
@@ -17663,9 +18169,12 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiVrfIpv4Addr.Input, ['instance_name', 'afi_safi_name', 'vrf_name', 'ipv4_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiVrfIpv4Addr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiNetwork(Entity):
     """
@@ -17764,9 +18273,12 @@ class ClearBgpInstanceBestpathAfiSafiNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiNetwork.Input, ['instance_name', 'afi_safi_name', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiNetwork()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiRdNetwork(Entity):
     """
@@ -17891,9 +18403,12 @@ class ClearBgpInstanceBestpathAfiSafiRdNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiRdNetwork.Input, ['instance_name', 'afi_safi_name', 'rd', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiRdNetwork()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiVrfNetwork(Entity):
     """
@@ -18002,9 +18517,12 @@ class ClearBgpInstanceBestpathAfiSafiVrfNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiVrfNetwork.Input, ['instance_name', 'afi_safi_name', 'vrf_name', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiVrfNetwork()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiRtConstraintNetwork(Entity):
     """
@@ -18103,9 +18621,12 @@ class ClearBgpInstanceBestpathAfiSafiRtConstraintNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiRtConstraintNetwork.Input, ['instance_name', 'afi_safi_name', 'rt_constraint_network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiRtConstraintNetwork()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork(Entity):
     """
@@ -18204,9 +18725,12 @@ class ClearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork.Input, ['instance_name', 'afi_safi_name', 'ipv4_tunnel_network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask(Entity):
     """
@@ -18318,9 +18842,12 @@ class ClearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask.Input, ['instance_name', 'afi_safi_name', 'ipv6_addr', 'ipv6_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiIpv6Addr(Entity):
     """
@@ -18421,9 +18948,12 @@ class ClearBgpInstanceBestpathAfiSafiIpv6Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiIpv6Addr.Input, ['instance_name', 'afi_safi_name', 'ipv6_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiIpv6Addr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiIpv6Prefix(Entity):
     """
@@ -18524,9 +19054,12 @@ class ClearBgpInstanceBestpathAfiSafiIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiIpv6Prefix.Input, ['instance_name', 'afi_safi_name', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiRd(Entity):
     """
@@ -18642,9 +19175,12 @@ class ClearBgpInstanceBestpathAfiSafiRd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiRd.Input, ['instance_name', 'afi_safi_name', 'rd'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiRd()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiVrf(Entity):
     """
@@ -18744,9 +19280,12 @@ class ClearBgpInstanceBestpathAfiSafiVrf(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiVrf.Input, ['instance_name', 'afi_safi_name', 'vrf_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiVrf()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafi(Entity):
     """
@@ -18836,9 +19375,12 @@ class ClearBgpInstanceBestpathAfiSafi(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafi.Input, ['instance_name', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafi()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiSrPolicyPrefix(Entity):
     """
@@ -18937,9 +19479,12 @@ class ClearBgpInstanceBestpathAfiSafiSrPolicyPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiSrPolicyPrefix.Input, ['instance_name', 'afi_safi_name', 'sr_policy_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiSrPolicyPrefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix(Entity):
     """
@@ -19050,9 +19595,12 @@ class ClearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix.Input, ['instance_name', 'afi_safi_name', 'bridge_domain_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiRdIpv4Prefix(Entity):
     """
@@ -19179,9 +19727,12 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiRdIpv4Prefix.Input, ['instance_name', 'afi_safi_name', 'rd', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiRdIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiMp2mpIpv4Prefix(Entity):
     """
@@ -19292,9 +19843,12 @@ class ClearBgpInstanceBestpathAfiSafiMp2mpIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiMp2mpIpv4Prefix.Input, ['instance_name', 'afi_safi_name', 'mp2mp', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiMp2mpIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiVrfIpv4Prefix(Entity):
     """
@@ -19405,9 +19959,12 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiVrfIpv4Prefix.Input, ['instance_name', 'afi_safi_name', 'vrf_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiVrfIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask(Entity):
     """
@@ -19545,9 +20102,12 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask.Input, ['instance_name', 'afi_safi_name', 'rd', 'ipv4_addr', 'ipv4_mask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask(Entity):
     """
@@ -19669,9 +20229,12 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask.Input, ['instance_name', 'afi_safi_name', 'vrf_name', 'ipv4_addr', 'ipv4_mask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask(Entity):
     """
@@ -19809,9 +20372,12 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask.Input, ['instance_name', 'afi_safi_name', 'rd', 'ipv6_addr', 'ipv6_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiRdIpv6Addr(Entity):
     """
@@ -19938,9 +20504,12 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiRdIpv6Addr.Input, ['instance_name', 'afi_safi_name', 'rd', 'ipv6_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiRdIpv6Addr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiRdIpv6Prefix(Entity):
     """
@@ -20067,9 +20636,12 @@ class ClearBgpInstanceBestpathAfiSafiRdIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiRdIpv6Prefix.Input, ['instance_name', 'afi_safi_name', 'rd', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiRdIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
     """
@@ -20191,9 +20763,12 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask.Input, ['instance_name', 'afi_safi_name', 'vrf_name', 'ipv6_addr', 'ipv6_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiVrfIpv6Addr(Entity):
     """
@@ -20304,9 +20879,12 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiVrfIpv6Addr.Input, ['instance_name', 'afi_safi_name', 'vrf_name', 'ipv6_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiVrfIpv6Addr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathAfiSafiVrfIpv6Prefix(Entity):
     """
@@ -20417,9 +20995,12 @@ class ClearBgpInstanceBestpathAfiSafiVrfIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathAfiSafiVrfIpv6Prefix.Input, ['instance_name', 'afi_safi_name', 'vrf_name', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathAfiSafiVrfIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathVrfIpAddrIpNetmask(Entity):
     """
@@ -20548,9 +21129,12 @@ class ClearBgpInstanceBestpathVrfIpAddrIpNetmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathVrfIpAddrIpNetmask.Input, ['instance_name', 'vrf_all', 'ip_addr', 'ip_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathVrfIpAddrIpNetmask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathVrfIpAddr(Entity):
     """
@@ -20662,9 +21246,12 @@ class ClearBgpInstanceBestpathVrfIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathVrfIpAddr.Input, ['instance_name', 'vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathVrfIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathVrfIpPrefix(Entity):
     """
@@ -20776,9 +21363,12 @@ class ClearBgpInstanceBestpathVrfIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathVrfIpPrefix.Input, ['instance_name', 'vrf_all', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathVrfIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathVrfAfiSafiIpv4Prefix(Entity):
     """
@@ -20893,9 +21483,12 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathVrfAfiSafiIpv4Prefix.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathVrfAfiSafiIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask(Entity):
     """
@@ -21021,9 +21614,12 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ipv4_addr', 'ipv4_mask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathVrfAfiSafiIpv4Addr(Entity):
     """
@@ -21138,9 +21734,12 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv4Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathVrfAfiSafiIpv4Addr.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ipv4_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathVrfAfiSafiIpv4Addr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathVrfAfiSafiNetwork(Entity):
     """
@@ -21253,9 +21852,12 @@ class ClearBgpInstanceBestpathVrfAfiSafiNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathVrfAfiSafiNetwork.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathVrfAfiSafiNetwork()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathVrfAfiSafiRdNetwork(Entity):
     """
@@ -21394,9 +21996,12 @@ class ClearBgpInstanceBestpathVrfAfiSafiRdNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathVrfAfiSafiRdNetwork.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'rd', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathVrfAfiSafiRdNetwork()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathVrfAfiSafiVrfNetwork(Entity):
     """
@@ -21519,9 +22124,12 @@ class ClearBgpInstanceBestpathVrfAfiSafiVrfNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathVrfAfiSafiVrfNetwork.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'vrf_name', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathVrfAfiSafiVrfNetwork()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
     """
@@ -21647,9 +22255,12 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ipv6_addr', 'ipv6_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathVrfAfiSafiIpv6Addr(Entity):
     """
@@ -21764,9 +22375,12 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathVrfAfiSafiIpv6Addr.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ipv6_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathVrfAfiSafiIpv6Addr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathVrfAfiSafiIpv6Prefix(Entity):
     """
@@ -21881,9 +22495,12 @@ class ClearBgpInstanceBestpathVrfAfiSafiIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathVrfAfiSafiIpv6Prefix.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathVrfAfiSafiIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathVrfAfiSafiRd(Entity):
     """
@@ -22013,9 +22630,12 @@ class ClearBgpInstanceBestpathVrfAfiSafiRd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathVrfAfiSafiRd.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'rd'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathVrfAfiSafiRd()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathVrfAfiSafiVrf(Entity):
     """
@@ -22129,9 +22749,12 @@ class ClearBgpInstanceBestpathVrfAfiSafiVrf(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathVrfAfiSafiVrf.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'vrf_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathVrfAfiSafiVrf()
         return self._top_entity
+
+
 
 class ClearBgpInstanceBestpathVrfAfiSafi(Entity):
     """
@@ -22235,9 +22858,12 @@ class ClearBgpInstanceBestpathVrfAfiSafi(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceBestpathVrfAfiSafi.Input, ['instance_name', 'vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceBestpathVrfAfiSafi()
         return self._top_entity
+
+
 
 class ClearBgpInstanceExternalGraceful(Entity):
     """
@@ -22319,9 +22945,12 @@ class ClearBgpInstanceExternalGraceful(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceExternalGraceful.Input, ['instance_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceExternalGraceful()
         return self._top_entity
+
+
 
 class ClearBgpInstanceExternal(Entity):
     """
@@ -22402,9 +23031,12 @@ class ClearBgpInstanceExternal(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceExternal.Input, ['instance_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceExternal()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiDampeningIpv4Prefix(Entity):
     """
@@ -22505,9 +23137,12 @@ class ClearBgpInstanceAfiSafiDampeningIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiDampeningIpv4Prefix.Input, ['instance_name', 'afi_safi_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiDampeningIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix(Entity):
     """
@@ -22608,9 +23243,12 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix.Input, ['instance_name', 'afi_safi_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiDampeningIpv6Prefix(Entity):
     """
@@ -22711,9 +23349,12 @@ class ClearBgpInstanceAfiSafiDampeningIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiDampeningIpv6Prefix.Input, ['instance_name', 'afi_safi_name', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiDampeningIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix(Entity):
     """
@@ -22814,9 +23455,12 @@ class ClearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix.Input, ['instance_name', 'afi_safi_name', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceNexthopPerformanceStatistics(Entity):
     """
@@ -22898,9 +23542,12 @@ class ClearBgpInstanceNexthopPerformanceStatistics(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceNexthopPerformanceStatistics.Input, ['instance_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceNexthopPerformanceStatistics()
         return self._top_entity
+
+
 
 class ClearBgpInstanceNexthopRegistrationIpAddr(Entity):
     """
@@ -22999,9 +23646,12 @@ class ClearBgpInstanceNexthopRegistrationIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceNexthopRegistrationIpAddr.Input, ['instance_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceNexthopRegistrationIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstancePeerDropsAll(Entity):
     """
@@ -23083,9 +23733,12 @@ class ClearBgpInstancePeerDropsAll(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstancePeerDropsAll.Input, ['instance_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstancePeerDropsAll()
         return self._top_entity
+
+
 
 class ClearBgpInstancePeerDropsIpAddr(Entity):
     """
@@ -23183,9 +23836,12 @@ class ClearBgpInstancePeerDropsIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstancePeerDropsIpAddr.Input, ['instance_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstancePeerDropsIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstancePerformanceStatistics(Entity):
     """
@@ -23266,9 +23922,12 @@ class ClearBgpInstancePerformanceStatistics(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstancePerformanceStatistics.Input, ['instance_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstancePerformanceStatistics()
         return self._top_entity
+
+
 
 class ClearBgpInstanceRpkiServerAllSerialQuery(Entity):
     """
@@ -23352,9 +24011,12 @@ class ClearBgpInstanceRpkiServerAllSerialQuery(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceRpkiServerAllSerialQuery.Input, ['instance_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceRpkiServerAllSerialQuery()
         return self._top_entity
+
+
 
 class ClearBgpInstanceRpkiServerAll(Entity):
     """
@@ -23437,9 +24099,12 @@ class ClearBgpInstanceRpkiServerAll(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceRpkiServerAll.Input, ['instance_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceRpkiServerAll()
         return self._top_entity
+
+
 
 class ClearBgpInstanceRpkiServerRpkiServer(Entity):
     """
@@ -23530,9 +24195,12 @@ class ClearBgpInstanceRpkiServerRpkiServer(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceRpkiServerRpkiServer.Input, ['instance_name', 'rpki_server'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceRpkiServerRpkiServer()
         return self._top_entity
+
+
 
 class ClearBgpInstanceRpkiValidationIpv4(Entity):
     """
@@ -23615,9 +24283,12 @@ class ClearBgpInstanceRpkiValidationIpv4(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceRpkiValidationIpv4.Input, ['instance_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceRpkiValidationIpv4()
         return self._top_entity
+
+
 
 class ClearBgpInstanceRpkiValidationIpv6(Entity):
     """
@@ -23700,9 +24371,12 @@ class ClearBgpInstanceRpkiValidationIpv6(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceRpkiValidationIpv6.Input, ['instance_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceRpkiValidationIpv6()
         return self._top_entity
+
+
 
 class ClearBgpInstanceRpkiValidation(Entity):
     """
@@ -23784,9 +24458,12 @@ class ClearBgpInstanceRpkiValidation(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceRpkiValidation.Input, ['instance_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceRpkiValidation()
         return self._top_entity
+
+
 
 class ClearBgpInstanceShutdown(Entity):
     """
@@ -23867,9 +24544,12 @@ class ClearBgpInstanceShutdown(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceShutdown.Input, ['instance_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceShutdown()
         return self._top_entity
+
+
 
 class ClearBgpInstanceUpdateOutqAddressFamilyUpdateParent(Entity):
     """
@@ -23953,9 +24633,12 @@ class ClearBgpInstanceUpdateOutqAddressFamilyUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceUpdateOutqAddressFamilyUpdateParent.Input, ['instance_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceUpdateOutqAddressFamilyUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceUpdateOutqAddressFamily(Entity):
     """
@@ -24038,9 +24721,12 @@ class ClearBgpInstanceUpdateOutqAddressFamily(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceUpdateOutqAddressFamily.Input, ['instance_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceUpdateOutqAddressFamily()
         return self._top_entity
+
+
 
 class ClearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
     """
@@ -24142,9 +24828,12 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent.Input, ['instance_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceUpdateOutqNeighborIpAddrRefresh(Entity):
     """
@@ -24245,9 +24934,12 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrRefresh(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceUpdateOutqNeighborIpAddrRefresh.Input, ['instance_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceUpdateOutqNeighborIpAddrRefresh()
         return self._top_entity
+
+
 
 class ClearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent(Entity):
     """
@@ -24348,9 +25040,12 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent.Input, ['instance_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceUpdateOutqNeighborIpAddr(Entity):
     """
@@ -24450,9 +25145,12 @@ class ClearBgpInstanceUpdateOutqNeighborIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceUpdateOutqNeighborIpAddr.Input, ['instance_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceUpdateOutqNeighborIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceUpdateOutqProcess(Entity):
     """
@@ -24535,9 +25233,12 @@ class ClearBgpInstanceUpdateOutqProcess(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceUpdateOutqProcess.Input, ['instance_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceUpdateOutqProcess()
         return self._top_entity
+
+
 
 class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
     """
@@ -24644,9 +25345,12 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent.Input, ['instance_name', 'update_group', 'sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceUpdateOutqUpdateGroupSubGroup(Entity):
     """
@@ -24752,9 +25456,12 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceUpdateOutqUpdateGroupSubGroup.Input, ['instance_name', 'update_group', 'sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceUpdateOutqUpdateGroupSubGroup()
         return self._top_entity
+
+
 
 class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(Entity):
     """
@@ -24861,9 +25568,12 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(E
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input, ['instance_name', 'update_group', 'refresh_sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
     """
@@ -24969,9 +25679,12 @@ class ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input, ['instance_name', 'update_group', 'refresh_sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup()
         return self._top_entity
+
+
 
 class ClearBgpInstanceUpdateOutqUpdateGroupUpdateParent(Entity):
     """
@@ -25066,9 +25779,12 @@ class ClearBgpInstanceUpdateOutqUpdateGroupUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceUpdateOutqUpdateGroupUpdateParent.Input, ['instance_name', 'update_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceUpdateOutqUpdateGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceUpdateOutqUpdateGroup(Entity):
     """
@@ -25162,9 +25878,12 @@ class ClearBgpInstanceUpdateOutqUpdateGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceUpdateOutqUpdateGroup.Input, ['instance_name', 'update_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceUpdateOutqUpdateGroup()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionIpAddrIpNetmask(Entity):
     """
@@ -25279,9 +25998,12 @@ class ClearBgpInstanceVersionIpAddrIpNetmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionIpAddrIpNetmask.Input, ['instance_name', 'ip_addr', 'ip_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionIpAddrIpNetmask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionIpAddr(Entity):
     """
@@ -25379,9 +26101,12 @@ class ClearBgpInstanceVersionIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionIpAddr.Input, ['instance_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionIpPrefix(Entity):
     """
@@ -25479,9 +26204,12 @@ class ClearBgpInstanceVersionIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionIpPrefix.Input, ['instance_name', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiIpAddrIpNetmask(Entity):
     """
@@ -25605,9 +26333,12 @@ class ClearBgpInstanceVersionAfiSafiIpAddrIpNetmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiIpAddrIpNetmask.Input, ['instance_name', 'afi_safi_name', 'ip_addr', 'ip_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiIpAddrIpNetmask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiIpAddr(Entity):
     """
@@ -25714,9 +26445,12 @@ class ClearBgpInstanceVersionAfiSafiIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiIpAddr.Input, ['instance_name', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiIpPrefix(Entity):
     """
@@ -25823,9 +26557,12 @@ class ClearBgpInstanceVersionAfiSafiIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiIpPrefix.Input, ['instance_name', 'afi_safi_name', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
     """
@@ -25959,9 +26696,12 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask.Input, ['instance_name', 'afi_safi_name', 'bridge_domain_name', 'ip_addr', 'ip_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddr(Entity):
     """
@@ -26078,9 +26818,12 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddr.Input, ['instance_name', 'afi_safi_name', 'bridge_domain_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix(Entity):
     """
@@ -26197,9 +26940,12 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix.Input, ['instance_name', 'afi_safi_name', 'bridge_domain_name', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask(Entity):
     """
@@ -26349,9 +27095,12 @@ class ClearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask.Input, ['instance_name', 'afi_safi_name', 'rd', 'ip_addr', 'ip_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiRdIpAddr(Entity):
     """
@@ -26484,9 +27233,12 @@ class ClearBgpInstanceVersionAfiSafiRdIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiRdIpAddr.Input, ['instance_name', 'afi_safi_name', 'rd', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiRdIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiRdIpPrefix(Entity):
     """
@@ -26619,9 +27371,12 @@ class ClearBgpInstanceVersionAfiSafiRdIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiRdIpPrefix.Input, ['instance_name', 'afi_safi_name', 'rd', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiRdIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask(Entity):
     """
@@ -26733,9 +27488,12 @@ class ClearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask.Input, ['instance_name', 'afi_safi_name', 'ipv4_addr', 'ipv4_mask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiIpv4Addr(Entity):
     """
@@ -26836,9 +27594,12 @@ class ClearBgpInstanceVersionAfiSafiIpv4Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiIpv4Addr.Input, ['instance_name', 'afi_safi_name', 'ipv4_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiIpv4Addr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiIpv4Prefix(Entity):
     """
@@ -26939,9 +27700,12 @@ class ClearBgpInstanceVersionAfiSafiIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiIpv4Prefix.Input, ['instance_name', 'afi_safi_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiRdIpv4Addr(Entity):
     """
@@ -27068,9 +27832,12 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiRdIpv4Addr.Input, ['instance_name', 'afi_safi_name', 'rd', 'ipv4_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiRdIpv4Addr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiVrfIpv4Addr(Entity):
     """
@@ -27181,9 +27948,12 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiVrfIpv4Addr.Input, ['instance_name', 'afi_safi_name', 'vrf_name', 'ipv4_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiVrfIpv4Addr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiNetwork(Entity):
     """
@@ -27282,9 +28052,12 @@ class ClearBgpInstanceVersionAfiSafiNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiNetwork.Input, ['instance_name', 'afi_safi_name', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiNetwork()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiRdNetwork(Entity):
     """
@@ -27409,9 +28182,12 @@ class ClearBgpInstanceVersionAfiSafiRdNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiRdNetwork.Input, ['instance_name', 'afi_safi_name', 'rd', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiRdNetwork()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiVrfNetwork(Entity):
     """
@@ -27520,9 +28296,12 @@ class ClearBgpInstanceVersionAfiSafiVrfNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiVrfNetwork.Input, ['instance_name', 'afi_safi_name', 'vrf_name', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiVrfNetwork()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiRtConstraintNetwork(Entity):
     """
@@ -27621,9 +28400,12 @@ class ClearBgpInstanceVersionAfiSafiRtConstraintNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiRtConstraintNetwork.Input, ['instance_name', 'afi_safi_name', 'rt_constraint_network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiRtConstraintNetwork()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiIpv4TunnelNetwork(Entity):
     """
@@ -27722,9 +28504,12 @@ class ClearBgpInstanceVersionAfiSafiIpv4TunnelNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiIpv4TunnelNetwork.Input, ['instance_name', 'afi_safi_name', 'ipv4_tunnel_network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiIpv4TunnelNetwork()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask(Entity):
     """
@@ -27836,9 +28621,12 @@ class ClearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask.Input, ['instance_name', 'afi_safi_name', 'ipv6_addr', 'ipv6_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiIpv6Addr(Entity):
     """
@@ -27939,9 +28727,12 @@ class ClearBgpInstanceVersionAfiSafiIpv6Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiIpv6Addr.Input, ['instance_name', 'afi_safi_name', 'ipv6_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiIpv6Addr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiIpv6Prefix(Entity):
     """
@@ -28042,9 +28833,12 @@ class ClearBgpInstanceVersionAfiSafiIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiIpv6Prefix.Input, ['instance_name', 'afi_safi_name', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiRd(Entity):
     """
@@ -28160,9 +28954,12 @@ class ClearBgpInstanceVersionAfiSafiRd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiRd.Input, ['instance_name', 'afi_safi_name', 'rd'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiRd()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiVrf(Entity):
     """
@@ -28262,9 +29059,12 @@ class ClearBgpInstanceVersionAfiSafiVrf(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiVrf.Input, ['instance_name', 'afi_safi_name', 'vrf_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiVrf()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafi(Entity):
     """
@@ -28354,9 +29154,12 @@ class ClearBgpInstanceVersionAfiSafi(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafi.Input, ['instance_name', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafi()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiSrPolicyPrefix(Entity):
     """
@@ -28455,9 +29258,12 @@ class ClearBgpInstanceVersionAfiSafiSrPolicyPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiSrPolicyPrefix.Input, ['instance_name', 'afi_safi_name', 'sr_policy_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiSrPolicyPrefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix(Entity):
     """
@@ -28568,9 +29374,12 @@ class ClearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix.Input, ['instance_name', 'afi_safi_name', 'bridge_domain_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiRdIpv4Prefix(Entity):
     """
@@ -28697,9 +29506,12 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiRdIpv4Prefix.Input, ['instance_name', 'afi_safi_name', 'rd', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiRdIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiMp2mpIpv4Prefix(Entity):
     """
@@ -28810,9 +29622,12 @@ class ClearBgpInstanceVersionAfiSafiMp2mpIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiMp2mpIpv4Prefix.Input, ['instance_name', 'afi_safi_name', 'mp2mp', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiMp2mpIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiVrfIpv4Prefix(Entity):
     """
@@ -28923,9 +29738,12 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiVrfIpv4Prefix.Input, ['instance_name', 'afi_safi_name', 'vrf_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiVrfIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask(Entity):
     """
@@ -29063,9 +29881,12 @@ class ClearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask.Input, ['instance_name', 'afi_safi_name', 'rd', 'ipv4_addr', 'ipv4_mask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask(Entity):
     """
@@ -29187,9 +30008,12 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask.Input, ['instance_name', 'afi_safi_name', 'vrf_name', 'ipv4_addr', 'ipv4_mask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask(Entity):
     """
@@ -29327,9 +30151,12 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask.Input, ['instance_name', 'afi_safi_name', 'rd', 'ipv6_addr', 'ipv6_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiRdIpv6Addr(Entity):
     """
@@ -29456,9 +30283,12 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiRdIpv6Addr.Input, ['instance_name', 'afi_safi_name', 'rd', 'ipv6_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiRdIpv6Addr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiRdIpv6Prefix(Entity):
     """
@@ -29585,9 +30415,12 @@ class ClearBgpInstanceVersionAfiSafiRdIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiRdIpv6Prefix.Input, ['instance_name', 'afi_safi_name', 'rd', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiRdIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
     """
@@ -29709,9 +30542,12 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask.Input, ['instance_name', 'afi_safi_name', 'vrf_name', 'ipv6_addr', 'ipv6_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiVrfIpv6Addr(Entity):
     """
@@ -29822,9 +30658,12 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiVrfIpv6Addr.Input, ['instance_name', 'afi_safi_name', 'vrf_name', 'ipv6_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiVrfIpv6Addr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionAfiSafiVrfIpv6Prefix(Entity):
     """
@@ -29935,9 +30774,12 @@ class ClearBgpInstanceVersionAfiSafiVrfIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionAfiSafiVrfIpv6Prefix.Input, ['instance_name', 'afi_safi_name', 'vrf_name', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionAfiSafiVrfIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionVrfIpAddrIpNetmask(Entity):
     """
@@ -30066,9 +30908,12 @@ class ClearBgpInstanceVersionVrfIpAddrIpNetmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionVrfIpAddrIpNetmask.Input, ['instance_name', 'vrf_all', 'ip_addr', 'ip_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionVrfIpAddrIpNetmask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionVrfIpAddr(Entity):
     """
@@ -30180,9 +31025,12 @@ class ClearBgpInstanceVersionVrfIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionVrfIpAddr.Input, ['instance_name', 'vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionVrfIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionVrfIpPrefix(Entity):
     """
@@ -30294,9 +31142,12 @@ class ClearBgpInstanceVersionVrfIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionVrfIpPrefix.Input, ['instance_name', 'vrf_all', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionVrfIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionVrfAfiSafiIpv4Prefix(Entity):
     """
@@ -30411,9 +31262,12 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionVrfAfiSafiIpv4Prefix.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionVrfAfiSafiIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask(Entity):
     """
@@ -30539,9 +31393,12 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ipv4_addr', 'ipv4_mask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionVrfAfiSafiIpv4Addr(Entity):
     """
@@ -30656,9 +31513,12 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv4Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionVrfAfiSafiIpv4Addr.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ipv4_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionVrfAfiSafiIpv4Addr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionVrfAfiSafiNetwork(Entity):
     """
@@ -30771,9 +31631,12 @@ class ClearBgpInstanceVersionVrfAfiSafiNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionVrfAfiSafiNetwork.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionVrfAfiSafiNetwork()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionVrfAfiSafiRdNetwork(Entity):
     """
@@ -30912,9 +31775,12 @@ class ClearBgpInstanceVersionVrfAfiSafiRdNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionVrfAfiSafiRdNetwork.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'rd', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionVrfAfiSafiRdNetwork()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionVrfAfiSafiVrfNetwork(Entity):
     """
@@ -31037,9 +31903,12 @@ class ClearBgpInstanceVersionVrfAfiSafiVrfNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionVrfAfiSafiVrfNetwork.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'vrf_name', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionVrfAfiSafiVrfNetwork()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
     """
@@ -31165,9 +32034,12 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ipv6_addr', 'ipv6_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionVrfAfiSafiIpv6Addr(Entity):
     """
@@ -31282,9 +32154,12 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionVrfAfiSafiIpv6Addr.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ipv6_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionVrfAfiSafiIpv6Addr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionVrfAfiSafiIpv6Prefix(Entity):
     """
@@ -31399,9 +32274,12 @@ class ClearBgpInstanceVersionVrfAfiSafiIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionVrfAfiSafiIpv6Prefix.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionVrfAfiSafiIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionVrfAfiSafiRd(Entity):
     """
@@ -31531,9 +32409,12 @@ class ClearBgpInstanceVersionVrfAfiSafiRd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionVrfAfiSafiRd.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'rd'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionVrfAfiSafiRd()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionVrfAfiSafiVrf(Entity):
     """
@@ -31647,9 +32528,12 @@ class ClearBgpInstanceVersionVrfAfiSafiVrf(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionVrfAfiSafiVrf.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'vrf_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionVrfAfiSafiVrf()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVersionVrfAfiSafi(Entity):
     """
@@ -31753,9 +32637,12 @@ class ClearBgpInstanceVersionVrfAfiSafi(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVersionVrfAfiSafi.Input, ['instance_name', 'vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVersionVrfAfiSafi()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAllGraceful(Entity):
     """
@@ -31851,9 +32738,12 @@ class ClearBgpInstanceVrfAllGraceful(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAllGraceful.Input, ['instance_name', 'vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAllGraceful()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAll(Entity):
     """
@@ -31948,9 +32838,12 @@ class ClearBgpInstanceVrfAll(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAll.Input, ['instance_name', 'vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAll()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfIpAddrGraceful(Entity):
     """
@@ -32062,9 +32955,12 @@ class ClearBgpInstanceVrfIpAddrGraceful(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfIpAddrGraceful.Input, ['instance_name', 'vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfIpAddrGraceful()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfIpAddrLongLivedStale(Entity):
     """
@@ -32176,9 +33072,12 @@ class ClearBgpInstanceVrfIpAddrLongLivedStale(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfIpAddrLongLivedStale.Input, ['instance_name', 'vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfIpAddrLongLivedStale()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfIpAddr(Entity):
     """
@@ -32289,9 +33188,12 @@ class ClearBgpInstanceVrfIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfIpAddr.Input, ['instance_name', 'vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAsGraceful(Entity):
     """
@@ -32408,9 +33310,12 @@ class ClearBgpInstanceVrfAsGraceful(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAsGraceful.Input, ['instance_name', 'vrf_all', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAsGraceful()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAs(Entity):
     """
@@ -32526,9 +33431,12 @@ class ClearBgpInstanceVrfAs(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAs.Input, ['instance_name', 'vrf_all', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAs()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfExternalGraceful(Entity):
     """
@@ -32624,9 +33532,12 @@ class ClearBgpInstanceVrfExternalGraceful(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfExternalGraceful.Input, ['instance_name', 'vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfExternalGraceful()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfExternal(Entity):
     """
@@ -32721,9 +33632,12 @@ class ClearBgpInstanceVrfExternal(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfExternal.Input, ['instance_name', 'vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfExternal()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter(Entity):
     """
@@ -32830,9 +33744,12 @@ class ClearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter.Input, ['instance_name', 'vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiAllSoftIn(Entity):
     """
@@ -32938,9 +33855,12 @@ class ClearBgpInstanceVrfAfiSafiAllSoftIn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiAllSoftIn.Input, ['instance_name', 'vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiAllSoftIn()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiAllSoftOut(Entity):
     """
@@ -33046,9 +33966,12 @@ class ClearBgpInstanceVrfAfiSafiAllSoftOut(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiAllSoftOut.Input, ['instance_name', 'vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiAllSoftOut()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiAllSoft(Entity):
     """
@@ -33153,9 +34076,12 @@ class ClearBgpInstanceVrfAfiSafiAllSoft(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiAllSoft.Input, ['instance_name', 'vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiAllSoft()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiIpAddrLongLivedStale(Entity):
     """
@@ -33276,9 +34202,12 @@ class ClearBgpInstanceVrfAfiSafiIpAddrLongLivedStale(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiIpAddrLongLivedStale.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiIpAddrLongLivedStale()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter(Entity):
     """
@@ -33401,9 +34330,12 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiIpAddrSoftIn(Entity):
     """
@@ -33525,9 +34457,12 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftIn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiIpAddrSoftIn.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiIpAddrSoftIn()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiIpAddrSoftOut(Entity):
     """
@@ -33649,9 +34584,12 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoftOut(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiIpAddrSoftOut.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiIpAddrSoftOut()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiIpAddrSoft(Entity):
     """
@@ -33772,9 +34710,12 @@ class ClearBgpInstanceVrfAfiSafiIpAddrSoft(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiIpAddrSoft.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiIpAddrSoft()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter(Entity):
     """
@@ -33902,9 +34843,12 @@ class ClearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiAsSoftIn(Entity):
     """
@@ -34031,9 +34975,12 @@ class ClearBgpInstanceVrfAfiSafiAsSoftIn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiAsSoftIn.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiAsSoftIn()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiAsSoftOut(Entity):
     """
@@ -34160,9 +35107,12 @@ class ClearBgpInstanceVrfAfiSafiAsSoftOut(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiAsSoftOut.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiAsSoftOut()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiAsSoft(Entity):
     """
@@ -34288,9 +35238,12 @@ class ClearBgpInstanceVrfAfiSafiAsSoft(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiAsSoft.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiAsSoft()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiDampeningIpv4Prefix(Entity):
     """
@@ -34405,9 +35358,12 @@ class ClearBgpInstanceVrfAfiSafiDampeningIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiDampeningIpv4Prefix.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiDampeningIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiDampening(Entity):
     """
@@ -34511,9 +35467,12 @@ class ClearBgpInstanceVrfAfiSafiDampening(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiDampening.Input, ['instance_name', 'vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiDampening()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter(Entity):
     """
@@ -34620,9 +35579,12 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter.Input, ['instance_name', 'vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiExternalSoftIn(Entity):
     """
@@ -34728,9 +35690,12 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftIn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiExternalSoftIn.Input, ['instance_name', 'vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiExternalSoftIn()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiExternalSoftOut(Entity):
     """
@@ -34836,9 +35801,12 @@ class ClearBgpInstanceVrfAfiSafiExternalSoftOut(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiExternalSoftOut.Input, ['instance_name', 'vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiExternalSoftOut()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiExternalSoft(Entity):
     """
@@ -34943,9 +35911,12 @@ class ClearBgpInstanceVrfAfiSafiExternalSoft(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiExternalSoft.Input, ['instance_name', 'vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiExternalSoft()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
     """
@@ -35077,9 +36048,12 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ip_addr', 'ipv4_mask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr(Entity):
     """
@@ -35200,9 +36174,12 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix(Entity):
     """
@@ -35317,9 +36294,12 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiFlapStatisticsRegexp(Entity):
     """
@@ -35433,9 +36413,12 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsRegexp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiFlapStatisticsRegexp.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'regexp_pattern'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiFlapStatisticsRegexp()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy(Entity):
     """
@@ -35549,9 +36532,12 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'route_policy_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiFlapStatistics(Entity):
     """
@@ -35655,9 +36641,12 @@ class ClearBgpInstanceVrfAfiSafiFlapStatistics(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiFlapStatistics.Input, ['instance_name', 'vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiFlapStatistics()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics(Entity):
     """
@@ -35762,9 +36751,12 @@ class ClearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics.Input, ['instance_name', 'vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr(Entity):
     """
@@ -35886,9 +36878,12 @@ class ClearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiSelfOriginated(Entity):
     """
@@ -35992,9 +36987,12 @@ class ClearBgpInstanceVrfAfiSafiSelfOriginated(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiSelfOriginated.Input, ['instance_name', 'vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiSelfOriginated()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiShutdown(Entity):
     """
@@ -36098,9 +37096,12 @@ class ClearBgpInstanceVrfAfiSafiShutdown(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiShutdown.Input, ['instance_name', 'vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiShutdown()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
     """
@@ -36207,9 +37208,12 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.Input, ['instance_name', 'vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily(Entity):
     """
@@ -36315,9 +37319,12 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily.Input, ['instance_name', 'vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
     """
@@ -36442,9 +37449,12 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Enti
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
     """
@@ -36568,9 +37578,12 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
     """
@@ -36694,9 +37707,12 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr(Entity):
     """
@@ -36819,9 +37835,12 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
     """
@@ -36951,9 +37970,12 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'update_group', 'sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
     """
@@ -37082,9 +38104,12 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'update_group', 'sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(Entity):
     """
@@ -37214,9 +38239,12 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpda
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'update_group', 'refresh_sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
     """
@@ -37345,9 +38373,12 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Ent
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'update_group', 'refresh_sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
     """
@@ -37465,9 +38496,12 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'update_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup(Entity):
     """
@@ -37584,9 +38618,12 @@ class ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'update_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiDampeningIpv6Prefix(Entity):
     """
@@ -37701,9 +38738,12 @@ class ClearBgpInstanceVrfAfiSafiDampeningIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiDampeningIpv6Prefix.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiDampeningIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix(Entity):
     """
@@ -37818,9 +38858,12 @@ class ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix.Input, ['instance_name', 'vrf_all', 'afi_safi_name', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfNexthopPerformanceStatistics(Entity):
     """
@@ -37916,9 +38959,12 @@ class ClearBgpInstanceVrfNexthopPerformanceStatistics(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfNexthopPerformanceStatistics.Input, ['instance_name', 'vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfNexthopPerformanceStatistics()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfNexthopRegistrationIpAddr(Entity):
     """
@@ -38031,9 +39077,12 @@ class ClearBgpInstanceVrfNexthopRegistrationIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfNexthopRegistrationIpAddr.Input, ['instance_name', 'vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfNexthopRegistrationIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfPeerDropsAll(Entity):
     """
@@ -38129,9 +39178,12 @@ class ClearBgpInstanceVrfPeerDropsAll(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfPeerDropsAll.Input, ['instance_name', 'vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfPeerDropsAll()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfPeerDropsIpAddr(Entity):
     """
@@ -38243,9 +39295,12 @@ class ClearBgpInstanceVrfPeerDropsIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfPeerDropsIpAddr.Input, ['instance_name', 'vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfPeerDropsIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfPerformanceStatistics(Entity):
     """
@@ -38340,9 +39395,12 @@ class ClearBgpInstanceVrfPerformanceStatistics(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfPerformanceStatistics.Input, ['instance_name', 'vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfPerformanceStatistics()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfShutdown(Entity):
     """
@@ -38437,9 +39495,12 @@ class ClearBgpInstanceVrfShutdown(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfShutdown.Input, ['instance_name', 'vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfShutdown()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent(Entity):
     """
@@ -38537,9 +39598,12 @@ class ClearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent.Input, ['instance_name', 'vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfUpdateOutqAddressFamily(Entity):
     """
@@ -38636,9 +39700,12 @@ class ClearBgpInstanceVrfUpdateOutqAddressFamily(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfUpdateOutqAddressFamily.Input, ['instance_name', 'vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfUpdateOutqAddressFamily()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
     """
@@ -38754,9 +39821,12 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.Input, ['instance_name', 'vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh(Entity):
     """
@@ -38871,9 +39941,12 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh.Input, ['instance_name', 'vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent(Entity):
     """
@@ -38988,9 +40061,12 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent.Input, ['instance_name', 'vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfUpdateOutqNeighborIpAddr(Entity):
     """
@@ -39104,9 +40180,12 @@ class ClearBgpInstanceVrfUpdateOutqNeighborIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfUpdateOutqNeighborIpAddr.Input, ['instance_name', 'vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfUpdateOutqNeighborIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
     """
@@ -39227,9 +40306,12 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent.Input, ['instance_name', 'vrf_all', 'update_group', 'sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup(Entity):
     """
@@ -39349,9 +40431,12 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup.Input, ['instance_name', 'vrf_all', 'update_group', 'sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(Entity):
     """
@@ -39472,9 +40557,12 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParen
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input, ['instance_name', 'vrf_all', 'update_group', 'refresh_sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
     """
@@ -39594,9 +40682,12 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input, ['instance_name', 'vrf_all', 'update_group', 'refresh_sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent(Entity):
     """
@@ -39705,9 +40796,12 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent.Input, ['instance_name', 'vrf_all', 'update_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfUpdateOutqUpdateGroup(Entity):
     """
@@ -39815,9 +40909,12 @@ class ClearBgpInstanceVrfUpdateOutqUpdateGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfUpdateOutqUpdateGroup.Input, ['instance_name', 'vrf_all', 'update_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfUpdateOutqUpdateGroup()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiDampeningIpv4Prefix(Entity):
     """
@@ -39904,9 +41001,12 @@ class ClearBgpAfiSafiDampeningIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiDampeningIpv4Prefix.Input, ['afi_safi_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiDampeningIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiFlapStatisticsIpv4Prefix(Entity):
     """
@@ -39993,9 +41093,12 @@ class ClearBgpAfiSafiFlapStatisticsIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiFlapStatisticsIpv4Prefix.Input, ['afi_safi_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiFlapStatisticsIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiDampeningIpv6Prefix(Entity):
     """
@@ -40082,9 +41185,12 @@ class ClearBgpAfiSafiDampeningIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiDampeningIpv6Prefix.Input, ['afi_safi_name', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiDampeningIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpAfiSafiFlapStatisticsIpv6Prefix(Entity):
     """
@@ -40171,9 +41277,12 @@ class ClearBgpAfiSafiFlapStatisticsIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpAfiSafiFlapStatisticsIpv6Prefix.Input, ['afi_safi_name', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpAfiSafiFlapStatisticsIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpNexthopPerformanceStatistics(Entity):
     """
@@ -40205,6 +41314,8 @@ class ClearBgpNexthopPerformanceStatistics(Entity):
     def clone_ptr(self):
         self._top_entity = ClearBgpNexthopPerformanceStatistics()
         return self._top_entity
+
+
 
 class ClearBgpNexthopRegistrationIpAddr(Entity):
     """
@@ -40289,9 +41400,12 @@ class ClearBgpNexthopRegistrationIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpNexthopRegistrationIpAddr.Input, ['ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpNexthopRegistrationIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpPeerDropsAll(Entity):
     """
@@ -40323,6 +41437,8 @@ class ClearBgpPeerDropsAll(Entity):
     def clone_ptr(self):
         self._top_entity = ClearBgpPeerDropsAll()
         return self._top_entity
+
+
 
 class ClearBgpPeerDropsIpAddr(Entity):
     """
@@ -40406,9 +41522,12 @@ class ClearBgpPeerDropsIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpPeerDropsIpAddr.Input, ['ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpPeerDropsIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpPerformanceStatistics(Entity):
     """
@@ -40439,6 +41558,8 @@ class ClearBgpPerformanceStatistics(Entity):
     def clone_ptr(self):
         self._top_entity = ClearBgpPerformanceStatistics()
         return self._top_entity
+
+
 
 class ClearBgpRpkiServerAllSerialQuery(Entity):
     """
@@ -40473,6 +41594,8 @@ class ClearBgpRpkiServerAllSerialQuery(Entity):
         self._top_entity = ClearBgpRpkiServerAllSerialQuery()
         return self._top_entity
 
+
+
 class ClearBgpRpkiServerAll(Entity):
     """
     RPKI clear command.
@@ -40504,6 +41627,8 @@ class ClearBgpRpkiServerAll(Entity):
     def clone_ptr(self):
         self._top_entity = ClearBgpRpkiServerAll()
         return self._top_entity
+
+
 
 class ClearBgpRpkiServerRpkiServer(Entity):
     """
@@ -40580,9 +41705,12 @@ class ClearBgpRpkiServerRpkiServer(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpRpkiServerRpkiServer.Input, ['rpki_server'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpRpkiServerRpkiServer()
         return self._top_entity
+
+
 
 class ClearBgpRpkiValidationIpv4(Entity):
     """
@@ -40616,6 +41744,8 @@ class ClearBgpRpkiValidationIpv4(Entity):
         self._top_entity = ClearBgpRpkiValidationIpv4()
         return self._top_entity
 
+
+
 class ClearBgpRpkiValidationIpv6(Entity):
     """
     RPKI clear command.
@@ -40648,6 +41778,8 @@ class ClearBgpRpkiValidationIpv6(Entity):
         self._top_entity = ClearBgpRpkiValidationIpv6()
         return self._top_entity
 
+
+
 class ClearBgpRpkiValidation(Entity):
     """
     RPKI clear command.
@@ -40679,6 +41811,8 @@ class ClearBgpRpkiValidation(Entity):
         self._top_entity = ClearBgpRpkiValidation()
         return self._top_entity
 
+
+
 class ClearBgpShutdown(Entity):
     """
     Clear all peers which were shut down due to low memory.
@@ -40708,6 +41842,8 @@ class ClearBgpShutdown(Entity):
     def clone_ptr(self):
         self._top_entity = ClearBgpShutdown()
         return self._top_entity
+
+
 
 class ClearBgpUpdateOutqAddressFamilyUpdateParent(Entity):
     """
@@ -40742,6 +41878,8 @@ class ClearBgpUpdateOutqAddressFamilyUpdateParent(Entity):
         self._top_entity = ClearBgpUpdateOutqAddressFamilyUpdateParent()
         return self._top_entity
 
+
+
 class ClearBgpUpdateOutqAddressFamily(Entity):
     """
     Clear Update information (Do NOT execute without cisco support)(cisco\-support).
@@ -40773,6 +41911,8 @@ class ClearBgpUpdateOutqAddressFamily(Entity):
     def clone_ptr(self):
         self._top_entity = ClearBgpUpdateOutqAddressFamily()
         return self._top_entity
+
+
 
 class ClearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
     """
@@ -40860,9 +42000,12 @@ class ClearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent.Input, ['ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpUpdateOutqNeighborIpAddrRefresh(Entity):
     """
@@ -40949,9 +42092,12 @@ class ClearBgpUpdateOutqNeighborIpAddrRefresh(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpUpdateOutqNeighborIpAddrRefresh.Input, ['ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpUpdateOutqNeighborIpAddrRefresh()
         return self._top_entity
+
+
 
 class ClearBgpUpdateOutqNeighborIpAddrUpdateParent(Entity):
     """
@@ -41038,9 +42184,12 @@ class ClearBgpUpdateOutqNeighborIpAddrUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpUpdateOutqNeighborIpAddrUpdateParent.Input, ['ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpUpdateOutqNeighborIpAddrUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpUpdateOutqNeighborIpAddr(Entity):
     """
@@ -41126,9 +42275,12 @@ class ClearBgpUpdateOutqNeighborIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpUpdateOutqNeighborIpAddr.Input, ['ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpUpdateOutqNeighborIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpUpdateOutqProcess(Entity):
     """
@@ -41161,6 +42313,8 @@ class ClearBgpUpdateOutqProcess(Entity):
     def clone_ptr(self):
         self._top_entity = ClearBgpUpdateOutqProcess()
         return self._top_entity
+
+
 
 class ClearBgpUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
     """
@@ -41253,9 +42407,12 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpUpdateOutqUpdateGroupSubGroupUpdateParent.Input, ['update_group', 'sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpUpdateOutqUpdateGroupSubGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpUpdateOutqUpdateGroupSubGroup(Entity):
     """
@@ -41347,9 +42504,12 @@ class ClearBgpUpdateOutqUpdateGroupSubGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpUpdateOutqUpdateGroupSubGroup.Input, ['update_group', 'sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpUpdateOutqUpdateGroupSubGroup()
         return self._top_entity
+
+
 
 class ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(Entity):
     """
@@ -41442,9 +42602,12 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input, ['update_group', 'refresh_sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
     """
@@ -41536,9 +42699,12 @@ class ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input, ['update_group', 'refresh_sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup()
         return self._top_entity
+
+
 
 class ClearBgpUpdateOutqUpdateGroupUpdateParent(Entity):
     """
@@ -41619,9 +42785,12 @@ class ClearBgpUpdateOutqUpdateGroupUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpUpdateOutqUpdateGroupUpdateParent.Input, ['update_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpUpdateOutqUpdateGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpUpdateOutqUpdateGroup(Entity):
     """
@@ -41701,9 +42870,12 @@ class ClearBgpUpdateOutqUpdateGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpUpdateOutqUpdateGroup.Input, ['update_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpUpdateOutqUpdateGroup()
         return self._top_entity
+
+
 
 class ClearBgpVersionIpAddrIpNetmask(Entity):
     """
@@ -41804,9 +42976,12 @@ class ClearBgpVersionIpAddrIpNetmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionIpAddrIpNetmask.Input, ['ip_addr', 'ip_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionIpAddrIpNetmask()
         return self._top_entity
+
+
 
 class ClearBgpVersionIpAddr(Entity):
     """
@@ -41890,9 +43065,12 @@ class ClearBgpVersionIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionIpAddr.Input, ['ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpVersionIpPrefix(Entity):
     """
@@ -41976,9 +43154,12 @@ class ClearBgpVersionIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionIpPrefix.Input, ['ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiIpAddrIpNetmask(Entity):
     """
@@ -42088,9 +43269,12 @@ class ClearBgpVersionAfiSafiIpAddrIpNetmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiIpAddrIpNetmask.Input, ['afi_safi_name', 'ip_addr', 'ip_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiIpAddrIpNetmask()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiIpAddr(Entity):
     """
@@ -42183,9 +43367,12 @@ class ClearBgpVersionAfiSafiIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiIpAddr.Input, ['afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiIpPrefix(Entity):
     """
@@ -42278,9 +43465,12 @@ class ClearBgpVersionAfiSafiIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiIpPrefix.Input, ['afi_safi_name', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
     """
@@ -42400,9 +43590,12 @@ class ClearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask.Input, ['afi_safi_name', 'bridge_domain_name', 'ip_addr', 'ip_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiBridgeDomainIpAddr(Entity):
     """
@@ -42505,9 +43698,12 @@ class ClearBgpVersionAfiSafiBridgeDomainIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiBridgeDomainIpAddr.Input, ['afi_safi_name', 'bridge_domain_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiBridgeDomainIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiBridgeDomainIpPrefix(Entity):
     """
@@ -42610,9 +43806,12 @@ class ClearBgpVersionAfiSafiBridgeDomainIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiBridgeDomainIpPrefix.Input, ['afi_safi_name', 'bridge_domain_name', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiBridgeDomainIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiRdIpAddrIpNetmask(Entity):
     """
@@ -42748,9 +43947,12 @@ class ClearBgpVersionAfiSafiRdIpAddrIpNetmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiRdIpAddrIpNetmask.Input, ['afi_safi_name', 'rd', 'ip_addr', 'ip_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiRdIpAddrIpNetmask()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiRdIpAddr(Entity):
     """
@@ -42869,9 +44071,12 @@ class ClearBgpVersionAfiSafiRdIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiRdIpAddr.Input, ['afi_safi_name', 'rd', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiRdIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiRdIpPrefix(Entity):
     """
@@ -42990,9 +44195,12 @@ class ClearBgpVersionAfiSafiRdIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiRdIpPrefix.Input, ['afi_safi_name', 'rd', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiRdIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiIpv4AddrIpv4Mask(Entity):
     """
@@ -43090,9 +44298,12 @@ class ClearBgpVersionAfiSafiIpv4AddrIpv4Mask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiIpv4AddrIpv4Mask.Input, ['afi_safi_name', 'ipv4_addr', 'ipv4_mask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiIpv4AddrIpv4Mask()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiIpv4Addr(Entity):
     """
@@ -43179,9 +44390,12 @@ class ClearBgpVersionAfiSafiIpv4Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiIpv4Addr.Input, ['afi_safi_name', 'ipv4_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiIpv4Addr()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiIpv4Prefix(Entity):
     """
@@ -43268,9 +44482,12 @@ class ClearBgpVersionAfiSafiIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiIpv4Prefix.Input, ['afi_safi_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiRdIpv4Addr(Entity):
     """
@@ -43383,9 +44600,12 @@ class ClearBgpVersionAfiSafiRdIpv4Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiRdIpv4Addr.Input, ['afi_safi_name', 'rd', 'ipv4_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiRdIpv4Addr()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiVrfIpv4Addr(Entity):
     """
@@ -43482,9 +44702,12 @@ class ClearBgpVersionAfiSafiVrfIpv4Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiVrfIpv4Addr.Input, ['afi_safi_name', 'vrf_name', 'ipv4_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiVrfIpv4Addr()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiNetwork(Entity):
     """
@@ -43569,9 +44792,12 @@ class ClearBgpVersionAfiSafiNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiNetwork.Input, ['afi_safi_name', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiNetwork()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiRdNetwork(Entity):
     """
@@ -43682,9 +44908,12 @@ class ClearBgpVersionAfiSafiRdNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiRdNetwork.Input, ['afi_safi_name', 'rd', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiRdNetwork()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiVrfNetwork(Entity):
     """
@@ -43779,9 +45008,12 @@ class ClearBgpVersionAfiSafiVrfNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiVrfNetwork.Input, ['afi_safi_name', 'vrf_name', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiVrfNetwork()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiRtConstraintNetwork(Entity):
     """
@@ -43866,9 +45098,12 @@ class ClearBgpVersionAfiSafiRtConstraintNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiRtConstraintNetwork.Input, ['afi_safi_name', 'rt_constraint_network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiRtConstraintNetwork()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiIpv4TunnelNetwork(Entity):
     """
@@ -43953,9 +45188,12 @@ class ClearBgpVersionAfiSafiIpv4TunnelNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiIpv4TunnelNetwork.Input, ['afi_safi_name', 'ipv4_tunnel_network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiIpv4TunnelNetwork()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiIpv6AddrIpv6Netmask(Entity):
     """
@@ -44053,9 +45291,12 @@ class ClearBgpVersionAfiSafiIpv6AddrIpv6Netmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiIpv6AddrIpv6Netmask.Input, ['afi_safi_name', 'ipv6_addr', 'ipv6_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiIpv6AddrIpv6Netmask()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiIpv6Addr(Entity):
     """
@@ -44142,9 +45383,12 @@ class ClearBgpVersionAfiSafiIpv6Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiIpv6Addr.Input, ['afi_safi_name', 'ipv6_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiIpv6Addr()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiIpv6Prefix(Entity):
     """
@@ -44231,9 +45475,12 @@ class ClearBgpVersionAfiSafiIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiIpv6Prefix.Input, ['afi_safi_name', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiRd(Entity):
     """
@@ -44335,9 +45582,12 @@ class ClearBgpVersionAfiSafiRd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiRd.Input, ['afi_safi_name', 'rd'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiRd()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiVrf(Entity):
     """
@@ -44423,9 +45673,12 @@ class ClearBgpVersionAfiSafiVrf(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiVrf.Input, ['afi_safi_name', 'vrf_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiVrf()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafi(Entity):
     """
@@ -44501,9 +45754,12 @@ class ClearBgpVersionAfiSafi(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafi.Input, ['afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafi()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiSrPolicyPrefix(Entity):
     """
@@ -44588,9 +45844,12 @@ class ClearBgpVersionAfiSafiSrPolicyPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiSrPolicyPrefix.Input, ['afi_safi_name', 'sr_policy_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiSrPolicyPrefix()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiBridgeDomainIpv4Prefix(Entity):
     """
@@ -44687,9 +45946,12 @@ class ClearBgpVersionAfiSafiBridgeDomainIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiBridgeDomainIpv4Prefix.Input, ['afi_safi_name', 'bridge_domain_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiBridgeDomainIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiRdIpv4Prefix(Entity):
     """
@@ -44802,9 +46064,12 @@ class ClearBgpVersionAfiSafiRdIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiRdIpv4Prefix.Input, ['afi_safi_name', 'rd', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiRdIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiMp2mpIpv4Prefix(Entity):
     """
@@ -44901,9 +46166,12 @@ class ClearBgpVersionAfiSafiMp2mpIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiMp2mpIpv4Prefix.Input, ['afi_safi_name', 'mp2mp', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiMp2mpIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiVrfIpv4Prefix(Entity):
     """
@@ -45000,9 +46268,12 @@ class ClearBgpVersionAfiSafiVrfIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiVrfIpv4Prefix.Input, ['afi_safi_name', 'vrf_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiVrfIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiRdIpv4AddrIpv4Mask(Entity):
     """
@@ -45126,9 +46397,12 @@ class ClearBgpVersionAfiSafiRdIpv4AddrIpv4Mask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiRdIpv4AddrIpv4Mask.Input, ['afi_safi_name', 'rd', 'ipv4_addr', 'ipv4_mask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiRdIpv4AddrIpv4Mask()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask(Entity):
     """
@@ -45236,9 +46510,12 @@ class ClearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask.Input, ['afi_safi_name', 'vrf_name', 'ipv4_addr', 'ipv4_mask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask(Entity):
     """
@@ -45362,9 +46639,12 @@ class ClearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask.Input, ['afi_safi_name', 'rd', 'ipv6_addr', 'ipv6_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiRdIpv6Addr(Entity):
     """
@@ -45477,9 +46757,12 @@ class ClearBgpVersionAfiSafiRdIpv6Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiRdIpv6Addr.Input, ['afi_safi_name', 'rd', 'ipv6_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiRdIpv6Addr()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiRdIpv6Prefix(Entity):
     """
@@ -45592,9 +46875,12 @@ class ClearBgpVersionAfiSafiRdIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiRdIpv6Prefix.Input, ['afi_safi_name', 'rd', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiRdIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
     """
@@ -45702,9 +46988,12 @@ class ClearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask.Input, ['afi_safi_name', 'vrf_name', 'ipv6_addr', 'ipv6_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiVrfIpv6Addr(Entity):
     """
@@ -45801,9 +47090,12 @@ class ClearBgpVersionAfiSafiVrfIpv6Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiVrfIpv6Addr.Input, ['afi_safi_name', 'vrf_name', 'ipv6_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiVrfIpv6Addr()
         return self._top_entity
+
+
 
 class ClearBgpVersionAfiSafiVrfIpv6Prefix(Entity):
     """
@@ -45900,9 +47192,12 @@ class ClearBgpVersionAfiSafiVrfIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionAfiSafiVrfIpv6Prefix.Input, ['afi_safi_name', 'vrf_name', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionAfiSafiVrfIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpVersionVrfIpAddrIpNetmask(Entity):
     """
@@ -46017,9 +47312,12 @@ class ClearBgpVersionVrfIpAddrIpNetmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionVrfIpAddrIpNetmask.Input, ['vrf_all', 'ip_addr', 'ip_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionVrfIpAddrIpNetmask()
         return self._top_entity
+
+
 
 class ClearBgpVersionVrfIpAddr(Entity):
     """
@@ -46117,9 +47415,12 @@ class ClearBgpVersionVrfIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionVrfIpAddr.Input, ['vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionVrfIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpVersionVrfIpPrefix(Entity):
     """
@@ -46217,9 +47518,12 @@ class ClearBgpVersionVrfIpPrefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionVrfIpPrefix.Input, ['vrf_all', 'ip_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionVrfIpPrefix()
         return self._top_entity
+
+
 
 class ClearBgpVersionVrfAfiSafiIpv4Prefix(Entity):
     """
@@ -46320,9 +47624,12 @@ class ClearBgpVersionVrfAfiSafiIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionVrfAfiSafiIpv4Prefix.Input, ['vrf_all', 'afi_safi_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionVrfAfiSafiIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask(Entity):
     """
@@ -46434,9 +47741,12 @@ class ClearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask.Input, ['vrf_all', 'afi_safi_name', 'ipv4_addr', 'ipv4_mask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask()
         return self._top_entity
+
+
 
 class ClearBgpVersionVrfAfiSafiIpv4Addr(Entity):
     """
@@ -46537,9 +47847,12 @@ class ClearBgpVersionVrfAfiSafiIpv4Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionVrfAfiSafiIpv4Addr.Input, ['vrf_all', 'afi_safi_name', 'ipv4_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionVrfAfiSafiIpv4Addr()
         return self._top_entity
+
+
 
 class ClearBgpVersionVrfAfiSafiNetwork(Entity):
     """
@@ -46638,9 +47951,12 @@ class ClearBgpVersionVrfAfiSafiNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionVrfAfiSafiNetwork.Input, ['vrf_all', 'afi_safi_name', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionVrfAfiSafiNetwork()
         return self._top_entity
+
+
 
 class ClearBgpVersionVrfAfiSafiRdNetwork(Entity):
     """
@@ -46765,9 +48081,12 @@ class ClearBgpVersionVrfAfiSafiRdNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionVrfAfiSafiRdNetwork.Input, ['vrf_all', 'afi_safi_name', 'rd', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionVrfAfiSafiRdNetwork()
         return self._top_entity
+
+
 
 class ClearBgpVersionVrfAfiSafiVrfNetwork(Entity):
     """
@@ -46876,9 +48195,12 @@ class ClearBgpVersionVrfAfiSafiVrfNetwork(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionVrfAfiSafiVrfNetwork.Input, ['vrf_all', 'afi_safi_name', 'vrf_name', 'network'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionVrfAfiSafiVrfNetwork()
         return self._top_entity
+
+
 
 class ClearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
     """
@@ -46990,9 +48312,12 @@ class ClearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask.Input, ['vrf_all', 'afi_safi_name', 'ipv6_addr', 'ipv6_netmask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask()
         return self._top_entity
+
+
 
 class ClearBgpVersionVrfAfiSafiIpv6Addr(Entity):
     """
@@ -47093,9 +48418,12 @@ class ClearBgpVersionVrfAfiSafiIpv6Addr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionVrfAfiSafiIpv6Addr.Input, ['vrf_all', 'afi_safi_name', 'ipv6_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionVrfAfiSafiIpv6Addr()
         return self._top_entity
+
+
 
 class ClearBgpVersionVrfAfiSafiIpv6Prefix(Entity):
     """
@@ -47196,9 +48524,12 @@ class ClearBgpVersionVrfAfiSafiIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionVrfAfiSafiIpv6Prefix.Input, ['vrf_all', 'afi_safi_name', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionVrfAfiSafiIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpVersionVrfAfiSafiRd(Entity):
     """
@@ -47314,9 +48645,12 @@ class ClearBgpVersionVrfAfiSafiRd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionVrfAfiSafiRd.Input, ['vrf_all', 'afi_safi_name', 'rd'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionVrfAfiSafiRd()
         return self._top_entity
+
+
 
 class ClearBgpVersionVrfAfiSafiVrf(Entity):
     """
@@ -47416,9 +48750,12 @@ class ClearBgpVersionVrfAfiSafiVrf(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionVrfAfiSafiVrf.Input, ['vrf_all', 'afi_safi_name', 'vrf_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionVrfAfiSafiVrf()
         return self._top_entity
+
+
 
 class ClearBgpVersionVrfAfiSafi(Entity):
     """
@@ -47508,9 +48845,12 @@ class ClearBgpVersionVrfAfiSafi(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVersionVrfAfiSafi.Input, ['vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVersionVrfAfiSafi()
         return self._top_entity
+
+
 
 class ClearBgpVrfAllGraceful(Entity):
     """
@@ -47592,9 +48932,12 @@ class ClearBgpVrfAllGraceful(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAllGraceful.Input, ['vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAllGraceful()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfRpkiValidationIpv4(Entity):
     """
@@ -47690,9 +49033,12 @@ class ClearBgpInstanceVrfRpkiValidationIpv4(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfRpkiValidationIpv4.Input, ['instance_name', 'vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfRpkiValidationIpv4()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfRpkiValidationIpv6(Entity):
     """
@@ -47788,9 +49134,12 @@ class ClearBgpInstanceVrfRpkiValidationIpv6(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfRpkiValidationIpv6.Input, ['instance_name', 'vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfRpkiValidationIpv6()
         return self._top_entity
+
+
 
 class ClearBgpInstanceVrfRpkiValidation(Entity):
     """
@@ -47885,9 +49234,12 @@ class ClearBgpInstanceVrfRpkiValidation(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpInstanceVrfRpkiValidation.Input, ['instance_name', 'vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpInstanceVrfRpkiValidation()
         return self._top_entity
+
+
 
 class ClearBgpVrfRpkiValidationIpv4(Entity):
     """
@@ -47969,9 +49321,12 @@ class ClearBgpVrfRpkiValidationIpv4(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfRpkiValidationIpv4.Input, ['vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfRpkiValidationIpv4()
         return self._top_entity
+
+
 
 class ClearBgpVrfRpkiValidationIpv6(Entity):
     """
@@ -48053,9 +49408,12 @@ class ClearBgpVrfRpkiValidationIpv6(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfRpkiValidationIpv6.Input, ['vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfRpkiValidationIpv6()
         return self._top_entity
+
+
 
 class ClearBgpVrfRpkiValidation(Entity):
     """
@@ -48136,9 +49494,12 @@ class ClearBgpVrfRpkiValidation(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfRpkiValidation.Input, ['vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfRpkiValidation()
         return self._top_entity
+
+
 
 class ClearBgpVrfAll(Entity):
     """
@@ -48219,9 +49580,12 @@ class ClearBgpVrfAll(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAll.Input, ['vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAll()
         return self._top_entity
+
+
 
 class ClearBgpVrfIpAddrGraceful(Entity):
     """
@@ -48319,9 +49683,12 @@ class ClearBgpVrfIpAddrGraceful(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfIpAddrGraceful.Input, ['vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfIpAddrGraceful()
         return self._top_entity
+
+
 
 class ClearBgpVrfIpAddrLongLivedStale(Entity):
     """
@@ -48419,9 +49786,12 @@ class ClearBgpVrfIpAddrLongLivedStale(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfIpAddrLongLivedStale.Input, ['vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfIpAddrLongLivedStale()
         return self._top_entity
+
+
 
 class ClearBgpVrfIpAddr(Entity):
     """
@@ -48518,9 +49888,12 @@ class ClearBgpVrfIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfIpAddr.Input, ['vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpVrfAsGraceful(Entity):
     """
@@ -48623,9 +49996,12 @@ class ClearBgpVrfAsGraceful(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAsGraceful.Input, ['vrf_all', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAsGraceful()
         return self._top_entity
+
+
 
 class ClearBgpVrfAs(Entity):
     """
@@ -48727,9 +50103,12 @@ class ClearBgpVrfAs(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAs.Input, ['vrf_all', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAs()
         return self._top_entity
+
+
 
 class ClearBgpVrfExternalGraceful(Entity):
     """
@@ -48811,9 +50190,12 @@ class ClearBgpVrfExternalGraceful(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfExternalGraceful.Input, ['vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfExternalGraceful()
         return self._top_entity
+
+
 
 class ClearBgpVrfExternal(Entity):
     """
@@ -48894,9 +50276,12 @@ class ClearBgpVrfExternal(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfExternal.Input, ['vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfExternal()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiAllSoftInPrefixFilter(Entity):
     """
@@ -48989,9 +50374,12 @@ class ClearBgpVrfAfiSafiAllSoftInPrefixFilter(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiAllSoftInPrefixFilter.Input, ['vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiAllSoftInPrefixFilter()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiAllSoftIn(Entity):
     """
@@ -49083,9 +50471,12 @@ class ClearBgpVrfAfiSafiAllSoftIn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiAllSoftIn.Input, ['vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiAllSoftIn()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiAllSoftOut(Entity):
     """
@@ -49177,9 +50568,12 @@ class ClearBgpVrfAfiSafiAllSoftOut(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiAllSoftOut.Input, ['vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiAllSoftOut()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiAllSoft(Entity):
     """
@@ -49270,9 +50664,12 @@ class ClearBgpVrfAfiSafiAllSoft(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiAllSoft.Input, ['vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiAllSoft()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiIpAddrLongLivedStale(Entity):
     """
@@ -49379,9 +50776,12 @@ class ClearBgpVrfAfiSafiIpAddrLongLivedStale(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiIpAddrLongLivedStale.Input, ['vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiIpAddrLongLivedStale()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiIpAddrSoftInPrefixFilter(Entity):
     """
@@ -49490,9 +50890,12 @@ class ClearBgpVrfAfiSafiIpAddrSoftInPrefixFilter(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiIpAddrSoftInPrefixFilter.Input, ['vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiIpAddrSoftInPrefixFilter()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiIpAddrSoftIn(Entity):
     """
@@ -49600,9 +51003,12 @@ class ClearBgpVrfAfiSafiIpAddrSoftIn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiIpAddrSoftIn.Input, ['vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiIpAddrSoftIn()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiIpAddrSoftOut(Entity):
     """
@@ -49710,9 +51116,12 @@ class ClearBgpVrfAfiSafiIpAddrSoftOut(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiIpAddrSoftOut.Input, ['vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiIpAddrSoftOut()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiIpAddrSoft(Entity):
     """
@@ -49819,9 +51228,12 @@ class ClearBgpVrfAfiSafiIpAddrSoft(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiIpAddrSoft.Input, ['vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiIpAddrSoft()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiAsSoftInPrefixFilter(Entity):
     """
@@ -49935,9 +51347,12 @@ class ClearBgpVrfAfiSafiAsSoftInPrefixFilter(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiAsSoftInPrefixFilter.Input, ['vrf_all', 'afi_safi_name', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiAsSoftInPrefixFilter()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiAsSoftIn(Entity):
     """
@@ -50050,9 +51465,12 @@ class ClearBgpVrfAfiSafiAsSoftIn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiAsSoftIn.Input, ['vrf_all', 'afi_safi_name', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiAsSoftIn()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiAsSoftOut(Entity):
     """
@@ -50165,9 +51583,12 @@ class ClearBgpVrfAfiSafiAsSoftOut(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiAsSoftOut.Input, ['vrf_all', 'afi_safi_name', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiAsSoftOut()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiAsSoft(Entity):
     """
@@ -50279,9 +51700,12 @@ class ClearBgpVrfAfiSafiAsSoft(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiAsSoft.Input, ['vrf_all', 'afi_safi_name', 'as_number'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiAsSoft()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiDampeningIpv4Prefix(Entity):
     """
@@ -50382,9 +51806,12 @@ class ClearBgpVrfAfiSafiDampeningIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiDampeningIpv4Prefix.Input, ['vrf_all', 'afi_safi_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiDampeningIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiDampening(Entity):
     """
@@ -50474,9 +51901,12 @@ class ClearBgpVrfAfiSafiDampening(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiDampening.Input, ['vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiDampening()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiExternalSoftInPrefixFilter(Entity):
     """
@@ -50569,9 +51999,12 @@ class ClearBgpVrfAfiSafiExternalSoftInPrefixFilter(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiExternalSoftInPrefixFilter.Input, ['vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiExternalSoftInPrefixFilter()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiExternalSoftIn(Entity):
     """
@@ -50663,9 +52096,12 @@ class ClearBgpVrfAfiSafiExternalSoftIn(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiExternalSoftIn.Input, ['vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiExternalSoftIn()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiExternalSoftOut(Entity):
     """
@@ -50757,9 +52193,12 @@ class ClearBgpVrfAfiSafiExternalSoftOut(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiExternalSoftOut.Input, ['vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiExternalSoftOut()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiExternalSoft(Entity):
     """
@@ -50850,9 +52289,12 @@ class ClearBgpVrfAfiSafiExternalSoft(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiExternalSoft.Input, ['vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiExternalSoft()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
     """
@@ -50970,9 +52412,12 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.Input, ['vrf_all', 'afi_safi_name', 'ip_addr', 'ipv4_mask'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiFlapStatisticsIpAddr(Entity):
     """
@@ -51079,9 +52524,12 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiFlapStatisticsIpAddr.Input, ['vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiFlapStatisticsIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiFlapStatisticsIpv4Prefix(Entity):
     """
@@ -51182,9 +52630,12 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpv4Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiFlapStatisticsIpv4Prefix.Input, ['vrf_all', 'afi_safi_name', 'ipv4_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiFlapStatisticsIpv4Prefix()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiFlapStatisticsRegexp(Entity):
     """
@@ -51284,9 +52735,12 @@ class ClearBgpVrfAfiSafiFlapStatisticsRegexp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiFlapStatisticsRegexp.Input, ['vrf_all', 'afi_safi_name', 'regexp_pattern'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiFlapStatisticsRegexp()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiFlapStatisticsRoutePolicy(Entity):
     """
@@ -51386,9 +52840,12 @@ class ClearBgpVrfAfiSafiFlapStatisticsRoutePolicy(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiFlapStatisticsRoutePolicy.Input, ['vrf_all', 'afi_safi_name', 'route_policy_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiFlapStatisticsRoutePolicy()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiFlapStatistics(Entity):
     """
@@ -51478,9 +52935,12 @@ class ClearBgpVrfAfiSafiFlapStatistics(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiFlapStatistics.Input, ['vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiFlapStatistics()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiNexthopPerformanceStatistics(Entity):
     """
@@ -51571,9 +53031,12 @@ class ClearBgpVrfAfiSafiNexthopPerformanceStatistics(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiNexthopPerformanceStatistics.Input, ['vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiNexthopPerformanceStatistics()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiNexthopRegistrationIpAddr(Entity):
     """
@@ -51681,9 +53144,12 @@ class ClearBgpVrfAfiSafiNexthopRegistrationIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiNexthopRegistrationIpAddr.Input, ['vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiNexthopRegistrationIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiSelfOriginated(Entity):
     """
@@ -51773,9 +53239,12 @@ class ClearBgpVrfAfiSafiSelfOriginated(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiSelfOriginated.Input, ['vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiSelfOriginated()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiShutdown(Entity):
     """
@@ -51865,9 +53334,12 @@ class ClearBgpVrfAfiSafiShutdown(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiShutdown.Input, ['vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiShutdown()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
     """
@@ -51960,9 +53432,12 @@ class ClearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.Input, ['vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiUpdateOutqAddressFamily(Entity):
     """
@@ -52054,9 +53529,12 @@ class ClearBgpVrfAfiSafiUpdateOutqAddressFamily(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiUpdateOutqAddressFamily.Input, ['vrf_all', 'afi_safi_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiUpdateOutqAddressFamily()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
     """
@@ -52167,9 +53645,12 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.Input, ['vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
     """
@@ -52279,9 +53760,12 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.Input, ['vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
     """
@@ -52391,9 +53875,12 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.Input, ['vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddr(Entity):
     """
@@ -52502,9 +53989,12 @@ class ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddr.Input, ['vrf_all', 'afi_safi_name', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
     """
@@ -52620,9 +54110,12 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.Input, ['vrf_all', 'afi_safi_name', 'update_group', 'sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
     """
@@ -52737,9 +54230,12 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup.Input, ['vrf_all', 'afi_safi_name', 'update_group', 'sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(Entity):
     """
@@ -52855,9 +54351,12 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input, ['vrf_all', 'afi_safi_name', 'update_group', 'refresh_sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
     """
@@ -52972,9 +54471,12 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input, ['vrf_all', 'afi_safi_name', 'update_group', 'refresh_sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
     """
@@ -53078,9 +54580,12 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.Input, ['vrf_all', 'afi_safi_name', 'update_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiUpdateOutqUpdateGroup(Entity):
     """
@@ -53183,9 +54688,12 @@ class ClearBgpVrfAfiSafiUpdateOutqUpdateGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiUpdateOutqUpdateGroup.Input, ['vrf_all', 'afi_safi_name', 'update_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiUpdateOutqUpdateGroup()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiDampeningIpv6Prefix(Entity):
     """
@@ -53286,9 +54794,12 @@ class ClearBgpVrfAfiSafiDampeningIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiDampeningIpv6Prefix.Input, ['vrf_all', 'afi_safi_name', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiDampeningIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpVrfAfiSafiFlapStatisticsIpv6Prefix(Entity):
     """
@@ -53389,9 +54900,12 @@ class ClearBgpVrfAfiSafiFlapStatisticsIpv6Prefix(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfAfiSafiFlapStatisticsIpv6Prefix.Input, ['vrf_all', 'afi_safi_name', 'ipv6_prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfAfiSafiFlapStatisticsIpv6Prefix()
         return self._top_entity
+
+
 
 class ClearBgpVrfNexthopPerformanceStatistics(Entity):
     """
@@ -53473,9 +54987,12 @@ class ClearBgpVrfNexthopPerformanceStatistics(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfNexthopPerformanceStatistics.Input, ['vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfNexthopPerformanceStatistics()
         return self._top_entity
+
+
 
 class ClearBgpVrfNexthopRegistrationIpAddr(Entity):
     """
@@ -53574,9 +55091,12 @@ class ClearBgpVrfNexthopRegistrationIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfNexthopRegistrationIpAddr.Input, ['vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfNexthopRegistrationIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpVrfPeerDropsAll(Entity):
     """
@@ -53658,9 +55178,12 @@ class ClearBgpVrfPeerDropsAll(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfPeerDropsAll.Input, ['vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfPeerDropsAll()
         return self._top_entity
+
+
 
 class ClearBgpVrfPeerDropsIpAddr(Entity):
     """
@@ -53758,9 +55281,12 @@ class ClearBgpVrfPeerDropsIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfPeerDropsIpAddr.Input, ['vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfPeerDropsIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpVrfPerformanceStatistics(Entity):
     """
@@ -53841,9 +55367,12 @@ class ClearBgpVrfPerformanceStatistics(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfPerformanceStatistics.Input, ['vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfPerformanceStatistics()
         return self._top_entity
+
+
 
 class ClearBgpVrfShutdown(Entity):
     """
@@ -53924,9 +55453,12 @@ class ClearBgpVrfShutdown(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfShutdown.Input, ['vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfShutdown()
         return self._top_entity
+
+
 
 class ClearBgpVrfUpdateOutqAddressFamilyUpdateParent(Entity):
     """
@@ -54010,9 +55542,12 @@ class ClearBgpVrfUpdateOutqAddressFamilyUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfUpdateOutqAddressFamilyUpdateParent.Input, ['vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfUpdateOutqAddressFamilyUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpVrfUpdateOutqAddressFamily(Entity):
     """
@@ -54095,9 +55630,12 @@ class ClearBgpVrfUpdateOutqAddressFamily(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfUpdateOutqAddressFamily.Input, ['vrf_all'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfUpdateOutqAddressFamily()
         return self._top_entity
+
+
 
 class ClearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
     """
@@ -54199,9 +55737,12 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.Input, ['vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpVrfUpdateOutqNeighborIpAddrRefresh(Entity):
     """
@@ -54302,9 +55843,12 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrRefresh(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfUpdateOutqNeighborIpAddrRefresh.Input, ['vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfUpdateOutqNeighborIpAddrRefresh()
         return self._top_entity
+
+
 
 class ClearBgpVrfUpdateOutqNeighborIpAddrUpdateParent(Entity):
     """
@@ -54405,9 +55949,12 @@ class ClearBgpVrfUpdateOutqNeighborIpAddrUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfUpdateOutqNeighborIpAddrUpdateParent.Input, ['vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfUpdateOutqNeighborIpAddrUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpVrfUpdateOutqNeighborIpAddr(Entity):
     """
@@ -54507,9 +56054,12 @@ class ClearBgpVrfUpdateOutqNeighborIpAddr(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfUpdateOutqNeighborIpAddr.Input, ['vrf_all', 'ip_addr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfUpdateOutqNeighborIpAddr()
         return self._top_entity
+
+
 
 class ClearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
     """
@@ -54616,9 +56166,12 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent.Input, ['vrf_all', 'update_group', 'sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpVrfUpdateOutqUpdateGroupSubGroup(Entity):
     """
@@ -54724,9 +56277,12 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfUpdateOutqUpdateGroupSubGroup.Input, ['vrf_all', 'update_group', 'sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfUpdateOutqUpdateGroupSubGroup()
         return self._top_entity
+
+
 
 class ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(Entity):
     """
@@ -54833,9 +56389,12 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent(Entity
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.Input, ['vrf_all', 'update_group', 'refresh_sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
     """
@@ -54941,9 +56500,12 @@ class ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.Input, ['vrf_all', 'update_group', 'refresh_sub_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup()
         return self._top_entity
+
+
 
 class ClearBgpVrfUpdateOutqUpdateGroupUpdateParent(Entity):
     """
@@ -55038,9 +56600,12 @@ class ClearBgpVrfUpdateOutqUpdateGroupUpdateParent(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfUpdateOutqUpdateGroupUpdateParent.Input, ['vrf_all', 'update_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfUpdateOutqUpdateGroupUpdateParent()
         return self._top_entity
+
+
 
 class ClearBgpVrfUpdateOutqUpdateGroup(Entity):
     """
@@ -55134,7 +56699,10 @@ class ClearBgpVrfUpdateOutqUpdateGroup(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBgpVrfUpdateOutqUpdateGroup.Input, ['vrf_all', 'update_group'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ClearBgpVrfUpdateOutqUpdateGroup()
         return self._top_entity
+
+
 

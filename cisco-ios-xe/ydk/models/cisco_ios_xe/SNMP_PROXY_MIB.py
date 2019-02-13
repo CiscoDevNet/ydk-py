@@ -28,6 +28,8 @@ class SNMPPROXYMIB(Entity):
     	The table of translation parameters used by proxy forwarder applications for forwarding SNMP messages
     	**type**\:  :py:class:`SnmpProxyTable <ydk.models.cisco_ios_xe.SNMP_PROXY_MIB.SNMPPROXYMIB.SnmpProxyTable>`
     
+    	**config**\: False
+    
     
 
     """
@@ -66,6 +68,8 @@ class SNMPPROXYMIB(Entity):
         
         	A set of translation parameters used by a proxy forwarder application for forwarding SNMP messages.  Entries in the snmpProxyTable are created and deleted using the snmpProxyRowStatus object
         	**type**\: list of  		 :py:class:`SnmpProxyEntry <ydk.models.cisco_ios_xe.SNMP_PROXY_MIB.SNMPPROXYMIB.SnmpProxyTable.SnmpProxyEntry>`
+        
+        	**config**\: False
         
         
 
@@ -109,10 +113,14 @@ class SNMPPROXYMIB(Entity):
             
             	**length:** 1..32
             
+            	**config**\: False
+            
             .. attribute:: snmpproxytype
             
             	The type of message that may be forwarded using the translation parameters defined by this entry
             	**type**\:  :py:class:`SnmpProxyType <ydk.models.cisco_ios_xe.SNMP_PROXY_MIB.SNMPPROXYMIB.SnmpProxyTable.SnmpProxyEntry.SnmpProxyType>`
+            
+            	**config**\: False
             
             .. attribute:: snmpproxycontextengineid
             
@@ -121,35 +129,49 @@ class SNMPPROXYMIB(Entity):
             
             	**length:** 5..32
             
+            	**config**\: False
+            
             .. attribute:: snmpproxycontextname
             
             	The contextName contained in messages that may be forwarded using the translation parameters defined by this entry.  This object is optional, and if not supported, the contextName contained in a message is ignored when selecting an entry in the snmpProxyTable
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: snmpproxytargetparamsin
             
             	This object selects an entry in the snmpTargetParamsTable. The selected entry is used to determine which row of the snmpProxyTable to use for forwarding received messages
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: snmpproxysingletargetout
             
             	This object selects a management target defined in the snmpTargetAddrTable (in the SNMP\-TARGET\-MIB).  The selected target is defined by an entry in the snmpTargetAddrTable whose index value (snmpTargetAddrName) is equal to this object.  This object is only used when selection of a single target is required (i.e. when forwarding an incoming read or write request)
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: snmpproxymultipletargetout
             
             	This object selects a set of management targets defined in the snmpTargetAddrTable (in the SNMP\-TARGET\-MIB).  This object is only used when selection of multiple targets is required (i.e. when forwarding an incoming notification)
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: snmpproxystoragetype
             
             	The storage type of this conceptual row. Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: snmpproxyrowstatus
             
             	The status of this conceptual row.  To create a row in this table, a manager must set this object to either createAndGo(4) or createAndWait(5).  The following objects may not be modified while the value of this object is active(1)\:     \- snmpProxyType     \- snmpProxyContextEngineID     \- snmpProxyContextName     \- snmpProxyTargetParamsIn     \- snmpProxySingleTargetOut     \- snmpProxyMultipleTargetOut
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -221,7 +243,11 @@ class SNMPPROXYMIB(Entity):
                 inform = Enum.YLeaf(4, "inform")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = SNMPPROXYMIB()
         return self._top_entity
+
+
 

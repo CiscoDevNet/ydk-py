@@ -295,6 +295,7 @@ class PerfMgmt(Entity):
                 self._perform_setattr(PerfMgmt.Resources.TftpResources, ['server_address', 'directory', 'vrf_name'], name, value)
 
 
+
         class DumpLocal(Entity):
             """
             Configure local dump parameters
@@ -330,6 +331,7 @@ class PerfMgmt(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Resources.DumpLocal, ['enable'], name, value)
+
 
 
         class MemoryResources(Entity):
@@ -383,6 +385,8 @@ class PerfMgmt(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Resources.MemoryResources, ['max_limit', 'min_reserved'], name, value)
+
+
 
 
     class Statistics(Entity):
@@ -663,6 +667,9 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Statistics.GenericCounterInterface.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
 
 
+
+
+
         class ProcessNode(Entity):
             """
             Node Process collection templates
@@ -819,6 +826,9 @@ class PerfMgmt(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.ProcessNode.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
+
+
+
 
 
         class BasicCounterInterface(Entity):
@@ -979,6 +989,9 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Statistics.BasicCounterInterface.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
 
 
+
+
+
         class Ospfv3Protocol(Entity):
             """
             OSPF v3 Protocol collection templates
@@ -1135,6 +1148,9 @@ class PerfMgmt(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.Ospfv3Protocol.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
+
+
+
 
 
         class CpuNode(Entity):
@@ -1295,6 +1311,9 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Statistics.CpuNode.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
 
 
+
+
+
         class DataRateInterface(Entity):
             """
             Interface DataRate collection templates
@@ -1451,6 +1470,9 @@ class PerfMgmt(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.DataRateInterface.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
+
+
+
 
 
         class MemoryNode(Entity):
@@ -1611,6 +1633,9 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Statistics.MemoryNode.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
 
 
+
+
+
         class LdpMpls(Entity):
             """
             MPLS LDP collection templates
@@ -1767,6 +1792,9 @@ class PerfMgmt(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.LdpMpls.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
+
+
+
 
 
         class Bgp(Entity):
@@ -1927,6 +1955,9 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Statistics.Bgp.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
 
 
+
+
+
         class Ospfv2Protocol(Entity):
             """
             OSPF v2 Protocol collection templates
@@ -2083,6 +2114,10 @@ class PerfMgmt(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.Ospfv2Protocol.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
+
+
+
+
 
 
     class Enable(Entity):
@@ -2299,6 +2334,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.Ospfv3Protocol, ['template_name'], name, value)
 
 
+
             class Bgp(Entity):
                 """
                 Threshold monitoring for BGP
@@ -2334,6 +2370,7 @@ class PerfMgmt(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.Bgp, ['template_name'], name, value)
+
 
 
             class DataRateInterface(Entity):
@@ -2373,6 +2410,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.DataRateInterface, ['template_name'], name, value)
 
 
+
             class Ospfv2Protocol(Entity):
                 """
                 Threshold monitoring for OSPF v2 Protocol
@@ -2408,6 +2446,7 @@ class PerfMgmt(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.Ospfv2Protocol, ['template_name'], name, value)
+
 
 
             class MemoryNode(Entity):
@@ -2539,6 +2578,8 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Enable.Threshold.MemoryNode.Nodes.Node, ['node_id', 'template_name'], name, value)
 
 
+
+
                 class NodeAll(Entity):
                     """
                     All the the nodes
@@ -2574,6 +2615,8 @@ class PerfMgmt(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.Threshold.MemoryNode.NodeAll, ['template_name'], name, value)
+
+
 
 
             class GenericCounterInterface(Entity):
@@ -2612,6 +2655,7 @@ class PerfMgmt(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.GenericCounterInterface, ['template_name'], name, value)
+
 
 
             class CpuNode(Entity):
@@ -2743,6 +2787,8 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Enable.Threshold.CpuNode.Nodes.Node, ['node_id', 'template_name'], name, value)
 
 
+
+
                 class NodeAll(Entity):
                     """
                     All the the nodes
@@ -2780,6 +2826,8 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Enable.Threshold.CpuNode.NodeAll, ['template_name'], name, value)
 
 
+
+
             class LdpMpls(Entity):
                 """
                 Threshold monitoring for LDP
@@ -2815,6 +2863,7 @@ class PerfMgmt(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.LdpMpls, ['template_name'], name, value)
+
 
 
             class ProcessNode(Entity):
@@ -2946,6 +2995,8 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Enable.Threshold.ProcessNode.Nodes.Node, ['node_id', 'template_name'], name, value)
 
 
+
+
                 class NodeAll(Entity):
                     """
                     All the the nodes
@@ -2981,6 +3032,8 @@ class PerfMgmt(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.Threshold.ProcessNode.NodeAll, ['template_name'], name, value)
+
+
 
 
             class BasicCounterInterface(Entity):
@@ -3019,6 +3072,8 @@ class PerfMgmt(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.BasicCounterInterface, ['template_name'], name, value)
+
+
 
 
         class Statistics(Entity):
@@ -3178,6 +3233,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.GenericCounterInterface, ['template_name'], name, value)
 
 
+
             class Bgp(Entity):
                 """
                 Data collection for BGP
@@ -3213,6 +3269,7 @@ class PerfMgmt(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.Bgp, ['template_name'], name, value)
+
 
 
             class Ospfv2Protocol(Entity):
@@ -3252,6 +3309,7 @@ class PerfMgmt(Entity):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.Ospfv2Protocol, ['template_name'], name, value)
 
 
+
             class Ospfv3Protocol(Entity):
                 """
                 Data collection for OSPF v3 Protocol
@@ -3287,6 +3345,7 @@ class PerfMgmt(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.Ospfv3Protocol, ['template_name'], name, value)
+
 
 
             class CpuNode(Entity):
@@ -3373,6 +3432,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Enable.Statistics.CpuNode.NodeAll, ['template_name'], name, value)
 
 
+
                 class Nodes(Entity):
                     """
                     Node specification
@@ -3455,6 +3515,9 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Enable.Statistics.CpuNode.Nodes.Node, ['node_id', 'template_name'], name, value)
 
 
+
+
+
             class BasicCounterInterface(Entity):
                 """
                 Statistics collection for basic\-counters
@@ -3490,6 +3553,7 @@ class PerfMgmt(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.BasicCounterInterface, ['template_name'], name, value)
+
 
 
             class ProcessNode(Entity):
@@ -3576,6 +3640,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Enable.Statistics.ProcessNode.NodeAll, ['template_name'], name, value)
 
 
+
                 class Nodes(Entity):
                     """
                     Node specification
@@ -3658,6 +3723,9 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Enable.Statistics.ProcessNode.Nodes.Node, ['node_id', 'template_name'], name, value)
 
 
+
+
+
             class DataRateInterface(Entity):
                 """
                 Statistics collection for generic\-counters
@@ -3693,6 +3761,7 @@ class PerfMgmt(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.DataRateInterface, ['template_name'], name, value)
+
 
 
             class MemoryNode(Entity):
@@ -3779,6 +3848,7 @@ class PerfMgmt(Entity):
                         self._perform_setattr(PerfMgmt.Enable.Statistics.MemoryNode.NodeAll, ['template_name'], name, value)
 
 
+
                 class Nodes(Entity):
                     """
                     Node specification
@@ -3861,6 +3931,9 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Enable.Statistics.MemoryNode.Nodes.Node, ['node_id', 'template_name'], name, value)
 
 
+
+
+
             class LdpMpls(Entity):
                 """
                 Collection for labels distribution protocol
@@ -3896,6 +3969,8 @@ class PerfMgmt(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.LdpMpls, ['template_name'], name, value)
+
+
 
 
         class MonitorEnable(Entity):
@@ -4137,6 +4212,9 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions.Session, ['session', 'template_name'], name, value)
 
 
+
+
+
             class Ospfv3Protocol(Entity):
                 """
                 Monitor OSPF v3 Protocol
@@ -4257,6 +4335,9 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances.OspfInstance, ['instance_name', 'template_name'], name, value)
 
 
+
+
+
             class GenericCounters(Entity):
                 """
                 Monitoring for generic\-counters
@@ -4375,6 +4456,9 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces.Interface, ['interface_name', 'template_name'], name, value)
+
+
+
 
 
             class Process(Entity):
@@ -4580,6 +4664,11 @@ class PerfMgmt(Entity):
                                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids.Pid, ['pid', 'template_name'], name, value)
 
 
+
+
+
+
+
             class BasicCounters(Entity):
                 """
                 Monitoring for basic\-counters
@@ -4698,6 +4787,9 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces.Interface, ['interface_name', 'template_name'], name, value)
+
+
+
 
 
             class Memory(Entity):
@@ -4820,6 +4912,9 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Memory.Nodes.Node, ['node_id', 'template_name'], name, value)
 
 
+
+
+
             class Ospfv2Protocol(Entity):
                 """
                 Monitor OSPF v2 Protocol
@@ -4938,6 +5033,9 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances.OspfInstance, ['instance_name', 'template_name'], name, value)
+
+
+
 
 
             class Cpu(Entity):
@@ -5060,6 +5158,9 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Cpu.Nodes.Node, ['node_id', 'template_name'], name, value)
 
 
+
+
+
             class Bgp(Entity):
                 """
                 Monitor BGP protocol
@@ -5180,6 +5281,9 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors.Neighbor, ['peer_address', 'template_name'], name, value)
 
 
+
+
+
             class DataRates(Entity):
                 """
                 Monitoring for data\-rates
@@ -5298,6 +5402,11 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces.Interface, ['interface_name', 'template_name'], name, value)
+
+
+
+
+
 
 
     class RegExpGroups(Entity):
@@ -5466,6 +5575,10 @@ class PerfMgmt(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.RegExpGroups.RegExpGroup.RegExps.RegExp, ['reg_exp_index', 'reg_exp_string'], name, value)
+
+
+
+
 
 
     class Threshold(Entity):
@@ -6011,6 +6124,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InOctets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InUcastPkts(Entity):
                         """
                         Number of inbound unicast packets
@@ -6089,6 +6203,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InUcastPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class OutUcastPkts(Entity):
@@ -6171,6 +6286,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutUcastPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutBroadcastPkts(Entity):
                         """
                         Number of outbound broadcast packets
@@ -6251,6 +6367,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutBroadcastPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutMulticastPkts(Entity):
                         """
                         Number of outbound multicast packets
@@ -6329,6 +6446,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutMulticastPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class InputOverrun(Entity):
@@ -6412,6 +6530,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputOverrun, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutOctets(Entity):
                         """
                         Number of outbound octets/bytes
@@ -6490,6 +6609,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutOctets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class OutputUnderrun(Entity):
@@ -6573,6 +6693,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputUnderrun, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InputTotalErrors(Entity):
                         """
                         Number of inbound incorrect packets
@@ -6654,6 +6775,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalErrors, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutputTotalDrops(Entity):
                         """
                         Number of outbound correct packets discarded
@@ -6732,6 +6854,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class InputCrc(Entity):
@@ -6815,6 +6938,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputCrc, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InBroadcastPkts(Entity):
                         """
                         Number of inbound broadcast packets
@@ -6893,6 +7017,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InBroadcastPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class InMulticastPkts(Entity):
@@ -6975,6 +7100,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InMulticastPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutPackets(Entity):
                         """
                         Number of outbound packets
@@ -7053,6 +7179,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class OutputTotalErrors(Entity):
@@ -7136,6 +7263,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalErrors, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InPackets(Entity):
                         """
                         Number of inbound packets
@@ -7214,6 +7342,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class InputUnknownProto(Entity):
@@ -7297,6 +7426,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputUnknownProto, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InputQueueDrops(Entity):
                         """
                         Number of input queue drops
@@ -7375,6 +7505,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputQueueDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class InputTotalDrops(Entity):
@@ -7457,6 +7588,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InputFrame(Entity):
                         """
                         Number of inbound packets with framing
@@ -7536,6 +7668,10 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputFrame, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
+
+
+
 
 
         class LdpMpls(Entity):
@@ -7922,6 +8058,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class LabelWithdrawMsgsRcvd(Entity):
                         """
                         Number of Label Withdraw messages received
@@ -8000,6 +8137,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class AddressWithdrawMsgsSent(Entity):
@@ -8082,6 +8220,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class LabelWithdrawMsgsSent(Entity):
                         """
                         Number of Label Withdraw messages sent
@@ -8160,6 +8299,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class NotificationMsgsRcvd(Entity):
@@ -8242,6 +8382,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class TotalMsgsRcvd(Entity):
                         """
                         Total number of messages received
@@ -8320,6 +8461,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class NotificationMsgsSent(Entity):
@@ -8402,6 +8544,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class TotalMsgsSent(Entity):
                         """
                         Total number of messages sent
@@ -8480,6 +8623,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class LabelReleaseMsgsRcvd(Entity):
@@ -8562,6 +8706,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InitMsgsRcvd(Entity):
                         """
                         Number of Init messages received
@@ -8640,6 +8785,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class LabelReleaseMsgsSent(Entity):
@@ -8722,6 +8868,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InitMsgsSent(Entity):
                         """
                         Number of Init messages sent
@@ -8800,6 +8947,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class LabelMappingMsgsRcvd(Entity):
@@ -8882,6 +9030,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class KeepaliveMsgsRcvd(Entity):
                         """
                         Number of Keepalive messages received
@@ -8960,6 +9109,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class LabelMappingMsgsSent(Entity):
@@ -9042,6 +9192,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class KeepaliveMsgsSent(Entity):
                         """
                         Number of Keepalive messages sent
@@ -9120,6 +9271,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class AddressMsgsRcvd(Entity):
@@ -9202,6 +9354,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class AddressMsgsSent(Entity):
                         """
                         Number of Address messages sent
@@ -9280,6 +9433,10 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
+
+
+
 
 
         class BasicCounterInterface(Entity):
@@ -9605,6 +9762,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InOctets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutOctets(Entity):
                         """
                         Number of outbound octets/bytes
@@ -9685,6 +9843,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutOctets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutputQueueDrops(Entity):
                         """
                         Number of outbound queue drops
@@ -9763,6 +9922,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputQueueDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class InputTotalErrors(Entity):
@@ -9846,6 +10006,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalErrors, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutputTotalDrops(Entity):
                         """
                         Number of outbound correct packets discarded
@@ -9926,6 +10087,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutPackets(Entity):
                         """
                         Number of outbound packets
@@ -10004,6 +10166,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class OutputTotalErrors(Entity):
@@ -10087,6 +10250,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalErrors, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InPackets(Entity):
                         """
                         Number of inbound packets
@@ -10165,6 +10329,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class InputQueueDrops(Entity):
@@ -10247,6 +10412,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputQueueDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InputTotalDrops(Entity):
                         """
                         Number of inbound correct packets discarded
@@ -10325,6 +10491,10 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
+
+
+
 
 
         class Bgp(Entity):
@@ -10611,6 +10781,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputUpdateMessages, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class ErrorsReceived(Entity):
                         """
                         Number of error notifications received
@@ -10689,6 +10860,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsReceived, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class ConnEstablished(Entity):
@@ -10772,6 +10944,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnEstablished, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutputMessages(Entity):
                         """
                         Number of messages sent
@@ -10850,6 +11023,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputMessages, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class ConnDropped(Entity):
@@ -10932,6 +11106,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnDropped, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InputUpdateMessages(Entity):
                         """
                         Number of update messages received
@@ -11010,6 +11185,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputUpdateMessages, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class ErrorsSent(Entity):
@@ -11092,6 +11268,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InputMessages(Entity):
                         """
                         Number of messages received
@@ -11170,6 +11347,10 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputMessages, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
+
+
+
 
 
         class Ospfv2Protocol(Entity):
@@ -11587,6 +11768,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.ChecksumErrors, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InputLsaAcksLsa(Entity):
                         """
                         Number of LSA received in LSA Acknowledgements
@@ -11665,6 +11847,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcksLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class OutputDbDsLsa(Entity):
@@ -11747,6 +11930,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InputDbDsLsa(Entity):
                         """
                         Number of LSA received in DBD packets
@@ -11825,6 +12009,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class InputLsaUpdates(Entity):
@@ -11907,6 +12092,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdates, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutputDbDs(Entity):
                         """
                         Number of DBD packets sent
@@ -11985,6 +12171,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDs, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class OutputLsaUpdatesLsa(Entity):
@@ -12067,6 +12254,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdatesLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InputDbDs(Entity):
                         """
                         Number of DBD packets received
@@ -12145,6 +12333,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDs, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class InputLsaUpdatesLsa(Entity):
@@ -12227,6 +12416,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdatesLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutputPackets(Entity):
                         """
                         Total number of packets sent
@@ -12305,6 +12495,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class InputPackets(Entity):
@@ -12387,6 +12578,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutputHelloPackets(Entity):
                         """
                         Total number of packets sent
@@ -12465,6 +12657,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputHelloPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class InputHelloPackets(Entity):
@@ -12547,6 +12740,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputHelloPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutputLsRequests(Entity):
                         """
                         Number of LS Requests sent
@@ -12625,6 +12819,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequests, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class OutputLsaAcksLsa(Entity):
@@ -12707,6 +12902,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcksLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutputLsaAcks(Entity):
                         """
                         Number of LSA Acknowledgements sent
@@ -12785,6 +12981,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcks, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class InputLsaAcks(Entity):
@@ -12867,6 +13064,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcks, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutputLsaUpdates(Entity):
                         """
                         Number of LSA Updates sent
@@ -12945,6 +13143,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdates, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class OutputLsRequestsLsa(Entity):
@@ -13027,6 +13226,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequestsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InputLsRequestsLsa(Entity):
                         """
                         Number of LSA received in LS Requests
@@ -13107,6 +13307,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequestsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InputLsRequests(Entity):
                         """
                         Number of LS Requests received
@@ -13185,6 +13386,10 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequests, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
+
+
+
 
 
         class CpuNode(Entity):
@@ -13412,6 +13617,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.AverageCpuUsed, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class NoProcesses(Entity):
                         """
                         Number of processes
@@ -13490,6 +13696,10 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.NoProcesses, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
+
+
+
 
 
         class DataRateInterface(Entity):
@@ -13805,6 +14015,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputDataRate, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class Bandwidth(Entity):
                         """
                         Bandwidth in kbps
@@ -13883,6 +14094,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.Bandwidth, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class OutputPacketRate(Entity):
@@ -13965,6 +14177,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPacketRate, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InputPeakPkts(Entity):
                         """
                         Maximum number of input packets per second
@@ -14043,6 +14256,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class OutputPeakRate(Entity):
@@ -14125,6 +14339,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakRate, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutputDataRate(Entity):
                         """
                         Output data rate in kbps
@@ -14203,6 +14418,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputDataRate, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class InputPacketRate(Entity):
@@ -14285,6 +14501,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPacketRate, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutputPeakPkts(Entity):
                         """
                         Maximum number of output packets per second
@@ -14365,6 +14582,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InputPeakRate(Entity):
                         """
                         Peak input data rate in kbps
@@ -14443,6 +14661,10 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakRate, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
+
+
+
 
 
         class ProcessNode(Entity):
@@ -14679,6 +14901,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.AverageCpuUsed, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class PeakMemory(Entity):
                         """
                         Max memory (KBytes) used since startup time
@@ -14759,6 +14982,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.PeakMemory, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class NoThreads(Entity):
                         """
                         Number of threads
@@ -14837,6 +15061,10 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.NoThreads, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
+
+
+
 
 
         class MemoryNode(Entity):
@@ -15064,6 +15292,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.PeakMemory, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class CurrMemory(Entity):
                         """
                         Current memory (Bytes) in use
@@ -15142,6 +15371,10 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.CurrMemory, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
+
+
+
 
 
         class Ospfv3Protocol(Entity):
@@ -15548,6 +15781,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcksLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutputDbDsLsa(Entity):
                         """
                         Number of LSA sent in DBD packets
@@ -15626,6 +15860,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class InputDbDsLsa(Entity):
@@ -15708,6 +15943,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InputLsaUpdates(Entity):
                         """
                         Number of LSA Updates received
@@ -15786,6 +16022,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdates, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class OutputDbDs(Entity):
@@ -15868,6 +16105,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDs, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutputLsaUpdatesLsa(Entity):
                         """
                         Number of LSA sent in LSA Updates
@@ -15946,6 +16184,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdatesLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class InputDbDs(Entity):
@@ -16028,6 +16267,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDs, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InputLsaUpdatesLsa(Entity):
                         """
                         Number of LSA received in LSA Updates
@@ -16106,6 +16346,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdatesLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class OutputPackets(Entity):
@@ -16188,6 +16429,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InputPackets(Entity):
                         """
                         Total number of packets received
@@ -16266,6 +16508,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class OutputHelloPackets(Entity):
@@ -16348,6 +16591,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputHelloPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InputHelloPackets(Entity):
                         """
                         Number of Hello packets received
@@ -16426,6 +16670,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputHelloPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class OutputLsRequests(Entity):
@@ -16508,6 +16753,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequests, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutputLsaAcksLsa(Entity):
                         """
                         Number of LSA sent in LSA Acknowledgements
@@ -16586,6 +16832,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcksLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class OutputLsaAcks(Entity):
@@ -16668,6 +16915,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcks, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InputLsaAcks(Entity):
                         """
                         Number of LSA Acknowledgements received
@@ -16746,6 +16994,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcks, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class OutputLsaUpdates(Entity):
@@ -16828,6 +17077,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdates, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class OutputLsRequestsLsa(Entity):
                         """
                         Number of LSA sent in LS Requests
@@ -16906,6 +17156,7 @@ class PerfMgmt(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequestsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
+
 
 
                     class InputLsRequestsLsa(Entity):
@@ -16988,6 +17239,7 @@ class PerfMgmt(Entity):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequestsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
 
+
                     class InputLsRequests(Entity):
                         """
                         Number of LS Requests received
@@ -17067,7 +17319,14 @@ class PerfMgmt(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequests, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = PerfMgmt()
         return self._top_entity
+
+
 

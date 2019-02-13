@@ -328,7 +328,11 @@ class Macsec(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Macsec.PolicyNames.PolicyName, ['name', 'delay_protection', 'security_policy', 'key_server_priority', 'conf_offset', 'sak_rekey_interval', 'policy_exception', 'window_size', 'cipher_suite', 'include_icv_indicator', 'sak_rekey_interval_sec', 'vlan_tags_in_clear'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Macsec()
         return self._top_entity
+
+
 

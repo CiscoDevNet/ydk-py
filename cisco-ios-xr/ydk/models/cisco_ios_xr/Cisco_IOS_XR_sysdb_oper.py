@@ -31,6 +31,8 @@ class SysdbConnections(Entity):
     	Node operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysdb_oper.SysdbConnections.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -68,6 +70,8 @@ class SysdbConnections(Entity):
         
         	Per\-node Sysdb health on connection
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysdb_oper.SysdbConnections.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -107,10 +111,14 @@ class SysdbConnections(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: connections
             
             	Per\-node Sysdb Client Connections
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -141,9 +149,13 @@ class SysdbConnections(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SysdbConnections.Nodes.Node, ['node_name', 'connections'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = SysdbConnections()
         return self._top_entity
+
+
 
 class Sysdb(Entity):
     """
@@ -154,20 +166,28 @@ class Sysdb(Entity):
     	Sysdb health for configuration space
     	**type**\: str
     
+    	**config**\: False
+    
     .. attribute:: memory
     
     	Sysdb health on memory consumption
     	**type**\: str
+    
+    	**config**\: False
     
     .. attribute:: ipc_space
     
     	Sysdb health for operational space
     	**type**\: str
     
+    	**config**\: False
+    
     .. attribute:: cpu
     
     	Sysdb health on cpu consumption
     	**type**\: str
+    
+    	**config**\: False
     
     
 
@@ -205,4 +225,6 @@ class Sysdb(Entity):
     def clone_ptr(self):
         self._top_entity = Sysdb()
         return self._top_entity
+
+
 

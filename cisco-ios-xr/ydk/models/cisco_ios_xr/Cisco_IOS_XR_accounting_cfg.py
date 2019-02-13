@@ -166,6 +166,7 @@ class Accounting(Entity):
                 self._perform_setattr(Accounting.Interfaces.Mpls, ['enable', 'enable_v4rsvpte'], name, value)
 
 
+
         class SegmentRouting(Entity):
             """
             Interfaces Segment Routing configuration
@@ -216,7 +217,11 @@ class Accounting(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Accounting.Interfaces.SegmentRouting, ['enable', 'enable_mplsv4', 'enable_mplsv6'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Accounting()
         return self._top_entity
+
+
 

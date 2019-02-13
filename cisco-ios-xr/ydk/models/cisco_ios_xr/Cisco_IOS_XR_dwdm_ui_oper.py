@@ -596,6 +596,8 @@ class Dwdm(Entity):
     	All DWDM Port operational data
     	**type**\:  :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports>`
     
+    	**config**\: False
+    
     
 
     """
@@ -633,6 +635,8 @@ class Dwdm(Entity):
         
         	DWDM Port operational data
         	**type**\: list of  		 :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port>`
+        
+        	**config**\: False
         
         
 
@@ -672,20 +676,28 @@ class Dwdm(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: prbs
             
             	DWDM Port PRBS related data
             	**type**\:  :py:class:`Prbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs>`
+            
+            	**config**\: False
             
             .. attribute:: optics
             
             	DWDM Port optics operational data
             	**type**\:  :py:class:`Optics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Optics>`
             
+            	**config**\: False
+            
             .. attribute:: info
             
             	DWDM port operational data
             	**type**\:  :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info>`
+            
+            	**config**\: False
             
             
 
@@ -736,10 +748,14 @@ class Dwdm(Entity):
                 	Port 24\-hour PRBS statistics table
                 	**type**\:  :py:class:`TwentyFourHoursBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket>`
                 
+                	**config**\: False
+                
                 .. attribute:: fifteen_minutes_bucket
                 
                 	Port 15\-minute PRBS statistics table
                 	**type**\:  :py:class:`FifteenMinutesBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.FifteenMinutesBucket>`
+                
+                	**config**\: False
                 
                 
 
@@ -782,6 +798,8 @@ class Dwdm(Entity):
                     	Port 24\-hour PRBS statistics data
                     	**type**\:  :py:class:`TwentyFourHoursStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -819,15 +837,21 @@ class Dwdm(Entity):
                         	'True' if PRBS is enabled 'False' otherwise
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: prbs_config_mode
                         
                         	Configured mode of PRBS test
                         	**type**\:  :py:class:`G709prbsMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsMode>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: prbs_entry
                         
                         	History consists of 15\-minute/24\-hour intervals
                         	**type**\: list of  		 :py:class:`PrbsEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics.PrbsEntry>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -857,7 +881,7 @@ class Dwdm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics, ['is_prbs_enabled', 'prbs_config_mode'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics, [u'is_prbs_enabled', u'prbs_config_mode'], name, value)
 
 
                         class PrbsEntry(Entity):
@@ -869,10 +893,14 @@ class Dwdm(Entity):
                             	Index of bucket, current and previous
                             	**type**\:  :py:class:`G709prbsInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsInterval>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: configured_pattern
                             
                             	Configured pattern of PRBS test
                             	**type**\:  :py:class:`G709prbsPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsPattern>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_at
                             
@@ -881,6 +909,8 @@ class Dwdm(Entity):
                             
                             	**length:** 0..64
                             
+                            	**config**\: False
+                            
                             .. attribute:: stop_at
                             
                             	Interval stop timestamp
@@ -888,10 +918,14 @@ class Dwdm(Entity):
                             
                             	**length:** 0..64
                             
+                            	**config**\: False
+                            
                             .. attribute:: received_pattern
                             
                             	Received Pattern of PRBS Test
                             	**type**\:  :py:class:`G709prbsPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsPattern>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: bit_error_count
                             
@@ -900,12 +934,16 @@ class Dwdm(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: found_count
                             
                             	Count of pattern found in interval
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: lost_count
                             
@@ -914,6 +952,8 @@ class Dwdm(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: found_at
                             
                             	Pattern first found at timestamp
@@ -921,12 +961,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..64
                             
+                            	**config**\: False
+                            
                             .. attribute:: lost_at
                             
                             	Pattern first lost at timestamp
                             	**type**\: str
                             
                             	**length:** 0..64
+                            
+                            	**config**\: False
                             
                             
 
@@ -970,7 +1014,10 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics.PrbsEntry, ['interval_index', 'configured_pattern', 'start_at', 'stop_at', 'received_pattern', 'bit_error_count', 'found_count', 'lost_count', 'found_at', 'lost_at'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics.PrbsEntry, [u'interval_index', u'configured_pattern', u'start_at', u'stop_at', u'received_pattern', u'bit_error_count', u'found_count', u'lost_count', u'found_at', u'lost_at'], name, value)
+
+
+
 
 
                 class FifteenMinutesBucket(Entity):
@@ -981,6 +1028,8 @@ class Dwdm(Entity):
                     
                     	Port 15\-minute PRBS statistics data
                     	**type**\:  :py:class:`FifteenMinutesStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1019,15 +1068,21 @@ class Dwdm(Entity):
                         	'True' if PRBS is enabled 'False' otherwise
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: prbs_config_mode
                         
                         	Configured mode of PRBS test
                         	**type**\:  :py:class:`G709prbsMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsMode>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: prbs_entry
                         
                         	History consists of 15\-minute/24\-hour intervals
                         	**type**\: list of  		 :py:class:`PrbsEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics.PrbsEntry>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1057,7 +1112,7 @@ class Dwdm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics, ['is_prbs_enabled', 'prbs_config_mode'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics, [u'is_prbs_enabled', u'prbs_config_mode'], name, value)
 
 
                         class PrbsEntry(Entity):
@@ -1069,10 +1124,14 @@ class Dwdm(Entity):
                             	Index of bucket, current and previous
                             	**type**\:  :py:class:`G709prbsInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsInterval>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: configured_pattern
                             
                             	Configured pattern of PRBS test
                             	**type**\:  :py:class:`G709prbsPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsPattern>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_at
                             
@@ -1081,6 +1140,8 @@ class Dwdm(Entity):
                             
                             	**length:** 0..64
                             
+                            	**config**\: False
+                            
                             .. attribute:: stop_at
                             
                             	Interval stop timestamp
@@ -1088,10 +1149,14 @@ class Dwdm(Entity):
                             
                             	**length:** 0..64
                             
+                            	**config**\: False
+                            
                             .. attribute:: received_pattern
                             
                             	Received Pattern of PRBS Test
                             	**type**\:  :py:class:`G709prbsPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsPattern>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: bit_error_count
                             
@@ -1100,12 +1165,16 @@ class Dwdm(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: found_count
                             
                             	Count of pattern found in interval
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: lost_count
                             
@@ -1114,6 +1183,8 @@ class Dwdm(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: found_at
                             
                             	Pattern first found at timestamp
@@ -1121,12 +1192,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..64
                             
+                            	**config**\: False
+                            
                             .. attribute:: lost_at
                             
                             	Pattern first lost at timestamp
                             	**type**\: str
                             
                             	**length:** 0..64
+                            
+                            	**config**\: False
                             
                             
 
@@ -1170,7 +1245,11 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics.PrbsEntry, ['interval_index', 'configured_pattern', 'start_at', 'stop_at', 'received_pattern', 'bit_error_count', 'found_count', 'lost_count', 'found_at', 'lost_at'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics.PrbsEntry, [u'interval_index', u'configured_pattern', u'start_at', u'stop_at', u'received_pattern', u'bit_error_count', u'found_count', u'lost_count', u'found_at', u'lost_at'], name, value)
+
+
+
+
 
 
             class Optics(Entity):
@@ -1181,6 +1260,8 @@ class Dwdm(Entity):
                 
                 	DWDM port wavelength information data
                 	**type**\:  :py:class:`WaveInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Optics.WaveInfo>`
+                
+                	**config**\: False
                 
                 
 
@@ -1221,6 +1302,8 @@ class Dwdm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: wave_channel_min
                     
                     	Lowest ITU wavelength channel number supported
@@ -1228,12 +1311,16 @@ class Dwdm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: wave_channel_max
                     
                     	Highest ITU wavelength channel number supported
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1263,7 +1350,9 @@ class Dwdm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Optics.WaveInfo, ['wave_band', 'wave_channel_min', 'wave_channel_max'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Optics.WaveInfo, [u'wave_band', u'wave_channel_min', u'wave_channel_max'], name, value)
+
+
 
 
             class Info(Entity):
@@ -1275,45 +1364,63 @@ class Dwdm(Entity):
                 	G709 operational information
                 	**type**\:  :py:class:`G709Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info>`
                 
+                	**config**\: False
+                
                 .. attribute:: optics_info
                 
                 	Optics operational information
                 	**type**\:  :py:class:`OpticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.OpticsInfo>`
+                
+                	**config**\: False
                 
                 .. attribute:: tdc_info
                 
                 	TDC operational information
                 	**type**\:  :py:class:`TdcInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.TdcInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: network_srlg_info
                 
                 	Network SRLG information
                 	**type**\:  :py:class:`NetworkSrlgInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.NetworkSrlgInfo>`
+                
+                	**config**\: False
                 
                 .. attribute:: proactive
                 
                 	Proactive protection information
                 	**type**\:  :py:class:`Proactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.Proactive>`
                 
+                	**config**\: False
+                
                 .. attribute:: signal_log
                 
                 	Signal log information
                 	**type**\:  :py:class:`SignalLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.SignalLog>`
+                
+                	**config**\: False
                 
                 .. attribute:: controller_state
                 
                 	DWDM controller state\: Up, Down or Administratively Down
                 	**type**\:  :py:class:`DwdmControllerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.DwdmControllerState>`
                 
+                	**config**\: False
+                
                 .. attribute:: transport_admin_state
                 
                 	DWDM controller TAS state\: IS, OOS, OOS\-MT or IS\-CFG
                 	**type**\:  :py:class:`DwdmtasState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.DwdmtasState>`
                 
+                	**config**\: False
+                
                 .. attribute:: slice_state
                 
                 	DWDM port slice state Up/Down
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -1367,7 +1474,7 @@ class Dwdm(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Dwdm.Ports.Port.Info, ['controller_state', 'transport_admin_state', 'slice_state'], name, value)
+                    self._perform_setattr(Dwdm.Ports.Port.Info, [u'controller_state', u'transport_admin_state', u'slice_state'], name, value)
 
 
                 class G709Info(Entity):
@@ -1379,35 +1486,49 @@ class Dwdm(Entity):
                     	FEC mismatch alarm
                     	**type**\:  :py:class:`FecMismatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.FecMismatch>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ec_tca
                     
                     	FEC Corrected bits TCA information
                     	**type**\:  :py:class:`EcTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.EcTca>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: uc_tca
                     
                     	FEC uncorrected words TCA information
                     	**type**\:  :py:class:`UcTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.UcTca>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: otu_info
                     
                     	OTU layer information
                     	**type**\:  :py:class:`OtuInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: odu_info
                     
                     	ODU layer Information
                     	**type**\:  :py:class:`OduInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_g709_enabled
                     
                     	 Is G709 framing enabled
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_fec_mode_default
                     
                     	 Is Operating FEC Mode Default
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: fec_mode
                     
@@ -1416,6 +1537,8 @@ class Dwdm(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_fec_mode
                     
                     	Remote FEC information
@@ -1423,10 +1546,14 @@ class Dwdm(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: efec_mode
                     
                     	EFEC information
                     	**type**\:  :py:class:`G709efecMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709efecMode>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: loopback_mode
                     
@@ -1435,12 +1562,16 @@ class Dwdm(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: ec
                     
                     	Corrected bit error counter 
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: ec_accum
                     
@@ -1449,12 +1580,16 @@ class Dwdm(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: uc
                     
                     	FEC Uncorrected words counter
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: fec_ber
                     
@@ -1463,12 +1598,16 @@ class Dwdm(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: fec_ber_man
                     
                     	pre fec ber calculated
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: q
                     
@@ -1477,12 +1616,16 @@ class Dwdm(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: q_margin
                     
                     	q margin calculated
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: fe_cstr
                     
@@ -1491,12 +1634,16 @@ class Dwdm(Entity):
                     
                     	**length:** 0..64
                     
+                    	**config**\: False
+                    
                     .. attribute:: qstr
                     
                     	Q String 
                     	**type**\: str
                     
                     	**length:** 0..64
+                    
+                    	**config**\: False
                     
                     .. attribute:: qmargin_str
                     
@@ -1505,12 +1652,16 @@ class Dwdm(Entity):
                     
                     	**length:** 0..64
                     
+                    	**config**\: False
+                    
                     .. attribute:: network_port_id
                     
                     	Network port ID
                     	**type**\: str
                     
                     	**length:** 0..65
+                    
+                    	**config**\: False
                     
                     .. attribute:: network_conn_id
                     
@@ -1519,20 +1670,28 @@ class Dwdm(Entity):
                     
                     	**length:** 0..65
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_prbs_enabled
                     
                     	'true' if Prbs is enabled 'false' otherwise
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: g709_prbs_mode
                     
                     	Configured mode of PRBS Test
                     	**type**\:  :py:class:`G709prbsMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsMode>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: g709_prbs_pattern
                     
                     	Pattern of PRBS Test
                     	**type**\:  :py:class:`G709prbsPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709prbsPattern>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: prbs_time_stamp
                     
@@ -1540,6 +1699,8 @@ class Dwdm(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -1627,7 +1788,7 @@ class Dwdm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Info.G709Info, ['is_g709_enabled', 'is_fec_mode_default', 'fec_mode', 'remote_fec_mode', 'efec_mode', 'loopback_mode', 'ec', 'ec_accum', 'uc', 'fec_ber', 'fec_ber_man', 'q', 'q_margin', 'fe_cstr', 'qstr', 'qmargin_str', 'network_port_id', 'network_conn_id', 'is_prbs_enabled', 'g709_prbs_mode', 'g709_prbs_pattern', 'prbs_time_stamp'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Info.G709Info, [u'is_g709_enabled', u'is_fec_mode_default', u'fec_mode', u'remote_fec_mode', u'efec_mode', u'loopback_mode', u'ec', u'ec_accum', u'uc', u'fec_ber', u'fec_ber_man', u'q', u'q_margin', u'fe_cstr', u'qstr', u'qmargin_str', u'network_port_id', u'network_conn_id', u'is_prbs_enabled', u'g709_prbs_mode', u'g709_prbs_pattern', u'prbs_time_stamp'], name, value)
 
 
                     class FecMismatch(Entity):
@@ -1639,15 +1800,21 @@ class Dwdm(Entity):
                         	Is reporting enabled?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_detected
                         
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: counter
                         
@@ -1655,6 +1822,8 @@ class Dwdm(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -1686,7 +1855,8 @@ class Dwdm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.FecMismatch, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.FecMismatch, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+
 
 
                     class EcTca(Entity):
@@ -1698,15 +1868,21 @@ class Dwdm(Entity):
                         	Is reporting enabled?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_detected
                         
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: threshold
                         
@@ -1715,12 +1891,16 @@ class Dwdm(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Error counter
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -1754,7 +1934,8 @@ class Dwdm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.EcTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.EcTca, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+
 
 
                     class UcTca(Entity):
@@ -1766,15 +1947,21 @@ class Dwdm(Entity):
                         	Is reporting enabled?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_detected
                         
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: threshold
                         
@@ -1783,12 +1970,16 @@ class Dwdm(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter
                         
                         	Error counter
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -1822,7 +2013,8 @@ class Dwdm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.UcTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.UcTca, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+
 
 
                     class OtuInfo(Entity):
@@ -1834,125 +2026,175 @@ class Dwdm(Entity):
                         	Loss of Signal information
                         	**type**\:  :py:class:`Los <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: lof
                         
                         	Loss of Frame information
                         	**type**\:  :py:class:`Lof <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lof>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: lom
                         
                         	Loss of MultiFrame information
                         	**type**\:  :py:class:`Lom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lom>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: oof
                         
                         	Out of Frame information
                         	**type**\:  :py:class:`Oof <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oof>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: oom
                         
                         	Out of MultiFrame information
                         	**type**\:  :py:class:`Oom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oom>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ais
                         
                         	Alarm Indication Signal information
                         	**type**\:  :py:class:`Ais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ais>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: iae
                         
                         	Incoming Alignment Error information
                         	**type**\:  :py:class:`Iae <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Iae>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: bdi
                         
                         	Backward Defect Indication information
                         	**type**\:  :py:class:`Bdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bdi>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: tim
                         
                         	Trace Identifier Mismatch information
                         	**type**\:  :py:class:`Tim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tim>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: eoc
                         
                         	GCC End of Channel information
                         	**type**\:  :py:class:`Eoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Eoc>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: sf_ber
                         
                         	Signal Fail  BER information
                         	**type**\:  :py:class:`SfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.SfBer>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: sd_ber
                         
                         	Signal Degrade BER information
                         	**type**\:  :py:class:`SdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.SdBer>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: prefec_sf_ber
                         
                         	Prefec Signal Fail BER information
                         	**type**\:  :py:class:`PrefecSfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSfBer>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefec_sd_ber
                         
                         	Prefec Signal Degrade BER information
                         	**type**\:  :py:class:`PrefecSdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSdBer>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: bbe_tca
                         
                         	 Backgound Block Error TCA information
                         	**type**\:  :py:class:`BbeTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.BbeTca>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: es_tca
                         
                         	Errored Seconds TCA information
                         	**type**\:  :py:class:`EsTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.EsTca>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: bbe
                         
                         	Backgound Block Error information
                         	**type**\:  :py:class:`Bbe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bbe>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: es
                         
                         	Errored Seconds information 
                         	**type**\:  :py:class:`Es <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Es>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ses
                         
                         	Severly Errored Seconds information
                         	**type**\:  :py:class:`Ses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ses>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: uas
                         
                         	Unavailability Seconds information
                         	**type**\:  :py:class:`Uas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Uas>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: fc
                         
                         	Failure Count information
                         	**type**\:  :py:class:`Fc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Fc>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: bber
                         
                         	Backgound Block Error Rate information
                         	**type**\:  :py:class:`Bber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bber>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: esr
                         
                         	Errored Seconds Rate information
                         	**type**\:  :py:class:`Esr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Esr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: sesr
                         
                         	Severly Errored Seconds Rate information
                         	**type**\:  :py:class:`Sesr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Sesr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: tti
                         
                         	Trail Trace Identifier information
                         	**type**\:  :py:class:`Tti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tti>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: bei
                         
@@ -1961,12 +2203,16 @@ class Dwdm(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: bip
                         
                         	Bit Interleave Parity(BIP) counter
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -2094,7 +2340,7 @@ class Dwdm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo, ['bei', 'bip'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo, [u'bei', u'bip'], name, value)
 
 
                         class Los(Entity):
@@ -2106,15 +2352,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: counter
                             
@@ -2122,6 +2374,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -2153,7 +2407,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+
 
 
                         class Lof(Entity):
@@ -2165,15 +2420,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: counter
                             
@@ -2181,6 +2442,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -2212,7 +2475,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lof, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lof, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+
 
 
                         class Lom(Entity):
@@ -2224,15 +2488,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: counter
                             
@@ -2240,6 +2510,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -2271,7 +2543,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lom, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lom, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+
 
 
                         class Oof(Entity):
@@ -2283,15 +2556,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: counter
                             
@@ -2299,6 +2578,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -2330,7 +2611,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oof, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oof, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+
 
 
                         class Oom(Entity):
@@ -2342,15 +2624,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: counter
                             
@@ -2358,6 +2646,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -2389,7 +2679,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oom, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oom, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+
 
 
                         class Ais(Entity):
@@ -2401,15 +2692,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: counter
                             
@@ -2417,6 +2714,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -2448,7 +2747,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ais, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ais, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+
 
 
                         class Iae(Entity):
@@ -2460,15 +2760,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: counter
                             
@@ -2476,6 +2782,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -2507,7 +2815,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Iae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Iae, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+
 
 
                         class Bdi(Entity):
@@ -2519,15 +2828,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: counter
                             
@@ -2535,6 +2850,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -2566,7 +2883,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bdi, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bdi, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+
 
 
                         class Tim(Entity):
@@ -2578,15 +2896,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: counter
                             
@@ -2594,6 +2918,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -2625,7 +2951,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tim, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+
 
 
                         class Eoc(Entity):
@@ -2637,15 +2964,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: counter
                             
@@ -2653,6 +2986,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -2684,7 +3019,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Eoc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Eoc, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+
 
 
                         class SfBer(Entity):
@@ -2696,15 +3032,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: threshold
                             
@@ -2713,12 +3055,16 @@ class Dwdm(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: counter
                             
                             	Error counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -2752,7 +3098,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.SfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.SfBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+
 
 
                         class SdBer(Entity):
@@ -2764,15 +3111,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: threshold
                             
@@ -2781,12 +3134,16 @@ class Dwdm(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: counter
                             
                             	Error counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -2820,7 +3177,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.SdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.SdBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+
 
 
                         class PrefecSfBer(Entity):
@@ -2832,15 +3190,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: threshold
                             
@@ -2849,12 +3213,16 @@ class Dwdm(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: counter
                             
                             	Error counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -2888,7 +3256,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSfBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+
 
 
                         class PrefecSdBer(Entity):
@@ -2900,15 +3269,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: threshold
                             
@@ -2917,12 +3292,16 @@ class Dwdm(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: counter
                             
                             	Error counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -2956,7 +3335,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSdBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+
 
 
                         class BbeTca(Entity):
@@ -2968,15 +3348,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: threshold
                             
@@ -2985,12 +3371,16 @@ class Dwdm(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: counter
                             
                             	Error counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -3024,7 +3414,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.BbeTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.BbeTca, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+
 
 
                         class EsTca(Entity):
@@ -3036,15 +3427,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: threshold
                             
@@ -3053,12 +3450,16 @@ class Dwdm(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: counter
                             
                             	Error counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -3092,7 +3493,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.EsTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.EsTca, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+
 
 
                         class Bbe(Entity):
@@ -3105,6 +3507,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -3130,7 +3534,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bbe, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bbe, [u'counter'], name, value)
+
 
 
                         class Es(Entity):
@@ -3143,6 +3548,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -3168,7 +3575,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Es, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Es, [u'counter'], name, value)
+
 
 
                         class Ses(Entity):
@@ -3181,6 +3589,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -3206,7 +3616,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ses, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ses, [u'counter'], name, value)
+
 
 
                         class Uas(Entity):
@@ -3219,6 +3630,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -3244,7 +3657,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Uas, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Uas, [u'counter'], name, value)
+
 
 
                         class Fc(Entity):
@@ -3257,6 +3671,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -3282,7 +3698,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Fc, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Fc, [u'counter'], name, value)
+
 
 
                         class Bber(Entity):
@@ -3295,6 +3712,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -3320,7 +3739,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bber, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bber, [u'counter'], name, value)
+
 
 
                         class Esr(Entity):
@@ -3333,6 +3753,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -3358,7 +3780,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Esr, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Esr, [u'counter'], name, value)
+
 
 
                         class Sesr(Entity):
@@ -3371,6 +3794,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -3396,7 +3821,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Sesr, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Sesr, [u'counter'], name, value)
+
 
 
                         class Tti(Entity):
@@ -3410,12 +3836,16 @@ class Dwdm(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: expected_string_type
                             
                             	Type of String
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: rx_string_type
                             
@@ -3424,12 +3854,16 @@ class Dwdm(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: tx_tti
                             
                             	Tx TTI String 
                             	**type**\: str
                             
                             	**length:** 0..129
+                            
+                            	**config**\: False
                             
                             .. attribute:: tx_sapi0
                             
@@ -3438,12 +3872,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..5
                             
+                            	**config**\: False
+                            
                             .. attribute:: tx_sapi
                             
                             	Tx SAPI[1\-15] Field
                             	**type**\: str
                             
                             	**length:** 0..16
+                            
+                            	**config**\: False
                             
                             .. attribute:: tx_sapi_range
                             
@@ -3452,12 +3890,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..6
                             
+                            	**config**\: False
+                            
                             .. attribute:: tx_dapi0
                             
                             	Tx DAPI[0] Field
                             	**type**\: str
                             
                             	**length:** 0..5
+                            
+                            	**config**\: False
                             
                             .. attribute:: tx_dapi
                             
@@ -3466,12 +3908,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..16
                             
+                            	**config**\: False
+                            
                             .. attribute:: tx_dapi_range
                             
                             	 Tx DAPI Range String
                             	**type**\: str
                             
                             	**length:** 0..6
+                            
+                            	**config**\: False
                             
                             .. attribute:: tx_oper_spec
                             
@@ -3480,12 +3926,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..33
                             
+                            	**config**\: False
+                            
                             .. attribute:: tx_oper_spec_range
                             
                             	 Tx Operator Specific Field Range String
                             	**type**\: str
                             
                             	**length:** 0..6
+                            
+                            	**config**\: False
                             
                             .. attribute:: rx_tti
                             
@@ -3494,12 +3944,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..129
                             
+                            	**config**\: False
+                            
                             .. attribute:: rx_sapi0
                             
                             	Rx SAPI[0] Field
                             	**type**\: str
                             
                             	**length:** 0..5
+                            
+                            	**config**\: False
                             
                             .. attribute:: rx_sapi
                             
@@ -3508,12 +3962,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..16
                             
+                            	**config**\: False
+                            
                             .. attribute:: rx_sapi_range
                             
                             	 Rx SAPI Range String
                             	**type**\: str
                             
                             	**length:** 0..6
+                            
+                            	**config**\: False
                             
                             .. attribute:: rx_dapi0
                             
@@ -3522,12 +3980,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..5
                             
+                            	**config**\: False
+                            
                             .. attribute:: rx_dapi
                             
                             	Rx DAPI[1\-15] Field
                             	**type**\: str
                             
                             	**length:** 0..16
+                            
+                            	**config**\: False
                             
                             .. attribute:: rx_dapi_range
                             
@@ -3536,12 +3998,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..6
                             
+                            	**config**\: False
+                            
                             .. attribute:: rx_oper_spec_range
                             
                             	 Rx Operator Specific Field Range String
                             	**type**\: str
                             
                             	**length:** 0..6
+                            
+                            	**config**\: False
                             
                             .. attribute:: rx_oper_spec
                             
@@ -3550,12 +4016,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..33
                             
+                            	**config**\: False
+                            
                             .. attribute:: expected_tti
                             
                             	Expected TTI String
                             	**type**\: str
                             
                             	**length:** 0..129
+                            
+                            	**config**\: False
                             
                             .. attribute:: expected_sapi0
                             
@@ -3564,12 +4034,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..5
                             
+                            	**config**\: False
+                            
                             .. attribute:: expected_sapi
                             
                             	Expected SAPI[1\-15] Field
                             	**type**\: str
                             
                             	**length:** 0..16
+                            
+                            	**config**\: False
                             
                             .. attribute:: exp_sapi_range
                             
@@ -3578,12 +4052,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..6
                             
+                            	**config**\: False
+                            
                             .. attribute:: expected_dapi0
                             
                             	Expected DAPI[0] Field
                             	**type**\: str
                             
                             	**length:** 0..5
+                            
+                            	**config**\: False
                             
                             .. attribute:: expected_dapi
                             
@@ -3592,12 +4070,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..16
                             
+                            	**config**\: False
+                            
                             .. attribute:: exp_dapi_range
                             
                             	 Expected DAPI Range String
                             	**type**\: str
                             
                             	**length:** 0..6
+                            
+                            	**config**\: False
                             
                             .. attribute:: expected_oper_spec
                             
@@ -3606,12 +4088,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..33
                             
+                            	**config**\: False
+                            
                             .. attribute:: exp_oper_spec_range
                             
                             	 Expected Operator Specific Field Range String
                             	**type**\: str
                             
                             	**length:** 0..6
+                            
+                            	**config**\: False
                             
                             
 
@@ -3695,7 +4181,9 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tti, ['tx_string_type', 'expected_string_type', 'rx_string_type', 'tx_tti', 'tx_sapi0', 'tx_sapi', 'tx_sapi_range', 'tx_dapi0', 'tx_dapi', 'tx_dapi_range', 'tx_oper_spec', 'tx_oper_spec_range', 'rx_tti', 'rx_sapi0', 'rx_sapi', 'rx_sapi_range', 'rx_dapi0', 'rx_dapi', 'rx_dapi_range', 'rx_oper_spec_range', 'rx_oper_spec', 'expected_tti', 'expected_sapi0', 'expected_sapi', 'exp_sapi_range', 'expected_dapi0', 'expected_dapi', 'exp_dapi_range', 'expected_oper_spec', 'exp_oper_spec_range'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tti, [u'tx_string_type', u'expected_string_type', u'rx_string_type', u'tx_tti', u'tx_sapi0', u'tx_sapi', u'tx_sapi_range', u'tx_dapi0', u'tx_dapi', u'tx_dapi_range', u'tx_oper_spec', u'tx_oper_spec_range', u'rx_tti', u'rx_sapi0', u'rx_sapi', u'rx_sapi_range', u'rx_dapi0', u'rx_dapi', u'rx_dapi_range', u'rx_oper_spec_range', u'rx_oper_spec', u'expected_tti', u'expected_sapi0', u'expected_sapi', u'exp_sapi_range', u'expected_dapi0', u'expected_dapi', u'exp_dapi_range', u'expected_oper_spec', u'exp_oper_spec_range'], name, value)
+
+
 
 
                     class OduInfo(Entity):
@@ -3707,100 +4195,140 @@ class Dwdm(Entity):
                         	Open Connection Indiction information
                         	**type**\:  :py:class:`Oci <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ais
                         
                         	Alarm Indication Signal information
                         	**type**\:  :py:class:`Ais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Ais>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: lck
                         
                         	Upstream Connection Locked information
                         	**type**\:  :py:class:`Lck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Lck>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: bdi
                         
                         	Backward Defect Indication information
                         	**type**\:  :py:class:`Bdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Bdi>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: eoc
                         
                         	GCC End of Channel information
                         	**type**\:  :py:class:`Eoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Eoc>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ptim
                         
                         	Payload Type Identifier Mismatch information
                         	**type**\:  :py:class:`Ptim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Ptim>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: tim
                         
                         	Trace Identifier Mismatch information
                         	**type**\:  :py:class:`Tim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Tim>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: sf_ber
                         
                         	Signal Fail  BER information
                         	**type**\:  :py:class:`SfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.SfBer>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: sd_ber
                         
                         	Signal Degrade BER information
                         	**type**\:  :py:class:`SdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.SdBer>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: bbe_tca
                         
                         	Background Block Error TCA information
                         	**type**\:  :py:class:`BbeTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.BbeTca>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: es_tca
                         
                         	Errored Seconds TCA information
                         	**type**\:  :py:class:`EsTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.EsTca>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: bbe
                         
                         	Background Block Error information
                         	**type**\:  :py:class:`Bbe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Bbe>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: es
                         
                         	Errored Seconds information
                         	**type**\:  :py:class:`Es <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Es>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ses
                         
                         	Severly Errored Seconds information
                         	**type**\:  :py:class:`Ses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Ses>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: uas
                         
                         	Unavailability Seconds information
                         	**type**\:  :py:class:`Uas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Uas>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: fc
                         
                         	Failure count information
                         	**type**\:  :py:class:`Fc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Fc>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: bber
                         
                         	Background Block Error Rate count information
                         	**type**\:  :py:class:`Bber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Bber>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: esr
                         
                         	Errored Seconds Rate information
                         	**type**\:  :py:class:`Esr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Esr>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: sesr
                         
                         	Severly Errored Seconds Rate information
                         	**type**\:  :py:class:`Sesr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Sesr>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: tti
                         
                         	Trail Trace Identifier information
                         	**type**\:  :py:class:`Tti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Tti>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: bip
                         
@@ -3809,12 +4337,16 @@ class Dwdm(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: bei
                         
                         	Backward Error Indication counter
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -3922,7 +4454,7 @@ class Dwdm(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo, ['bip', 'bei'], name, value)
+                            self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo, [u'bip', u'bei'], name, value)
 
 
                         class Oci(Entity):
@@ -3934,15 +4466,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: counter
                             
@@ -3950,6 +4488,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -3981,7 +4521,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+
 
 
                         class Ais(Entity):
@@ -3993,15 +4534,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: counter
                             
@@ -4009,6 +4556,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4040,7 +4589,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ais, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ais, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+
 
 
                         class Lck(Entity):
@@ -4052,15 +4602,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: counter
                             
@@ -4068,6 +4624,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4099,7 +4657,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Lck, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Lck, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+
 
 
                         class Bdi(Entity):
@@ -4111,15 +4670,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: counter
                             
@@ -4127,6 +4692,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4158,7 +4725,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bdi, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bdi, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+
 
 
                         class Eoc(Entity):
@@ -4170,15 +4738,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: counter
                             
@@ -4186,6 +4760,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4217,7 +4793,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Eoc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Eoc, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+
 
 
                         class Ptim(Entity):
@@ -4229,15 +4806,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: counter
                             
@@ -4245,6 +4828,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4276,7 +4861,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ptim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ptim, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+
 
 
                         class Tim(Entity):
@@ -4288,15 +4874,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: counter
                             
@@ -4304,6 +4896,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4335,7 +4929,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Tim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Tim, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+
 
 
                         class SfBer(Entity):
@@ -4347,15 +4942,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: threshold
                             
@@ -4364,12 +4965,16 @@ class Dwdm(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: counter
                             
                             	Error counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4403,7 +5008,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.SfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.SfBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+
 
 
                         class SdBer(Entity):
@@ -4415,15 +5021,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: threshold
                             
@@ -4432,12 +5044,16 @@ class Dwdm(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: counter
                             
                             	Error counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4471,7 +5087,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.SdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.SdBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+
 
 
                         class BbeTca(Entity):
@@ -4483,15 +5100,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: threshold
                             
@@ -4500,12 +5123,16 @@ class Dwdm(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: counter
                             
                             	Error counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4539,7 +5166,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.BbeTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.BbeTca, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+
 
 
                         class EsTca(Entity):
@@ -4551,15 +5179,21 @@ class Dwdm(Entity):
                             	Is reporting enabled?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_detected
                             
                             	Is defect detected?
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_asserted
                             
                             	Is defect delared?
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: threshold
                             
@@ -4568,12 +5202,16 @@ class Dwdm(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: counter
                             
                             	Error counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4607,7 +5245,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.EsTca, ['reporting_enabled', 'is_detected', 'is_asserted', 'threshold', 'counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.EsTca, [u'reporting_enabled', u'is_detected', u'is_asserted', u'threshold', u'counter'], name, value)
+
 
 
                         class Bbe(Entity):
@@ -4620,6 +5259,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4645,7 +5286,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bbe, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bbe, [u'counter'], name, value)
+
 
 
                         class Es(Entity):
@@ -4658,6 +5300,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4683,7 +5327,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Es, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Es, [u'counter'], name, value)
+
 
 
                         class Ses(Entity):
@@ -4696,6 +5341,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4721,7 +5368,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ses, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Ses, [u'counter'], name, value)
+
 
 
                         class Uas(Entity):
@@ -4734,6 +5382,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4759,7 +5409,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Uas, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Uas, [u'counter'], name, value)
+
 
 
                         class Fc(Entity):
@@ -4772,6 +5423,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4797,7 +5450,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Fc, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Fc, [u'counter'], name, value)
+
 
 
                         class Bber(Entity):
@@ -4810,6 +5464,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4835,7 +5491,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bber, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Bber, [u'counter'], name, value)
+
 
 
                         class Esr(Entity):
@@ -4848,6 +5505,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4873,7 +5532,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Esr, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Esr, [u'counter'], name, value)
+
 
 
                         class Sesr(Entity):
@@ -4886,6 +5546,8 @@ class Dwdm(Entity):
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4911,7 +5573,8 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Sesr, ['counter'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Sesr, [u'counter'], name, value)
+
 
 
                         class Tti(Entity):
@@ -4925,12 +5588,16 @@ class Dwdm(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: expected_string_type
                             
                             	Type of String
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: rx_string_type
                             
@@ -4939,12 +5606,16 @@ class Dwdm(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: tx_tti
                             
                             	Tx TTI String 
                             	**type**\: str
                             
                             	**length:** 0..129
+                            
+                            	**config**\: False
                             
                             .. attribute:: tx_sapi0
                             
@@ -4953,12 +5624,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..5
                             
+                            	**config**\: False
+                            
                             .. attribute:: tx_sapi
                             
                             	Tx SAPI[1\-15] Field
                             	**type**\: str
                             
                             	**length:** 0..16
+                            
+                            	**config**\: False
                             
                             .. attribute:: tx_sapi_range
                             
@@ -4967,12 +5642,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..6
                             
+                            	**config**\: False
+                            
                             .. attribute:: tx_dapi0
                             
                             	Tx DAPI[0] Field
                             	**type**\: str
                             
                             	**length:** 0..5
+                            
+                            	**config**\: False
                             
                             .. attribute:: tx_dapi
                             
@@ -4981,12 +5660,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..16
                             
+                            	**config**\: False
+                            
                             .. attribute:: tx_dapi_range
                             
                             	 Tx DAPI Range String
                             	**type**\: str
                             
                             	**length:** 0..6
+                            
+                            	**config**\: False
                             
                             .. attribute:: tx_oper_spec
                             
@@ -4995,12 +5678,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..33
                             
+                            	**config**\: False
+                            
                             .. attribute:: tx_oper_spec_range
                             
                             	 Tx Operator Specific Field Range String
                             	**type**\: str
                             
                             	**length:** 0..6
+                            
+                            	**config**\: False
                             
                             .. attribute:: rx_tti
                             
@@ -5009,12 +5696,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..129
                             
+                            	**config**\: False
+                            
                             .. attribute:: rx_sapi0
                             
                             	Rx SAPI[0] Field
                             	**type**\: str
                             
                             	**length:** 0..5
+                            
+                            	**config**\: False
                             
                             .. attribute:: rx_sapi
                             
@@ -5023,12 +5714,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..16
                             
+                            	**config**\: False
+                            
                             .. attribute:: rx_sapi_range
                             
                             	 Rx SAPI Range String
                             	**type**\: str
                             
                             	**length:** 0..6
+                            
+                            	**config**\: False
                             
                             .. attribute:: rx_dapi0
                             
@@ -5037,12 +5732,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..5
                             
+                            	**config**\: False
+                            
                             .. attribute:: rx_dapi
                             
                             	Rx DAPI[1\-15] Field
                             	**type**\: str
                             
                             	**length:** 0..16
+                            
+                            	**config**\: False
                             
                             .. attribute:: rx_dapi_range
                             
@@ -5051,12 +5750,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..6
                             
+                            	**config**\: False
+                            
                             .. attribute:: rx_oper_spec_range
                             
                             	 Rx Operator Specific Field Range String
                             	**type**\: str
                             
                             	**length:** 0..6
+                            
+                            	**config**\: False
                             
                             .. attribute:: rx_oper_spec
                             
@@ -5065,12 +5768,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..33
                             
+                            	**config**\: False
+                            
                             .. attribute:: expected_tti
                             
                             	Expected TTI String
                             	**type**\: str
                             
                             	**length:** 0..129
+                            
+                            	**config**\: False
                             
                             .. attribute:: expected_sapi0
                             
@@ -5079,12 +5786,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..5
                             
+                            	**config**\: False
+                            
                             .. attribute:: expected_sapi
                             
                             	Expected SAPI[1\-15] Field
                             	**type**\: str
                             
                             	**length:** 0..16
+                            
+                            	**config**\: False
                             
                             .. attribute:: exp_sapi_range
                             
@@ -5093,12 +5804,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..6
                             
+                            	**config**\: False
+                            
                             .. attribute:: expected_dapi0
                             
                             	Expected DAPI[0] Field
                             	**type**\: str
                             
                             	**length:** 0..5
+                            
+                            	**config**\: False
                             
                             .. attribute:: expected_dapi
                             
@@ -5107,12 +5822,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..16
                             
+                            	**config**\: False
+                            
                             .. attribute:: exp_dapi_range
                             
                             	 Expected DAPI Range String
                             	**type**\: str
                             
                             	**length:** 0..6
+                            
+                            	**config**\: False
                             
                             .. attribute:: expected_oper_spec
                             
@@ -5121,12 +5840,16 @@ class Dwdm(Entity):
                             
                             	**length:** 0..33
                             
+                            	**config**\: False
+                            
                             .. attribute:: exp_oper_spec_range
                             
                             	 Expected Operator Specific Field Range String
                             	**type**\: str
                             
                             	**length:** 0..6
+                            
+                            	**config**\: False
                             
                             
 
@@ -5210,7 +5933,10 @@ class Dwdm(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Tti, ['tx_string_type', 'expected_string_type', 'rx_string_type', 'tx_tti', 'tx_sapi0', 'tx_sapi', 'tx_sapi_range', 'tx_dapi0', 'tx_dapi', 'tx_dapi_range', 'tx_oper_spec', 'tx_oper_spec_range', 'rx_tti', 'rx_sapi0', 'rx_sapi', 'rx_sapi_range', 'rx_dapi0', 'rx_dapi', 'rx_dapi_range', 'rx_oper_spec_range', 'rx_oper_spec', 'expected_tti', 'expected_sapi0', 'expected_sapi', 'exp_sapi_range', 'expected_dapi0', 'expected_dapi', 'exp_dapi_range', 'expected_oper_spec', 'exp_oper_spec_range'], name, value)
+                                self._perform_setattr(Dwdm.Ports.Port.Info.G709Info.OduInfo.Tti, [u'tx_string_type', u'expected_string_type', u'rx_string_type', u'tx_tti', u'tx_sapi0', u'tx_sapi', u'tx_sapi_range', u'tx_dapi0', u'tx_dapi', u'tx_dapi_range', u'tx_oper_spec', u'tx_oper_spec_range', u'rx_tti', u'rx_sapi0', u'rx_sapi', u'rx_sapi_range', u'rx_dapi0', u'rx_dapi', u'rx_dapi_range', u'rx_oper_spec_range', u'rx_oper_spec', u'expected_tti', u'expected_sapi0', u'expected_sapi', u'exp_sapi_range', u'expected_dapi0', u'expected_dapi', u'exp_dapi_range', u'expected_oper_spec', u'exp_oper_spec_range'], name, value)
+
+
+
 
 
                 class OpticsInfo(Entity):
@@ -5224,12 +5950,16 @@ class Dwdm(Entity):
                     
                     	**length:** 0..64
                     
+                    	**config**\: False
+                    
                     .. attribute:: clock_source
                     
                     	Actual transmit clock source
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: wave_frequency_progressive_string
                     
@@ -5238,6 +5968,8 @@ class Dwdm(Entity):
                     
                     	**length:** 0..64
                     
+                    	**config**\: False
+                    
                     .. attribute:: wavelength_progressive_string
                     
                     	Wavelength Information for Progressive Frequencies
@@ -5245,10 +5977,14 @@ class Dwdm(Entity):
                     
                     	**length:** 0..64
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_wave_frequency_progressive_valid
                     
                     	True if Progressive Frequency is supported by hw
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: wavelength_progressive
                     
@@ -5257,12 +5993,16 @@ class Dwdm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: wave_band
                     
                     	Wavelength band information
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: wave_channel
                     
@@ -5271,6 +6011,8 @@ class Dwdm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: wave_frequency
                     
                     	 wavelenght frequency read from hw in the uint 0 .01nm
@@ -5278,15 +6020,21 @@ class Dwdm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_wave_frequency_valid
                     
                     	True if hw supported wavelength frequency readback
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: wave_channel_owner
                     
                     	Owner of current wavelength
                     	**type**\:  :py:class:`DwdmWaveChannelOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.DwdmWaveChannelOwner>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: gmpls_set_wave_channel
                     
@@ -5295,12 +6043,16 @@ class Dwdm(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: configured_wave_channel
                     
                     	Wavelength channel set from configuration
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: default_wave_channel
                     
@@ -5309,12 +6061,16 @@ class Dwdm(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: transmit_power
                     
                     	Transmit power in the unit of 0.01dbm
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: transmit_power_threshold
                     
@@ -5323,12 +6079,16 @@ class Dwdm(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: laser_current_bias
                     
                     	Laser current bias value
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: laser_current_bias_threshold
                     
@@ -5337,6 +6097,8 @@ class Dwdm(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: receive_power
                     
                     	Transponder receive power
@@ -5344,10 +6106,14 @@ class Dwdm(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_rx_los_threshold_supported
                     
                     	TRUE if  Rx LOS thresold configurable
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: rx_los_threshold
                     
@@ -5356,12 +6122,16 @@ class Dwdm(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: transmit_power_min
                     
                     	Transmit  power mininum value in the interval time
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: transmit_power_max
                     
@@ -5370,12 +6140,16 @@ class Dwdm(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: transmit_power_avg
                     
                     	Transmit optical average value in the interval time
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: receive_power_min
                     
@@ -5384,12 +6158,16 @@ class Dwdm(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: receive_power_max
                     
                     	Receive power maximum value in the interval time
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: receive_power_avg
                     
@@ -5398,12 +6176,16 @@ class Dwdm(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: laser_bias_current_min
                     
                     	Laser bias current minimum value in the interval time
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: laser_bias_current_max
                     
@@ -5412,12 +6194,16 @@ class Dwdm(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: laser_bias_current_avg
                     
                     	Laser bias current average value in the interval time
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: chromatic_dispersion
                     
@@ -5426,12 +6212,16 @@ class Dwdm(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: differential_group_delay
                     
                     	Current differential group Delay
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: polarization_mode_dispersion
                     
@@ -5440,12 +6230,16 @@ class Dwdm(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: signal_to_noise_ratio
                     
                     	Current optical signal to noise ratio
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: polarization_dependent_loss
                     
@@ -5454,12 +6248,16 @@ class Dwdm(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: polarization_change_rate
                     
                     	Current Polarization change rate
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: phase_noise
                     
@@ -5468,6 +6266,8 @@ class Dwdm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_power_fail
                     
                     	Transmit power failure(above/belowe a threshold) count
@@ -5475,12 +6275,16 @@ class Dwdm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_power_fail
                     
                     	Receive power failure(above/belowe a threshold) count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -5582,7 +6386,8 @@ class Dwdm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Info.OpticsInfo, ['optics_type', 'clock_source', 'wave_frequency_progressive_string', 'wavelength_progressive_string', 'is_wave_frequency_progressive_valid', 'wavelength_progressive', 'wave_band', 'wave_channel', 'wave_frequency', 'is_wave_frequency_valid', 'wave_channel_owner', 'gmpls_set_wave_channel', 'configured_wave_channel', 'default_wave_channel', 'transmit_power', 'transmit_power_threshold', 'laser_current_bias', 'laser_current_bias_threshold', 'receive_power', 'is_rx_los_threshold_supported', 'rx_los_threshold', 'transmit_power_min', 'transmit_power_max', 'transmit_power_avg', 'receive_power_min', 'receive_power_max', 'receive_power_avg', 'laser_bias_current_min', 'laser_bias_current_max', 'laser_bias_current_avg', 'chromatic_dispersion', 'differential_group_delay', 'polarization_mode_dispersion', 'signal_to_noise_ratio', 'polarization_dependent_loss', 'polarization_change_rate', 'phase_noise', 'output_power_fail', 'input_power_fail'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Info.OpticsInfo, [u'optics_type', u'clock_source', u'wave_frequency_progressive_string', u'wavelength_progressive_string', u'is_wave_frequency_progressive_valid', u'wavelength_progressive', u'wave_band', u'wave_channel', u'wave_frequency', u'is_wave_frequency_valid', u'wave_channel_owner', u'gmpls_set_wave_channel', u'configured_wave_channel', u'default_wave_channel', u'transmit_power', u'transmit_power_threshold', u'laser_current_bias', u'laser_current_bias_threshold', u'receive_power', u'is_rx_los_threshold_supported', u'rx_los_threshold', u'transmit_power_min', u'transmit_power_max', u'transmit_power_avg', u'receive_power_min', u'receive_power_max', u'receive_power_avg', u'laser_bias_current_min', u'laser_bias_current_max', u'laser_bias_current_avg', u'chromatic_dispersion', u'differential_group_delay', u'polarization_mode_dispersion', u'signal_to_noise_ratio', u'polarization_dependent_loss', u'polarization_change_rate', u'phase_noise', u'output_power_fail', u'input_power_fail'], name, value)
+
 
 
                 class TdcInfo(Entity):
@@ -5594,20 +6399,28 @@ class Dwdm(Entity):
                     	TRUE for Valid else Invalid
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: major_alarm
                     
                     	TRUE for Alarm condition else FALSE
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: operation_mode
                     
                     	TRUE for MANUAL else AUTO
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: tdc_status
                     
                     	TRUE if TDC Aquiring else Locked
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: dispersion_offset
                     
@@ -5616,6 +6429,8 @@ class Dwdm(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: reroute_ber
                     
                     	Reroute BER
@@ -5623,10 +6438,14 @@ class Dwdm(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_reroute_control_enabled
                     
                     	TRUE for ENABLED else DISABLED
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -5664,7 +6483,8 @@ class Dwdm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Info.TdcInfo, ['tdc_valid', 'major_alarm', 'operation_mode', 'tdc_status', 'dispersion_offset', 'reroute_ber', 'is_reroute_control_enabled'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Info.TdcInfo, [u'tdc_valid', u'major_alarm', u'operation_mode', u'tdc_status', u'dispersion_offset', u'reroute_ber', u'is_reroute_control_enabled'], name, value)
+
 
 
                 class NetworkSrlgInfo(Entity):
@@ -5677,6 +6497,8 @@ class Dwdm(Entity):
                     	**type**\: list of int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -5702,7 +6524,8 @@ class Dwdm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Info.NetworkSrlgInfo, ['network_srlg'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Info.NetworkSrlgInfo, [u'network_srlg'], name, value)
+
 
 
                 class Proactive(Entity):
@@ -5714,25 +6537,35 @@ class Dwdm(Entity):
                     	Feature Support
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: proactive_mode
                     
                     	Proactive Mode
                     	**type**\:  :py:class:`G709ppfsmMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709ppfsmMode>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: proactive_fsm_state
                     
                     	Proactive FSM State
                     	**type**\:  :py:class:`G709ppfsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709ppfsmState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: proactive_fsm_if_state
                     
                     	Proactive FSM IF State
                     	**type**\:  :py:class:`G709ppintfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709ppintfState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: tas_state
                     
                     	TAS State
                     	**type**\:  :py:class:`DwdmtasState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.DwdmtasState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: trig_thresh_coeff
                     
@@ -5741,12 +6574,16 @@ class Dwdm(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: trig_thresh_power
                     
                     	Trigger threshold power
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: rvrt_thresh_coeff
                     
@@ -5755,12 +6592,16 @@ class Dwdm(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: rvrt_thresh_power
                     
                     	Revert threshold power
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: default_trig_thresh_coeff
                     
@@ -5769,12 +6610,16 @@ class Dwdm(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: default_trig_thresh_power
                     
                     	Default Trigger threshold power
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: default_rvrt_thresh_coeff
                     
@@ -5783,12 +6628,16 @@ class Dwdm(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: default_rvrt_thresh_power
                     
                     	Default Revert threshold power
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: trig_samples
                     
@@ -5797,12 +6646,16 @@ class Dwdm(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: rvrt_samples
                     
                     	Required Revert Samples
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: trigger_window
                     
@@ -5811,6 +6664,8 @@ class Dwdm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: revert_window
                     
                     	Revert Integration Window
@@ -5818,15 +6673,21 @@ class Dwdm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: protection_trigger
                     
                     	Protection Trigger State
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_trigger
                     
                     	Proactive Interface Triffer
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_aps
                     
@@ -5835,10 +6696,14 @@ class Dwdm(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_aps_descr
                     
                     	Tx APS Description
                     	**type**\:  :py:class:`G709apsByte <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709apsByte>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: rx_aps
                     
@@ -5847,15 +6712,21 @@ class Dwdm(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: rx_aps_descr
                     
                     	Rx APS Description
                     	**type**\:  :py:class:`G709apsByte <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709apsByte>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: alarm_state
                     
                     	AlarmState
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: trig_ec_cnt
                     
@@ -5864,6 +6735,8 @@ class Dwdm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: rvrt_ec_cnt
                     
                     	Revert EC Cnt
@@ -5871,10 +6744,14 @@ class Dwdm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefec_thresh_crossed
                     
                     	Prefec Trigger Thresh Crossed
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -5952,7 +6829,8 @@ class Dwdm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Info.Proactive, ['proactive_feature', 'proactive_mode', 'proactive_fsm_state', 'proactive_fsm_if_state', 'tas_state', 'trig_thresh_coeff', 'trig_thresh_power', 'rvrt_thresh_coeff', 'rvrt_thresh_power', 'default_trig_thresh_coeff', 'default_trig_thresh_power', 'default_rvrt_thresh_coeff', 'default_rvrt_thresh_power', 'trig_samples', 'rvrt_samples', 'trigger_window', 'revert_window', 'protection_trigger', 'interface_trigger', 'tx_aps', 'tx_aps_descr', 'rx_aps', 'rx_aps_descr', 'alarm_state', 'trig_ec_cnt', 'rvrt_ec_cnt', 'prefec_thresh_crossed'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Info.Proactive, [u'proactive_feature', u'proactive_mode', u'proactive_fsm_state', u'proactive_fsm_if_state', u'tas_state', u'trig_thresh_coeff', u'trig_thresh_power', u'rvrt_thresh_coeff', u'rvrt_thresh_power', u'default_trig_thresh_coeff', u'default_trig_thresh_power', u'default_rvrt_thresh_coeff', u'default_rvrt_thresh_power', u'trig_samples', u'rvrt_samples', u'trigger_window', u'revert_window', u'protection_trigger', u'interface_trigger', u'tx_aps', u'tx_aps_descr', u'rx_aps', u'rx_aps_descr', u'alarm_state', u'trig_ec_cnt', u'rvrt_ec_cnt', u'prefec_thresh_crossed'], name, value)
+
 
 
                 class SignalLog(Entity):
@@ -5964,12 +6842,16 @@ class Dwdm(Entity):
                     	'true' if signal log is enabled 'false' otherwise
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: log_filename
                     
                     	Log file name 
                     	**type**\: str
                     
                     	**length:** 0..64
+                    
+                    	**config**\: False
                     
                     
 
@@ -5997,11 +6879,17 @@ class Dwdm(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dwdm.Ports.Port.Info.SignalLog, ['is_log_enabled', 'log_filename'], name, value)
+                        self._perform_setattr(Dwdm.Ports.Port.Info.SignalLog, [u'is_log_enabled', u'log_filename'], name, value)
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Dwdm()
         return self._top_entity
+
+
 
 class Vtxp(Entity):
     """
@@ -6011,6 +6899,8 @@ class Vtxp(Entity):
     
     	DWDM operational data
     	**type**\:  :py:class:`DwdmVtxp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Vtxp.DwdmVtxp>`
+    
+    	**config**\: False
     
     
 
@@ -6050,6 +6940,8 @@ class Vtxp(Entity):
         	All DWDM Port operational data
         	**type**\:  :py:class:`PortVtxps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Vtxp.DwdmVtxp.PortVtxps>`
         
+        	**config**\: False
+        
         
 
         """
@@ -6087,6 +6979,8 @@ class Vtxp(Entity):
             
             	DWDM Port operational data
             	**type**\: list of  		 :py:class:`PortVtxp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Vtxp.DwdmVtxp.PortVtxps.PortVtxp>`
+            
+            	**config**\: False
             
             
 
@@ -6126,10 +7020,14 @@ class Vtxp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: info
                 
                 	DWDM port operational data
                 	**type**\:  :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info>`
+                
+                	**config**\: False
                 
                 
 
@@ -6172,6 +7070,8 @@ class Vtxp(Entity):
                     	Is VTXP attribute enabled
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -6196,9 +7096,15 @@ class Vtxp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info, ['vtxp_enable'], name, value)
+                        self._perform_setattr(Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info, [u'vtxp_enable'], name, value)
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Vtxp()
         return self._top_entity
+
+
 

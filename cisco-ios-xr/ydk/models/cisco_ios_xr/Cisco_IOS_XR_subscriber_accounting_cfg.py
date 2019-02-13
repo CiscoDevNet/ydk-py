@@ -207,7 +207,11 @@ class SubscriberAccounting(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SubscriberAccounting.PrepaidConfigurations.PrepaidConfiguration, ['prepaid_config_name', 'password', 'volume_threshold', 'accounting_method_list', 'time_hold', 'author_method_list', 'traffic_direction', 'time_threshold', 'time_valid'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = SubscriberAccounting()
         return self._top_entity
+
+
 
